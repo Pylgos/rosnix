@@ -19,10 +19,7 @@ jobs:
         distro:
           - jazzy
     runs-on: ubuntu-latest
-    environment: 
-      name: cache
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
