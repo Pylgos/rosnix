@@ -90,32 +90,30 @@
       }
     ))
     // {
-      lib.distributions = map ({ name, value }: name) (
-        lib.attrsToList (if lib.pathExists ./generated then lib.readDir ./generated else { })
-      );
-      lib.configs.default = {
-        distro = "jazzy";
-      };
-      lib.mkOverlay = (
-        { config }:
-        import ./overlay.nix {
-          inherit lib poetry2nix;
-          config = self.lib.configs.default // config;
-        }
-      );
-      overlays =
-        (lib.listToAttrs (
-          map (name: {
-            inherit name;
-            value = self.lib.mkOverlay {
-              config = {
+      lib = {
+        distributions = map ({ name, value }: name) (
+          lib.attrsToList (if lib.pathExists ./generated then lib.readDir ./generated else { })
+        );
+        configs =
+          (lib.listToAttrs (
+            map (name: {
+              inherit name;
+              value = {
                 distro = name;
               };
-            };
-          }) self.lib.distributions
-        ))
-        // {
-          default = self.overlays.jazzy;
-        };
+            }) self.lib.distributions
+          ))
+          // {
+            default = self.lib.configs.jazzy;
+          };
+        mkOverlay = (
+          { config }:
+          import ./overlay.nix {
+            inherit lib poetry2nix;
+            config = self.lib.configs.default // config;
+          }
+        );
+      };
+      overlays = lib.mapAttrs (name: config: self.lib.mkOverlay { inherit config; }) self.lib.configs;
     };
 }
