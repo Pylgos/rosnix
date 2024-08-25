@@ -36,7 +36,7 @@ jobs:
               echo "Creating PR"
               gh pr create --base main --title "Merge develop branch into main" --body ""
               echo "Enabling auto-merge"
-              gh pr merge --auto --merge
+              gh pr merge --auto --rebase
             fi
           else
             echo "main branch is already up to date."
