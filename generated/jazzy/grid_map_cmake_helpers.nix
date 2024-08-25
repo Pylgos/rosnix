@@ -1,0 +1,38 @@
+{
+  ament_cmake_core,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  substituteSource,
+}:
+let
+  sources = rec {
+    grid_map_cmake_helpers = substituteSource {
+      src = fetchgit {
+        name = "grid_map_cmake_helpers-source";
+        url = "https://github.com/ros2-gbp/grid_map-release.git";
+        rev = "c3a95c8f659224e8936b341b52398b6841a69393";
+        hash = "sha256-eDT1hj+wOKMqJbOziWgmv3XwJQxTX+DgL1iQc5yhVpM=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "grid_map_cmake_helpers";
+  version = "2.2.0-1";
+  src = sources.grid_map_cmake_helpers;
+  nativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ ament_cmake_core ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [  ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [  ];
+  missingDependencies = [  ];
+  meta = {
+    description = "CMake support functionality used throughout grid_map";
+  };
+}

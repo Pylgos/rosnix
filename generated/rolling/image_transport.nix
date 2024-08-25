@@ -1,0 +1,46 @@
+{
+  ament_cmake_gtest,
+  ament_cmake_ros,
+  ament_lint_auto,
+  ament_lint_common,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  message_filters,
+  pluginlib,
+  rclcpp,
+  rclcpp_components,
+  sensor_msgs,
+  substituteSource,
+}:
+let
+  sources = rec {
+    image_transport = substituteSource {
+      src = fetchgit {
+        name = "image_transport-source";
+        url = "https://github.com/ros2-gbp/image_common-release.git";
+        rev = "3c7bac63982d978c5d296ea5756272ab02e79978";
+        hash = "sha256-tw9mIg0zbA/m+Jqd7unRPIYlCSLsyP4JBi7LDWf6/jI=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "image_transport";
+  version = "5.3.2-1";
+  src = sources.image_transport;
+  nativeBuildInputs = [ ament_cmake_ros ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [ message_filters pluginlib rclcpp rclcpp_components sensor_msgs ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
+  missingDependencies = [  ];
+  meta = {
+    description = "image_transport should always be used to subscribe to and publish images. It provides transparent support for transporting images in low-bandwidth compressed formats. Examples (provided by separate plugin packages) include JPEG/PNG compression and Theora streaming video.";
+  };
+}

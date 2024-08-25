@@ -1,0 +1,53 @@
+{
+  ament_cmake,
+  ament_cmake_gmock,
+  ament_lint_auto,
+  ament_lint_common,
+  backward_ros,
+  buildRosPackage,
+  controller_interface,
+  controller_manager,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  generate_parameter_library,
+  hardware_interface,
+  hardware_interface_testing,
+  pluginlib,
+  rclcpp,
+  rclcpp_lifecycle,
+  realtime_tools,
+  ros2_control_test_assets,
+  sensor_msgs,
+  substituteSource,
+}:
+let
+  sources = rec {
+    imu_sensor_broadcaster = substituteSource {
+      src = fetchgit {
+        name = "imu_sensor_broadcaster-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "7a1f6835e1704b4df41dc477bdc324350ae7088a";
+        hash = "sha256-PgRJ/B7zx7syomQAOWXGpeOmwKElgH7Ro94sv9trZbE=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "imu_sensor_broadcaster";
+  version = "4.12.1-1";
+  src = sources.imu_sensor_broadcaster;
+  nativeBuildInputs = [ ament_cmake ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [ backward_ros controller_interface generate_parameter_library hardware_interface pluginlib rclcpp rclcpp_lifecycle realtime_tools sensor_msgs ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common controller_manager hardware_interface_testing ros2_control_test_assets ];
+  missingDependencies = [  ];
+  meta = {
+    description = "Controller to publish readings of IMU sensors.";
+  };
+}

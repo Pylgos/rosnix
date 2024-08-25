@@ -1,0 +1,45 @@
+{
+  ament_cmake,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  geometry_msgs,
+  message_filters,
+  rclcpp,
+  sensor_msgs,
+  std_msgs,
+  substituteSource,
+  tf2,
+  tf2_ros,
+}:
+let
+  sources = rec {
+    imu_complementary_filter = substituteSource {
+      src = fetchgit {
+        name = "imu_complementary_filter-source";
+        url = "https://github.com/ros2-gbp/imu_tools-release.git";
+        rev = "16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca";
+        hash = "sha256-kPPY/UhAq3XZ1BFaGYMoE8IuKH67Dyuc7Pih7/4eY1Q=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "imu_complementary_filter";
+  version = "2.1.4-1";
+  src = sources.imu_complementary_filter;
+  nativeBuildInputs = [ ament_cmake ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [ geometry_msgs message_filters rclcpp sensor_msgs std_msgs tf2 tf2_ros ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [  ];
+  missingDependencies = [  ];
+  meta = {
+    description = "Filter which fuses angular velocities, accelerations, and (optionally) magnetic readings from a generic IMU device into a quaternion to represent the orientation of the device wrt the global frame. Based on the algorithm by Roberto G. Valenti etal. described in the paper \"Keeping a Good Attitude: A Quaternion-Based Orientation Filter for IMUs and MARGs\" available at http://www.mdpi.com/1424-8220/15/8/19302 .";
+  };
+}

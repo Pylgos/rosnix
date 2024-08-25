@@ -1,0 +1,42 @@
+{
+  ament_cmake,
+  ament_lint_auto,
+  ament_lint_common,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  image_transport,
+  substituteSource,
+  zlib,
+}:
+let
+  sources = rec {
+    zstd_image_transport = substituteSource {
+      src = fetchgit {
+        name = "zstd_image_transport-source";
+        url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
+        rev = "d775711c353ee496a3d50616232ac8948824de91";
+        hash = "sha256-2g76JUeoRwfu0yZmgms3vUD0fFcs4r8lzqmn71hv2Kc=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "zstd_image_transport";
+  version = "5.0.0-1";
+  src = sources.zstd_image_transport;
+  nativeBuildInputs = [ ament_cmake ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [ image_transport zlib ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [ ament_lint_auto ament_lint_common ];
+  missingDependencies = [  ];
+  meta = {
+    description = "zstd_image_transport provides a plugin to image_transport for transparently sending images encoded as zstd blobs";
+  };
+}

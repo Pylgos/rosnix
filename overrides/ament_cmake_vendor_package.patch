@@ -1,0 +1,45 @@
+diff --git a/ament_cmake_vendor_package/cmake/ament_vendor.cmake b/ament_cmake_vendor_package/cmake/ament_vendor.cmake
+index c9b963c..d835495 100644
+--- a/cmake/ament_vendor.cmake
++++ b/cmake/ament_vendor.cmake
+@@ -69,14 +69,6 @@ macro(ament_vendor TARGET_NAME)
+   if(NOT _ARG_VCS_URL)
+     message(FATAL_ERROR "ament_vendor() must be called with the VCS_URL argument")
+   endif()
+-  if(_ARG_VCS_TYPE STREQUAL "path")
+-    if(_ARG_SOURCE_SUBDIR)
+-      message(FATAL_ERROR "ament_vendor() cannot use VCS_TYPE 'path' with SOURCE_SUBDIR argument")
+-    endif()
+-    if(_ARG_PATCHES)
+-      message(FATAL_ERROR "ament_vendor() cannot use VCS_TYPE 'path' with PATCHES argument")
+-    endif()
+-  endif()
+ 
+   if(_ARG_SKIP_INSTALL AND _ARG_GLOBAL_HOOK)
+     message(FATAL_ERROR "ament_vendor() cannot use GLOBALHOOK with SKIP_INSTALL argument")
+@@ -167,6 +159,7 @@ function(_ament_vendor TARGET_NAME VCS_TYPE VCS_URL VCS_VERSION PATCHES CMAKE_AR
+     set(PATCH_COMMAND)
+     foreach(PATCH ${PATCH_FILES})
+       list(APPEND PATCH_COMMAND COMMAND echo "Applying patch: ${PATCH}")
++      list(APPEND PATCH_COMMAND COMMAND echo Source directory: <SOURCE_DIR>)
+       list(APPEND PATCH_COMMAND COMMAND ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply --whitespace=nowarn -p1 ${PATCH})
+     endforeach()
+     list(POP_FRONT PATCH_COMMAND)
+@@ -267,9 +260,16 @@ function(_ament_vendor TARGET_NAME VCS_TYPE VCS_URL VCS_VERSION PATCHES CMAKE_AR
+     if(NOT EXISTS ${VCS_URL})
+       message(FATAL_ERROR "ament_vendor() could not find sources path: ${VCS_URL}")
+     endif()
++    # list(
++    #   APPEND EXTERNALPROJECT_ARGS
++    #   SOURCE_DIR ${VCS_URL}
++    # )
+     list(
+       APPEND EXTERNALPROJECT_ARGS
+-      SOURCE_DIR ${VCS_URL}
++      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E rm -rf <SOURCE_DIR> &&
++      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E make_directory <SOURCE_DIR> &&
++      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E copy_directory "${VCS_URL}/" <SOURCE_DIR> 
++      SOURCE_SUBDIR ${SOURCE_SUBDIR}
+     )
+   else()
+     set(REPOS_FILE "${CMAKE_CURRENT_BINARY_DIR}/${TARGET_NAME}.repos")

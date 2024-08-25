@@ -1,0 +1,45 @@
+name: Crate Sync Pull-request
+
+on:
+  push:
+    branches:
+    - "develop"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  create-sync-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: "write"
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@v13
+        with:
+          extra-conf: |
+            substituters = https://cache.garnix.io
+            trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
+      - name: "Create Pull Request"
+        run: |
+          if ! git log --exit-code origin/main..develop> /dev/null; then
+            pr_url="$(gh pr list --base main --head develop --state open --json url --jq .[].url)"
+            if [[ -n $pr_url ]]; then
+              echo "PR already exists -> ${pr_url}"
+              exit 0
+            else
+              echo "Creating PR"
+              gh pr create --base main --title "Merge develop branch into main" --body ""
+              echo "Enabling auto-merge"
+              gh pr merge --auto --merge
+            fi
+          else
+            echo "main branch is already up to date."
+          fi
+

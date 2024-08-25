@@ -1,0 +1,50 @@
+{
+  ament_cmake,
+  ament_index_cpp,
+  ament_lint_auto,
+  ament_lint_common,
+  buildRosPackage,
+  controller_manager,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  gz_plugin_vendor,
+  gz_sim_vendor,
+  hardware_interface,
+  pluginlib,
+  rclcpp,
+  rclcpp_lifecycle,
+  substituteSource,
+  wrapRosQtAppsHook,
+  yaml_cpp_vendor,
+}:
+let
+  sources = rec {
+    gz_ros2_control = substituteSource {
+      src = fetchgit {
+        name = "gz_ros2_control-source";
+        url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
+        rev = "1d4fc973066931d688c884bf09b4373b9d6d4251";
+        hash = "sha256-Pfj1JO01R7npeYvrR80NdSPpr0+gLNv7X+QH3bXyBiY=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "gz_ros2_control";
+  version = "1.2.6-1";
+  src = sources.gz_ros2_control;
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [ ament_index_cpp controller_manager gz_plugin_vendor gz_sim_vendor hardware_interface pluginlib rclcpp rclcpp_lifecycle yaml_cpp_vendor ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [ ament_lint_auto ament_lint_common ];
+  missingDependencies = [  ];
+  meta = {
+    description = "Gazebo ros2_control package allows to control simulated robots using ros2_control framework.";
+  };
+}

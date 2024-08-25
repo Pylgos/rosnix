@@ -1,0 +1,38 @@
+{
+  ament_cmake,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  substituteSource,
+}:
+let
+  sources = rec {
+    swri_dbw_interface = substituteSource {
+      src = fetchgit {
+        name = "swri_dbw_interface-source";
+        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        rev = "1710f3e09598496c55fc21f0e47e999a6b5f279d";
+        hash = "sha256-R/3o8fpxmCNv/RZhQcYoxeioiuK0u0WprDMKuyYGpyc=";
+      };
+      substitutions = [
+      ];
+    };
+  };
+in
+buildRosPackage {
+  pname = "swri_dbw_interface";
+  version = "3.6.1-2";
+  src = sources.swri_dbw_interface;
+  nativeBuildInputs = [ ament_cmake ];
+  propagatedNativeBuildInputs = [  ];
+  buildInputs = [  ];
+  propagatedBuildInputs = [  ];
+  depsTargetTarget = [  ];
+  depsTargetTargetPropagated = [  ];
+  checkInputs = [  ];
+  missingDependencies = [  ];
+  meta = {
+    description = "This package provides documentation on common interface conventions for drive-by-wire systems.";
+  };
+}
