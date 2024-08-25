@@ -3,7 +3,7 @@ name: Crate Sync Pull-request
 on:
   push:
     branches:
-    - "develop"
+    - develop
   workflow_dispatch:
 
 concurrency:
@@ -12,18 +12,21 @@ concurrency:
 jobs:
   create-sync-pr:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: "write"
-      contents: write
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    environment: 
+      name: maintenance
     steps:
       - uses: actions/checkout@v4
         with:
           ref: develop
           fetch-depth: 0
-      - name: "Create Pull Request"
+      - id: create_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Create Pull Request
         run: |
+          export GH_TOKEN='${{ steps.create_token.outputs.token }}'
           if ! git log --exit-code origin/main..develop> /dev/null; then
             pr_url="$(gh pr list --base main --head develop --state open --json url --jq .[].url)"
             if [[ -n $pr_url ]]; then
