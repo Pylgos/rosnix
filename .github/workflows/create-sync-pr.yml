@@ -17,14 +17,14 @@ jobs:
         with:
           ref: develop
           fetch-depth: 0
-      - id: create_token
-        uses: tibdex/github-app-token@v2
+      - id: app-token
+        uses: actions/create-github-app-token@v1
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Create Pull Request
         run: |
-          export GH_TOKEN='${{ steps.create_token.outputs.token }}'
+          export GH_TOKEN='${{ steps.app-token.outputs.token }}'
           if ! git log --exit-code origin/main..develop> /dev/null; then
             pr_url="$(gh pr list --base main --head develop --state open --json url --jq .[].url)"
             if [[ -n $pr_url ]]; then
