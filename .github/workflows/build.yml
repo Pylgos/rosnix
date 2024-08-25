@@ -29,8 +29,8 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v13
         with:
           extra-conf: |
-            substituters = https://cache.garnix.io
-            trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
+            substituters = https://cache.nixos.org https://cache.garnix.io https://rosnix.cachix.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g= rosnix.cachix.org-1:jY+HaQHRBBXJKhFVNdB2jg4+7ohjH6lUAFXhUAawh6k=
       - name: Build
         run: nix run .#ci-build "${{ matrix.distro }}"
 
