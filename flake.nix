@@ -86,6 +86,25 @@
               '';
             };
           };
+          ci-build-all = lib.mkApp {
+            drv = pkgs.writeShellApplication {
+              name = "rosnix-ci-build-all";
+              runtimeInputs = [
+                pkgs.cachix
+                nix-mass-build.packages.${system}.default
+              ];
+              text = ''
+                set -eu
+                distro=$1
+                cachix daemon run rosnix >/tmp/cachix-log.txt 2>&1 &
+                #shellcheck disable=SC2016
+                nix-mass-build .#ci.x86_64-linux."$distro" --keep-going --gc-roots-dir ./gc-roots --out-dir ./results \
+                  --upload-command 'cachix daemon push ''${UPLOAD_STORE_PATH}' \
+                  --substituters https://cache.nixos.org --substituters https://rosnix.cachix.org
+                cachix daemon stop
+              '';
+            };
+          };
         };
       }
     ))
