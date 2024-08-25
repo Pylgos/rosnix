@@ -63,20 +63,6 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-eigen-3-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt2-vendor_source-eigen-3-0-source";
-        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
-        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
-      };
-      substitutions = [
-        {
-          path = "lapack/CMakeLists.txt";
-          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
-          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
-        }
-      ];
-    };
     mrpt2-vendor_source-tinyxml2-0 = substituteSource {
       src = fetchurl {
         name = "mrpt2-vendor_source-tinyxml2-0-source";
@@ -95,15 +81,6 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-v1-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt2-vendor_source-v1-0-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-      substitutions = [
-      ];
-    };
     mrpt2-vendor_source-v5-0 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-v5-0-source";
@@ -113,24 +90,9 @@ let
       substitutions = [
       ];
     };
-    mrpt_libapps = substituteSource {
+    mrpt_apps-vendor_source-mrpt-0 = substituteSource {
       src = fetchgit {
-        name = "mrpt_libapps-source";
-        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "52ca77b074eda2c92533be59a7a76626be863219";
-        hash = "sha256-MCi5/zvx1ftI7A6glUmSIirdkI4KVlrz+8evhPSbs0A=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/MRPT/mrpt.git";
-          to = "URL ${mrpt_libapps-vendor_source-mrpt-0}";
-        }
-      ];
-    };
-    mrpt_libapps-vendor_source-mrpt-0 = substituteSource {
-      src = fetchgit {
-        name = "mrpt_libapps-vendor_source-mrpt-0-source";
+        name = "mrpt_apps-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
         rev = "50fd929de15973e7819ec9ba61be23b4252f992a";
         hash = "sha256-bReNXaOfZU3bw9ESE5WWSqf5NULe9lqQPFqmC/JG0Uo=";
@@ -149,7 +111,7 @@ let
         {
           path = "cmakemodules/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${mrpt2-vendor_source-eigen-3-0}";
+          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0}";
         }
         {
           path = "cmakemodules/script_jpeg.cmake";
@@ -159,7 +121,7 @@ let
         {
           path = "cmakemodules/script_octomap.cmake";
           from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt2-vendor_source-v1-0}";
+          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0}";
         }
         {
           path = "cmakemodules/script_tinyxml2.cmake";
@@ -173,11 +135,49 @@ let
         }
       ];
     };
+    mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0-source";
+        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
+        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
+      };
+      substitutions = [
+        {
+          path = "lapack/CMakeLists.txt";
+          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
+          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
+        }
+      ];
+    };
+    mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0-source";
+        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
+        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
+      };
+      substitutions = [
+      ];
+    };
+    mrpt_libapps = substituteSource {
+      src = fetchgit {
+        name = "mrpt_libapps-source";
+        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
+        rev = "47e9750626d2c2400a7c68dfc110b0342830919b";
+        hash = "sha256-g6bQzObWSqmndwD+ZkCL404esh+dvCvFP4TmjDic0dE=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/MRPT/mrpt.git";
+          to = "URL ${mrpt_apps-vendor_source-mrpt-0}";
+        }
+      ];
+    };
   };
 in
 buildRosPackage {
   pname = "mrpt_libapps";
-  version = "2.13.6-4";
+  version = "2.13.7-1";
   src = sources.mrpt_libapps;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];

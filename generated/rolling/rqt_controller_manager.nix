@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rqt_controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "03f213a7abb0ac38ce8b59a7b6d07d5fa0b99800";
-        hash = "sha256-sf81df78kdLbzgN01a/fiUUy4w8c0VuVfL0YnOJTGbc=";
+        rev = "d8bafbb15dd9da873cd6388d3375bc84ae14d76c";
+        hash = "sha256-CbMvbxpp5RHMTg84sqjvgIqqcIAe5hjKdyAf7uhVEEw=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "rqt_controller_manager";
-  version = "4.16.0-1";
+  version = "4.16.1-1";
   src = sources.rqt_controller_manager;
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

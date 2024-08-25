@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "controller_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "395b7235a8aa1c1030a5530f94d048b8ce9a3e0d";
-        hash = "sha256-zL+lvx/oJf+mQkPW/mHjrhm80OZDj9GJNdlNFSpDxWg=";
+        rev = "b897d7257218a9c27997ceaf9241526383116eef";
+        hash = "sha256-nUq9S0p7kuqu7LLmTIZqTXrXPmhytrPeRxS7C90Sn7s=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "controller_interface";
-  version = "4.16.0-1";
+  version = "4.16.1-1";
   src = sources.controller_interface;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ];
   propagatedNativeBuildInputs = [  ];

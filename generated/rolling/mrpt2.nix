@@ -80,7 +80,7 @@ let
         {
           path = "cmakemodules/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${mrpt2-vendor_source-eigen-3-0}";
+          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0}";
         }
         {
           path = "cmakemodules/script_jpeg.cmake";
@@ -90,7 +90,7 @@ let
         {
           path = "cmakemodules/script_octomap.cmake";
           from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt2-vendor_source-v1-0}";
+          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0}";
         }
         {
           path = "cmakemodules/script_tinyxml2.cmake";
@@ -113,20 +113,6 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-eigen-3-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt2-vendor_source-eigen-3-0-source";
-        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
-        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
-      };
-      substitutions = [
-        {
-          path = "lapack/CMakeLists.txt";
-          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
-          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
-        }
-      ];
-    };
     mrpt2-vendor_source-tinyxml2-0 = substituteSource {
       src = fetchurl {
         name = "mrpt2-vendor_source-tinyxml2-0-source";
@@ -145,20 +131,34 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-v1-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt2-vendor_source-v1-0-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-      substitutions = [
-      ];
-    };
     mrpt2-vendor_source-v5-0 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-v5-0-source";
         url = "https://github.com/assimp/assimp/archive/v5.3.1.tar.gz";
         hash = "sha256-/1A8n7oe9WsF3FpbLZxhifzrdj38t9l5Kc8Q5jfDoyY=";
+      };
+      substitutions = [
+      ];
+    };
+    mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0-source";
+        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
+        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
+      };
+      substitutions = [
+        {
+          path = "lapack/CMakeLists.txt";
+          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
+          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
+        }
+      ];
+    };
+    mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0-source";
+        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
+        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
       };
       substitutions = [
       ];

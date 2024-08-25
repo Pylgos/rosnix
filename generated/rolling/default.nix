@@ -614,7 +614,7 @@ self:
   mrpt_libobs = self.callPackage ./mrpt_libobs.nix {};
   mrpt_libopengl = self.callPackage ./mrpt_libopengl.nix {};
   mrpt_libposes = self.callPackage ./mrpt_libposes.nix {};
-  mrpt_libros2bridge = self.callPackage ./mrpt_libros2bridge.nix {};
+  mrpt_libros_bridge = self.callPackage ./mrpt_libros_bridge.nix {};
   mrpt_libslam = self.callPackage ./mrpt_libslam.nix {};
   mrpt_libtclap = self.callPackage ./mrpt_libtclap.nix {};
   mrpt_map_server = self.callPackage ./mrpt_map_server.nix {};
