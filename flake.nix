@@ -82,7 +82,7 @@
                 nix-mass-build .#ci.x86_64-linux."$distro" --up-to desktop --gc-roots-dir ./gc-roots --out-dir ./results \
                   --upload-command 'cachix daemon push ''${UPLOAD_STORE_PATH}' \
                   --substituters https://cache.nixos.org --substituters https://rosnix.cachix.org
-                cache daemon stop
+                cachix daemon stop
               '';
             };
           };
