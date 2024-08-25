@@ -1,22 +1,6 @@
 { lib, pkgs }:
 
-rec {
-  compressZip =
-    src:
-    pkgs.stdenvNoCC.mkDerivation {
-      name = "${src.name}.zip";
-      nativeBuildInputs = [ pkgs.buildPackages.zip ];
-      src = src;
-      phases = [
-        "unpackPhase"
-        "installPhase"
-      ];
-      installPhase = ''
-        zip -r $out .
-      '';
-      preferLocalBuild = true;
-    };
-
+{
   substituteSource =
     { src, substitutions }:
     let
@@ -53,5 +37,5 @@ rec {
             preferLocalBuild = true;
           };
     in
-    self // { zipped = compressZip self; };
+    self;
 }
