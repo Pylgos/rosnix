@@ -29,6 +29,10 @@ jobs:
           extra-conf: |
             substituters = https://cache.nixos.org https://cache.garnix.io https://rosnix.cachix.org
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g= rosnix.cachix.org-1:jY+HaQHRBBXJKhFVNdB2jg4+7ohjH6lUAFXhUAawh6k=
+      - name: Configure Git
+        run: |
+          git config --global user.name "rosnix-maintenance[bot]"
+          git config --global user.email "179381774+rosnix-maintenance[bot]@users.noreply.github.com"
       - name: Update 
         run: |
           nix flake update --commit-lock-file
