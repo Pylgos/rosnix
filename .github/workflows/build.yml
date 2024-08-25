@@ -20,7 +20,7 @@ jobs:
           - jazzy
     runs-on: ubuntu-latest
     environment: 
-      name: build
+      name: cache
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
