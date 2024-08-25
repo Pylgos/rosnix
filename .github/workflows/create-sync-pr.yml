@@ -21,11 +21,6 @@ jobs:
         with:
           ref: develop
           fetch-depth: 0
-      - uses: DeterminateSystems/nix-installer-action@v13
-        with:
-          extra-conf: |
-            substituters = https://cache.garnix.io
-            trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=
       - name: "Create Pull Request"
         run: |
           if ! git log --exit-code origin/main..develop> /dev/null; then
