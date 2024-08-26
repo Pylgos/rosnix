@@ -10,6 +10,7 @@
   ffmpeg,
   freeglut,
   freenect,
+  geometry_msgs,
   glfw3,
   libGL,
   libGLU,
@@ -17,13 +18,18 @@
   libpcap,
   libusb1,
   mrpt_libmaps,
+  nav_msgs,
   opencv,
   pkg-config,
   python3Packages,
   rclcpp,
   ros_environment,
   rosbag2_storage,
+  sensor_msgs,
+  std_msgs,
+  stereo_msgs,
   substituteSource,
+  tf2,
   tinyxml-2,
   udev,
   wxGTK32,
@@ -59,6 +65,20 @@ let
       substitutions = [
       ];
     };
+    mrpt2-vendor_source-eigen-3-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt2-vendor_source-eigen-3-0-source";
+        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
+        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
+      };
+      substitutions = [
+        {
+          path = "lapack/CMakeLists.txt";
+          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
+          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
+        }
+      ];
+    };
     mrpt2-vendor_source-tinyxml2-0 = substituteSource {
       src = fetchurl {
         name = "mrpt2-vendor_source-tinyxml2-0-source";
@@ -77,6 +97,15 @@ let
       substitutions = [
       ];
     };
+    mrpt2-vendor_source-v1-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt2-vendor_source-v1-0-source";
+        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
+        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
+      };
+      substitutions = [
+      ];
+    };
     mrpt2-vendor_source-v5-0 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-v5-0-source";
@@ -90,8 +119,8 @@ let
       src = fetchgit {
         name = "mrpt_apps-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "50fd929de15973e7819ec9ba61be23b4252f992a";
-        hash = "sha256-bReNXaOfZU3bw9ESE5WWSqf5NULe9lqQPFqmC/JG0Uo=";
+        rev = "5b42d5a4da172d0bfdd8bcfbbe69c8ce9a80d6ce";
+        hash = "sha256-KwijvnmUErvsjgj0BCaNsPKgrvUXVvWNbW4dGLnktvs=";
       };
       substitutions = [
         {
@@ -107,7 +136,7 @@ let
         {
           path = "cmakemodules/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0}";
+          to = "URL ${mrpt2-vendor_source-eigen-3-0}";
         }
         {
           path = "cmakemodules/script_jpeg.cmake";
@@ -117,7 +146,7 @@ let
         {
           path = "cmakemodules/script_octomap.cmake";
           from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0}";
+          to = "URL ${mrpt2-vendor_source-v1-0}";
         }
         {
           path = "cmakemodules/script_tinyxml2.cmake";
@@ -131,35 +160,12 @@ let
         }
       ];
     };
-    mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0-source";
-        url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
-        hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
-      };
-      substitutions = [
-        {
-          path = "lapack/CMakeLists.txt";
-          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
-          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
-        }
-      ];
-    };
-    mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-      substitutions = [
-      ];
-    };
     mrpt_libros_bridge = substituteSource {
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "8937851e79e5473e906b5b3c8ff5616dcfd2d65b";
-        hash = "sha256-DDZrAUSifvU9z3MZNw/dVgNbQaIzu45R+Qe3v3gAXtU=";
+        rev = "ca44c61f5dcd3c0a9d3865e92880486bac146f83";
+        hash = "sha256-2SYMW1oGCVLS1A+26a334Yan3NVdlbDOGa0Qkrkj0Mw=";
       };
       substitutions = [
         {
@@ -173,12 +179,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libros_bridge";
-  version = "2.13.7-1";
+  version = "2.13.7-2";
   src = sources.mrpt_libros_bridge;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libmaps opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
+  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect geometry_msgs glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libmaps nav_msgs opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs tf2 tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];
