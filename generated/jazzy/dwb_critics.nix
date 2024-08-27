@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "dwb_critics-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "a5eff0a8a61615ba0495c1a1334f2dcc369889a2";
-        hash = "sha256-wf3WuqY+07bgqWT0P9DWlH9EZK5nkOVsWNXb5i/j+84=";
+        rev = "00046f3080526574858c7f69ce01afc7863a2db5";
+        hash = "sha256-c+8YZUUvd0Ipo9SmePe+EIe5+BTSHmj7MzT6l2EuTI4=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "dwb_critics";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.dwb_critics;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

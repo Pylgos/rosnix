@@ -44,8 +44,8 @@ let
       src = fetchgit {
         name = "navigation2-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "308b590040ea50995bdec640cd53be42ff537ba0";
-        hash = "sha256-2JLIL4TyOL7VyNmPxiJ54gBbXgWGrR3jb72PRvuc06k=";
+        rev = "1f6fe63357b776fe7d5c62d7d064ae59481e5fb2";
+        hash = "sha256-kamrg4rOT0yj2K3kGV5WyWbQyb3H+NJvAUalMWfGd7Q=";
       };
       substitutions = [
       ];
@@ -54,7 +54,7 @@ let
 in
 buildRosPackage {
   pname = "navigation2";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.navigation2;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

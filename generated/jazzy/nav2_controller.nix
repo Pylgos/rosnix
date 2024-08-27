@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "nav2_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "403351d84d9420f428d60c52ccf52247419afbbd";
-        hash = "sha256-QWhwt/vdiW2bhAj6Ev5C0cj+WnrK5woGDzUV9Sk98GY=";
+        rev = "bdb14017943af1c69cc00a9c4182fc191282e3a9";
+        hash = "sha256-+YRne8KUpAE4ihYeiSHZXY8uBygZdXDkJBjLuNlVkyg=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_controller";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

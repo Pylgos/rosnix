@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "hardware_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "9188f0259110469bca70ebe4aa3379aa30125471";
-        hash = "sha256-dRB9rkvBQWwRnp9K9AaB6KsVb2htZx/JiRSpRwgTWYQ=";
+        rev = "6f0e88152ff84d2805dd11dc2556975d55ee38a3";
+        hash = "sha256-JoZmlkvoVIf9v7tYAS9WkFDM59/QWkFTaQ3ZxY/rJtQ=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "hardware_interface";
-  version = "4.15.0-1";
+  version = "4.16.1-1";
   src = sources.hardware_interface;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ];
   propagatedNativeBuildInputs = [  ];

@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "nav2_graceful_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "ff3bc6357733887e0d7cec0f4da95f505c9e9a01";
-        hash = "sha256-EySxARKMADE8RVp5WMIQ0B/7YLTE3ZijVWs5Tj/MLoY=";
+        rev = "531c39e19ced9c9d1fc7f9708b7d0aa91ad27903";
+        hash = "sha256-HMbaIXM4eHC7iq4gPO/DBRlM6zBWUo510ifLC5BZs7s=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_graceful_controller";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_graceful_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

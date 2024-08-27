@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "nav2_collision_monitor-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "555514ea871c57c4d96f7b9efe16196c19515726";
-        hash = "sha256-jJEfn6HjtESHmPRu/RBPBx+eZGbCPxwbnjXI7n4mdtY=";
+        rev = "0f167662f9c507cb0cfd8d1b1be30181ab3a60f5";
+        hash = "sha256-WSNXPiamfmrxFjAyvQOd4d/wqZz7s9RgIQJLACMyB34=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_collision_monitor";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_collision_monitor;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

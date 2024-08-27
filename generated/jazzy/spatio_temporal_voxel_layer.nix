@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "spatio_temporal_voxel_layer-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "fa95e25ba827e82c9082eb881e59882df0c0c2a1";
-        hash = "sha256-+NmReRrslE0WWtMJqEOVmTO6gFA1Z5YGNOHxksUsQrw=";
+        rev = "5e493c3c51600bdbadcc861b1c73adf59aabdd1a";
+        hash = "sha256-YKg9BFJMKbJmvMAqGad+MAHzBCudwZf5ejW2GdCAKcY=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildRosPackage {
   pname = "spatio_temporal_voxel_layer";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = sources.spatio_temporal_voxel_layer;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ rosidl_default_generators ];

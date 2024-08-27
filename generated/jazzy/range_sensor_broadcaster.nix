@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "range_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "19944186853edc131a9450a9158951a2d2a4c408";
-        hash = "sha256-DamydQGkQt0+7aK6kcTVGg0gnhQA1KpvfvYqJnRTtrU=";
+        rev = "0ac00e6885a724cbef834db4b228075ee720eda9";
+        hash = "sha256-2BFBDFXZjYu1t8N4OOAlvYFZJqQpZu6tv0eTxgyPy2Q=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "range_sensor_broadcaster";
-  version = "4.12.1-1";
+  version = "4.13.0-1";
   src = sources.range_sensor_broadcaster;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

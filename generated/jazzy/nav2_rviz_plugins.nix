@@ -34,8 +34,8 @@ let
       src = fetchgit {
         name = "nav2_rviz_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "35fa0e140bbda438071354402e21a3efd75dee48";
-        hash = "sha256-SlyzCbLB81jKEK0dqO3Hs0oNcHh7M8VjeHI2uNCGgy8=";
+        rev = "6fa0a928c11367965d18de1db92dd32764729b15";
+        hash = "sha256-xPI0IwHmylfSWm036ptYq2DFSUosgFvONkgJ9/LNCPA=";
       };
       substitutions = [
       ];
@@ -44,7 +44,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_rviz_plugins";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_rviz_plugins;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

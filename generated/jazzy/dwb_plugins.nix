@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "dwb_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "00c0130b490628983cf57d9b08fee4d3347630a2";
-        hash = "sha256-DtmHY0SViAnvfz/MA9j4UOQ5bKI8JaRPmy4Ur2BDwi4=";
+        rev = "b30a9ef44cf345835dc994d94a6df82cc7439ed7";
+        hash = "sha256-RM7pUx4Bq3yI4WTEzl5Oojr+pNEFNrtZgbT/coSKby0=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "dwb_plugins";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.dwb_plugins;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

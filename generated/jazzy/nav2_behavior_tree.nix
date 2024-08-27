@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "nav2_behavior_tree-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4194188ae497e71da48bb64a1f24ab2bbea5188e";
-        hash = "sha256-0+wrWPtw2GqubuDNVIOPHvDxcxxiHWjUJKECRvej0yc=";
+        rev = "514435645fd784662bd5646e4452560408cd9ccd";
+        hash = "sha256-n8/qWnKTojyTZFNfXLMQRMV9FDbcmLweC+AgTJAwNPI=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_behavior_tree";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_behavior_tree;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

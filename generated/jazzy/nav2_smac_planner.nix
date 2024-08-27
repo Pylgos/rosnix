@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "nav2_smac_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "26ae0c267be0f96235111552c072bc41b0c462ce";
-        hash = "sha256-4oKc3weGfBq2L8uo1iPErJj0CO8MxVnp9JQ5ffssSKk=";
+        rev = "4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867";
+        hash = "sha256-XPoM1zgQ8+Oi7SPouSGBnhxuRDCQyA4UmmNf46yn9y0=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_smac_planner";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_smac_planner;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ eigen3_cmake_module ];

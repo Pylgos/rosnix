@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "gripper_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "352c1a5e292e4945c3f42aaecbe7eab2851084df";
-        hash = "sha256-xNja3bZsRcNpa5gEwN6sPMlveiJewVx2eGYWT7WugBY=";
+        rev = "53e8a2bcda17368b2fd8c515ea4fcddbf799185a";
+        hash = "sha256-NhjU83xwhvTUi7Wt2kV0qdsn1fp6ijWVVkZLtL7RLFw=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "gripper_controllers";
-  version = "4.12.1-1";
+  version = "4.13.0-1";
   src = sources.gripper_controllers;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

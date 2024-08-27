@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "nav2_mppi_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "74ed9a89f935c9afa4ea238ef38ebf71623fe51c";
-        hash = "sha256-5xmU1ga1kmDi1fb+prFHI/tWdCmRECFxlSW/ao+XktQ=";
+        rev = "08b4b177721f7728db0d97ab714d3bfa0f387b6f";
+        hash = "sha256-4CddM03BKfM5pwz77c4aVffGkIep/OMgIakWNQ+zkiY=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_mppi_controller";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_mppi_controller;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ];
   propagatedNativeBuildInputs = [ gbenchmark ];

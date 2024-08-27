@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "nav2_util-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "462e2d833665521819d17620af65080188e7a9d2";
-        hash = "sha256-hSroNMArBIOdRu0xsksZso/CPpayQRffKAY2X8Cr5Oo=";
+        rev = "6492242b8d0928be620a9e5e5642dcda59da41db";
+        hash = "sha256-6u+FXfsXDlMcYfZjJy27TrFFUak4cCRrSK3vq7LGC1A=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_util";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_util;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

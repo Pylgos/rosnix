@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "steering_controllers_library-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "11195fef2155d4d64c448754220c86c63e6b7b1d";
-        hash = "sha256-WlMySblmmBdGgVtF6CgeyVKvK9+nK8C2mULiarQV3B4=";
+        rev = "09437dbaa13a630d17243ff76ce3440bd7c7df25";
+        hash = "sha256-ttGQrEkRAt1YejbYGg/9iGlFzUu3Rd2WMwteQ61PcSw=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildRosPackage {
   pname = "steering_controllers_library";
-  version = "4.12.1-1";
+  version = "4.13.0-1";
   src = sources.steering_controllers_library;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

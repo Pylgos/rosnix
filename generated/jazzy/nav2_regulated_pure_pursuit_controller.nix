@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "nav2_regulated_pure_pursuit_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "cafd073c2a40aa54455b495c85fb6bf0a77ea3a1";
-        hash = "sha256-OmE1Hqvqv/GJX2yK+Vr+e07Gc5e4II+zQnJyvkJOc6A=";
+        rev = "63fee1a413678f3e3486048d458c959fe254f822";
+        hash = "sha256-h95hho/UqqE9r5MxhSzR2GQ/PLLzTmJTMO60j+wdzwA=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_regulated_pure_pursuit_controller";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_regulated_pure_pursuit_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

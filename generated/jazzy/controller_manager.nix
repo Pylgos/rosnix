@@ -18,6 +18,7 @@
   launch,
   launch_ros,
   pluginlib,
+  python3Packages,
   rclcpp,
   rcpputils,
   realtime_tools,
@@ -33,8 +34,8 @@ let
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "34d38d0e2b0892ddd5be76830804e81f206e038b";
-        hash = "sha256-YnGsv2oOZYkC48qXkc7OXjyP/t8+X0bsJxi1rUd6oxs=";
+        rev = "6cb61373c1bfbaede2fc607d58ebebd6bc07fcd6";
+        hash = "sha256-EGCedobZvYlr4fVcn9r8FgVEqRERmLUhrcFgLfyCHy4=";
       };
       substitutions = [
       ];
@@ -43,7 +44,7 @@ let
 in
 buildRosPackage {
   pname = "controller_manager";
-  version = "4.15.0-1";
+  version = "4.16.1-1";
   src = sources.controller_manager;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_python ];
   propagatedNativeBuildInputs = [  ];
@@ -51,7 +52,7 @@ buildRosPackage {
   propagatedBuildInputs = [ ament_index_cpp backward_ros controller_interface controller_manager_msgs diagnostic_updater hardware_interface launch launch_ros pluginlib rclcpp rcpputils realtime_tools ros2_control_test_assets ros2param ros2run std_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_cmake_pytest hardware_interface_testing ros2_control_test_assets ];
+  checkInputs = [ ament_cmake_gmock ament_cmake_pytest hardware_interface_testing python3Packages.coverage ros2_control_test_assets ];
   missingDependencies = [  ];
   meta = {
     description = "Description of controller_manager";

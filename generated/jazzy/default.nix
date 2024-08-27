@@ -657,7 +657,7 @@ self:
   mrpt_libobs = self.callPackage ./mrpt_libobs.nix {};
   mrpt_libopengl = self.callPackage ./mrpt_libopengl.nix {};
   mrpt_libposes = self.callPackage ./mrpt_libposes.nix {};
-  mrpt_libros2bridge = self.callPackage ./mrpt_libros2bridge.nix {};
+  mrpt_libros_bridge = self.callPackage ./mrpt_libros_bridge.nix {};
   mrpt_libslam = self.callPackage ./mrpt_libslam.nix {};
   mrpt_libtclap = self.callPackage ./mrpt_libtclap.nix {};
   mrpt_map_server = self.callPackage ./mrpt_map_server.nix {};
@@ -701,6 +701,7 @@ self:
   nav2_dwb_controller = self.callPackage ./nav2_dwb_controller.nix {};
   nav2_graceful_controller = self.callPackage ./nav2_graceful_controller.nix {};
   nav2_lifecycle_manager = self.callPackage ./nav2_lifecycle_manager.nix {};
+  nav2_loopback_sim = self.callPackage ./nav2_loopback_sim.nix {};
   nav2_map_server = self.callPackage ./nav2_map_server.nix {};
   nav2_minimal_tb3_sim = self.callPackage ./nav2_minimal_tb3_sim.nix {};
   nav2_minimal_tb4_description = self.callPackage ./nav2_minimal_tb4_description.nix {};
@@ -949,6 +950,7 @@ self:
   robot_state_publisher = self.callPackage ./robot_state_publisher.nix {};
   robotiq_controllers = self.callPackage ./robotiq_controllers.nix {};
   robotiq_description = self.callPackage ./robotiq_description.nix {};
+  robotraconteur = self.callPackage ./robotraconteur.nix {};
   ros2_control = self.callPackage ./ros2_control.nix {};
   ros2_control_test_assets = self.callPackage ./ros2_control_test_assets.nix {};
   ros2_controllers = self.callPackage ./ros2_controllers.nix {};

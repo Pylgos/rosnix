@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "nav2_velocity_smoother-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "dd8c8e95fafa2102e5abb0e51fcef8e07294ad66";
-        hash = "sha256-+bFcukPpghbMv5pgmnkiAa0Mr6R4OAXXCsJH4y1D/K8=";
+        rev = "435470062b485d87e2e7ca8945b87a47e21f1ed9";
+        hash = "sha256-mxa7wY3cVaWMLu7AV/A7kCFHAMnXFWcqbN/yMfr4KWw=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_velocity_smoother";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_velocity_smoother;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

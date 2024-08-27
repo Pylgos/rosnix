@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "nav2_navfn_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "61a74dd182e3cc0581936a8b280ffa6496dd4426";
-        hash = "sha256-S8ZnqN5czsKrDQRnUIiYxBGC4OKOfyaNhk0ndP4yAPY=";
+        rev = "3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8";
+        hash = "sha256-+VJaEVKOfGsHGPs2VCB0GCaR+Oq9KlTOniN6Cbt/H+0=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_navfn_planner";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_navfn_planner;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

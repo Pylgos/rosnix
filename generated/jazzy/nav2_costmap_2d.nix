@@ -40,8 +40,8 @@ let
       src = fetchgit {
         name = "nav2_costmap_2d-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "47f10eb53318b49a3b34ebacd11c97cc090ae48c";
-        hash = "sha256-WR6tTG35bWxhd/Wfny25mob40W1pahFQ7InJwWzCW40=";
+        rev = "b83cd7d17af1a2d0ca1e7f57fb3f5c56f06eec55";
+        hash = "sha256-JorqUFfLMk72HunH0GA2akURRw6BDCXHICrzwbf9gj0=";
       };
       substitutions = [
       ];
@@ -50,7 +50,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_costmap_2d";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_costmap_2d;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

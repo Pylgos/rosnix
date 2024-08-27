@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "nav2_theta_star_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "cdfa41da67baef0ceb8dc10d8bea39e2a68c77c1";
-        hash = "sha256-cI+YETmKxi90sb4WdERWy/pqbN0Y6ZRMT2YfmZiU4oI=";
+        rev = "e36d6e0da50f7626d260f756dbfe141ed990c020";
+        hash = "sha256-Nr2c+669UgvzGc55Tz1013vuzVVZAiOI6lKDv6g2Sww=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_theta_star_planner";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_theta_star_planner;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

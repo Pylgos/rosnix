@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "rqt_joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "40c1d3c9abfab10a10fad6fd1194feaf5aa226b9";
-        hash = "sha256-lqD9mZwdRRIBUzt9WcQvGWeTAKLcp8OM7WNiqEqCuuo=";
+        rev = "ec399c8a62ced0b6d57d02e1f2d58eecea71e7a2";
+        hash = "sha256-uP0FZUSt5kRNgU9cFkP7fDPr6V6PObI3qaMT6M18vNA=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "rqt_joint_trajectory_controller";
-  version = "4.12.1-1";
+  version = "4.13.0-1";
   src = sources.rqt_joint_trajectory_controller;
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

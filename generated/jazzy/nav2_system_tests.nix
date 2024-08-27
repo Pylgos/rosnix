@@ -42,8 +42,8 @@ let
       src = fetchgit {
         name = "nav2_system_tests-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "43abf92c5582502f060188049cc4e43286b9afbe";
-        hash = "sha256-CTFSyDlyX7rnQYTcOnYMAj5tSP/VckZJX6XZrplzPfg=";
+        rev = "bef514990f02073e6c93fec5fb9d4d9922d1e2be";
+        hash = "sha256-ucri0sBHAoyNytUvQdVTK60YwgsLJk8OzyA5m0z+6wE=";
       };
       substitutions = [
       ];
@@ -52,7 +52,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_system_tests";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_system_tests;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ lcov ];

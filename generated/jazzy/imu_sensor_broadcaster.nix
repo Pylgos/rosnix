@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "imu_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "7a1f6835e1704b4df41dc477bdc324350ae7088a";
-        hash = "sha256-PgRJ/B7zx7syomQAOWXGpeOmwKElgH7Ro94sv9trZbE=";
+        rev = "f23746fbe8efc1cb44927ac6325f2968ddf180c2";
+        hash = "sha256-5Eho0MEiWu+Dbgz9ss7r0ddaS0CAYGpIsOXO0qZQsNg=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "imu_sensor_broadcaster";
-  version = "4.12.1-1";
+  version = "4.13.0-1";
   src = sources.imu_sensor_broadcaster;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

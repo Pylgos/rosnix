@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "nav_2d_msgs-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "a9c822105bb310b40213ebac743bc683effff5eb";
-        hash = "sha256-E1znrBfE4nFmwe9ydNdASZ5ZRnnxX6SVvPv/kcXqIrs=";
+        rev = "539d291a79814f3b5881c5776d7d13a46be85e99";
+        hash = "sha256-Fb29xt0/Ou72DqfWrojC+Avcrl6GR8FYzKkQmswHiu8=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "nav_2d_msgs";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav_2d_msgs;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ rosidl_default_generators ];

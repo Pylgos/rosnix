@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "nav2_lifecycle_manager-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "f01e8e6b6a8f0a38d43af2f3f14f5b1e26b06e50";
-        hash = "sha256-IvyKGfmX6AcqrHboX+b9Hz0qx6T7emyz0rsJtkffICs=";
+        rev = "b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07";
+        hash = "sha256-bSmjWv5KmPZCdLOYkhg8JPjLBV9yE663Pk9+8bjD5L8=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_lifecycle_manager";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_lifecycle_manager;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

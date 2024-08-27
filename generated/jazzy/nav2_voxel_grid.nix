@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "nav2_voxel_grid-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "5c8cba2a54c9f2c60adadf2ecb419431c0a0e945";
-        hash = "sha256-HPdXr4wG6JuQ0WG3bTp4rhWpedD2dG1Rwyv/6dhuZOE=";
+        rev = "e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c";
+        hash = "sha256-3w89YjGD049Hpv4TT3LxnPtulNZJCchHqIRiD3uWUUQ=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "nav2_voxel_grid";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.nav2_voxel_grid;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

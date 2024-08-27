@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   git,
+  openvdb,
   python3Packages,
   substituteSource,
   tbb,
@@ -17,8 +18,8 @@ let
       src = fetchgit {
         name = "openvdb_vendor-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "f904f841d9710a0eaf891985c5f39aa9fbb335dc";
-        hash = "sha256-b8QXIgeHWV4KlUGjnR5jWv2Z4aqMZcBGpWcu27q8jGo=";
+        rev = "eb4bd09ece3b0748d3974ab26f2cd3d65e4b5a22";
+        hash = "sha256-JfrtgpymCtDUsfjABWyF+lzKim5x2wq7n/FsUzLTdYw=";
       };
       substitutions = [
         {
@@ -62,12 +63,12 @@ let
 in
 buildRosPackage {
   pname = "openvdb_vendor";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = sources.openvdb_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package git ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.boost tbb zlib ];
+  propagatedBuildInputs = [ openvdb python3Packages.boost tbb zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

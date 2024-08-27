@@ -203,7 +203,6 @@ self:
   dummy_map_server = self.callPackage ./dummy_map_server.nix {};
   dummy_robot_bringup = self.callPackage ./dummy_robot_bringup.nix {};
   dummy_sensors = self.callPackage ./dummy_sensors.nix {};
-  dynamic_edt_3d = self.callPackage ./dynamic_edt_3d.nix {};
   dynamixel_hardware = self.callPackage ./dynamixel_hardware.nix {};
   dynamixel_sdk = self.callPackage ./dynamixel_sdk.nix {};
   dynamixel_sdk_custom_interfaces = self.callPackage ./dynamixel_sdk_custom_interfaces.nix {};
@@ -663,13 +662,11 @@ self:
   ntrip_client = self.callPackage ./ntrip_client.nix {};
   ntrip_client_node = self.callPackage ./ntrip_client_node.nix {};
   object_recognition_msgs = self.callPackage ./object_recognition_msgs.nix {};
-  octomap = self.callPackage ./octomap.nix {};
   octomap_mapping = self.callPackage ./octomap_mapping.nix {};
   octomap_msgs = self.callPackage ./octomap_msgs.nix {};
   octomap_ros = self.callPackage ./octomap_ros.nix {};
   octomap_rviz_plugins = self.callPackage ./octomap_rviz_plugins.nix {};
   octomap_server = self.callPackage ./octomap_server.nix {};
-  octovis = self.callPackage ./octovis.nix {};
   odom_to_tf_ros2 = self.callPackage ./odom_to_tf_ros2.nix {};
   odri_master_board_sdk = self.callPackage ./odri_master_board_sdk.nix {};
   ompl = self.callPackage ./ompl.nix {};
@@ -871,6 +868,7 @@ self:
   robot_state_publisher = self.callPackage ./robot_state_publisher.nix {};
   robotiq_controllers = self.callPackage ./robotiq_controllers.nix {};
   robotiq_description = self.callPackage ./robotiq_description.nix {};
+  robotraconteur = self.callPackage ./robotraconteur.nix {};
   ros2_control = self.callPackage ./ros2_control.nix {};
   ros2_control_test_assets = self.callPackage ./ros2_control_test_assets.nix {};
   ros2_controllers = self.callPackage ./ros2_controllers.nix {};

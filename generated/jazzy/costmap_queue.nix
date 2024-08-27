@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "costmap_queue-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "1f791537476975e56df5859d08dc3cdf58cb8ab8";
-        hash = "sha256-6lIFNLqzNSGnQ/hnp6EG6mF7N4vBO88qTmMeIh2PE1M=";
+        rev = "da08cfe50233ed3e54da9786f8b7bfdc32f2f07b";
+        hash = "sha256-7Vx3j1lLqN2jVzMUhVfdA49s7LLJrh9n5/x1hu/UD4I=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "costmap_queue";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.costmap_queue;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

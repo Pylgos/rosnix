@@ -1,5 +1,4 @@
 {
-  action_msgs,
   ament_copyright,
   ament_flake8,
   ament_pep257,
@@ -8,20 +7,21 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  lifecycle_msgs,
-  nav2_msgs,
+  nav_msgs,
   python3Packages,
   rclpy,
   substituteSource,
+  tf2_ros,
+  tf_transformations,
 }:
 let
   sources = rec {
-    nav2_simple_commander = substituteSource {
+    nav2_loopback_sim = substituteSource {
       src = fetchgit {
-        name = "nav2_simple_commander-source";
+        name = "nav2_loopback_sim-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4a1746775eda82582b36284167b4614465541c70";
-        hash = "sha256-zYsPBi6Y9OHE1Sct61Zk905/ZbLsNw2526c2dtYtElk=";
+        rev = "0c1736afb9ce7684200dee034620c05da7a3ede9";
+        hash = "sha256-JsQnEvE47ybiHdLPwyBF8N6oH36t/gUgyypgOtDezVI=";
       };
       substitutions = [
       ];
@@ -29,18 +29,18 @@ let
   };
 in
 buildRosPackage {
-  pname = "nav2_simple_commander";
+  pname = "nav2_loopback_sim";
   version = "1.3.2-1";
-  src = sources.nav2_simple_commander;
+  src = sources.nav2_loopback_sim;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ action_msgs geometry_msgs lifecycle_msgs nav2_msgs rclpy ];
+  propagatedBuildInputs = [ geometry_msgs nav_msgs rclpy tf2_ros tf_transformations ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  missingDependencies = [ "python3-transforms3d" ];
   meta = {
-    description = "An importable library for writing mobile robot applications in python3";
+    description = "A loopback simulator to replace physics simulation";
   };
 }

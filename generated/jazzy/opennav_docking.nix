@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "opennav_docking-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "440367280a139530d7367938dea6cfbb43e85df6";
-        hash = "sha256-aa/5TrLWsEL5IKvujApGrTkKCcoMbcoYvXo5dCUS+P8=";
+        rev = "06c983c12bf21fa2ecf378ea2c66d3a7c7146e4b";
+        hash = "sha256-oYMQqBvVgM5FLPZFrKDxNjYTFDJdTanndgsarscpmRQ=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "opennav_docking";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = sources.opennav_docking;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
