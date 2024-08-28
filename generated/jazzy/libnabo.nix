@@ -27,9 +27,9 @@ buildRosPackage {
   version = "1.1.1-2";
   src = sources.libnabo;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen python3Packages.boost ];
+  propagatedBuildInputs = [ python3Packages.boost ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

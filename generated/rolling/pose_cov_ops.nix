@@ -7,13 +7,20 @@
   ament_lint_common,
   buildRosPackage,
   cmake,
+  cv_bridge,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry_msgs,
   gtest,
-  mrpt2,
+  mrpt_libposes,
+  mrpt_libros_bridge,
+  nav_msgs,
+  rclcpp,
   ros_environment,
+  sensor_msgs,
+  std_msgs,
+  stereo_msgs,
   substituteSource,
   tf2,
 }:
@@ -23,8 +30,8 @@ let
       src = fetchgit {
         name = "pose_cov_ops-source";
         url = "https://github.com/ros2-gbp/pose_cov_ops-release.git";
-        rev = "bd1585c844530b703de6d51b44bf02decff89646";
-        hash = "sha256-dB+me1aSCzx1zSg6mLTc191a3Ur+9zuYbt4JmcnxCcY=";
+        rev = "db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3";
+        hash = "sha256-ftJdad3w9XrnAQn/DRLfldWx8OMRbiX22JrSv1wmA3I=";
       };
       substitutions = [
       ];
@@ -33,12 +40,12 @@ let
 in
 buildRosPackage {
   pname = "pose_cov_ops";
-  version = "0.3.11-2";
+  version = "0.3.12-1";
   src = sources.pose_cov_ops;
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest cmake ];
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs mrpt2 tf2 ];
+  propagatedBuildInputs = [ cv_bridge geometry_msgs mrpt_libposes mrpt_libros_bridge nav_msgs rclcpp sensor_msgs std_msgs stereo_msgs tf2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common gtest ];

@@ -27,9 +27,9 @@ buildRosPackage {
   version = "1.1.0-1";
   src = sources.kinematics_interface;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen rclcpp_lifecycle ];
+  propagatedBuildInputs = [ rclcpp_lifecycle ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

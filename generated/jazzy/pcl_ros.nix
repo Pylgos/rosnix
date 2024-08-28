@@ -43,9 +43,9 @@ buildRosPackage {
   version = "2.6.1-4";
   src = sources.pcl_ros;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs pcl pcl_conversions rclcpp rclcpp_components sensor_msgs tf2 tf2_geometry_msgs tf2_ros ];
+  propagatedBuildInputs = [ geometry_msgs pcl pcl_conversions rclcpp rclcpp_components sensor_msgs tf2 tf2_geometry_msgs tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common launch launch_ros launch_testing launch_testing_ros sensor_msgs ];

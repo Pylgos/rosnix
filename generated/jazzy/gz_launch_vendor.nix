@@ -62,9 +62,9 @@ buildRosPackage {
   version = "0.0.4-1";
   src = sources.gz_launch_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ binutils gflags gz_cmake_vendor gz_common_vendor gz_gui_vendor gz_math_vendor gz_msgs_vendor gz_plugin_vendor gz_sim_vendor gz_tools_vendor gz_transport_vendor libwebsockets libyaml tinyxml-2 util-linux xorg.libXi xorg.libXmu ];
+  propagatedBuildInputs = [ binutils gflags gz_common_vendor gz_gui_vendor gz_msgs_vendor gz_plugin_vendor gz_sim_vendor gz_tools_vendor gz_transport_vendor libwebsockets libyaml tinyxml-2 util-linux xorg.libXi xorg.libXmu ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint xorg.xorgserver ];

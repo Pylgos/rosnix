@@ -30,9 +30,9 @@ buildRosPackage {
   version = "2.2.0-1";
   src = sources.grid_map_core;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen grid_map_cmake_helpers ];
+  propagatedBuildInputs = [ grid_map_cmake_helpers ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];

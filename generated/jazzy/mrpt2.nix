@@ -1,6 +1,7 @@
 {
   ament_cmake,
   assimp,
+  buildPackages,
   buildRosPackage,
   cmake,
   cv_bridge,
@@ -170,9 +171,9 @@ buildRosPackage {
   version = "2.13.5-1";
   src = sources.mrpt2;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
+  propagatedNativeBuildInputs = [ ament_cmake eigen pkg-config buildPackages.python3Packages.pybind11 ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge eigen ffmpeg freeglut freenect geometry_msgs glfw3 jsoncpp libGL libGLU libjpeg libpcap libusb1 nav_msgs opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs suitesparse tf2 tf2_msgs tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
+  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect geometry_msgs glfw3 jsoncpp libGL libGLU libjpeg libpcap libusb1 nav_msgs opencv python3Packages.pip rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs suitesparse tf2 tf2_msgs tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -46,9 +46,9 @@ buildRosPackage {
   version = "0.5.1-2";
   src = sources.orocos_kdl_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen orocos-kdl ];
+  propagatedBuildInputs = [ orocos-kdl ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

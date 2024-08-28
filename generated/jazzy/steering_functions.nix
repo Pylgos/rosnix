@@ -27,9 +27,9 @@ buildRosPackage {
   version = "0.3.0-1";
   src = sources.steering_functions;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
+  propagatedNativeBuildInputs = [ eigen ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen ];
+  propagatedBuildInputs = [  ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

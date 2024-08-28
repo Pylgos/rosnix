@@ -33,9 +33,9 @@ buildRosPackage {
   version = "2.6.1-4";
   src = sources.pcl_conversions;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen message_filters pcl pcl_msgs rclcpp sensor_msgs std_msgs ];
+  propagatedBuildInputs = [ message_filters pcl pcl_msgs rclcpp sensor_msgs std_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ];

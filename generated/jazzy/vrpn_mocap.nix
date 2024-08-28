@@ -34,9 +34,9 @@ buildRosPackage {
   version = "1.1.0-4";
   src = sources.vrpn_mocap;
   nativeBuildInputs = [ ament_cmake eigen3_cmake_module ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs rclcpp std_msgs tf2 vrpn ];
+  propagatedBuildInputs = [ geometry_msgs rclcpp std_msgs tf2 vrpn ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

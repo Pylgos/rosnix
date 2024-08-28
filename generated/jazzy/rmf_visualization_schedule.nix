@@ -43,9 +43,9 @@ buildRosPackage {
   version = "2.3.2-1";
   src = sources.rmf_visualization_schedule;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ rosidl_default_generators ];
+  propagatedNativeBuildInputs = [ eigen rosidl_default_generators ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces eigen geometry_msgs openssl python3Packages.boost rclcpp rclcpp_components rmf_traffic rmf_traffic_msgs rmf_traffic_ros2 rmf_visualization_msgs visualization_msgs websocketpp ];
+  propagatedBuildInputs = [ builtin_interfaces geometry_msgs openssl python3Packages.boost rclcpp rclcpp_components rmf_traffic rmf_traffic_msgs rmf_traffic_ros2 rmf_visualization_msgs visualization_msgs websocketpp ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_uncrustify ament_lint_auto ament_lint_common rmf_utils ];

@@ -54,9 +54,9 @@ buildRosPackage {
   version = "0.0.4-1";
   src = sources.gz_sensors_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ gz_cmake_vendor gz_common_vendor gz_math_vendor gz_msgs_vendor gz_rendering_vendor gz_tools_vendor gz_transport_vendor sdformat_vendor ];
+  propagatedBuildInputs = [ gz_common_vendor gz_msgs_vendor gz_rendering_vendor gz_tools_vendor gz_transport_vendor sdformat_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint xorg.xorgserver ];

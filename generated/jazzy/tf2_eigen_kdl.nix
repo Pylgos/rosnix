@@ -31,9 +31,9 @@ buildRosPackage {
   version = "0.36.4-1";
   src = sources.tf2_eigen_kdl;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen orocos_kdl_vendor tf2 ];
+  propagatedBuildInputs = [ orocos_kdl_vendor tf2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];

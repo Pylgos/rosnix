@@ -1,6 +1,7 @@
 {
   ament_cmake,
   assimp,
+  buildPackages,
   buildRosPackage,
   cmake,
   cv_bridge,
@@ -119,8 +120,8 @@ let
       src = fetchgit {
         name = "mrpt_apps-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "5b42d5a4da172d0bfdd8bcfbbe69c8ce9a80d6ce";
-        hash = "sha256-KwijvnmUErvsjgj0BCaNsPKgrvUXVvWNbW4dGLnktvs=";
+        rev = "10191145bb725d3f9ebae846ed39c92dfc024a3b";
+        hash = "sha256-bYc1HlBjYMO+TL7l7sfQpTqojTXWWPYbXD0wQIG9nEs=";
       };
       substitutions = [
         {
@@ -182,9 +183,9 @@ buildRosPackage {
   version = "2.13.7-2";
   src = sources.mrpt_libros_bridge;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
+  propagatedNativeBuildInputs = [ ament_cmake pkg-config buildPackages.python3Packages.pybind11 ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect geometry_msgs glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libmaps nav_msgs opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs tf2 tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
+  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect geometry_msgs glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libmaps nav_msgs opencv python3Packages.pip rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs tf2 tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

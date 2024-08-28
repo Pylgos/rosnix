@@ -455,7 +455,16 @@ self:
   interactive_markers = self.callPackage ./interactive_markers.nix {};
   intra_process_demo = self.callPackage ./intra_process_demo.nix {};
   io_context = self.callPackage ./io_context.nix {};
+  irobot_create_common_bringup = self.callPackage ./irobot_create_common_bringup.nix {};
+  irobot_create_control = self.callPackage ./irobot_create_control.nix {};
+  irobot_create_description = self.callPackage ./irobot_create_description.nix {};
+  irobot_create_gz_bringup = self.callPackage ./irobot_create_gz_bringup.nix {};
+  irobot_create_gz_plugins = self.callPackage ./irobot_create_gz_plugins.nix {};
+  irobot_create_gz_sim = self.callPackage ./irobot_create_gz_sim.nix {};
+  irobot_create_gz_toolbox = self.callPackage ./irobot_create_gz_toolbox.nix {};
   irobot_create_msgs = self.callPackage ./irobot_create_msgs.nix {};
+  irobot_create_nodes = self.callPackage ./irobot_create_nodes.nix {};
+  irobot_create_toolbox = self.callPackage ./irobot_create_toolbox.nix {};
   joint_limits = self.callPackage ./joint_limits.nix {};
   joint_state_broadcaster = self.callPackage ./joint_state_broadcaster.nix {};
   joint_state_publisher = self.callPackage ./joint_state_publisher.nix {};

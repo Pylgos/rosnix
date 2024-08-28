@@ -31,9 +31,9 @@ buildRosPackage {
   version = "3.3.3-1";
   src = sources.rmf_traffic;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen libccd rmf_utils ];
+  propagatedBuildInputs = [ libccd rmf_utils ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ];

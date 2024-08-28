@@ -37,9 +37,9 @@ buildRosPackage {
   version = "2.0.9003-2";
   src = sources.cartographer_rviz;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ abseil-cpp cartographer cartographer_ros cartographer_ros_msgs eigen pluginlib python3Packages.boost rclcpp rviz_common rviz_ogre_vendor rviz_rendering ];
+  propagatedBuildInputs = [ abseil-cpp cartographer cartographer_ros cartographer_ros_msgs pluginlib python3Packages.boost rclcpp rviz_common rviz_ogre_vendor rviz_rendering ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

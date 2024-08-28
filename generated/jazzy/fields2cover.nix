@@ -450,9 +450,9 @@ buildRosPackage {
   version = "2.0.0-10";
   src = sources.fields2cover;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ git gtest python3 ];
+  propagatedNativeBuildInputs = [ eigen git gtest python3 ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen gdal geos ortools_vendor python3 python3Packages.boost python3Packages.matplotlib python3Packages.tkinter swig tbb tinyxml-2 ];
+  propagatedBuildInputs = [ gdal geos ortools_vendor python3 python3Packages.boost python3Packages.matplotlib python3Packages.tkinter swig tbb tinyxml-2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ gtest lcov ];

@@ -5,6 +5,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   ament_lint_common,
+  buildPackages,
   buildRosPackage,
   cmake,
   cppzmq,
@@ -45,9 +46,9 @@ buildRosPackage {
   version = "0.9.4-1";
   src = sources.mvsim;
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment unzip wget ];
+  propagatedNativeBuildInputs = [ ament_cmake_xmllint buildPackages.python3Packages.pybind11 ros_environment unzip wget ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cppzmq mrpt2 nav_msgs protobuf python3 python3Packages.boost python3Packages.pip python3Packages.protobuf python3Packages.pybind11 ros2launch sensor_msgs tf2 tf2_geometry_msgs visualization_msgs ];
+  propagatedBuildInputs = [ cppzmq mrpt2 nav_msgs protobuf python3 python3Packages.boost python3Packages.pip python3Packages.protobuf ros2launch sensor_msgs tf2 tf2_geometry_msgs visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

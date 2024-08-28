@@ -44,9 +44,9 @@ buildRosPackage {
   version = "0.9.1-3";
   src = sources.pangolin;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ python3 ];
+  propagatedNativeBuildInputs = [ eigen python3 ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen glew libjpeg_turbo libpng ];
+  propagatedBuildInputs = [ glew libjpeg_turbo libpng ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

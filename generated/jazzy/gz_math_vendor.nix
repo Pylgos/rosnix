@@ -5,6 +5,7 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
+  buildPackages,
   buildRosPackage,
   eigen,
   fetchgit,
@@ -49,8 +50,8 @@ buildRosPackage {
   version = "0.0.6-1";
   src = sources.gz_math_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen gz_cmake_vendor gz_utils_vendor buildPackages.python3Packages.pybind11 ];
+  buildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
   propagatedBuildInputs = [ eigen gz_cmake_vendor gz_utils_vendor python3Packages.pybind11 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];

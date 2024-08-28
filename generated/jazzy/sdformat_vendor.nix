@@ -5,6 +5,7 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
+  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -53,9 +54,9 @@ buildRosPackage {
   version = "0.0.6-1";
   src = sources.sdformat_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_utils_vendor buildPackages.python3Packages.pybind11 ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_tools_vendor gz_utils_vendor python3Packages.pybind11 tinyxml-2 urdfdom ];
+  propagatedBuildInputs = [ gz_tools_vendor tinyxml-2 urdfdom ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint libxml2 python3Packages.psutil python3Packages.pytest ];

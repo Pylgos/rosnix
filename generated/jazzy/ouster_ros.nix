@@ -47,9 +47,9 @@ buildRosPackage {
   version = "0.11.1-6";
   src = sources.ouster_ros;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
-  propagatedNativeBuildInputs = [ curl ];
+  propagatedNativeBuildInputs = [ curl eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs jsoncpp launch launch_ros ouster_sensor_msgs pcl pcl_conversions pcl_ros rclcpp rclcpp_components rclcpp_lifecycle rosidl_default_runtime sensor_msgs spdlog std_msgs std_srvs tf2_eigen tf2_ros ];
+  propagatedBuildInputs = [ geometry_msgs jsoncpp launch launch_ros ouster_sensor_msgs pcl pcl_conversions pcl_ros rclcpp rclcpp_components rclcpp_lifecycle rosidl_default_runtime sensor_msgs spdlog std_msgs std_srvs tf2_eigen tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ gtest ];

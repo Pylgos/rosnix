@@ -41,9 +41,9 @@ buildRosPackage {
   version = "1.1.1-1";
   src = sources.fuse_core;
   nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ceres-solver eigen fuse_msgs glog pluginlib python3Packages.boost rcl_interfaces rclcpp rclcpp_components ];
+  propagatedBuildInputs = [ ceres-solver fuse_msgs glog pluginlib python3Packages.boost rcl_interfaces rclcpp rclcpp_components ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common geometry_msgs launch launch_pytest rclcpp ];

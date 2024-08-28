@@ -5,8 +5,14 @@
   fetchurl,
   fetchzip,
   mola_common,
-  mrpt2,
+  mrpt_libbase,
+  mrpt_libgui,
+  mrpt_libmaps,
+  mrpt_libobs,
+  mrpt_libposes,
+  mrpt_libtclap,
   substituteSource,
+  tbb,
 }:
 let
   sources = rec {
@@ -14,8 +20,8 @@ let
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "204e3271e72bca4588694fc6113cffcdf4a34b62";
-        hash = "sha256-/aGA464R4pK/5NGuR1GVQ8gsi+GAu6O1nr6aiBAIZyU=";
+        rev = "f876ce452a740d2135a1c6fc0ddc74218aae7523";
+        hash = "sha256-itzODkC4FMCInRHLd53wsi3KiKi+7L0yfk3hGn8WgJg=";
       };
       substitutions = [
       ];
@@ -24,12 +30,12 @@ let
 in
 buildRosPackage {
   pname = "mp2p_icp";
-  version = "1.5.3-1";
+  version = "1.5.5-1";
   src = sources.mp2p_icp;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt2 ];
+  propagatedBuildInputs = [ mola_common mrpt_libbase mrpt_libgui mrpt_libmaps mrpt_libobs mrpt_libposes mrpt_libtclap tbb ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

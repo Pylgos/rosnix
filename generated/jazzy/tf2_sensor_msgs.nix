@@ -41,9 +41,9 @@ buildRosPackage {
   version = "0.36.4-1";
   src = sources.tf2_sensor_msgs;
   nativeBuildInputs = [ ament_cmake python_cmake_module ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module buildPackages.python3Packages.numpy ];
+  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module buildPackages.python3Packages.numpy ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs sensor_msgs sensor_msgs_py std_msgs tf2 tf2_ros tf2_ros_py ];
+  propagatedBuildInputs = [ geometry_msgs sensor_msgs sensor_msgs_py std_msgs tf2 tf2_ros tf2_ros_py ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common rclcpp ];

@@ -29,9 +29,9 @@ buildRosPackage {
   version = "1.2.1-1";
   src = sources.lanelet2_core;
   nativeBuildInputs = [ ament_cmake_core ];
-  propagatedNativeBuildInputs = [ mrt_cmake_modules ];
+  propagatedNativeBuildInputs = [ eigen mrt_cmake_modules ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen python3Packages.boost ];
+  propagatedBuildInputs = [ python3Packages.boost ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ gtest ];

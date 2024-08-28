@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "rviz_satellite-source";
         url = "https://github.com/nobleo/rviz_satellite-release.git";
-        rev = "6ac71e291cd5d616e2369c91b69abd5b442d3999";
-        hash = "sha256-1btiDvrU9NYm/CgsMa3Vwu6Fv4zgHc7A7OhZgKy8MBU=";
+        rev = "48cec4c14133a35baed22a947a2a48487f13ee06";
+        hash = "sha256-md1r1pU2BDHugOSENoO8Um9K/tJKgazRl80PYKYzQok=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "rviz_satellite";
-  version = "4.0.0-1";
+  version = "4.1.0-1";
   src = sources.rviz_satellite;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

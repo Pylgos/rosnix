@@ -32,9 +32,9 @@ buildRosPackage {
   version = "0.0.7-5";
   src = sources.quaternion_operation;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_auto ];
+  propagatedNativeBuildInputs = [ ament_cmake_auto eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs rclcpp tf2_ros ];
+  propagatedBuildInputs = [ geometry_msgs rclcpp tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ouxt_lint_common ];

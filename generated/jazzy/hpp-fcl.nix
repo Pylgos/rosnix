@@ -33,9 +33,9 @@ buildRosPackage {
   version = "2.4.5-1";
   src = sources.hpp-fcl;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ doxygen git buildPackages.python3Packages.numpy ];
+  propagatedNativeBuildInputs = [ doxygen eigen git buildPackages.python3Packages.numpy ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp eigen eigenpy python3 python3Packages.boost python3Packages.lxml ];
+  propagatedBuildInputs = [ assimp eigenpy python3 python3Packages.boost python3Packages.lxml ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

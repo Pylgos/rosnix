@@ -43,9 +43,9 @@ buildRosPackage {
   version = "1.22.9102-2";
   src = sources.sophus;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ceres-solver eigen fmt ];
+  propagatedBuildInputs = [ ceres-solver fmt ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

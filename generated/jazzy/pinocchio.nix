@@ -35,9 +35,9 @@ buildRosPackage {
   version = "2.6.21-3";
   src = sources.pinocchio;
   nativeBuildInputs = [ clang cmake ];
-  propagatedNativeBuildInputs = [ doxygen git buildPackages.python3Packages.numpy ];
+  propagatedNativeBuildInputs = [ doxygen eigen git buildPackages.python3Packages.numpy ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ eigen eigenpy hpp-fcl python3 python3Packages.boost urdfdom ];
+  propagatedBuildInputs = [ eigenpy hpp-fcl python3 python3Packages.boost urdfdom ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

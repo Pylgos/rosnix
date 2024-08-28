@@ -8,7 +8,6 @@
   openssl,
   pkg-config,
   python3,
-  python3Packages,
   substituteSource,
   udev,
 }:
@@ -31,9 +30,9 @@ buildRosPackage {
   version = "0.3.1-1";
   src = sources.libcamera;
   nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ pkg-config buildPackages.python3Packages.jinja2 buildPackages.python3Packages.pyyaml ];
+  propagatedNativeBuildInputs = [ pkg-config buildPackages.python3Packages.jinja2 buildPackages.python3Packages.pybind11 buildPackages.python3Packages.pyyaml ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ libyaml openssl python3 python3Packages.pybind11 udev ];
+  propagatedBuildInputs = [ libyaml openssl python3 udev ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -32,9 +32,9 @@ buildRosPackage {
   version = "3.6.1-3";
   src = sources.swri_geometry_util;
   nativeBuildInputs = [ ament_cmake pkg-config ];
-  propagatedNativeBuildInputs = [  ];
+  propagatedNativeBuildInputs = [ eigen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge eigen geos rclcpp tf2 ];
+  propagatedBuildInputs = [ cv_bridge geos rclcpp tf2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ];
