@@ -36,9 +36,9 @@ buildRosPackage {
   version = "2.10.0-1";
   src = sources.moveit_ros_occupancy_map_monitor;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ geometric_shapes moveit_common moveit_core moveit_msgs pluginlib rclcpp tf2_ros ];
+  propagatedBuildInputs = [ eigen geometric_shapes moveit_common moveit_core moveit_msgs pluginlib rclcpp tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gmock ];

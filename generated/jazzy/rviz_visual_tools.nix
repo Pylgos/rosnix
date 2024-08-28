@@ -54,9 +54,9 @@ buildRosPackage {
   version = "4.1.4-4";
   src = sources.rviz_visual_tools;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python eigen_stl_containers geometry_msgs interactive_markers launch launch_ros pluginlib qt5.qtbase rclcpp rclcpp_components rviz2 rviz_common rviz_default_plugins rviz_ogre_vendor rviz_rendering sensor_msgs shape_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs trajectory_msgs visualization_msgs ];
+  propagatedBuildInputs = [ ament_index_python eigen eigen_stl_containers geometry_msgs interactive_markers launch launch_ros pluginlib qt5.qtbase rclcpp rclcpp_components rviz2 rviz_common rviz_default_plugins rviz_ogre_vendor rviz_rendering sensor_msgs shape_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs trajectory_msgs visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];

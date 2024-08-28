@@ -46,9 +46,9 @@ buildRosPackage {
   version = "0.0.4-1";
   src = sources.gz_tools_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ gz_cmake_vendor ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [  ];
+  propagatedBuildInputs = [ gz_cmake_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];

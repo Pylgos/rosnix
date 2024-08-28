@@ -48,9 +48,9 @@ buildRosPackage {
   version = "2.10.0-1";
   src = sources.moveit_kinematics;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ class_loader generate_parameter_library moveit_common moveit_core moveit_msgs moveit_ros_planning orocos_kdl_vendor pluginlib python3Packages.lxml rsl tf2 tf2_kdl urdfdom ];
+  propagatedBuildInputs = [ class_loader eigen generate_parameter_library moveit_common moveit_core moveit_msgs moveit_ros_planning orocos_kdl_vendor pluginlib python3Packages.lxml rsl tf2 tf2_kdl urdfdom ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest launch_param_builder moveit_configs_utils moveit_resources_fanuc_description moveit_resources_fanuc_moveit_config moveit_resources_panda_description moveit_resources_panda_moveit_config ros_testing ];

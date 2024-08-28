@@ -371,7 +371,7 @@ let
       src = fetchzip {
         name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-6-vendor_source-master-1-source";
         url = "https://github.com/pybind/pybind11/archive/refs/heads/master.tar.gz";
-        hash = "sha256-rUdZqhvQ2LYPXf6u7hSucdFe/R+v61eRpPnl6tov2WE=";
+        hash = "sha256-yAWTYNiSvYKAieTJlDPwwiUcs6jf9xdOGBN2D0TCIrA=";
       };
       substitutions = [
       ];
@@ -450,9 +450,9 @@ buildRosPackage {
   version = "2.0.0-10";
   src = sources.fields2cover;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen git gtest python3 ];
+  propagatedNativeBuildInputs = [ git gtest python3 ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ gdal geos ortools_vendor python3 python3Packages.boost python3Packages.matplotlib python3Packages.tkinter swig tbb tinyxml-2 ];
+  propagatedBuildInputs = [ eigen gdal geos ortools_vendor python3 python3Packages.boost python3Packages.matplotlib python3Packages.tkinter swig tbb tinyxml-2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ gtest lcov ];

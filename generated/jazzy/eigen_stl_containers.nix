@@ -26,9 +26,9 @@ buildRosPackage {
   version = "1.0.0-7";
   src = sources.eigen_stl_containers;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [  ];
+  propagatedBuildInputs = [ eigen ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

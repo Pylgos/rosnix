@@ -35,9 +35,9 @@ buildRosPackage {
   version = "3.5.0-4";
   src = sources.visp;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ doxygen eigen ];
+  propagatedNativeBuildInputs = [ doxygen ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ bzip2 libjpeg liblapack libpng libv4l libxml2 opencv xorg.libX11 ];
+  propagatedBuildInputs = [ bzip2 eigen libjpeg liblapack libpng libv4l libxml2 opencv xorg.libX11 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

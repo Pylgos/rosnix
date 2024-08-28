@@ -58,9 +58,9 @@ buildRosPackage {
   version = "0.0.5-1";
   src = sources.gz_transport_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_utils_vendor pkg-config python3 buildPackages.python3Packages.pybind11 buildPackages.python3Packages.pytest ];
+  propagatedNativeBuildInputs = [ pkg-config python3 buildPackages.python3Packages.pytest ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cppzmq gz_msgs_vendor gz_tools_vendor protobuf python3Packages.psutil sqlite util-linux ];
+  propagatedBuildInputs = [ cppzmq gz_cmake_vendor gz_math_vendor gz_msgs_vendor gz_tools_vendor gz_utils_vendor protobuf python3Packages.psutil python3Packages.pybind11 sqlite util-linux ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];

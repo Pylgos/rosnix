@@ -35,9 +35,9 @@ buildRosPackage {
   version = "1.9.1-1";
   src = sources.rmf_traffic_editor;
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament_cmake eigen ];
+  propagatedNativeBuildInputs = [ ament_cmake ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp ceres-solver glog libyamlcpp proj qt5.qtbase rmf_utils ];
+  propagatedBuildInputs = [ ament_index_cpp ceres-solver eigen glog libyamlcpp proj qt5.qtbase rmf_utils ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_uncrustify rmf_utils ];

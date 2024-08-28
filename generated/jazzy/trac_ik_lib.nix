@@ -32,9 +32,9 @@ buildRosPackage {
   version = "2.0.1-1";
   src = sources.trac_ik_lib;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ eigen pkg-config ];
+  propagatedNativeBuildInputs = [ pkg-config ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs kdl_parser nlopt rclcpp urdf ];
+  propagatedBuildInputs = [ eigen geometry_msgs kdl_parser nlopt rclcpp urdf ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

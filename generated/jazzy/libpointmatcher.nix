@@ -29,9 +29,9 @@ buildRosPackage {
   version = "1.4.2-1";
   src = sources.libpointmatcher;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ libnabo libyamlcpp python3Packages.boost ];
+  propagatedBuildInputs = [ eigen libnabo libyamlcpp python3Packages.boost ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

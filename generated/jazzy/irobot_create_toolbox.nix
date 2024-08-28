@@ -34,9 +34,9 @@ buildRosPackage {
   pname = "irobot_create_toolbox";
   version = "3.0.2-2";
   src = sources.irobot_create_toolbox;
-  nativeBuildInputs = [ ament_cmake gz_math_vendor ];
+  nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
+  buildInputs = [ gz_math_vendor ];
   propagatedBuildInputs = [ rclcpp ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];

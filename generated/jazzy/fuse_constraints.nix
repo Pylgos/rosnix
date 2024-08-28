@@ -38,9 +38,9 @@ buildRosPackage {
   version = "1.1.1-1";
   src = sources.fuse_constraints;
   nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ceres-solver fuse_core fuse_graphs fuse_variables geometry_msgs pluginlib rclcpp suitesparse ];
+  propagatedBuildInputs = [ ceres-solver eigen fuse_core fuse_graphs fuse_variables geometry_msgs pluginlib rclcpp suitesparse ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common gbenchmark ];

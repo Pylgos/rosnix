@@ -32,7 +32,7 @@ let
       src = fetchurl {
         name = "pangolin-vendor_source-certdata-0-source";
         url = "https://raw.githubusercontent.com/mozilla/gecko-dev/master/security/nss/lib/ckfw/builtins/certdata.txt";
-        hash = "sha256-RW/wld3m3XM1TFwoxz2cBvU7YagDljQUy5Gh2SlFzdM=";
+        hash = "sha256-NhBbAWMfn8A7Hsp3m0SjChpYkLm/jcB8ywAaBzAeAc8=";
       };
       substitutions = [
       ];
@@ -44,9 +44,9 @@ buildRosPackage {
   version = "0.9.1-3";
   src = sources.pangolin;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen python3 ];
+  propagatedNativeBuildInputs = [ python3 ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ glew libjpeg_turbo libpng ];
+  propagatedBuildInputs = [ eigen glew libjpeg_turbo libpng ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

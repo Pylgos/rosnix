@@ -73,9 +73,9 @@ buildRosPackage {
   version = "2.10.0-1";
   src = sources.moveit_core;
   nativeBuildInputs = [ ament_cmake pkg-config wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module google_benchmark_vendor ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module google_benchmark_vendor ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ angles assimp bullet common_interfaces eigen_stl_containers fcl generate_parameter_library geometric_shapes geometry_msgs kdl_parser moveit_common moveit_msgs octomap_msgs osqp_vendor pluginlib python3Packages.boost random_numbers rclcpp rsl ruckig sensor_msgs shape_msgs srdfdom std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_kdl trajectory_msgs urdf urdfdom urdfdom_headers visualization_msgs ];
+  propagatedBuildInputs = [ angles assimp bullet common_interfaces eigen eigen_stl_containers fcl generate_parameter_library geometric_shapes geometry_msgs kdl_parser moveit_common moveit_msgs octomap_msgs osqp_vendor pluginlib python3Packages.boost random_numbers rclcpp rsl ruckig sensor_msgs shape_msgs srdfdom std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_kdl trajectory_msgs urdf urdfdom urdfdom_headers visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gmock ament_cmake_google_benchmark ament_cmake_gtest ament_index_cpp angles launch_testing_ament_cmake moveit_resources_panda_moveit_config moveit_resources_pr2_description orocos_kdl_vendor rcl_interfaces rclpy ];

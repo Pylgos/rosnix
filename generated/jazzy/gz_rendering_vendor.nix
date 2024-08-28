@@ -56,9 +56,9 @@ buildRosPackage {
   version = "0.0.4-1";
   src = sources.gz_rendering_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_utils_vendor ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ freeglut glew gz_common_vendor gz_ogre_next_vendor gz_plugin_vendor util-linux vulkan-loader xorg.libXi xorg.libXmu ];
+  propagatedBuildInputs = [ freeglut glew gz_cmake_vendor gz_common_vendor gz_math_vendor gz_ogre_next_vendor gz_plugin_vendor gz_utils_vendor util-linux vulkan-loader xorg.libXi xorg.libXmu ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint xorg.xorgserver ];

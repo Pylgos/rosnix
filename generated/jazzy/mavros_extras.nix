@@ -61,9 +61,9 @@ buildRosPackage {
   version = "2.8.0-1";
   src = sources.mavros_extras;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ angles diagnostic_msgs diagnostic_updater eigen_stl_containers geographic_msgs geographiclib geometry_msgs libmavconn libyamlcpp mavlink mavros mavros_msgs message_filters nav_msgs pluginlib rclcpp rclcpp_components rcpputils rosidl_default_runtime sensor_msgs std_msgs std_srvs tf2_eigen tf2_ros trajectory_msgs urdf visualization_msgs yaml_cpp_vendor ];
+  propagatedBuildInputs = [ angles diagnostic_msgs diagnostic_updater eigen eigen_stl_containers geographic_msgs geographiclib geometry_msgs libmavconn libyamlcpp mavlink mavros mavros_msgs message_filters nav_msgs pluginlib rclcpp rclcpp_components rcpputils rosidl_default_runtime sensor_msgs std_msgs std_srvs tf2_eigen tf2_ros trajectory_msgs urdf visualization_msgs yaml_cpp_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_lint_auto ament_lint_common gtest ];

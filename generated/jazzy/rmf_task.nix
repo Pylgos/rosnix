@@ -30,9 +30,9 @@ buildRosPackage {
   version = "2.5.1-1";
   src = sources.rmf_task;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ rmf_battery rmf_utils ];
+  propagatedBuildInputs = [ eigen rmf_battery rmf_utils ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ];

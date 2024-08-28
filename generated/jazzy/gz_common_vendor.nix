@@ -53,9 +53,9 @@ buildRosPackage {
   version = "0.0.5-1";
   src = sources.gz_common_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_utils_vendor ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp gdal gts tinyxml-2 util-linux ];
+  propagatedBuildInputs = [ assimp gdal gts gz_cmake_vendor gz_math_vendor gz_utils_vendor tinyxml-2 util-linux ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];

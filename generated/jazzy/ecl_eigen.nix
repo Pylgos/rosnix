@@ -26,9 +26,9 @@ buildRosPackage {
   version = "1.2.1-5";
   src = sources.ecl_eigen;
   nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [  ];
+  propagatedBuildInputs = [ eigen ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

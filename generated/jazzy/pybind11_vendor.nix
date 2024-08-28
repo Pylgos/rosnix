@@ -1,11 +1,11 @@
 {
   ament_cmake,
   ament_cmake_vendor_package,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
+  python3Packages,
   substituteSource,
 }:
 let
@@ -42,9 +42,9 @@ buildRosPackage {
   version = "3.1.2-2";
   src = sources.pybind11_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pybind11 ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [  ];
+  propagatedBuildInputs = [ python3Packages.pybind11 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

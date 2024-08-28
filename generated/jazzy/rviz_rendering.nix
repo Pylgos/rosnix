@@ -41,9 +41,9 @@ buildRosPackage {
   version = "14.1.4-1";
   src = sources.rviz_rendering;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp qt5.qtbase resource_retriever rviz_assimp_vendor rviz_ogre_vendor ];
+  propagatedBuildInputs = [ ament_index_cpp eigen qt5.qtbase resource_retriever rviz_assimp_vendor rviz_ogre_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_gmock ament_cmake_gtest ament_cmake_lint_cmake ament_cmake_uncrustify ament_cmake_xmllint ament_lint_auto rviz_assimp_vendor ];

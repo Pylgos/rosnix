@@ -42,9 +42,9 @@ buildRosPackage {
   version = "4.2.0-3";
   src = sources.gtsam;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.boost tbb ];
+  propagatedBuildInputs = [ eigen python3Packages.boost tbb ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -52,9 +52,9 @@ buildRosPackage {
   version = "2.0.9003-2";
   src = sources.cartographer_ros;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ eigen gtest ros_environment ];
+  propagatedNativeBuildInputs = [ gtest ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ abseil-cpp builtin_interfaces cartographer cartographer_ros_msgs geometry_msgs gflags glog launch nav_msgs pcl pcl_conversions python3Packages.sphinx rclcpp robot_state_publisher rosbag2_cpp rosbag2_storage sensor_msgs std_msgs tf2 tf2_eigen tf2_msgs tf2_ros urdf visualization_msgs ];
+  propagatedBuildInputs = [ abseil-cpp builtin_interfaces cartographer cartographer_ros_msgs eigen geometry_msgs gflags glog launch nav_msgs pcl pcl_conversions python3Packages.sphinx rclcpp robot_state_publisher rosbag2_cpp rosbag2_storage sensor_msgs std_msgs tf2 tf2_eigen tf2_msgs tf2_ros urdf visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -45,9 +45,9 @@ buildRosPackage {
   version = "2.2.1-1";
   src = sources.geometric_shapes;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
-  propagatedNativeBuildInputs = [ eigen eigen3_cmake_module pkg-config ];
+  propagatedNativeBuildInputs = [ eigen3_cmake_module pkg-config ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp console_bridge_vendor eigen_stl_containers geometry_msgs python3Packages.boost qhull random_numbers rclcpp resource_retriever rosidl_default_runtime shape_msgs visualization_msgs ];
+  propagatedBuildInputs = [ assimp console_bridge_vendor eigen eigen_stl_containers geometry_msgs python3Packages.boost qhull random_numbers rclcpp resource_retriever rosidl_default_runtime shape_msgs visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_gtest ament_lint_auto ament_lint_cmake ];

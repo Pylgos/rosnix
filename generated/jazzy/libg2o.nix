@@ -29,9 +29,9 @@ buildRosPackage {
   version = "2020.5.29-6";
   src = sources.libg2o;
   nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ libGL libGLU suitesparse ];
+  propagatedBuildInputs = [ eigen libGL libGLU suitesparse ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

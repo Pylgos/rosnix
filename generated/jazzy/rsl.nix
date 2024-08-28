@@ -46,9 +46,9 @@ buildRosPackage {
   version = "1.1.0-3";
   src = sources.rsl;
   nativeBuildInputs = [ doxygen ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ fmt rclcpp tcb_span tl_expected ];
+  propagatedBuildInputs = [ eigen fmt rclcpp tcb_span tl_expected ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ clang git ];

@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "sophus-vendor_source-pybind11-0-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "3fb16ad17587a7ad7fbe18c043e790d68ee7fab4";
-        hash = "sha256-rUdZqhvQ2LYPXf6u7hSucdFe/R+v61eRpPnl6tov2WE=";
+        rev = "65f4266cefc48401fadd4623f5af430359a6866d";
+        hash = "sha256-yAWTYNiSvYKAieTJlDPwwiUcs6jf9xdOGBN2D0TCIrA=";
       };
       substitutions = [
       ];
@@ -43,9 +43,9 @@ buildRosPackage {
   version = "1.22.9102-2";
   src = sources.sophus;
   nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ eigen ];
+  propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ ceres-solver fmt ];
+  propagatedBuildInputs = [ ceres-solver eigen fmt ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

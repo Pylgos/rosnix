@@ -30,9 +30,9 @@ buildRosPackage {
   version = "1.6.0-1";
   src = sources.ompl;
   nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ cmake eigen pkg-config ];
+  propagatedNativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ flann ode python3Packages.boost ];
+  propagatedBuildInputs = [ eigen flann ode python3Packages.boost ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -5,7 +5,6 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -70,9 +69,9 @@ buildRosPackage {
   version = "0.0.5-1";
   src = sources.gz_sim_vendor;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ gbenchmark gz_cmake_vendor gz_math_vendor gz_utils_vendor buildPackages.python3Packages.pybind11 ];
+  propagatedNativeBuildInputs = [ gbenchmark ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ freeglut glew gz_common_vendor gz_fuel_tools_vendor gz_gui_vendor gz_msgs_vendor gz_physics_vendor gz_plugin_vendor gz_rendering_vendor gz_sensors_vendor gz_tools_vendor gz_transport_vendor protobuf qt5.qtbase qt5.qtdeclarative sdformat_vendor tinyxml-2 util-linux xorg.libXi xorg.libXmu ];
+  propagatedBuildInputs = [ freeglut glew gz_cmake_vendor gz_common_vendor gz_fuel_tools_vendor gz_gui_vendor gz_math_vendor gz_msgs_vendor gz_physics_vendor gz_plugin_vendor gz_rendering_vendor gz_sensors_vendor gz_tools_vendor gz_transport_vendor gz_utils_vendor protobuf python3Packages.pybind11 qt5.qtbase qt5.qtdeclarative sdformat_vendor tinyxml-2 util-linux xorg.libXi xorg.libXmu ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint python3Packages.pytest xorg.xorgserver ];
