@@ -12,6 +12,7 @@ runtime_packages = [
   "qt5-qmake",
   "rcutils",
   "ament_index_python",
+  "gz_math_vendor",
 ]
 runtime_groups = [
   "rosidl_interface_packages",
