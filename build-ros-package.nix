@@ -60,10 +60,8 @@ let
               --install-base "$out" \
               --build-base ./build \
               --event-handlers console_cohesion- console_direct+ console_package_list- console_start_end- console_stderr- desktop_notification- event_log- log- log_command- status- store_result- summary- terminal_title- \
-              --executor sequential ${
-                lib.concatStringsSep " " (
-                  map (arg: "--cmake-args " + (lib.escapeShellArg (" " + arg))) rosCmakeArgs
-                )
+              --executor sequential --cmake-args ${
+                lib.concatStringsSep " " (map (arg: lib.escapeShellArg (" " + arg)) rosCmakeArgs)
               }
 
             runHook postBuild
