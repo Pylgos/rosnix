@@ -8,17 +8,26 @@
   buildRosPackage,
   cmake,
   cppzmq,
+  cv_bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  mrpt2,
+  geometry_msgs,
+  mrpt_libgui,
+  mrpt_libmaps,
+  mrpt_libposes,
+  mrpt_libros_bridge,
+  mrpt_libtclap,
   nav_msgs,
   protobuf,
   python3,
   python3Packages,
+  rclcpp,
   ros2launch,
   ros_environment,
   sensor_msgs,
+  std_msgs,
+  stereo_msgs,
   substituteSource,
   tf2,
   tf2_geometry_msgs,
@@ -32,8 +41,8 @@ let
       src = fetchgit {
         name = "mvsim-source";
         url = "https://github.com/ros2-gbp/mvsim-release.git";
-        rev = "9697fc51831397059a0c6c5e1d161ace896edaaa";
-        hash = "sha256-nVLQEho55D7tfOG4MwITL8EIA4Ly6UaCzOpm8BaZbzo=";
+        rev = "3ba55bc51c40f93c428423f7a04d7ead15e0a2e5";
+        hash = "sha256-fRwEC+/pNuYDTorLW+TRc1K0o8oRvfTnMXGqtXn2Alc=";
       };
       substitutions = [
       ];
@@ -42,12 +51,12 @@ let
 in
 buildRosPackage {
   pname = "mvsim";
-  version = "0.9.4-1";
+  version = "0.10.0-1";
   src = sources.mvsim;
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest cmake ];
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment unzip wget ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cppzmq mrpt2 nav_msgs protobuf python3 python3Packages.boost python3Packages.pip python3Packages.protobuf python3Packages.pybind11 ros2launch sensor_msgs tf2 tf2_geometry_msgs visualization_msgs ];
+  propagatedBuildInputs = [ cppzmq cv_bridge geometry_msgs mrpt_libgui mrpt_libmaps mrpt_libposes mrpt_libros_bridge mrpt_libtclap nav_msgs protobuf python3 python3Packages.boost python3Packages.pip python3Packages.protobuf python3Packages.pybind11 rclcpp ros2launch sensor_msgs std_msgs stereo_msgs tf2 tf2_geometry_msgs visualization_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

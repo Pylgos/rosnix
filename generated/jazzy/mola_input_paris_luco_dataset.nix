@@ -6,7 +6,7 @@
   fetchzip,
   mola_common,
   mola_kernel,
-  mrpt2,
+  mrpt_libmaps,
   substituteSource,
 }:
 let
@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mola_input_paris_luco_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "e6b55a939fc0dfde8a76c6120f36fdb6298227e4";
-        hash = "sha256-zdnVw+H4s/uqAh6j+SOiiPmqQaJjYGt3HIDg0ber4dI=";
+        rev = "b532f23e5cc12e5edc46ae69d2b229f80835c9d3";
+        hash = "sha256-Oc0cWpGzkB0CDWKd+YmneL3PDalnPxOYKBCG6yfZ7ws=";
       };
       substitutions = [
       ];
@@ -25,12 +25,12 @@ let
 in
 buildRosPackage {
   pname = "mola_input_paris_luco_dataset";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_input_paris_luco_dataset;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_kernel mrpt2 ];
+  propagatedBuildInputs = [ mola_common mola_kernel mrpt_libmaps ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

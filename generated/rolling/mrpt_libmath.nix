@@ -79,6 +79,15 @@ let
       substitutions = [
       ];
     };
+    mrpt2-vendor_source-v1-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt2-vendor_source-v1-0-source";
+        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
+        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
+      };
+      substitutions = [
+      ];
+    };
     mrpt2-vendor_source-v5-0 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-v5-0-source";
@@ -119,7 +128,7 @@ let
         {
           path = "cmakemodules/script_octomap.cmake";
           from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0}";
+          to = "URL ${mrpt2-vendor_source-v1-0}";
         }
         {
           path = "cmakemodules/script_tinyxml2.cmake";
@@ -145,15 +154,6 @@ let
           from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
           to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
         }
-      ];
-    };
-    mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-v1-0-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-      substitutions = [
       ];
     };
     mrpt_libmath = substituteSource {

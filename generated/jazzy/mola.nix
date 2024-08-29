@@ -36,8 +36,8 @@ let
       src = fetchgit {
         name = "mola-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "31f329da5e5a34f984a8243c395f1e777383a22a";
-        hash = "sha256-ewEe0EyvrhXYRn82vyl+pZvhGleRaZRh2xfgvkz+73M=";
+        rev = "5d6fd29d953185f9b9c6ea46f601ab135ae5d7d7";
+        hash = "sha256-DxjylXYyJhLgN3d3GCHOmfU8e4v02LodObotMFL4wTk=";
       };
       substitutions = [
       ];
@@ -46,7 +46,7 @@ let
 in
 buildRosPackage {
   pname = "mola";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

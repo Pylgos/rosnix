@@ -7,7 +7,7 @@
   mola_common,
   mola_imu_preintegration,
   mola_kernel,
-  mrpt2,
+  mrpt_libobs,
   substituteSource,
 }:
 let
@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "mola_navstate_fuse-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "2e00bf63ba47cf18c9c95ca109ce4ee80c2013e9";
-        hash = "sha256-PQsBaKHhsJrCw1Hs/OysuklUGf+vyoEavJ62nvDAkDY=";
+        rev = "d533c9bab64c74ee5d1b9581091e298d6e56f015";
+        hash = "sha256-mG2+9WFv2xdX2viqBzV4ZlHmRFqDQ+WDpPAWrQG/FGw=";
       };
       substitutions = [
       ];
@@ -26,12 +26,12 @@ let
 in
 buildRosPackage {
   pname = "mola_navstate_fuse";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_navstate_fuse;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_imu_preintegration mola_kernel mrpt2 ];
+  propagatedBuildInputs = [ mola_common mola_imu_preintegration mola_kernel mrpt_libobs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

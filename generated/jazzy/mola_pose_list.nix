@@ -5,7 +5,8 @@
   fetchurl,
   fetchzip,
   mola_common,
-  mrpt2,
+  mrpt_libmaps,
+  mrpt_libposes,
   substituteSource,
 }:
 let
@@ -14,8 +15,8 @@ let
       src = fetchgit {
         name = "mola_pose_list-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "b678fb5356ceb7fe3f378066398e84b2eeefe66f";
-        hash = "sha256-zrnHQ68Ecw4G6uKrSlk7+NVovKg+Np5SPKU7Wrq0DAE=";
+        rev = "fdde177acd7be81b9e053cef2f2f24d669127e1b";
+        hash = "sha256-MDp81JMxv9YwXZ9ivqVXrspeaTBhKxcxMqGnfb5+NnU=";
       };
       substitutions = [
       ];
@@ -24,12 +25,12 @@ let
 in
 buildRosPackage {
   pname = "mola_pose_list";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_pose_list;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt2 ];
+  propagatedBuildInputs = [ mola_common mrpt_libmaps mrpt_libposes ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

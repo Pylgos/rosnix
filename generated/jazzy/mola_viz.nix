@@ -5,7 +5,9 @@
   fetchurl,
   fetchzip,
   mola_kernel,
-  mrpt2,
+  mrpt_libgui,
+  mrpt_libmaps,
+  mrpt_libopengl,
   substituteSource,
 }:
 let
@@ -14,8 +16,8 @@ let
       src = fetchgit {
         name = "mola_viz-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "7fa47f79e59494e07242761693fa14b958e17b12";
-        hash = "sha256-+gW6VJDQSWAQzhBYhZmcSOfLrj6So//PN1W4blZyG+w=";
+        rev = "b9d4adefad6a22d77596f92299e8e54d1930776b";
+        hash = "sha256-rX+LZO1znR2AY0lpUa8SKKndRK5IkRlWh2VYXupA9tg=";
       };
       substitutions = [
       ];
@@ -24,12 +26,12 @@ let
 in
 buildRosPackage {
   pname = "mola_viz";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_viz;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_kernel mrpt2 ];
+  propagatedBuildInputs = [ mola_kernel mrpt_libgui mrpt_libmaps mrpt_libopengl ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

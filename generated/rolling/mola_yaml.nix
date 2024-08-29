@@ -5,7 +5,7 @@
   fetchurl,
   fetchzip,
   mola_common,
-  mrpt2,
+  mrpt_libbase,
   substituteSource,
 }:
 let
@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "mola_yaml-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "486bb306cb0ff05b0d2148a4666ecadf5c677371";
-        hash = "sha256-PK/0zeg5LiARHbxW8gnIvbwarS4QHc1Comli5CVyzSQ=";
+        rev = "c92deb45a8d1981ea6bd57f93d6aeddd6d3743b5";
+        hash = "sha256-x3rbiXXW38Af4qr+y2EVi2lGjRSbaAhwiIKnCQYELx8=";
       };
       substitutions = [
       ];
@@ -24,12 +24,12 @@ let
 in
 buildRosPackage {
   pname = "mola_yaml";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_yaml;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt2 ];
+  propagatedBuildInputs = [ mola_common mrpt_libbase ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

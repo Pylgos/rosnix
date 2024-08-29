@@ -10,7 +10,7 @@
   fetchurl,
   fetchzip,
   mola_common,
-  mrpt2,
+  mrpt_libmaps,
   ros_environment,
   substituteSource,
 }:
@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mola_metric_maps-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "077963fcc80b71eb0542df13e837f37cc17ce176";
-        hash = "sha256-cblBvpHcHBpL2IKxW1Ky/79HG4y6FwBJBHq7Z8wWYEw=";
+        rev = "2817fd0be0dbc8038227495938d8418bffee1826";
+        hash = "sha256-7HylO2OCw5zRpSouIbXot54NjU/TUyiD6bgYOQcyMFA=";
       };
       substitutions = [
       ];
@@ -30,12 +30,12 @@ let
 in
 buildRosPackage {
   pname = "mola_metric_maps";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_metric_maps;
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest cmake ];
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt2 ];
+  propagatedBuildInputs = [ mola_common mrpt_libmaps ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

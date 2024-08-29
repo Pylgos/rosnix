@@ -6,7 +6,8 @@
   fetchurl,
   fetchzip,
   mola_kernel,
-  mrpt2,
+  mrpt_libobs,
+  mrpt_libros_bridge,
   rosbag2_cpp,
   sensor_msgs,
   substituteSource,
@@ -20,8 +21,8 @@ let
       src = fetchgit {
         name = "mola_input_rosbag2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "b9295da498c9a72734a9f8cc6ba57bdddcd38d63";
-        hash = "sha256-xWVGkvHGbON8QceUrG5yicwIaTVrWMsAs7ikz7uAKDc=";
+        rev = "cdf8ab3bc894560d51b582a255b354295107f7de";
+        hash = "sha256-BfopndKeFLMox8X6shlfEpcCk1ALFrLq/llfOcZ3rrU=";
       };
       substitutions = [
       ];
@@ -30,12 +31,12 @@ let
 in
 buildRosPackage {
   pname = "mola_input_rosbag2";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_input_rosbag2;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge mola_kernel mrpt2 rosbag2_cpp sensor_msgs tf2_geometry_msgs tf2_msgs tf2_ros ];
+  propagatedBuildInputs = [ cv_bridge mola_kernel mrpt_libobs mrpt_libros_bridge rosbag2_cpp sensor_msgs tf2_geometry_msgs tf2_msgs tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

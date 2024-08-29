@@ -5,7 +5,7 @@
   fetchurl,
   fetchzip,
   mola_common,
-  mrpt2,
+  mrpt_libobs,
   substituteSource,
 }:
 let
@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "mola_imu_preintegration-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "e2fbe1a94d9b959de9292ea4cab1d23258f152d3";
-        hash = "sha256-j+6bqUE0nxAGzLLUQdMSirTd82IXWrAZvAHEJ3QDTLY=";
+        rev = "6b09d41b676c86f79410658cb30bc7849d326496";
+        hash = "sha256-jOGsHgHD8ececCAVu5y0cjNGXfavMrrkqtnImlKI8ZQ=";
       };
       substitutions = [
       ];
@@ -24,12 +24,12 @@ let
 in
 buildRosPackage {
   pname = "mola_imu_preintegration";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_imu_preintegration;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt2 ];
+  propagatedBuildInputs = [ mola_common mrpt_libobs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

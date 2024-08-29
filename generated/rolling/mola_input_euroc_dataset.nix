@@ -6,7 +6,8 @@
   fetchzip,
   mola_common,
   mola_kernel,
-  mrpt2,
+  mrpt_libmath,
+  mrpt_libobs,
   substituteSource,
 }:
 let
@@ -15,8 +16,8 @@ let
       src = fetchgit {
         name = "mola_input_euroc_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "7c2c2221c390c074a8c92c1e2f6ae07c5376b827";
-        hash = "sha256-a2suErpGjT8SGp/5G7IF16OWmDMA+oNWKuS/E+7uLy8=";
+        rev = "c6c9cde658ec826b1187f5379c3ff4b8dcdc928c";
+        hash = "sha256-j7McuEi7LsFQzBCQSzfGlYN6IwU+l/3qFkAMsAw/f0o=";
       };
       substitutions = [
       ];
@@ -25,12 +26,12 @@ let
 in
 buildRosPackage {
   pname = "mola_input_euroc_dataset";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_input_euroc_dataset;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_kernel mrpt2 ];
+  propagatedBuildInputs = [ mola_common mola_kernel mrpt_libmath mrpt_libobs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

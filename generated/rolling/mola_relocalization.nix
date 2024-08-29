@@ -8,7 +8,9 @@
   mola_pose_list,
   mola_test_datasets,
   mp2p_icp,
-  mrpt2,
+  mrpt_libmaps,
+  mrpt_libobs,
+  mrpt_libslam,
   substituteSource,
 }:
 let
@@ -17,8 +19,8 @@ let
       src = fetchgit {
         name = "mola_relocalization-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "af39369fb400b913872293ed3006529778829d5a";
-        hash = "sha256-4erWF8hoe4EWIamH9rthP+ASM/tOP7x+hrxhj7udqK4=";
+        rev = "278f8cf116f4a319845e76dc398fd6518cb3123b";
+        hash = "sha256-APURXKML3IuQjOkLj3fl8AwkABlG/q0BFavIfAS1+T0=";
       };
       substitutions = [
       ];
@@ -27,15 +29,15 @@ let
 in
 buildRosPackage {
   pname = "mola_relocalization";
-  version = "1.1.0-1";
+  version = "1.1.3-1";
   src = sources.mola_relocalization;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_pose_list mola_test_datasets mp2p_icp mrpt2 ];
+  propagatedBuildInputs = [ mola_common mola_pose_list mp2p_icp mrpt_libmaps mrpt_libobs mrpt_libslam ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
+  checkInputs = [ mola_test_datasets ];
   missingDependencies = [  ];
   meta = {
     description = "C++ library with algorithms for relocalization, global localization, or pose estimation given a large initial uncertainty";
