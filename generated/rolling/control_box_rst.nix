@@ -20,7 +20,7 @@ let
         {
           path = "src/extern/grpc/CMakeLists.txt";
           from = "GIT_REPOSITORY \${GRPC_URL}";
-          to = "URL ${control_box_rst-vendor_source-grpc-0}";
+          to = "URL ${control_box_rst-vendor_source-grpc-1}";
         }
         {
           path = "src/extern/protobuf/CMakeLists.txt";
@@ -30,13 +30,13 @@ let
         {
           path = "src/extern/yaml-cpp/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git";
-          to = "URL ${control_box_rst-vendor_source-yaml-cpp-0}";
+          to = "URL ${control_box_rst-vendor_source-yaml-cpp-2}";
         }
       ];
     };
-    control_box_rst-vendor_source-grpc-0 = substituteSource {
+    control_box_rst-vendor_source-grpc-1 = substituteSource {
       src = fetchgit {
-        name = "control_box_rst-vendor_source-grpc-0-source";
+        name = "control_box_rst-vendor_source-grpc-1-source";
         url = "https://github.com/grpc/grpc.git";
         rev = "b567bb43670f7f2523164fdabdea8786a7595854";
         hash = "sha256-dQt5gCHoxrEdkhMPKcVSvDKhPQEzN6fgq5klBucOZQQ=";
@@ -54,9 +54,9 @@ let
       substitutions = [
       ];
     };
-    control_box_rst-vendor_source-yaml-cpp-0 = substituteSource {
+    control_box_rst-vendor_source-yaml-cpp-2 = substituteSource {
       src = fetchgit {
-        name = "control_box_rst-vendor_source-yaml-cpp-0-source";
+        name = "control_box_rst-vendor_source-yaml-cpp-2-source";
         url = "https://github.com/jbeder/yaml-cpp.git";
         rev = "ee99c4151c1af794a412b101a75921c086acaac0";
         hash = "sha256-D5brGCzg0v9SmCLcLx+NEOIXz//74ofQjA4kqw2LH4A=";

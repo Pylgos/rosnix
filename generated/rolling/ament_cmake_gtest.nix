@@ -30,7 +30,7 @@ buildRosPackage {
   nativeBuildInputs = [ ament_cmake_core ];
   propagatedNativeBuildInputs = [ ament_cmake_test gtest gtest_vendor ];
   buildInputs = [ ament_cmake_core ];
-  propagatedBuildInputs = [ ament_cmake_test gtest gtest_vendor ];
+  propagatedBuildInputs = [ ament_cmake_test gtest_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

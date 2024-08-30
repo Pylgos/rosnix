@@ -20,33 +20,33 @@ let
         {
           path = "thirdparty/ftxui/cmake/ftxui_find_google_benchmark.cmake";
           from = "GIT_REPOSITORY \"https://github.com/google/benchmark\"";
-          to = "URL ${ecal-vendor_source-benchmark-0}";
+          to = "URL ${ecal-vendor_source-benchmark-1}";
         }
         {
           path = "thirdparty/spdlog/bench/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0}";
+          to = "URL ${hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44}";
         }
         {
           path = "thirdparty/udpcap/thirdparty/asio/asio_make_available.cmake";
           from = "GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git";
-          to = "URL ${ecal-vendor_source-asio-0}";
+          to = "URL ${ecal-vendor_source-asio-3}";
         }
         {
           path = "thirdparty/udpcap/thirdparty/npcap/npcap_make_available.cmake";
           from = "URL      \"\${NPCAP_SDK_ARCHIVE_URL}\"";
-          to = "URL ${ecal-vendor_source-npcap-sdk-1-0}";
+          to = "URL ${ecal-vendor_source-npcap-sdk-1-2}";
         }
         {
           path = "thirdparty/udpcap/thirdparty/pcapplusplus/pcapplusplus_make_available.cmake";
           from = "URL      \"\${PCAPPLUSPLUS_ARCHIVE_URL}\"";
-          to = "URL ${ecal-vendor_source-pcapplusplus-22-0}";
+          to = "URL ${ecal-vendor_source-pcapplusplus-22-4}";
         }
       ];
     };
-    ecal-vendor_source-asio-0 = substituteSource {
+    ecal-vendor_source-asio-3 = substituteSource {
       src = fetchgit {
-        name = "ecal-vendor_source-asio-0-source";
+        name = "ecal-vendor_source-asio-3-source";
         url = "https://github.com/chriskohlhoff/asio.git";
         rev = "147f7225a96d45a2807a64e443177f621844e51c";
         hash = "sha256-z68qIh0+VTUEjVrv+Jvq2dDzxPHqq1ZRutjuiJ27w+A=";
@@ -54,9 +54,9 @@ let
       substitutions = [
       ];
     };
-    ecal-vendor_source-benchmark-0 = substituteSource {
+    ecal-vendor_source-benchmark-1 = substituteSource {
       src = fetchgit {
-        name = "ecal-vendor_source-benchmark-0-source";
+        name = "ecal-vendor_source-benchmark-1-source";
         url = "https://github.com/google/benchmark";
         rev = "62937f91b5c763a8e119d0c20c67b87bde8eff1c";
         hash = "sha256-oFp/TbBpEB993RAcIZUV8ZIqaXKTuvupqDrp76nbaug=";
@@ -64,27 +64,27 @@ let
       substitutions = [
       ];
     };
-    ecal-vendor_source-npcap-sdk-1-0 = substituteSource {
+    ecal-vendor_source-npcap-sdk-1-2 = substituteSource {
       src = fetchzip {
-        name = "ecal-vendor_source-npcap-sdk-1-0-source";
+        name = "ecal-vendor_source-npcap-sdk-1-2-source";
         url = "https://npcap.com/dist/npcap-sdk-1.13.zip";
         hash = "sha256-JROhJKweBWqwzleACr/driU8eLiOosUD2uZ8Nq2wJyg=";
       };
       substitutions = [
       ];
     };
-    ecal-vendor_source-pcapplusplus-22-0 = substituteSource {
+    ecal-vendor_source-pcapplusplus-22-4 = substituteSource {
       src = fetchzip {
-        name = "ecal-vendor_source-pcapplusplus-22-0-source";
+        name = "ecal-vendor_source-pcapplusplus-22-4-source";
         url = "https://github.com/seladb/PcapPlusPlus/releases/download/v22.05/pcapplusplus-22.05-windows-vs2015.zip";
         hash = "sha256-8HiKbhapQYlTdM5kDFT2D4KkKg9upviZDRf/VK4pXKM=";
       };
       substitutions = [
       ];
     };
-    spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0 = substituteSource {
+    hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44 = substituteSource {
       src = fetchgit {
-        name = "spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0-source";
+        name = "hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44-source";
         url = "https://github.com/google/benchmark.git";
         rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
         hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";

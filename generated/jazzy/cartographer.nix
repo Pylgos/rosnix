@@ -38,7 +38,7 @@ buildRosPackage {
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ git gtest ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ abseil-cpp cairo ceres-solver eigen gflags glog lua5 protobuf python3Packages.boost python3Packages.sphinx ];
+  propagatedBuildInputs = [ abseil-cpp cairo ceres-solver eigen gflags glog gtest lua5 protobuf python3Packages.boost python3Packages.sphinx ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

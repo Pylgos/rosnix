@@ -61,13 +61,13 @@ let
         {
           path = "Components/Overlay/CMakeLists.txt";
           from = "DOWNLOAD\n        https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
-          to = "DOWNLOAD file://${rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-0}";
+          to = "DOWNLOAD file://${rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-2}";
         }
       ];
     };
-    rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-0 = substituteSource {
+    rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-2 = substituteSource {
       src = fetchurl {
-        name = "rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-0-source";
+        name = "rviz_ogre_vendor-vendor_source-ogre-2-vendor_source-v1-2-source";
         url = "https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
         hash = "sha256-8ZCFAfbcbbik1XLCklmEf2+IJoSxBIjTqNLaMXRM0KQ=";
       };

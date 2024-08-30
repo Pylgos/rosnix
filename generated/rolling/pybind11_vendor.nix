@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-5 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-6 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-5-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-6-source";
         url = "https://github.com/pybind/pybind11.git";
         rev = "8a099e44b3d5f85b20f05828d919d2332a8de841";
         hash = "sha256-sO/Fa+QrAKyq2EYyYMcjPrYI+bdJIrDoj6L3JHoDo3E=";
@@ -31,7 +31,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/pybind/pybind11.git";
-          to = "VCS_TYPE path VCS_URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-5}";
+          to = "VCS_TYPE path VCS_URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-6}";
         }
       ];
     };

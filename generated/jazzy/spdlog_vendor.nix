@@ -12,6 +12,16 @@
 }:
 let
   sources = rec {
+    hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44 = substituteSource {
+      src = fetchgit {
+        name = "hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44-source";
+        url = "https://github.com/google/benchmark.git";
+        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
+        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
+      };
+      substitutions = [
+      ];
+    };
     spdlog_vendor = substituteSource {
       src = fetchgit {
         name = "spdlog_vendor-source";
@@ -38,18 +48,8 @@ let
         {
           path = "bench/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0}";
+          to = "URL ${hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44}";
         }
-      ];
-    };
-    spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0 = substituteSource {
-      src = fetchgit {
-        name = "spdlog_vendor-vendor_source-spdlog-0-vendor_source-benchmark-0-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
-        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
-      };
-      substitutions = [
       ];
     };
   };
