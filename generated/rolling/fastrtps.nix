@@ -22,6 +22,20 @@ let
         hash = "sha256-KSSHJqNx1mzl93n+QLasqWT2+NllPGG82pdzSM97uh4=";
       };
       substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "DOWNLOAD \"https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/\"";
+          to = "DOWNLOAD file://${fastrtps-vendor_source--0}";
+        }
+      ];
+    };
+    fastrtps-vendor_source--0 = substituteSource {
+      src = fetchurl {
+        name = "fastrtps-vendor_source--0-source";
+        url = "https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/";
+        hash = "sha256-I8h3ZHK0K61uC+ODhn6sDUk4EMqMxR9CF8Ajd3ADIJA=";
+      };
+      substitutions = [
       ];
     };
   };

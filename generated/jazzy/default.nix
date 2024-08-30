@@ -190,6 +190,13 @@ self:
   demo_nodes_py = self.callPackage ./demo_nodes_py.nix {};
   depth_image_proc = self.callPackage ./depth_image_proc.nix {};
   depthai = self.callPackage ./depthai.nix {};
+  depthai-ros = self.callPackage ./depthai-ros.nix {};
+  depthai_bridge = self.callPackage ./depthai_bridge.nix {};
+  depthai_descriptions = self.callPackage ./depthai_descriptions.nix {};
+  depthai_examples = self.callPackage ./depthai_examples.nix {};
+  depthai_filters = self.callPackage ./depthai_filters.nix {};
+  depthai_ros_driver = self.callPackage ./depthai_ros_driver.nix {};
+  depthai_ros_msgs = self.callPackage ./depthai_ros_msgs.nix {};
   depthimage_to_laserscan = self.callPackage ./depthimage_to_laserscan.nix {};
   derived_object_msgs = self.callPackage ./derived_object_msgs.nix {};
   desktop = self.callPackage ./desktop.nix {};

@@ -3,6 +3,7 @@
   ament_cmake_vendor_package,
   ament_lint_auto,
   ament_lint_common,
+  buildPackages,
   buildRosPackage,
   curl,
   fetchgit,
@@ -72,6 +73,11 @@ let
         hash = "sha256-NYLD6ShRq0sIQ9amr0CVKWqTL4qbONf07c4n0eXcmIY=";
       };
       substitutions = [
+        {
+          path = "Configure";
+          from = "#! /usr/bin/env perl";
+          to = "#!${buildPackages.perl}/bin/perl";
+        }
       ];
     };
     aws_sdk_cpp_vendor-vendor_source-aws-sdk-cpp-0-vendor_source-zlib-1-0 = substituteSource {

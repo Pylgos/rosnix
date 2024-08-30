@@ -17,6 +17,15 @@
 }:
 let
   sources = rec {
+    fastrtps-vendor_source--0 = substituteSource {
+      src = fetchurl {
+        name = "fastrtps-vendor_source--0-source";
+        url = "https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/";
+        hash = "sha256-I8h3ZHK0K61uC+ODhn6sDUk4EMqMxR9CF8Ajd3ADIJA=";
+      };
+      substitutions = [
+      ];
+    };
     foonathan_memory_vendor-vendor_source-memory-0 = substituteSource {
       src = fetchgit {
         name = "foonathan_memory_vendor-vendor_source-memory-0-source";
@@ -38,7 +47,7 @@ let
         {
           path = "CMake/catch2-download.cmake.in";
           from = "GIT_REPOSITORY https://github.com/catchorg/Catch2.git";
-          to = "URL ${librealsense2-vendor_source-Catch2-1}";
+          to = "URL ${librealsense2-vendor_source-Catch2-0}";
         }
         {
           path = "CMake/connectivity_check.cmake";
@@ -48,7 +57,7 @@ let
         {
           path = "CMake/external_fastdds.cmake";
           from = "GIT_REPOSITORY https://github.com/eProsima/Fast-DDS.git";
-          to = "URL ${librealsense2-vendor_source-Fast-DDS-7}";
+          to = "URL ${librealsense2-vendor_source-Fast-DDS-6}";
         }
         {
           path = "CMake/external_foonathan_memory.cmake";
@@ -58,17 +67,17 @@ let
         {
           path = "CMake/external_libcurl.cmake";
           from = "GIT_REPOSITORY \"https://github.com/curl/curl.git\"";
-          to = "URL ${librealsense2-vendor_source-curl-3}";
+          to = "URL ${librealsense2-vendor_source-curl-1}";
         }
         {
           path = "CMake/external_libusb.cmake";
           from = "GIT_REPOSITORY \"https://github.com/ev-mp/libusb.git\"";
-          to = "URL ${librealsense2-vendor_source-libusb-0}";
+          to = "URL ${librealsense2-vendor_source-libusb-2}";
         }
         {
           path = "CMake/json-download.cmake.in";
           from = "GIT_REPOSITORY \"https://github.com/nlohmann/json.git\"";
-          to = "URL ${librealsense2-vendor_source-json-2}";
+          to = "URL ${librealsense2-vendor_source-json-3}";
         }
         {
           path = "CMake/pybind11-download.cmake.in";
@@ -85,11 +94,16 @@ let
           from = "DOWNLOAD \"\${source_url}\"";
           to = "DOWNLOAD file://${librealsense2-vendor_source-gamecontrollerdb-8}";
         }
+        {
+          path = "wrappers/opencv/dnn/CMakeLists.txt";
+          from = "DOWNLOAD \"\${PROTOTEXT_URL}\"";
+          to = "DOWNLOAD file://${librealsense2-vendor_source-MobileNetSSD_deploy-8}";
+        }
       ];
     };
-    librealsense2-vendor_source-Catch2-1 = substituteSource {
+    librealsense2-vendor_source-Catch2-0 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-Catch2-1-source";
+        name = "librealsense2-vendor_source-Catch2-0-source";
         url = "https://github.com/catchorg/Catch2.git";
         rev = "6e79e682b726f524310d55dec8ddac4e9c52fb5f";
         hash = "sha256-DqGGfNjKPW9HFJrX9arFHyNYjB61uoL6NabZatTWrr0=";
@@ -97,12 +111,26 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-Fast-DDS-7 = substituteSource {
+    librealsense2-vendor_source-Fast-DDS-6 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-Fast-DDS-7-source";
+        name = "librealsense2-vendor_source-Fast-DDS-6-source";
         url = "https://github.com/eProsima/Fast-DDS.git";
         rev = "ff71eabb0f054a50837638d8b669f1db17243b46";
         hash = "sha256-H1Unfwhu0fWMzck85fEUWOrCPWUHKxbWZEF8ay0Wtak=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "DOWNLOAD \"https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/\"";
+          to = "DOWNLOAD file://${fastrtps-vendor_source--0}";
+        }
+      ];
+    };
+    librealsense2-vendor_source-MobileNetSSD_deploy-8 = substituteSource {
+      src = fetchurl {
+        name = "librealsense2-vendor_source-MobileNetSSD_deploy-8-source";
+        url = "https://raw.githubusercontent.com/chuanqi305/MobileNet-SSD/f5d072ccc7e3dcddaa830e9805da4bf1000b2836/MobileNetSSD_deploy.prototxt";
+        hash = "sha256-54FVnE9b6uwqSGzNlSr1tvpAjpSYdhv19PuAtOnw0l4=";
       };
       substitutions = [
       ];
@@ -116,9 +144,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-curl-3 = substituteSource {
+    librealsense2-vendor_source-curl-1 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-curl-3-source";
+        name = "librealsense2-vendor_source-curl-1-source";
         url = "https://github.com/curl/curl.git";
         rev = "2f33be817cbce6ad7a36f27dd7ada9219f13584c";
         hash = "sha256-sR4Pv5YWcS5/zWUff5f9ASFkx7Fv75WdtpnxiKG4Ulc=";
@@ -135,9 +163,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-json-2 = substituteSource {
+    librealsense2-vendor_source-json-3 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-json-2-source";
+        name = "librealsense2-vendor_source-json-3-source";
         url = "https://github.com/nlohmann/json.git";
         rev = "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03";
         hash = "sha256-7F0Jon+1oWL7uqet5i1IgHX0fUw/+z0QwEcA3zs5xHg=";
@@ -145,9 +173,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-libusb-0 = substituteSource {
+    librealsense2-vendor_source-libusb-2 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-libusb-0-source";
+        name = "librealsense2-vendor_source-libusb-2-source";
         url = "https://github.com/ev-mp/libusb.git";
         rev = "2a7372db54094a406a755f0b8548b614ba8c78ec";
         hash = "sha256-KYM8Aaz4kV7GFiQVy+dgFk6tPvDlJI6iPY5ddt4+OIE=";
