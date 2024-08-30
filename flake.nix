@@ -34,11 +34,7 @@
 
         ci = rec {
           distros = lib.mapAttrs (
-            name: pkgs:
-            {
-              inherit (pkgs.python3Packages) colcon-common-extensions;
-            }
-            // (lib.filterAttrs (name: value: lib.isDerivation value) pkgs.rosPackages)
+            _distro_name: pkgs: lib.filterAttrs (_name: value: lib.isDerivation value) pkgs.rosPackages
           ) (lib.removeAttrs selfLegacyPackages [ "default" ]);
 
           all = lib.mapAttrs (
@@ -46,6 +42,17 @@
             pkgs.stdenv.mkDerivation {
               name = "rosnix-ci-${distro}-all-pkgs";
               buildInputs = lib.attrValues rosPkgs;
+            }
+          ) distros;
+
+          check = lib.mapAttrs (
+            distro: rosPkgs:
+            pkgs.stdenv.mkDerivation {
+              name = "rosnix-ci-${distro}-check-pkgs";
+              buildInputs = [
+                rosPkgs.desktop
+                rosPkgs.cartographer
+              ];
             }
           ) distros;
         };
@@ -82,7 +89,7 @@
               text = ''
                 set -eu
                 distro=$1
-                attr=".#$distro.rosPackages.desktop"
+                attr=".#ci.${system}.check.$distro"
                 if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
                   cachix watch-exec rosnix -- nix build "$attr" -L
                 else
@@ -98,7 +105,7 @@
               text = ''
                 set -eu
                 distro=$1
-                attr=".#ci.x86_64-linux.all.$distro"
+                attr=".#ci.${system}.all.$distro"
                 if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
                   cachix watch-exec rosnix -- nix build "$attr" -L --keep-going || true
                 else

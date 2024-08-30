@@ -44,6 +44,15 @@ final: prev: {
           patches = patches ++ [ ./python_qt_binding.patch ];
         }
       );
+      cartographer = rosPrev.cartographer.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+        }
+      );
     }
   );
 }

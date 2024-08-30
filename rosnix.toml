@@ -21,7 +21,7 @@ runtime_groups = [
   "rosidl_runtime_packages",
   "rmw_implementation_packages",
 ]
-hybrid_packages = ["python3"]
+hybrid_packages = ["python3", "gtest"]
 
 [env.humble]
 PAL_DISTRO = ""
