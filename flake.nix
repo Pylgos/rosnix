@@ -83,7 +83,7 @@
                 set -eu
                 distro=$1
                 attr=".#$distro.rosPackages.desktop"
-                if nix build "$attr" --dry-run |& grep 'this derivation will be built:' > /dev/null; then
+                if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
                   cachix watch-exec rosnix -- nix build "$attr" -L
                 else
                   echo "$attr is already built or cached. skipping..."
@@ -99,7 +99,7 @@
                 set -eu
                 distro=$1
                 attr=".#ci.x86_64-linux.all.$distro"
-                if nix build "$attr" --dry-run |& grep 'this derivation will be built:' > /dev/null; then
+                if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
                   cachix watch-exec rosnix -- nix build "$attr" -L --keep-going || true
                 else
                   echo "$attr is already built or cached. skipping..."
