@@ -47,10 +47,17 @@ final: prev: {
       cartographer = rosPrev.cartographer.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
+          propagatedBuildInputs ? [ ],
           ...
         }:
         {
           nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+          propagatedBuildInputs =
+            (lib.remove final.abseil-cpp (lib.remove final.protobuf propagatedBuildInputs))
+            ++ [
+              final.abseil-cpp_202206
+              final.protobuf_21
+            ];
         }
       );
     }

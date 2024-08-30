@@ -50,6 +50,4 @@ in
     );
   };
   python3Packages = final.python3.pkgs;
-  protobuf = final.protobuf_21;
-  abseil-cpp = final.abseil-cpp_202206;
 }
