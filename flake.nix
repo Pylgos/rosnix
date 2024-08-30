@@ -1,10 +1,9 @@
 {
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     poetry2nix.url = "github:nix-community/poetry2nix";
     rosnix-generator.url = "github:Pylgos/rosnix-generator";
-    nix-mass-build.url = "github:Pylgos/nix-mass-build";
   };
 
   outputs =
@@ -14,7 +13,6 @@
       nixpkgs,
       poetry2nix,
       rosnix-generator,
-      nix-mass-build,
     }:
     let
       lib = flake-utils.lib // nixpkgs.lib // builtins;
@@ -70,19 +68,11 @@
           ci-build = lib.mkApp {
             drv = pkgs.writeShellApplication {
               name = "rosnix-ci-build";
-              runtimeInputs = [
-                pkgs.cachix
-                nix-mass-build.packages.${system}.default
-              ];
+              runtimeInputs = [ pkgs.cachix ];
               text = ''
                 set -eu
                 distro=$1
-                cachix daemon run rosnix >/tmp/cachix-log.txt 2>&1 &
-                #shellcheck disable=SC2016
-                nix-mass-build .#ci.x86_64-linux."$distro" --up-to desktop --gc-roots-dir ./gc-roots --out-dir ./results \
-                  --upload-command 'cachix daemon push ''${UPLOAD_STORE_PATH}' \
-                  --substituters https://cache.nixos.org --substituters https://rosnix.cachix.org
-                cachix daemon stop
+                cachix watch-exec rosnix -- nix build .#"$distro".rosPackages.desktop -L
               '';
             };
           };
@@ -91,17 +81,12 @@
               name = "rosnix-ci-build-all";
               runtimeInputs = [
                 pkgs.cachix
-                nix-mass-build.packages.${system}.default
+                pkgs.nix-fast-build
               ];
               text = ''
                 set -eu
                 distro=$1
-                cachix daemon run rosnix >/tmp/cachix-log.txt 2>&1 &
-                #shellcheck disable=SC2016
-                nix-mass-build .#ci.x86_64-linux."$distro" --keep-going --gc-roots-dir ./gc-roots --out-dir ./results \
-                  --upload-command 'cachix daemon push ''${UPLOAD_STORE_PATH}' \
-                  --substituters https://cache.nixos.org --substituters https://rosnix.cachix.org
-                cachix daemon stop
+                nix-fast-build --flake .#ci.x86_64-linux."$distro" -j1 --out-link ./results/ --cachix-cache rosnix --no-nom
               '';
             };
           };
