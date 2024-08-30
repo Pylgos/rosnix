@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "gtsam-source";
         url = "https://github.com/ros2-gbp/gtsam-release.git";
-        rev = "8b85d3ec71c896157dc9dea95a2513988c7ea6bc";
-        hash = "sha256-pB7YNdBRIvvJ21JFD/rNx7KcYzVzXMLJcyUyVg6w8Zk=";
+        rev = "417ef871550e7e13a51a717e2f4b16ebf17e3f81";
+        hash = "sha256-ERY+Se9DNzpNImwnyrl2UGDHhSxLNmhlIL9anEb/CRg=";
       };
       substitutions = [
         {
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "gtsam";
-  version = "4.2.0-3";
+  version = "4.2.0-4";
   src = sources.gtsam;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];

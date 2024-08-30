@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "urdf_parser_plugin-source";
         url = "https://github.com/ros2-gbp/urdf-release.git";
-        rev = "419c6c4e63e3ba0c02e388532e9ba917298f5c29";
-        hash = "sha256-jmjbEvN8s1LAK5SSF/CO7sPs15jtjJRxJqFPrTWhMFQ=";
+        rev = "dad41adcdb0eb1dabc8a2ff43909f5107bc3e37e";
+        hash = "sha256-jak4nCNAsPorAcfxqx1lqsktcFckTz78KrgpZ0ZN9ss=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "urdf_parser_plugin";
-  version = "2.11.0-1";
+  version = "2.12.0-1";
   src = sources.urdf_parser_plugin;
   nativeBuildInputs = [ ament_cmake_ros ];
   propagatedNativeBuildInputs = [  ];

@@ -53,8 +53,8 @@ let
       src = fetchgit {
         name = "openvdb_vendor-vendor_source-openvdb-0-vendor_source-opengametools-0-source";
         url = "https://github.com/jpaver/opengametools.git";
-        rev = "a45c00f7c4ff2e7f750099cba7fcc299e0d08096";
-        hash = "sha256-sjFI1al6d8qb11qZautLBM97ovukqCkyNRoB+IeOAcg=";
+        rev = "1c185fe9ce7217df814ec51482a030d7aa66324d";
+        hash = "sha256-euwKNvpVfhtB8hxVHTcetK5iUhSyADxpVtLAEZOiYWs=";
       };
       substitutions = [
       ];

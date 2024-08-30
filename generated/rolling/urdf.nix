@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   pluginlib,
+  rcutils,
   substituteSource,
   tinyxml2_vendor,
   urdf_parser_plugin,
@@ -20,8 +21,8 @@ let
       src = fetchgit {
         name = "urdf-source";
         url = "https://github.com/ros2-gbp/urdf-release.git";
-        rev = "42777195449dde904947760cf708586706d4d955";
-        hash = "sha256-Y9mBDuxuohIQEpbi59/3CjwdFjvyguV2voinSM1Vxy0=";
+        rev = "36871dcd5a47d953a281ba3d54d41a8d102e1acc";
+        hash = "sha256-SvhhpjvdwMyjmAhJdP3SrN72LZ37MKzWvRbd90D4qBI=";
       };
       substitutions = [
       ];
@@ -30,12 +31,12 @@ let
 in
 buildRosPackage {
   pname = "urdf";
-  version = "2.11.0-1";
+  version = "2.12.0-1";
   src = sources.urdf;
   nativeBuildInputs = [ ament_cmake_ros ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib tinyxml2_vendor urdf_parser_plugin urdfdom urdfdom_headers ];
+  propagatedBuildInputs = [ pluginlib rcutils tinyxml2_vendor urdf_parser_plugin urdfdom urdfdom_headers ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_google_benchmark ament_lint_auto ament_lint_common ];

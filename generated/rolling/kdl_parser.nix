@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "kdl_parser-source";
         url = "https://github.com/ros2-gbp/kdl_parser-release.git";
-        rev = "597777768cc8df0a0d9366eb01b21ddecff2d043";
-        hash = "sha256-SOT14TqgRvW80OdroY2wAtEEQ3+OXcKhLyf6R8ndzAk=";
+        rev = "cdbf9b2a8a2f95a13051dfb795e795b836e5530a";
+        hash = "sha256-k9FAvPXK/EUOGHyUHB+uVIFTU+swbET5SO9mHMP450Y=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "kdl_parser";
-  version = "2.12.0-1";
+  version = "2.12.1-1";
   src = sources.kdl_parser;
   nativeBuildInputs = [ ament_cmake_ros ];
   propagatedNativeBuildInputs = [  ];

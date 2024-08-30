@@ -81,15 +81,6 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-v1-0 = substituteSource {
-      src = fetchzip {
-        name = "mrpt2-vendor_source-v1-0-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-      substitutions = [
-      ];
-    };
     mrpt2-vendor_source-v5-0 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-v5-0-source";
@@ -99,9 +90,24 @@ let
       substitutions = [
       ];
     };
-    mrpt_apps-vendor_source-mrpt-0 = substituteSource {
+    mrpt_libapps = substituteSource {
       src = fetchgit {
-        name = "mrpt_apps-vendor_source-mrpt-0-source";
+        name = "mrpt_libapps-source";
+        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
+        rev = "bf848cfd86c2ca972ceda06b3a26dd1314216e40";
+        hash = "sha256-g6bQzObWSqmndwD+ZkCL404esh+dvCvFP4TmjDic0dE=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/MRPT/mrpt.git";
+          to = "URL ${mrpt_libgui-vendor_source-mrpt-0}";
+        }
+      ];
+    };
+    mrpt_libgui-vendor_source-mrpt-0 = substituteSource {
+      src = fetchgit {
+        name = "mrpt_libgui-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
         rev = "10191145bb725d3f9ebae846ed39c92dfc024a3b";
         hash = "sha256-bYc1HlBjYMO+TL7l7sfQpTqojTXWWPYbXD0wQIG9nEs=";
@@ -120,7 +126,7 @@ let
         {
           path = "cmakemodules/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0}";
+          to = "URL ${mrpt_libgui-vendor_source-mrpt-0-vendor_source-eigen-3-0}";
         }
         {
           path = "cmakemodules/script_jpeg.cmake";
@@ -130,7 +136,7 @@ let
         {
           path = "cmakemodules/script_octomap.cmake";
           from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt2-vendor_source-v1-0}";
+          to = "URL ${mrpt_libgui-vendor_source-mrpt-0-vendor_source-v1-0}";
         }
         {
           path = "cmakemodules/script_tinyxml2.cmake";
@@ -144,9 +150,9 @@ let
         }
       ];
     };
-    mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0 = substituteSource {
+    mrpt_libgui-vendor_source-mrpt-0-vendor_source-eigen-3-0 = substituteSource {
       src = fetchzip {
-        name = "mrpt_apps-vendor_source-mrpt-0-vendor_source-eigen-3-0-source";
+        name = "mrpt_libgui-vendor_source-mrpt-0-vendor_source-eigen-3-0-source";
         url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
         hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
       };
@@ -158,19 +164,13 @@ let
         }
       ];
     };
-    mrpt_libapps = substituteSource {
-      src = fetchgit {
-        name = "mrpt_libapps-source";
-        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "bf848cfd86c2ca972ceda06b3a26dd1314216e40";
-        hash = "sha256-g6bQzObWSqmndwD+ZkCL404esh+dvCvFP4TmjDic0dE=";
+    mrpt_libgui-vendor_source-mrpt-0-vendor_source-v1-0 = substituteSource {
+      src = fetchzip {
+        name = "mrpt_libgui-vendor_source-mrpt-0-vendor_source-v1-0-source";
+        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
+        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
       };
       substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/MRPT/mrpt.git";
-          to = "URL ${mrpt_apps-vendor_source-mrpt-0}";
-        }
       ];
     };
   };

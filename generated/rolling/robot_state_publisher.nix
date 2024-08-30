@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "robot_state_publisher-source";
         url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
-        rev = "d6f1207a6d89dd429ef55d7874b0bf5dfd41a457";
-        hash = "sha256-GhFyhSb11LmrsK1ybXzKl55lCIubVA3e0OqoolL+s90=";
+        rev = "ec77148a420bc7ebc6727077436a2feb6b7aadc0";
+        hash = "sha256-LZBeqk7Kua+ROcmdZZfIUe+gIWb4W7TAiPXrViz6Aj4=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "robot_state_publisher";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = sources.robot_state_publisher;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

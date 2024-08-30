@@ -4,7 +4,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  mrpt2,
+  mrpt_libgui,
+  mrpt_libmaps,
+  mrpt_libnav,
+  mrpt_libtclap,
   mvsim,
   substituteSource,
 }:
@@ -14,8 +17,8 @@ let
       src = fetchgit {
         name = "mrpt_path_planning-source";
         url = "https://github.com/ros2-gbp/mrpt_path_planning-release.git";
-        rev = "9ff6ce496eb36011c9d70495c122c72ebdcd16cb";
-        hash = "sha256-XWexI9w2FPA3Rg8km5x+SQGxY5414oFxsWRAWvFVrxY=";
+        rev = "806a7f901a9ad1deb56f195af7a4086288ed02c0";
+        hash = "sha256-9AxjfjBnPt6PuwE1Dw/WM2ehisMCIQjKOwkbJvyUkgI=";
       };
       substitutions = [
       ];
@@ -24,12 +27,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_path_planning";
-  version = "0.1.3-1";
+  version = "0.1.4-1";
   src = sources.mrpt_path_planning;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mrpt2 mvsim ];
+  propagatedBuildInputs = [ mrpt_libgui mrpt_libmaps mrpt_libnav mrpt_libtclap mvsim ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

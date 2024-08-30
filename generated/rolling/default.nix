@@ -746,6 +746,7 @@ self:
   python_cmake_module = self.callPackage ./python_cmake_module.nix {};
   python_orocos_kdl_vendor = self.callPackage ./python_orocos_kdl_vendor.nix {};
   python_qt_binding = self.callPackage ./python_qt_binding.nix {};
+  qml_ros2_plugin = self.callPackage ./qml_ros2_plugin.nix {};
   qpoases_vendor = self.callPackage ./qpoases_vendor.nix {};
   qt_dotgraph = self.callPackage ./qt_dotgraph.nix {};
   qt_gui = self.callPackage ./qt_gui.nix {};
@@ -901,6 +902,8 @@ self:
   ros2topic = self.callPackage ./ros2topic.nix {};
   ros2trace = self.callPackage ./ros2trace.nix {};
   ros2trace_analysis = self.callPackage ./ros2trace_analysis.nix {};
+  ros_babel_fish = self.callPackage ./ros_babel_fish.nix {};
+  ros_babel_fish_test_msgs = self.callPackage ./ros_babel_fish_test_msgs.nix {};
   ros_base = self.callPackage ./ros_base.nix {};
   ros_core = self.callPackage ./ros_core.nix {};
   ros_environment = self.callPackage ./ros_environment.nix {};

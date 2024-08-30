@@ -319,7 +319,7 @@ let
       src = fetchzip {
         name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-6-vendor_source-master-1-source";
         url = "https://github.com/pybind/pybind11/archive/refs/heads/master.tar.gz";
-        hash = "sha256-yAWTYNiSvYKAieTJlDPwwiUcs6jf9xdOGBN2D0TCIrA=";
+        hash = "sha256-r+nnpu6gxWkJBZvD2X7F9ykJAydkZV+HEBClmtOulvI=";
       };
       substitutions = [
       ];

@@ -40,8 +40,8 @@ let
       src = fetchgit {
         name = "robot_localization-source";
         url = "https://github.com/ros2-gbp/robot_localization-release.git";
-        rev = "fe41f9d50fca415b7945a70a70cd77fba858db9e";
-        hash = "sha256-GpzFamql3QOEMFc2VxVaRveYni8bElyv48UgJHAwel8=";
+        rev = "baea1cdab65a10e0a56964ca9098bd3362cf75da";
+        hash = "sha256-fZ43sEzp1RU9bYJqKBy8b3t+X6i8tNx05QFMlplxxys=";
       };
       substitutions = [
       ];
@@ -50,7 +50,7 @@ let
 in
 buildRosPackage {
   pname = "robot_localization";
-  version = "3.8.0-1";
+  version = "3.8.1-1";
   src = sources.robot_localization;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

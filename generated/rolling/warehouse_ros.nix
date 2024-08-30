@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "warehouse_ros-source";
         url = "https://github.com/ros2-gbp/warehouse_ros-release.git";
-        rev = "51ae5accd3b9a7f2ffa19c3fb1a725322adbba00";
-        hash = "sha256-89Ku8Zth68EgdS2DXIeyBjbm75ZItsbMZ0ZbKGlw6Fw=";
+        rev = "bf9c959640a5ea9429eb8373608127fcf8c63981";
+        hash = "sha256-X45/qATzogkTqKBnEvt1wH7hKl9/qSTTVboEsAuL/Es=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "warehouse_ros";
-  version = "2.0.4-4";
+  version = "2.0.5-1";
   src = sources.warehouse_ros;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
