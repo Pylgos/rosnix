@@ -32,13 +32,23 @@
           }
         ) self.overlays;
 
-        ci = lib.mapAttrs (
-          name: pkgs:
-          {
-            inherit (pkgs.python3Packages) colcon-common-extensions;
-          }
-          // (lib.filterAttrs (name: value: lib.isDerivation value) pkgs.rosPackages)
-        ) (lib.removeAttrs selfLegacyPackages [ "default" ]);
+        ci = rec {
+          distros = lib.mapAttrs (
+            name: pkgs:
+            {
+              inherit (pkgs.python3Packages) colcon-common-extensions;
+            }
+            // (lib.filterAttrs (name: value: lib.isDerivation value) pkgs.rosPackages)
+          ) (lib.removeAttrs selfLegacyPackages [ "default" ]);
+
+          all = lib.mapAttrs (
+            distro: rosPkgs:
+            pkgs.stdenv.mkDerivation {
+              name = "rosnix-ci-${distro}-all-pkgs";
+              buildInputs = lib.attrValues rosPkgs;
+            }
+          ) distros;
+        };
 
         apps = {
           ci-update = lib.mkApp {
@@ -79,14 +89,11 @@
           ci-build-all = lib.mkApp {
             drv = pkgs.writeShellApplication {
               name = "rosnix-ci-build-all";
-              runtimeInputs = [
-                pkgs.cachix
-                pkgs.nix-fast-build
-              ];
+              runtimeInputs = [ pkgs.cachix ];
               text = ''
                 set -eu
                 distro=$1
-                nix-fast-build --flake .#ci.x86_64-linux."$distro" -j1 --out-link ./results/ --cachix-cache rosnix --no-nom
+                cachix watch-exec rosnix -- nix build .#ci.x86_64-linux.all."$distro" -L
               '';
             };
           };
