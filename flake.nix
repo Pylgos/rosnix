@@ -93,7 +93,7 @@
               text = ''
                 set -eu
                 distro=$1
-                cachix watch-exec rosnix -- nix build .#ci.x86_64-linux.all."$distro" -L
+                cachix watch-exec rosnix -- nix build .#ci.x86_64-linux.all."$distro" -L --keep-going || true
               '';
             };
           };
