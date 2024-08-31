@@ -25,6 +25,7 @@
   tf2_geometry_msgs,
   tf2_ros,
   visualization_msgs,
+  xsimd,
 }:
 let
   sources = rec {
@@ -47,11 +48,11 @@ buildRosPackage {
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ];
   propagatedNativeBuildInputs = [ gbenchmark ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs llvmPackages.openmp nav2_common nav2_core nav2_costmap_2d nav2_msgs nav2_util pluginlib rclcpp std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs ];
+  propagatedBuildInputs = [ geometry_msgs llvmPackages.openmp nav2_common nav2_core nav2_costmap_2d nav2_msgs nav2_util pluginlib rclcpp std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs xsimd ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [ "xsimd" "xtensor" ];
+  missingDependencies = [ "xtensor" ];
   meta = {
     description = "nav2_mppi_controller";
   };

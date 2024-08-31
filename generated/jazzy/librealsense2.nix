@@ -47,7 +47,7 @@ let
         {
           path = "CMake/catch2-download.cmake.in";
           from = "GIT_REPOSITORY https://github.com/catchorg/Catch2.git";
-          to = "URL ${librealsense2-vendor_source-Catch2-0}";
+          to = "URL ${librealsense2-vendor_source-Catch2-1}";
         }
         {
           path = "CMake/connectivity_check.cmake";
@@ -57,7 +57,7 @@ let
         {
           path = "CMake/external_fastdds.cmake";
           from = "GIT_REPOSITORY https://github.com/eProsima/Fast-DDS.git";
-          to = "URL ${librealsense2-vendor_source-Fast-DDS-6}";
+          to = "URL ${librealsense2-vendor_source-Fast-DDS-7}";
         }
         {
           path = "CMake/external_foonathan_memory.cmake";
@@ -67,17 +67,17 @@ let
         {
           path = "CMake/external_libcurl.cmake";
           from = "GIT_REPOSITORY \"https://github.com/curl/curl.git\"";
-          to = "URL ${librealsense2-vendor_source-curl-1}";
+          to = "URL ${librealsense2-vendor_source-curl-3}";
         }
         {
           path = "CMake/external_libusb.cmake";
           from = "GIT_REPOSITORY \"https://github.com/ev-mp/libusb.git\"";
-          to = "URL ${librealsense2-vendor_source-libusb-2}";
+          to = "URL ${librealsense2-vendor_source-libusb-0}";
         }
         {
           path = "CMake/json-download.cmake.in";
           from = "GIT_REPOSITORY \"https://github.com/nlohmann/json.git\"";
-          to = "URL ${librealsense2-vendor_source-json-3}";
+          to = "URL ${librealsense2-vendor_source-json-2}";
         }
         {
           path = "CMake/pybind11-download.cmake.in";
@@ -101,9 +101,9 @@ let
         }
       ];
     };
-    librealsense2-vendor_source-Catch2-0 = substituteSource {
+    librealsense2-vendor_source-Catch2-1 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-Catch2-0-source";
+        name = "librealsense2-vendor_source-Catch2-1-source";
         url = "https://github.com/catchorg/Catch2.git";
         rev = "6e79e682b726f524310d55dec8ddac4e9c52fb5f";
         hash = "sha256-DqGGfNjKPW9HFJrX9arFHyNYjB61uoL6NabZatTWrr0=";
@@ -111,9 +111,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-Fast-DDS-6 = substituteSource {
+    librealsense2-vendor_source-Fast-DDS-7 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-Fast-DDS-6-source";
+        name = "librealsense2-vendor_source-Fast-DDS-7-source";
         url = "https://github.com/eProsima/Fast-DDS.git";
         rev = "ff71eabb0f054a50837638d8b669f1db17243b46";
         hash = "sha256-H1Unfwhu0fWMzck85fEUWOrCPWUHKxbWZEF8ay0Wtak=";
@@ -144,9 +144,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-curl-1 = substituteSource {
+    librealsense2-vendor_source-curl-3 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-curl-1-source";
+        name = "librealsense2-vendor_source-curl-3-source";
         url = "https://github.com/curl/curl.git";
         rev = "2f33be817cbce6ad7a36f27dd7ada9219f13584c";
         hash = "sha256-sR4Pv5YWcS5/zWUff5f9ASFkx7Fv75WdtpnxiKG4Ulc=";
@@ -163,9 +163,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-json-3 = substituteSource {
+    librealsense2-vendor_source-json-2 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-json-3-source";
+        name = "librealsense2-vendor_source-json-2-source";
         url = "https://github.com/nlohmann/json.git";
         rev = "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03";
         hash = "sha256-7F0Jon+1oWL7uqet5i1IgHX0fUw/+z0QwEcA3zs5xHg=";
@@ -173,9 +173,9 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-libusb-2 = substituteSource {
+    librealsense2-vendor_source-libusb-0 = substituteSource {
       src = fetchgit {
-        name = "librealsense2-vendor_source-libusb-2-source";
+        name = "librealsense2-vendor_source-libusb-0-source";
         url = "https://github.com/ev-mp/libusb.git";
         rev = "2a7372db54094a406a755f0b8548b614ba8c78ec";
         hash = "sha256-KYM8Aaz4kV7GFiQVy+dgFk6tPvDlJI6iPY5ddt4+OIE=";
