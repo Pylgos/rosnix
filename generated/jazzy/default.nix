@@ -324,6 +324,7 @@ self:
   fastcdr = self.callPackage ./fastcdr.nix {};
   fastrtps = self.callPackage ./fastrtps.nix {};
   fastrtps_cmake_module = self.callPackage ./fastrtps_cmake_module.nix {};
+  ffmpeg_encoder_decoder = self.callPackage ./ffmpeg_encoder_decoder.nix {};
   ffmpeg_image_transport = self.callPackage ./ffmpeg_image_transport.nix {};
   ffmpeg_image_transport_msgs = self.callPackage ./ffmpeg_image_transport_msgs.nix {};
   ffmpeg_image_transport_tools = self.callPackage ./ffmpeg_image_transport_tools.nix {};
@@ -1263,12 +1264,17 @@ self:
   tricycle_controller = self.callPackage ./tricycle_controller.nix {};
   tricycle_steering_controller = self.callPackage ./tricycle_steering_controller.nix {};
   turbojpeg_compressed_image_transport = self.callPackage ./turbojpeg_compressed_image_transport.nix {};
+  turtle_nest = self.callPackage ./turtle_nest.nix {};
   turtle_tf2_cpp = self.callPackage ./turtle_tf2_cpp.nix {};
   turtle_tf2_py = self.callPackage ./turtle_tf2_py.nix {};
   turtlebot3_fake_node = self.callPackage ./turtlebot3_fake_node.nix {};
   turtlebot3_gazebo = self.callPackage ./turtlebot3_gazebo.nix {};
   turtlebot3_msgs = self.callPackage ./turtlebot3_msgs.nix {};
   turtlebot3_simulations = self.callPackage ./turtlebot3_simulations.nix {};
+  turtlebot4_description = self.callPackage ./turtlebot4_description.nix {};
+  turtlebot4_msgs = self.callPackage ./turtlebot4_msgs.nix {};
+  turtlebot4_navigation = self.callPackage ./turtlebot4_navigation.nix {};
+  turtlebot4_node = self.callPackage ./turtlebot4_node.nix {};
   turtlesim = self.callPackage ./turtlesim.nix {};
   tuw_geometry = self.callPackage ./tuw_geometry.nix {};
   tvm_vendor = self.callPackage ./tvm_vendor.nix {};

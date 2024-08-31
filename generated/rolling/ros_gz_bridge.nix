@@ -38,8 +38,8 @@ let
       src = fetchgit {
         name = "ros_gz_bridge-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "6f252b46859b80e65ef6aab255553e5cd6ff5f4a";
-        hash = "sha256-chlgJ7zCvlRsOVb4XaRWQ3sqQf8V9rLPJHgoSIUedgs=";
+        rev = "e80042adbb7cebb3cb79a02911e64a9ca014d18e";
+        hash = "sha256-KmqGXhEJi5QIqNiWlDpuk9Odn43rSbBPWXV2gqq57+o=";
       };
       substitutions = [
       ];
@@ -48,7 +48,7 @@ let
 in
 buildRosPackage {
   pname = "ros_gz_bridge";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = sources.ros_gz_bridge;
   nativeBuildInputs = [ ament_cmake ament_cmake_python pkg-config rosidl_pycommon ];
   propagatedNativeBuildInputs = [  ];
