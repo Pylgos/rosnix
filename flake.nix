@@ -41,7 +41,9 @@
             distro: rosPkgs:
             pkgs.stdenv.mkDerivation {
               name = "rosnix-ci-${distro}-all-pkgs";
-              buildInputs = lib.attrValues rosPkgs;
+              deps = lib.attrValues rosPkgs;
+              phases = [ "installPhase" ];
+              installPhase = "touch $out";
             }
           ) distros;
 
@@ -49,10 +51,12 @@
             distro: rosPkgs:
             pkgs.stdenv.mkDerivation {
               name = "rosnix-ci-${distro}-check-pkgs";
-              buildInputs = [
+              deps = [
                 rosPkgs.desktop
                 rosPkgs.cartographer
               ];
+              phases = [ "installPhase" ];
+              installPhase = "touch $out";
             }
           ) distros;
         };
