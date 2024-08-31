@@ -833,6 +833,8 @@ DISABLE_GROUPS_WORKAROUND = "1"
   "xorg.fontbhlucidatypewriter75dpi",
   "xorg.fontbitstream75dpi",
 ]
+"xsimd" = ["xsimd"]
+"xtensor" = ["xtensor"]
 "xsltproc" = ["libxslt"]
 "xterm" = ["xterm"]
 "xvfb" = ["xorg.xorgserver"]

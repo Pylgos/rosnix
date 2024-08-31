@@ -15,7 +15,8 @@
       rosnix-generator,
     }:
     let
-      lib = flake-utils.lib // nixpkgs.lib // builtins;
+      applyShims = import ./shims;
+      lib = (applyShims nixpkgs.lib) // flake-utils.lib // nixpkgs.lib // builtins;
     in
     (lib.eachDefaultSystem (
       system:
@@ -54,7 +55,8 @@
               deps = [
                 rosPkgs.desktop
                 rosPkgs.cartographer
-                rosPkgs.slam_toolbox
+                (rosPkgs.slam_toolbox or null)
+                rosPkgs.navigation2
               ];
               phases = [ "installPhase" ];
               installPhase = "touch $out";

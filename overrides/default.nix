@@ -2,7 +2,8 @@
 
 final: prev: {
   rosPackages = prev.rosPackages.overrideScope (
-    rosFinal: rosPrev: {
+    rosFinal: rosPrev:
+    {
       ament_cmake_vendor_package = rosPrev.ament_cmake_vendor_package.overrideAttrs (
         {
           patches ? [ ],
@@ -60,15 +61,33 @@ final: prev: {
             ];
         }
       );
-      slam_toolbox = rosPrev.slam_toolbox.overrideAttrs (
+      behaviortree_cpp = rosPrev.behaviortree_cpp.overrideAttrs (
         {
-          propagatedBuildInputs ? [ ],
+          rosCmakeArgs ? [ ],
+          doCheck ? false,
           ...
         }:
         {
-          propagatedBuildInputs = (lib.remove final.tbb propagatedBuildInputs) ++ [ final.tbb_2021_11 ];
+          rosCmakeArgs = rosCmakeArgs ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
         }
       );
     }
+    // (
+      if rosPrev ? slam_toolbox then
+        {
+
+          slam_toolbox = rosPrev.slam_toolbox.overrideAttrs (
+            {
+              propagatedBuildInputs ? [ ],
+              ...
+            }:
+            {
+              propagatedBuildInputs = (lib.remove final.tbb propagatedBuildInputs) ++ [ final.tbb_2021_11 ];
+            }
+          );
+        }
+      else
+        { }
+    )
   );
 }
