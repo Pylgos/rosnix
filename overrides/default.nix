@@ -60,6 +60,15 @@ final: prev: {
             ];
         }
       );
+      slam_toolbox = rosPrev.slam_toolbox.overrideAttrs (
+        {
+          propagatedBuildInputs ? [ ],
+          ...
+        }:
+        {
+          propagatedBuildInputs = (lib.remove final.tbb propagatedBuildInputs) ++ [ final.tbb_2021_11 ];
+        }
+      );
     }
   );
 }

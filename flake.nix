@@ -54,6 +54,7 @@
               deps = [
                 rosPkgs.desktop
                 rosPkgs.cartographer
+                rosPkgs.slam_toolbox
               ];
               phases = [ "installPhase" ];
               installPhase = "touch $out";
