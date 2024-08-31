@@ -5,7 +5,26 @@ use std::{
     env, fs,
     io::Write,
     path::{Path, PathBuf},
+    sync::atomic::AtomicBool,
 };
+
+static LOG_ENABLED: AtomicBool = AtomicBool::new(false);
+
+macro_rules! log {
+    ($($arg:tt)*) => {
+        if LOG_ENABLED.load(std::sync::atomic::Ordering::Relaxed) {
+            eprint!("rosnix-setup-helper: ");
+            eprintln!($($arg)*);
+        }
+    }
+}
+
+macro_rules! warn {
+    ($($arg:tt)*) => {
+        eprint!("rosnix-setup-helper: warn: ");
+        eprintln!($($arg)*);
+    }
+}
 
 #[derive(Debug, Clone)]
 struct Package {
@@ -16,6 +35,7 @@ struct Package {
 
 impl Package {
     fn find(search_path: &Path) -> HashMap<String, Package> {
+        log!("searching packages in {search_path:?}");
         let mut packages = HashMap::new();
         let pkg_dir = search_path
             .join("share")
@@ -37,6 +57,7 @@ impl Package {
                 let deps = fs::read_to_string(deps_file_path)
                     .map(|content| content.split(':').map(String::from).collect())
                     .unwrap_or_default();
+                log!("found package: {name}, deps: {deps:?}",);
                 packages.insert(
                     name.clone(),
                     Package {
@@ -76,7 +97,8 @@ enum DsvOperation {
     },
 }
 
-fn parse_dsv(content: &str, prefix: &Path) -> Result<Vec<DsvOperation>> {
+fn parse_dsv(path: &Path, prefix: &Path) -> Result<Vec<DsvOperation>> {
+    let content = fs::read_to_string(path)?;
     let mut ops = vec![];
     let add_prefix_if_relative = |path_str: &str| -> PathBuf {
         let path = Path::new(path_str);
@@ -148,7 +170,8 @@ fn parse_dsv(content: &str, prefix: &Path) -> Result<Vec<DsvOperation>> {
     Ok(ops)
 }
 
-fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Result<Vec<DsvOperation>> {
+fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Vec<DsvOperation> {
+    log!("enter: dsv_transform");
     #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
     struct AvailableExtensions {
         dsv: bool,
@@ -167,8 +190,15 @@ fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Result<Vec<DsvOperati
             let prefix = prefix.to_path_buf();
             if base.with_extension("dsv").is_file() {
                 let path = base.with_extension("dsv");
-                let content = fs::read_to_string(path)?;
-                new_ops.extend(dsv_transform(parse_dsv(&content, &prefix)?, develop)?);
+                log!("sourcing dsv file: {path:?}");
+                let dsv = match parse_dsv(&path, &prefix) {
+                    Ok(dsv) => dsv,
+                    Err(err) => {
+                        warn!("failed to parse dsv file: {err}");
+                        continue;
+                    }
+                };
+                new_ops.extend(dsv_transform(dsv, develop));
             } else if develop && base.with_extension("sh").is_file() {
                 new_ops.push(DsvOperation::Source {
                     path: base.with_extension("sh"),
@@ -185,7 +215,8 @@ fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Result<Vec<DsvOperati
             new_ops.push(op.clone());
         }
     }
-    Ok(new_ops)
+    log!("exit: dsv_transform");
+    new_ops
 }
 
 fn toposort_pkgs(pkgs: &BTreeMap<String, Package>) -> Vec<&str> {
@@ -214,24 +245,31 @@ fn toposort_pkgs(pkgs: &BTreeMap<String, Package>) -> Vec<&str> {
     sorted
 }
 
-fn gether_dsv_ops(
+fn collect_dsv_ops(
     pkgs: &BTreeMap<String, Package>,
     sorted_pkgs: &[&str],
     develop: bool,
-) -> Result<Vec<DsvOperation>> {
+) -> Vec<DsvOperation> {
+    log!("collecting dsv ops");
     let mut ops = Vec::new();
 
     for name in sorted_pkgs.iter() {
-        if let Some(pkg) = pkgs.get(*name) {
-            let dsv_path = pkg.package_dsv();
-            let content = fs::read_to_string(&dsv_path)?;
-            let mut pkg_ops = parse_dsv(&content, &pkg.prefix).unwrap();
-            pkg_ops = dsv_transform(pkg_ops, develop).unwrap();
-            ops.extend(pkg_ops);
-        }
+        log!("processing package: {name}");
+        let pkg = &pkgs[*name];
+        let dsv_path = pkg.package_dsv();
+        log!("parsing package dsv file: {dsv_path:?}");
+        let mut pkg_ops = match parse_dsv(&dsv_path, &pkg.prefix) {
+            Ok(ops) => ops,
+            Err(err) => {
+                warn!("failed to parse dsv file {dsv_path:?}: {err}");
+                continue;
+            }
+        };
+        pkg_ops = dsv_transform(pkg_ops, develop);
+        ops.extend(pkg_ops);
     }
 
-    Ok(ops)
+    ops
 }
 
 fn escape(s: &str) -> Cow<str> {
@@ -303,11 +341,17 @@ fn generate_setup_script(
 }
 
 fn main() -> Result<()> {
+    LOG_ENABLED.store(
+        env::var_os("ROSNIX_SETUP_HELPER_DEBUG").is_some(),
+        std::sync::atomic::Ordering::Relaxed,
+    );
+    log!("starting");
     let search_path: Vec<_> = env::var("_ROSNIX_SEARCH_PATH")
         .unwrap_or_default()
         .split(':')
         .map(PathBuf::from)
         .collect();
+    log!("search path: {search_path:?}");
     let pkgs: BTreeMap<String, Package> = search_path
         .iter()
         .flat_map(|p| Package::find(p).into_iter())
@@ -316,8 +360,11 @@ fn main() -> Result<()> {
     let develop = env::var("ROSNIX_SETUP_DEVEL_ENV")
         .map(|val| val != "0")
         .unwrap_or(false);
-    let ops = gether_dsv_ops(&pkgs, &sorted_pkgs, develop)?;
+    log!("develop mode: {develop}");
+    let ops = collect_dsv_ops(&pkgs, &sorted_pkgs, develop);
     let env: HashMap<String, String> = env::vars().collect();
+    log!("generating setup script");
     generate_setup_script(std::io::stdout(), &ops, env)?;
+    log!("done");
     Ok(())
 }
