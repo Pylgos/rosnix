@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "rt_manipulators_examples-source";
         url = "https://github.com/ros2-gbp/rt_manipulators_cpp-release.git";
-        rev = "9a5622cda1c32f88ff33ebd4055f911337754914";
-        hash = "sha256-dHVhmshZaD7z/hfD5tLkvXw6mehXEQSlivgKwLZ4YZM=";
+        rev = "29b61b471b07224641d91c3b738f6a6985648c12";
+        hash = "sha256-cNJsXqsJXtFAM3wNOEyNmybk38Hofq8NrTcUVuOA2HE=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "rt_manipulators_examples";
-  version = "1.0.0-4";
+  version = "1.1.0-1";
   src = sources.rt_manipulators_examples;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

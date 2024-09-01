@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "ros_gz-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "371ab0d7f82a5a016f98e43395edbd5d8540f820";
-        hash = "sha256-wgtOVoHlgkHFpWFaFnq0IE/WraGEGdeLhvhW3eiKi1o=";
+        rev = "bda31df298319c5fc91977db2ca70c1b7bf65c36";
+        hash = "sha256-OGwasYv0j5bC5JQALPbbM0mw8w+9aov2omYWk3MdZcE=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "ros_gz";
-  version = "1.0.3-1";
+  version = "1.0.4-1";
   src = sources.ros_gz;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

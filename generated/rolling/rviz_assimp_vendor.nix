@@ -121,9 +121,9 @@ let
       substitutions = [
       ];
     };
-    mrpt2-vendor_source-v5-2-vendor_source-v0-2 = substituteSource {
+    mrpt2-vendor_source-v5-0-vendor_source-v0-0 = substituteSource {
       src = fetchzip {
-        name = "mrpt2-vendor_source-v5-2-vendor_source-v0-2-source";
+        name = "mrpt2-vendor_source-v5-0-vendor_source-v0-0-source";
         url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
         hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
       };
@@ -221,7 +221,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${mrpt2-vendor_source-v5-2-vendor_source-v0-2}";
+          to = "URL ${mrpt2-vendor_source-v5-0-vendor_source-v0-0}";
         }
       ];
     };
