@@ -8,7 +8,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  mrpt2,
+  mrpt_libros_bridge,
+  mrpt_libtclap,
   mrpt_msgs,
   nav_msgs,
   rosbag2_cpp,
@@ -24,8 +25,8 @@ let
       src = fetchgit {
         name = "mrpt_rawlog-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "38ca48003de501aabd2b41ed891c944386262747";
-        hash = "sha256-Iij3u3z+iaZZU8MKUsKQ7gP97W5XHR89X87aQrA/4Qs=";
+        rev = "72eab9b8848f4ed196d662e5ae8c276438b1780d";
+        hash = "sha256-1s7fse7d3JWuA1AsYWnLjucimD/A6U8er7UPqoKS8ck=";
       };
       substitutions = [
       ];
@@ -34,12 +35,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_rawlog";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_rawlog;
   nativeBuildInputs = [ ament_cmake cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge mrpt2 mrpt_msgs nav_msgs rosbag2_cpp sensor_msgs tf2_geometry_msgs tf2_msgs tf2_ros ];
+  propagatedBuildInputs = [ cv_bridge mrpt_libros_bridge mrpt_libtclap mrpt_msgs nav_msgs rosbag2_cpp sensor_msgs tf2_geometry_msgs tf2_msgs tf2_ros ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

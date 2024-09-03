@@ -7,8 +7,10 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  mrpt2,
+  mrpt_libobs,
+  mrpt_libros_bridge,
   mrpt_msgs,
+  rclcpp,
   ros_environment,
   substituteSource,
   tf2,
@@ -19,8 +21,8 @@ let
       src = fetchgit {
         name = "mrpt_msgs_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "319d37f264e1f0db35c3b246a5f66d4cdc07a6ec";
-        hash = "sha256-6Ian4Rg8Nk1KoESjpE+66LPN4lTn7FCSgu/hqLVq6bo=";
+        rev = "5eb3bf55693fbbe721956157c0abdd0a49df799a";
+        hash = "sha256-dA9YIQTwlPe7wVZO+FloNtCoGql/sDzX3ppPH7VsEEo=";
       };
       substitutions = [
       ];
@@ -29,12 +31,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_msgs_bridge";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_msgs_bridge;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs mrpt2 mrpt_msgs tf2 ];
+  propagatedBuildInputs = [ geometry_msgs mrpt_libobs mrpt_libros_bridge mrpt_msgs rclcpp tf2 ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

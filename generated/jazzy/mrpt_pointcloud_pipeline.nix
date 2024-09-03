@@ -7,7 +7,10 @@
   fetchurl,
   fetchzip,
   mp2p_icp,
-  mrpt2,
+  mrpt_libgui,
+  mrpt_libmaps,
+  mrpt_libobs,
+  mrpt_libros_bridge,
   nav_msgs,
   rclcpp,
   rclcpp_components,
@@ -22,8 +25,8 @@ let
       src = fetchgit {
         name = "mrpt_pointcloud_pipeline-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "279357e20ea112ee87641757f66761efd7dca0c4";
-        hash = "sha256-Z19VT8yEdUUFL2OL/EnIHcchGibYQ92OIGcCmjIA26s=";
+        rev = "71a61b50be44869ee97b3e50a20504922122c8f4";
+        hash = "sha256-mIl08zhenbl9XcYFUKGwGTRdlFclW86Ciy+edlpeKTo=";
       };
       substitutions = [
       ];
@@ -32,12 +35,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_pointcloud_pipeline";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_pointcloud_pipeline;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mp2p_icp mrpt2 nav_msgs rclcpp rclcpp_components sensor_msgs tf2 tf2_geometry_msgs ];
+  propagatedBuildInputs = [ mp2p_icp mrpt_libgui mrpt_libmaps mrpt_libobs mrpt_libros_bridge nav_msgs rclcpp rclcpp_components sensor_msgs tf2 tf2_geometry_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

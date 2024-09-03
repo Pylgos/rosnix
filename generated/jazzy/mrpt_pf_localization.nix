@@ -9,12 +9,15 @@
   fetchzip,
   mola_relocalization,
   mp2p_icp,
-  mrpt2,
+  mrpt_libgui,
+  mrpt_libros_bridge,
+  mrpt_libslam,
   mrpt_msgs,
   mrpt_msgs_bridge,
   mrpt_tutorials,
   nav_msgs,
   pose_cov_ops,
+  rclcpp,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -27,8 +30,8 @@ let
       src = fetchgit {
         name = "mrpt_pf_localization-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "d7fa93e90102f943aa1635b0f1f9162beac5e052";
-        hash = "sha256-wvrhY5cAF3qKaJR2wB46a32QiYnMibCdMq8LpgUf5fg=";
+        rev = "4fe27d16855a8bb10f5bf70bf16e6a4353c64c6c";
+        hash = "sha256-UsMeijiElVebNnauEAXIlsUoIy1o7qccPZI0FMu7o+I=";
       };
       substitutions = [
       ];
@@ -37,12 +40,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_pf_localization";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_pf_localization;
   nativeBuildInputs = [ ament_cmake cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mola_relocalization mp2p_icp mrpt2 mrpt_msgs mrpt_msgs_bridge nav_msgs pose_cov_ops sensor_msgs std_msgs tf2 tf2_geometry_msgs ];
+  propagatedBuildInputs = [ mola_relocalization mp2p_icp mrpt_libgui mrpt_libros_bridge mrpt_libslam mrpt_msgs mrpt_msgs_bridge nav_msgs pose_cov_ops rclcpp sensor_msgs std_msgs tf2 tf2_geometry_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ mrpt_tutorials ];

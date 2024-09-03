@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_sensors-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "9e10cc4c2cc6e3f98af89c0abd17fbd554efa078";
-        hash = "sha256-f0Gj0v5KZWHX/4j9MPoiyccJ04+ozBhns3us+61llMc=";
+        rev = "eb972a441598acf641fa65ee8b919e6fb82e409b";
+        hash = "sha256-B8MCdYv31gBZx0BxHHZYUfyq9ZX2m+fR+E2JFusZQc8=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_sensors";
-  version = "0.2.2-1";
+  version = "0.2.3-1";
   src = sources.mrpt_sensors;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];

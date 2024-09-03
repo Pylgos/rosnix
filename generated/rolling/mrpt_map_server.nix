@@ -7,11 +7,10 @@
   fetchurl,
   fetchzip,
   mp2p_icp,
-  mrpt2,
+  mrpt_libmaps,
+  mrpt_libros_bridge,
   mrpt_msgs,
   mrpt_nav_interfaces,
-  nav_msgs,
-  rclcpp,
   rclcpp_components,
   substituteSource,
 }:
@@ -21,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_map_server-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "0a6f0731ff6b175aac570d4bdcf93a2218cac192";
-        hash = "sha256-UXrilDOL2dQeHHU8av/P5iK4WXG28UPNEs2lFaUnZfA=";
+        rev = "aae05e5f2552674443cebbde7d8140f676d43a11";
+        hash = "sha256-WOxRFsyYcYHInT2omNnufVfXdaLXyF9JJLXrAHCuTm0=";
       };
       substitutions = [
       ];
@@ -31,12 +30,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_map_server";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_map_server;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ mp2p_icp mrpt2 mrpt_msgs mrpt_nav_interfaces nav_msgs rclcpp rclcpp_components ];
+  propagatedBuildInputs = [ mp2p_icp mrpt_libmaps mrpt_libros_bridge mrpt_msgs mrpt_nav_interfaces rclcpp_components ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "mrpt_tutorials-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "4e5186649185afde6222135c4a11d319ee192561";
-        hash = "sha256-3Zx/r/5OMt+vLFOubBqvuKTRKYOiy29W4a+6cfigtVE=";
+        rev = "457eb187c962008a3ab3b45c6a6164686d42d4c7";
+        hash = "sha256-Jbg3mfVV8tRkqyuSdv/FT3Us24gMojpWOQGWqkAIt5M=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_tutorials";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = sources.mrpt_tutorials;
   nativeBuildInputs = [ ament_cmake cmake ];
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
