@@ -847,6 +847,7 @@ self:
   pybind11_json_vendor = self.callPackage ./pybind11_json_vendor.nix {};
   pybind11_vendor = self.callPackage ./pybind11_vendor.nix {};
   python_cmake_module = self.callPackage ./python_cmake_module.nix {};
+  python_mrpt = self.callPackage ./python_mrpt.nix {};
   python_orocos_kdl_vendor = self.callPackage ./python_orocos_kdl_vendor.nix {};
   python_qt_binding = self.callPackage ./python_qt_binding.nix {};
   qml_ros2_plugin = self.callPackage ./qml_ros2_plugin.nix {};
@@ -1272,9 +1273,11 @@ self:
   turtlebot3_msgs = self.callPackage ./turtlebot3_msgs.nix {};
   turtlebot3_simulations = self.callPackage ./turtlebot3_simulations.nix {};
   turtlebot4_description = self.callPackage ./turtlebot4_description.nix {};
+  turtlebot4_desktop = self.callPackage ./turtlebot4_desktop.nix {};
   turtlebot4_msgs = self.callPackage ./turtlebot4_msgs.nix {};
   turtlebot4_navigation = self.callPackage ./turtlebot4_navigation.nix {};
   turtlebot4_node = self.callPackage ./turtlebot4_node.nix {};
+  turtlebot4_viz = self.callPackage ./turtlebot4_viz.nix {};
   turtlesim = self.callPackage ./turtlesim.nix {};
   tuw_geometry = self.callPackage ./tuw_geometry.nix {};
   tvm_vendor = self.callPackage ./tvm_vendor.nix {};

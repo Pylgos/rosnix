@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "zstd_point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "c15ceec307f19f2ad483bc708baba0fc605bcea3";
-        hash = "sha256-xqUGi2WaBdkpLROw0Z/jDu3kWEBHgIHXw9/1LB/KP0c=";
+        rev = "0d35ca2082c89ce87ebeec290ae8223306abc7d0";
+        hash = "sha256-RAgGj5fZQ4dleHmWEA4Zomp+z0qKm6tp+8iVV72xlHk=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "zstd_point_cloud_transport";
-  version = "4.0.0-1";
+  version = "4.0.1-1";
   src = sources.zstd_point_cloud_transport;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

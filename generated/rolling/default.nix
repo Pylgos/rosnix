@@ -745,6 +745,7 @@ self:
   pybind11_json_vendor = self.callPackage ./pybind11_json_vendor.nix {};
   pybind11_vendor = self.callPackage ./pybind11_vendor.nix {};
   python_cmake_module = self.callPackage ./python_cmake_module.nix {};
+  python_mrpt = self.callPackage ./python_mrpt.nix {};
   python_orocos_kdl_vendor = self.callPackage ./python_orocos_kdl_vendor.nix {};
   python_qt_binding = self.callPackage ./python_qt_binding.nix {};
   qml_ros2_plugin = self.callPackage ./qml_ros2_plugin.nix {};

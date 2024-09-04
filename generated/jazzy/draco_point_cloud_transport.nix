@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "draco_point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "70cf5bd849fe6d94cb212c5c35e45a364be2ab97";
-        hash = "sha256-6rpH1H2TMVBOm3m7lPgGWKjs4XsovibiazY5qClpMAA=";
+        rev = "a82bc7999a6ac97fe76280fede4c4d3e486eaee7";
+        hash = "sha256-Pv8YnDdLGd8hGHHgtfiCWcDav6Ig5uyuvdaDZ65Q+kQ=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "draco_point_cloud_transport";
-  version = "4.0.0-1";
+  version = "4.0.1-1";
   src = sources.draco_point_cloud_transport;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

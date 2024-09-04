@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "libcamera-source";
         url = "https://github.com/ros2-gbp/libcamera-release.git";
-        rev = "a6a854cc5c5a30fb639e0031395c7a4575f540b9";
-        hash = "sha256-SjadIxWIvJfyF9O00K2HG8qcFKwyRukB8or93Leirvw=";
+        rev = "2220c34729e9a5fb612e4ddf39b1d1ef93189da9";
+        hash = "sha256-45FJe28lkXjPLXx7svI8U6QCJq7Hocx9wRZuVz7iGoY=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "libcamera";
-  version = "0.3.1-3";
+  version = "0.3.1-4";
   src = sources.libcamera;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [ pkg-config buildPackages.python3Packages.jinja2 buildPackages.python3Packages.pyyaml ];

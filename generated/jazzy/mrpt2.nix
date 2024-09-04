@@ -162,7 +162,7 @@ let
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
         url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
-        hash = "sha256-5ByqbhZIkSoHIqXvvWF8gi30RY0oAmbmqgERLkIWajU=";
+        hash = "sha256-puFwQQczUk99u7fPap9W66blNUvcgq++V/n69+HdTEA=";
       };
       substitutions = [
       ];

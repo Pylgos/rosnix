@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "zlib_point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "943d6ee0fbe617528bf6d354d677b8c02f421705";
-        hash = "sha256-r9Wr8lJanGqSvsPwBoqPBayo+U48l8fpOq7hPU8aIak=";
+        rev = "a4b413ebdd1f05fabd7b90865b8b6f29974bcb0c";
+        hash = "sha256-PaeewGTzVRDuHlzt25xNhDLwHn5QdiYT88svwzhisz8=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "zlib_point_cloud_transport";
-  version = "5.0.0-1";
+  version = "5.0.1-1";
   src = sources.zlib_point_cloud_transport;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

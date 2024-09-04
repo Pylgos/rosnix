@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "point_cloud_interfaces-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "b2531ec28eb8206681a8e3948c828d95d24d0191";
-        hash = "sha256-ruPI5xWtceZHkhQlA0zRPEik1GiJIJNLL4jWSl6/LK8=";
+        rev = "2e11c14a317c118f45be6734e866cdcaedaceb6e";
+        hash = "sha256-1Ymq8mMTxypnyf4FmU8KvHqTwQkNy7Ofv+NdxOajqxU=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "point_cloud_interfaces";
-  version = "4.0.0-1";
+  version = "4.0.1-1";
   src = sources.point_cloud_interfaces;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

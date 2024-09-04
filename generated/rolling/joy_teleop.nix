@@ -1,5 +1,4 @@
 {
-  action_tutorials_interfaces,
   ament_copyright,
   ament_flake8,
   ament_pep257,
@@ -29,8 +28,8 @@ let
       src = fetchgit {
         name = "joy_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "524725023a18503c34880be481e05100682e5e02";
-        hash = "sha256-VhLfbJ1z++s5bQPQospx/fGaVJbwS6BuLHFiFyn45bk=";
+        rev = "4117d2e06a4292a97ed80671e9908600d8a019bd";
+        hash = "sha256-upObp0jfQf198ZPg1eoz2Yg0HPhYRD2GGmIAowZS+ow=";
       };
       substitutions = [
       ];
@@ -39,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "joy_teleop";
-  version = "1.5.0-2";
+  version = "1.5.1-1";
   src = sources.joy_teleop;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];
@@ -47,7 +46,7 @@ buildRosPackage {
   propagatedBuildInputs = [ control_msgs rclpy rosidl_runtime_py sensor_msgs teleop_tools_msgs trajectory_msgs ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
-  checkInputs = [ action_tutorials_interfaces ament_copyright ament_flake8 ament_pep257 ament_xmllint example_interfaces geometry_msgs launch_ros launch_testing std_msgs std_srvs test_msgs ];
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint example_interfaces geometry_msgs launch_ros launch_testing std_msgs std_srvs test_msgs ];
   missingDependencies = [  ];
   meta = {
     description = "A (to be) generic joystick interface to control a robot";

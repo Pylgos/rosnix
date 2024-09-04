@@ -4,35 +4,29 @@
   buildRosPackage,
   cmake,
   cv_bridge,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
   ffmpeg,
   freeglut,
   freenect,
-  geometry_msgs,
   glfw3,
-  jsoncpp,
   libGL,
   libGLU,
   libjpeg,
   libpcap,
   libusb1,
-  nav_msgs,
+  mrpt_libapps,
+  mrpt_libgui,
+  mrpt_libnav,
+  mrpt_libslam,
   opencv,
   pkg-config,
   python3Packages,
   rclcpp,
   ros_environment,
   rosbag2_storage,
-  sensor_msgs,
-  std_msgs,
-  stereo_msgs,
   substituteSource,
-  suitesparse,
-  tf2,
-  tf2_msgs,
   tinyxml-2,
   udev,
   wxGTK32,
@@ -167,51 +161,6 @@ let
       substitutions = [
       ];
     };
-    mrpt2 = substituteSource {
-      src = fetchgit {
-        name = "mrpt2-source";
-        url = "https://github.com/ros2-gbp/mrpt2-release.git";
-        rev = "8e54b3813c18a6ca98f9b09eb11f779d77baadca";
-        hash = "sha256-y4T4qnJo3cWPqhIoo4t0FWd1MJ9A2v6z+hB9o4v30f0=";
-      };
-      substitutions = [
-        {
-          path = "3rdparty/nanogui/ext/glfw/CMake/GenerateMappings.cmake";
-          from = "DOWNLOAD \"\${source_url}\"";
-          to = "DOWNLOAD file://${librealsense2-vendor_source-gamecontrollerdb-8}";
-        }
-        {
-          path = "cmakemodules/script_assimp.cmake";
-          from = "URL               \"https://github.com/assimp/assimp/archive/v5.3.1.tar.gz\"";
-          to = "URL ${mrpt2-vendor_source-v5-0}";
-        }
-        {
-          path = "cmakemodules/script_eigen.cmake";
-          from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${mrpt2-vendor_source-eigen-3-13}";
-        }
-        {
-          path = "cmakemodules/script_jpeg.cmake";
-          from = "URL               \"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz\"";
-          to = "URL ${mrpt2-vendor_source-1-14}";
-        }
-        {
-          path = "cmakemodules/script_octomap.cmake";
-          from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${mrpt2-vendor_source-v1-15}";
-        }
-        {
-          path = "cmakemodules/script_tinyxml2.cmake";
-          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.cpp";
-          to = "DOWNLOAD file://${mrpt2-vendor_source-tinyxml2-16}";
-        }
-        {
-          path = "cmakemodules/script_tinyxml2.cmake";
-          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.h";
-          to = "DOWNLOAD file://${mrpt2-vendor_source-tinyxml2-16}";
-        }
-      ];
-    };
     mrpt2-vendor_source-1-14 = substituteSource {
       src = fetchzip {
         name = "mrpt2-vendor_source-1-14-source";
@@ -341,21 +290,81 @@ let
         }
       ];
     };
+    python_mrpt = substituteSource {
+      src = fetchgit {
+        name = "python_mrpt-source";
+        url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
+        rev = "3150dc1f6ae35da38155f98531b0a41600b84af8";
+        hash = "sha256-GSFy9Ec+rnErMJ6eDFgkGO9gry68DRhH9iHyrulKs4A=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/MRPT/mrpt.git";
+          to = "URL ${python_mrpt-vendor_source-mrpt-0}";
+        }
+      ];
+    };
+    python_mrpt-vendor_source-mrpt-0 = substituteSource {
+      src = fetchgit {
+        name = "python_mrpt-vendor_source-mrpt-0-source";
+        url = "https://github.com/MRPT/mrpt.git";
+        rev = "513bf22094225bf88cd1bdf3b92f62b1fceddd6d";
+        hash = "sha256-2L16+/UwEci6TzWGfiEuZZxXNqF+gEvMP8IbfvIPjx0=";
+      };
+      substitutions = [
+        {
+          path = "3rdparty/nanogui/ext/glfw/CMake/GenerateMappings.cmake";
+          from = "DOWNLOAD \"\${source_url}\"";
+          to = "DOWNLOAD file://${librealsense2-vendor_source-gamecontrollerdb-8}";
+        }
+        {
+          path = "cmakemodules/script_assimp.cmake";
+          from = "URL               \"https://github.com/assimp/assimp/archive/v5.3.1.tar.gz\"";
+          to = "URL ${mrpt2-vendor_source-v5-0}";
+        }
+        {
+          path = "cmakemodules/script_eigen.cmake";
+          from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
+          to = "URL ${mrpt2-vendor_source-eigen-3-13}";
+        }
+        {
+          path = "cmakemodules/script_jpeg.cmake";
+          from = "URL               \"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz\"";
+          to = "URL ${mrpt2-vendor_source-1-14}";
+        }
+        {
+          path = "cmakemodules/script_octomap.cmake";
+          from = "URL               \"\${OCTOMAP_EP_URL}\"";
+          to = "URL ${mrpt2-vendor_source-v1-15}";
+        }
+        {
+          path = "cmakemodules/script_tinyxml2.cmake";
+          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.cpp";
+          to = "DOWNLOAD file://${mrpt2-vendor_source-tinyxml2-16}";
+        }
+        {
+          path = "cmakemodules/script_tinyxml2.cmake";
+          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.h";
+          to = "DOWNLOAD file://${mrpt2-vendor_source-tinyxml2-16}";
+        }
+      ];
+    };
   };
 in
 buildRosPackage {
-  pname = "mrpt2";
-  version = "2.13.5-1";
-  src = sources.mrpt2;
+  pname = "python_mrpt";
+  version = "2.13.7-1";
+  src = sources.python_mrpt;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge eigen ffmpeg freeglut freenect geometry_msgs glfw3 jsoncpp libGL libGLU libjpeg libpcap libusb1 nav_msgs opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage sensor_msgs std_msgs stereo_msgs suitesparse tf2 tf2_msgs tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
+  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libapps mrpt_libgui mrpt_libnav mrpt_libslam opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];
-  missingDependencies = [ "libfyaml-dev" "liboctomap-dev" "libopenni2-dev" "libxxf86vm" ];
+  missingDependencies = [ "liboctomap-dev" "libopenni2-dev" "libxxf86vm" ];
   meta = {
-    description = "Mobile Robot Programming Toolkit (MRPT) version 2.x";
+    description = "Python wrapper for Mobile Robot Programming Toolkit (MRPT) libraries";
   };
 }
