@@ -966,6 +966,7 @@ self:
   robot_calibration_msgs = self.callPackage ./robot_calibration_msgs.nix {};
   robot_localization = self.callPackage ./robot_localization.nix {};
   robot_state_publisher = self.callPackage ./robot_state_publisher.nix {};
+  robot_upstart = self.callPackage ./robot_upstart.nix {};
   robotiq_controllers = self.callPackage ./robotiq_controllers.nix {};
   robotiq_description = self.callPackage ./robotiq_description.nix {};
   robotraconteur = self.callPackage ./robotraconteur.nix {};
@@ -1274,9 +1275,13 @@ self:
   turtlebot3_simulations = self.callPackage ./turtlebot3_simulations.nix {};
   turtlebot4_description = self.callPackage ./turtlebot4_description.nix {};
   turtlebot4_desktop = self.callPackage ./turtlebot4_desktop.nix {};
+  turtlebot4_gz_bringup = self.callPackage ./turtlebot4_gz_bringup.nix {};
+  turtlebot4_gz_gui_plugins = self.callPackage ./turtlebot4_gz_gui_plugins.nix {};
+  turtlebot4_gz_toolbox = self.callPackage ./turtlebot4_gz_toolbox.nix {};
   turtlebot4_msgs = self.callPackage ./turtlebot4_msgs.nix {};
   turtlebot4_navigation = self.callPackage ./turtlebot4_navigation.nix {};
   turtlebot4_node = self.callPackage ./turtlebot4_node.nix {};
+  turtlebot4_simulator = self.callPackage ./turtlebot4_simulator.nix {};
   turtlebot4_viz = self.callPackage ./turtlebot4_viz.nix {};
   turtlesim = self.callPackage ./turtlesim.nix {};
   tuw_geometry = self.callPackage ./tuw_geometry.nix {};

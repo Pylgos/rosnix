@@ -1,5 +1,5 @@
 {
-  ament_cmake_auto,
+  ament_cmake,
   ament_cmake_gtest,
   ament_cmake_python,
   ament_lint_auto,
@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "topic_tools-source";
         url = "https://github.com/ros2-gbp/topic_tools-release.git";
-        rev = "dc3683c76ac7e4fee5d2a3133a0db2ed1e9a70e6";
-        hash = "sha256-maSjbWC7ie5nCohC1Tg5QDoTDmSpwBflgbzy+o361jA=";
+        rev = "ae0033edc0dcb78bfd44bd0c93a55698a85b7c14";
+        hash = "sha256-xfICiOdj7/BpaEsO/ab+Z06sHcIqvCXBgHkor4ZF1gg=";
       };
       substitutions = [
       ];
@@ -34,9 +34,9 @@ let
 in
 buildRosPackage {
   pname = "topic_tools";
-  version = "1.3.0-2";
+  version = "1.4.0-1";
   src = sources.topic_tools;
-  nativeBuildInputs = [ ament_cmake_auto ament_cmake_python rosidl_default_generators ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
   propagatedBuildInputs = [ rclcpp rclcpp_components rclpy ros2cli rosidl_runtime_py topic_tools_interfaces ];

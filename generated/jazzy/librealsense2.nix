@@ -21,7 +21,7 @@ let
       src = fetchurl {
         name = "fastrtps-vendor_source--0-source";
         url = "https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/";
-        hash = "sha256-I8h3ZHK0K61uC+ODhn6sDUk4EMqMxR9CF8Ajd3ADIJA=";
+        hash = "sha256-UdrOl8nd8dBORhTzTTBf9aSi7r0ElJ/8JkCXHRC81jg=";
       };
       substitutions = [
       ];
@@ -158,7 +158,7 @@ let
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
         url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
-        hash = "sha256-puFwQQczUk99u7fPap9W66blNUvcgq++V/n69+HdTEA=";
+        hash = "sha256-/Soz/icYkGZyEgtx/EDPtFkOJiNzydcTELqZaeoFB8U=";
       };
       substitutions = [
       ];
