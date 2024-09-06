@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "turtle_nest-source";
         url = "https://github.com/ros2-gbp/turtle_nest-release.git";
-        rev = "b06ead1689d614ff802a85853e8974579522dd96";
-        hash = "sha256-Wq8Lhnc71PLKrKuPq3/WMQWoS1F+lI67RvvVfx5xmRs=";
+        rev = "c72ef68cf0a0269dbe9a93fc49b4d2bbd44ce78c";
+        hash = "sha256-ZOCujpxbSs8G7iK430a6Q5AzSeAzQ5Dh2CfDIZ1XlAY=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "turtle_nest";
-  version = "1.0.1-1";
+  version = "1.0.2-1";
   src = sources.turtle_nest;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

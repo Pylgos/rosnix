@@ -15,13 +15,13 @@ let
       src = fetchgit {
         name = "mcap_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "8d4681b3d9e5f1b591273e341bd050060d798703";
-        hash = "sha256-UtCNI29w6TWzmykhYdKVd+iYTDhYr6OfCg2Zt/S9FKg=";
+        rev = "2cc61ca16f9137b9facf9e0084978a456469be1a";
+        hash = "sha256-+YNlr32TW9G0LC8NqSuLPDuM7crL8dK3GvW3wA4jpPY=";
       };
       substitutions = [
         {
           path = "CMakeLists.txt";
-          from = "URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.3.0.tar.gz";
+          from = "URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.4.0.tar.gz";
           to = "URL ${mcap_vendor-vendor_source-v1-0}";
         }
       ];
@@ -29,8 +29,8 @@ let
     mcap_vendor-vendor_source-v1-0 = substituteSource {
       src = fetchzip {
         name = "mcap_vendor-vendor_source-v1-0-source";
-        url = "https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.3.0.tar.gz";
-        hash = "sha256-vGMdVNa0wsX9OD0W29Ndk2YmwFphmxPbiovCXtHxF4E=";
+        url = "https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.4.0.tar.gz";
+        hash = "sha256-u7ZPj0wOUBuJSKjkEGaOeBJ8tX9LMHi9NCjIdPLM15U=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "mcap_vendor";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.mcap_vendor;
   nativeBuildInputs = [ ament_cmake git ];
   propagatedNativeBuildInputs = [  ];

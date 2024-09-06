@@ -12,8 +12,8 @@ let
       src = fetchgit {
         name = "shared_queues_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "98650b0c7bd1f4fc704c296fa33482c4d142cf34";
-        hash = "sha256-ioqHlatGSOPTbKZ0R/R1jjxt47X5pi2UrKkl5cSsFP0=";
+        rev = "5bfdbc60c3ab76b8308362830dd9aaa3fc7cb7e0";
+        hash = "sha256-1Jz+rLYhCEk7DLVDD6024TMbRbGI5W6GChosnvU6vHA=";
       };
       substitutions = [
         {
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "shared_queues_vendor";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.shared_queues_vendor;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

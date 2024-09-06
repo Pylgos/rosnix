@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "rosbag2_storage_mcap-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "3da494c7f6a4c826033c921b5deaa24c334ede1d";
-        hash = "sha256-2Z7ERdrEaZvk04ov9Rqff2NBIZt4zJaMWRjIPaVq1PU=";
+        rev = "6a37ba2418e00603de8db54592977a0497817cf2";
+        hash = "sha256-o3OkhTzf6Kb2LetVZ1UUnAJjGsY+o9Zm6tDc2PcKo98=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_storage_mcap";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_storage_mcap;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ];
   propagatedNativeBuildInputs = [  ];

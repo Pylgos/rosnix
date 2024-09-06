@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rosbag2_interfaces-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "ce7edd4ab704996a79d401ba671b9399fc04c8de";
-        hash = "sha256-t+oMUSSHr3qtX9MkmD87Ri8oU7R8ky256Unjl4lu4oo=";
+        rev = "4e4ced1677fd2d87ff58e1e0b55c1fb121108020";
+        hash = "sha256-EqJ8lHBUDGWKT5+r4090Cq74fbzIOrJPuy2yglqiVW4=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_interfaces";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_interfaces;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

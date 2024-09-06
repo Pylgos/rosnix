@@ -23,6 +23,7 @@
   rosidl_typesupport_cpp,
   rosidl_typesupport_introspection_cpp,
   shared_queues_vendor,
+  std_msgs,
   substituteSource,
   test_msgs,
 }:
@@ -32,8 +33,8 @@ let
       src = fetchgit {
         name = "rosbag2_cpp-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "ed712c3f61f41da80de198f4e556aa3fbf683cd8";
-        hash = "sha256-Sh+LAZYhIiy0qsfz06DmpEI34R+bi3f7Rt1iRC3VYTY=";
+        rev = "35800c21412da65f82d01b8243e0dad1914bf3f1";
+        hash = "sha256-XR388h7pkdLOdzsb4O6UlCr2XO1KJP+wm11/eqA6Weo=";
       };
       substitutions = [
       ];
@@ -42,7 +43,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_cpp";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_cpp;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
@@ -50,7 +51,7 @@ buildRosPackage {
   propagatedBuildInputs = [ ament_index_cpp pluginlib rclcpp rcpputils rcutils rmw rmw_implementation rosbag2_storage rosidl_runtime_c rosidl_runtime_cpp rosidl_typesupport_cpp rosidl_typesupport_introspection_cpp shared_queues_vendor ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common rosbag2_storage_default_plugins rosbag2_test_common rosbag2_test_msgdefs test_msgs ];
+  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common rosbag2_storage_default_plugins rosbag2_test_common rosbag2_test_msgdefs std_msgs test_msgs ];
   missingDependencies = [  ];
   meta = {
     description = "C++ ROSBag2 client library";

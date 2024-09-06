@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "rosbag2_storage_default_plugins-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "36cf9b0271157bf8f921cab16c9eab7c76efa10f";
-        hash = "sha256-3XqLNpmlG8c2wmvkMyKGMiB4EuGT1m/SOhLqtot+2kQ=";
+        rev = "c6be948ed2c3e08c153102e5f0136acdd91744cc";
+        hash = "sha256-qYKofx+YsiUi5fB0miblbrQfohN2A1NR/n3CxeRQ2yM=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_storage_default_plugins";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_storage_default_plugins;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

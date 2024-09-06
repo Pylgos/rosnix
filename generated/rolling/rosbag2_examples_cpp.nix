@@ -9,6 +9,7 @@
   fetchzip,
   rclcpp,
   rosbag2_cpp,
+  rosbag2_transport,
   substituteSource,
 }:
 let
@@ -17,8 +18,8 @@ let
       src = fetchgit {
         name = "rosbag2_examples_cpp-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "84d42627d8f35c15bb11f61070df6bb40c765437";
-        hash = "sha256-JYQdDaWy22I59kIutGPNFZuWoBjXs3ixSe7c/nFr5m8=";
+        rev = "9c37e6487f7542054f6d06239bcb31f28c2bacd4";
+        hash = "sha256-lslBvo95xI28KhaVKOKNumO7yNCsoJVwrlXG56HXbAY=";
       };
       substitutions = [
       ];
@@ -27,12 +28,12 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_examples_cpp";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_examples_cpp;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ example_interfaces rclcpp rosbag2_cpp ];
+  propagatedBuildInputs = [ example_interfaces rclcpp rosbag2_cpp rosbag2_transport ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_lint_auto ament_lint_common ];

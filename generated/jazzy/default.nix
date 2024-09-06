@@ -1159,6 +1159,7 @@ self:
   sick_scan_xd = self.callPackage ./sick_scan_xd.nix {};
   simple_actions = self.callPackage ./simple_actions.nix {};
   simple_launch = self.callPackage ./simple_launch.nix {};
+  simple_term_menu_vendor = self.callPackage ./simple_term_menu_vendor.nix {};
   simulation = self.callPackage ./simulation.nix {};
   slam_toolbox = self.callPackage ./slam_toolbox.nix {};
   slider_publisher = self.callPackage ./slider_publisher.nix {};

@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "rosbag2_transport-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "6a3ee805e544f81aab3a5706644dc915ba9d33a3";
-        hash = "sha256-QgzfxzYIT/Dhy1uYfgzrHHlUNPSeUP5EN0gOcUX0+kg=";
+        rev = "6b7bddfe017a761fa873388766a4f0c0017d8d6e";
+        hash = "sha256-IGpxqKgc0Bo8GaThngrxRFXAcDS6s6acYFIzWo+mgvc=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_transport";
-  version = "0.28.0-1";
+  version = "0.29.0-1";
   src = sources.rosbag2_transport;
   nativeBuildInputs = [ ament_cmake_ros ];
   propagatedNativeBuildInputs = [  ];
