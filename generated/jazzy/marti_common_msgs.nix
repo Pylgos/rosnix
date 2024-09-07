@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "marti_common_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
-        rev = "1b728be1141c3130f53b14fdc5a05a7efc627792";
-        hash = "sha256-W3b9iV22vd3wh08lBnZhgtMWw1Q6EsMvtdSMKadlgHw=";
+        rev = "ac01318c052de46c01e045bf2f09659ed70860e7";
+        hash = "sha256-N4Z+x0Qn74ATmU9Bo/KkNEKCi0vdy+RNRuBNCeP7eWE=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "marti_common_msgs";
-  version = "1.6.0-1";
+  version = "1.6.1-1";
   src = sources.marti_common_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "marti_dbw_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
-        rev = "00cd7713d109e30a69aae406738a0997aebf708c";
-        hash = "sha256-IFGu2uK2abEs/qt9iAS6cnD4Gw0J992QGZsRWDkTxMM=";
+        rev = "9fca883b54f60007150a800910a0be1211ea18fb";
+        hash = "sha256-ukl9yb5v2+9dOAAuO4GvYdLnUutr8zuxIqQ5NcpYo1c=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "marti_dbw_msgs";
-  version = "1.6.0-1";
+  version = "1.6.1-1";
   src = sources.marti_dbw_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

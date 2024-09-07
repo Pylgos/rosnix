@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "dummy_sensors-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "7e3e27660fd19a184efb4e59881b2a7bc8dd57a7";
-        hash = "sha256-cKpsUvA8UZzh02/237Xr4txRbltPht7AUTvn+cJruPg=";
+        rev = "889f41619e9def6175f2a9281850c05867326aab";
+        hash = "sha256-3UaemJ/hKSVf+gUdLXWjDIcmwQp3iNUt7MrpGq4qCRU=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "dummy_sensors";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.dummy_sensors;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

@@ -42,8 +42,8 @@ let
       src = fetchgit {
         name = "rclcpp-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "1c97a6b4ae76f18f30cf2c354ea6d525c498f5c8";
-        hash = "sha256-kHVqYs0l7FaLgvlDHIAzDR5nSPe/bjpZvNCnscPwPvs=";
+        rev = "30a1024f89fac8eec2592936021954ee3bacf591";
+        hash = "sha256-/zA5jWC7UK8awap5/7bA7E/vzS+bfxjI87NGOvZP5Mc=";
       };
       substitutions = [
       ];
@@ -52,7 +52,7 @@ let
 in
 buildRosPackage {
   pname = "rclcpp";
-  version = "28.1.3-1";
+  version = "28.1.4-1";
   src = sources.rclcpp;
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros python3 ];
   propagatedNativeBuildInputs = [  ];

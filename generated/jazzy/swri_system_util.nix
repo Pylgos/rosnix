@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "swri_system_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "55947affbec6fac0d7d5404c825e83976cd6a25c";
-        hash = "sha256-S3WYBS3mwgU0LQXSc43+46DAtHiOBbXgwl4IfjI5Fuo=";
+        rev = "d62fe4cc6341cf5c263889949e416f96f175f8a9";
+        hash = "sha256-lztv/nbapk8Bx4IpEnA6byf/6/+KlrNFa+g+otVon1c=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "swri_system_util";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_system_util;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
@@ -37,6 +37,6 @@ buildRosPackage {
   checkInputs = [ ament_cmake_gtest ament_index_cpp ];
   missingDependencies = [  ];
   meta = {
-    description = "swri_system_util";
+    description = "A package with commonly used system utilities.";
   };
 }

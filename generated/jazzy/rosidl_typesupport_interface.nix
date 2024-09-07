@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "rosidl_typesupport_interface-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "6311df134f65a3fb5b1a8a8666b77b9947087843";
-        hash = "sha256-ppGJYEONVip3/7Cr7zw5Su52mfxFT7EhDttXmwEFUt4=";
+        rev = "5bf5a0d16d6cf1a47dc5f952a2f62854e8195582";
+        hash = "sha256-kQxdJ7mirw4WofaEfh4lS6avIwbWrWHSd4YUk3DxWOo=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_typesupport_interface";
-  version = "4.6.3-1";
+  version = "4.6.4-1";
   src = sources.rosidl_typesupport_interface;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

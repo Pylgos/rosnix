@@ -1204,7 +1204,6 @@ self:
   swri_image_util = self.callPackage ./swri_image_util.nix {};
   swri_math_util = self.callPackage ./swri_math_util.nix {};
   swri_opencv_util = self.callPackage ./swri_opencv_util.nix {};
-  swri_prefix_tools = self.callPackage ./swri_prefix_tools.nix {};
   swri_roscpp = self.callPackage ./swri_roscpp.nix {};
   swri_route_util = self.callPackage ./swri_route_util.nix {};
   swri_serial_util = self.callPackage ./swri_serial_util.nix {};

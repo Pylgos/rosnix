@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "demo_nodes_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "bd715f2561120dca20102b8364013325adfc80d3";
-        hash = "sha256-pSrlqygi3kMfiMtOngfgsOyV8AIgis5TnO4/7lIdr78=";
+        rev = "8503f7f2390884f988816073ae52c0c14d475e3e";
+        hash = "sha256-ufUSes0kYlVOPv5P/0roEjhtFlpjkTJatonPPj6g3ow=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildRosPackage {
   pname = "demo_nodes_cpp";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.demo_nodes_cpp;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

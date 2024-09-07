@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "c8e83973d30a27ee3ffc9fbce7d4b91ec346459b";
-        hash = "sha256-SPZM3ZERTqe7Yr82lZTi9cID5qKsNtPP4o88bcEtvoA=";
+        rev = "ce97419b6cd330a7b4eacf837949c369ee29e0db";
+        hash = "sha256-kJh0WAW3P3UPHmVb2h6QmE7cPgws9qZxrLp8+Faol9s=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "dummy_robot_bringup";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.dummy_robot_bringup;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

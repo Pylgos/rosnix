@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "topic_monitor-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "af7208b4e17f17d95c61c6f91c91bf40a0da736b";
-        hash = "sha256-GA57MYOZOEO3eCVy4eN3N65yCJ/KynuE2zh2EYSctqg=";
+        rev = "33f1dde29a4a146bde0270c8bc347b4c67c0927b";
+        hash = "sha256-t0E1z5SMZD+Ik7csZ+S4pk9+8qvyZdw5J9IW3uGSEAY=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "topic_monitor";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.topic_monitor;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];

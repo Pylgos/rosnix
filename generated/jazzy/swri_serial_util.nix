@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "swri_serial_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "bbac0dfc7c9cb57508e663a6c0c6d59ff2b39e15";
-        hash = "sha256-MtfpNlZ7vE6gIf3Fg5rtl/4sDegKFpKiyBrIFCwXJy8=";
+        rev = "6c000a6467f30df349d9124d6345f406cb39db0a";
+        hash = "sha256-pP1hfS0TGi+AyrxNkeqYyPtGArku1qje6zQr/8Lcx7s=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildRosPackage {
   pname = "swri_serial_util";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_serial_util;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
@@ -34,6 +34,6 @@ buildRosPackage {
   checkInputs = [  ];
   missingDependencies = [  ];
   meta = {
-    description = "swri_serial_util";
+    description = "Contains nodes and utilities for serial communication in ROS.";
   };
 }

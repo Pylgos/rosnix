@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "swri_console_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "a21ce415ca1c9f884e0ace562d6ffbf738ca5df7";
-        hash = "sha256-KFD9ZDITUVdWMKo6Oul0LEf5o467diDWXltVYaRSLyQ=";
+        rev = "b77a5f44f02ecf3410469c55d6ac769d326db663";
+        hash = "sha256-KEz8hLJvUuPd4qB44RQGaWcMz7FIzCuD5XA4hTVerqQ=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildRosPackage {
   pname = "swri_console_util";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_console_util;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
@@ -34,6 +34,6 @@ buildRosPackage {
   checkInputs = [  ];
   missingDependencies = [  ];
   meta = {
-    description = "swri_console_util";
+    description = "Utility functions for interacting with console";
   };
 }

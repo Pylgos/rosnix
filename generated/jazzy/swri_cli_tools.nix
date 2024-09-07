@@ -11,6 +11,9 @@
   rcl_interfaces,
   rclpy,
   ros2cli,
+  ros2node,
+  ros2param,
+  ros2topic,
   substituteSource,
 }:
 let
@@ -19,8 +22,8 @@ let
       src = fetchgit {
         name = "swri_cli_tools-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "a0e5e084aba56079a5ede4e19907b9ad8ac34ad6";
-        hash = "sha256-QwxRWoZHoEeWtgjiih1KGtL4z0gAytUMI9yLK2eIJ6Q=";
+        rev = "9329d66a9387c92c72ef3c2525c1c31fe0dff0eb";
+        hash = "sha256-t2Px8l4Pk0x+7igUKRlkW1cp0HmOARg5FK84ZGhcoNs=";
       };
       substitutions = [
       ];
@@ -29,12 +32,12 @@ let
 in
 buildRosPackage {
   pname = "swri_cli_tools";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_cli_tools;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ marti_introspection_msgs rcl_interfaces rclpy ros2cli ];
+  propagatedBuildInputs = [ marti_introspection_msgs rcl_interfaces rclpy ros2cli ros2node ros2param ros2topic ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint ];

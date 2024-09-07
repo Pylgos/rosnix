@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "swri_image_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "ad7a1d61498977bd47d1d95857fdb6a2182e6e4d";
-        hash = "sha256-KZLr2L6b9CSpmepsGPkZ6D7FlyM9iUKwg7uPDQxfqK4=";
+        rev = "56ad7bfb29f597bededcb447cd60eadd0b17f480";
+        hash = "sha256-t1WKMyCVMbl9j7gqh62ANrXzJn5JumlLKQT4qulaoqA=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildRosPackage {
   pname = "swri_image_util";
-  version = "3.6.1-2";
+  version = "3.7.1-1";
   src = sources.swri_image_util;
   nativeBuildInputs = [ ament_cmake pkg-config ];
   propagatedNativeBuildInputs = [  ];
@@ -54,6 +54,6 @@ buildRosPackage {
   checkInputs = [ ament_cmake_gtest ];
   missingDependencies = [  ];
   meta = {
-    description = "swri_image_util";
+    description = "A package of commonly image manipulation utilities.";
   };
 }

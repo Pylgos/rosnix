@@ -44,8 +44,8 @@ let
       src = fetchgit {
         name = "rviz_default_plugins-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "0942b93724d6aed21cd63142de31d492b74dac33";
-        hash = "sha256-qt1bYdeVGHsBEtg8hXa3Ngy/MI/lZkZkjKIXiNlb+hQ=";
+        rev = "4bc5c17478b525f50d179cdf7234eb81eab419eb";
+        hash = "sha256-6kgrLp+VYgqdRHFaiwjVMQqNC5P5Pxowv1ep152UMow=";
       };
       substitutions = [
       ];
@@ -54,7 +54,7 @@ let
 in
 buildRosPackage {
   pname = "rviz_default_plugins";
-  version = "14.1.4-1";
+  version = "14.1.5-1";
   src = sources.rviz_default_plugins;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

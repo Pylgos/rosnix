@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "swri_roscpp-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "a23f24f1697a49e6bc3b7e427401dc2a84418186";
-        hash = "sha256-IiiAye8pmAHZ4v2/7T46QwlTajRoH7m3RPlJjPuhNoY=";
+        rev = "a8fb58bd468aa80cacef5d3bd3fc06993763277f";
+        hash = "sha256-D5x6mig9SDgvUyJSUajCKMH+JpaZmCnWTCaQCWz6M6k=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "swri_roscpp";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_roscpp;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [ ros_environment rosidl_cmake ];
@@ -46,6 +46,6 @@ buildRosPackage {
   checkInputs = [ ament_cmake_gtest gtest ];
   missingDependencies = [  ];
   meta = {
-    description = "swri_roscpp";
+    description = "A package that extends rclcpp with some commonly used functionality to reduce boilerplate code.";
   };
 }

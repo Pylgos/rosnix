@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "action_tutorials_interfaces-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "9f4a74303f417ee9b148c2123a7caf06e93d84de";
-        hash = "sha256-yfWyue6LUQAXqSPBfhpeFfsq5VLyCiGIRs/sHP2ados=";
+        rev = "3396948e639360943d85de860254c74bff6c6ebe";
+        hash = "sha256-fezaouAp6goRibyozC/xz+9X+Do0jXtAkgauaw3VzfQ=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "action_tutorials_interfaces";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.action_tutorials_interfaces;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

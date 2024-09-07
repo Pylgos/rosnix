@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "rosidl_pycommon-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "f13376be46a3ff8db06c6e8ac04371c9f02bce13";
-        hash = "sha256-pz2N7wj/tWNBN+Zhjeaoj0eAWJLvOAu91LZmpw0RWfg=";
+        rev = "52cb2514bde8ec8e606415c200f80e21ec8b391f";
+        hash = "sha256-HwtksPYLXC/1Md1Fnyo0Ofiui7YhfDehVHn6SqcKSGM=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_pycommon";
-  version = "4.6.3-1";
+  version = "4.6.4-1";
   src = sources.rosidl_pycommon;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [ rosidl_parser ];

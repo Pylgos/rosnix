@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rosidl_parser-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "2614864434f193b3b71076744337419a0138df7e";
-        hash = "sha256-1I50K0T66XY1/1i+VW6N5U4GBE+IO0PgoXOTokA/MHI=";
+        rev = "cfa2918fe3fba7824521c75587efdbf9699f3d42";
+        hash = "sha256-/u0nPY8WCriPo5fUb/RNqTC4DMnbYtU0V+xV5Xmht4s=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_parser";
-  version = "4.6.3-1";
+  version = "4.6.4-1";
   src = sources.rosidl_parser;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ buildPackages.python3Packages.lark rosidl_adapter ];

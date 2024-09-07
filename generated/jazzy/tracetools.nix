@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "tracetools-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "104e6fff7d00e77fa44ee75ce1a7f2539825a57f";
-        hash = "sha256-i66LTM0n72UzAILrGIzm192MWomhPsgDwmWMyJJ7N4E=";
+        rev = "fdd540cbf8e465c0258cb732e3e121c5fd5f9a3f";
+        hash = "sha256-7Q5l3XnsaRS3e00Mam1vFw9JGEA6Y1DWFMdVSfPgsL4=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "tracetools";
-  version = "8.2.1-1";
+  version = "8.2.2-1";
   src = sources.tracetools;
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros pkg-config ];
   propagatedNativeBuildInputs = [  ];

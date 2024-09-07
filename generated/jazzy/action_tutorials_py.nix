@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "action_tutorials_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "9fe78fa9ead21d853aa4236e31c8b2f252a370c4";
-        hash = "sha256-SGXRECw8BNCknu/StKfvYKoVPdrcOOUqrQMLVD6BAmM=";
+        rev = "f99ed6007497efa72297e0fe3c73f9977b960921";
+        hash = "sha256-zhXHMPPYCn8uNithB7nsjnfp6VSyKyrCqqRB/7JgXS0=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "action_tutorials_py";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.action_tutorials_py;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];

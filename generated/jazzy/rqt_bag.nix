@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rqt_bag-source";
         url = "https://github.com/ros2-gbp/rqt_bag-release.git";
-        rev = "fc6116adc9db168a71892ec9eb8c83105363e27f";
-        hash = "sha256-K+pDQ5wUSt1qrw0P87qv4my3psSCvJKlgSXdwmMuw1A=";
+        rev = "0068b7860bdd734467c025ab6fc24ed2f6c48733";
+        hash = "sha256-exkgftY4mO96e/zb3UHU2Fm7yCD2xhX4F6NdaqFL52A=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "rqt_bag";
-  version = "1.5.3-1";
+  version = "1.5.4-1";
   src = sources.rqt_bag;
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

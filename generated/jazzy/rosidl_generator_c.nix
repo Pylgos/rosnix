@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "rosidl_generator_c-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "8c0b35ed588f72678c956454604ba1a815a447c7";
-        hash = "sha256-1l817j0n3HvXQ2glqdW88lJ/Ri/lSzHKAYQo4BXabBg=";
+        rev = "2d01aa73999532545fd4d0199e075cd2932e809d";
+        hash = "sha256-XErLGtJlEaDIRHaAieObwgtmqXaYg/dxSnZLf21CyDQ=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_generator_c";
-  version = "4.6.3-1";
+  version = "4.6.4-1";
   src = sources.rosidl_generator_c;
   nativeBuildInputs = [ ament_cmake_python ament_cmake_ros ];
   propagatedNativeBuildInputs = [ ament_cmake_core python3 rosidl_cli rosidl_cmake rosidl_generator_type_description rosidl_parser rosidl_pycommon ];

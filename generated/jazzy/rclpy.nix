@@ -41,8 +41,8 @@ let
       src = fetchgit {
         name = "rclpy-source";
         url = "https://github.com/ros2-gbp/rclpy-release.git";
-        rev = "05f2d82710ff0e7ed52b15f8353443df442dfac0";
-        hash = "sha256-BSf+cbcOUVpJK5gtEz0d4ymuruqqFGkmdNy6K+j5emY=";
+        rev = "2420e710343e83118a000a5984840ba6dfb18e25";
+        hash = "sha256-MBkwBgKvA9xDSekCGOo86del7PHIMWGv5F7XBue1Fhs=";
       };
       substitutions = [
       ];
@@ -51,7 +51,7 @@ let
 in
 buildRosPackage {
   pname = "rclpy";
-  version = "7.1.1-2";
+  version = "7.1.2-1";
   src = sources.rclpy;
   nativeBuildInputs = [ ament_cmake python_cmake_module ];
   propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml rmw_implementation_cmake rpyutils ];

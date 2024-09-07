@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "lifecycle_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "94f453f81ef00cf3b7eb677fc52ab7a39b4fb4a1";
-        hash = "sha256-G2SQPzmMZnrFR7ETFon/1Nj1gKgoJxZGMGsV5Ng12Fc=";
+        rev = "400cb7ad9a3550e4a056bfe1a7249ab03f523820";
+        hash = "sha256-FA7CdkffuOXf58i2saMPuSv0VnVWFjNN5xkHSiEvrNM=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "lifecycle_py";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.lifecycle_py;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];

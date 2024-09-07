@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "logging_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "b9f19e69f1e8607359091485e1a21b78d379acf1";
-        hash = "sha256-nJDlVxMHpHwjrytNjksUmppri/YZudnpxyZaemNzaJM=";
+        rev = "0637cc57d07f827c4eb3415d9c1f5a60af3c4d54";
+        hash = "sha256-CfJAEKfLBIjGGwjGRHUsmR35+Z2H1I2Gby0C4Hw+zi4=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "logging_demo";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.logging_demo;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [ rosidl_default_generators ];

@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "lttngpy-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "1d2a357d75de1e5d115ceb0b5e3d17d18b8f123f";
-        hash = "sha256-mo3tqXxJdLniu+FxFGa58ZhnR8/dFAV8o2+BrXActq8=";
+        rev = "3df74a6dda3e0f58deee6918f6c31d1d756d1218";
+        hash = "sha256-fJy8xdOuJMFOb2j6gqadR1qpL8QU3bIlvPfpMG3Ff9s=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "lttngpy";
-  version = "8.2.1-1";
+  version = "8.2.2-1";
   src = sources.lttngpy;
   nativeBuildInputs = [ ament_cmake python_cmake_module ];
   propagatedNativeBuildInputs = [ rpyutils ];

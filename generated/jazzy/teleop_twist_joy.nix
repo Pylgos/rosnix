@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "teleop_twist_joy-source";
         url = "https://github.com/ros2-gbp/teleop_twist_joy-release.git";
-        rev = "1a8356ff2ee1bc5a03aa2c3ab5bbdc6f85786a20";
-        hash = "sha256-xwkPZBm3cKtKEe7pNLUfiL6oKZgjX5cLiIvMsB55dUs=";
+        rev = "48e43f1fe11850a1796a1d816a127dc05d4d145a";
+        hash = "sha256-N3JJWiFU+t6a2ZlcYTVD5RUqa6rci24N5eA0uZX2gjs=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "teleop_twist_joy";
-  version = "2.6.0-3";
+  version = "2.6.1-1";
   src = sources.teleop_twist_joy;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

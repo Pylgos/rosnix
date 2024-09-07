@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "action_tutorials_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "921bfebbda26dcc7087ea9ef5e7c63219860426b";
-        hash = "sha256-N/IJQm5XhIM0dZIVhhYbQG2nBR2KkE6nW41RfIDIxmk=";
+        rev = "16e74e57597f92e713c0e1bea3b2461ac157728a";
+        hash = "sha256-fwZJWFyfhrJCuIhh71J0GQYBPDzzSa9KR5TbXRafH34=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "action_tutorials_cpp";
-  version = "0.33.4-1";
+  version = "0.33.5-1";
   src = sources.action_tutorials_cpp;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

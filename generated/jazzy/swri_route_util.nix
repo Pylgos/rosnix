@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "swri_route_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "6645839538ba5012ccd1958753a59169043646f9";
-        hash = "sha256-Opkx5/etJwnlusBl9vZeMF+M5msxpehmC4Cykze1gTQ=";
+        rev = "8b72cc2d5e3bae48df52447f4ad700f8b19ce708";
+        hash = "sha256-JrNjC+WpdcZ1MxZoIWWx+xD1zKAldVC0C4tWhSAD8+Q=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "swri_route_util";
-  version = "3.6.1-3";
+  version = "3.7.1-1";
   src = sources.swri_route_util;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

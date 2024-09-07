@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rosidl_runtime_cpp-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "bef252b1cedc0f99956d56fc09a1f19b59534c4e";
-        hash = "sha256-KJ63ZYA74bwaGDSI9lZ0J5Cv+iuidH0yytBeYKyGwj8=";
+        rev = "382e891005674c17a298a4802979d8178cb42864";
+        hash = "sha256-u91Lcj98v4nvCJqivsItybePVDguKV4F8zpjWZ/dB1c=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_runtime_cpp";
-  version = "4.6.3-1";
+  version = "4.6.4-1";
   src = sources.rosidl_runtime_cpp;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [ ament_cmake ];

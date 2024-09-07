@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "rviz2-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "d889776e786e3f2f1043e1031dd9cdedc94ce124";
-        hash = "sha256-f7iDZnRpaqulZ+ZCpYInc37uyUyKQBUN9A28vK/C9dA=";
+        rev = "3b3f992874426701325d7893a55f91f4669585ec";
+        hash = "sha256-dWzegj6SxOz5J1AFW25GcsP59v4ywWyvP1k81QL8plg=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "rviz2";
-  version = "14.1.4-1";
+  version = "14.1.5-1";
   src = sources.rviz2;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

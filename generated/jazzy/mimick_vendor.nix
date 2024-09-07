@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mimick_vendor-source";
         url = "https://github.com/ros2-gbp/mimick_vendor-release.git";
-        rev = "1be11e576e4ab6745b5fa85c3dc3147b79523679";
-        hash = "sha256-wQW/rdoXG6vBtOKZi4dSPTuRv1vmyfVQzzwmj2hOZ20=";
+        rev = "ec1c5a588d1ab270a3fdc76c142baeef167a34cd";
+        hash = "sha256-Xr331CU6baKUiJO4PMtxhFW8eceLcNV4CWZLHGf0654=";
       };
       substitutions = [
         {
@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "mimick_vendor-vendor_source-Mimick-0-source";
         url = "https://github.com/ros2/Mimick.git";
-        rev = "9af748b88f6d48723275006ccbb0360e50342dbb";
-        hash = "sha256-3f5T8gTOLxMeYcaYDlAefXMKXP4Wv3xkUWBag07H+0I=";
+        rev = "4dbd495e9f3d87a83c3201ef9d851e85f7133db7";
+        hash = "sha256-4F3NiFxgwSOH1H5Njv0u78epF+jOzn7bUMcwuhRQznM=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildRosPackage {
   pname = "mimick_vendor";
-  version = "0.6.1-2";
+  version = "0.6.2-1";
   src = sources.mimick_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
   propagatedNativeBuildInputs = [  ];

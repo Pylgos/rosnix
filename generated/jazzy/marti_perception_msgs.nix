@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "marti_perception_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
-        rev = "6836b2653bdb97e1f3c0aa9cd776d64e18a8cf32";
-        hash = "sha256-1ftlmmmscLXIcm4yEVljfs3/eDlxSHJON8yi8p55zDo=";
+        rev = "d427ac464463e6d1c05701757a36af85c15f5d51";
+        hash = "sha256-FZTo6sslxugGts/jf3daCxSI2sgmW4NAeYssvIrh1P8=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "marti_perception_msgs";
-  version = "1.6.0-1";
+  version = "1.6.1-1";
   src = sources.marti_perception_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];
