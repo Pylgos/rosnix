@@ -309,8 +309,8 @@ let
       src = fetchgit {
         name = "python_mrpt-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "5e5bdcee4d6ef915dc25fe8fe8081d29edcc5dad";
-        hash = "sha256-7v7uwo74YLMBXDD5mA9xmzoxF/1qNyb8Sc5JDbFPNaE=";
+        rev = "8664656818fd5b5febede5ff96cfef5b544d757d";
+        hash = "sha256-xHQnqm+3GMyq5ptVN5BbGFyvrdjOOQh+9cTKPvsD1JM=";
       };
       substitutions = [
         {
