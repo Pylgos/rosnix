@@ -22,7 +22,7 @@ jobs:
         with:
           ref: develop
           token: ${{ steps.app-token.outputs.token }}
-      - uses: DeterminateSystems/nix-installer-action@v13
+      - uses: DeterminateSystems/nix-installer-action@v14
         with:
           extra-conf: |
             substituters = https://cache.nixos.org https://cache.garnix.io https://rosnix.cachix.org
