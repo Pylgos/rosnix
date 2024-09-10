@@ -17,6 +17,7 @@
   libjpeg,
   libpcap,
   libusb1,
+  mrpt_libbase,
   opencv,
   pkg-config,
   python3Packages,
@@ -37,8 +38,8 @@ let
       src = fetchgit {
         name = "mrpt_libtclap-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "d74ab36a99eaff70825c4ea7c8fb575d523af585";
-        hash = "sha256-juCGDMacBBDn8HKqpJyL1+NaaCe7sI00d3s3BsxcK0I=";
+        rev = "eae30d4167803439b1ea5881ed26a2eb25b95ba6";
+        hash = "sha256-hGB6SoGXVzncZEH2Bur9xYqI13Razcu+SfsVdHCkvfQ=";
       };
       substitutions = [
       ];
@@ -47,12 +48,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libtclap";
-  version = "2.13.7-3";
+  version = "2.13.8-1";
   src = sources.mrpt_libtclap;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
   buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge eigen ffmpeg freeglut freenect glfw3 libGL libGLU libjpeg libpcap libusb1 opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage suitesparse tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
+  propagatedBuildInputs = [ assimp cv_bridge eigen ffmpeg freeglut freenect glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libbase opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage suitesparse tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
   depsTargetTarget = [  ];
   depsTargetTargetPropagated = [  ];
   checkInputs = [  ];

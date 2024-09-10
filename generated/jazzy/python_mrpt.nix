@@ -156,7 +156,7 @@ let
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
         url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
-        hash = "sha256-VHW5Xyd4vB3WFttEJNsVYg2t481Ws5Xxi6JwWUsZVqk=";
+        hash = "sha256-Mo5yCw9Va427Yi7TtFmSxYoDnhOsCxEyMcYfMHTKIPY=";
       };
       substitutions = [
       ];
@@ -294,8 +294,8 @@ let
       src = fetchgit {
         name = "python_mrpt-source";
         url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
-        rev = "ca25afa5ec788a198b4357b8cbdd834f0f07b3d4";
-        hash = "sha256-GSFy9Ec+rnErMJ6eDFgkGO9gry68DRhH9iHyrulKs4A=";
+        rev = "69a5d742761c464556735186ac928bb771718859";
+        hash = "sha256-WC68X5iDnzLtMshk7GEwpV4zUBWBdduXCt0z0HLphLA=";
       };
       substitutions = [
         {
@@ -309,8 +309,8 @@ let
       src = fetchgit {
         name = "python_mrpt-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "8664656818fd5b5febede5ff96cfef5b544d757d";
-        hash = "sha256-xHQnqm+3GMyq5ptVN5BbGFyvrdjOOQh+9cTKPvsD1JM=";
+        rev = "65f8452af703489c20e362988367dd30b9e3a772";
+        hash = "sha256-tbyciZtN5lhiJi5aY7ESLDeVy8Nm99xYsFAyeBB2XaA=";
       };
       substitutions = [
         {
@@ -354,7 +354,7 @@ let
 in
 buildRosPackage {
   pname = "python_mrpt";
-  version = "2.13.7-1";
+  version = "2.13.8-1";
   src = sources.python_mrpt;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];

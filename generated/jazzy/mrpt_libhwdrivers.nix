@@ -38,8 +38,8 @@ let
       src = fetchgit {
         name = "mrpt_libhwdrivers-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "100c3435cae285e2d264921ee301c78c32d0cdb7";
-        hash = "sha256-7GJj+7idkEJrA+pgcPwFUY3DnhF8cLT0uZi3T92oKuI=";
+        rev = "e36d254256118bd521d2dd30e4a88085c2d63e82";
+        hash = "sha256-+5+oDutFcUtO9OMAdhitFYnTCwFrELdy/NeCOclzfr4=";
       };
       substitutions = [
       ];
@@ -48,7 +48,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libhwdrivers";
-  version = "2.13.7-3";
+  version = "2.13.8-1";
   src = sources.mrpt_libhwdrivers;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];

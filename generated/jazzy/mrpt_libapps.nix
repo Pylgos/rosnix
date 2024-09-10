@@ -40,8 +40,8 @@ let
       src = fetchgit {
         name = "mrpt_libapps-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "660d6774e5f20849957066b9e3875ed2b0d9e07e";
-        hash = "sha256-ARXYU5ncfQ4p1JGOcEMwzZUTHwx3S4u6Thv5FBXdBHU=";
+        rev = "18792bf4cfef1e698233bf12e73d2f10435f1ad7";
+        hash = "sha256-2Z1c0mYkjTae7iurnEjuhn39jEWGsG7RGI/MlTrI8QU=";
       };
       substitutions = [
       ];
@@ -50,7 +50,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libapps";
-  version = "2.13.7-3";
+  version = "2.13.8-1";
   src = sources.mrpt_libapps;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];

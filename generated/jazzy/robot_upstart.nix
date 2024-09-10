@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "robot_upstart-source";
         url = "https://github.com/clearpath-gbp/robot_upstart-release.git";
-        rev = "4fa0b9d8a5902b4020df247a62a191e4b406e72d";
-        hash = "sha256-RvzQlz7Oez/M/uXqXVjwMxFIPyWgZtHcfscHDiOXMIQ=";
+        rev = "bd299c8ce71d1419b31afc8daebfe81daa2c4e13";
+        hash = "sha256-rSLxwHWQH5oc7pInTJF/CiLl1feRETCyJtPSyv5ioEE=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "robot_upstart";
-  version = "1.0.3-1";
+  version = "1.0.4-1";
   src = sources.robot_upstart;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];
