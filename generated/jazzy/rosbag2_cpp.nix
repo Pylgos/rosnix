@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "rosbag2_cpp-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "c21454fbcde9726dcf5326f40fb6c8611f4d04c1";
-        hash = "sha256-IhbEvIVe3emxwC07mXb1FKswcgOJaA3DLJtWHEzSg7Y=";
+        rev = "09507dc0de06676db0318ad244f43f59b50ad221";
+        hash = "sha256-le/u2gVdo2o4zd9Q0WvbZkPiYwiQYrWY1XMkee7uowI=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_cpp";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_cpp;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "forward_command_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "0f7055c4be26c26c84d11381cc17e89510ee67ff";
-        hash = "sha256-copDwBqLhmM6Tk7nQS+7U+v22U7oOWlBSkujh9En0VQ=";
+        rev = "9dd395589b1a05a70c7478276c6bc44e3815801a";
+        hash = "sha256-ydESp6NxrrtqpTFMzccCiZ1Yvq98COiGGGqZxTBD7s4=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "forward_command_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.forward_command_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

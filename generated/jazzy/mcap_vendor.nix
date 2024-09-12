@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mcap_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "5c4b554a4a9faf7e6fce2ed3a5d276dcebf482fd";
-        hash = "sha256-GeTzcZi2qkundHMGWvGRD6vfh7FfNGRN7M2Gg6ret+U=";
+        rev = "6884e7ba7d29d8db98ad2bbf09a6875bf5141e19";
+        hash = "sha256-LkMN4KUG+iWT20KOK82Ypdx4iNw8f5cJqB4caw+uTiM=";
       };
       substitutions = [
         {
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "mcap_vendor";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.mcap_vendor;
   nativeBuildInputs = [ ament_cmake git ];
   propagatedNativeBuildInputs = [  ];

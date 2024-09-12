@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "74f94bf3ce19f30d55d4198fcbe61574f2f772f3";
-        hash = "sha256-/zxk1PloER19gGhmDncOXlDr39PqevpVY38eTk82Cng=";
+        rev = "71d12f326092980fef6a781552e99aaf33166355";
+        hash = "sha256-0OK9tBUKkHZclQedtmxfA6ZmKAL6Kn+gy9g9KtboUy8=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "joint_trajectory_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.joint_trajectory_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

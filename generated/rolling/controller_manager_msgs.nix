@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "controller_manager_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "a1674307a88c5326bd00e764d69e6232581763e0";
-        hash = "sha256-LwVz/TYa/E4CpF9+xL42QXPSF2NfDyx6zpBZzStqKl4=";
+        rev = "c17c208fda4b6597478140e240460399570036aa";
+        hash = "sha256-Fg0EJj/nzK+Jz0PTRMUeZaMbFi0IJ2KvTPQW7XpDHIw=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "controller_manager_msgs";
-  version = "4.16.1-1";
+  version = "4.17.0-1";
   src = sources.controller_manager_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "ur_description-source";
         url = "https://github.com/ros2-gbp/ur_description-release.git";
-        rev = "0277fa99fdb4981244849598503266de00433aca";
-        hash = "sha256-MciglJIJgs8rQqg5m/Vo3+LIwiJ8BFF7Va1cUbthaZU=";
+        rev = "7194c201d71aeb030acd1c6f1e0905689294ebd4";
+        hash = "sha256-MG7vbOrCS9hiqah2946KSpRaeUFDNuiKjvdxaPVjVOo=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "ur_description";
-  version = "2.4.2-1";
+  version = "2.4.3-1";
   src = sources.ur_description;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [  ];

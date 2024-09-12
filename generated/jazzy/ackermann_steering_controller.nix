@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "ackermann_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "8f804aa29c67ff0edc790d135e8f89777a01c29f";
-        hash = "sha256-pSN0+WcJGHsu5MT2moDOMxRX9+VS+b4XYbXe2dkbi58=";
+        rev = "19ad47bef147aa06a241b0f6e7a51e89beda8157";
+        hash = "sha256-MmGggsYiIo7GwQEDqlyKEGIyj4mirs2v9RguRzVDyNI=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "ackermann_steering_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.ackermann_steering_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

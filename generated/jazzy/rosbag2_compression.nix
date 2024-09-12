@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "rosbag2_compression-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "e9f02784260049a13a59f732a6fa929e9fb95880";
-        hash = "sha256-8nlnW5g1RTYkA+ArxXZrXOdbjHbgAQQP93gtEWnDQrM=";
+        rev = "b1df03598c07fd88d69076c5a7bd8f337adf53cc";
+        hash = "sha256-YqhK+2a9OZWO/V8rsRVHWFygual9Tkl9cFQW+oqvtHM=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_compression";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_compression;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

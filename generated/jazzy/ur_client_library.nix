@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "ur_client_library-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git";
-        rev = "de61a833fadbd910f4e56e78b2c489a83addbbe7";
-        hash = "sha256-ZtZ7wH2xmYhDXoGeeIA30rqkhK9iiy0RK2bOZDD27kY=";
+        rev = "309d7d3088caee29b2af1a41f0ea161bf04940d0";
+        hash = "sha256-AGri1LrjEomT9pPJAVN53G3Zf0W2GNqlCIgLZt9Odns=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildRosPackage {
   pname = "ur_client_library";
-  version = "1.3.7-1";
+  version = "1.4.0-1";
   src = sources.ur_client_library;
   nativeBuildInputs = [ cmake ];
   propagatedNativeBuildInputs = [ ament_cmake ];

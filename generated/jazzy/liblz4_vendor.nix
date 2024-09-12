@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "liblz4_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "24a4a9d4e509be6f2345787f490c3111e74c82e7";
-        hash = "sha256-7qUW2AEwVXQRPc8y3Kz3ZmAPEtKj3pR8brDzXbZjVYc=";
+        rev = "2ffc49e7fc8847a16d3d22e25058a79feb94d74b";
+        hash = "sha256-+GyIxfCKixIIpKM5L4Bb64l9drnpmrwvypwpsF5PDb8=";
       };
       substitutions = [
         {
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "liblz4_vendor";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.liblz4_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
   propagatedNativeBuildInputs = [  ];

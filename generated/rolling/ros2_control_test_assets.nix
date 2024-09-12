@@ -12,8 +12,8 @@ let
       src = fetchgit {
         name = "ros2_control_test_assets-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "708344170c679286dd95771dc534d1a3afb062e8";
-        hash = "sha256-+n52/w6Qg75n2d2K5zWjfJMvTw+8S9scjCCtqQCcHVA=";
+        rev = "4286f9b9dc038425e96339c680a399e97acfed17";
+        hash = "sha256-uveeh/bq7keFihHp8uCPfXuMGHMy2NEH/jB4n5Gurds=";
       };
       substitutions = [
       ];
@@ -22,7 +22,7 @@ let
 in
 buildRosPackage {
   pname = "ros2_control_test_assets";
-  version = "4.16.1-1";
+  version = "4.17.0-1";
   src = sources.ros2_control_test_assets;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

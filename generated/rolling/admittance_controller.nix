@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "admittance_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c3c0cc16a45ff5648fe32fd55be7d6c37dad2f73";
-        hash = "sha256-uFrundoYOzhlWxaxrgoD4BkLxpy6ht1qOeA8DTvXlyw=";
+        rev = "1541012ca0aedc52662e244ec9bac5fa02b5196c";
+        hash = "sha256-gXGKMcrzhuK4TA07VVx2TPmwuw6V38lDgLotJgP6E4E=";
       };
       substitutions = [
       ];
@@ -47,7 +47,7 @@ let
 in
 buildRosPackage {
   pname = "admittance_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.admittance_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

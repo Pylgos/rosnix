@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "diff_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "e3e91813e703746d09a4aec63c97051ae7512cc0";
-        hash = "sha256-iEDfCm8DdtyMmgdOZNEX/rHl31Eqs9rMhpE6ApBDv8A=";
+        rev = "e4c38d5f650209c0ae89269a53fb5dfe3292ece4";
+        hash = "sha256-4PkXN/OSjR1h02SSoSMtv8Up4XTkBPDFzkQpj6ADXME=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "diff_drive_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.diff_drive_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

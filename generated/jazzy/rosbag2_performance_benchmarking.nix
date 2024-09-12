@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "rosbag2_performance_benchmarking-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "e9119ad170ca65b399410eec68fed21e5e50720f";
-        hash = "sha256-hzDDbAW9ix/OYN+Ssuz11IrcQnrFMbOJlQRv2QoXi9s=";
+        rev = "fc8676f48d2e57fceb324fe441bff52fd21fee4b";
+        hash = "sha256-u8bWNK7XluxA3fHYJzqNKXaqACf19T0cPc6Dmf0ioZc=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_performance_benchmarking";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_performance_benchmarking;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

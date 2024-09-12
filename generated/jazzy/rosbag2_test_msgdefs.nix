@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "rosbag2_test_msgdefs-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "47d18da60fe893b68a08ff43f3d68282730ea7be";
-        hash = "sha256-EOnJSisxerLpUqPsWTxR3JI/8uMqU189Hgf3Txz/ibI=";
+        rev = "bef282383314aa625d7bddd297c60ec3b32b26dd";
+        hash = "sha256-PareRl1TJAfHsDncY42oznfFxSGe+dqtPVfeK8p/Svg=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_test_msgdefs";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_test_msgdefs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
   propagatedNativeBuildInputs = [  ];

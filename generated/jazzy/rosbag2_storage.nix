@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "rosbag2_storage-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "d09ba6a8e9ad269bb2a8c040ca6ac6f0b96a78f1";
-        hash = "sha256-4RoVLck4aAUfpX/d4/u+KRlM4Q0+ql8j9jKdqRTNLJI=";
+        rev = "d262f25b5d1c6ed5d4990564c4d38714c76979e3";
+        hash = "sha256-rQml0kQM+slCIYfBdNjoknaI6qqq2XEYt6w6t3FhLXc=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_storage";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_storage;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "tricycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "fd1fd65d118b637fc943b34898aeeba4157ec6de";
-        hash = "sha256-UF4aCQ9qQqy56WOkpVUUIRrDDqAA93kjTUJ6GojNoPk=";
+        rev = "4d785d9e1cdd773ee0525781e007cf76e8b347e6";
+        hash = "sha256-qg+pwE6uXx2gOX2Q4hk4pkZ8b1Q319ssPIXcm1Qacjo=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "tricycle_steering_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.tricycle_steering_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

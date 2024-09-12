@@ -34,8 +34,8 @@ let
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "25f5fca17bc9b67d0cf6e45234fa15ff0123b7a7";
-        hash = "sha256-EGCedobZvYlr4fVcn9r8FgVEqRERmLUhrcFgLfyCHy4=";
+        rev = "da12274863104e6525fdf4a9f9ba7b9617ed47c4";
+        hash = "sha256-AURhVjjIW1iQszNXkH6YWyBbn+/6a3A8KUNIVE8fiDA=";
       };
       substitutions = [
       ];
@@ -44,7 +44,7 @@ let
 in
 buildRosPackage {
   pname = "controller_manager";
-  version = "4.16.1-1";
+  version = "4.17.0-1";
   src = sources.controller_manager;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_python ];
   propagatedNativeBuildInputs = [  ];

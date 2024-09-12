@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "zstd_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "1f96118ede75e25677ac96b0578858c0fe9928c5";
-        hash = "sha256-ZBGkZHVOL91El40Sdlx3iV+kSzn3SKzWHDLGGM9FnTQ=";
+        rev = "0bfa3f9aeb25214e8850a2dc064a051fb8c9968d";
+        hash = "sha256-nH4f7XukIPem3PRW9e9f+HbARZafNefB5pBxxh7esOc=";
       };
       substitutions = [
         {
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "zstd_vendor";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.zstd_vendor;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
   propagatedNativeBuildInputs = [  ];

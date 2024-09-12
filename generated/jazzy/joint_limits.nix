@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "joint_limits-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "be6c80dfc8743b06305ed3536aa21d888c0edcc3";
-        hash = "sha256-hFhuYB3MTCFuXkMnlH3h1AtMVtAfd1PolOqgW4yJY/0=";
+        rev = "0cc8209e5bca4dd637ed7265cbd187c9c427eccb";
+        hash = "sha256-yPl+M40WqE2EVSG+Zrlc4fJeNcxEhuQruYlm9CtmCxg=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "joint_limits";
-  version = "4.16.1-1";
+  version = "4.17.0-1";
   src = sources.joint_limits;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ];
   propagatedNativeBuildInputs = [  ];

@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "bicycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "ca18def736e513df51eb6cbead31789ad602a65d";
-        hash = "sha256-UNmvAM+HRb+Fy3AW1RkUGIZQzvi2+i4Mg3Qc5qQSaJo=";
+        rev = "c33c67256ecbe177b2a8ea48e715dee2cb71d9a1";
+        hash = "sha256-DReIua9zsSoVXfBzzHv0uhjiZNype55TV8pR/oUIgHs=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildRosPackage {
   pname = "bicycle_steering_controller";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.bicycle_steering_controller;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

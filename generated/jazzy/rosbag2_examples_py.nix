@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rosbag2_examples_py-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "e542dd9512cdf0ae010755d0b12c74725ab1cb79";
-        hash = "sha256-j8OOPQ8nAcVB/1QGB6wVNXITGZ9lI+yt77Ce/DbB68Q=";
+        rev = "abb1148658689d3084410fab326b3a7e9226e8aa";
+        hash = "sha256-gbsmLKyygTEyDTCQ3LVP4wDvwEOhuHvsKzH+QYIgxE0=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "rosbag2_examples_py";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.rosbag2_examples_py;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [  ];

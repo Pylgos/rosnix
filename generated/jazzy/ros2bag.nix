@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "ros2bag-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "888b279d8d0d4d76a9125d0b4328df70f387bf59";
-        hash = "sha256-wfOK7yr2giKKP3nGzfbQn9WUZNNwoJ+NaZthXDKXg/k=";
+        rev = "d5418e17655d72763d6a2f88982d5cc347477e42";
+        hash = "sha256-iWXoKIBIZLwf+Zy7UaVeP09RVwtFDK3eHh5lRgFncP0=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "ros2bag";
-  version = "0.26.4-1";
+  version = "0.26.5-1";
   src = sources.ros2bag;
   nativeBuildInputs = [  ];
   propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml ];

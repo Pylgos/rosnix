@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "velocity_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "3090eaf6acc5a3a8db0e38367cfdfc9fe05f95db";
-        hash = "sha256-UFG974DlDkOFRlmQ+f88yykJv21oupn6FB7Qg21fpzw=";
+        rev = "8aa37491e45ece91eab46754d096a5bb0fae67d4";
+        hash = "sha256-PWviUVk+O8BPR1IjaQ7q0K8dZueuBJMGfPjJuuh2ohg=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "velocity_controllers";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.velocity_controllers;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

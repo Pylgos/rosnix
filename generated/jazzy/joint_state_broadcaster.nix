@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "joint_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "18fb5c5754d3dce1d38a2f463f3e724ec912e2ab";
-        hash = "sha256-ClsZn7lMqG3n6M+PugoRxmTEaUvrJBA+Z9D9f0C8mlQ=";
+        rev = "f24ed1506f66f313c62b8b16a04bd0550706582c";
+        hash = "sha256-e84+qPInnPPJrtZyiSu3yPDH3aLbkwBLjx8wFTNAt1A=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage {
   pname = "joint_state_broadcaster";
-  version = "4.13.0-1";
+  version = "4.14.0-1";
   src = sources.joint_state_broadcaster;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];

@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "ros2_control-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "5b4e24af6189cb1f14516efc7ae0e3bb7381c91d";
-        hash = "sha256-YMzdvM9d4D6+p34rnRFpLNoXCdJRn4F5tzUEfK8W900=";
+        rev = "4cac9bf1048391801e561bb61cf75d118b1de41b";
+        hash = "sha256-Ehy5rcDHq2jWCrhCs+8tPY9dKivEIcRZdNl0Q0NoErA=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "ros2_control";
-  version = "4.16.1-1";
+  version = "4.17.0-1";
   src = sources.ros2_control;
   nativeBuildInputs = [ ament_cmake ];
   propagatedNativeBuildInputs = [  ];
