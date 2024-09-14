@@ -33,7 +33,7 @@ let
       src = fetchurl {
         name = "fastrtps-vendor_source--0-source";
         url = "https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/";
-        hash = "sha256-KFE0xbGouzQIEjG19HfPOaRJfgEAA6KWtQpuAdFruns=";
+        hash = "sha256-s0yobYj2zXevHDTyndfAdacWSUjAdDaMTVyLtb0gYxA=";
       };
       substitutions = [
       ];
