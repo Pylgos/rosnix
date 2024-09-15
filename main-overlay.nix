@@ -2,15 +2,11 @@
 final: prev:
 
 let
-  private-funcs = import ./private-funcs.nix {
-    inherit lib;
-    pkgs = final;
-  };
   makeDistroScope =
     distro:
     final.makeScopeWithSplicing' {
       otherSplices = final.generateSplicesForMkScope "rosPackages";
-      extra = (spliced: private-funcs);
+      extra = (spliced: { substituteSource = final.callPackage ./lib/substitute-source.nix { }; });
       f =
         self:
         {

@@ -15,8 +15,11 @@
       rosnix-generator,
     }:
     let
-      applyShims = import ./shims;
-      lib = (applyShims nixpkgs.lib) // flake-utils.lib // nixpkgs.lib // builtins;
+      lib =
+        (import ./lib/extend-mk-derivation.nix { inherit (nixpkgs) lib; })
+        // flake-utils.lib
+        // nixpkgs.lib
+        // builtins;
     in
     (lib.eachDefaultSystem (
       system:
