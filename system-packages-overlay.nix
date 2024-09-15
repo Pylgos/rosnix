@@ -250,9 +250,9 @@ in
     konsole = [ final.plasma5Packages.konsole ];
     lcov = [ final.lcov ];
     leveldb = [ final.leveldb ];
-    libabsl-dev = [ final.abseil-cpp ];
+    libabsl-dev = [ final.abseil-cpp_202206 ];
     libasound2-dev = [ final.alsaLib ];
-    "libatomic" = [ ];
+    libatomic = [ ];
     libavahi-client-dev = [ final.avahi ];
     libavahi-core-dev = [ final.avahi ];
     libb64-dev = [ final.libb64 ];
@@ -588,8 +588,8 @@ in
     powertop = [ final.powertop ];
     procps = [ final.procps ];
     proj = [ final.proj ];
-    protobuf = [ final.protobuf ];
-    protobuf-dev = [ final.protobuf ];
+    protobuf = [ final.protobuf_21 ];
+    protobuf-dev = [ final.protobuf_21 ];
     pstoedit = [ final.pstoedit ];
     psutils = [ final.psutils ];
     pugixml-dev = [ final.pugixml ];
@@ -818,7 +818,7 @@ in
     sysstat = [ final.sysstat ];
     tango-icon-theme = [ final.tango-icon-theme ];
     tar = [ final.libtar ];
-    tbb = [ final.tbb ];
+    tbb = [ final.tbb_2021_11 ];
     tcsh = [ final.tcsh ];
     terminator = [ final.terminator ];
     texmaker = [ final.texmaker ];

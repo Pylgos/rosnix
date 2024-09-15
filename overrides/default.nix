@@ -2,8 +2,7 @@
 
 final: prev: {
   rosPackages = prev.rosPackages.overrideScope (
-    rosFinal: rosPrev:
-    {
+    rosFinal: rosPrev: {
       ament_cmake_vendor_package = rosPrev.ament_cmake_vendor_package.overrideAttrs (
         {
           patches ? [ ],
@@ -45,22 +44,6 @@ final: prev: {
           patches = patches ++ [ ./python_qt_binding.patch ];
         }
       );
-      cartographer = rosPrev.cartographer.overrideAttrs (
-        {
-          nativeBuildInputs ? [ ],
-          propagatedBuildInputs ? [ ],
-          ...
-        }:
-        {
-          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
-          propagatedBuildInputs =
-            (lib.remove final.abseil-cpp (lib.remove final.protobuf propagatedBuildInputs))
-            ++ [
-              final.abseil-cpp_202206
-              final.protobuf_21
-            ];
-        }
-      );
       behaviortree_cpp = rosPrev.behaviortree_cpp.overrideAttrs (
         {
           rosCmakeArgs ? [ ],
@@ -72,22 +55,5 @@ final: prev: {
         }
       );
     }
-    // (
-      if rosPrev ? slam_toolbox then
-        {
-
-          slam_toolbox = rosPrev.slam_toolbox.overrideAttrs (
-            {
-              propagatedBuildInputs ? [ ],
-              ...
-            }:
-            {
-              propagatedBuildInputs = (lib.remove final.tbb propagatedBuildInputs) ++ [ final.tbb_2021_11 ];
-            }
-          );
-        }
-      else
-        { }
-    )
   );
 }
