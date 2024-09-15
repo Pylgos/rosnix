@@ -51,6 +51,10 @@ GZ_VERSION = "harmonic"
 IGNITION_VERSION = "harmonic"
 DISABLE_GROUPS_WORKAROUND = "1"
 
+[auto_patching]
+ignore_files = ["test", "example", "ci-build.cmake"]
+ignore_urls = ["fast-dds.docs.eprosima.com"]
+
 [system_packages]
 "ace" = ["ace"]
 "ack" = ["ack"]

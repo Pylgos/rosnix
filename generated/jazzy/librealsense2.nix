@@ -17,15 +17,6 @@
 }:
 let
   sources = rec {
-    fastrtps-vendor_source--0 = substituteSource {
-      src = fetchurl {
-        name = "fastrtps-vendor_source--0-source";
-        url = "https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/";
-        hash = "sha256-s0yobYj2zXevHDTyndfAdacWSUjAdDaMTVyLtb0gYxA=";
-      };
-      substitutions = [
-      ];
-    };
     foonathan_memory_vendor-vendor_source-memory-0 = substituteSource {
       src = fetchgit {
         name = "foonathan_memory_vendor-vendor_source-memory-0-source";
@@ -119,11 +110,6 @@ let
         hash = "sha256-H1Unfwhu0fWMzck85fEUWOrCPWUHKxbWZEF8ay0Wtak=";
       };
       substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "DOWNLOAD \"https://fast-dds.docs.eprosima.com/_/downloads/en/latest/htmlzip/\"";
-          to = "DOWNLOAD file://${fastrtps-vendor_source--0}";
-        }
       ];
     };
     librealsense2-vendor_source-MobileNetSSD_deploy-8 = substituteSource {
