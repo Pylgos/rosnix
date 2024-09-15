@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   marti_common_msgs,
+  rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
@@ -27,14 +28,13 @@ buildRosPackage {
   pname = "mapviz_interfaces";
   version = "2.3.0-2";
   src = sources.mapviz_interfaces;
-  nativeBuildInputs = [ rosidl_default_generators ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces marti_common_msgs rosidl_default_runtime ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin_interfaces marti_common_msgs rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS interfaces used by Mapviz";
   };

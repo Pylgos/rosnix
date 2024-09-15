@@ -4,8 +4,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   substituteSource,
-  subversion,
 }:
 let
   sources = rec {
@@ -25,14 +25,13 @@ buildRosPackage {
   pname = "qpoases_vendor";
   version = "3.2.3-5";
   src = sources.qpoases_vendor;
-  nativeBuildInputs = [ ament_cmake_auto ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ subversion ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "subversion" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Wrapper around qpOASES to make it available to the ROS ecosystem.";
   };

@@ -2,12 +2,11 @@
   ament_flake8,
   ament_lint,
   ament_pep257,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +27,13 @@ buildRosPackage {
   pname = "ament_copyright";
   version = "0.17.1-1";
   src = sources.ament_copyright;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_lint buildPackages.python3Packages.importlib-metadata ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_lint python3Packages.importlib-metadata ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-importlib-metadata" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The ability to check source files for copyright and license information.";
   };

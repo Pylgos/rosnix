@@ -5,10 +5,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   python_qt_binding,
   rclpy,
   ros2topic,
+  rosSystemPackages,
   rqt_gui,
   rqt_gui_py,
   rqt_py_common,
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "rqt_topic";
   version = "1.8.0-1";
   src = sources.rqt_topic;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python_qt_binding rclpy ros2topic rqt_gui rqt_gui_py rqt_py_common ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 ament_xmllint python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ python_qt_binding rclpy ros2topic rqt_gui rqt_gui_py rqt_py_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ament_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "rqt_topic provides a GUI plugin for displaying debug information about ROS topics including publishers, subscribers, publishing rate, and ROS Messages.";
   };

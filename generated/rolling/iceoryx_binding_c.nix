@@ -1,11 +1,11 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   iceoryx_hoofs,
   iceoryx_posh,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -26,14 +26,13 @@ buildRosPackage {
   pname = "iceoryx_binding_c";
   version = "2.0.5-5";
   src = sources.iceoryx_binding_c;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ iceoryx_hoofs iceoryx_posh ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ iceoryx_hoofs iceoryx_posh ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Eclipse iceoryx inter-process-communication (IPC) middleware C-Language Binding";
   };

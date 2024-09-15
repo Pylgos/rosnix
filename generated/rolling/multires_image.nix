@@ -9,9 +9,9 @@
   gps_msgs,
   mapviz,
   pluginlib,
-  qt5,
   rclcpp,
   rclpy,
+  rosSystemPackages,
   substituteSource,
   swri_math_util,
   swri_transform_util,
@@ -36,14 +36,13 @@ buildRosPackage {
   pname = "multires_image";
   version = "2.3.0-2";
   src = sources.multires_image;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [ qt5.qtbase ];
-  propagatedBuildInputs = [ cv_bridge geometry_msgs gps_msgs mapviz pluginlib qt5.qtbase rclcpp rclpy swri_math_util swri_transform_util tf2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
+  propagatedBuildInputs = [ cv_bridge geometry_msgs gps_msgs mapviz pluginlib rclcpp rclpy swri_math_util swri_transform_util tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "multires_image";
   };

@@ -10,8 +10,8 @@
   flexbe_msgs,
   flexbe_testing,
   geometry_msgs,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "flexbe_states";
   version = "3.0.3-1";
   src = sources.flexbe_states;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ flexbe_core flexbe_msgs flexbe_testing rclpy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 geometry_msgs python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ flexbe_core flexbe_msgs flexbe_testing rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "flexbe_states provides a collection of common generic predefined states.";
   };

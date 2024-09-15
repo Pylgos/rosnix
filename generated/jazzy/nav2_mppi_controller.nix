@@ -8,9 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gbenchmark,
   geometry_msgs,
-  llvmPackages,
   nav2_common,
   nav2_core,
   nav2_costmap_2d,
@@ -18,6 +16,7 @@
   nav2_util,
   pluginlib,
   rclcpp,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
   tf2,
@@ -25,8 +24,6 @@
   tf2_geometry_msgs,
   tf2_ros,
   visualization_msgs,
-  xsimd,
-  xtensor,
 }:
 let
   sources = rec {
@@ -46,14 +43,13 @@ buildRosPackage {
   pname = "nav2_mppi_controller";
   version = "1.3.2-1";
   src = sources.nav2_mppi_controller;
-  nativeBuildInputs = [ ament_cmake ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ gbenchmark ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs llvmPackages.openmp nav2_common nav2_core nav2_costmap_2d nav2_msgs nav2_util pluginlib rclcpp std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs xsimd xtensor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs nav2_common nav2_core nav2_costmap_2d nav2_msgs nav2_util pluginlib rclcpp std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libomp-dev" "xsimd" "xtensor" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "nav2_mppi_controller";
   };

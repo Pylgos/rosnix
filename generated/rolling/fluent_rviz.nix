@@ -8,6 +8,7 @@
   geometry_msgs,
   ouxt_lint_common,
   rclcpp,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
   visualization_msgs,
@@ -30,14 +31,13 @@ buildRosPackage {
   pname = "fluent_rviz";
   version = "0.0.3-4";
   src = sources.fluent_rviz;
-  nativeBuildInputs = [ ament_cmake_auto ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs rclcpp std_msgs visualization_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ouxt_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs rclcpp std_msgs visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ouxt_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A library which makes Rviz fluent. Powered by C++17";
   };

@@ -5,15 +5,14 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  eigen,
   eigen3_cmake_module,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry_msgs,
-  python3Packages,
   python_cmake_module,
   rclcpp,
+  rosSystemPackages,
   sensor_msgs,
   sensor_msgs_py,
   std_msgs,
@@ -40,14 +39,13 @@ buildRosPackage {
   pname = "tf2_sensor_msgs";
   version = "0.38.2-1";
   src = sources.tf2_sensor_msgs;
-  nativeBuildInputs = [ ament_cmake python_cmake_module ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs python3Packages.numpy sensor_msgs sensor_msgs_py std_msgs tf2 tf2_ros tf2_ros_py ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common rclcpp ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs sensor_msgs sensor_msgs_py std_msgs tf2 tf2_ros tf2_ros_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-numpy" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Small lib to transform sensor_msgs with tf. Most notably, PointCloud2";
   };

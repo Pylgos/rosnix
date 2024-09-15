@@ -7,8 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  libxml2,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +28,13 @@ buildRosPackage {
   pname = "ament_xmllint";
   version = "0.17.1-1";
   src = sources.ament_xmllint;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_lint libxml2 ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_lint libxml2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libxml2-utils" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libxml2-utils" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The ability to check XML files like the package manifest using xmllint and generate xUnit test result files.";
   };

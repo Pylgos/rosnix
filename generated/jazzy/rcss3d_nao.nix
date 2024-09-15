@@ -13,6 +13,7 @@
   rclcpp_components,
   rcss3d_agent,
   rcss3d_agent_msgs_to_soccer_interfaces,
+  rosSystemPackages,
   sensor_msgs,
   soccer_vision_3d_msgs,
   substituteSource,
@@ -35,14 +36,13 @@ buildRosPackage {
   pname = "rcss3d_nao";
   version = "1.2.0-3";
   src = sources.rcss3d_nao;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs nao_lola_command_msgs nao_lola_sensor_msgs rclcpp_components rcss3d_agent rcss3d_agent_msgs_to_soccer_interfaces sensor_msgs soccer_vision_3d_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs nao_lola_command_msgs nao_lola_sensor_msgs rclcpp_components rcss3d_agent rcss3d_agent_msgs_to_soccer_interfaces sensor_msgs soccer_vision_3d_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "An interface to SimSpark that uses interfaces used by a Nao robot";
   };

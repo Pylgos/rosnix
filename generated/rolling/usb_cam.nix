@@ -10,11 +10,11 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  ffmpeg,
   image_transport,
   image_transport_plugins,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -22,7 +22,6 @@
   std_msgs,
   std_srvs,
   substituteSource,
-  v4l-utils,
 }:
 let
   sources = rec {
@@ -42,14 +41,13 @@ buildRosPackage {
   pname = "usb_cam";
   version = "0.8.1-1";
   src = sources.usb_cam;
-  nativeBuildInputs = [ ament_cmake_auto rosidl_default_generators ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces camera_info_manager cv_bridge ffmpeg image_transport image_transport_plugins rclcpp rclcpp_components rosidl_default_runtime sensor_msgs std_msgs std_srvs v4l-utils ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin_interfaces camera_info_manager cv_bridge image_transport image_transport_plugins rclcpp rclcpp_components rosidl_default_runtime sensor_msgs std_msgs std_srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" "v4l-utils" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A ROS Driver for V4L USB Cameras";
   };

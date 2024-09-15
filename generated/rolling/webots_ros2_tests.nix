@@ -9,9 +9,9 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
-  python3Packages,
   rclpy,
   ros2bag,
+  rosSystemPackages,
   rosbag2_storage_default_plugins,
   sensor_msgs,
   std_msgs,
@@ -45,14 +45,13 @@ buildRosPackage {
   pname = "webots_ros2_tests";
   version = "2023.1.3-1";
   src = sources.webots_ros2_tests;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rclpy ros2bag rosbag2_storage_default_plugins webots_ros2_driver ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright geometry_msgs launch launch_testing launch_testing_ament_cmake launch_testing_ros python3Packages.pytest sensor_msgs std_msgs std_srvs tf2_ros webots_ros2_epuck webots_ros2_mavic webots_ros2_tesla webots_ros2_tiago webots_ros2_turtlebot webots_ros2_universal_robot ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclpy ros2bag rosbag2_storage_default_plugins webots_ros2_driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright geometry_msgs launch launch_testing launch_testing_ament_cmake launch_testing_ros sensor_msgs std_msgs std_srvs tf2_ros webots_ros2_epuck webots_ros2_mavic webots_ros2_tesla webots_ros2_tiago webots_ros2_turtlebot webots_ros2_universal_robot ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "System tests for `webots_ros2` packages.";
   };

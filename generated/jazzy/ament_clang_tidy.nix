@@ -2,13 +2,11 @@
   ament_copyright,
   ament_flake8,
   ament_pep257,
-  buildPackages,
   buildRosPackage,
-  clang,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +27,13 @@ buildRosPackage {
   pname = "ament_clang_tidy";
   version = "0.17.1-1";
   src = sources.ament_clang_tidy;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ clang buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ clang python3Packages.pyyaml ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-tidy" "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "clang-tidy" "python3-yaml" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The ability to check code against style conventions using clang-tidy and generate xUnit test result files.";
   };

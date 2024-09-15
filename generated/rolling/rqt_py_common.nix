@@ -9,9 +9,9 @@
   fetchzip,
   python_cmake_module,
   python_qt_binding,
-  qt5,
   qt_gui,
   rclpy,
+  rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "rqt_py_common";
   version = "1.7.2-1";
   src = sources.rqt_py_common;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python_qt_binding qt5.qtbase qt_gui rclpy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common python_cmake_module rosidl_default_generators rosidl_default_runtime ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ python_qt_binding qt_gui rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common python_cmake_module rosidl_default_generators rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "rqt_py_common provides common functionality for rqt plugins written in Python. Despite no plugin is provided, this package is part of the rqt_common_plugins repository to keep refactoring generic functionality from these common plugins into this package as easy as possible. Functionality included in this package should cover generic ROS concepts and should not introduce any special dependencies beside \"ros_base\".";
   };

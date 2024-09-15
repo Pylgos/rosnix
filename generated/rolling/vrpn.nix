@@ -1,10 +1,10 @@
 {
   ament_cmake,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -25,14 +25,13 @@ buildRosPackage {
   pname = "vrpn";
   version = "7.35.0-20";
   src = sources.vrpn;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The VRPN is a library and set of servers that interfaces with virtual-reality systems, such as VICON, OptiTrack, and others.";
   };

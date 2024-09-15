@@ -8,6 +8,7 @@
   nav_msgs,
   rclcpp,
   robot_state_publisher,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
   tf2,
@@ -32,14 +33,13 @@ buildRosPackage {
   pname = "turtlebot3_fake_node";
   version = "2.2.5-5";
   src = sources.turtlebot3_fake_node;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_cmake ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs nav_msgs rclcpp robot_state_publisher sensor_msgs tf2 tf2_msgs turtlebot3_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs nav_msgs rclcpp robot_state_publisher sensor_msgs tf2 tf2_msgs turtlebot3_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package for TurtleBot3 fake node. With this package, simple tests can be done without a robot. You can do simple tests using this package on rviz without real robots.";
   };

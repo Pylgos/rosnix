@@ -1,12 +1,12 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   mola_common,
   mola_kernel,
   mrpt_libmaps,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -27,14 +27,13 @@ buildRosPackage {
   pname = "mola_input_kitti_dataset";
   version = "1.1.3-1";
   src = sources.mola_input_kitti_dataset;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_kernel mrpt_libmaps ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ mola_common mola_kernel mrpt_libmaps ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Offline RawDataSource from Kitti odometry/SLAM datasets";
   };

@@ -2,10 +2,10 @@
   ament_cmake_core,
   ament_package,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -26,14 +26,13 @@ buildRosPackage {
   pname = "ros_workspace";
   version = "1.0.3-5";
   src = sources.ros_workspace;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_core ament_package ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_core ament_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Provides the prefix level environment files for ROS 2 packages.";
   };

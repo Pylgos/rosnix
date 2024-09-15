@@ -3,15 +3,14 @@
   ament_flake8,
   ament_index_python,
   ament_xmllint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   python_qt_binding,
   qt_gui_py_common,
   rclpy,
+  rosSystemPackages,
   rqt_console,
   rqt_gui,
   rqt_gui_py,
@@ -37,14 +36,13 @@ buildRosPackage {
   pname = "rqt_reconfigure";
   version = "1.7.0-1";
   src = sources.rqt_reconfigure;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python python_qt_binding qt_gui_py_common rclpy rqt_console rqt_gui rqt_gui_py rqt_py_common ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_xmllint python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python python_qt_binding qt_gui_py_common rclpy rqt_console rqt_gui rqt_gui_py rqt_py_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "This rqt plugin provides a way to view and edit parameters on nodes.";
   };

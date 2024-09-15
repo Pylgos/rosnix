@@ -8,8 +8,8 @@
   fetchzip,
   geometry_msgs,
   nav_msgs,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   substituteSource,
   tf2_ros,
   tf_transformations,
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "nav2_loopback_sim";
   version = "1.3.2-1";
   src = sources.nav2_loopback_sim;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs nav_msgs rclpy tf2_ros tf_transformations ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [ "python3-transforms3d" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs nav_msgs rclpy tf2_ros tf_transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-transforms3d" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "A loopback simulator to replace physics simulation";
   };

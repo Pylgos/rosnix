@@ -6,8 +6,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   substituteSource,
   webots_ros2_driver,
 }:
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "webots_ros2_tesla";
   version = "2023.1.3-1";
   src = sources.webots_ros2_tesla;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ackermann_msgs builtin_interfaces python3Packages.numpy python3Packages.opencv4 rclpy webots_ros2_driver ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ackermann_msgs builtin_interfaces rclpy webots_ros2_driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-opencv" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Tesla ROS2 interface for Webots.";
   };

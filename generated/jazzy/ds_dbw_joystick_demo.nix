@@ -9,6 +9,7 @@
   joy,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -31,14 +32,13 @@ buildRosPackage {
   pname = "ds_dbw_joystick_demo";
   version = "2.2.0-1";
   src = sources.ds_dbw_joystick_demo;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ds_dbw_can ds_dbw_msgs joy rclcpp rclcpp_components sensor_msgs std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ds_dbw_can ds_dbw_msgs joy rclcpp rclcpp_components sensor_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Demonstration of drive-by-wire with joystick";
   };

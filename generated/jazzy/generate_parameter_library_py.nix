@@ -1,12 +1,10 @@
 {
   ament_copyright,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -27,14 +25,13 @@ buildRosPackage {
   pname = "generate_parameter_library_py";
   version = "0.3.8-4";
   src = sources.generate_parameter_library_py;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.jinja2 buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3 python3Packages.jinja2 python3Packages.pyyaml ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright python3Packages.pytest ];
-  missingDependencies = [ "python3-typeguard" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-typeguard" "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" "python3-jinja2" "python3-typeguard" "python3-yaml" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Python to generate ROS parameter library.";
   };

@@ -1,13 +1,12 @@
 {
   ament_copyright,
   ament_index_python,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   substituteSource,
   xacro,
 }:
@@ -29,14 +28,13 @@ buildRosPackage {
   pname = "launch_param_builder";
   version = "0.1.1-3";
   src = sources.launch_param_builder;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python rclpy xacro ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python rclpy xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Python library for loading parameters in launch files";
   };

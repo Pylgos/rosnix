@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "autoware_adapi_version_msgs";
   version = "1.3.0-1";
   src = sources.autoware_adapi_version_msgs;
-  nativeBuildInputs = [ ament_cmake_auto ];
-  propagatedNativeBuildInputs = [ rosidl_default_generators ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rosidl_default_runtime ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The Autoware AD API version interfaces";
   };

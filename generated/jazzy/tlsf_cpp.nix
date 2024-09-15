@@ -10,6 +10,7 @@
   rclcpp,
   rmw,
   rmw_implementation_cmake,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
   tlsf,
@@ -32,14 +33,13 @@ buildRosPackage {
   pname = "tlsf_cpp";
   version = "0.17.0-3";
   src = sources.tlsf_cpp;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_cmake ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rclcpp rmw std_msgs tlsf ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common rmw_implementation_cmake ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp rmw std_msgs tlsf ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common rmw_implementation_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "C++ stdlib-compatible wrapper around tlsf allocator and ROS2 examples";
   };

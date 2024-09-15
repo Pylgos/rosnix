@@ -9,10 +9,8 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  python3,
-  python3Packages,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   rviz_common,
   rviz_default_plugins,
   rviz_ogre_vendor,
@@ -38,14 +36,13 @@ buildRosPackage {
   pname = "rviz2";
   version = "14.2.6-1";
   src = sources.rviz2;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3 qt5.qtbase rviz_common rviz_default_plugins rviz_ogre_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_lint_cmake ament_cmake_pytest ament_lint_auto ament_lint_common geometry_msgs python3Packages.pyyaml rclcpp sensor_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rviz_common rviz_default_plugins rviz_ogre_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_lint_cmake ament_cmake_pytest ament_lint_auto ament_lint_common geometry_msgs rclcpp sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   meta = {
     description = "3D visualization tool for ROS.";
   };

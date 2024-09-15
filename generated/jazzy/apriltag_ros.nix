@@ -7,13 +7,13 @@
   apriltag_msgs,
   buildRosPackage,
   cv_bridge,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
   image_transport,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
   tf2_ros,
@@ -36,14 +36,13 @@ buildRosPackage {
   pname = "apriltag_ros";
   version = "3.2.2-1";
   src = sources.apriltag_ros;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ apriltag apriltag_msgs cv_bridge eigen image_transport rclcpp rclcpp_components sensor_msgs tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_clang_format ament_cmake_cppcheck ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ apriltag apriltag_msgs cv_bridge image_transport rclcpp rclcpp_components sensor_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_clang_format ament_cmake_cppcheck ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "AprilTag detection node";
   };

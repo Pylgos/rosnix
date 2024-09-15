@@ -5,7 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   rqt_gui,
   rqt_gui_py,
   rqt_msg,
@@ -30,14 +30,13 @@ buildRosPackage {
   pname = "rqt_srv";
   version = "1.3.0-1";
   src = sources.rqt_srv;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rqt_gui rqt_gui_py rqt_msg ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 ament_xmllint python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rqt_gui rqt_gui_py rqt_msg ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ament_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "A Python GUI plugin for introspecting available ROS service types.";
   };

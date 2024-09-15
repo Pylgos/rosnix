@@ -2,12 +2,11 @@
   ament_copyright,
   ament_flake8,
   ament_pep257,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -30,14 +29,13 @@ buildRosPackage {
   pname = "sensor_msgs_py";
   version = "5.3.5-1";
   src = sources.sensor_msgs_py;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ sensor_msgs std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ sensor_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "A package for easy creation and reading of PointCloud2 messages in Python.";
   };

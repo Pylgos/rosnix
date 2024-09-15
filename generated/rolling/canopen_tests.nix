@@ -16,6 +16,7 @@
   joint_trajectory_controller,
   lely_core_libraries,
   robot_state_publisher,
+  rosSystemPackages,
   substituteSource,
   xacro,
 }:
@@ -37,14 +38,13 @@ buildRosPackage {
   pname = "canopen_tests";
   version = "0.2.12-2";
   src = sources.canopen_tests;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ canopen_402_driver canopen_core canopen_fake_slaves canopen_proxy_driver canopen_ros2_controllers controller_manager forward_command_controller joint_state_broadcaster joint_trajectory_controller lely_core_libraries robot_state_publisher xacro ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ canopen_402_driver canopen_core canopen_fake_slaves canopen_proxy_driver canopen_ros2_controllers controller_manager forward_command_controller joint_state_broadcaster joint_trajectory_controller lely_core_libraries robot_state_publisher xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package with tests for ros2_canopen";
   };

@@ -4,7 +4,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gtest,
   lanelet2_core,
   lanelet2_io,
   lanelet2_maps,
@@ -12,6 +11,7 @@
   lanelet2_routing,
   lanelet2_traffic_rules,
   mrt_cmake_modules,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "lanelet2_validation";
   version = "1.2.1-6";
   src = sources.lanelet2_validation;
-  nativeBuildInputs = [ ament_cmake_core ];
-  propagatedNativeBuildInputs = [ mrt_cmake_modules ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ lanelet2_core lanelet2_io lanelet2_projection lanelet2_routing lanelet2_traffic_rules ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest lanelet2_maps ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ lanelet2_core lanelet2_io lanelet2_projection lanelet2_routing lanelet2_traffic_rules ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ lanelet2_maps ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "Package for sanitizing lanelet maps";
   };

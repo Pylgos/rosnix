@@ -11,7 +11,6 @@
   launch,
   launch_testing,
   launch_testing_ament_cmake,
-  libyamlcpp,
   rclcpp,
   rclcpp_components,
   rcutils,
@@ -19,6 +18,7 @@
   rmw_cyclonedds_cpp,
   rmw_fastrtps_cpp,
   rmw_implementation_cmake,
+  rosSystemPackages,
   rosbag2_cpp,
   rosgraph_msgs,
   rosidl_default_generators,
@@ -46,14 +46,13 @@ buildRosPackage {
   pname = "domain_bridge";
   version = "0.5.0-4";
   src = sources.domain_bridge;
-  nativeBuildInputs = [ ament_cmake rosidl_default_generators ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ libyamlcpp rclcpp rclcpp_components rcutils rosbag2_cpp rosidl_default_runtime rosidl_typesupport_cpp zstd_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common example_interfaces launch launch_testing launch_testing_ament_cmake rmw_connextdds rmw_cyclonedds_cpp rmw_fastrtps_cpp rmw_implementation_cmake rosgraph_msgs test_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp rclcpp_components rcutils rosbag2_cpp rosidl_default_runtime rosidl_typesupport_cpp zstd_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common example_interfaces launch launch_testing launch_testing_ament_cmake rmw_connextdds rmw_cyclonedds_cpp rmw_fastrtps_cpp rmw_implementation_cmake rosgraph_msgs test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS 2 Domain Bridge";
   };

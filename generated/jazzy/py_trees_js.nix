@@ -1,11 +1,9 @@
 {
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
-  qt5,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -27,14 +25,13 @@ buildRosPackage {
   pname = "py_trees_js";
   version = "0.6.4-1";
   src = sources.py_trees_js;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.setuptools ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.pyqt5 python3Packages.pyqtwebengine python3Packages.pyside2 python3Packages.sip4 qt5.qttools.dev ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "pyqt5-dev-tools" ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pyqt5-dev-tools" "python3-pyqt5.qtwebengine" "python3-qt5-bindings" "qttools5-dev-tools" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Javascript library for visualising behaviour trees.";
   };

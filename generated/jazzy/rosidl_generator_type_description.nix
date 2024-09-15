@@ -9,7 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3,
+  rosSystemPackages,
   rosidl_cli,
   rosidl_parser,
   substituteSource,
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "rosidl_generator_type_description";
   version = "4.6.4-1";
   src = sources.rosidl_generator_type_description;
-  nativeBuildInputs = [ ament_cmake_python ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ ament_cmake_core python3 rosidl_cli rosidl_parser ];
-  buildInputs = [ ament_cmake_python ament_cmake_ros ];
-  propagatedBuildInputs = [ ament_cmake_core rosidl_cli rosidl_parser ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [ ament_index_python ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_python ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_core rosidl_cli rosidl_parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  buildInputs = [ ament_cmake_python ament_cmake_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_cmake_core rosidl_cli rosidl_parser ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [ ament_index_python ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Generate hashes and descriptions of ROS 2 interface types, per REP-2011.";
   };

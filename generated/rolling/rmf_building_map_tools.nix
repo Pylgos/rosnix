@@ -1,17 +1,14 @@
 {
   ament_index_python,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   gz_fuel_tools_vendor,
-  libyamlcpp,
-  python3Packages,
   rclpy,
   rmf_building_map_msgs,
   rmf_site_map_msgs,
-  sqlite,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
@@ -33,14 +30,13 @@ buildRosPackage {
   pname = "rmf_building_map_tools";
   version = "1.10.0-1";
   src = sources.rmf_building_map_tools;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python gz_fuel_tools_vendor libyamlcpp python3Packages.fiona python3Packages.pyproj python3Packages.requests python3Packages.shapely rclpy rmf_building_map_msgs rmf_site_map_msgs sqlite std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ python3Packages.pytest ];
-  missingDependencies = [ "python3-rtree" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python gz_fuel_tools_vendor rclpy rmf_building_map_msgs rmf_site_map_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-fiona" "python3-pyproj" "python3-requests" "python3-rtree" "python3-shapely" "sqlite3" "yaml-cpp" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "RMF Building map tools";
   };

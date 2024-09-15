@@ -3,10 +3,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   python_qt_binding,
   qt_dotgraph,
   rclpy,
+  rosSystemPackages,
   rqt_graph,
   rqt_gui,
   rqt_gui_py,
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "rqt_tf_tree";
   version = "1.0.5-1";
   src = sources.rqt_tf_tree;
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python_qt_binding qt_dotgraph rclpy rqt_graph rqt_gui rqt_gui_py tf2_msgs tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ python3Packages.mock python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ python_qt_binding qt_dotgraph rclpy rqt_graph rqt_gui rqt_gui_py tf2_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-mock" "python3-pytest" ]; };
   meta = {
     description = "rqt_tf_tree provides a GUI plugin for visualizing the ROS TF frame tree.";
   };

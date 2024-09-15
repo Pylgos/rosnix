@@ -4,10 +4,9 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  geographiclib,
-  gtest,
   lanelet2_io,
   mrt_cmake_modules,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +27,13 @@ buildRosPackage {
   pname = "lanelet2_projection";
   version = "1.2.1-6";
   src = sources.lanelet2_projection;
-  nativeBuildInputs = [ ament_cmake_core ];
-  propagatedNativeBuildInputs = [ mrt_cmake_modules ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geographiclib lanelet2_io ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ lanelet2_io ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "Lanelet2 projection library for lat/lon to local x/y conversion";
   };

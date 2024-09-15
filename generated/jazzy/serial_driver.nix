@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   ament_lint_auto,
   ament_lint_common,
-  asio,
   asio_cmake_module,
   buildRosPackage,
   fetchgit,
@@ -13,6 +12,7 @@
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
@@ -34,14 +34,13 @@ buildRosPackage {
   pname = "serial_driver";
   version = "1.2.0-4";
   src = sources.serial_driver;
-  nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ asio io_context rclcpp rclcpp_components rclcpp_lifecycle std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ io_context rclcpp rclcpp_components rclcpp_lifecycle std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A template class and associated utilities which encapsulate basic reading from serial ports";
   };

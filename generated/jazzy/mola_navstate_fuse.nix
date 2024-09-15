@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -8,6 +7,7 @@
   mola_imu_preintegration,
   mola_kernel,
   mrpt_libobs,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +28,13 @@ buildRosPackage {
   pname = "mola_navstate_fuse";
   version = "1.1.3-1";
   src = sources.mola_navstate_fuse;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mola_imu_preintegration mola_kernel mrpt_libobs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ mola_common mola_imu_preintegration mola_kernel mrpt_libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "SE(3) pose and twist path data fusion estimator";
   };

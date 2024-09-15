@@ -8,9 +8,9 @@
   fetchzip,
   image_transport,
   message_filters,
-  opencv,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
   vision_msgs,
@@ -34,14 +34,13 @@ buildRosPackage {
   pname = "depthai_filters";
   version = "2.10.0-1";
   src = sources.depthai_filters;
-  nativeBuildInputs = [ ament_cmake_auto ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge depthai_ros_msgs image_transport message_filters opencv rclcpp rclcpp_components sensor_msgs vision_msgs visualization_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge depthai_ros_msgs image_transport message_filters rclcpp rclcpp_components sensor_msgs vision_msgs visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Depthai filters package";
   };

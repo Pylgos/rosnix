@@ -6,21 +6,17 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
-  curl,
   fetchgit,
   fetchurl,
   fetchzip,
-  gflags,
   gz_cmake_vendor,
   gz_common_vendor,
   gz_math_vendor,
   gz_msgs_vendor,
   gz_tools_vendor,
   gz_utils_vendor,
-  jsoncpp,
-  libyaml,
+  rosSystemPackages,
   substituteSource,
-  tinyxml-2,
 }:
 let
   sources = rec {
@@ -55,14 +51,13 @@ buildRosPackage {
   pname = "gz_fuel_tools_vendor";
   version = "0.1.1-1";
   src = sources.gz_fuel_tools_vendor;
-  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ curl gflags gz_cmake_vendor gz_common_vendor gz_math_vendor gz_msgs_vendor gz_tools_vendor gz_utils_vendor jsoncpp libyaml tinyxml-2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];
-  missingDependencies = [ "gz-fuel_tools9" "libzip-dev" ];
+  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ gz_cmake_vendor gz_common_vendor gz_math_vendor gz_msgs_vendor gz_tools_vendor gz_utils_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-fuel_tools9" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libyaml-dev" "libzip-dev" "tinyxml2" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Vendor package for: gz-fuel_tools9 9.1.0 Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel";
   };

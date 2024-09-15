@@ -2,12 +2,10 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  curl,
   fetchgit,
   fetchurl,
   fetchzip,
-  file,
-  pkg-config,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -43,14 +41,13 @@ buildRosPackage {
   pname = "libcurl_vendor";
   version = "3.5.1-1";
   src = sources.libcurl_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ curl pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ file ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "file" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Wrapper around libcurl, it provides a fixed CMake module and an ExternalProject build of it.";
   };

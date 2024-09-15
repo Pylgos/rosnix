@@ -2,13 +2,12 @@
   ament_cmake_catch2,
   ament_cmake_uncrustify,
   buildRosPackage,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
   rmf_battery,
   rmf_utils,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +28,13 @@ buildRosPackage {
   pname = "rmf_task";
   version = "2.5.1-1";
   src = sources.rmf_task;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen rmf_battery rmf_utils ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rmf_battery rmf_utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package for managing tasks in the Robotics Middleware Framework";
   };

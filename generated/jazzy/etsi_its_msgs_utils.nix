@@ -5,8 +5,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  geographiclib,
   geometry_msgs,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -28,14 +28,13 @@ buildRosPackage {
   pname = "etsi_its_msgs_utils";
   version = "2.2.0-1";
   src = sources.etsi_its_msgs_utils;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ etsi_its_msgs geographiclib geometry_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ etsi_its_msgs geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS messages and utility functions for ETSI ITS messages";
   };

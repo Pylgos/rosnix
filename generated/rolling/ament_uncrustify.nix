@@ -7,7 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
   uncrustify_vendor,
 }:
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "ament_uncrustify";
   version = "0.18.1-1";
   src = sources.ament_uncrustify;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ uncrustify_vendor ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ uncrustify_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_pycodestyle python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ uncrustify_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ uncrustify_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_pycodestyle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The ability to check code against style conventions using uncrustify and generate xUnit test result files.";
   };

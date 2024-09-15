@@ -5,9 +5,9 @@
   fetchurl,
   fetchzip,
   pluginlib,
-  qt5,
   qt_gui_cpp,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "rqt_gui_cpp";
   version = "1.6.0-2";
   src = sources.rqt_gui_cpp;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib qt5.qtbase qt_gui_cpp rclcpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib qt_gui_cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "rqt_gui_cpp enables GUI plugins to use the C++ client library for ROS.";
   };

@@ -13,6 +13,7 @@
   nav_msgs,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   stereo_msgs,
@@ -40,14 +41,13 @@ buildRosPackage {
   pname = "mrpt_reactivenav2d";
   version = "2.1.1-1";
   src = sources.mrpt_reactivenav2d;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs mrpt_libnav mrpt_libros_bridge mrpt_nav_interfaces nav_msgs rclcpp rclcpp_components sensor_msgs std_msgs stereo_msgs tf2 tf2_geometry_msgs tf2_ros visualization_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs mrpt_libnav mrpt_libros_bridge mrpt_nav_interfaces nav_msgs rclcpp rclcpp_components sensor_msgs std_msgs stereo_msgs tf2 tf2_geometry_msgs tf2_ros visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Reactive navigation for wheeled robots using MRPT navigation algorithms (TP-Space)";
   };

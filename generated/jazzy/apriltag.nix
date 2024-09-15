@@ -1,12 +1,9 @@
 {
-  buildPackages,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  opencv,
-  python3,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -27,14 +24,13 @@ buildRosPackage {
   pname = "apriltag";
   version = "3.4.2-1";
   src = sources.apriltag;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ python3 buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ opencv ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   meta = {
     description = "AprilTag detector library";
   };

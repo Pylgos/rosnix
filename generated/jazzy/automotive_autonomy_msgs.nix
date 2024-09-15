@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -27,14 +28,13 @@ buildRosPackage {
   pname = "automotive_autonomy_msgs";
   version = "3.0.4-6";
   src = sources.automotive_autonomy_msgs;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ automotive_navigation_msgs automotive_platform_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ automotive_navigation_msgs automotive_platform_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Messages for vehicle automation";
   };

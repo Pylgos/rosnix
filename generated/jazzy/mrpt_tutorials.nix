@@ -3,11 +3,11 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   mvsim,
+  rosSystemPackages,
   substituteSource,
   teleop_twist_keyboard,
 }:
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "mrpt_tutorials";
   version = "2.1.1-1";
   src = sources.mrpt_tutorials;
-  nativeBuildInputs = [ ament_cmake cmake ];
-  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ mvsim teleop_twist_keyboard ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ mvsim teleop_twist_keyboard ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Example files used as tutorials for MRPT ROS packages";
   };

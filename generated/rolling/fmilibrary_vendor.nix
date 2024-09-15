@@ -4,7 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -40,14 +40,13 @@ buildRosPackage {
   pname = "fmilibrary_vendor";
   version = "1.0.1-4";
   src = sources.fmilibrary_vendor;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ git ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Wrapper (aka vendor package) around the FMILibrary by Modelon AB (JModelica.org)";
   };

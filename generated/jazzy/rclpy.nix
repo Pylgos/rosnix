@@ -6,7 +6,6 @@
   ament_index_python,
   ament_lint_auto,
   ament_lint_common,
-  buildPackages,
   buildRosPackage,
   builtin_interfaces,
   fetchgit,
@@ -14,7 +13,6 @@
   fetchzip,
   lifecycle_msgs,
   pybind11_vendor,
-  python3Packages,
   python_cmake_module,
   rcl,
   rcl_action,
@@ -27,6 +25,7 @@
   rmw,
   rmw_implementation,
   rmw_implementation_cmake,
+  rosSystemPackages,
   rosgraph_msgs,
   rosidl_generator_py,
   rosidl_runtime_c,
@@ -53,14 +52,13 @@ buildRosPackage {
   pname = "rclpy";
   version = "7.1.2-1";
   src = sources.rclpy;
-  nativeBuildInputs = [ ament_cmake python_cmake_module ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml rmw_implementation_cmake rpyutils ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ action_msgs ament_index_python builtin_interfaces lifecycle_msgs pybind11_vendor rcl rcl_action rcl_interfaces rcl_lifecycle rcl_logging_interface rcl_yaml_param_parser rcpputils rcutils rmw rmw_implementation rosgraph_msgs rosidl_runtime_c unique_identifier_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common python3Packages.pytest rosidl_generator_py test_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rmw_implementation_cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ action_msgs ament_index_python builtin_interfaces lifecycle_msgs pybind11_vendor rcl rcl_action rcl_interfaces rcl_lifecycle rcl_logging_interface rcl_yaml_param_parser rcpputils rcutils rmw rmw_implementation rosgraph_msgs rosidl_runtime_c unique_identifier_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common rosidl_generator_py test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Package containing the Python client.";
   };

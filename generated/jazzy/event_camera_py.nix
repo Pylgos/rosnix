@@ -14,9 +14,9 @@
   fetchurl,
   fetchzip,
   pybind11_vendor,
-  python3Packages,
   python_cmake_module,
   rclpy,
+  rosSystemPackages,
   ros_environment,
   rosbag2_py,
   rosbag2_storage_default_plugins,
@@ -42,14 +42,13 @@ buildRosPackage {
   pname = "event_camera_py";
   version = "1.3.6-1";
   src = sources.event_camera_py;
-  nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_python ament_cmake_ros python_cmake_module ];
-  propagatedNativeBuildInputs = [ ros_environment rpyutils ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ event_camera_codecs event_camera_msgs pybind11_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_clang_format ament_cmake_pytest ament_lint_auto ament_lint_common python3Packages.numpy rclpy rosbag2_py rosbag2_storage_default_plugins rosidl_runtime_py ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_python ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ event_camera_codecs event_camera_msgs pybind11_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_clang_format ament_cmake_pytest ament_lint_auto ament_lint_common rclpy rosbag2_py rosbag2_storage_default_plugins rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
   meta = {
     description = "Python access for event_camera_msgs.";
   };

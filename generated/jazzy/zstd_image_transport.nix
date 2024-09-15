@@ -7,8 +7,8 @@
   fetchurl,
   fetchzip,
   image_transport,
+  rosSystemPackages,
   substituteSource,
-  zlib,
 }:
 let
   sources = rec {
@@ -28,14 +28,13 @@ buildRosPackage {
   pname = "zstd_image_transport";
   version = "4.0.2-1";
   src = sources.zstd_image_transport;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ image_transport zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ image_transport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "zstd_image_transport provides a plugin to image_transport for transparently sending images encoded as zstd blobs";
   };

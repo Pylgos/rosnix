@@ -7,6 +7,7 @@
   irobot_create_gz_bringup,
   irobot_create_gz_plugins,
   irobot_create_gz_toolbox,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "irobot_create_gz_sim";
   version = "3.0.2-2";
   src = sources.irobot_create_gz_sim;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ irobot_create_gz_bringup irobot_create_gz_plugins irobot_create_gz_toolbox ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ irobot_create_gz_bringup irobot_create_gz_plugins irobot_create_gz_toolbox ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Metapackage for the iRobot(R) Create(R) 3 robot Ignition simulator";
   };

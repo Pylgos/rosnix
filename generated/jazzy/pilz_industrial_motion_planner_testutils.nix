@@ -9,6 +9,7 @@
   moveit_core,
   moveit_msgs,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   tf2_eigen,
   wrapRosQtAppsHook,
@@ -31,14 +32,13 @@ buildRosPackage {
   pname = "pilz_industrial_motion_planner_testutils";
   version = "2.10.0-1";
   src = sources.pilz_industrial_motion_planner_testutils;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ moveit_common moveit_core moveit_msgs rclcpp tf2_eigen ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ moveit_common moveit_core moveit_msgs rclcpp tf2_eigen ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Helper scripts and functionality to test industrial motion generation";
   };

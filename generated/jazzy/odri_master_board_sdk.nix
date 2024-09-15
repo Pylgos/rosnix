@@ -1,13 +1,9 @@
 {
-  buildPackages,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +24,13 @@ buildRosPackage {
   pname = "odri_master_board_sdk";
   version = "1.0.7-1";
   src = sources.odri_master_board_sdk;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ git buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3 python3Packages.boost ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "catch2" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-python-dev" "python3" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "catch2" ]; };
   meta = {
     description = "This project contains the sdk for the communication between a computer and the master-board";
   };

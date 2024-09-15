@@ -9,9 +9,9 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  libpcap,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   substituteSource,
   tf2_ros,
   velodyne_msgs,
@@ -34,14 +34,13 @@ buildRosPackage {
   pname = "velodyne_driver";
   version = "2.3.0-4";
   src = sources.velodyne_driver;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diagnostic_msgs diagnostic_updater libpcap rclcpp rclcpp_components tf2_ros velodyne_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic_msgs diagnostic_updater rclcpp rclcpp_components tf2_ros velodyne_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcap" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS device driver for Velodyne 3D LIDARs.";
   };

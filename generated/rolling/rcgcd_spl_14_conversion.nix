@@ -6,8 +6,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rcgcd_spl_14,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +28,13 @@ buildRosPackage {
   pname = "rcgcd_spl_14_conversion";
   version = "4.0.1-1";
   src = sources.rcgcd_spl_14_conversion;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.construct rcgcd_spl_14 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcgcd_spl_14 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Converts RoboCup SPL GameController Data V14 between ROS msg and UDP raw bytes";
   };

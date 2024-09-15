@@ -4,7 +4,6 @@
   ament_index_python,
   ament_pep257,
   ament_xmllint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -12,8 +11,8 @@
   launch,
   launch_testing,
   launch_testing_ros,
-  python3Packages,
   ros2cli,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -34,14 +33,13 @@ buildRosPackage {
   pname = "ros2pkg";
   version = "0.34.1-1";
   src = sources.ros2pkg;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_copyright buildPackages.python3Packages.catkin-pkg buildPackages.python3Packages.empy buildPackages.python3Packages.importlib-resources ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python python3Packages.setuptools ros2cli ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 ament_pep257 ament_xmllint launch launch_testing launch_testing_ros python3Packages.pytest python3Packages.pytest-timeout ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-empy" "python3-importlib-resources" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pkg-resources" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ament_pep257 ament_xmllint launch launch_testing launch_testing_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   meta = {
     description = "The pkg command for ROS 2 command line tools.";
   };

@@ -4,10 +4,9 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
-  qt5,
   rcl_interfaces,
   rclcpp,
+  rosSystemPackages,
   rosbag2_transport,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -32,14 +31,13 @@ buildRosPackage {
   pname = "swri_console";
   version = "2.0.5-1";
   src = sources.swri_console;
-  nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.boost qt5.qtbase rcl_interfaces rclcpp rosbag2_transport rosidl_default_runtime ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl_interfaces rclcpp rosbag2_transport rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-thread-dev" "libqt5-core" "libqt5-gui" "libqt5-opengl-dev" "libqt5-widgets" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A rosout GUI viewer developed at Southwest Research Insititute as an alternative to rqt_console.";
   };

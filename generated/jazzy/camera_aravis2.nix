@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_auto,
   ament_lint_common,
-  aravis,
   buildRosPackage,
   camera_aravis2_msgs,
   camera_info_manager,
@@ -11,10 +10,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  glib,
   image_transport,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -37,14 +36,13 @@ buildRosPackage {
   pname = "camera_aravis2";
   version = "1.0.0-1";
   src = sources.camera_aravis2;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ aravis camera_aravis2_msgs camera_info_manager cv_bridge diagnostic_msgs glib image_transport rclcpp rclcpp_components sensor_msgs std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ camera_aravis2_msgs camera_info_manager cv_bridge diagnostic_msgs image_transport rclcpp rclcpp_components sensor_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "aravis-dev" "libglib-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS2 camera driver for [GenICam](https://www.emva.org/standards-technology/genicam/)-based GigEVision and USB3Vision cameras.";
   };

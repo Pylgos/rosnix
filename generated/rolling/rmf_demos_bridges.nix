@@ -1,14 +1,13 @@
 {
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rmf_building_map_tools,
   rmf_fleet_msgs,
   rmf_site_map_msgs,
   rmf_traffic_msgs,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +28,13 @@ buildRosPackage {
   pname = "rmf_demos_bridges";
   version = "2.4.0-1";
   src = sources.rmf_demos_bridges;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.pyproj rmf_building_map_tools rmf_fleet_msgs rmf_site_map_msgs rmf_traffic_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "python3-flask-socketio" "python3-paho-mqtt" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rmf_building_map_tools rmf_fleet_msgs rmf_site_map_msgs rmf_traffic_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Nodes for bridging between different communication stacks";
   };

@@ -7,7 +7,7 @@
   fetchurl,
   fetchzip,
   gmock_vendor,
-  gtest,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +28,13 @@ buildRosPackage {
   pname = "ament_cmake_gmock";
   version = "2.7.0-1";
   src = sources.ament_cmake_gmock;
-  nativeBuildInputs = [ ament_cmake_core ];
-  propagatedNativeBuildInputs = [ ament_cmake_gtest ament_cmake_test gmock_vendor gtest ];
-  buildInputs = [ ament_cmake_core ];
-  propagatedBuildInputs = [ ament_cmake_gtest ament_cmake_test gmock_vendor gtest ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_gtest ament_cmake_test gmock_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
+  buildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_cmake_gtest ament_cmake_test gmock_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "google-mock" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ability to add Google mock-based tests in the ament buildsystem in CMake.";
   };

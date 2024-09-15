@@ -1,12 +1,11 @@
 {
   ament_flake8,
   ament_lint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -27,14 +26,13 @@ buildRosPackage {
   pname = "ament_pep257";
   version = "0.18.1-1";
   src = sources.ament_pep257;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_lint buildPackages.python3Packages.pydocstyle ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_lint python3Packages.pydocstyle ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pydocstyle" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pydocstyle" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The ability to check code against the docstring style conventions in PEP 257 and generate xUnit test result files.";
   };

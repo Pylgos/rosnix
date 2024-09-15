@@ -1,5 +1,4 @@
 {
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -7,10 +6,10 @@
   geometry_msgs,
   py_trees,
   py_trees_ros_interfaces,
-  python3Packages,
   rcl_interfaces,
   rclpy,
   ros2topic,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -35,14 +34,13 @@ buildRosPackage {
   pname = "py_trees_ros";
   version = "2.2.2-4";
   src = sources.py_trees_ros;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.setuptools ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs py_trees py_trees_ros_interfaces rcl_interfaces rclpy ros2topic sensor_msgs std_msgs tf2_ros_py unique_identifier_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs py_trees py_trees_ros_interfaces rcl_interfaces rclpy ros2topic sensor_msgs std_msgs tf2_ros_py unique_identifier_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "ROS2 extensions and behaviours for py_trees.";
   };

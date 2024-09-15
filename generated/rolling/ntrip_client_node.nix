@@ -10,9 +10,9 @@
   fetchurl,
   fetchzip,
   libcurl_vendor,
-  pkg-config,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   rtcm_msgs,
   std_msgs,
   substituteSource,
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "ntrip_client_node";
   version = "0.5.3-1";
   src = sources.ntrip_client_node;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ libcurl_vendor rclcpp rclcpp_components rtcm_msgs std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_cppcheck ament_cmake_uncrustify ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ libcurl_vendor rclcpp rclcpp_components rtcm_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_cppcheck ament_cmake_uncrustify ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Publishes RTCM ntrip messages from an external mountpoint";
   };

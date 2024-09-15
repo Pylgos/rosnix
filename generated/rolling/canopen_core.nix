@@ -8,10 +8,10 @@
   fetchzip,
   lely_core_libraries,
   lifecycle_msgs,
-  python3Packages,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
+  rosSystemPackages,
   substituteSource,
   yaml_cpp_vendor,
 }:
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "canopen_core";
   version = "0.2.12-2";
   src = sources.canopen_core;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ canopen_interfaces lely_core_libraries lifecycle_msgs python3Packages.boost rclcpp rclcpp_components rclcpp_lifecycle yaml_cpp_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ canopen_interfaces lely_core_libraries lifecycle_msgs rclcpp rclcpp_components rclcpp_lifecycle yaml_cpp_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Core ros2_canopen functionalities such as DeviceContainer and master";
   };

@@ -10,8 +10,8 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  python3Packages,
   rclcpp,
+  rosSystemPackages,
   sqlite3_vendor,
   substituteSource,
   warehouse_ros,
@@ -34,14 +34,13 @@ buildRosPackage {
   pname = "warehouse_ros_sqlite";
   version = "1.0.5-1";
   src = sources.warehouse_ros_sqlite;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ class_loader python3Packages.boost rclcpp sqlite3_vendor warehouse_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_gtest ament_lint_auto ament_lint_common geometry_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ class_loader rclcpp sqlite3_vendor warehouse_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_gtest ament_lint_auto ament_lint_common geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Implementation of warehouse_ros for sqlite";
   };

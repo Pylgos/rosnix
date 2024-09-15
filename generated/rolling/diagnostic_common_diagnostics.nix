@@ -11,8 +11,7 @@
   fetchurl,
   fetchzip,
   launch_testing_ament_cmake,
-  lm_sensors,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -33,14 +32,13 @@ buildRosPackage {
   pname = "diagnostic_common_diagnostics";
   version = "4.3.1-1";
   src = sources.diagnostic_common_diagnostics;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diagnostic_updater lm_sensors python3Packages.psutil ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_lint_cmake ament_cmake_pytest ament_cmake_xmllint ament_lint_auto launch_testing_ament_cmake ];
-  missingDependencies = [ "python3-ntplib" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic_updater ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "lm-sensors" "python3-ntplib" "python3-psutil" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_lint_cmake ament_cmake_pytest ament_cmake_xmllint ament_lint_auto launch_testing_ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "diagnostic_common_diagnostics";
   };

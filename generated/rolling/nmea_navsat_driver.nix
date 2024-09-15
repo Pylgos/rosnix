@@ -5,8 +5,8 @@
   fetchzip,
   geometry_msgs,
   nmea_msgs,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
   tf_transformations,
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "nmea_navsat_driver";
   version = "2.0.1-2";
   src = sources.nmea_navsat_driver;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs nmea_msgs python3Packages.numpy python3Packages.pyserial rclpy sensor_msgs tf_transformations ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs nmea_msgs rclpy sensor_msgs tf_transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-serial" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Package to parse NMEA strings and publish a very simple GPS message. Does not require or use the GPSD deamon.";
   };

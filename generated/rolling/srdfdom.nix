@@ -6,12 +6,11 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
-  console-bridge,
   console_bridge_vendor,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
   tinyxml2_vendor,
   urdf,
@@ -36,14 +35,13 @@ buildRosPackage {
   pname = "srdfdom";
   version = "2.0.4-3";
   src = sources.srdfdom;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ console-bridge console_bridge_vendor python3Packages.boost tinyxml2_vendor urdf urdfdom_headers urdfdom_py ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_cmake ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ console_bridge_vendor tinyxml2_vendor urdf urdfdom_headers urdfdom_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libconsole-bridge-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Parser for Semantic Robot Description Format (SRDF).";
   };

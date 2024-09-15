@@ -6,10 +6,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  rosSystemPackages,
   rqt_image_overlay_layer,
   substituteSource,
   vision_msgs,
-  wrapRosQtAppsHook,
 }:
 let
   sources = rec {
@@ -29,14 +29,13 @@ buildRosPackage {
   pname = "vision_msgs_layers";
   version = "0.2.0-3";
   src = sources.vision_msgs_layers;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rqt_image_overlay_layer vision_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rqt_image_overlay_layer vision_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Collection of RQt Image Overlay Plugins for Vision Msgs";
   };

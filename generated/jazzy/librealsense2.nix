@@ -1,19 +1,10 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  glfw3,
-  libGL,
-  libGLU,
-  libusb1,
-  openssl,
-  pkg-config,
+  rosSystemPackages,
   substituteSource,
-  udev,
-  xorg,
 }:
 let
   sources = rec {
@@ -195,14 +186,13 @@ buildRosPackage {
   pname = "librealsense2";
   version = "2.55.1-1";
   src = sources.librealsense2;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ git pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ glfw3 libGL libGLU libusb1 openssl udev xorg.libX11 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "dkms" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "udev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Library for controlling and capturing data from the Intel(R) RealSense(TM) D400 devices.";
   };

@@ -9,10 +9,10 @@
   fetchurl,
   fetchzip,
   lely_core_libraries,
-  python3Packages,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
+  rosSystemPackages,
   std_msgs,
   std_srvs,
   substituteSource,
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "canopen_base_driver";
   version = "0.2.12-2";
   src = sources.canopen_base_driver;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ canopen_core canopen_interfaces diagnostic_updater lely_core_libraries python3Packages.boost rclcpp rclcpp_components rclcpp_lifecycle std_msgs std_srvs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ canopen_core canopen_interfaces diagnostic_updater lely_core_libraries rclcpp rclcpp_components rclcpp_lifecycle std_msgs std_srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Library containing abstract CANopen driver class for ros2_canopen";
   };

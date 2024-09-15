@@ -11,8 +11,8 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
-  python3Packages,
   ros2cli,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "ros2test";
   version = "0.6.0-3";
   src = sources.ros2test;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ domain_coordinator ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ launch launch_ros launch_testing launch_testing_ros ros2cli ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ domain_coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ launch launch_ros launch_testing launch_testing_ros ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The test command for ROS 2 launch tests.";
   };

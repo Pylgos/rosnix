@@ -19,6 +19,7 @@
   moveit_simple_controller_manager,
   pilz_industrial_motion_planner,
   rclcpp,
+  rosSystemPackages,
   ros_testing,
   substituteSource,
   tf2_ros,
@@ -42,14 +43,13 @@ buildRosPackage {
   pname = "moveit_ros_tests";
   version = "2.10.0-1";
   src = sources.moveit_ros_tests;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ moveit_common rclcpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto moveit_configs_utils moveit_core moveit_planners_chomp moveit_planners_ompl moveit_planners_stomp moveit_resources_panda_moveit_config moveit_ros_move_group moveit_ros_planning moveit_ros_planning_interface moveit_simple_controller_manager pilz_industrial_motion_planner ros_testing tf2_ros ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ moveit_common rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto moveit_configs_utils moveit_core moveit_planners_chomp moveit_planners_ompl moveit_planners_stomp moveit_resources_panda_moveit_config moveit_ros_move_group moveit_ros_planning moveit_ros_planning_interface moveit_simple_controller_manager pilz_industrial_motion_planner ros_testing tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Integration tests for moveit_ros";
   };

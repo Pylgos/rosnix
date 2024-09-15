@@ -1,14 +1,9 @@
 {
   buildRosPackage,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  glew,
-  libjpeg_turbo,
-  libpng,
-  python3,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -43,14 +38,13 @@ buildRosPackage {
   pname = "pangolin";
   version = "0.9.1-2";
   src = sources.pangolin;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ python3 ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen glew libjpeg_turbo libpng ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "libxkbcommon-dev" "wayland" "wayland-dev" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "wayland" "wayland-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Pangolin is a set of lightweight and portable utility libraries for prototyping 3D, numeric or video based programs and algorithms.";
   };

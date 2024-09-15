@@ -1,14 +1,9 @@
 {
   buildRosPackage,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  flann,
-  ode,
-  pkg-config,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +24,13 @@ buildRosPackage {
   pname = "ompl";
   version = "1.6.0-1";
   src = sources.ompl;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ cmake pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen flann ode python3Packages.boost ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libflann-dev" "opende" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "OMPL is a free sampling-based motion planning library.";
   };

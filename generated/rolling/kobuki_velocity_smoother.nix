@@ -18,11 +18,11 @@
   launch_testing_ament_cmake,
   launch_testing_ros,
   nav_msgs,
-  python3Packages,
   rcl_interfaces,
   rclcpp,
   rclcpp_components,
   ros2test,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -43,14 +43,13 @@ buildRosPackage {
   pname = "kobuki_velocity_smoother";
   version = "0.15.0-3";
   src = sources.kobuki_velocity_smoother;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ecl_build geometry_msgs nav_msgs rcl_interfaces rclcpp rclcpp_components ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_uncrustify ament_cmake_xmllint ament_lint_auto launch_testing launch_testing_ament_cmake launch_testing_ros python3Packages.matplotlib ros2test ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ecl_build geometry_msgs nav_msgs rcl_interfaces rclcpp rclcpp_components ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_uncrustify ament_cmake_xmllint ament_lint_auto launch_testing launch_testing_ament_cmake launch_testing_ros ros2test ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-matplotlib" ]; };
   meta = {
     description = "Bound incoming velocity messages according to robot velocity and acceleration limits.";
   };

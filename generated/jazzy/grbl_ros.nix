@@ -7,8 +7,8 @@
   fetchurl,
   fetchzip,
   grbl_msgs,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
@@ -30,14 +30,13 @@ buildRosPackage {
   pname = "grbl_ros";
   version = "0.0.16-7";
   src = sources.grbl_ros;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ grbl_msgs python3Packages.pyserial rclpy std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ grbl_msgs rclpy std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "ROS2 package to interface with a GRBL serial device";
   };

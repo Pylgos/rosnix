@@ -7,10 +7,10 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  python3Packages,
   rc_reason_msgs,
   rclpy,
   ros2pkg,
+  rosSystemPackages,
   substituteSource,
   tf2_msgs,
   visualization_msgs,
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "rc_reason_clients";
   version = "0.3.1-3";
   src = sources.rc_reason_clients;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs python3Packages.requests rc_reason_msgs rclpy ros2pkg tf2_msgs visualization_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs rc_reason_msgs rclpy ros2pkg tf2_msgs visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-requests" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Clients for interfacing with Roboception reason modules on rc_visard and rc_cube.";
   };

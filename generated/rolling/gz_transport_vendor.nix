@@ -5,9 +5,7 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
-  buildPackages,
   buildRosPackage,
-  cppzmq,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,13 +14,8 @@
   gz_msgs_vendor,
   gz_tools_vendor,
   gz_utils_vendor,
-  pkg-config,
-  protobuf,
-  python3,
-  python3Packages,
-  sqlite,
+  rosSystemPackages,
   substituteSource,
-  util-linux,
 }:
 let
   sources = rec {
@@ -57,14 +50,13 @@ buildRosPackage {
   pname = "gz_transport_vendor";
   version = "0.1.2-2";
   src = sources.gz_transport_vendor;
-  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ pkg-config python3 buildPackages.python3Packages.pytest ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cppzmq gz_cmake_vendor gz_math_vendor gz_msgs_vendor gz_tools_vendor gz_utils_vendor protobuf python3Packages.psutil python3Packages.pybind11 sqlite util-linux ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];
-  missingDependencies = [ "gz-transport13" ];
+  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "python3-dev" "python3-pytest" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_msgs_vendor gz_tools_vendor gz_utils_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-transport13" "libsqlite3-dev" "libzmq3-dev" "protobuf-dev" "pybind11-dev" "python3-psutil" "uuid" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Vendor package for: gz-transport13 13.4.0 Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.";
   };

@@ -6,13 +6,12 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  eigen,
   eigen3_cmake_module,
   fetchgit,
   fetchurl,
   fetchzip,
-  qt5,
   resource_retriever,
+  rosSystemPackages,
   rviz_assimp_vendor,
   rviz_ogre_vendor,
   substituteSource,
@@ -36,14 +35,13 @@ buildRosPackage {
   pname = "rviz_rendering";
   version = "14.2.6-1";
   src = sources.rviz_rendering;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp eigen qt5.qtbase resource_retriever rviz_assimp_vendor rviz_ogre_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_lint_auto ament_lint_common rviz_assimp_vendor ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_cpp resource_retriever rviz_assimp_vendor rviz_ogre_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_lint_auto ament_lint_common rviz_assimp_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Library which provides the 3D rendering functionality in rviz.";
   };

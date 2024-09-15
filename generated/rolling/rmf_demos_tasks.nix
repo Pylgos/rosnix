@@ -10,6 +10,7 @@
   rmf_fleet_msgs,
   rmf_lift_msgs,
   rmf_task_msgs,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -30,14 +31,13 @@ buildRosPackage {
   pname = "rmf_demos_tasks";
   version = "2.4.0-1";
   src = sources.rmf_demos_tasks;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rmf_dispenser_msgs rmf_fleet_msgs rmf_lift_msgs rmf_task_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rmf_dispenser_msgs rmf_fleet_msgs rmf_lift_msgs rmf_task_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A package containing scripts for demos";
   };

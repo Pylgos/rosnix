@@ -1,11 +1,10 @@
 {
   ament_lint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -26,14 +25,13 @@ buildRosPackage {
   pname = "ament_flake8";
   version = "0.18.1-1";
   src = sources.ament_flake8;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_lint buildPackages.python3Packages.flake8 buildPackages.python3Packages.flake8-builtins buildPackages.python3Packages.flake8-comprehensions buildPackages.python3Packages.flake8-docstrings buildPackages.python3Packages.flake8-import-order buildPackages.python3Packages.flake8-quotes ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_lint python3Packages.flake8 python3Packages.flake8-builtins python3Packages.flake8-comprehensions python3Packages.flake8-docstrings python3Packages.flake8-import-order python3Packages.flake8-quotes ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-flake8" "python3-flake8-builtins" "python3-flake8-comprehensions" "python3-flake8-docstrings" "python3-flake8-import-order" "python3-flake8-quotes" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-flake8" "python3-flake8-builtins" "python3-flake8-comprehensions" "python3-flake8-docstrings" "python3-flake8-import-order" "python3-flake8-quotes" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ability to check code for style and syntax conventions with flake8.";
   };

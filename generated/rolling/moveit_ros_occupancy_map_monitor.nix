@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_gmock,
   buildRosPackage,
-  eigen,
   eigen3_cmake_module,
   fetchgit,
   fetchurl,
@@ -13,6 +12,7 @@
   moveit_msgs,
   pluginlib,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   tf2_ros,
   wrapRosQtAppsHook,
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "moveit_ros_occupancy_map_monitor";
   version = "2.10.0-1";
   src = sources.moveit_ros_occupancy_map_monitor;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometric_shapes moveit_common moveit_core moveit_msgs pluginlib rclcpp tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometric_shapes moveit_common moveit_core moveit_msgs pluginlib rclcpp tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Components of MoveIt connecting to occupancy map";
   };

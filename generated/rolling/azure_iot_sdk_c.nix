@@ -1,13 +1,10 @@
 {
   buildRosPackage,
-  cmake,
-  curl,
   fetchgit,
   fetchurl,
   fetchzip,
-  openssl,
+  rosSystemPackages,
   substituteSource,
-  util-linux,
 }:
 let
   sources = rec {
@@ -27,14 +24,13 @@ buildRosPackage {
   pname = "azure_iot_sdk_c";
   version = "1.14.0-1";
   src = sources.azure_iot_sdk_c;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ curl ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ openssl util-linux ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "uuid" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Azure IoT C SDKs and Libraries";
   };

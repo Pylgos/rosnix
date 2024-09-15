@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   osrf_testing_tools_cpp,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -30,14 +31,13 @@ buildRosPackage {
   pname = "apex_test_tools";
   version = "0.0.2-8";
   src = sources.apex_test_tools;
-  nativeBuildInputs = [ ament_cmake ament_cmake_auto ];
-  propagatedNativeBuildInputs = [ ament_cmake_gtest ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ osrf_testing_tools_cpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_pclint ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ osrf_testing_tools_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_pclint ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The package Apex.OS Test Tools contains test helpers";
   };

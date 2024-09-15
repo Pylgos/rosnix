@@ -5,8 +5,7 @@
   fetchurl,
   fetchzip,
   launch_testing,
-  openssl,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -27,14 +26,13 @@ buildRosPackage {
   pname = "async_web_server_cpp";
   version = "2.0.0-5";
   src = sources.async_web_server_cpp;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ openssl python3Packages.boost ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ launch_testing ];
-  missingDependencies = [ "python3-websocket" ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libssl-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ launch_testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-websocket" ]; };
   meta = {
     description = "Asynchronous Web/WebSocket Server in C++";
   };

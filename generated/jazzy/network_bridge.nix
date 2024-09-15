@@ -10,13 +10,11 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
-  pkg-config,
   pluginlib,
-  python3Packages,
   rclcpp,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
-  zstd,
 }:
 let
   sources = rec {
@@ -36,14 +34,13 @@ buildRosPackage {
   pname = "network_bridge";
   version = "1.0.2-1";
   src = sources.network_bridge;
-  nativeBuildInputs = [ ament_cmake pkg-config ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib python3Packages.boost rclcpp std_msgs zstd ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common launch_testing launch_testing_ament_cmake launch_testing_ros ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib rclcpp std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common launch_testing launch_testing_ament_cmake launch_testing_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Allows for arbitrary network links (UDP, TCP, etc) to bridge ROS2 messages";
   };

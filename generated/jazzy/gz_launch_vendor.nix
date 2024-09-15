@@ -5,12 +5,10 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
-  binutils,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  gflags,
   gz_cmake_vendor,
   gz_common_vendor,
   gz_gui_vendor,
@@ -20,13 +18,9 @@
   gz_sim_vendor,
   gz_tools_vendor,
   gz_transport_vendor,
-  libwebsockets,
-  libyaml,
+  rosSystemPackages,
   substituteSource,
-  tinyxml-2,
-  util-linux,
   wrapRosQtAppsHook,
-  xorg,
 }:
 let
   sources = rec {
@@ -61,14 +55,13 @@ buildRosPackage {
   pname = "gz_launch_vendor";
   version = "0.0.4-1";
   src = sources.gz_launch_vendor;
-  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ binutils gflags gz_cmake_vendor gz_common_vendor gz_gui_vendor gz_math_vendor gz_msgs_vendor gz_plugin_vendor gz_sim_vendor gz_tools_vendor gz_transport_vendor libwebsockets libyaml tinyxml-2 util-linux xorg.libXi xorg.libXmu ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint xorg.xorgserver ];
-  missingDependencies = [ "gz-launch7" ];
+  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ gz_cmake_vendor gz_common_vendor gz_gui_vendor gz_math_vendor gz_msgs_vendor gz_plugin_vendor gz_sim_vendor gz_tools_vendor gz_transport_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "gz-launch7" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "xvfb" ]; };
   meta = {
     description = "Vendor package for: gz-launch7 7.1.0 Gazebo Launch : Run and manage programs and plugins";
   };

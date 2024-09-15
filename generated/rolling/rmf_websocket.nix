@@ -3,17 +3,14 @@
   ament_cmake_catch2,
   ament_cmake_uncrustify,
   buildRosPackage,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  nlohmann_json,
   nlohmann_json_schema_validator_vendor,
-  python3Packages,
   rclcpp,
   rmf_utils,
+  rosSystemPackages,
   substituteSource,
-  websocketpp,
 }:
 let
   sources = rec {
@@ -33,14 +30,13 @@ buildRosPackage {
   pname = "rmf_websocket";
   version = "2.7.1-1";
   src = sources.rmf_websocket;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen nlohmann_json nlohmann_json_schema_validator_vendor python3Packages.boost rclcpp rmf_utils websocketpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ nlohmann_json_schema_validator_vendor rclcpp rmf_utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libwebsocketpp-dev" "nlohmann-json-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_catch2 ament_cmake_uncrustify ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A package managing the websocket api endpoints in RMF system.";
   };

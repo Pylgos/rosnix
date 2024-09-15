@@ -9,13 +9,13 @@
   fetchzip,
   pluginlib,
   rcutils,
+  rosSystemPackages,
   sdformat_test_files,
   sdformat_vendor,
   substituteSource,
   tinyxml2_vendor,
   urdf,
   urdf_parser_plugin,
-  urdfdom-headers,
 }:
 let
   sources = rec {
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "sdformat_urdf";
   version = "1.0.2-1";
   src = sources.sdformat_urdf;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_cmake_ros ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib rcutils sdformat_vendor tinyxml2_vendor urdf urdf_parser_plugin urdfdom-headers ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common sdformat_test_files ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib rcutils sdformat_vendor tinyxml2_vendor urdf urdf_parser_plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common sdformat_test_files ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "URDF plugin to parse SDFormat XML into URDF C++ DOM objects.";
   };

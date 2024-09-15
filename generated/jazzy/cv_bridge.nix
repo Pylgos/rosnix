@@ -5,16 +5,14 @@
   ament_index_python,
   ament_lint_auto,
   ament_lint_common,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  opencv,
-  python3Packages,
   python_cmake_module,
   rclcpp,
   rcpputils,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
 }:
@@ -36,14 +34,13 @@ buildRosPackage {
   pname = "cv_bridge";
   version = "4.1.0-1";
   src = sources.cv_bridge;
-  nativeBuildInputs = [ ament_cmake_ros python_cmake_module ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python opencv python3Packages.boost python3Packages.opencv4 rclcpp rcpputils sensor_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python rclcpp rcpputils sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-opencv" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "This contains CvBridge, which converts between ROS2 Image messages and OpenCV images.";
   };

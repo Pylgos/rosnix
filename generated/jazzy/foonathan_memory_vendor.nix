@@ -4,11 +4,10 @@
   ament_cmake_test,
   ament_cmake_xmllint,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -44,14 +43,13 @@ buildRosPackage {
   pname = "foonathan_memory_vendor";
   version = "1.3.1-3";
   src = sources.foonathan_memory_vendor;
-  nativeBuildInputs = [ git ];
-  propagatedNativeBuildInputs = [ cmake ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_test ament_cmake_xmllint ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_test ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Foonathan/memory vendor package for Fast-RTPS.";
   };

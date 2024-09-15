@@ -11,8 +11,8 @@
   flexbe_states,
   launch_ros,
   launch_testing,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "flexbe_onboard";
   version = "3.0.3-1";
   src = sources.flexbe_onboard;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ flexbe_core flexbe_msgs flexbe_states launch_ros rclpy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 launch_testing python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ flexbe_core flexbe_msgs flexbe_states launch_ros rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 launch_testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "flexbe_onboard implements the robot-side of the behavior engine from where all behaviors are started.";
   };

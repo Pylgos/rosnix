@@ -1,10 +1,10 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   gtest_vendor,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -25,14 +25,13 @@ buildRosPackage {
   pname = "gmock_vendor";
   version = "1.14.9000-2";
   src = sources.gmock_vendor;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ gtest_vendor ];
-  buildInputs = [ cmake ];
-  propagatedBuildInputs = [ gtest_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ gtest_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ gtest_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The package provides GoogleMock.";
   };

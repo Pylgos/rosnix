@@ -4,7 +4,6 @@
   ament_index_python,
   ament_pep257,
   ament_xmllint,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -13,9 +12,9 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
-  python3Packages,
   rclpy,
   ros2cli,
+  rosSystemPackages,
   ros_environment,
   std_msgs,
   substituteSource,
@@ -38,14 +37,13 @@ buildRosPackage {
   pname = "ros2doctor";
   version = "0.34.1-1";
   src = sources.ros2doctor;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.catkin-pkg buildPackages.python3Packages.importlib-metadata ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python python3Packages.psutil python3Packages.rosdistro rclpy ros2cli std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint launch launch_ros launch_testing launch_testing_ros python3Packages.pytest python3Packages.pytest-timeout std_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-importlib-metadata" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python rclpy ros2cli std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-psutil" "python3-rosdistro-modules" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint launch launch_ros launch_testing launch_testing_ros std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   meta = {
     description = "A command line tool to check potential issues in a ROS 2 system";
   };

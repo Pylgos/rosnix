@@ -1,18 +1,11 @@
 {
   buildRosPackage,
-  clang,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  gbenchmark,
-  gmock,
-  gtest,
-  hdf5,
+  rosSystemPackages,
   sophus,
   substituteSource,
-  tbb,
 }:
 let
   sources = rec {
@@ -32,14 +25,13 @@ buildRosPackage {
   pname = "beluga";
   version = "2.0.2-1";
   src = sources.beluga;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen hdf5 sophus tbb ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ clang gbenchmark gmock gtest ];
-  missingDependencies = [ "range-v3" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ sophus ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libhdf5-dev" "range-v3" "tbb" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" "clang-format" "clang-tidy" "gtest" "libgmock-dev" ]; };
   meta = {
     description = "A generic MCL library for ROS2.";
   };

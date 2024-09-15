@@ -7,8 +7,8 @@
   fetchurl,
   fetchzip,
   pluginlib,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   rviz2,
   rviz_common,
@@ -40,14 +40,13 @@ buildRosPackage {
   pname = "etsi_its_rviz_plugins";
   version = "2.2.0-1";
   src = sources.etsi_its_rviz_plugins;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ etsi_its_msgs etsi_its_msgs_utils pluginlib qt5.qtbase rclcpp rviz2 rviz_common rviz_default_plugins rviz_ogre_vendor rviz_rendering rviz_satellite tf2 tf2_geometry_msgs tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ etsi_its_msgs etsi_its_msgs_utils pluginlib rclcpp rviz2 rviz_common rviz_default_plugins rviz_ogre_vendor rviz_rendering rviz_satellite tf2 tf2_geometry_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RViz plugin for ROS 2 messages based on ETSI ITS messages";
   };

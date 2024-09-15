@@ -6,7 +6,6 @@
   builtin_interfaces,
   cv_bridge,
   diagnostic_updater,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,11 +16,11 @@
   launch_testing,
   librealsense2,
   nav_msgs,
-  python3Packages,
   rclcpp,
   rclcpp_components,
   realsense2_camera_msgs,
   ros2topic,
+  rosSystemPackages,
   ros_environment,
   sensor_msgs,
   sensor_msgs_py,
@@ -49,14 +48,13 @@ buildRosPackage {
   pname = "realsense2_camera";
   version = "4.55.1-3";
   src = sources.realsense2_camera;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces cv_bridge diagnostic_updater eigen geometry_msgs image_transport launch_ros librealsense2 nav_msgs rclcpp rclcpp_components realsense2_camera_msgs sensor_msgs std_msgs tf2 tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest launch_pytest launch_testing python3Packages.numpy python3Packages.requests python3Packages.tqdm ros2topic sensor_msgs_py tf2_ros_py ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin_interfaces cv_bridge diagnostic_updater geometry_msgs image_transport launch_ros librealsense2 nav_msgs rclcpp rclcpp_components realsense2_camera_msgs sensor_msgs std_msgs tf2 tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest launch_pytest launch_testing ros2topic sensor_msgs_py tf2_ros_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-requests" "python3-tqdm" ]; };
   meta = {
     description = "RealSense camera package allowing access to Intel D400 3D cameras";
   };

@@ -2,16 +2,15 @@
   ament_copyright,
   ament_flake8,
   ament_pep257,
-  buildPackages,
   buildRosPackage,
   builtin_interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry_msgs,
-  python3Packages,
   rclpy,
   rclpy_message_converter_msgs,
+  rosSystemPackages,
   rosidl_default_generators,
   rosidl_parser,
   rosidl_runtime_py,
@@ -38,14 +37,13 @@ buildRosPackage {
   pname = "rclpy_message_converter";
   version = "2.0.1-4";
   src = sources.rclpy_message_converter;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.numpy rosidl_default_generators rosidl_parser ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces rclpy rosidl_runtime_py ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 geometry_msgs python3Packages.pytest rclpy_message_converter_msgs std_msgs std_srvs tf2_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl_default_generators rosidl_parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin_interfaces rclpy rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 geometry_msgs rclpy_message_converter_msgs std_msgs std_srvs tf2_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Converts between Python dictionaries and JSON to rclpy messages.";
   };

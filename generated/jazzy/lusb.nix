@@ -4,8 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  libusb1,
-  pkg-config,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -26,14 +25,13 @@ buildRosPackage {
   pname = "lusb";
   version = "2.0.2-1";
   src = sources.lusb;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ libusb1 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Library for interfacing to USB devices";
   };

@@ -10,6 +10,7 @@
   fetchzip,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   ros_environment,
   std_msgs,
   substituteSource,
@@ -33,14 +34,13 @@ buildRosPackage {
   pname = "etsi_its_conversion";
   version = "2.2.0-1";
   src = sources.etsi_its_conversion;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ etsi_its_cam_conversion etsi_its_cam_ts_conversion etsi_its_cpm_ts_conversion etsi_its_denm_conversion rclcpp rclcpp_components std_msgs udp_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ etsi_its_cam_conversion etsi_its_cam_ts_conversion etsi_its_cpm_ts_conversion etsi_its_denm_conversion rclcpp rclcpp_components std_msgs udp_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Converts ROS messages to and from ASN.1-encoded ETSI ITS messages";
   };

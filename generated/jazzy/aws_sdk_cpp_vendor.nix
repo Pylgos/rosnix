@@ -5,13 +5,11 @@
   ament_lint_common,
   buildPackages,
   buildRosPackage,
-  curl,
   fetchgit,
   fetchurl,
   fetchzip,
-  openssl,
+  rosSystemPackages,
   substituteSource,
-  zlib,
 }:
 let
   sources = rec {
@@ -95,14 +93,13 @@ buildRosPackage {
   pname = "aws_sdk_cpp_vendor";
   version = "0.2.1-3";
   src = sources.aws_sdk_cpp_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package curl ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ openssl zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A vendor package for aws-sdk-cpp";
   };

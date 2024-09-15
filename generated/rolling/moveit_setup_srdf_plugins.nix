@@ -8,6 +8,7 @@
   moveit_resources_fanuc_description,
   moveit_setup_framework,
   pluginlib,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -29,14 +30,13 @@ buildRosPackage {
   pname = "moveit_setup_srdf_plugins";
   version = "2.10.0-1";
   src = sources.moveit_setup_srdf_plugins;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ moveit_setup_framework pluginlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest moveit_resources_fanuc_description ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ moveit_setup_framework pluginlib ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest moveit_resources_fanuc_description ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "SRDF-based plugins for MoveIt Setup Assistant";
   };

@@ -1,14 +1,9 @@
 {
   buildRosPackage,
-  clang,
-  cmake,
-  cppcheck,
   fetchgit,
   fetchurl,
   fetchzip,
-  gtest,
-  include-what-you-use,
-  lcov,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +24,13 @@ buildRosPackage {
   pname = "ros_industrial_cmake_boilerplate";
   version = "0.5.4-1";
   src = sources.ros_industrial_cmake_boilerplate;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ clang cppcheck gtest include-what-you-use lcov ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cppcheck" "gtest" "iwyu" "lcov" "libclang-dev" ]; };
   meta = {
     description = "Contains boilerplate cmake script, macros and utils";
   };

@@ -11,6 +11,7 @@
   picknik_twist_controller,
   robot_state_publisher,
   robotiq_description,
+  rosSystemPackages,
   rviz2,
   substituteSource,
   wrapRosQtAppsHook,
@@ -33,14 +34,13 @@ buildRosPackage {
   pname = "kortex_description";
   version = "0.2.2-2";
   src = sources.kortex_description;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ joint_state_publisher joint_state_publisher_gui joint_trajectory_controller picknik_reset_fault_controller picknik_twist_controller robot_state_publisher robotiq_description rviz2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ joint_state_publisher joint_state_publisher_gui joint_trajectory_controller picknik_reset_fault_controller picknik_twist_controller robot_state_publisher robotiq_description rviz2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "";
   };

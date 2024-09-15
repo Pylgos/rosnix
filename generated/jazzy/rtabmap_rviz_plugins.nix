@@ -7,6 +7,7 @@
   pcl_conversions,
   pluginlib,
   rclcpp,
+  rosSystemPackages,
   rtabmap_conversions,
   rtabmap_msgs,
   rviz_common,
@@ -36,14 +37,13 @@ buildRosPackage {
   pname = "rtabmap_rviz_plugins";
   version = "0.21.5-3";
   src = sources.rtabmap_rviz_plugins;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pcl_conversions pluginlib rclcpp rtabmap_conversions rtabmap_msgs rviz_common rviz_default_plugins rviz_rendering sensor_msgs std_msgs tf2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pcl_conversions pluginlib rclcpp rtabmap_conversions rtabmap_msgs rviz_common rviz_default_plugins rviz_rendering sensor_msgs std_msgs tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RTAB-Map's rviz plugins.";
   };

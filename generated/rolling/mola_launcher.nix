@@ -5,13 +5,13 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   mola_kernel,
   mrpt_libbase,
   mrpt_libtclap,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "mola_launcher";
   version = "1.1.3-1";
   src = sources.mola_launcher;
-  nativeBuildInputs = [ ament_cmake ament_cmake_gtest cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ mola_kernel mrpt_libbase mrpt_libtclap ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ mola_kernel mrpt_libbase mrpt_libtclap ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Launcher app for MOLA systems";
   };

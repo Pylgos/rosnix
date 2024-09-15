@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   google_benchmark_vendor,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "ament_cmake_google_benchmark";
   version = "2.7.0-1";
   src = sources.ament_cmake_google_benchmark;
-  nativeBuildInputs = [ ament_cmake_core ament_cmake_export_dependencies ament_cmake_python ];
-  propagatedNativeBuildInputs = [ ament_cmake_test google_benchmark_vendor ];
-  buildInputs = [ ament_cmake_core ament_cmake_export_dependencies ament_cmake_python ];
-  propagatedBuildInputs = [ ament_cmake_test google_benchmark_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_core ament_cmake_export_dependencies ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_test google_benchmark_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [ ament_cmake_core ament_cmake_export_dependencies ament_cmake_python ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_cmake_test google_benchmark_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ability to add Google Benchmark tests in the ament buildsystem in CMake.";
   };

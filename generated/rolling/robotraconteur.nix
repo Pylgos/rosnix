@@ -1,19 +1,10 @@
 {
-  bluez,
-  buildPackages,
   buildRosPackage,
-  cmake,
-  dbus,
   fetchgit,
   fetchurl,
   fetchzip,
-  gtest,
-  libusb1,
-  openssl,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  zlib,
 }:
 let
   sources = rec {
@@ -33,14 +24,13 @@ buildRosPackage {
   pname = "robotraconteur";
   version = "1.2.2-1";
   src = sources.robotraconteur;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ python3 buildPackages.python3Packages.setuptools ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ bluez dbus libusb1 openssl python3 python3Packages.boost python3Packages.numpy zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-setuptools" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libbluetooth-dev" "libdbus-dev" "libssl-dev" "libusb-1.0-dev" "python3" "python3-numpy" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "The robotraconteur package";
   };

@@ -7,8 +7,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  fmt,
   rclcpp,
+  rosSystemPackages,
   rsl,
   substituteSource,
   tcb_span,
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "parameter_traits";
   version = "0.3.8-3";
   src = sources.parameter_traits;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ fmt rclcpp rsl tcb_span tl_expected ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp rsl tcb_span tl_expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Functions and types for rclcpp::Parameter";
   };

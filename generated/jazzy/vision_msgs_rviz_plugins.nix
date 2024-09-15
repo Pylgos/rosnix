@@ -3,7 +3,6 @@
   ament_cmake_python,
   ament_lint_auto,
   ament_lint_common,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -11,6 +10,7 @@
   pluginlib,
   rclcpp,
   rclpy,
+  rosSystemPackages,
   rviz2,
   rviz_common,
   rviz_default_plugins,
@@ -38,14 +38,13 @@ buildRosPackage {
   pname = "vision_msgs_rviz_plugins";
   version = "4.1.1-3";
   src = sources.vision_msgs_rviz_plugins;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib rclcpp rclpy rviz2 rviz_common rviz_default_plugins rviz_rendering vision_msgs yaml_cpp_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib rclcpp rclpy rviz2 rviz_common rviz_default_plugins rviz_rendering vision_msgs yaml_cpp_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RVIZ2 plugins for visualizing vision_msgs";
   };

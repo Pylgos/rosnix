@@ -3,7 +3,6 @@
   ament_flake8,
   ament_index_python,
   ament_pep257,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -12,6 +11,7 @@
   launch_xml,
   launch_yaml,
   osrf_pycommon,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "launch_testing";
   version = "3.6.1-1";
   src = sources.launch_testing;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.pytest ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python launch launch_xml launch_yaml osrf_pycommon ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 launch ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python launch launch_xml launch_yaml osrf_pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ament_flake8 ament_pep257 launch ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A package to create tests which involve launch files and multiple processes.";
   };

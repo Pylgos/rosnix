@@ -10,9 +10,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  ffmpeg,
-  pkg-config,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   sensor_msgs,
   std_msgs,
@@ -36,14 +35,13 @@ buildRosPackage {
   pname = "ffmpeg_encoder_decoder";
   version = "1.0.1-1";
   src = sources.ffmpeg_encoder_decoder;
-  nativeBuildInputs = [ ament_cmake ament_cmake_ros pkg-config ros_environment ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge ffmpeg rclcpp sensor_msgs std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_clang_format ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [ "libavdevice-dev" "libopencv-imgproc-dev" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge rclcpp sensor_msgs std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" "libavdevice-dev" "libopencv-imgproc-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_clang_format ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS2 convenience wrapper around ffmpeg for encoding/decoding";
   };

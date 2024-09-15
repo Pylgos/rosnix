@@ -5,12 +5,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  openvdb,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  tbb,
-  zlib,
 }:
 let
   sources = rec {
@@ -65,14 +61,13 @@ buildRosPackage {
   pname = "openvdb_vendor";
   version = "2.5.2-1";
   src = sources.openvdb_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package git ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ openvdb python3Packages.boost tbb zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "libblosc-dev" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "libopenvdb-dev" "tbb" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Wrapper around OpenVDB, if not found on the system, will compile from source";
   };

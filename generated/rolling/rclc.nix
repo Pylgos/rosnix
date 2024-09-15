@@ -16,6 +16,7 @@
   rclcpp,
   rclcpp_action,
   rcutils,
+  rosSystemPackages,
   rosidl_generator_c,
   rosidl_typesupport_c,
   std_msgs,
@@ -40,14 +41,13 @@ buildRosPackage {
   pname = "rclc";
   version = "6.1.0-2";
   src = sources.rclc;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ rosidl_generator_c ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rcl rcl_action rcutils rosidl_typesupport_c ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common example_interfaces launch_testing osrf_testing_tools_cpp rclcpp rclcpp_action std_msgs test_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl_generator_c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl rcl_action rcutils rosidl_typesupport_c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common example_interfaces launch_testing osrf_testing_tools_cpp rclcpp rclcpp_action std_msgs test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ROS client library in C.";
   };

@@ -2,13 +2,10 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  gtest,
-  libusb1,
-  pkg-config,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -44,14 +41,13 @@ buildRosPackage {
   pname = "libcaer_vendor";
   version = "1.0.0-1";
   src = sources.libcaer_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [ cmake pkg-config ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ libusb1 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "Wrapper around libcaer library";
   };

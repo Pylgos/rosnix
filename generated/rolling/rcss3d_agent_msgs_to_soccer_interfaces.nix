@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   rcss3d_agent_msgs,
+  rosSystemPackages,
   soccer_vision_3d_msgs,
   substituteSource,
 }:
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "rcss3d_agent_msgs_to_soccer_interfaces";
   version = "0.4.1-3";
   src = sources.rcss3d_agent_msgs_to_soccer_interfaces;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rcss3d_agent_msgs soccer_vision_3d_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcss3d_agent_msgs soccer_vision_3d_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Library with methods that convert rcss3d_agent_msgs to soccer_interfaces";
   };

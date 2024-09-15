@@ -5,19 +5,15 @@
   ament_cmake_test,
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
-  assimp,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  gdal,
-  gts,
   gz_cmake_vendor,
   gz_math_vendor,
   gz_utils_vendor,
+  rosSystemPackages,
   substituteSource,
-  tinyxml-2,
-  util-linux,
 }:
 let
   sources = rec {
@@ -52,14 +48,13 @@ buildRosPackage {
   pname = "gz_common_vendor";
   version = "0.1.1-1";
   src = sources.gz_common_vendor;
-  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ assimp gdal gts gz_cmake_vendor gz_math_vendor gz_utils_vendor tinyxml-2 util-linux ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ];
-  missingDependencies = [ "ffmpeg-dev" "gz-common5" "libfreeimage-dev" ];
+  nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ gz_cmake_vendor gz_math_vendor gz_utils_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common5" "libfreeimage-dev" "libgdal-dev" "libgts" "tinyxml2" "uuid" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright ament_cmake_lint_cmake ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Vendor package for: gz-common5 5.6.0 Gazebo Common : AV, Graphics, Events, and much more.";
   };

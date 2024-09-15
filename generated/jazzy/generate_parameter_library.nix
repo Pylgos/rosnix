@@ -7,12 +7,12 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  fmt,
   generate_parameter_library_py,
   parameter_traits,
   rclcpp,
   rclcpp_lifecycle,
   rclpy,
+  rosSystemPackages,
   rsl,
   substituteSource,
   tcb_span,
@@ -36,14 +36,13 @@ buildRosPackage {
   pname = "generate_parameter_library";
   version = "0.3.8-4";
   src = sources.generate_parameter_library;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [ generate_parameter_library_py ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ fmt parameter_traits rclcpp rclcpp_lifecycle rclpy rsl tcb_span tl_expected ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ generate_parameter_library_py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ parameter_traits rclcpp rclcpp_lifecycle rclpy rsl tcb_span tl_expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "CMake to generate ROS parameter library.";
   };

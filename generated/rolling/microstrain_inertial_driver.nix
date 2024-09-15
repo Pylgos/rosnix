@@ -2,22 +2,18 @@
   ament_cmake_gtest,
   ament_cpplint,
   buildRosPackage,
-  curl,
   diagnostic_aggregator,
   diagnostic_updater,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  geographiclib,
   geometry_msgs,
-  git,
-  jq,
   lifecycle_msgs,
   microstrain_inertial_msgs,
   nav_msgs,
   nmea_msgs,
   rclcpp_lifecycle,
+  rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -48,14 +44,13 @@ buildRosPackage {
   pname = "microstrain_inertial_driver";
   version = "4.3.0-1";
   src = sources.microstrain_inertial_driver;
-  nativeBuildInputs = [ git rosidl_default_generators ];
-  propagatedNativeBuildInputs = [ curl ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diagnostic_aggregator diagnostic_updater eigen geographiclib geometry_msgs jq lifecycle_msgs microstrain_inertial_msgs nav_msgs nmea_msgs rclcpp_lifecycle rosidl_default_runtime rtcm_msgs sensor_msgs std_msgs std_srvs tf2 tf2_geometry_msgs tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cpplint ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic_aggregator diagnostic_updater geometry_msgs lifecycle_msgs microstrain_inertial_msgs nav_msgs nmea_msgs rclcpp_lifecycle rosidl_default_runtime rtcm_msgs sensor_msgs std_msgs std_srvs tf2 tf2_geometry_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "jq" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cpplint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ros_mscl package provides a driver for the LORD/Microstrain inertial products.";
   };

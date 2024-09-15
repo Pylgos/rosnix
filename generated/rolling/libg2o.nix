@@ -1,14 +1,11 @@
 {
   ament_cmake,
   buildRosPackage,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  libGL,
-  libGLU,
+  rosSystemPackages,
   substituteSource,
-  suitesparse,
 }:
 let
   sources = rec {
@@ -28,14 +25,13 @@ buildRosPackage {
   pname = "libg2o";
   version = "2020.5.29-5";
   src = sources.libg2o;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen libGL libGLU suitesparse ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The libg2o library from http://openslam.org/g2o.html";
   };

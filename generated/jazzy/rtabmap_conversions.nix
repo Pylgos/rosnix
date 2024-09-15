@@ -11,6 +11,7 @@
   pcl_conversions,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   ros_environment,
   rtabmap,
   rtabmap_msgs,
@@ -40,14 +41,13 @@ buildRosPackage {
   pname = "rtabmap_conversions";
   version = "0.21.5-3";
   src = sources.rtabmap_conversions;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge geometry_msgs image_geometry laser_geometry pcl_conversions rclcpp rclcpp_components rtabmap rtabmap_msgs sensor_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge geometry_msgs image_geometry laser_geometry pcl_conversions rclcpp rclcpp_components rtabmap rtabmap_msgs sensor_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RTAB-Map's conversions package. This package can be used to convert rtabmap_msgs's msgs into RTAB-Map's library objects.";
   };

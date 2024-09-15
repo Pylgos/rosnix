@@ -4,7 +4,6 @@
   ament_cmake_ros,
   ament_lint_auto,
   ament_lint_common,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -12,6 +11,7 @@
   launch_testing,
   rcl_logging_interface,
   rcutils,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "rcl_logging_noop";
   version = "3.1.0-2";
   src = sources.rcl_logging_noop;
-  nativeBuildInputs = [ ament_cmake_ros buildPackages.python3Packages.empy ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rcl_logging_interface rcutils ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_lint_auto ament_lint_common launch_testing ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl_logging_interface rcutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_lint_auto ament_lint_common launch_testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "An rcl logger implementation that doesn't do anything with log messages.";
   };

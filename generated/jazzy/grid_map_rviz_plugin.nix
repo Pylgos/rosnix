@@ -9,8 +9,8 @@
   grid_map_cmake_helpers,
   grid_map_msgs,
   grid_map_ros,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   rviz_common,
   rviz_ogre_vendor,
   rviz_rendering,
@@ -35,14 +35,13 @@ buildRosPackage {
   pname = "grid_map_rviz_plugin";
   version = "2.2.0-1";
   src = sources.grid_map_rviz_plugin;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ grid_map_cmake_helpers grid_map_msgs grid_map_ros qt5.qtbase rclcpp rviz_common rviz_ogre_vendor rviz_rendering ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ grid_map_cmake_helpers grid_map_msgs grid_map_ros rclcpp rviz_common rviz_ogre_vendor rviz_rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RViz plugin for displaying grid map messages.";
   };

@@ -1,11 +1,9 @@
 {
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  gbenchmark,
-  git,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -41,14 +39,13 @@ buildRosPackage {
   pname = "google_benchmark_vendor";
   version = "0.6.0-1";
   src = sources.google_benchmark_vendor;
-  nativeBuildInputs = [ cmake git ];
-  propagatedNativeBuildInputs = [ gbenchmark ];
-  buildInputs = [ cmake git ];
-  propagatedBuildInputs = [ gbenchmark ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "git" ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "This package provides Google Benchmark.";
   };

@@ -8,6 +8,7 @@
   fetchzip,
   launch_testing,
   python_cmake_module,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "launch_testing_ament_cmake";
   version = "3.6.1-1";
   src = sources.launch_testing_ament_cmake;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_test python_cmake_module ];
-  buildInputs = [ ament_cmake ];
-  propagatedBuildInputs = [ ament_cmake_test python_cmake_module ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [ launch_testing ];
-  checkInputs = [ ament_cmake_copyright launch_testing python_cmake_module ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_test python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_cmake_test python_cmake_module ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [ launch_testing ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_copyright launch_testing python_cmake_module ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A package providing cmake functions for running launch tests from the build.";
   };

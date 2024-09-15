@@ -1,5 +1,4 @@
 {
-  buildPackages,
   buildRosPackage,
   diagnostic_msgs,
   fetchgit,
@@ -8,6 +7,7 @@
   python_qt_binding,
   qt_gui,
   rclpy,
+  rosSystemPackages,
   rqt_console,
   rqt_gui,
   rqt_gui_py,
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "rqt_robot_dashboard";
   version = "0.6.1-4";
   src = sources.rqt_robot_dashboard;
-  nativeBuildInputs = [ buildPackages.python3Packages.setuptools wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diagnostic_msgs python_qt_binding qt_gui rclpy rqt_console rqt_gui rqt_gui_py rqt_robot_monitor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic_msgs python_qt_binding qt_gui rclpy rqt_console rqt_gui rqt_gui_py rqt_robot_monitor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "rqt_robot_dashboard provides an infrastructure for building robot dashboard plugins in rqt.";
   };

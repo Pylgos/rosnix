@@ -7,6 +7,7 @@
   launch,
   launch_ros,
   launch_testing_ament_cmake,
+  rosSystemPackages,
   sick_safevisionary_driver,
   substituteSource,
 }:
@@ -28,14 +29,13 @@ buildRosPackage {
   pname = "sick_safevisionary_tests";
   version = "1.0.3-2";
   src = sources.sick_safevisionary_tests;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [  ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ launch launch_ros launch_testing_ament_cmake sick_safevisionary_driver ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ launch launch_ros launch_testing_ament_cmake sick_safevisionary_driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Integration tests for the Sick SafeVisionary2 driver";
   };

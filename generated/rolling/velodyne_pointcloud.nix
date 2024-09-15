@@ -10,11 +10,10 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  libyamlcpp,
   message_filters,
-  pcl,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
   tf2,
@@ -39,14 +38,13 @@ buildRosPackage {
   pname = "velodyne_pointcloud";
   version = "2.3.0-3";
   src = sources.velodyne_pointcloud;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ angles diagnostic_updater geometry_msgs libyamlcpp message_filters pcl rclcpp rclcpp_components sensor_msgs tf2 tf2_ros velodyne_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ angles diagnostic_updater geometry_msgs message_filters rclcpp rclcpp_components sensor_msgs tf2 tf2_ros velodyne_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcl-all-dev" "yaml-cpp" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Point cloud conversions for Velodyne 3D LIDARs.";
   };

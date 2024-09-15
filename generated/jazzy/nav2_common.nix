@@ -1,7 +1,6 @@
 {
   ament_cmake_core,
   ament_cmake_python,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -10,6 +9,7 @@
   launch_ros,
   osrf_pycommon,
   rclpy,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -30,14 +30,13 @@ buildRosPackage {
   pname = "nav2_common";
   version = "1.3.2-1";
   src = sources.nav2_common;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ ament_cmake_core ament_cmake_python buildPackages.python3Packages.pyyaml ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ launch launch_ros osrf_pycommon rclpy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_core ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ launch launch_ros osrf_pycommon rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Common support functionality used throughout the navigation 2 stack";
   };

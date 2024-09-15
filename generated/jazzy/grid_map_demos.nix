@@ -22,9 +22,9 @@
   octomap_msgs,
   octomap_rviz_plugins,
   octomap_server,
-  python3Packages,
   rclcpp,
   rclpy,
+  rosSystemPackages,
   rviz2,
   sensor_msgs,
   substituteSource,
@@ -48,14 +48,13 @@ buildRosPackage {
   pname = "grid_map_demos";
   version = "2.2.0-1";
   src = sources.grid_map_demos;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge geometry_msgs grid_map_cmake_helpers grid_map_core grid_map_cv grid_map_filters grid_map_loader grid_map_msgs grid_map_octomap grid_map_ros grid_map_rviz_plugin grid_map_visualization octomap_msgs octomap_rviz_plugins octomap_server python3Packages.opencv4 rclcpp rclpy rviz2 sensor_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge geometry_msgs grid_map_cmake_helpers grid_map_core grid_map_cv grid_map_filters grid_map_loader grid_map_msgs grid_map_octomap grid_map_ros grid_map_rviz_plugin grid_map_visualization octomap_msgs octomap_rviz_plugins octomap_server rclcpp rclpy rviz2 sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Demo nodes to demonstrate the usage of the grid map library.";
   };

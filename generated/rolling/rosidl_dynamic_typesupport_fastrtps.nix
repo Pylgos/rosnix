@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   rcutils,
+  rosSystemPackages,
   rosidl_dynamic_typesupport,
   substituteSource,
 }:
@@ -29,14 +30,13 @@ buildRosPackage {
   pname = "rosidl_dynamic_typesupport_fastrtps";
   version = "0.2.0-1";
   src = sources.rosidl_dynamic_typesupport_fastrtps;
-  nativeBuildInputs = [ ament_cmake_ros fastrtps_cmake_module ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ fastcdr fastrtps rcutils rosidl_dynamic_typesupport ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros fastrtps_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ fastcdr fastrtps rcutils rosidl_dynamic_typesupport ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "FastDDS serialization support implementation for use with C/C++.";
   };

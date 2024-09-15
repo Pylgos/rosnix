@@ -3,13 +3,13 @@
   ament_cmake_auto,
   ament_cmake_gtest,
   buildRosPackage,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry_msgs,
   ouxt_lint_common,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   tf2_ros,
 }:
@@ -31,14 +31,13 @@ buildRosPackage {
   pname = "quaternion_operation";
   version = "0.0.7-5";
   src = sources.quaternion_operation;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_auto ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen geometry_msgs rclcpp tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ouxt_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs rclcpp tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ouxt_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The quaternion_operation package";
   };

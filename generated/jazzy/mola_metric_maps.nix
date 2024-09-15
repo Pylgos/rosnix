@@ -5,12 +5,12 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
   mola_common,
   mrpt_libmaps,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "mola_metric_maps";
   version = "1.1.3-1";
   src = sources.mola_metric_maps;
-  nativeBuildInputs = [ ament_cmake ament_cmake_gtest cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ mola_common mrpt_libmaps ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ mola_common mrpt_libmaps ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Advanced metric map classes, using the generic `mrpt::maps::CMetricMap` interface, for use in other MOLA odometry and SLAM modules.";
   };

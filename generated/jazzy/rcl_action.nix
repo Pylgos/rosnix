@@ -14,6 +14,7 @@
   rcutils,
   rmw,
   rmw_implementation_cmake,
+  rosSystemPackages,
   rosidl_runtime_c,
   substituteSource,
   test_msgs,
@@ -36,14 +37,13 @@ buildRosPackage {
   pname = "rcl_action";
   version = "9.2.3-1";
   src = sources.rcl_action;
-  nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ action_msgs rcl rcutils rmw rosidl_runtime_c ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common osrf_testing_tools_cpp rmw_implementation_cmake test_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ action_msgs rcl rcutils rmw rosidl_runtime_c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common osrf_testing_tools_cpp rmw_implementation_cmake test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package containing a C-based ROS action implementation";
   };

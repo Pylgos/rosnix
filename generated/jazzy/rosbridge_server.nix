@@ -10,8 +10,8 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
-  python3Packages,
   rclpy,
+  rosSystemPackages,
   rosapi,
   rosbridge_library,
   rosbridge_msgs,
@@ -36,14 +36,13 @@ buildRosPackage {
   pname = "rosbridge_server";
   version = "1.3.2-3";
   src = sources.rosbridge_server;
-  nativeBuildInputs = [ ament_cmake ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.tornado python3Packages.twisted rclpy rosapi rosbridge_library rosbridge_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ launch launch_ros launch_testing launch_testing_ament_cmake launch_testing_ros python3Packages.autobahn std_srvs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclpy rosapi rosbridge_library rosbridge_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tornado" "python3-twisted" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ launch launch_ros launch_testing launch_testing_ament_cmake launch_testing_ros std_srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" ]; };
   meta = {
     description = "A WebSocket interface to rosbridge.";
   };

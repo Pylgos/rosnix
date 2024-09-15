@@ -9,6 +9,7 @@
   fetchzip,
   nav2_bringup,
   nav2_simple_commander,
+  rosSystemPackages,
   slam_toolbox,
   substituteSource,
   wrapRosQtAppsHook,
@@ -31,14 +32,13 @@ buildRosPackage {
   pname = "turtlebot4_navigation";
   version = "2.0.0-1";
   src = sources.turtlebot4_navigation;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ nav2_bringup nav2_simple_commander slam_toolbox ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ nav2_bringup nav2_simple_commander slam_toolbox ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Turtlebot4 Navigation";
   };

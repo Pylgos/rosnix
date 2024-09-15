@@ -4,15 +4,9 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  libxml2,
-  openblas,
-  opencl-headers,
+  rosSystemPackages,
   ros_environment,
-  spirv-headers,
-  spirv-tools,
   substituteSource,
-  vulkan-loader,
 }:
 let
   sources = rec {
@@ -62,14 +56,13 @@ buildRosPackage {
   pname = "tvm_vendor";
   version = "0.9.1-4";
   src = sources.tvm_vendor;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ git ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ libxml2 openblas opencl-headers spirv-headers spirv-tools vulkan-loader ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "ocl-icd-opencl-dev" ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopenblas-dev" "libvulkan-dev" "libxml2" "ocl-icd-opencl-dev" "opencl-headers" "spirv-headers" "spirv-tools" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Wrapper around Apache TVM to make it available to the ROS ecosystem.";
   };

@@ -8,7 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3,
+  rosSystemPackages,
   rosidl_cli,
   rosidl_cmake,
   rosidl_generator_c,
@@ -36,14 +36,13 @@ buildRosPackage {
   pname = "rosidl_typesupport_introspection_c";
   version = "4.6.4-1";
   src = sources.rosidl_typesupport_introspection_c;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ ament_cmake python3 rosidl_cli rosidl_cmake rosidl_generator_c rosidl_parser rosidl_pycommon ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python rosidl_runtime_c rosidl_typesupport_interface ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake rosidl_cli rosidl_cmake rosidl_generator_c rosidl_parser rosidl_pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python rosidl_runtime_c rosidl_typesupport_interface ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Generate the message type support for dynamic message construction in C.";
   };

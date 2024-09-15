@@ -4,15 +4,13 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  ceres-solver,
   fetchgit,
   fetchurl,
   fetchzip,
   fuse_core,
-  libsForQt5,
   pluginlib,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -34,14 +32,13 @@ buildRosPackage {
   pname = "fuse_loss";
   version = "1.2.0-1";
   src = sources.fuse_loss;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ceres-solver fuse_core pluginlib rclcpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common libsForQt5.qwt qt5.qtbase ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ fuse_core pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqwt-qt5-dev" "qtbase5-dev" ]; };
   meta = {
     description = "The fuse_loss package provides a set of commonly used loss functions, such as the basic ones provided by Ceres.";
   };

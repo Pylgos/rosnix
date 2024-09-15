@@ -10,6 +10,7 @@
   pybind11_vendor,
   python_cmake_module,
   rclcpp,
+  rosSystemPackages,
   rpyutils,
   sensor_msgs,
   substituteSource,
@@ -32,14 +33,13 @@ buildRosPackage {
   pname = "point_cloud_transport_py";
   version = "4.0.2-1";
   src = sources.point_cloud_transport_py;
-  nativeBuildInputs = [ ament_cmake_python ament_cmake_ros python_cmake_module ];
-  propagatedNativeBuildInputs = [ rpyutils ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ pluginlib point_cloud_transport pybind11_vendor rclcpp sensor_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_python ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib point_cloud_transport pybind11_vendor rclcpp sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Python API for point_cloud_transport";
   };

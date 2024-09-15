@@ -9,9 +9,8 @@
   fetchurl,
   fetchzip,
   image_transport,
-  libyamlcpp,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   ros_babel_fish,
   ros_babel_fish_test_msgs,
   std_srvs,
@@ -37,14 +36,13 @@ buildRosPackage {
   pname = "qml_ros2_plugin";
   version = "1.0.1-1";
   src = sources.qml_ros2_plugin;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp image_transport libyamlcpp qt5.qtbase qt5.qtdeclarative qt5.qtmultimedia rclcpp ros_babel_fish tf2_ros ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto example_interfaces ros_babel_fish_test_msgs std_srvs ];
-  missingDependencies = [ "qml-module-qtquick2" ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_cpp image_transport rclcpp ros_babel_fish tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-multimedia" "libqt5-qml" "libqt5-quick" "qtbase5-dev" "qtdeclarative5-dev" "qtmultimedia5-dev" "yaml-cpp" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto example_interfaces ros_babel_fish_test_msgs std_srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qml-module-qtquick2" ]; };
   meta = {
     description = "A QML plugin for ROS. Enables full communication with ROS from QML.";
   };

@@ -8,30 +8,26 @@
   ament_lint_common,
   angles,
   buildRosPackage,
-  console-bridge,
   diagnostic_msgs,
   diagnostic_updater,
-  eigen,
   eigen3_cmake_module,
   eigen_stl_containers,
   fetchgit,
   fetchurl,
   fetchzip,
   geographic_msgs,
-  geographiclib,
   geometry_msgs,
-  gtest,
   libmavconn,
   mavlink,
   mavros_msgs,
   message_filters,
   nav_msgs,
   pluginlib,
-  python3Packages,
   rclcpp,
   rclcpp_components,
   rclpy,
   rcpputils,
+  rosSystemPackages,
   rosidl_default_runtime,
   sensor_msgs,
   std_msgs,
@@ -59,14 +55,13 @@ buildRosPackage {
   pname = "mavros";
   version = "2.8.0-1";
   src = sources.mavros;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ angles console-bridge diagnostic_msgs diagnostic_updater eigen eigen_stl_containers geographic_msgs geographiclib geometry_msgs libmavconn mavlink mavros_msgs message_filters nav_msgs pluginlib python3Packages.click rclcpp rclcpp_components rclpy rcpputils rosidl_default_runtime sensor_msgs std_msgs std_srvs tf2_eigen tf2_ros trajectory_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common gtest ];
-  missingDependencies = [ "geographiclib-tools" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ angles diagnostic_msgs diagnostic_updater eigen_stl_containers geographic_msgs geometry_msgs libmavconn mavlink mavros_msgs message_filters nav_msgs pluginlib rclcpp rclcpp_components rclpy rcpputils rosidl_default_runtime sensor_msgs std_msgs std_srvs tf2_eigen tf2_ros trajectory_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "geographiclib-tools" "libconsole-bridge-dev" "python3-click" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "google-mock" "gtest" ]; };
   meta = {
     description = "MAVROS -- MAVLink extendable communication node for ROS with proxy for Ground Control Station.";
   };

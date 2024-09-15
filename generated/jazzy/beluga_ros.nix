@@ -4,14 +4,13 @@
   ament_cmake_gtest,
   ament_cmake_python,
   beluga,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry_msgs,
   nav_msgs,
-  python3Packages,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   substituteSource,
@@ -39,14 +38,13 @@ buildRosPackage {
   pname = "beluga_ros";
   version = "2.0.2-1";
   src = sources.beluga_ros;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ beluga geometry_msgs nav_msgs python3Packages.h5py python3Packages.matplotlib python3Packages.scipy sensor_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ beluga geometry_msgs nav_msgs sensor_msgs std_msgs tf2 tf2_eigen tf2_geometry_msgs tf2_ros visualization_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-h5py" "python3-matplotlib" "python3-scipy" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Utilities to interface ROS with Beluga.";
   };

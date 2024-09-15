@@ -4,16 +4,15 @@
   ament_lint_auto,
   ament_lint_common,
   ament_mypy,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   nodl_python,
-  python3Packages,
   ros2cli,
   ros2pkg,
   ros2run,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -34,14 +33,13 @@ buildRosPackage {
   pname = "ros2nodl";
   version = "0.3.1-5";
   src = sources.ros2nodl;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.argcomplete ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python nodl_python ros2cli ros2pkg ros2run ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_flake8 ament_lint_auto ament_lint_common ament_mypy python3Packages.pytest python3Packages.pytest-mock ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python nodl_python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_flake8 ament_lint_auto ament_lint_common ament_mypy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
   meta = {
     description = "CLI tools for NoDL files.";
   };

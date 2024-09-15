@@ -5,12 +5,12 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rcl_interfaces,
   rclpy,
   ros2cli,
   ros2node,
   ros2param,
+  rosSystemPackages,
   rosidl_runtime_py,
   substituteSource,
 }:
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "ros2controlcli";
   version = "4.17.0-1";
   src = sources.ros2controlcli;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ controller_manager controller_manager_msgs python3Packages.pygraphviz rcl_interfaces rclpy ros2cli ros2node ros2param rosidl_runtime_py ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ controller_manager controller_manager_msgs rcl_interfaces rclpy ros2cli ros2node ros2param rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ROS 2 command line tools for ROS2 Control.";
   };

@@ -5,7 +5,6 @@
   buildRosPackage,
   camera_calibration_parsers,
   cv_bridge,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,11 +13,10 @@
   image_transport,
   message_filters,
   nav_msgs,
-  pkg-config,
-  python3Packages,
   rclcpp,
   rclcpp_components,
   rclpy,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
   swri_geometry_util,
@@ -45,14 +43,13 @@ buildRosPackage {
   pname = "swri_image_util";
   version = "3.7.1-1";
   src = sources.swri_image_util;
-  nativeBuildInputs = [ ament_cmake pkg-config ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp camera_calibration_parsers cv_bridge eigen geometry_msgs image_geometry image_transport message_filters nav_msgs python3Packages.boost rclcpp rclcpp_components rclpy std_msgs swri_geometry_util swri_math_util swri_opencv_util swri_roscpp tf2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_cpp camera_calibration_parsers cv_bridge geometry_msgs image_geometry image_transport message_filters nav_msgs rclcpp rclcpp_components rclpy std_msgs swri_geometry_util swri_math_util swri_opencv_util swri_roscpp tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A package of commonly image manipulation utilities.";
   };

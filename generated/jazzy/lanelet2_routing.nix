@@ -4,11 +4,10 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gtest,
   lanelet2_core,
   lanelet2_traffic_rules,
   mrt_cmake_modules,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +28,13 @@ buildRosPackage {
   pname = "lanelet2_routing";
   version = "1.2.1-1";
   src = sources.lanelet2_routing;
-  nativeBuildInputs = [ ament_cmake_core ];
-  propagatedNativeBuildInputs = [ mrt_cmake_modules ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ lanelet2_core lanelet2_traffic_rules python3Packages.boost ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ lanelet2_core lanelet2_traffic_rules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "Routing module for lanelet2";
   };

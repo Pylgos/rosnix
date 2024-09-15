@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  cmake,
   cv_bridge,
   fetchgit,
   fetchurl,
@@ -8,14 +7,10 @@
   gtsam,
   libg2o,
   libpointmatcher,
-  pcl,
-  proj,
   qt_gui_cpp,
-  sqlite,
+  rosSystemPackages,
   substituteSource,
-  tbb,
   wrapRosQtAppsHook,
-  zlib,
 }:
 let
   sources = rec {
@@ -35,14 +30,13 @@ buildRosPackage {
   pname = "rtabmap";
   version = "0.21.6-1";
   src = sources.rtabmap;
-  nativeBuildInputs = [ cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge gtsam libg2o libpointmatcher pcl proj qt_gui_cpp sqlite tbb zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "liboctomap-dev" ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge gtsam libg2o libpointmatcher qt_gui_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "tbb" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RTAB-Map's standalone library. RTAB-Map is a RGB-D SLAM approach with real-time constraints.";
   };

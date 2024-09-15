@@ -1,14 +1,9 @@
 {
   buildRosPackage,
-  cmake,
-  doxygen,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  matio,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -29,14 +24,13 @@ buildRosPackage {
   pname = "proxsuite";
   version = "0.6.5-1";
   src = sources.proxsuite;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ doxygen git ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen python3Packages.numpy python3Packages.scipy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ matio ];
-  missingDependencies = [ "simde" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-numpy" "python3-scipy" "simde" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "matio" ]; };
   meta = {
     description = "The Advanced Proximal Optimization Toolbox";
   };

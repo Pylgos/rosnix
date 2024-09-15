@@ -1,14 +1,10 @@
 {
   buildRosPackage,
-  clang,
-  doxygen,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  fmt,
-  git,
   rclcpp,
+  rosSystemPackages,
   substituteSource,
   tcb_span,
   tl_expected,
@@ -45,14 +41,13 @@ buildRosPackage {
   pname = "rsl";
   version = "1.1.0-2";
   src = sources.rsl;
-  nativeBuildInputs = [ doxygen ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen fmt rclcpp tcb_span tl_expected ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ clang git ];
-  missingDependencies = [ "range-v3" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp tcb_span tl_expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "clang-tidy" "git" "range-v3" ]; };
   meta = {
     description = "ROS Support Library";
   };

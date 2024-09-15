@@ -1,14 +1,11 @@
 {
   buildRosPackage,
-  cmake,
-  console-bridge,
   console_bridge_vendor,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3,
+  rosSystemPackages,
   substituteSource,
-  tinyxml-2,
   tinyxml2_vendor,
   urdfdom_headers,
 }:
@@ -30,14 +27,13 @@ buildRosPackage {
   pname = "urdfdom";
   version = "4.0.0-2";
   src = sources.urdfdom;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ console-bridge console_bridge_vendor tinyxml-2 tinyxml2_vendor urdfdom_headers ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ python3 ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ console_bridge_vendor tinyxml2_vendor urdfdom_headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" "tinyxml2" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
   meta = {
     description = "A library to access URDFs using the DOM model.";
   };

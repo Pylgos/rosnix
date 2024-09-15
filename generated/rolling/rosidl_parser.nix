@@ -3,12 +3,11 @@
   ament_cmake_pytest,
   ament_lint_auto,
   ament_lint_common,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   rosidl_adapter,
   substituteSource,
 }:
@@ -30,14 +29,13 @@ buildRosPackage {
   pname = "rosidl_parser";
   version = "4.8.1-1";
   src = sources.rosidl_parser;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.lark rosidl_adapter ];
-  buildInputs = [ ament_cmake ];
-  propagatedBuildInputs = [ python3Packages.lark rosidl_adapter ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl_adapter ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
+  buildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rosidl_adapter ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lark-parser" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The parser for `.idl` ROS interface files.";
   };

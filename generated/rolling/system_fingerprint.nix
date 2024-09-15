@@ -3,7 +3,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
   rcl_interfaces,
   rclpy,
   ros2action,
@@ -11,6 +10,7 @@
   ros2node,
   ros2param,
   ros2topic,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -31,14 +31,13 @@ buildRosPackage {
   pname = "system_fingerprint";
   version = "0.7.0-3";
   src = sources.system_fingerprint;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.GitPython rcl_interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl_interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-git" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The system_fingerprint package";
   };

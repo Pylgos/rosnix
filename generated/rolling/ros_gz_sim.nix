@@ -8,7 +8,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gflags,
   gz_math_vendor,
   gz_msgs_vendor,
   gz_sim_vendor,
@@ -17,9 +16,9 @@
   launch_ros,
   launch_testing,
   launch_testing_ament_cmake,
-  pkg-config,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   std_msgs,
   substituteSource,
   wrapRosQtAppsHook,
@@ -42,14 +41,13 @@ buildRosPackage {
   pname = "ros_gz_sim";
   version = "2.0.1-1";
   src = sources.ros_gz_sim;
-  nativeBuildInputs = [ ament_cmake ament_cmake_python pkg-config wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_python gflags gz_math_vendor gz_msgs_vendor gz_sim_vendor gz_transport_vendor launch launch_ros rclcpp rclcpp_components std_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common launch_ros launch_testing launch_testing_ament_cmake ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_python gz_math_vendor gz_msgs_vendor gz_sim_vendor gz_transport_vendor launch launch_ros rclcpp rclcpp_components std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgflags-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common launch_ros launch_testing launch_testing_ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Tools for using Gazebo Sim simulation with ROS.";
   };

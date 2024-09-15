@@ -1,20 +1,9 @@
 {
-  abseil-cpp,
   buildRosPackage,
-  cairo,
-  ceres-solver,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  gflags,
-  git,
-  glog,
-  gtest,
-  lua5,
-  protobuf,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -35,14 +24,13 @@ buildRosPackage {
   pname = "cartographer";
   version = "2.0.9003-2";
   src = sources.cartographer;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ git gtest ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ abseil-cpp cairo ceres-solver eigen gflags glog gtest lua5 protobuf python3Packages.boost python3Packages.sphinx ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "google-mock" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "gtest" "libabsl-dev" "libboost-iostreams-dev" "libcairo2-dev" "libceres-dev" "libgflags-dev" "libgoogle-glog-dev" "lua5.2-dev" "protobuf-dev" "python3-sphinx" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Cartographer is a system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.";
   };

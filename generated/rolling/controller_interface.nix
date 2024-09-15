@@ -8,6 +8,7 @@
   fetchzip,
   hardware_interface,
   rclcpp_lifecycle,
+  rosSystemPackages,
   sensor_msgs,
   substituteSource,
 }:
@@ -29,14 +30,13 @@ buildRosPackage {
   pname = "controller_interface";
   version = "4.17.0-1";
   src = sources.controller_interface;
-  nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ hardware_interface rclcpp_lifecycle sensor_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gmock sensor_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ hardware_interface rclcpp_lifecycle sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gmock sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Description of controller_interface";
   };

@@ -10,7 +10,7 @@
   rcl_logging_interface,
   rcpputils,
   rcutils,
-  spdlog,
+  rosSystemPackages,
   spdlog_vendor,
   substituteSource,
 }:
@@ -32,14 +32,13 @@ buildRosPackage {
   pname = "rcl_logging_spdlog";
   version = "3.1.0-2";
   src = sources.rcl_logging_spdlog;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ rcl_logging_interface rcpputils rcutils spdlog spdlog_vendor ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common performance_test_fixture ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl_logging_interface rcpputils rcutils spdlog_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common performance_test_fixture ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Implementation of rcl_logging API for an spdlog backend.";
   };

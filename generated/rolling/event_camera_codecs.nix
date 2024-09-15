@@ -13,6 +13,7 @@
   fetchurl,
   fetchzip,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   rosbag2_cpp,
   substituteSource,
@@ -35,14 +36,13 @@ buildRosPackage {
   pname = "event_camera_codecs";
   version = "1.0.5-1";
   src = sources.event_camera_codecs;
-  nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ class_loader event_camera_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_clang_format ament_cmake_gtest ament_lint_auto ament_lint_common rclcpp rosbag2_cpp ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ class_loader event_camera_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_clang_format ament_cmake_gtest ament_lint_auto ament_lint_common rclcpp rosbag2_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "package to encode and decode event_camera_msgs";
   };

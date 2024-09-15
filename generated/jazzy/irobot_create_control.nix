@@ -12,6 +12,7 @@
   joint_state_broadcaster,
   ros2_controllers,
   ros2launch,
+  rosSystemPackages,
   rsl,
   substituteSource,
 }:
@@ -33,14 +34,13 @@ buildRosPackage {
   pname = "irobot_create_control";
   version = "3.0.2-2";
   src = sources.irobot_create_control;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ joint_state_broadcaster ros2_controllers ros2launch rsl ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_xmllint ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ joint_state_broadcaster ros2_controllers ros2launch rsl ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Provides the diff-drive controller for the iRobot(R) Create(R) 3 Educational Robot.";
   };

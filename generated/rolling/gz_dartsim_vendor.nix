@@ -3,22 +3,12 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   ament_lint_auto,
-  assimp,
   buildRosPackage,
-  bullet,
-  eigen,
-  fcl,
   fetchgit,
   fetchurl,
   fetchzip,
-  fmt,
-  libccd,
-  lz4,
-  ode,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  tinyxml-2,
-  urdfdom,
 }:
 let
   sources = rec {
@@ -53,14 +43,13 @@ buildRosPackage {
   pname = "gz_dartsim_vendor";
   version = "0.1.1-1";
   src = sources.gz_dartsim_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ assimp bullet eigen fcl fmt libccd lz4 ode python3Packages.boost tinyxml-2 urdfdom ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_xmllint ament_lint_auto ];
-  missingDependencies = [ "liboctomap-dev" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "bullet" "eigen" "fmt" "libboost-dev" "libboost-regex-dev" "libboost-system-dev" "libccd-dev" "libfcl-dev" "liboctomap-dev" "liburdfdom-dev" "lz4" "opende" "tinyxml2" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Vendor package for the DART physics engine v6.13.2";
   };

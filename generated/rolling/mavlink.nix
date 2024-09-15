@@ -1,12 +1,10 @@
 {
   ament_cmake,
   buildRosPackage,
-  cmake,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -28,14 +26,13 @@ buildRosPackage {
   pname = "mavlink";
   version = "2024.6.6-1";
   src = sources.mavlink;
-  nativeBuildInputs = [ ament_cmake cmake ros_environment ];
-  propagatedNativeBuildInputs = [ python3 ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ python3Packages.future python3Packages.lxml ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-future" "python3-lxml" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "MAVLink message marshaling library. This package provides C-headers and C++11 library for both 1.0 and 2.0 versions of protocol. For pymavlink use separate install via rosdep (python-pymavlink).";
   };

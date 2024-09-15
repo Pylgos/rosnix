@@ -1,12 +1,11 @@
 {
   ament_copyright,
-  buildPackages,
   buildRosPackage,
   builtin_interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
   xacro,
 }:
@@ -28,14 +27,13 @@ buildRosPackage {
   pname = "webots_ros2_importer";
   version = "2023.1.3-1";
   src = sources.webots_ros2_importer;
-  nativeBuildInputs = [  ];
-  propagatedNativeBuildInputs = [ buildPackages.python3Packages.lark ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ builtin_interfaces python3Packages.pycollada xacro ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_copyright python3Packages.numpy python3Packages.pillow python3Packages.pycodestyle python3Packages.pytest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin_interfaces xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-collada" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-pil" "python3-pycodestyle" "python3-pytest" ]; };
   meta = {
     description = "This package allows to convert URDF and XACRO files into Webots PROTO files.";
   };

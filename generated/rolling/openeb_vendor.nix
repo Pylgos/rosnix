@@ -2,27 +2,11 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  cmake,
-  curl,
   fetchgit,
   fetchurl,
   fetchzip,
-  ffmpeg,
-  git,
-  glew,
-  glfw3,
-  gtest,
-  hdf5,
-  libusb-compat-0_1,
-  libusb1,
-  opencv,
-  openscenegraph,
-  pkg-config,
-  protobuf,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  unzip,
-  wget,
 }:
 let
   sources = rec {
@@ -57,14 +41,13 @@ buildRosPackage {
   pname = "openeb_vendor";
   version = "2.0.0-1";
   src = sources.openeb_vendor;
-  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package cmake curl git pkg-config unzip wget ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ffmpeg glew glfw3 hdf5 libusb-compat-0_1 libusb1 opencv openscenegraph protobuf python3Packages.boost ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest ];
-  missingDependencies = [ "hdf5-tools" ];
+  nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "curl" "git" "hdf5-tools" "pkg-config" "unzip" "wget" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "ffmpeg" "libglew-dev" "libglfw3-dev" "libhdf5-dev" "libopencv-dev" "libopenscenegraph" "libusb" "libusb-1.0" "libusb-1.0-dev" "libusb-dev" "protobuf-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   meta = {
     description = "Wrapper around openeb";
   };

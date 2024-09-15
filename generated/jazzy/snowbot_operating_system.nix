@@ -8,6 +8,7 @@
   fetchzip,
   geometry_msgs,
   pluginlib,
+  rosSystemPackages,
   rviz_common,
   rviz_rendering,
   substituteSource,
@@ -31,14 +32,13 @@ buildRosPackage {
   pname = "snowbot_operating_system";
   version = "0.1.2-5";
   src = sources.snowbot_operating_system;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament_cmake_ros ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ geometry_msgs pluginlib rviz_common rviz_rendering ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_clang_format ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs pluginlib rviz_common rviz_rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_clang_format ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The weather outside is frightful";
   };

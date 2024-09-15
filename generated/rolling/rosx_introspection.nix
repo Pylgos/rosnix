@@ -7,8 +7,8 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
-  rapidjson,
   rclcpp,
+  rosSystemPackages,
   rosbag2_cpp,
   sensor_msgs,
   substituteSource,
@@ -45,14 +45,13 @@ buildRosPackage {
   pname = "rosx_introspection";
   version = "1.0.2-1";
   src = sources.rosx_introspection;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp fastcdr rapidjson rclcpp rosbag2_cpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ geometry_msgs sensor_msgs ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_cpp fastcdr rclcpp rosbag2_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rapidjson-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ geometry_msgs sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Successor of ros_type_introspection";
   };

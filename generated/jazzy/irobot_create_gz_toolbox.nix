@@ -19,6 +19,7 @@
   rclcpp,
   rclcpp_action,
   rcutils,
+  rosSystemPackages,
   ros_gz_interfaces,
   sensor_msgs,
   std_msgs,
@@ -44,14 +45,13 @@ buildRosPackage {
   pname = "irobot_create_gz_toolbox";
   version = "3.0.2-2";
   src = sources.irobot_create_gz_toolbox;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ control_msgs irobot_create_msgs irobot_create_toolbox nav_msgs rclcpp rclcpp_action rcutils ros_gz_interfaces sensor_msgs std_msgs tf2 tf2_geometry_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_uncrustify ament_cmake_xmllint ament_lint_auto ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ control_msgs irobot_create_msgs irobot_create_toolbox nav_msgs rclcpp rclcpp_action rcutils ros_gz_interfaces sensor_msgs std_msgs tf2 tf2_geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_flake8 ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_uncrustify ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Nodes and tools for simulating in Ignition iRobot(R) Create(R) 3 Educational Robot.";
   };

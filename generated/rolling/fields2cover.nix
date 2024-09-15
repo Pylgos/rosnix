@@ -1,22 +1,11 @@
 {
   buildRosPackage,
-  cmake,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  gdal,
-  geos,
-  git,
-  gtest,
-  lcov,
   ortools_vendor,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  swig,
-  tbb,
-  tinyxml-2,
 }:
 let
   sources = rec {
@@ -449,14 +438,13 @@ buildRosPackage {
   pname = "fields2cover";
   version = "2.0.0-15";
   src = sources.fields2cover;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ git python3 ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen gdal geos gtest ortools_vendor python3 python3Packages.boost python3Packages.matplotlib python3Packages.tkinter swig tbb tinyxml-2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ gtest lcov ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-dev" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ortools_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" "lcov" ]; };
   meta = {
     description = "Robust and efficient coverage paths for autonomous agricultural vehicles. A modular and extensible Coverage Path Planning library";
   };

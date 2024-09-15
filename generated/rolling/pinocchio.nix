@@ -1,19 +1,12 @@
 {
   buildRosPackage,
-  clang,
-  cmake,
-  doxygen,
-  eigen,
   eigenpy,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
   hpp-fcl,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
-  urdfdom,
 }:
 let
   sources = rec {
@@ -33,14 +26,13 @@ buildRosPackage {
   pname = "pinocchio";
   version = "2.6.21-2";
   src = sources.pinocchio;
-  nativeBuildInputs = [ clang cmake ];
-  propagatedNativeBuildInputs = [ doxygen git ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen eigenpy hpp-fcl python3 python3Packages.boost python3Packages.numpy urdfdom ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ eigenpy hpp-fcl ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "liburdfdom-dev" "python3" "python3-numpy" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A fast and flexible implementation of Rigid Body Dynamics algorithms and their analytical derivatives.";
   };

@@ -17,6 +17,7 @@
   nav2_minimal_tb3_sim,
   nav2_minimal_tb4_sim,
   navigation2,
+  rosSystemPackages,
   ros_gz_bridge,
   ros_gz_sim,
   slam_toolbox,
@@ -42,14 +43,13 @@ buildRosPackage {
   pname = "nav2_bringup";
   version = "1.3.2-1";
   src = sources.nav2_bringup;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diff_drive_controller joint_state_broadcaster launch_ros nav2_common nav2_minimal_tb3_sim nav2_minimal_tb4_sim navigation2 ros_gz_bridge ros_gz_sim slam_toolbox xacro ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common launch launch_testing ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diff_drive_controller joint_state_broadcaster launch_ros nav2_common nav2_minimal_tb3_sim nav2_minimal_tb4_sim navigation2 ros_gz_bridge ros_gz_sim slam_toolbox xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common launch launch_testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Bringup scripts and configurations for the Nav2 stack";
   };

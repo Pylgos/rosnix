@@ -1,34 +1,16 @@
 {
   ament_cmake,
-  assimp,
   buildRosPackage,
-  cmake,
   cv_bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  ffmpeg,
-  freeglut,
-  freenect,
-  glfw3,
-  libGL,
-  libGLU,
-  libjpeg,
-  libpcap,
-  libusb1,
   mrpt_libopengl,
-  opencv,
-  pkg-config,
-  python3Packages,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   rosbag2_storage,
   substituteSource,
-  tinyxml-2,
-  udev,
-  wxGTK32,
-  xorg,
-  zlib,
 }:
 let
   sources = rec {
@@ -48,14 +30,13 @@ buildRosPackage {
   pname = "mrpt_libgui";
   version = "2.13.8-1";
   src = sources.mrpt_libgui;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ ament_cmake pkg-config ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ assimp cv_bridge ffmpeg freeglut freenect glfw3 libGL libGLU libjpeg libpcap libusb1 mrpt_libopengl opencv python3Packages.pip python3Packages.pybind11 rclcpp rosbag2_storage tinyxml-2 udev wxGTK32 xorg.libXrandr zlib ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [ "liboctomap-dev" "libopenni2-dev" "libxxf86vm" ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge mrpt_libopengl rclcpp rosbag2_storage ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Mobile Robot Programming Toolkit (MRPT) libraries (GUI C++ libraries). This package contains: mrpt-gui, nanogui";
   };

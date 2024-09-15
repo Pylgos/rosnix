@@ -3,13 +3,11 @@
   ament_cmake_gtest,
   ament_index_cpp,
   buildRosPackage,
-  cppzmq,
   fetchgit,
   fetchurl,
   fetchzip,
-  ncurses,
-  python3Packages,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -45,14 +43,13 @@ buildRosPackage {
   pname = "behaviortree_cpp_v3";
   version = "3.8.6-3";
   src = sources.behaviortree_cpp_v3;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ ament_index_cpp cppzmq ncurses python3Packages.boost rclcpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament_index_cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libncurses-dev" "libzmq3-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "This package provides the Behavior Trees core library.";
   };

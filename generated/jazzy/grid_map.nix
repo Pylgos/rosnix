@@ -18,6 +18,7 @@
   grid_map_rviz_plugin,
   grid_map_sdf,
   grid_map_visualization,
+  rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -39,14 +40,13 @@ buildRosPackage {
   pname = "grid_map";
   version = "2.2.0-1";
   src = sources.grid_map;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ grid_map_cmake_helpers grid_map_core grid_map_costmap_2d grid_map_cv grid_map_demos grid_map_filters grid_map_loader grid_map_msgs grid_map_octomap grid_map_pcl grid_map_ros grid_map_rviz_plugin grid_map_sdf grid_map_visualization ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ grid_map_cmake_helpers grid_map_core grid_map_costmap_2d grid_map_cv grid_map_demos grid_map_filters grid_map_loader grid_map_msgs grid_map_octomap grid_map_pcl grid_map_ros grid_map_rviz_plugin grid_map_sdf grid_map_visualization ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Meta-package for the universal grid map library.";
   };

@@ -5,17 +5,13 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  freeglut,
   geometry_msgs,
-  glew,
   image_transport,
-  libyamlcpp,
   mapviz_interfaces,
   marti_common_msgs,
-  pkg-config,
   pluginlib,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   rqt_gui,
   rqt_gui_cpp,
@@ -27,7 +23,6 @@
   tf2_geometry_msgs,
   tf2_ros,
   wrapRosQtAppsHook,
-  xorg,
 }:
 let
   sources = rec {
@@ -47,14 +42,13 @@ buildRosPackage {
   pname = "mapviz";
   version = "2.3.0-2";
   src = sources.mapviz;
-  nativeBuildInputs = [ ament_cmake pkg-config wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [ qt5.qtbase ];
-  propagatedBuildInputs = [ cv_bridge freeglut geometry_msgs glew image_transport libyamlcpp mapviz_interfaces marti_common_msgs pluginlib qt5.qtbase rclcpp rqt_gui rqt_gui_cpp std_srvs swri_math_util swri_transform_util tf2 tf2_geometry_msgs tf2_ros xorg.libXi xorg.libXmu ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
+  propagatedBuildInputs = [ cv_bridge geometry_msgs image_transport mapviz_interfaces marti_common_msgs pluginlib rclcpp rqt_gui rqt_gui_cpp std_srvs swri_math_util swri_transform_util tf2 tf2_geometry_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "mapviz";
   };

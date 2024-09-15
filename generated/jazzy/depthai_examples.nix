@@ -13,9 +13,9 @@
   fetchzip,
   foxglove_msgs,
   image_transport,
-  opencv,
   rclcpp,
   robot_state_publisher,
+  rosSystemPackages,
   ros_environment,
   rviz_imu_plugin,
   sensor_msgs,
@@ -86,14 +86,13 @@ buildRosPackage {
   pname = "depthai_examples";
   version = "2.10.0-1";
   src = sources.depthai_examples;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros_environment ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ camera_info_manager cv_bridge depth_image_proc depthai depthai_bridge depthai_descriptions depthai_ros_msgs foxglove_msgs image_transport opencv rclcpp robot_state_publisher rviz_imu_plugin sensor_msgs std_msgs stereo_msgs vision_msgs xacro ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ camera_info_manager cv_bridge depth_image_proc depthai depthai_bridge depthai_descriptions depthai_ros_msgs foxglove_msgs image_transport rclcpp robot_state_publisher rviz_imu_plugin sensor_msgs std_msgs stereo_msgs vision_msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The depthai_examples package";
   };

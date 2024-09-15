@@ -11,6 +11,7 @@
   nav_msgs,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   rtabmap_conversions,
   rtabmap_msgs,
   sensor_msgs,
@@ -35,14 +36,13 @@ buildRosPackage {
   pname = "rtabmap_sync";
   version = "0.21.5-3";
   src = sources.rtabmap_sync;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge diagnostic_updater image_transport message_filters nav_msgs rclcpp rclcpp_components rtabmap_conversions rtabmap_msgs sensor_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge diagnostic_updater image_transport message_filters nav_msgs rclcpp rclcpp_components rtabmap_conversions rtabmap_msgs sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RTAB-Map's synchronization package.";
   };

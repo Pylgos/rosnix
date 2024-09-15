@@ -11,6 +11,7 @@
   micro_ros_diagnostic_msgs,
   osrf_testing_tools_cpp,
   rclcpp,
+  rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
@@ -32,14 +33,13 @@ buildRosPackage {
   pname = "micro_ros_diagnostic_bridge";
   version = "0.3.0-5";
   src = sources.micro_ros_diagnostic_bridge;
-  nativeBuildInputs = [ ament_cmake_ros ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ diagnostic_msgs micro_ros_diagnostic_msgs rclcpp ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common diagnostic_msgs micro_ros_diagnostic_msgs osrf_testing_tools_cpp ros_environment ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic_msgs micro_ros_diagnostic_msgs rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common diagnostic_msgs micro_ros_diagnostic_msgs osrf_testing_tools_cpp ros_environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Translates micro-ROS diagnostic messages to vanilla ROS 2 diagnostic messages.";
   };

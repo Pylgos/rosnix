@@ -7,8 +7,8 @@
   fetchurl,
   fetchzip,
   octomap_msgs,
-  qt5,
   rclcpp,
+  rosSystemPackages,
   rviz_common,
   rviz_default_plugins,
   rviz_rendering,
@@ -33,14 +33,13 @@ buildRosPackage {
   pname = "octomap_rviz_plugins";
   version = "2.1.0-1";
   src = sources.octomap_rviz_plugins;
-  nativeBuildInputs = [ ament_cmake_auto wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ octomap_msgs qt5.qtbase rclcpp rviz_common rviz_default_plugins rviz_rendering ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [ ament_lint_auto ament_lint_common ];
-  missingDependencies = [ "liboctomap-dev" ];
+  nativeBuildInputs = [ ament_cmake_auto wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ octomap_msgs rclcpp rviz_common rviz_default_plugins rviz_rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A set of plugins for displaying occupancy information decoded from binary octomap messages.";
   };

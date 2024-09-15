@@ -1,15 +1,9 @@
 {
-  buildPackages,
   buildRosPackage,
-  cmake,
-  doxygen,
-  eigen,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  python3,
-  python3Packages,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -30,14 +24,13 @@ buildRosPackage {
   pname = "eigenpy";
   version = "3.8.2-1";
   src = sources.eigenpy;
-  nativeBuildInputs = [ cmake ];
-  propagatedNativeBuildInputs = [ doxygen git buildPackages.python3Packages.numpy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ eigen python3 python3Packages.boost python3Packages.scipy ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "python3" "python3-scipy" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Bindings between Numpy and Eigen using Boost.Python";
   };

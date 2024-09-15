@@ -1,14 +1,10 @@
 {
   ament_cmake,
-  autoconf,
-  automake,
-  buildPackages,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  git,
-  libtool,
+  rosSystemPackages,
   substituteSource,
 }:
 let
@@ -44,14 +40,13 @@ buildRosPackage {
   pname = "lely_core_libraries";
   version = "0.2.9-2";
   src = sources.lely_core_libraries;
-  nativeBuildInputs = [ ament_cmake ];
-  propagatedNativeBuildInputs = [ git buildPackages.python3Packages.empy ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ autoconf automake libtool ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-empy" ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "autoconf" "automake" "libtool" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "ROS wrapper for lely-core-libraries";
   };

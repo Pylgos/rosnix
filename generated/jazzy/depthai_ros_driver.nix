@@ -21,6 +21,7 @@
   pluginlib,
   rclcpp,
   rclcpp_components,
+  rosSystemPackages,
   sensor_msgs,
   std_msgs,
   std_srvs,
@@ -46,14 +47,13 @@ buildRosPackage {
   pname = "depthai_ros_driver";
   version = "2.10.0-1";
   src = sources.depthai_ros_driver;
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament_cmake_auto ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ camera_calibration cv_bridge depthai depthai_bridge depthai_descriptions depthai_examples depthai_ros_msgs diagnostic_msgs diagnostic_updater ffmpeg_image_transport_msgs image_pipeline image_transport image_transport_plugins pluginlib rclcpp rclcpp_components sensor_msgs std_msgs std_srvs vision_msgs ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ camera_calibration cv_bridge depthai depthai_bridge depthai_descriptions depthai_examples depthai_ros_msgs diagnostic_msgs diagnostic_updater ffmpeg_image_transport_msgs image_pipeline image_transport image_transport_plugins pluginlib rclcpp rclcpp_components sensor_msgs std_msgs std_srvs vision_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Depthai ROS Monolithic node.";
   };

@@ -8,6 +8,7 @@
   geometry_msgs,
   nav_msgs,
   rclcpp,
+  rosSystemPackages,
   rtabmap_msgs,
   rtabmap_sync,
   std_msgs,
@@ -34,14 +35,13 @@ buildRosPackage {
   pname = "rtabmap_viz";
   version = "0.21.5-3";
   src = sources.rtabmap_viz;
-  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [  ];
-  buildInputs = [  ];
-  propagatedBuildInputs = [ cv_bridge geometry_msgs nav_msgs rclcpp rtabmap_msgs rtabmap_sync std_msgs std_srvs tf2 ];
-  depsTargetTarget = [  ];
-  depsTargetTargetPropagated = [  ];
-  checkInputs = [  ];
-  missingDependencies = [  ];
+  nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv_bridge geometry_msgs nav_msgs rclcpp rtabmap_msgs rtabmap_sync std_msgs std_srvs tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "RTAB-Map's visualization package.";
   };
