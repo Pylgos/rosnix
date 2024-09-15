@@ -54,6 +54,15 @@ final: prev: {
           rosCmakeArgs = rosCmakeArgs ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
         }
       );
+      cartographer = rosPrev.cartographer.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+        }
+      );
     }
   );
 }
