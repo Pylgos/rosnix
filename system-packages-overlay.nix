@@ -51,7 +51,7 @@ in
   };
   python3Packages = final.python3.pkgs;
 
-  rosSystemPackages = final.lib.makeExtensible (self: {
+  rosSystemPackages = final.lib.makeExtensibleWithCustomName "overrideScope" (self: {
     getPackages =
       {
         forBuildInputs ? [ ],
