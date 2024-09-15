@@ -100,7 +100,8 @@
                 set -eu
                 distro=$1
                 attr=".#ci.${system}.check.$distro"
-                if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
+                res=$(nix build "$attr" --dry-run 2> >(tee >(cat 1>&2)))
+                if grep -q 'will be built:' <<< "$res"; then
                   cachix watch-exec rosnix -- nix build "$attr" -L
                 else
                   echo "$attr is already built or cached. skipping..."
@@ -116,7 +117,8 @@
                 set -eu
                 distro=$1
                 attr=".#ci.${system}.all.$distro"
-                if nix build "$attr" --dry-run |& grep 'will be built:' > /dev/null; then
+                res=$(nix build "$attr" --dry-run 2> >(tee >(cat 1>&2)))
+                if grep -q 'will be built:' <<< "$res"; then
                   cachix watch-exec rosnix -- nix build "$attr" -L --keep-going || true
                 else
                   echo "$attr is already built or cached. skipping..."
