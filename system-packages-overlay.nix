@@ -220,6 +220,9 @@ in
     gtk2 = [ final.gtk2 ];
     gtk3 = [ final.gtk3 ];
     gv = [ final.gv ];
+    gz-math7 = [ ];
+    gz-cmake3 = [ ];
+    gz-utils2 = [ ];
     hddtemp = [ final.hddtemp ];
     hdf5 = [ final.hdf5 ];
     hostapd = [ final.hostapd ];
@@ -376,6 +379,8 @@ in
     liblinphone-dev = [ final.liblinphone ];
     liblmdb-dev = [ final.lmdb ];
     liblttng-ust-dev = [ final.lttng-ust ];
+    liblz4 = [ final.lz4 ];
+    liblz4-dev = [ final.lz4 ];
     liblzma-dev = [ final.xz ];
     libmagick = [ final.imagemagick ];
     libmicrohttpd = [ final.libmicrohttpd ];
@@ -411,6 +416,8 @@ in
     libpcap = [ final.libpcap ];
     libpcl-all = [ final.pcl ];
     libpcl-all-dev = [ final.pcl ];
+    libpcl-common = [ final.pcl ];
+    libpcl-io = [ final.pcl ];
     libpcsclite-dev = [ final.pcsclite ];
     "libpng++-dev" = [ final.pngpp ];
     libpng-dev = [ final.libpng ];
@@ -439,6 +446,7 @@ in
     libqt5-quick = [ final.qt5.qtdeclarative ];
     libqt5-serialport = [ final.qt5.qtserialport ];
     libqt5-sql = [ final.qt5.qtbase ];
+    libqt5-svg = [ final.qt5.qtsvg ];
     libqt5-svg-dev = [ final.qt5.qtsvg ];
     libqt5-websockets-dev = [ final.qt5.qtwebsockets ];
     libqt5-widgets = [ final.qt5.qtbase ];
@@ -622,6 +630,7 @@ in
     python3-dbus = [ final.python3Packages.dbus-python ];
     python3-decorator = [ final.python3Packages.decorator ];
     python3-defusedxml = [ final.python3Packages.defusedxml ];
+    python3-deprecated = [ final.python3Packages.deprecated ];
     python3-dev = [ final.python3 ];
     python3-distro = [ final.python3Packages.distro ];
     python3-distutils = [ final.python3 ];
