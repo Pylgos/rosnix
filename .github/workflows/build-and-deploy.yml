@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - develop
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -41,9 +41,9 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
-      - name: Merge Branch into main
+      - name: Merge Branch into release
         run: |
-          git switch main
+          git switch release
           git merge --ff-only '${{ github.ref }}'
-          git push origin main
+          git push origin release
 
