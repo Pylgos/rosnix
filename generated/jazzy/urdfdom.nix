@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "urdfdom-source";
         url = "https://github.com/ros2-gbp/urdfdom-release.git";
-        rev = "e14e279e7907a5a05da330e07955eacd74163dee";
-        hash = "sha256-g0ad4Vg+l8H2Pv4suUdF6WseUIeSWbeHIXY+Z5il3hc=";
+        rev = "84afc1cd65e0ee5b3a75be93d990a776a13f1824";
+        hash = "sha256-/0IvAf1sIUtnSXOrcXhQ/JPG+41miGQLc9oSo1/XS8g=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "urdfdom";
-  version = "4.0.0-3";
+  version = "4.0.1-1";
   src = sources.urdfdom;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "polygon_msgs-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "256eed28fc4f343a85fb0723794ece19e05313bd";
-        hash = "sha256-6gLLltnSdYNP7QkYUOAj9bdphjw1W6jDytYsbJL7DA4=";
+        rev = "98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427";
+        hash = "sha256-4GkgBnE5C7hUbJ0y5cLFQikMFGsFt4qwlGqCNYZ81EI=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "polygon_msgs";
-  version = "1.0.2-3";
+  version = "1.1.0-1";
   src = sources.polygon_msgs;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

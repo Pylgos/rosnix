@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "mrpt_libnav-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "37de4cc4f3f6160ae2a105e8ea8fbe50be2e8d36";
-        hash = "sha256-5U+/HVSUtyJo6KekEdqv9L7iHsMjAnYtufdDhropk1Y=";
+        rev = "90b13d0ef120aacf42c9068fb9aeaea150a1e639";
+        hash = "sha256-KCgR7mVWBv6fuDwfm6d2/SaBP9qMkh7Q69D56S0mJb0=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libnav";
-  version = "2.13.8-1";
+  version = "2.14.0-1";
   src = sources.mrpt_libnav;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

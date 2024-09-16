@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "fastcdr-source";
         url = "https://github.com/ros2-gbp/fastcdr-release.git";
-        rev = "88698600fccc8bee85c04825020673097f7a6422";
-        hash = "sha256-/KJcVY0p1qX56K44c6u5ZwcgzQHKUcHmqTeBWyZTyes=";
+        rev = "411462fb578173fcfafa3845764356f1f308ec6c";
+        hash = "sha256-h7TaahF7NZ1n4w5RhpK2ibHO8g0DNZwDz3omAy6sW9E=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "fastcdr";
-  version = "2.2.2-1";
+  version = "2.2.4-1";
   src = sources.fastcdr;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -12,8 +12,8 @@ let
       src = fetchgit {
         name = "urdfdom_headers-source";
         url = "https://github.com/ros2-gbp/urdfdom_headers-release.git";
-        rev = "985a8402c401e898526b55c4eb23069276262d3d";
-        hash = "sha256-TpmzYPZ+36H+OGt00z8kZqNs+L3JOcpDoVCAtONyQHw=";
+        rev = "1816d683f984c8e4dea5ba1267e560dc5b105c24";
+        hash = "sha256-/OST7M1kRlexiNDFvfNy8xsYcOSiO7KdZTkzqZm+iKI=";
       };
       substitutions = [
       ];
@@ -22,7 +22,7 @@ let
 in
 buildRosPackage {
   pname = "urdfdom_headers";
-  version = "1.1.1-3";
+  version = "1.1.2-1";
   src = sources.urdfdom_headers;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

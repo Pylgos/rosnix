@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "polygon_demos-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "6376a68a6d934f8f5482598ba2a38f5179cce13b";
-        hash = "sha256-x70C4EJov4YXvVoslWgtJitf3qqvczBaIjNp7jwFOYk=";
+        rev = "9e17055840027168be00de88ebd3c201cf4ba67e";
+        hash = "sha256-0p5CmgvpCwgYTqq1/egNbK/tMR5x1wX9GTj0/VpxTYs=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "polygon_demos";
-  version = "1.0.2-3";
+  version = "1.1.0-1";
   src = sources.polygon_demos;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "ur-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "2202a94972361a26f00b05eff46037cc85d1c8e3";
-        hash = "sha256-oWrI2RS+KavgrqE+DiKOoAiC7uFb0JQ/yEACoOqHSVk=";
+        rev = "4802ca3db212799972621301ebbcc794691f9ca3";
+        hash = "sha256-eFDwfiHhXTd/aKgaiyo5G08UvSN4JVbQKz6MWZfQQUE=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "ur";
-  version = "2.4.9-1";
+  version = "2.4.10-1";
   src = sources.ur;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
