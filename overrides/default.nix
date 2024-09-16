@@ -2,7 +2,8 @@
 
 final: prev: {
   rosPackages = prev.rosPackages.overrideScope (
-    rosFinal: rosPrev: {
+    rosFinal: rosPrev:
+    lib.filterAttrs (name: pkg: lib.hasAttr name prev.rosPackages) {
       ament_cmake_vendor_package = rosPrev.ament_cmake_vendor_package.overrideAttrs (
         {
           patches ? [ ],
