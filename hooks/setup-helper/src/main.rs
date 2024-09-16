@@ -290,16 +290,20 @@ fn generate_setup_script(
                 value,
                 if_exists,
             } => {
+                if *if_exists && !value.exists() {
+                    continue;
+                }
+                let path_str = value.display().to_string();
                 if let Some(prev) = env.get_mut(name) {
-                    if !prev.is_empty() {
-                        *prev = format!("{}:{prev}", value.display());
+                    if prev.is_empty() {
+                        *prev = path_str;
                         modified_env.insert(name);
-                    } else if !if_exists {
-                        *prev = value.display().to_string();
+                    } else if !prev.contains(&path_str) {
+                        *prev = format!("{path_str}:{prev}");
                         modified_env.insert(name);
                     }
-                } else if !if_exists {
-                    env.insert(name.clone(), value.display().to_string());
+                } else {
+                    env.insert(name.clone(), path_str);
                     modified_env.insert(name);
                 }
             }

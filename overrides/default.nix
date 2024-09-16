@@ -3,7 +3,7 @@
 final: prev: {
   rosPackages = prev.rosPackages.overrideScope (
     rosFinal: rosPrev:
-    lib.filterAttrs (name: pkg: lib.hasAttr name prev.rosPackages) {
+    (lib.filterAttrs (name: pkg: lib.hasAttr name prev.rosPackages) {
       ament_cmake_vendor_package = rosPrev.ament_cmake_vendor_package.overrideAttrs (
         {
           patches ? [ ],
@@ -64,6 +64,70 @@ final: prev: {
           nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
         }
       );
-    }
+      gz_common_vendor = rosPrev.gz_common_vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+        }
+      );
+      gz_gui_vendor = rosPrev.gz_gui_vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          postInstall ? "",
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.patchelf ];
+          # Why is this necessary ???????
+          postInstall =
+            postInstall
+            + ''
+              patchelf $out/opt/gz_gui_vendor/lib64/gz-gui-8/plugins/libGrid3D.so --set-rpath ""
+            '';
+        }
+      );
+      gz_ogre_next_vendor = rosPrev.gz_ogre_next_vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+        }
+      );
+      gz_rendering_vendor = rosPrev.gz_rendering_vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
+        }
+      );
+      gz_tools_vendor = rosPrev.gz_tools_vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.qt5.wrapQtAppsHook ];
+          buildInputs = [
+            final.qt5.qtbase
+            final.qt5.qtdeclarative
+            final.qt5.qtquickcontrols
+            final.qt5.qtquickcontrols2
+            final.qt5.qtgraphicaleffects
+            final.qt5.qtlocation
+            final.qt5.qtpositioning
+          ];
+          postFixup = ''
+            wrapQtApp "$out/opt/gz_tools_vendor/bin/gz"
+          '';
+        }
+      );
+    })
   );
 }

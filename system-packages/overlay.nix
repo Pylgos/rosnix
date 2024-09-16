@@ -18,7 +18,7 @@ in
       let
         pkgList =
           (prev.poetry2nix.mkPoetryPackages {
-            projectDir = ./poetry;
+            projectDir = ../poetry;
             python = prevPython3;
             overrides = prev.poetry2nix.overrides.withDefaults (
               final: prev: {
@@ -167,6 +167,7 @@ in
     f2c = [ final.libf2c ];
     fakeroot = [ final.fakeroot ];
     ffmpeg = [ final.ffmpeg ];
+    ffmpeg-dev = [ final.ffmpeg ];
     file = [ final.file ];
     filezilla = [ final.filezilla ];
     flac = [ final.flac ];
@@ -193,6 +194,8 @@ in
     git-lfs = [ final.git-lfs ];
     gitg = [ final.gitg ];
     glc = [ final.quesoglc ];
+    glslang-dev = [ final.glslang ];
+    glslc = [ final.shaderc ];
     glut = [ final.freeglut ];
     gnat = [ final.gnat ];
     gnome-terminal = [ final.gnome.gnome-terminal ];
@@ -220,8 +223,19 @@ in
     gtk2 = [ final.gtk2 ];
     gtk3 = [ final.gtk3 ];
     gv = [ final.gv ];
-    gz-math7 = [ ];
     gz-cmake3 = [ ];
+    gz-common5 = [ ];
+    gz-fuel_tools9 = [ ];
+    gz-gui8 = [ ];
+    gz-math7 = [ ];
+    gz-msgs10 = [ ];
+    gz-physics7 = [ ];
+    gz-plugin2 = [ ];
+    gz-rendering8 = [ ];
+    gz-sensors8 = [ ];
+    gz-sim8 = [ ];
+    gz-tools2 = [ ];
+    gz-transport13 = [ ];
     gz-utils2 = [ ];
     hddtemp = [ final.hddtemp ];
     hdf5 = [ final.hdf5 ];
@@ -334,6 +348,7 @@ in
     ];
     libflann-dev = [ final.flann ];
     libfltk-dev = [ final.fltk ];
+    libfreeimage-dev = [ (final.callPackage ./freeimage.nix { }) ];
     libfreenect-dev = [ final.freenect ];
     libfreetype-dev = [ final.freetype ];
     libfreetype6 = [ final.freetype ];
@@ -462,6 +477,7 @@ in
     libreadline-dev = [ final.readline ];
     librtaudio-dev = [ final.rtaudio ];
     libsensors4-dev = [ final.lm_sensors ];
+    libshaderc-dev = [ final.shaderc ];
     libsndfile1-dev = [ final.libsndfile ];
     libspatialindex-dev = [ final.libspatialindex ];
     libspatialite = [ final.libspatialite ];
@@ -506,8 +522,10 @@ in
     libwebsockets-dev = [ final.libwebsockets ];
     libx11 = [ final.xorg.libX11 ];
     libx11-dev = [ final.xorg.libX11 ];
+    libx11-xcb-dev = [ final.xorg.libxcb ];
     libx264-dev = [ final.x264 ];
     libxaw = [ final.xorg.libXaw ];
+    libxcb-randr0-dev = [ final.xorg.libxcb ];
     libxcursor-dev = [ final.xorg.libXcursor ];
     libxext = [ final.xorg.libXext ];
     libxft-dev = [ final.xorg.libXft ];
@@ -524,6 +542,7 @@ in
     libxt-dev = [ final.xorg.libXtst ];
     libyaml = [ final.libyaml ];
     libyaml-dev = [ final.libyaml ];
+    libzip-dev = [ final.libzip ];
     libzmq3-dev = [ final.cppzmq ];
     libzstd-dev = [ final.zstd ];
     lighttpd = [ final.lighttpd ];
@@ -779,12 +798,28 @@ in
     python3-yaml = [ final.python3Packages.pyyaml ];
     python3-zmq = [ final.python3Packages.pyzmq ];
     qhull-bin = [ final.qhull ];
+    qml-module-qt-labs-folderlistmodel = [ final.qt5.qtdeclarative ];
+    qml-module-qt-labs-platform = [ final.qt5.qtdeclarative ];
+    qml-module-qt-labs-settings = [ final.qt5.qtdeclarative ];
+    qml-module-qtcharts = [ final.qt5.qtdeclarative ];
+    qml-module-qtgraphicaleffects = [ final.qt5.qtdeclarative ];
+    qml-module-qtlocation = [ final.qt5.qtdeclarative ];
+    qml-module-qtpositioning = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick-controls = [ final.qt5.qtquickcontrols ];
+    qml-module-qtquick-controls2 = [ final.qt5.qtquickcontrols2 ];
+    qml-module-qtquick-dialogs = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick-extras = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick-layouts = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick-templates2 = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick-window2 = [ final.qt5.qtdeclarative ];
+    qml-module-qtquick2 = [ final.qt5.qtdeclarative ];
     qrencode = [ final.qrencode ];
     qt5-image-formats-plugins = [ final.qt5.qtimageformats ];
     qt5-qmake = [ final.qt5.qtbase ];
     qtbase5-dev = [ final.qt5.qtbase ];
     qtdeclarative5-dev = [ final.qt5.qtdeclarative ];
     qtmultimedia5-dev = [ final.qt5.qtmultimedia ];
+    qtquickcontrols2-5-dev = [ final.qt5.qtquickcontrols2 ];
     qttools5-dev = [ final.qt5.qttools ];
     qttools5-dev-tools = [ final.qt5.qttools.dev ];
     rapidjson-dev = [ final.rapidjson ];
@@ -795,9 +830,11 @@ in
     "rti-connext-dds-5.3.1" = [ ];
     "rti-connext-dds-6.0.1" = [ ];
     rtmidi = [ final.rtmidi ];
+    ruby = [ final.ruby ];
     sbcl = [ final.sbcl ];
     scons = [ final.scons ];
     screen = [ final.screen ];
+    sdformat14 = [ ];
     sdl = [ final.SDL ];
     sdl-gfx = [ final.SDL_gfx ];
     sdl-image = [ final.SDL_image ];

@@ -60,6 +60,7 @@
                 rosPkgs.cartographer
                 (rosPkgs.slam_toolbox or null)
                 rosPkgs.navigation2
+                rosPkgs.gz_sim_vendor
               ];
               phases = [ "installPhase" ];
               installPhase = "touch $out";
