@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "mola_imu_preintegration-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "6b09d41b676c86f79410658cb30bc7849d326496";
-        hash = "sha256-jOGsHgHD8ececCAVu5y0cjNGXfavMrrkqtnImlKI8ZQ=";
+        rev = "0a30ed1c7d3d65be3e70a05a63e2f62910e9828a";
+        hash = "sha256-EWrctG8g4yWs7i4/MLeTHcPJhsVP8O6nt6oBIE7qZjc=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "mola_imu_preintegration";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.mola_imu_preintegration;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

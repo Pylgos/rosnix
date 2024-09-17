@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "mola_msgs-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "79abbe2f35737e71bdf440ad45540c138a5869cf";
-        hash = "sha256-TkBSBMR/KR+BxDbtei8rIcU2AvPXyIay6uDfevmz4iY=";
+        rev = "bc507861829728706eef445806e2add501eb7bda";
+        hash = "sha256-RNi/7/Rpp76lCI0zr9jWE4KIpxz4sjJzDbcn1sWLmWE=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "mola_msgs";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.mola_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
