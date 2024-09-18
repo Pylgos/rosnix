@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "mola_input_rosbag2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "cdf8ab3bc894560d51b582a255b354295107f7de";
-        hash = "sha256-BfopndKeFLMox8X6shlfEpcCk1ALFrLq/llfOcZ3rrU=";
+        rev = "ddc5d7678d1c5459adcebdc27fff29e4d10e18f0";
+        hash = "sha256-kBR9+UaZDQR6UJWCv4sX/M1FOVtGPR0aG8b9+gr/BbI=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "mola_input_rosbag2";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.mola_input_rosbag2;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -1,4 +1,5 @@
 {
+  ament_cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -11,6 +12,7 @@
   mrpt_libposes,
   mrpt_libtclap,
   rosSystemPackages,
+  ros_environment,
   substituteSource,
 }:
 let
@@ -19,8 +21,8 @@ let
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "34ae78753dd66d2a5d42248862bc5333932f34fd";
-        hash = "sha256-GO2Xt5WxC/CRlFiqr4LpsuFNToaYLJXWnUPU3I8upmY=";
+        rev = "81ab7380e7b6adc782b22cc63c012361e90da6f2";
+        hash = "sha256-sxWa6Jzb8GW/7BfFmn8OXazQdq6fF+DkB5C7KyDJTtY=";
       };
       substitutions = [
       ];
@@ -29,10 +31,10 @@ let
 in
 buildRosPackage {
   pname = "mp2p_icp";
-  version = "1.6.0-1";
+  version = "1.6.2-1";
   src = sources.mp2p_icp;
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ mola_common mrpt_libbase mrpt_libgui mrpt_libmaps mrpt_libobs mrpt_libposes mrpt_libtclap ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "tbb" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

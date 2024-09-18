@@ -601,7 +601,6 @@ self:
   mp2p_icp = self.callPackage ./mp2p_icp.nix {};
   mqtt_client = self.callPackage ./mqtt_client.nix {};
   mqtt_client_interfaces = self.callPackage ./mqtt_client_interfaces.nix {};
-  mrpt2 = self.callPackage ./mrpt2.nix {};
   mrpt_apps = self.callPackage ./mrpt_apps.nix {};
   mrpt_generic_sensor = self.callPackage ./mrpt_generic_sensor.nix {};
   mrpt_libapps = self.callPackage ./mrpt_libapps.nix {};

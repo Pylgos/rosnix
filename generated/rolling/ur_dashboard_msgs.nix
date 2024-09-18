@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "ur_dashboard_msgs-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "ab23148c62b1ca12be229f67226f7feac7dd45a8";
-        hash = "sha256-BfyBDlX9r+jLy0eXI6Fnj7q+dcN/BjA6zGtZJY1eMzE=";
+        rev = "dbe0c7a3b7f74f9423edc2382c544432b02bd94f";
+        hash = "sha256-Wi2Eff4AE161i9C65a8D+SKuy53z2wpjcsPpLejWH5c=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "ur_dashboard_msgs";
-  version = "2.4.9-1";
+  version = "2.4.10-1";
   src = sources.ur_dashboard_msgs;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

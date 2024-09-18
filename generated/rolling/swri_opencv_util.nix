@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "swri_opencv_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "398f35ba7e61a01b648f917dd5e98efcbbed35cb";
-        hash = "sha256-OLQm/HqAqXdLtEA5qdaFwH+UyF0KqZ2qGtgmLUnUWFE=";
+        rev = "7792015171796db6115737fa6a9750bba0c7846c";
+        hash = "sha256-XNM5rpeWSrDJoMeiLgAosiOmToeqDtWHUwkaU/IO658=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "swri_opencv_util";
-  version = "3.7.1-1";
+  version = "3.7.2-1";
   src = sources.swri_opencv_util;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

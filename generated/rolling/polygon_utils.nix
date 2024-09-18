@@ -1,5 +1,7 @@
 {
   ament_cmake,
+  ament_cmake_pytest,
+  ament_cmake_python,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -15,8 +17,8 @@ let
       src = fetchgit {
         name = "polygon_utils-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "a2066933b30766e1f83776fce4a253e9a83eef12";
-        hash = "sha256-0deQK1zVECzgKwBQrLq3CbvDnZaRlnSpT1XOqhV1h58=";
+        rev = "df60fb3315beddf0d11b7be2e83bac8c945ab9b6";
+        hash = "sha256-Tt1eWbIDyhUfE+Cfkub8TW8XBNp+ilTdRYr4lfSa5A8=";
       };
       substitutions = [
       ];
@@ -25,15 +27,15 @@ let
 in
 buildRosPackage {
   pname = "polygon_utils";
-  version = "1.0.2-2";
+  version = "1.1.0-1";
   src = sources.polygon_utils;
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry_msgs polygon_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry_msgs polygon_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-shapely" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament_cmake_pytest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Utilities for working with polygons, including triangulation";
   };

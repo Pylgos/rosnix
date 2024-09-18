@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "swri_serial_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "4c9e29034c2a33145c8623dd1d36a44a845c05f9";
-        hash = "sha256-pP1hfS0TGi+AyrxNkeqYyPtGArku1qje6zQr/8Lcx7s=";
+        rev = "9fbbb9f0f3d23850e3dd0f5ad896f10ad14d0a7e";
+        hash = "sha256-djXNeVIPMXn7lS1/PVPWPMGxRsExMZ7OmhPg6xZyaiM=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildRosPackage {
   pname = "swri_serial_util";
-  version = "3.7.1-1";
+  version = "3.7.2-1";
   src = sources.swri_serial_util;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

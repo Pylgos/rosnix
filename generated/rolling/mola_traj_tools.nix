@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "mola_traj_tools-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "fd6a0775a0f77d617942494b50f7ba362b581215";
-        hash = "sha256-YN12/B9PibzVO8boxppsJRgcDsii3L/OszwsgEqxzN4=";
+        rev = "b8e538ccaae958d5e1193843ee76f8469cd447d5";
+        hash = "sha256-i0PcdeRApOD+JGcEwexpFnjySRIfTPUW2C5wVZKy9Qw=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "mola_traj_tools";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.mola_traj_tools;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

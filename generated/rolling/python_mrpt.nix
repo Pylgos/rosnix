@@ -138,7 +138,7 @@ let
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
         url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
-        hash = "sha256-dgqnChDo3oK45NMmertninDnLnvYOSa1HfECkK/VIiQ=";
+        hash = "sha256-cew4QVQyrpJFH0IP0QTbfKjRFtE15oCShhiBEzRJ+S0=";
       };
       substitutions = [
       ];
@@ -147,8 +147,8 @@ let
       src = fetchgit {
         name = "python_mrpt-source";
         url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
-        rev = "25820febcc7149447fc1fa34f0339cf149cd7842";
-        hash = "sha256-WC68X5iDnzLtMshk7GEwpV4zUBWBdduXCt0z0HLphLA=";
+        rev = "b0e8013afdc47e2cc71c7f2502ee6e8564a6a01b";
+        hash = "sha256-R6aITSw0Q0mhOqYrfsz2G0B/KqBOofxD9E+jIs6ArDE=";
       };
       substitutions = [
         {
@@ -336,7 +336,7 @@ let
 in
 buildRosPackage {
   pname = "python_mrpt";
-  version = "2.13.8-1";
+  version = "2.14.0-1";
   src = sources.python_mrpt;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

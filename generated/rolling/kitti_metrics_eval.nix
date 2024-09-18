@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "kitti_metrics_eval-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "21601fe6af1c9ad3987449e030c8e34dc39766ea";
-        hash = "sha256-qHrXf1IMWm8GUM2yELYicQZIFOiMYzph7kXt6p8xvhU=";
+        rev = "533ea9a8ecabbb5360c91a29ce0a8d124e6e2a02";
+        hash = "sha256-VSqzYNJIgz5CqK7xGpN+cc7LapBV9vuzflS0XSYPYQs=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "kitti_metrics_eval";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.kitti_metrics_eval;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

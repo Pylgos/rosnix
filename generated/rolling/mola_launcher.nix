@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "mola_launcher-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "9de03546f4242ee601a8495402f303359d65eeb2";
-        hash = "sha256-HKPWZ3brQDYwBZSyP50bSlDEQm5M9VBiPwtV8HDd2xY=";
+        rev = "a0dd346613def04c864ec30a0ef97801b6a4e6ad";
+        hash = "sha256-t+SvG1m0boHugXxwPsxff6QyiBGYbCvHURDjrt7K7TU=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "mola_launcher";
-  version = "1.1.3-1";
+  version = "1.2.0-1";
   src = sources.mola_launcher;
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

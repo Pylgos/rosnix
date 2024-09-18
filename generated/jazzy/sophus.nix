@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "sophus-vendor_source-pybind11-0-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "a7910be6307e442297e55c84901a96dd0d046e93";
-        hash = "sha256-ijnUKHO/7TUBv73aFqpFj98p2qEcFhpgjJrG7EVfjF8=";
+        rev = "ad9fd39e143c8296a49a1b5b258cb6aa24e23889";
+        hash = "sha256-91qzGHt/l4NnGqTdQp6gkOSr0I3YSkmpkToqTP/HW2E=";
       };
       substitutions = [
       ];
