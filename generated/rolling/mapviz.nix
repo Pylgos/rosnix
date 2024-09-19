@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "mapviz-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "4284526bed342d5b19243bc6d10a714daed5f320";
-        hash = "sha256-QOavYJZ21V7PB+K2MI7j0uEWX1GmRRIocdvdSs2ZfP0=";
+        rev = "209a4127774e8c8ef5b0a4ddd329b95458f10b0b";
+        hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildRosPackage {
   pname = "mapviz";
-  version = "2.3.0-2";
+  version = "2.4.3-1";
   src = sources.mapviz;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

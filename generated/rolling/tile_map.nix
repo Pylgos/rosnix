@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "tile_map-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "3ae04968aa594d37582aca744f5121e2b72940bd";
-        hash = "sha256-0iUL8wMHfRRc8jU2qyjNoCspfh4GFBeQQhI2FwAgF9Q=";
+        rev = "2d15193b2ca71c3132969dc10c20fb761805efbf";
+        hash = "sha256-WgyvpkklqyW7zCw3sbLORctYh38D3EtwOim++l7tyQ0=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "tile_map";
-  version = "2.3.0-2";
+  version = "2.4.3-1";
   src = sources.tile_map;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

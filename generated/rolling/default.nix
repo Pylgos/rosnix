@@ -586,6 +586,7 @@ self:
   moveit_ros_planning_interface = self.callPackage ./moveit_ros_planning_interface.nix {};
   moveit_ros_robot_interaction = self.callPackage ./moveit_ros_robot_interaction.nix {};
   moveit_ros_tests = self.callPackage ./moveit_ros_tests.nix {};
+  moveit_ros_trajectory_cache = self.callPackage ./moveit_ros_trajectory_cache.nix {};
   moveit_ros_visualization = self.callPackage ./moveit_ros_visualization.nix {};
   moveit_ros_warehouse = self.callPackage ./moveit_ros_warehouse.nix {};
   moveit_runtime = self.callPackage ./moveit_runtime.nix {};

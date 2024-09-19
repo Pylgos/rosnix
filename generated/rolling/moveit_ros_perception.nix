@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "moveit_ros_perception-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "1236ef8ae1e9492317b3a81b6534188c223856f3";
-        hash = "sha256-NJpX8zqkfP2SGj0YS4mprp/gC9Zwy9jc+md61MDNsSg=";
+        rev = "043463672defc12b592a9268dafa4d39be534d5f";
+        hash = "sha256-rFSC9YlLgiexWdX1cjk8llWmlEL1xjfBAlCcCd2EWR0=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_ros_perception";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_ros_perception;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

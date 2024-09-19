@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "mapviz_interfaces-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "21fa0f6f3d8a5bf65e7388b564a3ae824eda257a";
-        hash = "sha256-rYyoJaGeXYVTz+zNNdikD4+2i+gWQFabeVsFZQL/4aY=";
+        rev = "3a23dd0f1d7f400364a73c54985ad221039a05d9";
+        hash = "sha256-69Y5+FasOKVL+kZGv8GjgS4SHUvQb42Cr12PmzVZngY=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "mapviz_interfaces";
-  version = "2.3.0-2";
+  version = "2.4.3-1";
   src = sources.mapviz_interfaces;
   nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

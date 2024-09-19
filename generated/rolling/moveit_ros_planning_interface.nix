@@ -36,8 +36,8 @@ let
       src = fetchgit {
         name = "moveit_ros_planning_interface-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "d2d1e054375fe35cac3fd1c08efcd64a6bc82b66";
-        hash = "sha256-LyXQVbAHkCqEPgV96kQUi7a4P4PKxhDCnBlX0igjFGU=";
+        rev = "0a7fd6fe8eb7a4312263d29d37a837ea467416b2";
+        hash = "sha256-82oyVxPYQ2OOWfizXutEnEqsYTVteQkhodVk++G325Y=";
       };
       substitutions = [
       ];
@@ -46,7 +46,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_ros_planning_interface";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_ros_planning_interface;
   nativeBuildInputs = [ ament_cmake eigen3_cmake_module wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

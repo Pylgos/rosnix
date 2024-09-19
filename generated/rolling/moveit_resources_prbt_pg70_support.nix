@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "moveit_resources_prbt_pg70_support-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "f4cb26ce19c530b28cad7fb434df307d94c7cdbf";
-        hash = "sha256-ChdyKCb3jx8wp4q/LC4M9me9rV6zIVHbqHsrZ0O8kmE=";
+        rev = "05cf42e55a4c488d7381854a33466a70e6e453a3";
+        hash = "sha256-Jxc/mWLN1KKaB9tAU8zRnz3zT378n7R3PSdRHH4BXl8=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_resources_prbt_pg70_support";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_resources_prbt_pg70_support;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

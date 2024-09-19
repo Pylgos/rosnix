@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "moveit_ros_benchmarks-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "e12e9316459fa2e0cbe76050d7d0cdc10a5b7d8e";
-        hash = "sha256-sHVNAk/cZy7UtZldddJLN7kWaaakA6FCskuG1egghKU=";
+        rev = "73d880e256eeb509f93eb871b7dc347686f69e8d";
+        hash = "sha256-Zt+zXEQXGbQp8SJz0PqtU7McKe5CEcISbrrUuLQlJpc=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_ros_benchmarks";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_ros_benchmarks;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

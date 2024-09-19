@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "pilz_industrial_motion_planner_testutils-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "3c04b541744ad98302848eedc2fbd7295a530870";
-        hash = "sha256-7WiArC/gMWnzY2VBbU2qqYwXwxvBo7+1yo9oyX/SB0U=";
+        rev = "1ee78e5a7bedf0981632bed513ca786a1c0623d8";
+        hash = "sha256-g4otOVNQUFukDBkgy7uvE1FJnmT2yWsR+kIKqDu7csQ=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "pilz_industrial_motion_planner_testutils";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.pilz_industrial_motion_planner_testutils;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

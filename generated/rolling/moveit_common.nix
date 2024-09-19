@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "moveit_common-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "f8c818a5e307ac81307027fcdebe8906c3e9a3ad";
-        hash = "sha256-+nYHvpEkbnYH7o6lx4IhWXvErGHpMSME97pdidmL7wA=";
+        rev = "b1ffb678975e6d1b97c6dea75f3cd26a26b1592e";
+        hash = "sha256-oyXDCWuV4YleDbzgpjYXM1LBn0NDcY5qERtXckiITqM=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_common";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_common;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

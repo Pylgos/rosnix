@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "moveit_resources_prbt_ikfast_manipulator_plugin-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "628bd334934de4f5361702d76195392538d093d5";
-        hash = "sha256-3jp2d4fWMgZrmfzyREuAa9rG/lPVjD4zLbUcZPN6mpI=";
+        rev = "98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb";
+        hash = "sha256-XrTccUeeXR+i08B4Ai2KfSBj8vR1Rtu7TgrYvm1yIWU=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_resources_prbt_ikfast_manipulator_plugin";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_resources_prbt_ikfast_manipulator_plugin;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

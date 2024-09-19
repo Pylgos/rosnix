@@ -36,8 +36,8 @@ let
       src = fetchgit {
         name = "swri_transform_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "a6b3a369ba298571e5151d5750f4db91531ca38b";
-        hash = "sha256-aHzTg6DKcNwD7EfEDuRNpnLD6fF6v+rP6CfhGrnGK00=";
+        rev = "2449a87220579100817417aab1f33511f923c23d";
+        hash = "sha256-NbABucV7KKYYHI02DVMc9siAlEpqGZuYUkZfd+oI9jk=";
       };
       substitutions = [
       ];
@@ -46,10 +46,10 @@ let
 in
 buildRosPackage {
   pname = "swri_transform_util";
-  version = "3.7.2-1";
+  version = "3.7.3-1";
   src = sources.swri_transform_util;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ cv_bridge diagnostic_msgs diagnostic_updater geographic_msgs geometry_msgs gps_msgs marti_nav_msgs rcl_interfaces rclcpp rclcpp_components rclpy sensor_msgs swri_math_util swri_roscpp tf2 tf2_geometry_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "geographiclib" "geos" "proj" "python3-numpy" "yaml-cpp" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

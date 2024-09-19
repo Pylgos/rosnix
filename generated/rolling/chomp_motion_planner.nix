@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "chomp_motion_planner-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "2be258874427fe587bf59b16dd2ff44b27c16ac3";
-        hash = "sha256-FHnAXCg4I5muP7vFkWMolNmTjY7+CfmJyqH38+qBOFg=";
+        rev = "44a473c08f282bbcbf25dd83edbde65fc740283f";
+        hash = "sha256-luk96Adfs/YWVEYnY03pG8Rj1pAGkEGoY/sQemqdvhc=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "chomp_motion_planner";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.chomp_motion_planner;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

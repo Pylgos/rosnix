@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "multires_image-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "a7df1a121fe7a41a3ea6ac667affa6cfd4047742";
-        hash = "sha256-KvU020VAzmWVhBEWe4vfhtWwK375EA3fBv8Ss5DwgR8=";
+        rev = "e0614f4cde3b32425acd04442cafd0cd09e13e14";
+        hash = "sha256-9pk2CCnuJ9zrlzTV6VbLsfXzML4EBn2WCg0/cW1me58=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "multires_image";
-  version = "2.3.0-2";
+  version = "2.4.3-1";
   src = sources.multires_image;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

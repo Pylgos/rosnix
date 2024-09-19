@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "moveit_ros_move_group-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "d398d4e0c3ce6036310d0159e9465a8b62a19b89";
-        hash = "sha256-U0PtBToT0E3CmCLzeIRuD+JqDiLKTC6jV/PjNZnxAiM=";
+        rev = "1ccea2726e203bc1cd13f79f0af74f4775a12727";
+        hash = "sha256-ojnDFjRlABmP5WrWGQY2cJBLNCdncMPK1to3IcphMrA=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "moveit_ros_move_group";
-  version = "2.10.0-1";
+  version = "2.11.0-1";
   src = sources.moveit_ros_move_group;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

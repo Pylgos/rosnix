@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "swri_cli_tools-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "e3acb29fdd9857c6e0e226c0ec8752cb7cf8dae5";
-        hash = "sha256-67dg8KWRhCl9aXe5B/Wn+DjWHXr6/bsWxui5n2/oF7I=";
+        rev = "e22f7603d5cdefc019d425ddb587eb875b0930e0";
+        hash = "sha256-+KMCtFe8+XjU+SFjS+H4Jmexp8YCW+t4IBLP3dQT10Y=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "swri_cli_tools";
-  version = "3.7.2-1";
+  version = "3.7.3-1";
   src = sources.swri_cli_tools;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
