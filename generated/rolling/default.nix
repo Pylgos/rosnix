@@ -310,6 +310,7 @@ self:
   forward_command_controller = self.callPackage ./forward_command_controller.nix {};
   four_wheel_steering_msgs = self.callPackage ./four_wheel_steering_msgs.nix {};
   foxglove_bridge = self.callPackage ./foxglove_bridge.nix {};
+  foxglove_compressed_video_transport = self.callPackage ./foxglove_compressed_video_transport.nix {};
   foxglove_msgs = self.callPackage ./foxglove_msgs.nix {};
   fuse = self.callPackage ./fuse.nix {};
   fuse_constraints = self.callPackage ./fuse_constraints.nix {};
@@ -1039,6 +1040,7 @@ self:
   service_msgs = self.callPackage ./service_msgs.nix {};
   shape_msgs = self.callPackage ./shape_msgs.nix {};
   shared_queues_vendor = self.callPackage ./shared_queues_vendor.nix {};
+  sick_safetyscanners2_interfaces = self.callPackage ./sick_safetyscanners2_interfaces.nix {};
   sick_safevisionary_base = self.callPackage ./sick_safevisionary_base.nix {};
   sick_safevisionary_driver = self.callPackage ./sick_safevisionary_driver.nix {};
   sick_safevisionary_interfaces = self.callPackage ./sick_safevisionary_interfaces.nix {};

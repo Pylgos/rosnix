@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "rclcpp_lifecycle-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "b50a695cff11e4b66396a085402cd1941026c99a";
-        hash = "sha256-hCCQTOIRdRogRVkgwucRmR4n2FyuHpRDGSd4GMCot2s=";
+        rev = "27c28b345607f87b77086a086fc9cd047de49714";
+        hash = "sha256-Kp6770FSOuJSNLfeErsbQpLEnFJJOk4S35EY/qZpUWk=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "rclcpp_lifecycle";
-  version = "28.1.4-1";
+  version = "28.1.5-1";
   src = sources.rclcpp_lifecycle;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

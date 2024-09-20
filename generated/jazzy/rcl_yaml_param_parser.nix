@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "rcl_yaml_param_parser-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "24461844ed9a5e1772ef5988261c90b0a2bf9493";
-        hash = "sha256-/70LR/9CDjA2j5oY1oMNR6RmH3dIlPpTrDOsj9AyMmI=";
+        rev = "879fb6a89c95676bcad0efba2c2113bb76c619ed";
+        hash = "sha256-0AfdVsztTLjHUTLy8u6TneHKLCS2xZaGck3YaHRd3Xg=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "rcl_yaml_param_parser";
-  version = "9.2.3-1";
+  version = "9.2.4-1";
   src = sources.rcl_yaml_param_parser;
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
