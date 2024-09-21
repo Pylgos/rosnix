@@ -88,7 +88,7 @@ enum DsvOperation {
     },
     Set {
         name: String,
-        value: PathBuf,
+        value: String,
         if_unset: bool,
     },
     Source {
@@ -110,6 +110,14 @@ fn parse_dsv(path: &Path, prefix: &Path) -> Result<Vec<DsvOperation>> {
             }
         } else {
             path.to_path_buf()
+        }
+    };
+    let add_prefix_if_exists = |maybe_path_str: &str| -> String {
+        let abs_path = prefix.join(maybe_path_str);
+        if abs_path.exists() {
+            abs_path.into_os_string().into_string().unwrap()
+        } else {
+            maybe_path_str.to_string()
         }
     };
     for line in content.lines() {
@@ -141,7 +149,7 @@ fn parse_dsv(path: &Path, prefix: &Path) -> Result<Vec<DsvOperation>> {
                 let value = second.ok_or_else(|| anyhow!("missing value"))?;
                 ops.push(DsvOperation::Set {
                     name: name.to_string(),
-                    value: add_prefix_if_relative(value),
+                    value: add_prefix_if_exists(value),
                     if_unset: false,
                 });
             }
@@ -150,7 +158,7 @@ fn parse_dsv(path: &Path, prefix: &Path) -> Result<Vec<DsvOperation>> {
                 let value = second.ok_or_else(|| anyhow!("missing value"))?;
                 ops.push(DsvOperation::Set {
                     name: name.to_string(),
-                    value: add_prefix_if_relative(value),
+                    value: add_prefix_if_exists(value),
                     if_unset: true,
                 });
             }
@@ -313,11 +321,11 @@ fn generate_setup_script(
             } => {
                 if let Some(prev) = env.get_mut(name) {
                     if prev.is_empty() || !if_unset {
-                        *prev = value.display().to_string();
+                        prev.clone_from(value);
                         modified_env.insert(name);
                     }
                 } else {
-                    env.insert(name.clone(), value.display().to_string());
+                    env.insert(name.clone(), value.clone());
                     modified_env.insert(name);
                 }
             }
