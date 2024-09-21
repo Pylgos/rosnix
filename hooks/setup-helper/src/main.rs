@@ -172,24 +172,18 @@ fn parse_dsv(path: &Path, prefix: &Path) -> Result<Vec<DsvOperation>> {
 
 fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Vec<DsvOperation> {
     log!("enter: dsv_transform");
-    #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-    struct AvailableExtensions {
-        dsv: bool,
-        sh: bool,
-        bash: bool,
-    }
-
     let mut new_ops = Vec::new();
-    let mut added = HashSet::new();
+    let mut checked = HashSet::new();
     for op in ops.iter() {
-        if let DsvOperation::Source { path, prefix } = op {
-            let base = path.with_extension("");
-            if added.contains(&base) {
+        if let DsvOperation::Source { path: orig, prefix } = op {
+            let base = orig.with_extension("");
+            if checked.contains(&base) {
                 continue;
             }
+            checked.insert(base);
             let prefix = prefix.to_path_buf();
-            if base.with_extension("dsv").is_file() {
-                let path = base.with_extension("dsv");
+            if orig.with_extension("dsv").is_file() {
+                let path = orig.with_extension("dsv");
                 log!("sourcing dsv file: {path:?}");
                 let dsv = match parse_dsv(&path, &prefix) {
                     Ok(dsv) => dsv,
@@ -199,18 +193,23 @@ fn dsv_transform(ops: Vec<DsvOperation>, develop: bool) -> Vec<DsvOperation> {
                     }
                 };
                 new_ops.extend(dsv_transform(dsv, develop));
-            } else if develop && base.with_extension("sh").is_file() {
-                new_ops.push(DsvOperation::Source {
-                    path: base.with_extension("sh"),
-                    prefix,
-                });
-            } else if develop && base.with_extension("bash").is_file() {
-                new_ops.push(DsvOperation::Source {
-                    path: base.with_extension("bash"),
-                    prefix,
-                });
+            } else if orig.with_extension("bash").is_file() {
+                if develop {
+                    new_ops.push(DsvOperation::Source {
+                        path: orig.with_extension("bash"),
+                        prefix,
+                    });
+                }
+            } else if orig.with_extension("sh").is_file() {
+                if develop {
+                    new_ops.push(DsvOperation::Source {
+                        path: orig.with_extension("sh"),
+                        prefix,
+                    });
+                }
+            } else {
+                warn!("unknown extension: {orig:?}");
             }
-            added.insert(base);
         } else {
             new_ops.push(op.clone());
         }
