@@ -55,24 +55,6 @@ final: prev: {
           rosCmakeArgs = rosCmakeArgs ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
         }
       );
-      cartographer = rosPrev.cartographer.overrideAttrs (
-        {
-          nativeBuildInputs ? [ ],
-          ...
-        }:
-        {
-          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
-        }
-      );
-      gz_common_vendor = rosPrev.gz_common_vendor.overrideAttrs (
-        {
-          nativeBuildInputs ? [ ],
-          ...
-        }:
-        {
-          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
-        }
-      );
       gz_gui_vendor = rosPrev.gz_gui_vendor.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
@@ -87,24 +69,6 @@ final: prev: {
             + ''
               patchelf $out/opt/gz_gui_vendor/lib64/gz-gui-8/plugins/libGrid3D.so --set-rpath ""
             '';
-        }
-      );
-      gz_ogre_next_vendor = rosPrev.gz_ogre_next_vendor.overrideAttrs (
-        {
-          nativeBuildInputs ? [ ],
-          ...
-        }:
-        {
-          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
-        }
-      );
-      gz_rendering_vendor = rosPrev.gz_rendering_vendor.overrideAttrs (
-        {
-          nativeBuildInputs ? [ ],
-          ...
-        }:
-        {
-          nativeBuildInputs = nativeBuildInputs ++ [ final.pkg-config ];
         }
       );
       gz_tools_vendor = rosPrev.gz_tools_vendor.overrideAttrs (

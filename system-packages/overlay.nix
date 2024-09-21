@@ -133,7 +133,10 @@ in
     clang = [ final.clang ];
     clang-format = [ final.clang ];
     clang-tidy = [ final.clang ];
-    cmake = [ final.cmake ];
+    cmake = [
+      final.cmake
+      final.pkg-config
+    ];
     collada-dom = [ final.collada-dom ];
     coreutils = [ final.coreutils ];
     couchdb = [ final.couchdb3 ];
