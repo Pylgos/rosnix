@@ -1041,6 +1041,7 @@ self:
   shape_msgs = self.callPackage ./shape_msgs.nix {};
   shared_queues_vendor = self.callPackage ./shared_queues_vendor.nix {};
   sick_safetyscanners2_interfaces = self.callPackage ./sick_safetyscanners2_interfaces.nix {};
+  sick_safetyscanners_base = self.callPackage ./sick_safetyscanners_base.nix {};
   sick_safevisionary_base = self.callPackage ./sick_safevisionary_base.nix {};
   sick_safevisionary_driver = self.callPackage ./sick_safevisionary_driver.nix {};
   sick_safevisionary_interfaces = self.callPackage ./sick_safevisionary_interfaces.nix {};
