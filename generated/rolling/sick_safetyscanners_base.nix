@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     sick_safetyscanners_base = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sick_safetyscanners_base-source";
-        url = "https://github.com/ros2-gbp/sick_safetyscanners_base-release.git";
+        owner = "ros2-gbp";
+        repo = "sick_safetyscanners_base-release";
         rev = "6a6f6ce0aa9ba42f12369fa934bb606b6f1136b2";
         hash = "sha256-u+5zBQP6PPEewEWwTz69T2n6FkZutVJfMk+ajxccbcw=";
       };

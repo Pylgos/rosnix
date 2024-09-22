@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     nav2_loopback_sim = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_loopback_sim-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "0c1736afb9ce7684200dee034620c05da7a3ede9";
         hash = "sha256-JsQnEvE47ybiHdLPwyBF8N6oH36t/gUgyypgOtDezVI=";
       };

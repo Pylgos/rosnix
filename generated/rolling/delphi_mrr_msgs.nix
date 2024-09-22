@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     delphi_mrr_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "delphi_mrr_msgs-source";
-        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "astuff_sensor_msgs-release";
         rev = "3f3306d41cb188a17d0f7166bb51d6f8557980ac";
         hash = "sha256-wRjHKzZNBmMaEJPFEgEysXQ+9dMe3vyzYyFO3V+cuEs=";
       };

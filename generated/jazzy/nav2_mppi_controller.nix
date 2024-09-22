@@ -5,6 +5,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     nav2_mppi_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_mppi_controller-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "08b4b177721f7728db0d97ab714d3bfa0f387b6f";
         hash = "sha256-4CddM03BKfM5pwz77c4aVffGkIep/OMgIakWNQ+zkiY=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     lely_core_libraries = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "lely_core_libraries-source";
-        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_canopen-release";
         rev = "e22a243a74dbede44dc6a6d4dba99998f73e5962";
         hash = "sha256-jB0RhzZAX+iFzZL0aKZhwW5RpYm7rBiI2N/Tx/0lc64=";
       };

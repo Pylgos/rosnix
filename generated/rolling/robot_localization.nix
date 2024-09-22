@@ -8,6 +8,7 @@
   builtin_interfaces,
   diagnostic_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,9 +35,10 @@
 let
   sources = rec {
     robot_localization = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "robot_localization-source";
-        url = "https://github.com/ros2-gbp/robot_localization-release.git";
+        owner = "ros2-gbp";
+        repo = "robot_localization-release";
         rev = "d9a82c26115fb5aa2185daa1fb49a2273550a606";
         hash = "sha256-msp4BzyHMrZjhF4/2VpgHOzkGRXIArt0rqvqgiMLt9g=";
       };

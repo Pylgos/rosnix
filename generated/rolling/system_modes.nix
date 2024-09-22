@@ -11,6 +11,7 @@
   ament_lint_auto,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@
 let
   sources = rec {
     system_modes = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "system_modes-source";
-        url = "https://github.com/ros2-gbp/system_modes-release.git";
+        owner = "ros2-gbp";
+        repo = "system_modes-release";
         rev = "a0f0d51ec9e8a39de107a8403f4969a62e2d9413";
         hash = "sha256-0KjnR6c32kc4yM0vwAGYI1LgRZn4tLfIZSO+UE2llbM=";
       };

@@ -7,6 +7,7 @@
   control_toolbox,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     parallel_gripper_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "parallel_gripper_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "12be9dbc877ca3a8690d09dacd7d531dab1c2a70";
         hash = "sha256-EDvM4qiyO5pkqdi1E8pUDdrcV9kVtii4LrBUrpPxsSg=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     grid_map = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "grid_map-source";
-        url = "https://github.com/ros2-gbp/grid_map-release.git";
+        owner = "ros2-gbp";
+        repo = "grid_map-release";
         rev = "19690009ed1768c25a09a4c60d40a8ded52f3878";
         hash = "sha256-UDD+yaCrVCJ7CRgcWz9eNZ7foYmtVwX4JxVlJlrE1A0=";
       };

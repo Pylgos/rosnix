@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     flexbe_behavior_engine = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "flexbe_behavior_engine-source";
-        url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
+        owner = "ros2-gbp";
+        repo = "flexbe_behavior_engine-release";
         rev = "7c11cc6a572efa66ac5689f5c50694e7d9a1d891";
         hash = "sha256-l9yTnBvmIxQL5DNjo75+SegiknEw20p8+lO43JC6KaA=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     mrpt_libmath = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_libmath-source";
-        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_ros-release";
         rev = "473a0ce3b6544ab570da8334d3c44c69ad7c6255";
         hash = "sha256-QCiMEvk7w9NT6TaYk+c1BxIB1tegrg7VP8pdDH9WqII=";
       };

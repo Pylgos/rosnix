@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     ros2_controllers_test_nodes = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2_controllers_test_nodes-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "c16cfa9b40295a97a1cdb234aa3e5ee314da645f";
         hash = "sha256-7kWZAbR2GMIR8e8GwVyQ8S6R0C2feakfWkDzgGe9yaQ=";
       };

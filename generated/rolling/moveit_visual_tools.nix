@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     moveit_visual_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_visual_tools-source";
-        url = "https://github.com/ros2-gbp/moveit_visual_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit_visual_tools-release";
         rev = "15653a26d06fb4725cdd4ec2626caa895586e876";
         hash = "sha256-OsgJs0kV7m3GzRlDL1x8i5hG03piwA+9f+Mbpx+dOmw=";
       };

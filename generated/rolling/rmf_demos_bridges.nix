@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     rmf_demos_bridges = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_demos_bridges-source";
-        url = "https://github.com/ros2-gbp/rmf_demos-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_demos-release";
         rev = "978b6c6be51afc57a366eb9f9d928c2855588e2f";
         hash = "sha256-0nscD2U92Qris4yYxOJ0bnuSQzxmbhLUYTq7lKEOkSw=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     map_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "map_msgs-source";
-        url = "https://github.com/ros2-gbp/navigation_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "navigation_msgs-release";
         rev = "e8b77b13c76675dc8907ea9cda406140e6ab9329";
         hash = "sha256-Q/OE5g9D3e+mCr5txkE0Ipbd1c2MmAi/5WISTZXHyd0=";
       };

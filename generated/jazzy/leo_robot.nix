@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     leo_robot = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "leo_robot-source";
-        url = "https://github.com/ros2-gbp/leo_robot-release.git";
+        owner = "ros2-gbp";
+        repo = "leo_robot-release";
         rev = "5fc7b4aebe09394d8bc1b59b969563f7a8dad1f4";
         hash = "sha256-0LFVi2DALRU231BQNWmUX5ZbnWkeGbjwQ7+D8HUZ5Rw=";
       };

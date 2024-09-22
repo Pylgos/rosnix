@@ -1,6 +1,7 @@
 {
   ament_cmake_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     qpoases_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "qpoases_vendor-source";
-        url = "https://github.com/ros2-gbp/qpoases_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "qpoases_vendor-release";
         rev = "6977e38b5ee572d56948a64c432cc76c4bae9d20";
         hash = "sha256-jUSNiB8b0P8JHYXdXeKMs5Ucxjk+fhbPqxcJnD2GIQ4=";
       };

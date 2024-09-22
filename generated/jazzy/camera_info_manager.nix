@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   camera_calibration_parsers,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     camera_info_manager = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "camera_info_manager-source";
-        url = "https://github.com/ros2-gbp/image_common-release.git";
+        owner = "ros2-gbp";
+        repo = "image_common-release";
         rev = "0b086b5ef41dc07dc764a3fad18f09cd87471ddb";
         hash = "sha256-YJtJO7eYICc27OtvRhSpPS9mad8FOcRp97czmEdAzjY=";
       };

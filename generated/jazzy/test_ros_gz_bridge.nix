@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     test_ros_gz_bridge = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "test_ros_gz_bridge-source";
-        url = "https://github.com/ros2-gbp/ros_ign-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_ign-release";
         rev = "587e20cfa0441f304ccc7d93bfbd86981f1ce965";
         hash = "sha256-AMkYg34fgDEmW5BTiktHR5QZLZu4cYR8eTunZ5KwY5o=";
       };

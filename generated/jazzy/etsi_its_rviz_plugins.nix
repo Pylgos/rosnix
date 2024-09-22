@@ -3,6 +3,7 @@
   buildRosPackage,
   etsi_its_msgs,
   etsi_its_msgs_utils,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     etsi_its_rviz_plugins = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "etsi_its_rviz_plugins-source";
-        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
+        owner = "ros2-gbp";
+        repo = "etsi_its_messages-release";
         rev = "7afb1932d1e8ffc0bf29661d281c544aaada73aa";
         hash = "sha256-1PsO7RaqrI25xAc4Z7eZ0HIG+lwxJEQIPpBvse0KCQ8=";
       };

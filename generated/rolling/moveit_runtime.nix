@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     moveit_runtime = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_runtime-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "32a8312a2e20c97bace391d9e22ee50145f3ffe2";
         hash = "sha256-5ymjMEdLHYJ9JxxIRz90pByEsJDF+2yV1WzH5TdDbic=";
       };

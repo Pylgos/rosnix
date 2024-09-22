@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     etsi_its_denm_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "etsi_its_denm_msgs-source";
-        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
+        owner = "ros2-gbp";
+        repo = "etsi_its_messages-release";
         rev = "6a71d862771e7b23c8b711b1f24b4a73b41cb22a";
         hash = "sha256-fCRMLexkcOPlbaT2MXTyAn+/J6IfOq3DzjBBcuryynU=";
       };

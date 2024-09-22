@@ -2,6 +2,7 @@
   action_msgs,
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     ur_dashboard_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ur_dashboard_msgs-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
+        owner = "ros2-gbp";
+        repo = "Universal_Robots_ROS2_Driver-release";
         rev = "dbe0c7a3b7f74f9423edc2382c544432b02bd94f";
         hash = "sha256-Wi2Eff4AE161i9C65a8D+SKuy53z2wpjcsPpLejWH5c=";
       };

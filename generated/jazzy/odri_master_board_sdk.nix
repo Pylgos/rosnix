@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     odri_master_board_sdk = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "odri_master_board_sdk-source";
-        url = "https://github.com/ros2-gbp/odri_master_board_sdk-release.git";
+        owner = "ros2-gbp";
+        repo = "odri_master_board_sdk-release";
         rev = "f9d88ebd513a52017ea5ed9940f9fbb6ab659608";
         hash = "sha256-hVYlw+fnKfoLeEwC3IzJJzmd2oDeFVlqPOm0WJxqJlg=";
       };

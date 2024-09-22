@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     mrpt_sensor_gnss_nmea = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_sensor_gnss_nmea-source";
-        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_sensors-release";
         rev = "bad2e14e8055bcc1b24cf7af43d984f5e2b75d19";
         hash = "sha256-AZcZeGwHOjz/3QOqQ7+B9U1A1MQLQZJfbvs+EwbBJWw=";
       };

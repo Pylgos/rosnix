@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   diagnostic_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     micro_ros_diagnostic_bridge = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "micro_ros_diagnostic_bridge-source";
-        url = "https://github.com/ros2-gbp/micro_ros_diagnostics-release.git";
+        owner = "ros2-gbp";
+        repo = "micro_ros_diagnostics-release";
         rev = "453216f9df2aeba2bd83c63ba0fe56186fc34585";
         hash = "sha256-mBsQdSKOPVQJVBc/FxvaxH5NOtAJy3M+bYciq7eHg+c=";
       };

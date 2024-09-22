@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     examples_rclpy_pointcloud_publisher = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "examples_rclpy_pointcloud_publisher-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "7cd335317211a164d296178dad487d918551d8a6";
         hash = "sha256-kT9gvbRxKAgA3IOP9sMZsS2QsOpmLil9G5Pv8mKteQw=";
       };

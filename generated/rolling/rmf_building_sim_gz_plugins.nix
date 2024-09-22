@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     rmf_building_sim_gz_plugins = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_building_sim_gz_plugins-source";
-        url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_simulation-release";
         rev = "f4456eab04356539da4fdccccde696260e82c7d6";
         hash = "sha256-duYHwQRSX20g+iDWR99abmt/7Os5XLyv1a/5Qrt5TYA=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     ros2_control_test_assets = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2_control_test_assets-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_control-release";
         rev = "abf0b7fb0962594e2bd4fee1b62e3911d9888d55";
         hash = "sha256-uveeh/bq7keFihHp8uCPfXuMGHMy2NEH/jB4n5Gurds=";
       };

@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rmf_lift_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_lift_msgs-source";
-        url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_internal_msgs-release";
         rev = "47e7f0433842907f577dc61d1bb14cd6531ec045";
         hash = "sha256-P60bQUYpYAqY7bJZ5+MaYcal6Lj0EHdjiFX9ef5ic24=";
       };

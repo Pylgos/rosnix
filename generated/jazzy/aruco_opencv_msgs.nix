@@ -3,6 +3,7 @@
   ament_cmake_lint_cmake,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     aruco_opencv_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "aruco_opencv_msgs-source";
-        url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
+        owner = "ros2-gbp";
+        repo = "aruco_opencv-release";
         rev = "c4ff2411a22a0916f08ff933eb620d58beecf73b";
         hash = "sha256-dP2eRoPV3R8Okt63Wb5WW9MsbCpOeZ/3ti0YVxYtkKU=";
       };

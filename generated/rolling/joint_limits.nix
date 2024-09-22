@@ -5,6 +5,7 @@
   ament_cmake_gtest,
   backward_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     joint_limits = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "joint_limits-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_control-release";
         rev = "9f7d0e5b4c66088d06a044d1577946760e2818e6";
         hash = "sha256-yPl+M40WqE2EVSG+Zrlc4fJeNcxEhuQruYlm9CtmCxg=";
       };

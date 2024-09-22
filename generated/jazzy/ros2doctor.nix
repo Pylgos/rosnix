@@ -5,6 +5,7 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     ros2doctor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2doctor-source";
-        url = "https://github.com/ros2-gbp/ros2cli-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2cli-release";
         rev = "de0f2b78fac592f82ef568a19fdb0bf63a19b92d";
         hash = "sha256-JXBAZbli5oJOfIgCmMgvtoe2omh/HSe5ghJP6JBBxms=";
       };

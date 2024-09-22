@@ -5,6 +5,7 @@
   ament_mypy,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     launch = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch-source";
-        url = "https://github.com/ros2-gbp/launch-release.git";
+        owner = "ros2-gbp";
+        repo = "launch-release";
         rev = "d19618b3b84a5ba511d36b9f19616e3994ead69f";
         hash = "sha256-0LsFezx7DUz/GxtKUIa1tVTtwvt/z98Rzxcx22Hnpw4=";
       };

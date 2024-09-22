@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     service_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "service_msgs-source";
-        url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "rcl_interfaces-release";
         rev = "f9bf1b377de941796c64e767b153c766e7c561bf";
         hash = "sha256-eA+Wq22eZ7Jmeh8Q0q99Ji9gdKgAzlDige6OxDalRhs=";
       };

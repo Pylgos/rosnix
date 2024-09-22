@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     swri_roscpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_roscpp-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "a8fb58bd468aa80cacef5d3bd3fc06993763277f";
         hash = "sha256-D5x6mig9SDgvUyJSUajCKMH+JpaZmCnWTCaQCWz6M6k=";
       };

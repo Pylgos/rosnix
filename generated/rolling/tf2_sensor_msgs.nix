@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     tf2_sensor_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tf2_sensor_msgs-source";
-        url = "https://github.com/ros2-gbp/geometry2-release.git";
+        owner = "ros2-gbp";
+        repo = "geometry2-release";
         rev = "e6adcf246f752a6f60a136d44250e14a385c3414";
         hash = "sha256-5XPGyzDdC32g214iADAejuOE9Ocu3TW7tjmoRfDcbFo=";
       };

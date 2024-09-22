@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     libphidget22 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libphidget22-source";
-        url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "phidgets_drivers-release";
         rev = "7a80edfd8ff3c11bd58427f7e5cdac6853d48f7b";
         hash = "sha256-6qmEwpvLQ3uNtKDMaZipmO91nKI98FLjFSl0zWR+tCk=";
       };

@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     webots_ros2_control = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "webots_ros2_control-source";
-        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "webots_ros2-release";
         rev = "66304e27ade0def5e2920c7c5b5017b3653ad863";
         hash = "sha256-fz9az02oYBg4yS8uZnrKyD+g2HzUgotsfK7Yhhu2FNE=";
       };

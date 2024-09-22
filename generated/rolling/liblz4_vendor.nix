@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     liblz4_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "liblz4_vendor-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "721c177ac9d2b244763802f973c8d86c16cbdfbf";
         hash = "sha256-m8aKf+fzVlyFWAt/1w7v/gU/Ipw28SW19TdoTrPSZSQ=";
       };
@@ -26,9 +28,10 @@ let
       ];
     };
     liblz4_vendor-vendor_source-lz4-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "liblz4_vendor-vendor_source-lz4-0-source";
-        url = "https://github.com/lz4/lz4.git";
+        owner = "lz4";
+        repo = "lz4";
         rev = "5ff839680134437dbf4678f3d0c7b371d84f4964";
         hash = "sha256-YiMCD3vvrG+oxBUghSrCmP2LAfAGZrEaKz0YoaQJhpI=";
       };

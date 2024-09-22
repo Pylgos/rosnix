@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     mola_traj_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola_traj_tools-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "b8e538ccaae958d5e1193843ee76f8469cd447d5";
         hash = "sha256-i0PcdeRApOD+JGcEwexpFnjySRIfTPUW2C5wVZKy9Qw=";
       };

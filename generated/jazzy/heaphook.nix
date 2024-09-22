@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     heaphook = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "heaphook-source";
-        url = "https://github.com/ros2-gbp/heaphook-release.git";
+        owner = "ros2-gbp";
+        repo = "heaphook-release";
         rev = "3b17a1da870178e805963b7092d2cdad36d6e4be";
         hash = "sha256-muNY40LV1Jqtg043Lo1oCWIqz93a3zVaQ23jgFaEOPE=";
       };

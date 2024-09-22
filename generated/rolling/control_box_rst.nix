@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     control_box_rst = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "control_box_rst-source";
-        url = "https://github.com/ros2-gbp/control_box_rst-release.git";
+        owner = "ros2-gbp";
+        repo = "control_box_rst-release";
         rev = "3c1ca1427892e0856bed0da711fd6d3e71f9f193";
         hash = "sha256-HEG9kwIr6mxkYCMU0hJzDgZZOsx5NgqjKf0y6BkwcbA=";
       };
@@ -54,9 +56,10 @@ let
       ];
     };
     control_box_rst-vendor_source-yaml-cpp-2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "control_box_rst-vendor_source-yaml-cpp-2-source";
-        url = "https://github.com/jbeder/yaml-cpp.git";
+        owner = "jbeder";
+        repo = "yaml-cpp";
         rev = "ee99c4151c1af794a412b101a75921c086acaac0";
         hash = "sha256-D5brGCzg0v9SmCLcLx+NEOIXz//74ofQjA4kqw2LH4A=";
       };

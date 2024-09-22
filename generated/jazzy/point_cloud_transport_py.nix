@@ -2,6 +2,7 @@
   ament_cmake_python,
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     point_cloud_transport_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "point_cloud_transport_py-source";
-        url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
+        owner = "ros2-gbp";
+        repo = "point_cloud_transport-release";
         rev = "866093b8df9dd575ced356edd091f0b2e8f2df51";
         hash = "sha256-PfnHWd9RP3pnxe3ZTDPrDrNyLUzftfo1k8falKmeS2E=";
       };

@@ -3,6 +3,7 @@
   ament_cmake_copyright,
   ament_cmake_test,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     launch_testing_ament_cmake = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch_testing_ament_cmake-source";
-        url = "https://github.com/ros2-gbp/launch-release.git";
+        owner = "ros2-gbp";
+        repo = "launch-release";
         rev = "59cd0d7ef210e7ee9e28ffaa626cd76398855db4";
         hash = "sha256-4qQhk+y1feqwjrRt5EBlc1e7Lzo+rMf/iJdJFcfb2cA=";
       };

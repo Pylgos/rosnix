@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     point_cloud_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "point_cloud_interfaces-source";
-        url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
+        owner = "ros2-gbp";
+        repo = "point_cloud_transport_plugins-release";
         rev = "2e11c14a317c118f45be6734e866cdcaedaceb6e";
         hash = "sha256-1Ymq8mMTxypnyf4FmU8KvHqTwQkNy7Ofv+NdxOajqxU=";
       };

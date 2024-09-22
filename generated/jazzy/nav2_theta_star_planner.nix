@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     nav2_theta_star_planner = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_theta_star_planner-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "e36d6e0da50f7626d260f756dbfe141ed990c020";
         hash = "sha256-Nr2c+669UgvzGc55Tz1013vuzVVZAiOI6lKDv6g2Sww=";
       };

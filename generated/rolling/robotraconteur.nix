@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     robotraconteur = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "robotraconteur-source";
-        url = "https://github.com/ros2-gbp/robotraconteur-release.git";
+        owner = "ros2-gbp";
+        repo = "robotraconteur-release";
         rev = "f51604d5db6bf1bca472264625b373fbd67bb55e";
         hash = "sha256-lwy+TIS4VQPImEpGmeQmWXZuZMifwRv9GfxdNiF3FGM=";
       };

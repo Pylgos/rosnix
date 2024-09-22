@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     performance_test = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "performance_test-source";
-        url = "https://github.com/ros2-gbp/performance_test-release.git";
+        owner = "ros2-gbp";
+        repo = "performance_test-release";
         rev = "be48f37e34cf496f4c557b712c3fe4c7491783d5";
         hash = "sha256-wlQOogTIJm3/yPmuBAhSGRXFNiy0UAJyPZfWK+NgsyQ=";
       };
@@ -58,9 +60,10 @@ let
       ];
     };
     performance_test-vendor_source-sole-3 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "performance_test-vendor_source-sole-3-source";
-        url = "https://github.com/r-lyeh-archived/sole.git";
+        owner = "r-lyeh-archived";
+        repo = "sole";
         rev = "e4678426147adb9d4f9f978c9560a7d0343b8c32";
         hash = "sha256-HxTUT2NFLkg4MDqN8iIUr/22gXiWV0CKSi1TD0nSazc=";
       };
@@ -68,9 +71,10 @@ let
       ];
     };
     performance_test-vendor_source-tabulate-2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "performance_test-vendor_source-tabulate-2-source";
-        url = "https://github.com/p-ranav/tabulate.git";
+        owner = "p-ranav";
+        repo = "tabulate";
         rev = "57b1032aff2d8b115a56d20c2584170bae0ff852";
         hash = "sha256-yI6KLWjquuxnqXPe9Q4rPTwQv+FBr/EtPJx3fOqg63M=";
       };
@@ -78,9 +82,10 @@ let
       ];
     };
     performance_test-vendor_source-tclap-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "performance_test-vendor_source-tclap-0-source";
-        url = "https://github.com/mirror/tclap.git";
+        owner = "mirror";
+        repo = "tclap";
         rev = "799a8b1f99818e39fee19d0601030770af1221e1";
         hash = "sha256-kdrzAj5C/9AmA8OGntgmq4bAadAFzu6nz2brAddLNIk=";
       };

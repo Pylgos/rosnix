@@ -10,6 +10,7 @@
   controller_interface,
   controller_manager_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,9 +32,10 @@
 let
   sources = rec {
     controller_manager = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "controller_manager-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_control-release";
         rev = "7fc492da65daaa9af68a50a09ca41113f13c2977";
         hash = "sha256-AURhVjjIW1iQszNXkH6YWyBbn+/6a3A8KUNIVE8fiDA=";
       };

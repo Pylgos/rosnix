@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     nav2_voxel_grid = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_voxel_grid-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c";
         hash = "sha256-3w89YjGD049Hpv4TT3LxnPtulNZJCchHqIRiD3uWUUQ=";
       };

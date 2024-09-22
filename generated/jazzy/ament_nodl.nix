@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     ament_nodl = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_nodl-source";
-        url = "https://github.com/ros2-gbp/ament_nodl-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_nodl-release";
         rev = "87296f88baceaac5b561ecdd0e95240673ea8044";
         hash = "sha256-9azhFZrnSaHJiIRFdPiDTiDO3j2v3eKxQBNdAEFwd5A=";
       };

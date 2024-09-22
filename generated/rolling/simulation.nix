@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     simulation = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "simulation-source";
-        url = "https://github.com/ros2-gbp/variants-release.git";
+        owner = "ros2-gbp";
+        repo = "variants-release";
         rev = "0cd1c0427876f68c227a63f8e2051185965da6ac";
         hash = "sha256-F5Xdwf30yp+svq3b6jwcfeMbm+oLQKi9hw3ZkozBy68=";
       };

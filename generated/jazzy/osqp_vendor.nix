@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     osqp_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "osqp_vendor-source";
-        url = "https://github.com/ros2-gbp/osqp_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "osqp_vendor-release";
         rev = "581a58b5467b5dcdca551e613b4bb1e4d47e30e0";
         hash = "sha256-I6jhthmRppj6fiDd1M+bbW8W/bsR5/0ur5UWcf4/ZGQ=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     system_fingerprint = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "system_fingerprint-source";
-        url = "https://github.com/ros2-gbp/ros_system_fingerprint-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_system_fingerprint-release";
         rev = "0ee0c1f74f519caf695ef608418dcccf163a7412";
         hash = "sha256-swG8fwjiFc0LXSlbA6Lml0jlh/VyNS//insRqM01fr0=";
       };

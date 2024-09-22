@@ -6,6 +6,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     ublox_nav_sat_fix_hp_node = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ublox_nav_sat_fix_hp_node-source";
-        url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
+        owner = "ros2-gbp";
+        repo = "ublox_dgnss-release";
         rev = "6e4e6fa37b6afe04c3cbefd85b6f28cd566a01f7";
         hash = "sha256-tSiEDFsNto+4KxHDINiu/T57IUkWnrtle7tkbT+B+c0=";
       };

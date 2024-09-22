@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     mola_input_rosbag2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola_input_rosbag2-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "ba4d2593cf14c4e54accf1bc65f9e8972a3b9c2e";
         hash = "sha256-kBR9+UaZDQR6UJWCv4sX/M1FOVtGPR0aG8b9+gr/BbI=";
       };

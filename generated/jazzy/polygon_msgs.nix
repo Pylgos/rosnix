@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     polygon_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "polygon_msgs-source";
-        url = "https://github.com/ros2-gbp/polygon_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "polygon_ros-release";
         rev = "98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427";
         hash = "sha256-4GkgBnE5C7hUbJ0y5cLFQikMFGsFt4qwlGqCNYZ81EI=";
       };

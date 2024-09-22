@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   cascade_lifecycle_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rclcpp_cascade_lifecycle = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rclcpp_cascade_lifecycle-source";
-        url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
+        owner = "ros2-gbp";
+        repo = "cascade_lifecycle-release";
         rev = "c6b311bca5f6bbaba2fd5f5f98c68f26e3594638";
         hash = "sha256-tJ+QyrBJij5KGBc/C7qOJIbVs9xcT5mG8e6fFABi1wI=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     octovis = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "octovis-source";
-        url = "https://github.com/ros2-gbp/octomap-release.git";
+        owner = "ros2-gbp";
+        repo = "octomap-release";
         rev = "5e9de4466ea20bce487a9d3a30a5294567904faa";
         hash = "sha256-TxMKU0t80X4leyZ3fdp6/PWCKK9UQhv7DITRuosz9Xw=";
       };

@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     mimick_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mimick_vendor-source";
-        url = "https://github.com/ros2-gbp/mimick_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "mimick_vendor-release";
         rev = "b01399040b330352b2c22117afa389f6ce067095";
         hash = "sha256-uSshp5NkdoruAwCynN5b1ADsO+pDt482iw6s1gKz9XM=";
       };
@@ -28,9 +30,10 @@ let
       ];
     };
     mimick_vendor-vendor_source-Mimick-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mimick_vendor-vendor_source-Mimick-0-source";
-        url = "https://github.com/ros2/Mimick.git";
+        owner = "ros2";
+        repo = "Mimick";
         rev = "1e138b0e13da99278453dc96af954890d9f48348";
         hash = "sha256-V1HudbZtvYwbgUj4LSwUxb7kjtuOm5rcC+kPfTm335I=";
       };

@@ -5,6 +5,7 @@
   buildRosPackage,
   class_loader,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     image_rotate = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "image_rotate-source";
-        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
+        owner = "ros2-gbp";
+        repo = "image_pipeline-release";
         rev = "f7ef189a7b5733ba87de0f9aff0af6e56bbef7f1";
         hash = "sha256-+BEJ0KVOxcyyqZqemHgf739QyF8Dsm/1FBTZOuyEkBE=";
       };

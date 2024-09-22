@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     rmf_visualization_navgraphs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_visualization_navgraphs-source";
-        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_visualization-release";
         rev = "5d7847890ceeea5f3168973690211db71127ef37";
         hash = "sha256-/MJqArAa3rNM1IItwqwfCYIiEZx1nsXBMQf9lMLLXb0=";
       };

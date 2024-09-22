@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     slider_publisher = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "slider_publisher-source";
-        url = "https://github.com/ros2-gbp/slider_publisher-release.git";
+        owner = "ros2-gbp";
+        repo = "slider_publisher-release";
         rev = "d628ed2b9a8034affc7aa6da4127bfea724f26ad";
         hash = "sha256-t3ye55W5XqkQUd/eAabhQKJUazIAi3ly0BsO7vpuHu4=";
       };

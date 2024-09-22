@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     turtlebot3_simulations = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "turtlebot3_simulations-source";
-        url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
+        owner = "ros2-gbp";
+        repo = "turtlebot3_simulations-release";
         rev = "111af0a35692265f89f85e85fcf66e1d79278a1a";
         hash = "sha256-W+h1Fb5Y9PXr/M12d+YOfwxWR1QaArnZtIDmkpQ95xI=";
       };

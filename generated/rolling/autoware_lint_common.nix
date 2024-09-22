@@ -7,6 +7,7 @@
   ament_cmake_test,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     autoware_lint_common = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "autoware_lint_common-source";
-        url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
+        owner = "ros2-gbp";
+        repo = "autoware_cmake-release";
         rev = "bd9cf635bb1cc7f8d9fed68f017322e6f7d80a46";
         hash = "sha256-fS+Hicd3o8vyffKxyp4X3iosj9vznc4UJIbAH8Kp5BU=";
       };

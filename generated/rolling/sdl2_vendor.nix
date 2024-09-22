@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     sdl2_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sdl2_vendor-source";
-        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "joystick_drivers-release";
         rev = "4cf8f214e4f8808ca3bb93089a81d24a31e9258f";
         hash = "sha256-FPIFbwhynn0Z2eddBdAgdM0oExj1aEQTgF2n59zGr40=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_gtest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     swri_math_util = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_math_util-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "c712b994883ae2864c11c14f739473a84a47edd4";
         hash = "sha256-7Tz49UJ5/aCgz0J73FqouSNfQvkBhH2+iWwJdYBnvog=";
       };

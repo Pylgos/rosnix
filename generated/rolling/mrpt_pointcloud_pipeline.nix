@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     mrpt_pointcloud_pipeline = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_pointcloud_pipeline-source";
-        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_navigation-release";
         rev = "8edfc4f5c82df7a6b5f4d3179819f33c296410bd";
         hash = "sha256-mIl08zhenbl9XcYFUKGwGTRdlFclW86Ciy+edlpeKTo=";
       };

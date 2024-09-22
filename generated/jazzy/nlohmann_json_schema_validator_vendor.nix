@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     nlohmann_json_schema_validator_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nlohmann_json_schema_validator_vendor-source";
-        url = "https://github.com/ros2-gbp/nlohmann_json_schema_validator_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "nlohmann_json_schema_validator_vendor-release";
         rev = "df4a8c1ea35981d6d29738b8415db11f55e501ef";
         hash = "sha256-pBIRF/MRTDv02vSUyB5ADB9Huv00MrRRhBElaBHa4ro=";
       };
@@ -25,9 +27,10 @@ let
       ];
     };
     nlohmann_json_schema_validator_vendor-vendor_source-json-schema-validator-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nlohmann_json_schema_validator_vendor-vendor_source-json-schema-validator-0-source";
-        url = "https://github.com/pboettch/json-schema-validator.git";
+        owner = "pboettch";
+        repo = "json-schema-validator";
         rev = "5ef4f903af055550e06955973a193e17efded896";
         hash = "sha256-b02OFUx0BxUA6HN6IaacSg1t3RP4o7NND7X0U635W8U=";
       };

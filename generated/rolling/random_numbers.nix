@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     random_numbers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "random_numbers-source";
-        url = "https://github.com/ros2-gbp/random_numbers-release.git";
+        owner = "ros2-gbp";
+        repo = "random_numbers-release";
         rev = "76e3073d3b6ff781466beaad1449c578e124efb0";
         hash = "sha256-hQN9n+tLK1rKA+wXOXW/TfT4RzrXxvaIfDlzgV+LJnU=";
       };

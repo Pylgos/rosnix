@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   control_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     moveit_simple_controller_manager = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_simple_controller_manager-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "df0380762006721e66a18b73c73cd5bdffb865f9";
         hash = "sha256-xvhdxCOyAp11mJMkCm+Bez2/3z8XBGKmgo7ZGUuO44Q=";
       };

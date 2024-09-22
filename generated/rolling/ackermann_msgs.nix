@@ -2,6 +2,7 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ackermann_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ackermann_msgs-source";
-        url = "https://github.com/ros2-gbp/ackermann_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "ackermann_msgs-release";
         rev = "c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e";
         hash = "sha256-zn0jbHQ6PrAlpzAwpr3Tu01dOE8TVcs0XYlTXL0x8wg=";
       };

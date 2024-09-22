@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     tlsf_cpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tlsf_cpp-source";
-        url = "https://github.com/ros2-gbp/realtime_support-release.git";
+        owner = "ros2-gbp";
+        repo = "realtime_support-release";
         rev = "8f622c3e255fcd12fc402170b139b3347ef75baf";
         hash = "sha256-cREflSs5wBd1xMcnVyiq5H1VkfQCR1AKoYN2/u4T7nQ=";
       };

@@ -3,6 +3,7 @@
   angles,
   buildRosPackage,
   color_util,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     polygon_demos = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "polygon_demos-source";
-        url = "https://github.com/ros2-gbp/polygon_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "polygon_ros-release";
         rev = "5d861f84116cf5a590aef42476cd3e0d48178de1";
         hash = "sha256-0p5CmgvpCwgYTqq1/egNbK/tMR5x1wX9GTj0/VpxTYs=";
       };

@@ -3,6 +3,7 @@
   ament_lint_auto,
   apex_test_tools,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     test_apex_test_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "test_apex_test_tools-source";
-        url = "https://github.com/ros2-gbp/apex_test_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "apex_test_tools-release";
         rev = "e22704211d12d0a0f66b10c4c0b1d6a8ac2daf89";
         hash = "sha256-ZB2lhFknuQ+9fA1s+tCKrhHEUOnSLF2ogSsE0tVMrjE=";
       };

@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     network_bridge = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "network_bridge-source";
-        url = "https://github.com/ros2-gbp/network_bridge-release.git";
+        owner = "ros2-gbp";
+        repo = "network_bridge-release";
         rev = "c625bfef13c67072a1a39f37fc3859d5f3cfb27b";
         hash = "sha256-Gfm+jv0L73LlZMytVTDOCyqyBGqctp6URffWJU/opmk=";
       };

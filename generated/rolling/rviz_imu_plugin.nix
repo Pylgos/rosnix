@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     rviz_imu_plugin = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_imu_plugin-source";
-        url = "https://github.com/ros2-gbp/imu_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "imu_tools-release";
         rev = "dd8a1409694c079020a74626ea01d42353ed6a54";
         hash = "sha256-Ve4ClRA+kkXcWgIqaDhQOlKTrTYODFV3aGvhCMk/jXM=";
       };

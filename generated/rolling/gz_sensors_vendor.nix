@@ -6,6 +6,7 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     gz_sensors_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_sensors_vendor-source";
-        url = "https://github.com/ros2-gbp/gz_sensors_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "gz_sensors_vendor-release";
         rev = "f836c42389a9bb67b9413bdeb8d700731339f361";
         hash = "sha256-5b8RzqNgVk6eBfSB3CBpUlMG1cM97zHypI+RHqwkAWI=";
       };
@@ -38,9 +40,10 @@ let
       ];
     };
     gz_sensors_vendor-vendor_source-gz-sensors-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_sensors_vendor-vendor_source-gz-sensors-0-source";
-        url = "https://github.com/gazebosim/gz-sensors.git";
+        owner = "gazebosim";
+        repo = "gz-sensors";
         rev = "410a999f1e0e91bdcf81c6aff70fa3e95e369757";
         hash = "sha256-j/8kS+Bvaim2gtsZcp+/u8CAE+N24/5qZhciFR0Q8+M=";
       };

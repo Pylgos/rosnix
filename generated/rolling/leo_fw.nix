@@ -10,6 +10,7 @@
   ament_index_python,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     leo_fw = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "leo_fw-source";
-        url = "https://github.com/ros2-gbp/leo_robot-release.git";
+        owner = "ros2-gbp";
+        repo = "leo_robot-release";
         rev = "b980ea332555df1757a3033b9b08b65c02429a89";
         hash = "sha256-P9NJHS6QNdT2tsdtQVCLg4+fd0xJYQZJS3dOrTRDWUk=";
       };

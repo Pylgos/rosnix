@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     ros2cli_common_extensions = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2cli_common_extensions-source";
-        url = "https://github.com/ros2-gbp/ros2cli_common_extensions-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2cli_common_extensions-release";
         rev = "21502210766d834d779da1b5d11e361d3262a735";
         hash = "sha256-JJqh2FemdwUAY4ztCaMD2FtYyJwGX84hvXiboLpZ00Q=";
       };

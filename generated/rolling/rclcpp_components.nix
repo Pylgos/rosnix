@@ -8,6 +8,7 @@
   buildRosPackage,
   class_loader,
   composition_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     rclcpp_components = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rclcpp_components-source";
-        url = "https://github.com/ros2-gbp/rclcpp-release.git";
+        owner = "ros2-gbp";
+        repo = "rclcpp-release";
         rev = "1d1c5c3e8cfd0687b0d6d42a8dcb59c39198deb7";
         hash = "sha256-NHXUhYxy3ZHP5X39VQlUztrcbMFEboJOZSNd8xz9U84=";
       };

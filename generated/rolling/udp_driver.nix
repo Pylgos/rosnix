@@ -5,6 +5,7 @@
   ament_lint_common,
   asio_cmake_module,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     udp_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "udp_driver-source";
-        url = "https://github.com/ros2-gbp/transport_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "transport_drivers-release";
         rev = "6687fb0cf8866979dffca6fdea7dd91244cb24d9";
         hash = "sha256-ufshq3ku5f0OLD1L+CJhsfg8tSqLiOzmXueZGXDO9+4=";
       };

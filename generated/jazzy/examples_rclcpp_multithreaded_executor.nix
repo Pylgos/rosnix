@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     examples_rclcpp_multithreaded_executor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "examples_rclcpp_multithreaded_executor-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "198bc59389c12b3dcd106d51cacdc722d6afb5d2";
         hash = "sha256-U2cq59Pmhxel0vHc1C8RuXzQJTZ5k/qKW1Hi9lVIauc=";
       };

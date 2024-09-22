@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     ruckig = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ruckig-source";
-        url = "https://github.com/ros2-gbp/ruckig-release.git";
+        owner = "ros2-gbp";
+        repo = "ruckig-release";
         rev = "6e6056ac1b4b292b397710b0c242512eaac92bd4";
         hash = "sha256-xzv0PejVB2frTXtd7fnF72E49MOQaARx6boGHYzyVnQ=";
       };

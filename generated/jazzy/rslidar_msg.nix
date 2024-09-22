@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rslidar_msg = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rslidar_msg-source";
-        url = "https://github.com/ros2-gbp/rslidar_msg-release.git";
+        owner = "ros2-gbp";
+        repo = "rslidar_msg-release";
         rev = "c179432169346c66a82bf4e003eea95df144ea1f";
         hash = "sha256-hoIl9SGx6AoaPdOqKDzxdwuXznCZhGG3cNJvuGb9OPg=";
       };

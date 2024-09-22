@@ -4,6 +4,7 @@
   diagnostic_aggregator,
   diagnostic_common_diagnostics,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     diagnostics = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "diagnostics-source";
-        url = "https://github.com/ros2-gbp/diagnostics-release.git";
+        owner = "ros2-gbp";
+        repo = "diagnostics-release";
         rev = "904ae24d5e00bd38b48157ff4446b384090e42b5";
         hash = "sha256-0AXbNvElkiT1PqbiHubhKiwwmydQlK+XKAjtVPSW45E=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     radar_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "radar_msgs-source";
-        url = "https://github.com/ros2-gbp/radar_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "radar_msgs-release";
         rev = "bb0b8b238628c1200c0aade2ebf6be2768a5a602";
         hash = "sha256-HO0hAoc99su0O3J40Mywg7/qtbQJof/b5/wwBnx6xbI=";
       };

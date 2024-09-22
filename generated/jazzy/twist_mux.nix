@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     twist_mux = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "twist_mux-source";
-        url = "https://github.com/ros2-gbp/twist_mux-release.git";
+        owner = "ros2-gbp";
+        repo = "twist_mux-release";
         rev = "025308b135ade9fed08cd4b41ec8148cfbf95f08";
         hash = "sha256-1U2LplwpCgA8qKz24xmFg4QH73v52isEVKL9Xck6OlA=";
       };

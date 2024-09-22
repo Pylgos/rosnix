@@ -2,6 +2,7 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     shape_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "shape_msgs-source";
-        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "common_interfaces-release";
         rev = "79f7106056e38493dc72b9ab32567657a1b2bead";
         hash = "sha256-rs1GqK5oBr04xDLis20P/Ym2CrxVsS+UgNrnVCMDKb0=";
       };

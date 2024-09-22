@@ -5,6 +5,7 @@
   ament_pep257,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     demo_nodes_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "demo_nodes_py-source";
-        url = "https://github.com/ros2-gbp/demos-release.git";
+        owner = "ros2-gbp";
+        repo = "demos-release";
         rev = "e02223d3cfeaf484b6e77330e9b8fa8c11019711";
         hash = "sha256-ZFRDF1S8p79hUHhlRBNwfTL6QrWKANxIqNQt0HFQ2H8=";
       };

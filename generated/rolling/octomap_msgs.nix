@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     octomap_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "octomap_msgs-source";
-        url = "https://github.com/ros2-gbp/octomap_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "octomap_msgs-release";
         rev = "e7f6f4c35b2233c5591d0daee0976eb5b6957f4b";
         hash = "sha256-97tbZTVcZMc2CB2JAW6gn0/ABahvBbfiC3jpHDIJJ6I=";
       };

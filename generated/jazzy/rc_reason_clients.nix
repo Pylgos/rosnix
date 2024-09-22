@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     rc_reason_clients = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rc_reason_clients-source";
-        url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
+        owner = "ros2-gbp";
+        repo = "rc_reason_clients-release";
         rev = "e8e4ce1459a8bae56c3865eaa512dbf4ee360532";
         hash = "sha256-nrDAYPBtkbSi1QAZJHR9jYhMnPLwemNMDxIzccehO1o=";
       };

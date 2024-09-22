@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     ibeo_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ibeo_msgs-source";
-        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "astuff_sensor_msgs-release";
         rev = "7b2b41c497c5067996da1c998296fa859ebb05f2";
         hash = "sha256-RLaDU8WKC534uEb0HZcS/iP0//JhyyaFVG8osixglEY=";
       };

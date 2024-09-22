@@ -5,6 +5,7 @@
   ament_lint_common,
   angles,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,9 +39,10 @@
 let
   sources = rec {
     nav2_costmap_2d = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_costmap_2d-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "b83cd7d17af1a2d0ca1e7f57fb3f5c56f06eec55";
         hash = "sha256-JorqUFfLMk72HunH0GA2akURRw6BDCXHICrzwbf9gj0=";
       };

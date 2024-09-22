@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rosidl_parser = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosidl_parser-source";
-        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl-release";
         rev = "0b8e589caba181f7fb5cf1a454194d448dc88ade";
         hash = "sha256-feXyp5DwFitnQkJnc/xvpaVlWU4Al2f0nMyKQt2ejEo=";
       };

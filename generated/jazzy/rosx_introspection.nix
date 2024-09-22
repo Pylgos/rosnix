@@ -3,6 +3,7 @@
   ament_index_cpp,
   buildRosPackage,
   fastcdr,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     rosx_introspection = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosx_introspection-source";
-        url = "https://github.com/ros2-gbp/rosx_introspection-release.git";
+        owner = "ros2-gbp";
+        repo = "rosx_introspection-release";
         rev = "02a0c9e70eb60d10f9590739864b061f6d6ad667";
         hash = "sha256-PxUiV3BPyRmYvvYjQmfa7BTP7kFxgfyXAC44akRvT08=";
       };

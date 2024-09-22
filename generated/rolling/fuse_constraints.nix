@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     fuse_constraints = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fuse_constraints-source";
-        url = "https://github.com/ros2-gbp/fuse-release.git";
+        owner = "ros2-gbp";
+        repo = "fuse-release";
         rev = "d8f46ad8c87f7a535538f49a50b3c409e7c60ef8";
         hash = "sha256-lJ5LV3USpNdPXZkkiq9w0tDV9iGXEc6XDxbIrEbuPlw=";
       };

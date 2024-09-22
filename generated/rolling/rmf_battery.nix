@@ -3,6 +3,7 @@
   ament_cmake_uncrustify,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rmf_battery = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_battery-source";
-        url = "https://github.com/ros2-gbp/rmf_battery-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_battery-release";
         rev = "ddc66e4bb0a4cbac3cb8ca9ab9f582d926f7c010";
         hash = "sha256-WIXozbzHKKM/cuaQ/TCIvi3ErLMNIqkBRHSECO1zhSE=";
       };

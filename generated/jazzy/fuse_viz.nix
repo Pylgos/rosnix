@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     fuse_viz = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fuse_viz-source";
-        url = "https://github.com/ros2-gbp/fuse-release.git";
+        owner = "ros2-gbp";
+        repo = "fuse-release";
         rev = "1368b1b48e2bbd395801fa762ba6b607f9c81054";
         hash = "sha256-lnugFK/IinY63VpqqOFq53NwuUHa/hYedDm1S0QM30E=";
       };

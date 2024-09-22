@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rmf_visualization_building_systems = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_visualization_building_systems-source";
-        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_visualization-release";
         rev = "e3075e116978d6ef9e3d17dc6aef0c7d208c65d9";
         hash = "sha256-F8cP3CB2QRr8ckFPE9e5dKeGDcdZZ/vtif3MnTVg+5g=";
       };

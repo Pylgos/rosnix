@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   buildRosPackage,
   class_loader,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,9 +32,10 @@
 let
   sources = rec {
     moveit_kinematics = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_kinematics-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "ad6c1a289ece21355b0b717e5cabd21915665903";
         hash = "sha256-Mhpc2gWYdDYx5WAAiWCrFpwI/36NUkZi3YNLlzEZVjo=";
       };

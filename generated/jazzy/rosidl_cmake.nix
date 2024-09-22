@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rosidl_cmake = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosidl_cmake-source";
-        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl-release";
         rev = "a003cbd7665f995804f8d856ecb01f3245a3c077";
         hash = "sha256-aCwffyruQROE+FYmTQdkdKA3SYXXi8PJIe9CrlJbqUc=";
       };

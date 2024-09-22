@@ -4,6 +4,7 @@
   builtin_interfaces,
   control_msgs,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     webots_ros2_universal_robot = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "webots_ros2_universal_robot-source";
-        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "webots_ros2-release";
         rev = "9306333154cc8e532e6b777b38260c95868bc03c";
         hash = "sha256-sr/NzavBNSysD8uGaVJAkkImtUr7YgJ0R89t3yILp20=";
       };

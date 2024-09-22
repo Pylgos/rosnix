@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     soccer_vision_3d_rviz_markers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "soccer_vision_3d_rviz_markers-source";
-        url = "https://github.com/ros2-gbp/soccer_vision_3d_rviz_markers-release.git";
+        owner = "ros2-gbp";
+        repo = "soccer_vision_3d_rviz_markers-release";
         rev = "0f9e4a04b95b9a0bb158ed0d6529cd8ce72cea53";
         hash = "sha256-69FCCxAxZa6hSkchZAWrsNb7uNruIRhwkIConj14Ue4=";
       };

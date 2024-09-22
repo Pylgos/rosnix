@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     ur = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ur-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
+        owner = "ros2-gbp";
+        repo = "Universal_Robots_ROS2_Driver-release";
         rev = "b29702700d71334cf74727cd2b35a73e0bd89c80";
         hash = "sha256-eFDwfiHhXTd/aKgaiyo5G08UvSN4JVbQKz6MWZfQQUE=";
       };

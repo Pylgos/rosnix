@@ -8,6 +8,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     geographic_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "geographic_msgs-source";
-        url = "https://github.com/ros2-gbp/geographic_info-release.git";
+        owner = "ros2-gbp";
+        repo = "geographic_info-release";
         rev = "1efe3b2b34b48437bc1af05abe67bbbf832c9957";
         hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
       };

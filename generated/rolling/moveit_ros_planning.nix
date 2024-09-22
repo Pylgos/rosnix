@@ -5,6 +5,7 @@
   ament_index_cpp,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -37,9 +38,10 @@
 let
   sources = rec {
     moveit_ros_planning = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_ros_planning-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "c11121878648022aee751c9c630ce7c4c23bad3e";
         hash = "sha256-QIve6UhlfaK/LyaV9NXlCGWoBgbaFNCYq2vU0nq+wW4=";
       };

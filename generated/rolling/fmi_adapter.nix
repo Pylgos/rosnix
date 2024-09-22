@@ -6,6 +6,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     fmi_adapter = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fmi_adapter-source";
-        url = "https://github.com/ros2-gbp/fmi_adapter-release.git";
+        owner = "ros2-gbp";
+        repo = "fmi_adapter-release";
         rev = "4d5abe287d3113eed130e46e8f4c0cab8fa90d14";
         hash = "sha256-bdDksqaZAqG/5URM3Ifb8DOvHvjwqqadN4eguWTN3Vk=";
       };

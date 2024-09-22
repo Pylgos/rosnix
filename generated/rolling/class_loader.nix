@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   console_bridge_vendor,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     class_loader = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "class_loader-source";
-        url = "https://github.com/ros2-gbp/class_loader-release.git";
+        owner = "ros2-gbp";
+        repo = "class_loader-release";
         rev = "3812dadf48b00ed1b3d9957c50ddb2741bd447b7";
         hash = "sha256-V+6oUSK7M95ihfg1lxWWhZG258UL04cmtUGoh/eQqOI=";
       };

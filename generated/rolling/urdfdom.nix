@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   console_bridge_vendor,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     urdfdom = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "urdfdom-source";
-        url = "https://github.com/ros2-gbp/urdfdom-release.git";
+        owner = "ros2-gbp";
+        repo = "urdfdom-release";
         rev = "219e7797dce15141726018c46fc5e22c4b49a23a";
         hash = "sha256-g0ad4Vg+l8H2Pv4suUdF6WseUIeSWbeHIXY+Z5il3hc=";
       };

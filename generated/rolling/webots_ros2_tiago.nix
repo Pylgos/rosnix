@@ -4,6 +4,7 @@
   builtin_interfaces,
   controller_manager,
   diff_drive_controller,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     webots_ros2_tiago = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "webots_ros2_tiago-source";
-        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "webots_ros2-release";
         rev = "c9c5e69b41e510454ba3badcc6839baa7ac6090d";
         hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
       };

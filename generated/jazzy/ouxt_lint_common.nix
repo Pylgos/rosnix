@@ -5,6 +5,7 @@
   ament_cmake_pep257,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ouxt_lint_common = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ouxt_lint_common-source";
-        url = "https://github.com/ros2-gbp/ouxt_common-release.git";
+        owner = "ros2-gbp";
+        repo = "ouxt_common-release";
         rev = "9df07eae34ba86ab0378e1fbcd9c5aedea232362";
         hash = "sha256-CzvbzrJWL16B2/c63ryLS008hT4dSu50P4AhU+lsHpQ=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     imu_complementary_filter = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "imu_complementary_filter-source";
-        url = "https://github.com/ros2-gbp/imu_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "imu_tools-release";
         rev = "e14b791b4d7933504d13ecb0cb24587b78688f31";
         hash = "sha256-wuAsf255PYh35JCpP4czKRL9rKu2pxO/i4NOMSETePc=";
       };

@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     grbl_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "grbl_msgs-source";
-        url = "https://github.com/ros2-gbp/grbl_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "grbl_msgs-release";
         rev = "b34c59b7115f76da24c00f80b924d9514b88c7ea";
         hash = "sha256-cjvc4arr+Z92IcwzqZryuU4FC2MY+FNpA+6JBe0dhiE=";
       };

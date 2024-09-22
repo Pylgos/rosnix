@@ -7,6 +7,7 @@
   control_msgs,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@
 let
   sources = rec {
     joint_state_broadcaster = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "joint_state_broadcaster-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "f24ed1506f66f313c62b8b16a04bd0550706582c";
         hash = "sha256-e84+qPInnPPJrtZyiSu3yPDH3aLbkwBLjx8wFTNAt1A=";
       };

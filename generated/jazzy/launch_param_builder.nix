@@ -2,6 +2,7 @@
   ament_copyright,
   ament_index_python,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     launch_param_builder = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch_param_builder-source";
-        url = "https://github.com/ros2-gbp/launch_param_builder-release.git";
+        owner = "ros2-gbp";
+        repo = "launch_param_builder-release";
         rev = "2280989be87fab08084bbe03dc0680c190b698d9";
         hash = "sha256-5wzPO7Vg6sA7heEmRxiLcDbilS5YyieLi8fBrtcJe/g=";
       };

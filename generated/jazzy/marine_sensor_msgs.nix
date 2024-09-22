@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     marine_sensor_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "marine_sensor_msgs-source";
-        url = "https://github.com/ros2-gbp/marine_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "marine_msgs-release";
         rev = "156f210aeeefe204e671aee16bc0b561960193cd";
         hash = "sha256-D0FezQ0OVWOXoPzNWC1TM9TGTcHR8hhUTXBz6uEQBnw=";
       };

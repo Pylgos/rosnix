@@ -4,6 +4,7 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     swri_cli_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_cli_tools-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "e22f7603d5cdefc019d425ddb587eb875b0930e0";
         hash = "sha256-+KMCtFe8+XjU+SFjS+H4Jmexp8YCW+t4IBLP3dQT10Y=";
       };

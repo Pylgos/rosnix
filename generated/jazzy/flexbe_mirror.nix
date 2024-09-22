@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     flexbe_mirror = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "flexbe_mirror-source";
-        url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
+        owner = "ros2-gbp";
+        repo = "flexbe_behavior_engine-release";
         rev = "2d45bf836c525403e10f6fc2caedd98e0da9a926";
         hash = "sha256-SSn47+ekb/7OgTTqqklfqRhzbO2J+7heIZotvzRPa9c=";
       };

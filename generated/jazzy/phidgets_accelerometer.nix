@@ -1,6 +1,7 @@
 {
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     phidgets_accelerometer = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "phidgets_accelerometer-source";
-        url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "phidgets_drivers-release";
         rev = "3b7df33f24230edad5d18ca212e18311d743fc06";
         hash = "sha256-n67meToobs7UjIZD2wOckhr3agFm7lVHWykPlZdb3zA=";
       };

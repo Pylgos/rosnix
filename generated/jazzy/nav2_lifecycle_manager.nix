@@ -7,6 +7,7 @@
   bondcpp,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,9 +27,10 @@
 let
   sources = rec {
     nav2_lifecycle_manager = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_lifecycle_manager-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07";
         hash = "sha256-bSmjWv5KmPZCdLOYkhg8JPjLBV9yE663Pk9+8bjD5L8=";
       };

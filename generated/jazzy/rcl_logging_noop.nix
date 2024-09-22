@@ -5,6 +5,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rcl_logging_noop = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rcl_logging_noop-source";
-        url = "https://github.com/ros2-gbp/rcl_logging-release.git";
+        owner = "ros2-gbp";
+        repo = "rcl_logging-release";
         rev = "423b070d9aea34e99dacd881947dfdbeb124c159";
         hash = "sha256-XpmOGX13xXUHBOzLXAuAXWun1j/BzpliZo8V4xX5T94=";
       };

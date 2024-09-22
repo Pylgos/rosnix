@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   desktop,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     desktop_full = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "desktop_full-source";
-        url = "https://github.com/ros2-gbp/variants-release.git";
+        owner = "ros2-gbp";
+        repo = "variants-release";
         rev = "3bdd312d71e66a970a9491a2beb2e6ee4a82e417";
         hash = "sha256-Ym/P4L92jCLQbe2hhq+3I5CLtJE59ya1csIFnutZlBE=";
       };

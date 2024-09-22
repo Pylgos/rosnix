@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     ament_clang_format = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_clang_format-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "108127c8819c5e591ef89309ddea19d561a93915";
         hash = "sha256-5I1qvVL1RNpJvCZa9P5A6+XVad0TvhYEHISldjxpZ2I=";
       };

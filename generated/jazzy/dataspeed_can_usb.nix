@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   buildRosPackage,
   can_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     dataspeed_can_usb = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dataspeed_can_usb-source";
-        url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
+        owner = "DataspeedInc-release";
+        repo = "dataspeed_can-release";
         rev = "fd9e730828c76794727d487dcbdf04df6bb1c976";
         hash = "sha256-MEqRh40rqPPZKh38w3FJEACnlHS8d8pk63+Mp5sdWkM=";
       };

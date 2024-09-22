@@ -6,6 +6,7 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     self_test = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "self_test-source";
-        url = "https://github.com/ros2-gbp/diagnostics-release.git";
+        owner = "ros2-gbp";
+        repo = "diagnostics-release";
         rev = "18f69be6ad19cc20d53bd3313b93d9a89bb34881";
         hash = "sha256-Diw5tBh6gDm6BN7WapvcC+Z3tb+HpU2yGqJzIL2UqpM=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     osrf_pycommon = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "osrf_pycommon-source";
-        url = "https://github.com/ros2-gbp/osrf_pycommon-release.git";
+        owner = "ros2-gbp";
+        repo = "osrf_pycommon-release";
         rev = "77786223feb1aa12ee889310a09c68c575612f29";
         hash = "sha256-r7SjLNdaRpcA2w4gbir3vE/3B7hy6aHv2HUw8wJi8OI=";
       };

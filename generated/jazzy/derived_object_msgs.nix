@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     derived_object_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "derived_object_msgs-source";
-        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "astuff_sensor_msgs-release";
         rev = "cd2176913fed3e36da3aa4941492f377c3ff662f";
         hash = "sha256-gHKh+ix0fZzuNvAtc/i+u0v6YLY+jUfqW9BPaLgC0/U=";
       };

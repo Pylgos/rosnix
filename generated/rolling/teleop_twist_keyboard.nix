@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     teleop_twist_keyboard = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "teleop_twist_keyboard-source";
-        url = "https://github.com/ros2-gbp/teleop_twist_keyboard-release.git";
+        owner = "ros2-gbp";
+        repo = "teleop_twist_keyboard-release";
         rev = "ef5f09a61f8f264b04814a0e2d2f596da85eb27d";
         hash = "sha256-RIp2xSUZdrlSj/8rUnbFawM86Cz5qYfDOhW28D0mr3Q=";
       };

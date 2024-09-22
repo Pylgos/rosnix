@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     apriltag = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "apriltag-source";
-        url = "https://github.com/ros2-gbp/apriltag-release.git";
+        owner = "ros2-gbp";
+        repo = "apriltag-release";
         rev = "05397e039099186e22a3c6f73a00e2e7b395a262";
         hash = "sha256-gh98hPfxaAHqN4iEbnlYrBGpiD9urWJSo4Qg5OZgfgE=";
       };

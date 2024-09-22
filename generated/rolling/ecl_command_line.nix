@@ -6,6 +6,7 @@
   buildRosPackage,
   ecl_build,
   ecl_license,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     ecl_command_line = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_command_line-source";
-        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_core-release";
         rev = "d2b05a008d2f744adffa0468f4707c7690571de5";
         hash = "sha256-0rOoPXNkY6U26dMB39t2IjB44typZqO4T5rW2jrEOl8=";
       };

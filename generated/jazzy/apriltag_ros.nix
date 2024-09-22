@@ -7,6 +7,7 @@
   apriltag_msgs,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     apriltag_ros = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "apriltag_ros-source";
-        url = "https://github.com/ros2-gbp/apriltag_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "apriltag_ros-release";
         rev = "1f0ff6ec7df749994976a6c7df51b3bfdf954763";
         hash = "sha256-1BAPfaLgYZ+JV3LFidzL5IOnM4wd7fvcXNRkAzCyZU4=";
       };

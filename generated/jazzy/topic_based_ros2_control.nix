@@ -4,6 +4,7 @@
   ament_lint_common,
   angles,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     topic_based_ros2_control = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "topic_based_ros2_control-source";
-        url = "https://github.com/ros2-gbp/topic_based_ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "topic_based_ros2_control-release";
         rev = "26c2db948ee965568b80e037bfa57e6cb85f87a0";
         hash = "sha256-SEfc/iqNZsxrD/m/f0CKmIfgo4mFGeziwqBv/ZXj1lM=";
       };

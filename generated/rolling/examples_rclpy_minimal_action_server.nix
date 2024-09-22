@@ -4,6 +4,7 @@
   ament_pep257,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     examples_rclpy_minimal_action_server = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "examples_rclpy_minimal_action_server-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "f515978125ed6e16c01c0051c89fec441721f260";
         hash = "sha256-6WC8i4XoORJjQ7lGEALItKKq4YGsPr9freyxPXaST+Q=";
       };

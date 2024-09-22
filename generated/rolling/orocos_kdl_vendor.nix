@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     orocos_kdl_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "orocos_kdl_vendor-source";
-        url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "orocos_kdl_vendor-release";
         rev = "cdb25798979b61d7591030abc06923438eaf990c";
         hash = "sha256-UMCjg5ol7D43QHfQX9G3elox5GLUsHb5Q93TExrjorc=";
       };

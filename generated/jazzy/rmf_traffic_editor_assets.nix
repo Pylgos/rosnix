@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     rmf_traffic_editor_assets = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_traffic_editor_assets-source";
-        url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_traffic_editor-release";
         rev = "7db843be7c149dc679fb7f112d273a756ab76f07";
         hash = "sha256-hvm0OpnlRfng+KymFmP2C7+TLhgh/Tf2X7VmfiKfE6w=";
       };

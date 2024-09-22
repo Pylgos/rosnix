@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     moveit_ros_perception = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_ros_perception-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "043463672defc12b592a9268dafa4d39be534d5f";
         hash = "sha256-rFSC9YlLgiexWdX1cjk8llWmlEL1xjfBAlCcCd2EWR0=";
       };

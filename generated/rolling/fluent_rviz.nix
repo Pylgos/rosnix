@@ -2,6 +2,7 @@
   ament_cmake_auto,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     fluent_rviz = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fluent_rviz-source";
-        url = "https://github.com/ros2-gbp/fluent_rviz-release.git";
+        owner = "ros2-gbp";
+        repo = "fluent_rviz-release";
         rev = "dfc47e81339f939273e719512fd2ddac32195178";
         hash = "sha256-/LmzIiGEHhv+jlon28dyJAjyB233kvyupBzUS01rdjA=";
       };

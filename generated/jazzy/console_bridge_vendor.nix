@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     console_bridge_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "console_bridge_vendor-source";
-        url = "https://github.com/ros2-gbp/console_bridge_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "console_bridge_vendor-release";
         rev = "bb994f26fbd204276c099c630b9ee07e48e70026";
         hash = "sha256-+m52Ig9uULM+20Ouz1g69az+DbquL6j4S81kz7VOxD4=";
       };
@@ -29,9 +31,10 @@ let
       ];
     };
     console_bridge_vendor-vendor_source-console_bridge-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "console_bridge_vendor-vendor_source-console_bridge-0-source";
-        url = "https://github.com/ros/console_bridge.git";
+        owner = "ros";
+        repo = "console_bridge";
         rev = "0828d846f2d4940b4e2b5075c6c724991d0cd308";
         hash = "sha256-M3GocT0hodw3Sc2NHcFDiPVZ1XN7BqIUuYLW8OaXMqM=";
       };

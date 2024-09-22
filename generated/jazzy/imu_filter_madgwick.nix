@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     imu_filter_madgwick = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "imu_filter_madgwick-source";
-        url = "https://github.com/ros2-gbp/imu_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "imu_tools-release";
         rev = "59e949934d499233cb04ebd9050138423fae2962";
         hash = "sha256-w1yVzPSVadsRmFRs1oZ8HEZ6DXYiezID3dunE9J6VUY=";
       };

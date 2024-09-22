@@ -4,6 +4,7 @@
   ament_index_python,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     launch_system_modes = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch_system_modes-source";
-        url = "https://github.com/ros2-gbp/system_modes-release.git";
+        owner = "ros2-gbp";
+        repo = "system_modes-release";
         rev = "23b76ea51b2cf529435b57f4eee3ff9b1ced4042";
         hash = "sha256-igv7EQutLOf+qcExGB554hDDTuFxB1P9COvQUY2izGA=";
       };

@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   cyclonedds,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     rmw_cyclonedds_cpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmw_cyclonedds_cpp-source";
-        url = "https://github.com/ros2-gbp/rmw_cyclonedds-release.git";
+        owner = "ros2-gbp";
+        repo = "rmw_cyclonedds-release";
         rev = "c77ec9dddb04578bf0d3de4fefcd295aa57ffba5";
         hash = "sha256-eEwV6mToSNQiYEtz+7yZ6KeR7otkBubIYy5jpsgmRwo=";
       };

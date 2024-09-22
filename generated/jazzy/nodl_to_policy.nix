@@ -6,6 +6,7 @@
   ament_pep257,
   ament_pycodestyle,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     nodl_to_policy = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nodl_to_policy-source";
-        url = "https://github.com/ros2-gbp/nodl_to_policy-release.git";
+        owner = "ros2-gbp";
+        repo = "nodl_to_policy-release";
         rev = "5cca667b9fbde1e0dfb2a9eca25035e45727fb29";
         hash = "sha256-e3+aKkyGXpBFCwulLKU8Tv8PSYEtqUTsp6iL1bE5W9g=";
       };

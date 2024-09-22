@@ -9,6 +9,7 @@
   ament_cmake_uncrustify,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     system_modes_examples = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "system_modes_examples-source";
-        url = "https://github.com/ros2-gbp/system_modes-release.git";
+        owner = "ros2-gbp";
+        repo = "system_modes-release";
         rev = "82dc72703a933e257875ff35ddd912ed010dc775";
         hash = "sha256-0kfAi8ExAnUicuzTFtWKNQwRZP8qipcdbz4XUrg7EQM=";
       };

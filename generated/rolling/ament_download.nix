@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     ament_download = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_download-source";
-        url = "https://github.com/ros2-gbp/ament_download-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_download-release";
         rev = "ed8a03857e6995f4b54e7bcf8a02333a14811f80";
         hash = "sha256-6V9DhJraMIbNz3xeSeczpOFyaWgBqKsz2vQV4jFl6qk=";
       };

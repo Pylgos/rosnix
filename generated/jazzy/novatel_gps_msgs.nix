@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     novatel_gps_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "novatel_gps_msgs-source";
-        url = "https://github.com/ros2-gbp/novatel_gps_driver-release.git";
+        owner = "ros2-gbp";
+        repo = "novatel_gps_driver-release";
         rev = "206e6e5aa21232efca280c704ab77e6b648de308";
         hash = "sha256-kjJ9vONE54WT4ZTXe3G+F0WieULuO/6mgMO3dAFCZGc=";
       };

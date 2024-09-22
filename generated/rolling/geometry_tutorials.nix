@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     geometry_tutorials = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "geometry_tutorials-source";
-        url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
+        owner = "ros2-gbp";
+        repo = "geometry_tutorials-release";
         rev = "e5a64a1b195d49794093248bdf3f7bdb8d64e50c";
         hash = "sha256-pKGL96jK4+eJOdLsryPMZOhHrsfCeS5TARr8qQeRhPI=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     rmf_traffic_examples = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_traffic_examples-source";
-        url = "https://github.com/ros2-gbp/rmf_traffic-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_traffic-release";
         rev = "850ece6b823d78a9939f9e0652a032199d365779";
         hash = "sha256-pMdBb9M0tdombzn0B22IYQRO6zA6tQIhQii8pN+8XiI=";
       };

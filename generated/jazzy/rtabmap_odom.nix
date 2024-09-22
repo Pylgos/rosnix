@@ -2,6 +2,7 @@
   ament_cmake_ros,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,9 +27,10 @@
 let
   sources = rec {
     rtabmap_odom = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rtabmap_odom-source";
-        url = "https://github.com/introlab/rtabmap_ros-release.git";
+        owner = "introlab";
+        repo = "rtabmap_ros-release";
         rev = "8228b4545c1f1bd89b35e75b76bd67e652811627";
         hash = "sha256-0owvQSXMQlE+Y8M0UBrrHLvgxACHLwndNVXcFYqLy+Q=";
       };

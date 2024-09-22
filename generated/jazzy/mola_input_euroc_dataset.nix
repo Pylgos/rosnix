@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     mola_input_euroc_dataset = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola_input_euroc_dataset-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "1db16527e3859b9297f56f7990e8b38e83716c8f";
         hash = "sha256-GXNSYASRlkoaQ75ahKzXusE47N5LLNdG4jvBwbeELFI=";
       };

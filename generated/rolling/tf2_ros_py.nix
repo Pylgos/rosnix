@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     tf2_ros_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tf2_ros_py-source";
-        url = "https://github.com/ros2-gbp/geometry2-release.git";
+        owner = "ros2-gbp";
+        repo = "geometry2-release";
         rev = "e4a5e5745a0688bc97c6ecef8c79c5710818d89a";
         hash = "sha256-8X9kRc9ajV09X+DqlvR8fAqoDa4FiqEQuYF/cCcidlE=";
       };

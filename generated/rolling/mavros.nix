@@ -12,6 +12,7 @@
   diagnostic_updater,
   eigen3_cmake_module,
   eigen_stl_containers,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,9 +41,10 @@
 let
   sources = rec {
     mavros = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mavros-source";
-        url = "https://github.com/ros2-gbp/mavros-release.git";
+        owner = "ros2-gbp";
+        repo = "mavros-release";
         rev = "4f9e1008e8d0b613f49c0a83781d31a9255aaa8b";
         hash = "sha256-45ZIQJFqpxq+2FRWIxmsJn9gNb+VUMlu7A951/VcfjE=";
       };

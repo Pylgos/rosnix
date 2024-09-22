@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     rosidl_pycommon = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosidl_pycommon-source";
-        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl-release";
         rev = "e9738d1d7fa9939313becbed59cae2729a662d77";
         hash = "sha256-2BitDnrOlRMxAJfeVf0gS58CWAfvtzYMQA3rkBRTyW0=";
       };

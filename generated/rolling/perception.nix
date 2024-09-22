@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     perception = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "perception-source";
-        url = "https://github.com/ros2-gbp/variants-release.git";
+        owner = "ros2-gbp";
+        repo = "variants-release";
         rev = "28fb3d7d11f2167ea52c6968256958a2eb45d0d1";
         hash = "sha256-dm1psyuV0pFw4lLrVBcz/ElZ/T+49Lqaf1kDqahOvLs=";
       };

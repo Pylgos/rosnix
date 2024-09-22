@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     mola_input_kitti360_dataset = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola_input_kitti360_dataset-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "c563fef99385f939811a0f759642ef9abbdefe35";
         hash = "sha256-lAkKH7r/lQuGL5Uq/t4jVuRKBAbEu0LBIgOmM7k/VT0=";
       };

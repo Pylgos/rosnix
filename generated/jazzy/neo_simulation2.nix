@@ -4,6 +4,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     neo_simulation2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "neo_simulation2-source";
-        url = "https://github.com/ros2-gbp/neo_simulation2-release.git";
+        owner = "ros2-gbp";
+        repo = "neo_simulation2-release";
         rev = "c13b97f6ffbb4750704ec1811473e7b2a6489e57";
         hash = "sha256-RDPwVwW9QTfOVM8jYVgKbR+YmGDSXRq1Wz5minbCbD8=";
       };

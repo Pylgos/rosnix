@@ -6,6 +6,7 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     gz_tools_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_tools_vendor-source";
-        url = "https://github.com/ros2-gbp/gz_tools_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "gz_tools_vendor-release";
         rev = "083cec4758cccadb89a4f9378488e2973ac149c6";
         hash = "sha256-ixU28XwQpuvBdg20zvpUusc9YuvIYmO2InG9iTKg4MY=";
       };
@@ -31,9 +33,10 @@ let
       ];
     };
     gz_tools_vendor-vendor_source-gz-tools-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_tools_vendor-vendor_source-gz-tools-0-source";
-        url = "https://github.com/gazebosim/gz-tools.git";
+        owner = "gazebosim";
+        repo = "gz-tools";
         rev = "efcc504bd3665151266f38db627c9095e5a5773f";
         hash = "sha256-sV/T53oVk1fgjwqn/SRTaPTukt+vAlGGxGvTN8+G6Mo=";
       };

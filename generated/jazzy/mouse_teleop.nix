@@ -4,6 +4,7 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     mouse_teleop = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mouse_teleop-source";
-        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "teleop_tools-release";
         rev = "91d160af34687e043719ef2eea68a49278c7fda2";
         hash = "sha256-Zu3CcQYsLdjXYxZcH87gLEUAF1rL6+Rvl7mR6dHH/mA=";
       };

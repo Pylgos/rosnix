@@ -4,6 +4,7 @@
   ament_cmake_test,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     foonathan_memory_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "foonathan_memory_vendor-source";
-        url = "https://github.com/ros2-gbp/foonathan_memory_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "foonathan_memory_vendor-release";
         rev = "446ac182791f3c0ab3817f3b503c38954e6a0133";
         hash = "sha256-LmTgr8JI5jo23rCSvEeq6WSeCvLx/dmYpqtNx0hZ7lE=";
       };
@@ -28,9 +30,10 @@ let
       ];
     };
     foonathan_memory_vendor-vendor_source-memory-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "foonathan_memory_vendor-vendor_source-memory-0-source";
-        url = "https://github.com/foonathan/memory.git";
+        owner = "foonathan";
+        repo = "memory";
         rev = "0f0775770fd1c506fa9c5ad566bd6ba59659db66";
         hash = "sha256-nLBnxPbPKiLCFF2TJgD/eJKJJfzktVBW3SRW2m3WK/s=";
       };

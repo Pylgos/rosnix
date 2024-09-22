@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     rot_conv = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rot_conv-source";
-        url = "https://github.com/ros2-gbp/rot_conv_lib-release.git";
+        owner = "ros2-gbp";
+        repo = "rot_conv_lib-release";
         rev = "4a8368c9cb014d6ff01e9aaf5b2433bc59dfaa8c";
         hash = "sha256-VqbATzeNKPD8JPuhSHw/tFUaehAd/D5z7SlyxRL1P9w=";
       };

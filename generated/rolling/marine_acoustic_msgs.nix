@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     marine_acoustic_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "marine_acoustic_msgs-source";
-        url = "https://github.com/ros2-gbp/marine_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "marine_msgs-release";
         rev = "38d4fc11273b589bf376bb015127ddac160964e7";
         hash = "sha256-ALbjKiPGNTichMtqbwwJIA4Y52MYdCELmDl3tLU3dC4=";
       };

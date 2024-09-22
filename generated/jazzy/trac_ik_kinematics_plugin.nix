@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   class_loader,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     trac_ik_kinematics_plugin = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "trac_ik_kinematics_plugin-source";
-        url = "https://github.com/ros2-gbp/trac_ik-release.git";
+        owner = "ros2-gbp";
+        repo = "trac_ik-release";
         rev = "e608e52b92b8e9306bc8ef4ae7488bc8c90350df";
         hash = "sha256-Xj4omXPV8GY+CWCUvSBOT33WTxVQiW0A8N57S5bpDNo=";
       };

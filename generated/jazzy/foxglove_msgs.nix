@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     foxglove_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "foxglove_msgs-source";
-        url = "https://github.com/ros2-gbp/ros_foxglove_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_foxglove_msgs-release";
         rev = "1643daf92cf16b9a75cc2e3e184c7077de87db2a";
         hash = "sha256-M7/eEP7tPukgpkdDKo93zEfydXTiLUzUaeR6h4c6lxM=";
       };

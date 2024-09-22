@@ -2,6 +2,7 @@
   action_msgs,
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     mrpt_nav_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_nav_interfaces-source";
-        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_navigation-release";
         rev = "101c249e03b7515a974db850293e29a8c1d3ea57";
         hash = "sha256-gbI1wo1cYacZ1nX7ea3HDV9XcB89gM2ZtbIchHvR218=";
       };

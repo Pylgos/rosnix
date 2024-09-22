@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     zstd_image_transport = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "zstd_image_transport-source";
-        url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
+        owner = "ros2-gbp";
+        repo = "image_transport_plugins-release";
         rev = "d775711c353ee496a3d50616232ac8948824de91";
         hash = "sha256-2g76JUeoRwfu0yZmgms3vUD0fFcs4r8lzqmn71hv2Kc=";
       };

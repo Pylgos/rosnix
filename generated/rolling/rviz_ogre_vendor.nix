@@ -4,6 +4,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     rviz_ogre_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_ogre_vendor-source";
-        url = "https://github.com/ros2-gbp/rviz-release.git";
+        owner = "ros2-gbp";
+        repo = "rviz-release";
         rev = "2a7577f98d3e60b0136f6871e5ba260fe7ffef6c";
         hash = "sha256-95DQnpkL5cSkC6FXod+ZogsXePqG29UBGPrjrOjycUM=";
       };
@@ -48,9 +50,10 @@ let
       ];
     };
     rviz_ogre_vendor-vendor_source-ogre-2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_ogre_vendor-vendor_source-ogre-2-source";
-        url = "https://github.com/OGRECave/ogre.git";
+        owner = "OGRECave";
+        repo = "ogre";
         rev = "93d7eb5282d31b956f008a53e837bbb820b34454";
         hash = "sha256-Z0ixdSmkV93coBBVZ5R3lPLfVMXRfWsFz/RsSyqPWFY=";
       };
@@ -142,9 +145,10 @@ let
       ];
     };
     rviz_ogre_vendor-vendor_source-zlib-1 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_ogre_vendor-vendor_source-zlib-1-source";
-        url = "https://github.com/madler/zlib.git";
+        owner = "madler";
+        repo = "zlib";
         rev = "09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851";
         hash = "sha256-eUuXV5zfy+fmiMNdWw5QCqDloBkaxy1tgi7by9nYHNA=";
       };

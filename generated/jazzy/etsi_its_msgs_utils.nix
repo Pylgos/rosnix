@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   etsi_its_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     etsi_its_msgs_utils = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "etsi_its_msgs_utils-source";
-        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
+        owner = "ros2-gbp";
+        repo = "etsi_its_messages-release";
         rev = "d0c358b4a8bc6ab2d51f4350621a7ed0668835fd";
         hash = "sha256-s7PhbM4SnhusmUCCG8ug/MWgO4ldBUnvw4HkyS4/jwE=";
       };

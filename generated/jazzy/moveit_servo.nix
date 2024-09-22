@@ -4,6 +4,7 @@
   buildRosPackage,
   control_msgs,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,9 +39,10 @@
 let
   sources = rec {
     moveit_servo = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_servo-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "cb66905f35b3d028d549fedb54280842822adbe6";
         hash = "sha256-4S4Bt6Fu+LWXvvdRWVqxwaCP7Q2ELAJsz0I3zGYIWvM=";
       };

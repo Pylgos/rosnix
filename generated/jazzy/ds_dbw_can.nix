@@ -6,6 +6,7 @@
   dataspeed_can_msg_filters,
   dataspeed_can_usb,
   ds_dbw_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     ds_dbw_can = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ds_dbw_can-source";
-        url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
+        owner = "DataspeedInc-release";
+        repo = "dbw_ros-release";
         rev = "491aaf1b09695f08790ecab8d0d1f046532df2f8";
         hash = "sha256-5tNo8sZUZ4s4XPOC7pA9BwYdAYWNVkQu5x62aM1DeD0=";
       };

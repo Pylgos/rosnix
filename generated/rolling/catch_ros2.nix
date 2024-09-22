@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     catch_ros2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "catch_ros2-source";
-        url = "https://github.com/ros2-gbp/catch_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "catch_ros2-release";
         rev = "d164e3f107e6da28fba2edf351654f487e8b73cd";
         hash = "sha256-8+FIcqzIHZrfEeATgko1oxSpJA3YY5lis1+sEd2Y/Rk=";
       };

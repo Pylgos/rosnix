@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     libg2o = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libg2o-source";
-        url = "https://github.com/ros2-gbp/libg2o-release.git";
+        owner = "ros2-gbp";
+        repo = "libg2o-release";
         rev = "c30a14c800c9142b73205fd6c67827fab5295326";
         hash = "sha256-2CMfNQ2nQezvsaS7kSEUvwkCtBZcnoOPaqOljhsfHFc=";
       };

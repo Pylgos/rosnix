@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     smclib = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "smclib-source";
-        url = "https://github.com/ros2-gbp/bond_core-release.git";
+        owner = "ros2-gbp";
+        repo = "bond_core-release";
         rev = "1790dcfb4e6720bdaf5630dd1a47c4d73ca5f255";
         hash = "sha256-0GdXtzthCDeBP6DCt4Gd6e86nzEmrdCJNLuxyDTGGK4=";
       };

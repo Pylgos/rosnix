@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,9 +32,10 @@
 let
   sources = rec {
     nav2_rviz_plugins = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_rviz_plugins-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "6fa0a928c11367965d18de1db92dd32764729b15";
         hash = "sha256-xPI0IwHmylfSWm036ptYq2DFSUosgFvONkgJ9/LNCPA=";
       };

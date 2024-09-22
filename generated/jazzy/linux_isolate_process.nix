@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     linux_isolate_process = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "linux_isolate_process-source";
-        url = "https://github.com/ros2-gbp/linux_isolate_process-release.git";
+        owner = "ros2-gbp";
+        repo = "linux_isolate_process-release";
         rev = "adcde99dc53e5480e71a4533a5e438325f72a216";
         hash = "sha256-1MOoCotNkz3eD3lwztz0QfmCyDxEk36KY1YmdCQIjK4=";
       };

@@ -5,6 +5,7 @@
   ament_lint_auto,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     rc_genicam_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rc_genicam_driver-source";
-        url = "https://github.com/ros2-gbp/rc_genicam_driver_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "rc_genicam_driver_ros2-release";
         rev = "d56cbe21b74232fd2602bc2cc2921c365d034321";
         hash = "sha256-DXGpRFliAauxi+eYKJddSkZfNo9jJ/5UsxBtJEkSdCs=";
       };

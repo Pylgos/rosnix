@@ -4,6 +4,7 @@
   ament_cmake_python,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     classic_bags = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "classic_bags-source";
-        url = "https://github.com/ros2-gbp/classic_bags-release.git";
+        owner = "ros2-gbp";
+        repo = "classic_bags-release";
         rev = "e2538f43275fa7e7c37016cad69ba2a72e9dff4e";
         hash = "sha256-ZJSMrs9eRmeojheIs6GQcdz6FbdvasObPF8AjZg6XQM=";
       };

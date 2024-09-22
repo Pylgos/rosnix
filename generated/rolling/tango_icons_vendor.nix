@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     tango_icons_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tango_icons_vendor-source";
-        url = "https://github.com/ros2-gbp/tango_icons_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "tango_icons_vendor-release";
         rev = "e452bedb4beb3b68a82a6e5bfcf8b7a5e055319a";
         hash = "sha256-wBKGEI3Q+PeABsXxuEhrpxdXLVtv0gtT6r8/tDuR+qY=";
       };

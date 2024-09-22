@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   dolly_follow,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     dolly_ignition = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dolly_ignition-source";
-        url = "https://github.com/ros2-gbp/dolly-release.git";
+        owner = "ros2-gbp";
+        repo = "dolly-release";
         rev = "36b5774da731136a6fc4bf5dc57c9f29a437a371";
         hash = "sha256-BGdsjbemIWS94BjSHjDClK1ui6sM17J0lJlrhfhj/Vg=";
       };

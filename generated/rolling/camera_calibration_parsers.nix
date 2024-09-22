@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     camera_calibration_parsers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "camera_calibration_parsers-source";
-        url = "https://github.com/ros2-gbp/image_common-release.git";
+        owner = "ros2-gbp";
+        repo = "image_common-release";
         rev = "e0b1a2d83fa424fb9901db29b1878552cd7f58e1";
         hash = "sha256-2wHvrXRKoktOhSDRtVLJjakxQeMcNKi1cW1vEzdTh1M=";
       };

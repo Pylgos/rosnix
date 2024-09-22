@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     parameter_traits = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "parameter_traits-source";
-        url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
+        owner = "ros2-gbp";
+        repo = "generate_parameter_library-release";
         rev = "bf881491b34e30670849b57e5c49382c52c72b6d";
         hash = "sha256-tbkbI2Z5iOPtVMur4gJQVJQ+af59uhEZt7UNahBZ01I=";
       };

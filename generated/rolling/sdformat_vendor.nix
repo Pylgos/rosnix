@@ -6,6 +6,7 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     sdformat_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sdformat_vendor-source";
-        url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "sdformat_vendor-release";
         rev = "b852a619f2259abead66e9c40217e995880643e3";
         hash = "sha256-gsrDuZkLQPAHefkSsTocTNXWLJzeTg/oz/RPpKP2Cw4=";
       };
@@ -34,9 +36,10 @@ let
       ];
     };
     sdformat_vendor-vendor_source-sdformat-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sdformat_vendor-vendor_source-sdformat-0-source";
-        url = "https://github.com/gazebosim/sdformat.git";
+        owner = "gazebosim";
+        repo = "sdformat";
         rev = "86db7db7e0c95ebd544ca03f57bbed7b37061ba8";
         hash = "sha256-nGBLnQP0TTKDVbYGyx23Fcs79UCJveajsll2LvyLJwQ=";
       };

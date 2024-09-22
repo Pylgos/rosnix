@@ -10,6 +10,7 @@
   ament_cmake_uncrustify,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     ament_lint_common = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_lint_common-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "dedfb62b9b8f8d46373155c4e1694665f3ba1de2";
         hash = "sha256-Aw/vW4kaCH0tIR0LxDdXwJJ+BWWKVGmIcInxfqgikeI=";
       };

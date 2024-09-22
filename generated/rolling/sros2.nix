@@ -5,6 +5,7 @@
   ament_mypy,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     sros2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sros2-source";
-        url = "https://github.com/ros2-gbp/sros2-release.git";
+        owner = "ros2-gbp";
+        repo = "sros2-release";
         rev = "49754a3069a8259c21c74f7727630590ba10c9d6";
         hash = "sha256-iJpmSqylzgKZx7KePA6YOgLeKtGvAMFaDWHzyL0YVlc=";
       };

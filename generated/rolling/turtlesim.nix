@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     turtlesim = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "turtlesim-source";
-        url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_tutorials-release";
         rev = "4fa7d0da6427665fa4540503b0c5bc5cf85314db";
         hash = "sha256-ubEzRIkm0yl5MNSHbJDbWkgXp05T9JMpO2ogZNP4zd8=";
       };

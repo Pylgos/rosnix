@@ -4,6 +4,7 @@
   ament_lint,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     ament_xmllint = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_xmllint-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "e9ba8180050ef6c9cc988053dc002c12a649d3f9";
         hash = "sha256-hEPWBk0jFXWmN31PEl3WknzxY1V5ToOead2AJ1xNJUA=";
       };

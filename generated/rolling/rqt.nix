@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rqt = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt-source";
-        url = "https://github.com/ros2-gbp/rqt-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt-release";
         rev = "f575ef11e4b5354b169b17509a12db2b0699f6fd";
         hash = "sha256-wUFaY/hZFxo+wn1CfJmY9ANN+7AAl4GNKJ1P8NgUImw=";
       };

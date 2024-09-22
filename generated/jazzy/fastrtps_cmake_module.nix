@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     fastrtps_cmake_module = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fastrtps_cmake_module-source";
-        url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl_typesupport_fastrtps-release";
         rev = "d3265cdbcaad3096098474edb966fd17eb5a977f";
         hash = "sha256-CMvgUlOB5CpgyTkKXPsg5gTBnHHJWz1DLOwjQRe/UDs=";
       };

@@ -9,6 +9,7 @@
   bondcpp,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -41,9 +42,10 @@
 let
   sources = rec {
     slam_toolbox = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "slam_toolbox-source";
-        url = "https://github.com/SteveMacenski/slam_toolbox-release.git";
+        owner = "SteveMacenski";
+        repo = "slam_toolbox-release";
         rev = "1e73a216a61722acd0b77d7ef25759db4b183dc4";
         hash = "sha256-XuG5qBercHsZopAr/jEnaSer+0FrgZ0DhIdnHt+thkE=";
       };

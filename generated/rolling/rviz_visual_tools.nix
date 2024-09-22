@@ -7,6 +7,7 @@
   buildRosPackage,
   eigen3_cmake_module,
   eigen_stl_containers,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -37,9 +38,10 @@
 let
   sources = rec {
     rviz_visual_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_visual_tools-source";
-        url = "https://github.com/ros2-gbp/rviz_visual_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "rviz_visual_tools-release";
         rev = "cd3a380ad00334a4c3385476a2e98f9bdd75680b";
         hash = "sha256-tVfPKQNpM962nm3D4nPbalanEed98pZ6A4v4ySC79yI=";
       };

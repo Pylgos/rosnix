@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     ublox_serialization = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ublox_serialization-source";
-        url = "https://github.com/ros2-gbp/ublox-release.git";
+        owner = "ros2-gbp";
+        repo = "ublox-release";
         rev = "591d184ed50d806361cb1d527cc1d48943b06cc7";
         hash = "sha256-b2kP01irILk8Ct0RNRYsczUU7sgdAugMNejSpNFPdGE=";
       };

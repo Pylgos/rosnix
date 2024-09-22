@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_pytest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     rqt_py_common = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_py_common-source";
-        url = "https://github.com/ros2-gbp/rqt-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt-release";
         rev = "80e2f847182d27477df1159a9022413c4fcfd186";
         hash = "sha256-H/iAtFmK7PVUTchMY43rrjinZ8FP5i2yivXA4MCdqZQ=";
       };

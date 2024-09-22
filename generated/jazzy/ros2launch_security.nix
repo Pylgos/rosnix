@@ -5,6 +5,7 @@
   ament_pep257,
   buildRosPackage,
   demo_nodes_py,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     ros2launch_security = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2launch_security-source";
-        url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2launch_security-release";
         rev = "e896c13bfc8f93f259902eec99483b65336b2458";
         hash = "sha256-MM1mvGLVBpSePXEUKQScahRPpulucGxMTaTp+jSKbNo=";
       };

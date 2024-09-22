@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     rtabmap_demos = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rtabmap_demos-source";
-        url = "https://github.com/introlab/rtabmap_ros-release.git";
+        owner = "introlab";
+        repo = "rtabmap_ros-release";
         rev = "b03e98ea5ed3302f06616f751b8b28008f8259dd";
         hash = "sha256-Qc3vsvY2lKUl18v5CqCb2wJYULTdR3yzrxJhreb+Rp8=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rc_common_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rc_common_msgs-source";
-        url = "https://github.com/ros2-gbp/rc_common_msgs_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "rc_common_msgs_ros2-release";
         rev = "a1a39a8b05b4be20838bc8acec4af66a3f0d90dd";
         hash = "sha256-/ApqcAoxtUu0eHcF5gxxFhroOIdz457iCAONfAC2xxQ=";
       };

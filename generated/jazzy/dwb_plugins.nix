@@ -6,6 +6,7 @@
   angles,
   buildRosPackage,
   dwb_core,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     dwb_plugins = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dwb_plugins-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "b30a9ef44cf345835dc994d94a6df82cc7439ed7";
         hash = "sha256-RM7pUx4Bq3yI4WTEzl5Oojr+pNEFNrtZgbT/coSKby0=";
       };

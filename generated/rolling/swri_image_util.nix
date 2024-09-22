@@ -5,6 +5,7 @@
   buildRosPackage,
   camera_calibration_parsers,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     swri_image_util = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_image_util-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "b6519c551f52fcbf0e635aa3bb406ac8e810940b";
         hash = "sha256-j9Mganqzf50jti2W8E9b2PZAepIFOzUkxNgzcua8Tyw=";
       };

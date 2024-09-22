@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     gps_umd = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gps_umd-source";
-        url = "https://github.com/ros2-gbp/gps_umd-release.git";
+        owner = "ros2-gbp";
+        repo = "gps_umd-release";
         rev = "027018a369f1cb324ff3cd7937456247e6b3620b";
         hash = "sha256-57CxBkAd2u2S/EZrm8p1C0JPGoFAlEsVq2jYjMWBz5U=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     magic_enum = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "magic_enum-source";
-        url = "https://github.com/ros2-gbp/magic_enum-release.git";
+        owner = "ros2-gbp";
+        repo = "magic_enum-release";
         rev = "c781e21940b8046fa81dace2fe4afb291bbbcbec";
         hash = "sha256-maDyPAh57gP3vZwB34IYIwVCnmcDwi1msh639mFMdRE=";
       };

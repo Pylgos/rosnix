@@ -3,6 +3,7 @@
   ament_cmake_core,
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     ament_vitis = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_vitis-source";
-        url = "https://github.com/ros2-gbp/ament_vitis-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_vitis-release";
         rev = "507aba5803629e67cb3b04642addaee101911f4e";
         hash = "sha256-Na2vZDmx1yo4NFMDS9mmn1De1NRtjjs953gSAHRCxtc=";
       };

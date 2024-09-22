@@ -13,6 +13,7 @@
   ecl_threads,
   ecl_type_traits,
   ecl_utilities,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     ecl_devices = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_devices-source";
-        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_core-release";
         rev = "067078139b70a895cd6de9ad582ab8734e39ccb9";
         hash = "sha256-fdhKBuF9q7x8XDG5ld90RQRXHhZf4I6pJGU5KK6EOeI=";
       };

@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     rtabmap = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rtabmap-source";
-        url = "https://github.com/ros2-gbp/rtabmap-release.git";
+        owner = "ros2-gbp";
+        repo = "rtabmap-release";
         rev = "1c72d1b144d6c524ce0b66e3307e6c3c6fb188e0";
         hash = "sha256-wF68y0YveuAPXq2DOgb4KGYuCN0GovrczL95nNpGLC0=";
       };

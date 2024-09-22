@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     turtlebot4_viz = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "turtlebot4_viz-source";
-        url = "https://github.com/ros2-gbp/turtlebot4_desktop-release.git";
+        owner = "ros2-gbp";
+        repo = "turtlebot4_desktop-release";
         rev = "a41ed5144a04782c1a256321e4f89543633593c3";
         hash = "sha256-B4JLIzBiGpHseRRlnfEuWpihIRHG23dlmrp7JTRELrI=";
       };

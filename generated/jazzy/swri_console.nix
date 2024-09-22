@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     swri_console = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_console-source";
-        url = "https://github.com/ros2-gbp/swri_console-release.git";
+        owner = "ros2-gbp";
+        repo = "swri_console-release";
         rev = "20be76e51b6c435fc46410a6752bfab906339e97";
         hash = "sha256-zA1cDmzrE6co8sEykB922TKHYC0Dzkqfp9Re4OUxMqk=";
       };

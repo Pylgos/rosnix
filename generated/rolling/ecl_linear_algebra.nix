@@ -11,6 +11,7 @@
   ecl_formatters,
   ecl_license,
   ecl_math,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     ecl_linear_algebra = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_linear_algebra-source";
-        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_core-release";
         rev = "09bd9ba9ce1f8ff86c333392f789104f7b556161";
         hash = "sha256-2Mofxug8ckLfTnStaTQtx69z6SvToiY8incBV3OMXJo=";
       };

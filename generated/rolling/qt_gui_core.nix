@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     qt_gui_core = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "qt_gui_core-source";
-        url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
+        owner = "ros2-gbp";
+        repo = "qt_gui_core-release";
         rev = "45761a697c77cffb8bebd429e8aec9f6ef9d6b5a";
         hash = "sha256-TBKwDKOBaAGAGHYYU+OcMXUisCTfGKdIdjYBj33JlDM=";
       };

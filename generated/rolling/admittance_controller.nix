@@ -7,6 +7,7 @@
   control_toolbox,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,9 +36,10 @@
 let
   sources = rec {
     admittance_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "admittance_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "1541012ca0aedc52662e244ec9bac5fa02b5196c";
         hash = "sha256-gXGKMcrzhuK4TA07VVx2TPmwuw6V38lDgLotJgP6E4E=";
       };

@@ -7,6 +7,7 @@
   builtin_interfaces,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,9 +31,10 @@
 let
   sources = rec {
     tricycle_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tricycle_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "ee97886d65572f615c69af86460ba3013ad57b2d";
         hash = "sha256-KY4Dgle2PDGoS+1gSFOn6SKAhe1tKgIFdG0RDnv4iKk=";
       };

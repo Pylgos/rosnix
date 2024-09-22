@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     trac_ik = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "trac_ik-source";
-        url = "https://github.com/ros2-gbp/trac_ik-release.git";
+        owner = "ros2-gbp";
+        repo = "trac_ik-release";
         rev = "92b5f9f982498bed253e7fe0aaccabb177014abb";
         hash = "sha256-Mi5zU70nYLOrjdiVRLXtTefB9IBLrHv8HpqzxWWRWas=";
       };

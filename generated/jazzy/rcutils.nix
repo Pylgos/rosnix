@@ -6,6 +6,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     rcutils = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rcutils-source";
-        url = "https://github.com/ros2-gbp/rcutils-release.git";
+        owner = "ros2-gbp";
+        repo = "rcutils-release";
         rev = "7e50a16c954f3b426baae3d00a721521a08ba45e";
         hash = "sha256-LAv9gWyFoyZkmn3Y8slcwvWj7QaAxxaV+h4+AmXhdjA=";
       };

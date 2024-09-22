@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     osrf_testing_tools_cpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "osrf_testing_tools_cpp-source";
-        url = "https://github.com/ros2-gbp/osrf_testing_tools_cpp-release.git";
+        owner = "ros2-gbp";
+        repo = "osrf_testing_tools_cpp-release";
         rev = "72929ad603027203d6da59ab07cec0187c54beaa";
         hash = "sha256-Bi9mcQEbfiJ7oOCciXJR8uWeIrVxnqF81Ke202qC4do=";
       };

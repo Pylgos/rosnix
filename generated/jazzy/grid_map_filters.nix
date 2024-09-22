@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     grid_map_filters = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "grid_map_filters-source";
-        url = "https://github.com/ros2-gbp/grid_map-release.git";
+        owner = "ros2-gbp";
+        repo = "grid_map-release";
         rev = "f94980e5405c1ba21c7187f3b17629d6c9b0a04a";
         hash = "sha256-ckMZDVEk435pl5NW+PLvvGC0A38wDWfItz09kpEoftQ=";
       };

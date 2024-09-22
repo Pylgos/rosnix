@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     mrpt_path_planning = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_path_planning-source";
-        url = "https://github.com/ros2-gbp/mrpt_path_planning-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_path_planning-release";
         rev = "9ab3670407780881e9cd1390f1a6e97f7056692f";
         hash = "sha256-yUu8T9hQg1I4KA1Iib5j8dS92U9Vn8goPDJii8QVp0c=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,19 +14,11 @@
 }:
 let
   sources = rec {
-    kortex_api-vendor_source-linux_x86-64_x86_gcc-0 = substituteSource {
-      src = fetchzip {
-        name = "kortex_api-vendor_source-linux_x86-64_x86_gcc-0-source";
-        url = "https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
-        hash = "sha256-+fUMtXCoThItleO1C2jTZfK6DP/Z7dVJx26WWbBQ9Uc=";
-      };
-      substitutions = [
-      ];
-    };
     kortex_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "kortex_driver-source";
-        url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_kortex-release";
         rev = "82240099e9bb3c9af1aaafda01da2dd395f2dd9a";
         hash = "sha256-VOAouaWTIzYdk++/+Quu0gP35VrR5eUIUMlK1RFbcrA=";
       };
@@ -33,8 +26,17 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
-          to = "URL ${kortex_api-vendor_source-linux_x86-64_x86_gcc-0}";
+          to = "URL ${kortex_driver-vendor_source-linux_x86-64_x86_gcc-0}";
         }
+      ];
+    };
+    kortex_driver-vendor_source-linux_x86-64_x86_gcc-0 = substituteSource {
+      src = fetchzip {
+        name = "kortex_driver-vendor_source-linux_x86-64_x86_gcc-0-source";
+        url = "https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
+        hash = "sha256-+fUMtXCoThItleO1C2jTZfK6DP/Z7dVJx26WWbBQ9Uc=";
+      };
+      substitutions = [
       ];
     };
   };

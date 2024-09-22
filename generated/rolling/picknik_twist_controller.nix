@@ -3,6 +3,7 @@
   buildRosPackage,
   controller_interface,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     picknik_twist_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "picknik_twist_controller-source";
-        url = "https://github.com/ros2-gbp/picknik_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "picknik_controllers-release";
         rev = "3b25e7bf6d2761642de9ad7b58f555e1eaf60eba";
         hash = "sha256-y6aZb1J/2JpuY/SFhUMgaDqYvXU7KiQYiETGOGIYF3I=";
       };

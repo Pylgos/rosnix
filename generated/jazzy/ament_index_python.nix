@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     ament_index_python = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_index_python-source";
-        url = "https://github.com/ros2-gbp/ament_index-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_index-release";
         rev = "86457bacaeec03825e194c05e908a6fb2f9a6061";
         hash = "sha256-7lIMorXGjQYthb0K4PtdrLSyjiRuLQ9ixmanpMqP83Y=";
       };

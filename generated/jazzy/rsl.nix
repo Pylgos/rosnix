@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@ let
       ];
     };
     rsl = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rsl-source";
-        url = "https://github.com/ros2-gbp/RSL-release.git";
+        owner = "ros2-gbp";
+        repo = "RSL-release";
         rev = "c14d264098040784eb396e61c4d6a6ecdb0896cd";
         hash = "sha256-E8+8s6cFca2isl5g5q2OD85VomBeUfxjFIb3we5RUTA=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     moveit_resources_prbt_ikfast_manipulator_plugin = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_resources_prbt_ikfast_manipulator_plugin-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb";
         hash = "sha256-XrTccUeeXR+i08B4Ai2KfSBj8vR1Rtu7TgrYvm1yIWU=";
       };

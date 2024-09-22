@@ -5,6 +5,7 @@
   ament_pep257,
   buildRosPackage,
   composition_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     launch_ros = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch_ros-source";
-        url = "https://github.com/ros2-gbp/launch_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "launch_ros-release";
         rev = "80640e6394ae66a05d6fbe44ec3d06b2427ca037";
         hash = "sha256-0WnYve+wHC5hnSgtfmrjeMkl0t9ty5QnblgkvXrU5Do=";
       };

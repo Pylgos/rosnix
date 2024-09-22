@@ -3,6 +3,7 @@
   ament_lint_auto,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     spatio_temporal_voxel_layer = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "spatio_temporal_voxel_layer-source";
-        url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
+        owner = "SteveMacenski";
+        repo = "spatio_temporal_voxel_layer-release";
         rev = "b90240ec24e8493687336fa512d84fded305a7d8";
         hash = "sha256-TI+acykuLfFK0oE0y9ADZZKcvn02EJ4JPHkP88+jaz4=";
       };

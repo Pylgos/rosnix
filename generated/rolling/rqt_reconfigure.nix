@@ -4,6 +4,7 @@
   ament_index_python,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     rqt_reconfigure = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_reconfigure-source";
-        url = "https://github.com/ros2-gbp/rqt_reconfigure-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt_reconfigure-release";
         rev = "6c3295518fa31f3dccc64b4b37bf84e2abb0027a";
         hash = "sha256-ThnCAIGGrmrx8NAdfSMTjsXM8l4EPYJfg9bSORYEL2U=";
       };

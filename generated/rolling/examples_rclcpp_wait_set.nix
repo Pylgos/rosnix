@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     examples_rclcpp_wait_set = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "examples_rclcpp_wait_set-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "1f72714321485792ba484c45ca723c37e32539da";
         hash = "sha256-4Wb1dvZ9WdSy5GmEA2O0hgMDtFTKu971rrhITxD0Zwc=";
       };

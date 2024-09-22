@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     ffmpeg_image_transport_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ffmpeg_image_transport_msgs-source";
-        url = "https://github.com/ros2-gbp/ffmpeg_image_transport_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "ffmpeg_image_transport_msgs-release";
         rev = "27fad7bbaba75016c36e07b12364819edd074066";
         hash = "sha256-pqSfqQqwy2iI4Z76hMWtAkpmjCYHy0xa0SBqsE+X/dQ=";
       };

@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     urg_node_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "urg_node_msgs-source";
-        url = "https://github.com/ros2-gbp/urg_node_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "urg_node_msgs-release";
         rev = "b30be43c2ffbe917e1db13776e191089eebc5d17";
         hash = "sha256-IBl7J8akPgn5ni5/8kPGDOh4Fklto+RggWCIxGald/w=";
       };

@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     libcamera = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libcamera-source";
-        url = "https://github.com/ros2-gbp/libcamera-release.git";
+        owner = "ros2-gbp";
+        repo = "libcamera-release";
         rev = "2220c34729e9a5fb612e4ddf39b1d1ef93189da9";
         hash = "sha256-45FJe28lkXjPLXx7svI8U6QCJq7Hocx9wRZuVz7iGoY=";
       };

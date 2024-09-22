@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     key_teleop = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "key_teleop-source";
-        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "teleop_tools-release";
         rev = "3f8d5d54af459301260c5f52b986eb16f1c21cf3";
         hash = "sha256-yukkmxu9PPCdLMc+IBlED7GoJdpbmKM/1HtlFOarSAc=";
       };

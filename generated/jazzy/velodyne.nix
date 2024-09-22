@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     velodyne = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "velodyne-source";
-        url = "https://github.com/ros2-gbp/velodyne-release.git";
+        owner = "ros2-gbp";
+        repo = "velodyne-release";
         rev = "94c7ffc762f021d72b7295602f86f988b7e10160";
         hash = "sha256-Wr9qH+muZay+hoPYPI7pJRs11jWr4I26LKKsmaWL/4A=";
       };

@@ -4,6 +4,7 @@
   ament_pep257,
   buildRosPackage,
   demo_nodes_cpp,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     launch_testing_examples = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "launch_testing_examples-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "c2236ee11ef8f07bccd6904e0db1d6579fd030d4";
         hash = "sha256-AnGtfmc/Fo5R0zEcot5yB6C+xgFOA31yvAnV9fQRBK0=";
       };

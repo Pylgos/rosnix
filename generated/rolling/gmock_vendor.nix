@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     gmock_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gmock_vendor-source";
-        url = "https://github.com/ros2-gbp/googletest-release.git";
+        owner = "ros2-gbp";
+        repo = "googletest-release";
         rev = "c60fba5e11ad4a220c21762d27d29fb55ae7658d";
         hash = "sha256-PO/ALDgFYiKLU8D1fDgoIVSAMJ3CCBpN60MYHS42E10=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     etsi_its_denm_coding = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "etsi_its_denm_coding-source";
-        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
+        owner = "ros2-gbp";
+        repo = "etsi_its_messages-release";
         rev = "0b6ffb7f07d97aa4e29f8418c69666177fe469e5";
         hash = "sha256-I6oLEte1ltjc9BUHvFrfalPpmhrGi2gMmcwsU2qoZz0=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     shared_queues_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "shared_queues_vendor-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "5bfdbc60c3ab76b8308362830dd9aaa3fc7cb7e0";
         hash = "sha256-1Jz+rLYhCEk7DLVDD6024TMbRbGI5W6GChosnvU6vHA=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -42,9 +43,10 @@
 let
   sources = rec {
     navigation2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "navigation2-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "1f6fe63357b776fe7d5c62d7d064ae59481e5fb2";
         hash = "sha256-kamrg4rOT0yj2K3kGV5WyWbQyb3H+NJvAUalMWfGd7Q=";
       };

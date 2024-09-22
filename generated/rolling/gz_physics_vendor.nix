@@ -6,6 +6,7 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     gz_physics_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_physics_vendor-source";
-        url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "gz_physics_vendor-release";
         rev = "ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9";
         hash = "sha256-UBvXwdHVvlQTBd/sRNkkyz79U6wFP+0eaCVpR5CgGg4=";
       };
@@ -37,9 +39,10 @@ let
       ];
     };
     gz_physics_vendor-vendor_source-gz-physics-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_physics_vendor-vendor_source-gz-physics-0-source";
-        url = "https://github.com/gazebosim/gz-physics.git";
+        owner = "gazebosim";
+        repo = "gz-physics";
         rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
         hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
       };

@@ -5,6 +5,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     foxglove_compressed_video_transport = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "foxglove_compressed_video_transport-source";
-        url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
+        owner = "ros2-gbp";
+        repo = "foxglove_compressed_video_transport-release";
         rev = "34efcc0932b3c09d09aecd8e1cea456c8f0b6274";
         hash = "sha256-ru3czXqeURYGh9sqc15zME8C9tUTa6Vkwo8Z7fOkBbc=";
       };

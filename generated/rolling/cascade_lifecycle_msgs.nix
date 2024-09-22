@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     cascade_lifecycle_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "cascade_lifecycle_msgs-source";
-        url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
+        owner = "ros2-gbp";
+        repo = "cascade_lifecycle-release";
         rev = "7ad0edb701febd76972bf734e2a8c57c66391308";
         hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
       };

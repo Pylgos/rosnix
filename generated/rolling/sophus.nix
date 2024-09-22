@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     sophus = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sophus-source";
-        url = "https://github.com/ros2-gbp/sophus-release.git";
+        owner = "ros2-gbp";
+        repo = "sophus-release";
         rev = "dadc2a318c81321689a7d82279e99fed2a4948bc";
         hash = "sha256-xTS2ysDs9SSKpvKrxnhooJVtfpwRvYCuMpbFc4skbDM=";
       };
@@ -24,9 +26,10 @@ let
       ];
     };
     sophus-vendor_source-pybind11-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sophus-vendor_source-pybind11-0-source";
-        url = "https://github.com/pybind/pybind11.git";
+        owner = "pybind";
+        repo = "pybind11";
         rev = "1f8b4a7f1a1c5cc9bd6e0d63fe15540e6c458b24";
         hash = "sha256-QbvkYThzqCLesR9NXh6udUdfuNyQSGM9RwOCGshhQQo=";
       };

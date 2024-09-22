@@ -9,6 +9,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     irobot_create_toolbox = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "irobot_create_toolbox-source";
-        url = "https://github.com/ros2-gbp/create3_sim-release.git";
+        owner = "ros2-gbp";
+        repo = "create3_sim-release";
         rev = "7c9283a95e70e97fe434f2738523500d3bfde64a";
         hash = "sha256-1Xz8PBcCKddOydL4GpJyR/Ojnok3SvV4iMNh68o8a2g=";
       };

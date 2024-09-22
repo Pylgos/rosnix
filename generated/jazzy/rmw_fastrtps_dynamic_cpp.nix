@@ -8,6 +8,7 @@
   fastcdr,
   fastrtps,
   fastrtps_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@
 let
   sources = rec {
     rmw_fastrtps_dynamic_cpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmw_fastrtps_dynamic_cpp-source";
-        url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
+        owner = "ros2-gbp";
+        repo = "rmw_fastrtps-release";
         rev = "e707a96d012841d846d5440de99c86887cf7a4a5";
         hash = "sha256-V2828PQAQJIhgnDggB3AHrhDQ4z2qbzacR9XAmvkgwQ=";
       };

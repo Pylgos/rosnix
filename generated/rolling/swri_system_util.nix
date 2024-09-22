@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   ament_index_cpp,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     swri_system_util = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_system_util-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "b72d92f99fa6084c4243fee1629cd511712a59a6";
         hash = "sha256-4akj4akovewW9cszjNTNqoVOLqOKFVHwrFkXoE5ECLM=";
       };

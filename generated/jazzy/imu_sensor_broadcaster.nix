@@ -7,6 +7,7 @@
   buildRosPackage,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     imu_sensor_broadcaster = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "imu_sensor_broadcaster-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "61e0fd65de8c977a2b05ef887017054361d192f9";
         hash = "sha256-l9zm09ylmMhq2gLGo4xxyWYoFSBk4U70YIRelmSep0A=";
       };

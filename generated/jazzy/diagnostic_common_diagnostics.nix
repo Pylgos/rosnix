@@ -7,6 +7,7 @@
   ament_lint_auto,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     diagnostic_common_diagnostics = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "diagnostic_common_diagnostics-source";
-        url = "https://github.com/ros2-gbp/diagnostics-release.git";
+        owner = "ros2-gbp";
+        repo = "diagnostics-release";
         rev = "63df07968b261e3b11fbe4a1ea95e448d5aa0af2";
         hash = "sha256-eWgig3BA0/7wXwWPPvjt708xl2DtP2Ll7XnpPE5M6Q0=";
       };

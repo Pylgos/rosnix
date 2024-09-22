@@ -4,6 +4,7 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     ros2run = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2run-source";
-        url = "https://github.com/ros2-gbp/ros2cli-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2cli-release";
         rev = "4ad1f2cfa8702b90d31ae90128c93a415a2193c2";
         hash = "sha256-jVzn1Pv81f93ZtTnqactws9oaZ6zeMxloW97Mf8U9XY=";
       };

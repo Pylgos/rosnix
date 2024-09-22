@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     nav2_minimal_tb4_sim = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_minimal_tb4_sim-source";
-        url = "https://github.com/ros-navigation/nav2_minimal_turtlebot_simulation-release.git";
+        owner = "ros-navigation";
+        repo = "nav2_minimal_turtlebot_simulation-release";
         rev = "700d08969ae2363383ea61a0cb3f5f54effa5955";
         hash = "sha256-rQfuepSMdQIJmkfUmcjG45kyVyy1F0+Tz8RlKHKTujc=";
       };

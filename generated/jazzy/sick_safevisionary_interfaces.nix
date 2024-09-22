@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     sick_safevisionary_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sick_safevisionary_interfaces-source";
-        url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "sick_safevisionary_ros2-release";
         rev = "93072eb8bf6cd41df6e4e8a173b0abdc0c400325";
         hash = "sha256-7qiJXkBhZMJSxhYrVSgDCUBskK0DEX4aQAixkvpRaP4=";
       };

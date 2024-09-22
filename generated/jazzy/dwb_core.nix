@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   dwb_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     dwb_core = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dwb_core-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "d601c7ec253305ccf6fef058cd1aaf913bfa9c1a";
         hash = "sha256-CxMMRdvdGeXbpXUmbJZ4RD5D+N8vMBzpzTF5GWasHLI=";
       };

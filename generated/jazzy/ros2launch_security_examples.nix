@@ -5,6 +5,7 @@
   ament_nodl,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     ros2launch_security_examples = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros2launch_security_examples-source";
-        url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2launch_security-release";
         rev = "ffa975e487020ef5c667a0e2c5950fbf9a0fcfca";
         hash = "sha256-NWaQ/UIv5e//ahvk4u8zBHDsw6po6o9VLTnHTmXsQR8=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ds_dbw_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ds_dbw_msgs-source";
-        url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
+        owner = "DataspeedInc-release";
+        repo = "dbw_ros-release";
         rev = "8b653fd477412073e337d5a66ee294804db65537";
         hash = "sha256-7G4Xe5VY7MPMmN8Ub/f0c5Vb5lCbAUmuC5E5RvQUKNQ=";
       };

@@ -6,6 +6,7 @@
   buildRosPackage,
   builtin_interfaces,
   diagnostic_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     common_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "common_interfaces-source";
-        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "common_interfaces-release";
         rev = "5bdd17489af0e10295441cf99d06ea662173c04a";
         hash = "sha256-sY3G36Si+RGICbER9vogXSz2Ooba4wre6O0uI78NBKw=";
       };

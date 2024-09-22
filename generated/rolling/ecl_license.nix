@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     ecl_license = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_license-source";
-        url = "https://github.com/ros2-gbp/ecl_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_tools-release";
         rev = "7b7a3ef429adfff174b70248bc37c73a0eeccd59";
         hash = "sha256-7IkZyQJw9go1s2je+YLPGemSTMtC8PNA66qCC6akU6w=";
       };

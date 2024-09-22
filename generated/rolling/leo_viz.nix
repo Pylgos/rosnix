@@ -4,6 +4,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     leo_viz = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "leo_viz-source";
-        url = "https://github.com/ros2-gbp/leo_desktop-release.git";
+        owner = "ros2-gbp";
+        repo = "leo_desktop-release";
         rev = "d6ad7387de6715c03425618a157a2df65b04ae8a";
         hash = "sha256-JrS6oiobEEu7mNXfAH7Ayk6hIbPY0ldoaaA3B4v78iI=";
       };

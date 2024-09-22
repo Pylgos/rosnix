@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     swri_geometry_util = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "swri_geometry_util-source";
-        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        owner = "ros2-gbp";
+        repo = "marti_common-release";
         rev = "a5505a50d63255f0a68d1e97f5484a6be3458f1e";
         hash = "sha256-OsZ8EfjkJHo5m2JCUHOv48yGcfGZJFPI9tP485dxmTQ=";
       };

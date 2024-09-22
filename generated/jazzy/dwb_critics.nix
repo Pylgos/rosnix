@@ -7,6 +7,7 @@
   buildRosPackage,
   costmap_queue,
   dwb_core,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     dwb_critics = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dwb_critics-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "00046f3080526574858c7f69ce01afc7863a2db5";
         hash = "sha256-c+8YZUUvd0Ipo9SmePe+EIe5+BTSHmj7MzT6l2EuTI4=";
       };

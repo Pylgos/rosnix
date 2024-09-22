@@ -7,6 +7,7 @@
   ament_lint_cmake,
   buildRosPackage,
   console_bridge_vendor,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     srdfdom = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "srdfdom-source";
-        url = "https://github.com/ros2-gbp/srdfdom-release.git";
+        owner = "ros2-gbp";
+        repo = "srdfdom-release";
         rev = "6817f4b07d5c39f06de2a713efb0b3264e8cb10c";
         hash = "sha256-4SrjgL5tauV2LvLisilSnXwyD2qTdhVdYDtH8D/69yg=";
       };

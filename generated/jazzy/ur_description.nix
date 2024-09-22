@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_pytest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     ur_description = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ur_description-source";
-        url = "https://github.com/ros2-gbp/ur_description-release.git";
+        owner = "ros2-gbp";
+        repo = "ur_description-release";
         rev = "9f031057d2bd630a62f2e13f98c8c860d1dd1a92";
         hash = "sha256-MG7vbOrCS9hiqah2946KSpRaeUFDNuiKjvdxaPVjVOo=";
       };

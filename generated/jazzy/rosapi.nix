@@ -3,6 +3,7 @@
   ament_cmake_ros,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     rosapi = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosapi-source";
-        url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbridge_suite-release";
         rev = "72cbe2e3a2f5a98e160d86e54667eceda6d47114";
         hash = "sha256-5gDyqSXHMOUheu+7fjleKwHApIpOlhVvL9dpEujRBA4=";
       };

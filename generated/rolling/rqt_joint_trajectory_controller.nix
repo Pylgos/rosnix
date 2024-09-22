@@ -2,6 +2,7 @@
   buildRosPackage,
   control_msgs,
   controller_manager_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     rqt_joint_trajectory_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_joint_trajectory_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "afcaec27e679f8b7dc1993ad3e18ebae648ccac3";
         hash = "sha256-WHjx7AHFEsSAXQPROHhOsI4tnNe5jhRk3V4VBbRJ1bU=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   diagnostic_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     septentrio_gnss_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "septentrio_gnss_driver-source";
-        url = "https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "septentrio_gnss_driver_ros2-release";
         rev = "eb96ef59eedf47dc809ec590f844586bfdf67b21";
         hash = "sha256-0hF2yHegysVB6UW1kJ6htFYxwG5CX3O5uEtfuVT7LYg=";
       };

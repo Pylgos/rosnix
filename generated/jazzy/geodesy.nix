@@ -2,6 +2,7 @@
   ament_cmake,
   angles,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     geodesy = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "geodesy-source";
-        url = "https://github.com/ros2-gbp/geographic_info-release.git";
+        owner = "ros2-gbp";
+        repo = "geographic_info-release";
         rev = "babebedcfcb762f050b6dc334b93f4c55acb2714";
         hash = "sha256-+iSI/nF1U9zJNt1tRwph3J72AI6GDwamBRol2QrwTUY=";
       };

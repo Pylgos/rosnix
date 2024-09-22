@@ -5,6 +5,7 @@
   ament_cmake_test,
   ament_mypy,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ament_cmake_mypy = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_cmake_mypy-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "91810f41709319202fbfcff3e05e295b6f1962af";
         hash = "sha256-HW+csb772XRl3wyN41cpciuG2mw8Jbek4OMYsrY2hVc=";
       };

@@ -5,6 +5,7 @@
   buildRosPackage,
   camera_calibration_parsers,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     image_view = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "image_view-source";
-        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
+        owner = "ros2-gbp";
+        repo = "image_pipeline-release";
         rev = "2049956d3bbfed4d14d56532559e32249c64a0d9";
         hash = "sha256-okCd9ccOwjYIEIp94aWGUAGzHKPoZhOonMVV5nVek7g=";
       };

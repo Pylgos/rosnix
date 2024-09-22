@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     ompl = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ompl-source";
-        url = "https://github.com/ros2-gbp/ompl-release.git";
+        owner = "ros2-gbp";
+        repo = "ompl-release";
         rev = "fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd";
         hash = "sha256-Dst2FtQsK0+EzvSm7GEESWOU8QfMPzhSNNYEIlTNfc0=";
       };

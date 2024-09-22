@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     moveit_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_msgs-source";
-        url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit_msgs-release";
         rev = "1225bd68c7aaae83a9d763303e0b2ac909b3062a";
         hash = "sha256-xpAnqhbeUYf85S2GbiQw9gxJsrS6zLTPMNFaUetjRtY=";
       };

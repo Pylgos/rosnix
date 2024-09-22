@@ -1,6 +1,7 @@
 {
   ament_copyright,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     generate_parameter_library_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "generate_parameter_library_py-source";
-        url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
+        owner = "ros2-gbp";
+        repo = "generate_parameter_library-release";
         rev = "2daa59544a87b3efa82707b77b996214e43fe259";
         hash = "sha256-YBWzYIIwR1Lla1+nuymfR73est+/pRbnkswPjPA5iOM=";
       };

@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     gc_spl = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gc_spl-source";
-        url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
+        owner = "ros2-gbp";
+        repo = "game_controller_spl-release";
         rev = "348df86f0c57eea9c7b2f5f7d9f9dc381beb9efa";
         hash = "sha256-kZmdkalxnRdGGdrKhvxICSX3XNubLGW9lgzSf1zTjys=";
       };

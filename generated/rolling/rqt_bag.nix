@@ -1,6 +1,7 @@
 {
   ament_copyright,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     rqt_bag = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_bag-source";
-        url = "https://github.com/ros2-gbp/rqt_bag-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt_bag-release";
         rev = "73910e523cbb261fbdaf6550ffc2fac17f7db735";
         hash = "sha256-t6qqtyCqhPaF9v+PG6v4Xjvj85FWEchyttw8s07Yp9w=";
       };

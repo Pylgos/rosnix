@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     imu_pipeline = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "imu_pipeline-source";
-        url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
+        owner = "ros2-gbp";
+        repo = "imu_pipeline-release";
         rev = "97bb02692bfea574dd283391bd56ec611cd8fd70";
         hash = "sha256-dJGjG62iCrupov3xWznx6yfooP5Q5w6rg7pfsX1P9x0=";
       };

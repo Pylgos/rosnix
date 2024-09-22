@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   fastcdr,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,

@@ -4,6 +4,7 @@
   ament_cmake,
   ament_cmake_python,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     simple_actions = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "simple_actions-source";
-        url = "https://github.com/ros2-gbp/simple_actions-release.git";
+        owner = "ros2-gbp";
+        repo = "simple_actions-release";
         rev = "dd41ab8acc4fe0dfbb8f16305dcd4b8f21e64b11";
         hash = "sha256-BC5T9iKxbIolH0TXwEUcRhXO0b9xjFOdnM4+le2X27Q=";
       };

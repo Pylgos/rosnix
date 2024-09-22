@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     tlsf = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tlsf-source";
-        url = "https://github.com/ros2-gbp/tlsf-release.git";
+        owner = "ros2-gbp";
+        repo = "tlsf-release";
         rev = "e5404343cc186e3237c2bae081bcc270af9eab45";
         hash = "sha256-y3cjlV+RU4Go9bap7m+OMAdNUie5Z4IAVrrp7tyyBpw=";
       };

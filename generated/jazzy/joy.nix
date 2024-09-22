@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     joy = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "joy-source";
-        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "joystick_drivers-release";
         rev = "67a9a49bc8f5af4f3bb4631169fb4364ec3bbb42";
         hash = "sha256-D1K9/q5C0I7lztfZMomXMVDmBUV0UKvl2iNljHx2pPY=";
       };

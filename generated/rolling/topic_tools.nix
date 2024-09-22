@@ -5,6 +5,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     topic_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "topic_tools-source";
-        url = "https://github.com/ros2-gbp/topic_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "topic_tools-release";
         rev = "ae0033edc0dcb78bfd44bd0c93a55698a85b7c14";
         hash = "sha256-xfICiOdj7/BpaEsO/ab+Z06sHcIqvCXBgHkor4ZF1gg=";
       };

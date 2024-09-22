@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     iceoryx_posh = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "iceoryx_posh-source";
-        url = "https://github.com/ros2-gbp/iceoryx-release.git";
+        owner = "ros2-gbp";
+        repo = "iceoryx-release";
         rev = "9b8d8e7f7fa37a5e54a1a9efb34970862fe63229";
         hash = "sha256-6VuZh+ArFljLw8Bw7qp7V7J5VAGvxF2WtzfcaOeFIfQ=";
       };

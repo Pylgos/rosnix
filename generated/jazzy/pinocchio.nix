@@ -1,6 +1,7 @@
 {
   buildRosPackage,
   eigenpy,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,

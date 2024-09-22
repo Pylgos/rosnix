@@ -5,6 +5,7 @@
   ament_cmake_test,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ament_cmake_pep257 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_cmake_pep257-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "40b1b4c51594bcf1c6c8f8c0f474a82c54b97f53";
         hash = "sha256-in+iqj1UTK212wYc0si77fA4eJPZD7m+y29Q5vVqGo0=";
       };

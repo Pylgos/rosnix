@@ -2,6 +2,7 @@
   ament_cmake,
   ament_index_cpp,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@ let
       ];
     };
     rig_reconfigure-vendor_source-imgui-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rig_reconfigure-vendor_source-imgui-0-source";
-        url = "https://github.com/ocornut/imgui.git";
+        owner = "ocornut";
+        repo = "imgui";
         rev = "f8704cd085c4347f835c21dc12a3951924143872";
         hash = "sha256-eY8lRsonPfDRTMCPhInT9rQ6lSaJPsXpkh428OKpTnA=";
       };

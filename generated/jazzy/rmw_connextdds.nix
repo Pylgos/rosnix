@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rmw_connextdds = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmw_connextdds-source";
-        url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
+        owner = "ros2-gbp";
+        repo = "rmw_connextdds-release";
         rev = "c66b73f5ee1d30f38d77a8c9ce854754bd56ff1f";
         hash = "sha256-Jrjpk82Ee3GTqvyLSRQt/mMnMAxxBxQkcV27miew8cM=";
       };

@@ -5,6 +5,7 @@
   buildRosPackage,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     range_sensor_broadcaster = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "range_sensor_broadcaster-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "8908382d49b8556271e1992fbf3d0b37b244eabd";
         hash = "sha256-HbIL4I9z9CKhFWx9VgE7MoLXp4dvB9Lmra1rSzCHAt4=";
       };

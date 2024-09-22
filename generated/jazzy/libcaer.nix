@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     libcaer = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libcaer-source";
-        url = "https://github.com/ros2-gbp/libcaer-release.git";
+        owner = "ros2-gbp";
+        repo = "libcaer-release";
         rev = "3606412f5d392f2c3103b6d09d5f8d2b146dbcb2";
         hash = "sha256-dwttE1L2vvosLFP5cMWaZTptd7PcE7Cb6Znyo9FB22o=";
       };

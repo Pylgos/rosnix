@@ -2,6 +2,7 @@
   ament_cmake_ros,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rclc_examples = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rclc_examples-source";
-        url = "https://github.com/ros2-gbp/rclc-release.git";
+        owner = "ros2-gbp";
+        repo = "rclc-release";
         rev = "c337bef2b8518d838a103f525de33bab614c50ab";
         hash = "sha256-oGcnLCr8skjywWIh93EYKzbeJaXxJpnHiJB2rbxQjSI=";
       };

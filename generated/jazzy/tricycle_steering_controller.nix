@@ -6,6 +6,7 @@
   control_msgs,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     tricycle_steering_controller = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tricycle_steering_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "4d785d9e1cdd773ee0525781e007cf76e8b347e6";
         hash = "sha256-qg+pwE6uXx2gOX2Q4hk4pkZ8b1Q319ssPIXcm1Qacjo=";
       };

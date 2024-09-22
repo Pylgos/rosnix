@@ -2,6 +2,7 @@
   ament_lint_auto,
   buildRosPackage,
   canopen_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     canopen_utils = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "canopen_utils-source";
-        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_canopen-release";
         rev = "181beef157c2ca0a620517759160ed38a96b752b";
         hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
       };

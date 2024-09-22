@@ -8,6 +8,7 @@
   camera_info_manager,
   class_loader,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     gscam = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gscam-source";
-        url = "https://github.com/ros2-gbp/gscam-release.git";
+        owner = "ros2-gbp";
+        repo = "gscam-release";
         rev = "e8c1c1524a3a80ab89425305ce63f338fdb0f0a5";
         hash = "sha256-CKQzdZxZ6OZeWkirhmcrfJhb0hNN0vSimKIRHSUDT3k=";
       };

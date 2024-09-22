@@ -7,6 +7,7 @@
   control_msgs,
   controller_interface,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,9 +31,10 @@
 let
   sources = rec {
     steering_controllers_library = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "steering_controllers_library-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "aba1f32c0f21f221e2e132e247166fb55ac1811f";
         hash = "sha256-V3qCThykszaekeQgWNloyxAkNP7Ss1d3GL8ZpFck2ig=";
       };

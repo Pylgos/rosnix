@@ -9,6 +9,7 @@
   ecl_formatters,
   ecl_geometry,
   ecl_license,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     ecl_manipulators = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_manipulators-source";
-        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_core-release";
         rev = "fc7cd14e6eb5aae61165e3c575bbc66553519a91";
         hash = "sha256-O2B7UtubuHvctssWyG6E5OwnApjjdWF+m62+6Da9Qy4=";
       };

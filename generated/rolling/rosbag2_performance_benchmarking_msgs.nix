@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rosbag2_performance_benchmarking_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosbag2_performance_benchmarking_msgs-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "480c579948bca20427e1b0c4dc5fb249c0342b84";
         hash = "sha256-HQI37fLB/tAg9E4dbahXHiYVoWMsGTnDMpm7khDz5Cs=";
       };

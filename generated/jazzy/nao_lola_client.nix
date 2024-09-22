@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     nao_lola_client = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nao_lola_client-source";
-        url = "https://github.com/ros2-gbp/nao_lola-release.git";
+        owner = "ros2-gbp";
+        repo = "nao_lola-release";
         rev = "c81a45165ab9fa279a5a60509cf97db5c2a31b15";
         hash = "sha256-EC4It9qdpgQxnpVxErStgFzOy5Uq4NCqJ4mbwm4CWjk=";
       };

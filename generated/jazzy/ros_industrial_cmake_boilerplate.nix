@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     ros_industrial_cmake_boilerplate = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros_industrial_cmake_boilerplate-source";
-        url = "https://github.com/ros2-gbp/ros_industrial_cmake_boilerplate-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_industrial_cmake_boilerplate-release";
         rev = "09c03bebd52e95c6f5f92dc7dbe5071039b220fd";
         hash = "sha256-yxsr0rMyvBYeoeMkhnWs1wSUR+qmZ66S/z9WOpMtRwk=";
       };

@@ -3,6 +3,7 @@
   ament_cmake_clang_format,
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     snowbot_operating_system = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "snowbot_operating_system-source";
-        url = "https://github.com/ros2-gbp/snowbot_release.git";
+        owner = "ros2-gbp";
+        repo = "snowbot_release";
         rev = "cc969e3a6ae8b55e35a55cc08be7045d805c037a";
         hash = "sha256-jsc6W+E4XVtTLGd+ZSn45ChfZmV6/c9nUg1FpqA6d8s=";
       };

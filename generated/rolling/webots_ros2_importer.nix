@@ -2,6 +2,7 @@
   ament_copyright,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     webots_ros2_importer = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "webots_ros2_importer-source";
-        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "webots_ros2-release";
         rev = "01b3ce07bc8aebfa3c652bdce6277e0a8aa8a453";
         hash = "sha256-0BjkWBfT9UijOpEXMxJlQSl5ecFhKxV3II4hqj3MLsY=";
       };

@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     examples_rclcpp_minimal_composition = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "examples_rclcpp_minimal_composition-source";
-        url = "https://github.com/ros2-gbp/examples-release.git";
+        owner = "ros2-gbp";
+        repo = "examples-release";
         rev = "57e117a6f3abab42731451a1caf69efe7406e5bb";
         hash = "sha256-8PFSuIsF6vGmJAw1abfN/iDCDDPbqeekh6otF+tXZFs=";
       };

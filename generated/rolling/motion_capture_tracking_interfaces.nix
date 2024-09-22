@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     motion_capture_tracking_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "motion_capture_tracking_interfaces-source";
-        url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
+        owner = "ros2-gbp";
+        repo = "motion_capture_tracking-release";
         rev = "a9b72a5a549beb50b53da5959a19bc658d535966";
         hash = "sha256-ho+25GyuWOKXqZqIp74ZO8leEndRFRqfn74DBKWKZWk=";
       };

@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     rosbag2_compression_zstd = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosbag2_compression_zstd-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "9d14f78b0ed6233e47e8ca1acd084b12dc17ed61";
         hash = "sha256-UyYc3zLUUp4niOHyRKSncWXklNwx1GmUadYAj+cdBz0=";
       };

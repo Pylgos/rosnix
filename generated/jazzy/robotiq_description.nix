@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     robotiq_description = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "robotiq_description-source";
-        url = "https://github.com/ros2-gbp/ros2_robotiq_gripper-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_robotiq_gripper-release";
         rev = "4131e61c1f07d1e4deeef87ac2f4da3a8e2e6637";
         hash = "sha256-CO6k93lrA+H92beTQuG1tnfMsO99+vpYtYXmfABHcr4=";
       };

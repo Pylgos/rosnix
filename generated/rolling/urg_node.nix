@@ -5,6 +5,7 @@
   buildRosPackage,
   builtin_interfaces,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     urg_node = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "urg_node-source";
-        url = "https://github.com/ros2-gbp/urg_node-release.git";
+        owner = "ros2-gbp";
+        repo = "urg_node-release";
         rev = "ebab3358cbd4ace0a537f30cdc416dcd738e5837";
         hash = "sha256-hz6upepfbgI1ToUr7XupzHvWBA7oKZk4QZTKCZwbMRI=";
       };

@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     nicla_vision_ros2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nicla_vision_ros2-source";
-        url = "https://github.com/ros2-gbp/nicla_vision_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "nicla_vision_ros2-release";
         rev = "b33eddec43e1c091d1fa1ba7e2f472af3c16a049";
         hash = "sha256-kbqf497KvUCBEGGx97IAV0I88+cAqKYb5ADFrvcO9hE=";
       };

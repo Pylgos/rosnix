@@ -3,6 +3,7 @@
   bond,
   bondcpp,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     bond_core = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "bond_core-source";
-        url = "https://github.com/ros2-gbp/bond_core-release.git";
+        owner = "ros2-gbp";
+        repo = "bond_core-release";
         rev = "37dcfcd24735776aa874b749575f1c6ebd5787ff";
         hash = "sha256-pieGbpeYdGAOAULspCbQLtOYRAMogAi8zxZoMZkCNJI=";
       };

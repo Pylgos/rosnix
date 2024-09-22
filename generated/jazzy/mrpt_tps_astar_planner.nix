@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@
 let
   sources = rec {
     mrpt_tps_astar_planner = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_tps_astar_planner-source";
-        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_navigation-release";
         rev = "b09edea0b49ea8041bf8c08c00005c344a7a80b4";
         hash = "sha256-5N/hVvzeLGczcCLvs7ltfxgWB9LOJeBflxVyxLQWKAg=";
       };

@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     python_qt_binding = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "python_qt_binding-source";
-        url = "https://github.com/ros2-gbp/python_qt_binding-release.git";
+        owner = "ros2-gbp";
+        repo = "python_qt_binding-release";
         rev = "7f687ab903a3513f6deda9b43e67b1a0edbeb97f";
         hash = "sha256-DtKuJ821tUUjTjVfhszlBKW/kLLCVB2j9VL8oF37kJo=";
       };

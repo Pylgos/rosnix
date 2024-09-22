@@ -7,6 +7,7 @@
   ecl_build,
   ecl_license,
   ecl_type_traits,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     ecl_math = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_math-source";
-        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_core-release";
         rev = "4ff20015db01acaf2b366358d93b2f42da48e406";
         hash = "sha256-FJevrMf2MxF+heenjke0paV5yAvePcxmHcEW7Is+Pmc=";
       };

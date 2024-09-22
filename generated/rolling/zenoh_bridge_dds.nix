@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     zenoh_bridge_dds = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "zenoh_bridge_dds-source";
-        url = "https://github.com/ros2-gbp/zenoh_bridge_dds-release.git";
+        owner = "ros2-gbp";
+        repo = "zenoh_bridge_dds-release";
         rev = "ae9f3eba9d4ad512dc69d75605e4e046d0617b92";
         hash = "sha256-f7l+qyV5vSYtTVBV57bVQUV49odL51NPVkvmo00gimY=";
       };

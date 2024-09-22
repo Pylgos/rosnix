@@ -1,6 +1,7 @@
 {
   ament_cmake_pytest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rmf_fleet_adapter_python = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_fleet_adapter_python-source";
-        url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_ros2-release";
         rev = "a304c5813ef79237ee0996be9c5aee5fa9e1c1dc";
         hash = "sha256-IrWspRQCLirNJ7Y1cLy3uzuvENbHmiLgfUNF4nwsRxw=";
       };

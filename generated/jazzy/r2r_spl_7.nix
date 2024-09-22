@@ -3,6 +3,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     r2r_spl_7 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "r2r_spl_7-source";
-        url = "https://github.com/ros2-gbp/r2r_spl-release.git";
+        owner = "ros2-gbp";
+        repo = "r2r_spl-release";
         rev = "f7a4640e5235a1993aa0a8033747b281187f0f46";
         hash = "sha256-KqN+JK6GIZritk8/5cBigl1cu2sdMFz9nP3mrSQOsro=";
       };

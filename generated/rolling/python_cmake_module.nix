@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     python_cmake_module = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "python_cmake_module-source";
-        url = "https://github.com/ros2-gbp/python_cmake_module-release.git";
+        owner = "ros2-gbp";
+        repo = "python_cmake_module-release";
         rev = "2dd3d5dc5598d3993859a3131e55708310ee8fa5";
         hash = "sha256-hGj3MhMdxu3gXrz77GuQ4xIf4eBEv4/MR1NsXvZXEMU=";
       };

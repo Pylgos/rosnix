@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     actuator_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "actuator_msgs-source";
-        url = "https://github.com/ros2-gbp/actuator_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "actuator_msgs-release";
         rev = "5b3260652e5c325a328b021361985c4ef8b508f8";
         hash = "sha256-euXTvPVaV7xPFXP/lH9jg2S87V9DyFmp1EwJVlF7AVs=";
       };

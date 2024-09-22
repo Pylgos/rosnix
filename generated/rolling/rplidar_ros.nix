@@ -2,6 +2,7 @@
   ament_cmake_auto,
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     rplidar_ros = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rplidar_ros-source";
-        url = "https://github.com/ros2-gbp/rplidar_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "rplidar_ros-release";
         rev = "025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6";
         hash = "sha256-lOiYrTggsDiQb9sCYtWAup4+kVoMnpSYqKqWGtnb2AU=";
       };

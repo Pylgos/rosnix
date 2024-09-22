@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     rmf_api_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_api_msgs-source";
-        url = "https://github.com/ros2-gbp/rmf_api_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_api_msgs-release";
         rev = "4418fc3b6cdc5ba308fae642fe43f33cf4953585";
         hash = "sha256-Ak1dhux0ba8ujWuk1C3DYnT66cMNOm8TpfQXwo3I/BQ=";
       };

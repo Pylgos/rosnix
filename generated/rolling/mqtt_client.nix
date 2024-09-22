@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     mqtt_client = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mqtt_client-source";
-        url = "https://github.com/ros2-gbp/mqtt_client-release.git";
+        owner = "ros2-gbp";
+        repo = "mqtt_client-release";
         rev = "34964f34dae7ee98f8693d8f87142678b11e3763";
         hash = "sha256-6PiP7jY7cdK3oodJirtS2kLQUyqVVn1Jp3eY8StfXls=";
       };

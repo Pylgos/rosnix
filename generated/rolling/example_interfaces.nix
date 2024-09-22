@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     example_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "example_interfaces-source";
-        url = "https://github.com/ros2-gbp/example_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "example_interfaces-release";
         rev = "368ac34d464d3bf9a41f0ba57b4e620015ee41fe";
         hash = "sha256-ml5g868RTSdeF+Sf56Ed0C3LWMU+G7I+cnQY3Jc83Bc=";
       };

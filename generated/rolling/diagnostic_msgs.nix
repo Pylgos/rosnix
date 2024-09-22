@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     diagnostic_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "diagnostic_msgs-source";
-        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "common_interfaces-release";
         rev = "7154fea364cabc46edd39c64261c39eeb9807394";
         hash = "sha256-o2VBY/NTRC11cnudQYMtrOY6gtYm7OHndBRG+MXBxdk=";
       };

@@ -3,6 +3,7 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     kobuki_ros_interfaces = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "kobuki_ros_interfaces-source";
-        url = "https://github.com/ros2-gbp/kobuki_ros_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "kobuki_ros_interfaces-release";
         rev = "9820a7d8eccd0f20c0fe747a6140d60bd782419a";
         hash = "sha256-svbQG6e1o4u1HncdcNcx55XoYK99I02G7CxL2jvBZhs=";
       };

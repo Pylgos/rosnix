@@ -4,6 +4,7 @@
   ament_pep257,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     rosbag2_examples_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosbag2_examples_py-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "abb1148658689d3084410fab326b3a7e9226e8aa";
         hash = "sha256-gbsmLKyygTEyDTCQ3LVP4wDvwEOhuHvsKzH+QYIgxE0=";
       };

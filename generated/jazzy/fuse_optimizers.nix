@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     fuse_optimizers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "fuse_optimizers-source";
-        url = "https://github.com/ros2-gbp/fuse-release.git";
+        owner = "ros2-gbp";
+        repo = "fuse-release";
         rev = "cfabad7a430ea1c75b98f294edddf5dd4679e1c6";
         hash = "sha256-dabQsl6P+3hhZYHysGHSSw3bSnbLe+0tgaMNcYyu6kY=";
       };

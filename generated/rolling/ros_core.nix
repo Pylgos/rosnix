@@ -12,6 +12,7 @@
   buildRosPackage,
   class_loader,
   common_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -41,9 +42,10 @@
 let
   sources = rec {
     ros_core = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros_core-source";
-        url = "https://github.com/ros2-gbp/variants-release.git";
+        owner = "ros2-gbp";
+        repo = "variants-release";
         rev = "07e04aebe2d9c503354451e157fcf0d653629b79";
         hash = "sha256-kDPxLgU8jx1J5KfLiQqBhPR9zuKlluBb1whA8WDCOjA=";
       };

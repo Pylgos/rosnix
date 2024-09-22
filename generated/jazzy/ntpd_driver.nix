@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     ntpd_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ntpd_driver-source";
-        url = "https://github.com/ros2-gbp/ntpd_driver-release.git";
+        owner = "ros2-gbp";
+        repo = "ntpd_driver-release";
         rev = "88930151cfd996362a02a17d50c6a727638abe2e";
         hash = "sha256-Y3hISLK0EHzcJD4MrfgxDdmYH+cpgQTjbH3DCmbd0VE=";
       };

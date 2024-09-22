@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     tf2_2d = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tf2_2d-source";
-        url = "https://github.com/ros2-gbp/tf2_2d-release.git";
+        owner = "ros2-gbp";
+        repo = "tf2_2d-release";
         rev = "b51411b00ce51735ebf5fca39ff90ffea39e6b78";
         hash = "sha256-4ty09wIhIUq3vI2s5th/54iRL5jTzcYeDumtwzLqeVk=";
       };

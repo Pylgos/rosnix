@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   dynamixel_workbench_toolbox,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     dynamixel_hardware = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dynamixel_hardware-source";
-        url = "https://github.com/ros2-gbp/dynamixel_hardware-release.git";
+        owner = "ros2-gbp";
+        repo = "dynamixel_hardware-release";
         rev = "920e17e4d38efca9a8fbc4952b855329b5c7dc90";
         hash = "sha256-CEnfVPi1CXKkJd41iBsJmHPwREpT0tSHXFUPerJIH2Q=";
       };

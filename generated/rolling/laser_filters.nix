@@ -3,6 +3,7 @@
   ament_cmake_gtest,
   angles,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     laser_filters = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "laser_filters-source";
-        url = "https://github.com/ros2-gbp/laser_filters-release.git";
+        owner = "ros2-gbp";
+        repo = "laser_filters-release";
         rev = "6ad8d2b8f63eb700eda85dc14dbd49cbf12e3c69";
         hash = "sha256-ruSsWz10XSElakzxzN1wQp+rS0CVAcaNHQpoVnP0f3k=";
       };

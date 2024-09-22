@@ -4,6 +4,7 @@
   backward_ros,
   buildRosPackage,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     velocity_controllers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "velocity_controllers-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_controllers-release";
         rev = "a9636cd4a75bc98ac3ea53438ee5fd66e8a2ff61";
         hash = "sha256-PWviUVk+O8BPR1IjaQ7q0K8dZueuBJMGfPjJuuh2ohg=";
       };

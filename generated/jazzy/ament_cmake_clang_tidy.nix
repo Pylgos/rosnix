@@ -5,6 +5,7 @@
   ament_cmake_lint_cmake,
   ament_cmake_test,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     ament_cmake_clang_tidy = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_cmake_clang_tidy-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "562390b923d85145a6adf9531e3a9f3a9e2422a4";
         hash = "sha256-4ZgjaZqJQsEHsalfHbssmhm/5Hx+sM1L+BWEMkKOds4=";
       };

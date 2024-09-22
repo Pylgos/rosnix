@@ -2,6 +2,7 @@
   ament_cmake,
   backward_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     moveit_common = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_common-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "f940ec341fab3a1a9e1134ef6765630ee5b2d4b1";
         hash = "sha256-+nYHvpEkbnYH7o6lx4IhWXvErGHpMSME97pdidmL7wA=";
       };

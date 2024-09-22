@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     ur_client_library = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ur_client_library-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git";
+        owner = "ros2-gbp";
+        repo = "Universal_Robots_Client_Library-release";
         rev = "bcd805cacc6073aab0d87c5f56f113f3ba8add04";
         hash = "sha256-AGri1LrjEomT9pPJAVN53G3Zf0W2GNqlCIgLZt9Odns=";
       };

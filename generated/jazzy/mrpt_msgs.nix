@@ -6,6 +6,7 @@
   ament_lint_cmake,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     mrpt_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_msgs-source";
-        url = "https://github.com/ros2-gbp/mrpt_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_msgs-release";
         rev = "58cee178b86be2e6a62b1c4895603c4d10a3939a";
         hash = "sha256-aWWfgmGZaX5Hai0iTV9oUl1V2Gz9/csFD9tIVQdlPRE=";
       };

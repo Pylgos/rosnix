@@ -7,6 +7,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     rosbag2_storage_mcap = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosbag2_storage_mcap-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "b5c88ecb4a741c44d467d791b76beabe13646055";
         hash = "sha256-LDI62PpmzQh2d5/irOMb87UNPlUY6GCqT2cDjTisKIc=";
       };

@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     irobot_create_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "irobot_create_msgs-source";
-        url = "https://github.com/ros2-gbp/irobot_create_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "irobot_create_msgs-release";
         rev = "5ac32905f3854223c196b2628c64620836ef8ad8";
         hash = "sha256-PR6lexKHVIKf1ekKgeKoIhj871YNUAWV7d8dh5tKY+8=";
       };

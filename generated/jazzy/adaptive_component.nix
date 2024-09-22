@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     adaptive_component = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "adaptive_component-source";
-        url = "https://github.com/ros2-gbp/adaptive_component-release.git";
+        owner = "ros2-gbp";
+        repo = "adaptive_component-release";
         rev = "d9dd18ab639552e3a078a7ee900a99583d7368b7";
         hash = "sha256-W7/vGlSCfAW+RH7nsv4Po+MFZLDvwzuq/iSATbF9jaQ=";
       };

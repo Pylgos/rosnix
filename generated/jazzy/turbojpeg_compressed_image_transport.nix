@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     turbojpeg_compressed_image_transport = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "turbojpeg_compressed_image_transport-source";
-        url = "https://github.com/ros2-gbp/turbojpeg_compressed_image_transport-release.git";
+        owner = "ros2-gbp";
+        repo = "turbojpeg_compressed_image_transport-release";
         rev = "b06c8c2136a8797b7d8136c1e2eada128cb6dc1d";
         hash = "sha256-290O2WlZeS1IA0hOWZ0GYuYv0yt8SkAIxoz+P3YiVi8=";
       };

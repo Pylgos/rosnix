@@ -2,6 +2,7 @@
   ament_cmake_ros,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,9 +26,10 @@
 let
   sources = rec {
     rtabmap_slam = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rtabmap_slam-source";
-        url = "https://github.com/introlab/rtabmap_ros-release.git";
+        owner = "introlab";
+        repo = "rtabmap_ros-release";
         rev = "271d7374296cfcd4362c66996515bb0554a5c846";
         hash = "sha256-nM9+z9mrpkCrnnJSVLJUYIuweXDJspZHX8o0EmZCrvU=";
       };

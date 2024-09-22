@@ -1,6 +1,7 @@
 {
   ament_cmake_core,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     lanelet2_projection = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "lanelet2_projection-source";
-        url = "https://github.com/ros2-gbp/lanelet2-release.git";
+        owner = "ros2-gbp";
+        repo = "lanelet2-release";
         rev = "fff72d3814a62cd10db6c93defe2dc00cadac50b";
         hash = "sha256-o4Gx/d7ijKvebHUq8BO78HeTfCKTIkE1raVOjESdhR4=";
       };

@@ -12,6 +12,7 @@
   buildRosPackage,
   camera_info_manager,
   event_camera_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     libcaer_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libcaer_driver-source";
-        url = "https://github.com/ros2-gbp/libcaer_driver-release.git";
+        owner = "ros2-gbp";
+        repo = "libcaer_driver-release";
         rev = "56e4267b26ea29a0cf9724b87f5959723354a895";
         hash = "sha256-RkhPG89kIKkm8AePQkzjAzAZ012RtBVSK2AQZwKYHTQ=";
       };

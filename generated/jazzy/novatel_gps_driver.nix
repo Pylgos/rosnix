@@ -6,6 +6,7 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,9 +28,10 @@
 let
   sources = rec {
     novatel_gps_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "novatel_gps_driver-source";
-        url = "https://github.com/ros2-gbp/novatel_gps_driver-release.git";
+        owner = "ros2-gbp";
+        repo = "novatel_gps_driver-release";
         rev = "7580e71bbf15956d6866097fe57b8760dd838974";
         hash = "sha256-ySTUo1pz5bUi9Fxugmpv6utH9hUGIyQlng4HHGc08C0=";
       };

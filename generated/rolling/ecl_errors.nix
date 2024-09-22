@@ -4,6 +4,7 @@
   ecl_build,
   ecl_config,
   ecl_license,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     ecl_errors = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ecl_errors-source";
-        url = "https://github.com/ros2-gbp/ecl_lite-release.git";
+        owner = "ros2-gbp";
+        repo = "ecl_lite-release";
         rev = "5a23e831f2c3b763d31cec43181e94b67713142c";
         hash = "sha256-tMZvRB3bre8Dk+0YS+OqnkCGKff09J6PKWHytWxelmk=";
       };

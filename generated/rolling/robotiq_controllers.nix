@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   controller_interface,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     robotiq_controllers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "robotiq_controllers-source";
-        url = "https://github.com/ros2-gbp/ros2_robotiq_gripper-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_robotiq_gripper-release";
         rev = "0d7e56423ce92d510911df6678f4ac0bb93173c2";
         hash = "sha256-JhCCmqa9agEkqVO3vJ372AV/ZDF6zTNZta6YYwe29Y8=";
       };

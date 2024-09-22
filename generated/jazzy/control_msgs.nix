@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     control_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "control_msgs-source";
-        url = "https://github.com/ros2-gbp/control_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "control_msgs-release";
         rev = "5dbea9d4a6f9d131e7449cd67483fc2d4e69c6f4";
         hash = "sha256-URQCB0GxwGeBx7qDLvfeBxUHDgifVGWnImV68kDRCws=";
       };

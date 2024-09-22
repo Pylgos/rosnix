@@ -6,6 +6,7 @@
   buildRosPackage,
   camera_calibration,
   depth_image_proc,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     image_pipeline = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "image_pipeline-source";
-        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
+        owner = "ros2-gbp";
+        repo = "image_pipeline-release";
         rev = "fed0f986ecf229e5961d95e9be8148741c660fd6";
         hash = "sha256-q7y9egqF5xBObw7jvwqGh35FMQpjwTZtKSwROubyats=";
       };

@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_gtest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     moveit_ros_move_group = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "moveit_ros_move_group-source";
-        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        owner = "ros2-gbp";
+        repo = "moveit2-release";
         rev = "1ccea2726e203bc1cd13f79f0af74f4775a12727";
         hash = "sha256-ojnDFjRlABmP5WrWGQY2cJBLNCdncMPK1to3IcphMrA=";
       };

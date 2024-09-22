@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     nmea_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nmea_msgs-source";
-        url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "nmea_msgs-release";
         rev = "b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac";
         hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
       };

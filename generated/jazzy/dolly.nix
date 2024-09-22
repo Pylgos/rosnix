@@ -6,6 +6,7 @@
   dolly_follow,
   dolly_gazebo,
   dolly_ignition,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     dolly = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dolly-source";
-        url = "https://github.com/ros2-gbp/dolly-release.git";
+        owner = "ros2-gbp";
+        repo = "dolly-release";
         rev = "5d847c8aa319f738c369490da961e87b5e408508";
         hash = "sha256-1ugxemjgNM3QtSsQ64TCZHu8J9gYPS5Qh2s6VRBTiFA=";
       };

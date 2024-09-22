@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     rmf_visualization_fleet_states = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_visualization_fleet_states-source";
-        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_visualization-release";
         rev = "9946b5947d41a77654c9740630532215f888f8ea";
         hash = "sha256-/OUN3LLuQOV7jZ7wDvSaySMVfCHoeErt7GxHZdSUd9c=";
       };

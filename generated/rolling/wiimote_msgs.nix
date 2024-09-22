@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     wiimote_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "wiimote_msgs-source";
-        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "joystick_drivers-release";
         rev = "ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897";
         hash = "sha256-CTizMiNOKAwVd/bOq8yB5s7j00cvCsHVQotPLLXwrhI=";
       };

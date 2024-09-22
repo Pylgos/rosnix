@@ -7,6 +7,7 @@
   ament_cmake_uncrustify,
   ament_cmake_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     point_cloud_transport_tutorial = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "point_cloud_transport_tutorial-source";
-        url = "https://github.com/ros2-gbp/point_cloud_transport_tutorial-release.git";
+        owner = "ros2-gbp";
+        repo = "point_cloud_transport_tutorial-release";
         rev = "7f7173dd8ea3516976e9a5bf05228b3eb923c523";
         hash = "sha256-buQXTqTqhIZJ68B+sbZ3lVovLVRVKBrL7yCCoQygSc8=";
       };

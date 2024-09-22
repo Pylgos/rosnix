@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     mrpt_libmaps = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_libmaps-source";
-        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_ros-release";
         rev = "0d7f4f5d274985c0964329898df30a3ef8ce5760";
         hash = "sha256-8/VCUFdJ6kmFgFPFOtf0UtNMMzfEZ4QG0kKCtHWXvIg=";
       };

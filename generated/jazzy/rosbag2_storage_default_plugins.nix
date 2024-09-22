@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     rosbag2_storage_default_plugins = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosbag2_storage_default_plugins-source";
-        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        owner = "ros2-gbp";
+        repo = "rosbag2-release";
         rev = "1e8eb2f639127893c55969503cb78f8a87e936b2";
         hash = "sha256-mUgUhkghfgP6hYD4lw2A4EL5yrM+nC2R+CbbX8AE8IA=";
       };

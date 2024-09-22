@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     event_camera_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "event_camera_msgs-source";
-        url = "https://github.com/ros2-gbp/event_camera_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "event_camera_msgs-release";
         rev = "3b6c787c53375507d0c470b3b9d06ab4785d444e";
         hash = "sha256-eSVTxQf3iPYpb2cQQHGiBixNwRVKCsDQ9qfGRKzk6vI=";
       };

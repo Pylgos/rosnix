@@ -9,6 +9,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     pointcloud_to_laserscan = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "pointcloud_to_laserscan-source";
-        url = "https://github.com/ros2-gbp/pointcloud_to_laserscan-release.git";
+        owner = "ros2-gbp";
+        repo = "pointcloud_to_laserscan-release";
         rev = "d19872adb793dfa32827e6e782be47947070a30a";
         hash = "sha256-qr3WavBoAsGaLii5dCMmNk764fMGdISwf7EAd5q14MQ=";
       };

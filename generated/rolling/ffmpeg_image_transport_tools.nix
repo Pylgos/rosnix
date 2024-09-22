@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     ffmpeg_image_transport_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ffmpeg_image_transport_tools-source";
-        url = "https://github.com/ros2-gbp/ffmpeg_image_transport_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "ffmpeg_image_transport_tools-release";
         rev = "979862f31a931e214c647e2c9ab38757d99807dd";
         hash = "sha256-swXtnWDcYMHi4NZTdTTgmdmj5yWFc7cyTm/393iJ1aA=";
       };

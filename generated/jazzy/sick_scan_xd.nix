@@ -5,6 +5,7 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     sick_scan_xd = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sick_scan_xd-source";
-        url = "https://github.com/ros2-gbp/sick_scan_xd-release.git";
+        owner = "ros2-gbp";
+        repo = "sick_scan_xd-release";
         rev = "57b8181c28f123fc94e5d534130a66a291638dd1";
         hash = "sha256-OpGqhZHuRFU+3mBBBUkZLbQQntgFz5VerY96kBS4O7U=";
       };

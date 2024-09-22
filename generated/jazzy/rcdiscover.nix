@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     rcdiscover = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rcdiscover-source";
-        url = "https://github.com/ros2-gbp/rcdiscover-release.git";
+        owner = "ros2-gbp";
+        repo = "rcdiscover-release";
         rev = "f1d160f25f0eca51cf73316956d15bef7df6bcce";
         hash = "sha256-leXJVw7Yx8SeMv0jUFtQmpFCpDaJkvd7U6AqjpdLEOE=";
       };

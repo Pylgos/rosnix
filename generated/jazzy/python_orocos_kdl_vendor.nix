@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     python_orocos_kdl_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "python_orocos_kdl_vendor-source";
-        url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "orocos_kdl_vendor-release";
         rev = "d1d43bdb1c1352d9e431c857e7bc6537c2ff680b";
         hash = "sha256-vl1eKkJp/P4mQsOWDBIWnCOpp/m2LB18yxZI9GWgaYY=";
       };

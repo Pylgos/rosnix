@@ -3,6 +3,7 @@
   ament_cmake_copyright,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     warehouse_ros = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "warehouse_ros-source";
-        url = "https://github.com/ros2-gbp/warehouse_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "warehouse_ros-release";
         rev = "bf9c959640a5ea9429eb8373608127fcf8c63981";
         hash = "sha256-X45/qATzogkTqKBnEvt1wH7hKl9/qSTTVboEsAuL/Es=";
       };

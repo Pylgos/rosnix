@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     mola_input_paris_luco_dataset = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola_input_paris_luco_dataset-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "f33135c3d5eac48bd2b00966a0806dd8c3f259af";
         hash = "sha256-D7wGGKbgSY+ViPgwJcdvFFuPoulp9Go53BhnqMR7p+w=";
       };

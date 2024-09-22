@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     kinematics_interface = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "kinematics_interface-source";
-        url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
+        owner = "ros2-gbp";
+        repo = "kinematics_interface-release";
         rev = "abc2ffaf360bde2bca52225ba766fdb598b1af71";
         hash = "sha256-NIcnxxLBdixzZQeXN0f2g03lIQQMoKqYrwTiwVagNSE=";
       };

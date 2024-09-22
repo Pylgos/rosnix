@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     autoware_adapi_version_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "autoware_adapi_version_msgs-source";
-        url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "autoware_adapi_msgs-release";
         rev = "6d49cc22c713da5ecf0601ead8f9111ff70b7bd6";
         hash = "sha256-NgmJaOTPpTaLzuKySD64mVynkUKIS1hPwtV4ebCPdfs=";
       };

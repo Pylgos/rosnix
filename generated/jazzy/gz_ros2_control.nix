@@ -5,6 +5,7 @@
   ament_lint_common,
   buildRosPackage,
   controller_manager,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     gz_ros2_control = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_ros2_control-source";
-        url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ign_ros2_control-release";
         rev = "be6876ddfe3e1fc8e12df8368be75e464dd96b53";
         hash = "sha256-Gb7jqOSSi8KjgdTd5FtzzyP161itAUNh/VSAyK63pf0=";
       };

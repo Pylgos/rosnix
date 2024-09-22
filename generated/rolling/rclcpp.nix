@@ -9,6 +9,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -39,9 +40,10 @@
 let
   sources = rec {
     rclcpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rclcpp-source";
-        url = "https://github.com/ros2-gbp/rclcpp-release.git";
+        owner = "ros2-gbp";
+        repo = "rclcpp-release";
         rev = "2a584752729008c95174f12c99afbc3689bb1e1a";
         hash = "sha256-bqDfGUDMbRc6QU9AlBVi0fy424/TtjHiOJpo3plnew4=";
       };

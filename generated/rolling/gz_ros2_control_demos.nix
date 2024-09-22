@@ -9,6 +9,7 @@
   control_msgs,
   diff_drive_controller,
   effort_controllers,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,9 +39,10 @@
 let
   sources = rec {
     gz_ros2_control_demos = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "gz_ros2_control_demos-source";
-        url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ign_ros2_control-release";
         rev = "c571fcf46fbdca658c807be858ea229df5549f8b";
         hash = "sha256-tZqLOrLXsKkI8q46NTIqVM5zWnMienyrYmbbOmhYYqw=";
       };

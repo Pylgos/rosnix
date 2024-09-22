@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     velodyne_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "velodyne_msgs-source";
-        url = "https://github.com/ros2-gbp/velodyne-release.git";
+        owner = "ros2-gbp";
+        repo = "velodyne-release";
         rev = "42dfd152f78b4edca4ed94c689332373b25a75b8";
         hash = "sha256-5Ak6A/tW8O/xY1B8LoKlY6GJfvga1cnajGYEKb7eKFo=";
       };

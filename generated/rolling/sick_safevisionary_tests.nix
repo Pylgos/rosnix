@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     sick_safevisionary_tests = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "sick_safevisionary_tests-source";
-        url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "sick_safevisionary_ros2-release";
         rev = "e9c37f7f15cd26abf44915ba4e5acde30a8ea133";
         hash = "sha256-Q8HR5ihqZXIb5vP+goYKCgxgf635GsyPBnh2t5oPkgI=";
       };

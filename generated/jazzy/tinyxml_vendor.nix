@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     tinyxml_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tinyxml_vendor-source";
-        url = "https://github.com/ros2-gbp/tinyxml_vendor-release.git";
+        owner = "ros2-gbp";
+        repo = "tinyxml_vendor-release";
         rev = "d8b6f008b165ed9bca9410f49ca500a2c865933e";
         hash = "sha256-dUN/DADvU7TSwxQ/YcI/RcFlAYZ5JLYHb+TNOCpoO7k=";
       };

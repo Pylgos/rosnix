@@ -8,6 +8,7 @@
   ament_lint_auto,
   buildRosPackage,
   example_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,9 +27,10 @@
 let
   sources = rec {
     ros_babel_fish = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros_babel_fish-source";
-        url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_babel_fish-release";
         rev = "7867e75abcda2937b762a3d824698e00df647212";
         hash = "sha256-XoiEc4FfDXjQDZH62Ttxms7TepvyTOKzO1dGp3HDqDA=";
       };

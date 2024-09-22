@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,9 +11,10 @@
 let
   sources = rec {
     stomp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "stomp-source";
-        url = "https://github.com/ros2-gbp/stomp-release.git";
+        owner = "ros2-gbp";
+        repo = "stomp-release";
         rev = "f34537da09d99cc27b25f1a307e6ecb5cac30631";
         hash = "sha256-SMIxIQFBhVkKNSvnxdsAWw5pg4rc6p5xSsSck1Ig4Y8=";
       };

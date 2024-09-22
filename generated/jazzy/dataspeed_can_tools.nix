@@ -4,6 +4,7 @@
   buildRosPackage,
   can_msgs,
   dataspeed_can_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     dataspeed_can_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dataspeed_can_tools-source";
-        url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
+        owner = "DataspeedInc-release";
+        repo = "dataspeed_can-release";
         rev = "37d4b1513e0e6b64b929f7f999d68c50f666646d";
         hash = "sha256-iOy4XcA419agySKLFUkW4yjGx9G+qhdkC0FlWsPFYc8=";
       };

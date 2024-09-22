@@ -4,6 +4,7 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     rosidl_runtime_py = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosidl_runtime_py-source";
-        url = "https://github.com/ros2-gbp/rosidl_runtime_py-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl_runtime_py-release";
         rev = "51c5352a777f1a15d85273ded90d0133daf9be29";
         hash = "sha256-p8FDKIm1mdJdb91wwQ4jtJRlgYxNdaaXHgTZtuwpIlE=";
       };

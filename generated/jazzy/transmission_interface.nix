@@ -3,6 +3,7 @@
   ament_cmake_gen_version_h,
   ament_cmake_gmock,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     transmission_interface = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "transmission_interface-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_control-release";
         rev = "3be2fc16ebe0dc10905fc699c5f8337fc5cf4ec9";
         hash = "sha256-FiySKPHoELD1rFJrA5iYI75YFVo4RDcPiFxZO7oQIVY=";
       };

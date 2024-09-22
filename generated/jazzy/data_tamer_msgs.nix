@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     data_tamer_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "data_tamer_msgs-source";
-        url = "https://github.com/ros2-gbp/data_tamer-release.git";
+        owner = "ros2-gbp";
+        repo = "data_tamer-release";
         rev = "38fab093efa7d483c5039f181a3a0254bdf6184a";
         hash = "sha256-NxB4rc0pONAAz2IJs4m7OQeB4K5aF+RNCRjmwkRbjLc=";
       };

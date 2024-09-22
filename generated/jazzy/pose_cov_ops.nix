@@ -7,6 +7,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,9 +27,10 @@
 let
   sources = rec {
     pose_cov_ops = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "pose_cov_ops-source";
-        url = "https://github.com/ros2-gbp/pose_cov_ops-release.git";
+        owner = "ros2-gbp";
+        repo = "pose_cov_ops-release";
         rev = "9b23632294a6cf9f276756ef73601f1428ffbcd8";
         hash = "sha256-ftJdad3w9XrnAQn/DRLfldWx8OMRbiX22JrSv1wmA3I=";
       };

@@ -1,6 +1,7 @@
 {
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     async_web_server_cpp = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "async_web_server_cpp-source";
-        url = "https://github.com/ros2-gbp/async_web_server_cpp-release.git";
+        owner = "ros2-gbp";
+        repo = "async_web_server_cpp-release";
         rev = "8874c7a0cf8a444467852bff277bfa23f6e20f4f";
         hash = "sha256-bz0je03yD60CjR08T++F1rGD5GhfXZJWAbL6L5rINbo=";
       };

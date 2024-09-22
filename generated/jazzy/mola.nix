@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,9 +35,10 @@
 let
   sources = rec {
     mola = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mola-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
+        owner = "ros2-gbp";
+        repo = "mola-release";
         rev = "db3202810c23eee04e8c8c5c7c9f316d59db958d";
         hash = "sha256-ipO82jeMotVk0cSmiGBk8V7jn/4frQFFnEwGqowuf64=";
       };

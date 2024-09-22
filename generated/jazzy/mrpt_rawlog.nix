@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     mrpt_rawlog = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "mrpt_rawlog-source";
-        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        owner = "ros2-gbp";
+        repo = "mrpt_navigation-release";
         rev = "72eab9b8848f4ed196d662e5ae8c276438b1780d";
         hash = "sha256-1s7fse7d3JWuA1AsYWnLjucimD/A6U8er7UPqoKS8ck=";
       };

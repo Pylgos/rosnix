@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     tf2_bullet = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tf2_bullet-source";
-        url = "https://github.com/ros2-gbp/geometry2-release.git";
+        owner = "ros2-gbp";
+        repo = "geometry2-release";
         rev = "fa984b138aa51bfae7e066616cc08fd9291d9a50";
         hash = "sha256-NhnCyE+gRVQ55h676dZyFt7eYlqWLH5N4SkxF1/bcrM=";
       };

@@ -8,6 +8,7 @@
   buildRosPackage,
   builtin_interfaces,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,9 +32,10 @@
 let
   sources = rec {
     nav2_smac_planner = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_smac_planner-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867";
         hash = "sha256-XPoM1zgQ8+Oi7SPouSGBnhxuRDCQyA4UmmNf46yn9y0=";
       };

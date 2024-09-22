@@ -3,6 +3,7 @@
   ament_cmake_gmock,
   buildRosPackage,
   eigen3_cmake_module,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     kinematics_interface_kdl = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "kinematics_interface_kdl-source";
-        url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
+        owner = "ros2-gbp";
+        repo = "kinematics_interface-release";
         rev = "3d62f0afe792d10697f7b059cec67ae9723921b3";
         hash = "sha256-HTVJf1HOvp/ulI4ThFx2Zk1xyznJeK3pe76vV5sQU8E=";
       };

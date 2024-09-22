@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     libcurl_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libcurl_vendor-source";
-        url = "https://github.com/ros2-gbp/resource_retriever-release.git";
+        owner = "ros2-gbp";
+        repo = "resource_retriever-release";
         rev = "e223cb19353802a673a50fa06be2b1cf48452255";
         hash = "sha256-v0iNPURg6MEcVD010bSbeJ81E/2SNv2HQ97U/fcjz1A=";
       };
@@ -26,9 +28,10 @@ let
       ];
     };
     libcurl_vendor-vendor_source-curl-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "libcurl_vendor-vendor_source-curl-0-source";
-        url = "https://github.com/curl/curl.git";
+        owner = "curl";
+        repo = "curl";
         rev = "801bd5138ce31aa0d906fa4e2eabfc599d74e793";
         hash = "sha256-4w15NHw3D+YBuK02ZIZqvGaWgyQVc61MZ34pkLu0Oug=";
       };

@@ -7,6 +7,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     performance_test_fixture = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "performance_test_fixture-source";
-        url = "https://github.com/ros2-gbp/performance_test_fixture-release.git";
+        owner = "ros2-gbp";
+        repo = "performance_test_fixture-release";
         rev = "14ec312609f7e0fbdcde3ddf707c4d8ba7a0da2d";
         hash = "sha256-7eMswbYVShjFOhmDfpu76OC9rz8kiNFGNMpRNPblftI=";
       };

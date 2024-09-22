@@ -4,6 +4,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     rcss3d_nao = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rcss3d_nao-source";
-        url = "https://github.com/ros2-gbp/rcss3d_nao-release.git";
+        owner = "ros2-gbp";
+        repo = "rcss3d_nao-release";
         rev = "eca4398e014f5149e7dfddd70953dc5e0a3b260f";
         hash = "sha256-gDCJv4U5VGvPzE6+9SysE6xYUMNx7KGRawSEwZp7sVM=";
       };

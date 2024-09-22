@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_gtest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     tcb_span = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tcb_span-source";
-        url = "https://github.com/ros2-gbp/cpp_polyfills-release.git";
+        owner = "ros2-gbp";
+        repo = "cpp_polyfills-release";
         rev = "6512481c861c90c5702c8baf994a281b9df9d022";
         hash = "sha256-61JrUYgWw+LJJmryzDfZte0H+hhzDbHqOY1wEyk996Q=";
       };

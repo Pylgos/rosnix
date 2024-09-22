@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     graph_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "graph_msgs-source";
-        url = "https://github.com/ros2-gbp/graph_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "graph_msgs-release";
         rev = "cb9838e309f09242d2ccef5878756aa50588a063";
         hash = "sha256-Zs/vEflqm3Ft6PVC5rmE7JAj2pPFja8QAhBxSsH93dg=";
       };

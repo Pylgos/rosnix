@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     unique_identifier_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "unique_identifier_msgs-source";
-        url = "https://github.com/ros2-gbp/unique_identifier_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "unique_identifier_msgs-release";
         rev = "7961de6e73e2d05d8bb1f9bec4baabb2116ece4c";
         hash = "sha256-RsXOsXOLhILnsdIJIseSj4+KuBj9hrISfm/4CH0Obms=";
       };

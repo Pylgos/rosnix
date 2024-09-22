@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     realsense2_description = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "realsense2_description-source";
-        url = "https://github.com/IntelRealSense/realsense-ros-release.git";
+        owner = "IntelRealSense";
+        repo = "realsense-ros-release";
         rev = "dbdca2538210cac2b854291ba47f099df80224d9";
         hash = "sha256-Er8wmje8+L8O8X37B/c7pa22cwsjuK21LnWLzY2bo0c=";
       };

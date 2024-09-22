@@ -2,6 +2,7 @@
   ament_copyright,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     joint_state_publisher = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "joint_state_publisher-source";
-        url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
+        owner = "ros2-gbp";
+        repo = "joint_state_publisher-release";
         rev = "95191ef225b7c3c295aea1921f32752c95f58d19";
         hash = "sha256-Nw7THKbjIvXASwE8//Ta0Z1Q5BPXlK5VafC2jZvMs4E=";
       };

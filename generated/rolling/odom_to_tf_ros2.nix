@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     odom_to_tf_ros2 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "odom_to_tf_ros2-source";
-        url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release.git";
+        owner = "ros2-gbp";
+        repo = "odom_to_tf_ros2-release";
         rev = "c40e00e711e76f042a70324930e2e99a93407c65";
         hash = "sha256-0/u/YYeXujwGxRaQtoi8WfVuy0NFu558FY9r5etmJkY=";
       };

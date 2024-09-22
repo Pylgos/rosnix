@@ -3,6 +3,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     dynamixel_workbench_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dynamixel_workbench_msgs-source";
-        url = "https://github.com/ros2-gbp/dynamixel_workbench_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "dynamixel_workbench_msgs-release";
         rev = "653a571fecc97291b062e04ba41ea1a810c3c85e";
         hash = "sha256-NMrVMFxbUmSDCdSRTO6gRJtKsmEeqY4Q5FqkBQCeY3I=";
       };

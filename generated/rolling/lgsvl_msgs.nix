@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     lgsvl_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "lgsvl_msgs-source";
-        url = "https://github.com/ros2-gbp/lgsvl_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "lgsvl_msgs-release";
         rev = "aaba584950b8524e53fc28df0888cb3aaaf1ff23";
         hash = "sha256-Pd5TP0wLuUr0/m+WvLpkvURpB0d0hbik3SOPkifg8YU=";
       };

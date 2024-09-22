@@ -7,6 +7,7 @@
   cv_bridge,
   depthai,
   depthai_ros_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     depthai_bridge = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "depthai_bridge-source";
-        url = "https://github.com/luxonis/depthai-ros-release.git";
+        owner = "luxonis";
+        repo = "depthai-ros-release";
         rev = "65d029c64cb020e7c5b21befa35cc5e5cc9d3ea8";
         hash = "sha256-vJCwbk1CU/g60IYPjbwR6HANtDHQx/IiQ3aHmQHmuRU=";
       };

@@ -4,6 +4,7 @@
   autoware_cmake,
   autoware_lanelet2_extension,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,9 +24,10 @@
 let
   sources = rec {
     autoware_lanelet2_extension_python = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "autoware_lanelet2_extension_python-source";
-        url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
+        owner = "ros2-gbp";
+        repo = "autoware_lanelet2_extension-release";
         rev = "9fda8535cad8bed7a90354c5ee35e0a1a74aa897";
         hash = "sha256-66WcbYI3aeUgqJcN2CZXyxPBZJPyYveuZl6MQLPMS2I=";
       };

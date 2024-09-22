@@ -1,6 +1,7 @@
 {
   ament_cmake_ros,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     rosidl_dynamic_typesupport = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rosidl_dynamic_typesupport-source";
-        url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport-release.git";
+        owner = "ros2-gbp";
+        repo = "rosidl_dynamic_typesupport-release";
         rev = "11e03873b5cc3303db45c9729a8c3fdc57d0d5b8";
         hash = "sha256-oKjjvQ8+9kmE/JYX1boHfRN4q52+Uk9mjH3KtVPWC1U=";
       };

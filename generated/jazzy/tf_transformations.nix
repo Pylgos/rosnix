@@ -2,6 +2,7 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     tf_transformations = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tf_transformations-source";
-        url = "https://github.com/ros2-gbp/tf_transformations_release.git";
+        owner = "ros2-gbp";
+        repo = "tf_transformations_release";
         rev = "c623ec1a59d1afc184a119057bd42cba948a1722";
         hash = "sha256-ojeOIsR7yaPVDfd/6N3cPt6MShybAcLZlBQWNpOt64g=";
       };

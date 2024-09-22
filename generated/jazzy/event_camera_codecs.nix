@@ -9,6 +9,7 @@
   buildRosPackage,
   class_loader,
   event_camera_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,9 +22,10 @@
 let
   sources = rec {
     event_camera_codecs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "event_camera_codecs-source";
-        url = "https://github.com/ros2-gbp/event_camera_codecs-release.git";
+        owner = "ros2-gbp";
+        repo = "event_camera_codecs-release";
         rev = "885550d7f26f6df532e74cf11839590c5c8f5564";
         hash = "sha256-Okh/tAcO2MFOTeIVFOE8a+B/bDwyTZeOP6AinyAHjsk=";
       };

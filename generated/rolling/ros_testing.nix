@@ -3,6 +3,7 @@
   ament_cmake_core,
   ament_cmake_export_dependencies,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     ros_testing = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ros_testing-source";
-        url = "https://github.com/ros2-gbp/ros_testing-release.git";
+        owner = "ros2-gbp";
+        repo = "ros_testing-release";
         rev = "56f6ba90ce5a80ef42bb8a398d1f9b427626c864";
         hash = "sha256-CCY++zeA6CY3WCkxRl5FTCFac8DPBSMpQd7N2ciH0oA=";
       };

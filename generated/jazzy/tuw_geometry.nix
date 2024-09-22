@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     tuw_geometry = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "tuw_geometry-source";
-        url = "https://github.com/ros2-gbp/tuw_geometry-release.git";
+        owner = "ros2-gbp";
+        repo = "tuw_geometry-release";
         rev = "1ec8432bce0f5c3155a16a68991b6ec9963a2e12";
         hash = "sha256-3joMrg733OXs5YY23/zK9hQEuS0t3jlDrTEsNlr8C3Q=";
       };

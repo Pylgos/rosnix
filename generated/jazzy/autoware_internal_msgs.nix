@@ -4,6 +4,7 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,9 +17,10 @@
 let
   sources = rec {
     autoware_internal_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "autoware_internal_msgs-source";
-        url = "https://github.com/ros2-gbp/autoware_internal_msgs-release.git";
+        owner = "ros2-gbp";
+        repo = "autoware_internal_msgs-release";
         rev = "f74baae445e0a1ec57de8d08ba468540b3f02002";
         hash = "sha256-DqEUabWDDD8N8YSpZyB/5hJgvPbmkMCKoY9SJgfh/Q4=";
       };

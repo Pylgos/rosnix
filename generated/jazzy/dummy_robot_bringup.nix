@@ -7,6 +7,7 @@
   buildRosPackage,
   dummy_map_server,
   dummy_sensors,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     dummy_robot_bringup = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dummy_robot_bringup-source";
-        url = "https://github.com/ros2-gbp/demos-release.git";
+        owner = "ros2-gbp";
+        repo = "demos-release";
         rev = "ce97419b6cd330a7b4eacf837949c369ee29e0db";
         hash = "sha256-kJh0WAW3P3UPHmVb2h6QmE7cPgws9qZxrLp8+Faol9s=";
       };

@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   diff_drive_controller,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     nav2_bringup = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nav2_bringup-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "3ed52d2e3b71b48b5f0141e0c4475baf17770d08";
         hash = "sha256-Deg2qAY6VvKeHrjquPFWHy8FbL6BRP3LR1hQWoJsHNk=";
       };

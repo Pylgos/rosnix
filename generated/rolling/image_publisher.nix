@@ -5,6 +5,7 @@
   buildRosPackage,
   camera_info_manager,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,9 +19,10 @@
 let
   sources = rec {
     image_publisher = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "image_publisher-source";
-        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
+        owner = "ros2-gbp";
+        repo = "image_pipeline-release";
         rev = "c5ab135c721c8e346e2dcd86779e4644740f4800";
         hash = "sha256-tD37S9/S1T4y3f7AKODt5zsCgYCCERxOZ6Q4AfqNNO0=";
       };

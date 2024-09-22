@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     irobot_create_gz_sim = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "irobot_create_gz_sim-source";
-        url = "https://github.com/ros2-gbp/create3_sim-release.git";
+        owner = "ros2-gbp";
+        repo = "create3_sim-release";
         rev = "bd9d6fef40229100cecbc73ed254edb7fc74dc8b";
         hash = "sha256-eVP7A7qA3mDxp80/uCb22CeHuHvF7ZFge9rTmybsn7o=";
       };

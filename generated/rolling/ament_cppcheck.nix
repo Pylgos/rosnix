@@ -4,6 +4,7 @@
   ament_pep257,
   ament_pycodestyle,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     ament_cppcheck = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_cppcheck-source";
-        url = "https://github.com/ros2-gbp/ament_lint-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_lint-release";
         rev = "9edd3b221e520812c71d1a6f7618c7935e1bade3";
         hash = "sha256-rzEn4wrykS30AoLSNj/AE0mFJLKHBMnWSg8p6G5N0Nk=";
       };

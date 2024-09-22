@@ -7,6 +7,7 @@
   angles,
   buildRosPackage,
   builtin_interfaces,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,9 +30,10 @@
 let
   sources = rec {
     opennav_docking = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "opennav_docking-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        owner = "SteveMacenski";
+        repo = "navigation2-release";
         rev = "06c983c12bf21fa2ecf378ea2c66d3a7c7146e4b";
         hash = "sha256-oYMQqBvVgM5FLPZFrKDxNjYTFDJdTanndgsarscpmRQ=";
       };

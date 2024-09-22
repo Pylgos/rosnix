@@ -3,6 +3,7 @@
   angles,
   buildRosPackage,
   controller_interface,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,9 +23,10 @@
 let
   sources = rec {
     ur_controllers = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ur_controllers-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
+        owner = "ros2-gbp";
+        repo = "Universal_Robots_ROS2_Driver-release";
         rev = "8561f29bf4f89984e43c159a6ab3e46bc5245aa5";
         hash = "sha256-prONobOmyydNDLHVvl1DNcE6ELVrfWOIMQTirs52LNk=";
       };

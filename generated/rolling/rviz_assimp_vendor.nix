@@ -5,6 +5,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -196,9 +197,10 @@ let
       ];
     };
     rviz_assimp_vendor = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_assimp_vendor-source";
-        url = "https://github.com/ros2-gbp/rviz-release.git";
+        owner = "ros2-gbp";
+        repo = "rviz-release";
         rev = "8a5a332c56c44519817bcd953774977f20c1160b";
         hash = "sha256-C5o6IMBoOClgpU/b+zaYdXwSQC61lM/T6PlWA9hcfFw=";
       };
@@ -211,9 +213,10 @@ let
       ];
     };
     rviz_assimp_vendor-vendor_source-assimp-0 = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_assimp_vendor-vendor_source-assimp-0-source";
-        url = "https://github.com/assimp/assimp.git";
+        owner = "assimp";
+        repo = "assimp";
         rev = "6a08c39e3a91ef385e76515cfad86aca4bfd57ff";
         hash = "sha256-ResIn+TA/FvrFt5+svMyLCJb2e+lyHFWopHBuzoXAhQ=";
       };

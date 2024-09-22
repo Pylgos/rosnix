@@ -5,6 +5,7 @@
   ament_index_python,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     xacro = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "xacro-source";
-        url = "https://github.com/ros2-gbp/xacro-release.git";
+        owner = "ros2-gbp";
+        repo = "xacro-release";
         rev = "cf73bd6240c8b19a819681498f671f0c3ca80758";
         hash = "sha256-+93WLiVZewjzhzlEzSTG/zTjYx3+ri7uv+d7nO1xdX8=";
       };

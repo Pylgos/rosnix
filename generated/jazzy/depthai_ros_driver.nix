@@ -11,6 +11,7 @@
   depthai_ros_msgs,
   diagnostic_msgs,
   diagnostic_updater,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,9 +33,10 @@
 let
   sources = rec {
     depthai_ros_driver = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "depthai_ros_driver-source";
-        url = "https://github.com/luxonis/depthai-ros-release.git";
+        owner = "luxonis";
+        repo = "depthai-ros-release";
         rev = "35e25b137570b1ac0e93cd9cb8cb38de6718ce9d";
         hash = "sha256-pFS6VN3MJbhD+CenQYF6o17ujHzFXws3v7VdSgm7rjc=";
       };

@@ -5,6 +5,7 @@
   ament_cmake_test,
   ament_uncrustify,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     rmf_cmake_uncrustify = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_cmake_uncrustify-source";
-        url = "https://github.com/ros2-gbp/rmf_cmake_uncrustify-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_cmake_uncrustify-release";
         rev = "66787d123188380569a9ad1d29680caad59e36ac";
         hash = "sha256-YwXGjK9Uaj03Os5oVwylNtS6dDmirgOgm6bY+0K+8Ic=";
       };

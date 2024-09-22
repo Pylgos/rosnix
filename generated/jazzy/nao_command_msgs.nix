@@ -3,6 +3,7 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     nao_command_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nao_command_msgs-source";
-        url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
+        owner = "ros2-gbp";
+        repo = "nao_interfaces-release";
         rev = "a36d9eed21ce44896146e9f47d6e14298c4c69a0";
         hash = "sha256-geYK5hMHI66LcCD6GJ3Lr8T0ocK3/ExFHKKq9kBUZRs=";
       };

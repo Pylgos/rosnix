@@ -2,6 +2,7 @@
   ament_cmake,
   ament_cmake_gtest,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     color_util = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "color_util-source";
-        url = "https://github.com/ros2-gbp/color_util-release.git";
+        owner = "ros2-gbp";
+        repo = "color_util-release";
         rev = "231c6ee5d3a4330fa1d39e1085f260961d1acaf9";
         hash = "sha256-vHOcY7emyuuqZ06vo77SGvGnnV/T+wv1Va/tHUIGXIs=";
       };

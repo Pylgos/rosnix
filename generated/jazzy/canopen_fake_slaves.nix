@@ -2,6 +2,7 @@
   ament_cmake,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     canopen_fake_slaves = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "canopen_fake_slaves-source";
-        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_canopen-release";
         rev = "19e6ce4bc36465f2bbd2b6a8c359391d8cd8d166";
         hash = "sha256-3/FPYI561bff5nqES47wLASGbBezxQt3pcmShGE1WOM=";
       };

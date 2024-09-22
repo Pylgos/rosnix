@@ -6,6 +6,7 @@
   ament_lint_common,
   buildRosPackage,
   class_loader,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     warehouse_ros_sqlite = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "warehouse_ros_sqlite-source";
-        url = "https://github.com/ros2-gbp/warehouse_ros_sqlite-release.git";
+        owner = "ros2-gbp";
+        repo = "warehouse_ros_sqlite-release";
         rev = "22499a8fd19e66870fe3bfa41570e8ecca6d6d73";
         hash = "sha256-c1zikw94u1NKRvvSe3QEhXnRv1v5RH+vZQe6zOWG+mQ=";
       };

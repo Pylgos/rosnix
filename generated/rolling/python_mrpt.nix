@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -144,9 +145,10 @@ let
       ];
     };
     python_mrpt = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "python_mrpt-source";
-        url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
+        owner = "ros2-gbp";
+        repo = "python_mrpt_ros-release";
         rev = "b0e8013afdc47e2cc71c7f2502ee6e8564a6a01b";
         hash = "sha256-R6aITSw0Q0mhOqYrfsz2G0B/KqBOofxD9E+jIs6ArDE=";
       };

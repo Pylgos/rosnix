@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,9 +10,10 @@
 let
   sources = rec {
     ament_package = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "ament_package-source";
-        url = "https://github.com/ros2-gbp/ament_package-release.git";
+        owner = "ros2-gbp";
+        repo = "ament_package-release";
         rev = "70ffe60211c4feae5e780e5bc95e169d2f79e7ec";
         hash = "sha256-UQTsrOgp2aSxuorO8p8yEInpzIOb5c6+s5Jp1F/FD9c=";
       };

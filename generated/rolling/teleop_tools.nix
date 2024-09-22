@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     teleop_tools = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "teleop_tools-source";
-        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
+        owner = "ros2-gbp";
+        repo = "teleop_tools-release";
         rev = "064ed71017a9c2606d29e98813eb22b1a6c2ad6c";
         hash = "sha256-h2ZWLyJWFNYrxWAIvomL5wWEAfkrHGGjN0itYCTf4ag=";
       };

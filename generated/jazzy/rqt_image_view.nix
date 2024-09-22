@@ -2,6 +2,7 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,9 +20,10 @@
 let
   sources = rec {
     rqt_image_view = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_image_view-source";
-        url = "https://github.com/ros2-gbp/rqt_image_view-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt_image_view-release";
         rev = "44d834181b382620bcbbec51491a33d0ddb6c497";
         hash = "sha256-yg3Ts00hd8hELleYHejS5qrq7xSwPt9WphpSoj5mBTY=";
       };

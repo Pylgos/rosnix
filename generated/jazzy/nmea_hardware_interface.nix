@@ -3,6 +3,7 @@
   ament_lint_auto,
   buildRosPackage,
   controller_interface,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,9 +25,10 @@
 let
   sources = rec {
     nmea_hardware_interface = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "nmea_hardware_interface-source";
-        url = "https://github.com/ros2-gbp/nmea_hardware_interface-release.git";
+        owner = "ros2-gbp";
+        repo = "nmea_hardware_interface-release";
         rev = "f2654a1aa9f22cabae90bb75c31680c3271d3a1d";
         hash = "sha256-YibMQpu2E/mEdOx3OB8wbxnUVH/AukvJlND3wu5+oeE=";
       };

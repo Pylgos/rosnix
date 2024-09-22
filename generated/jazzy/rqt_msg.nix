@@ -3,6 +3,7 @@
   ament_index_python,
   ament_xmllint,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,9 +21,10 @@
 let
   sources = rec {
     rqt_msg = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_msg-source";
-        url = "https://github.com/ros2-gbp/rqt_msg-release.git";
+        owner = "ros2-gbp";
+        repo = "rqt_msg-release";
         rev = "0171aafa8d1dd700e104ee98421ee4a5e4ea45d3";
         hash = "sha256-AD3nHOjjAOHbKFshSLeo7W57HAIhBjMJzfzM0woKsQk=";
       };

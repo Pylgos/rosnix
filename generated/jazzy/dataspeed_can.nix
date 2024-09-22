@@ -5,6 +5,7 @@
   dataspeed_can_msgs,
   dataspeed_can_tools,
   dataspeed_can_usb,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,9 +15,10 @@
 let
   sources = rec {
     dataspeed_can = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "dataspeed_can-source";
-        url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
+        owner = "DataspeedInc-release";
+        repo = "dataspeed_can-release";
         rev = "215fd5105f5b84039373012493bfb6c49316b6c3";
         hash = "sha256-9p4ziWt8ief6N+GFSFlNIRqrz/HfSNqpIR7/UtwU6aI=";
       };

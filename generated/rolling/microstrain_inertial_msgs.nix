@@ -1,5 +1,6 @@
 {
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,9 +13,10 @@
 let
   sources = rec {
     microstrain_inertial_msgs = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "microstrain_inertial_msgs-source";
-        url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
+        owner = "ros2-gbp";
+        repo = "microstrain_inertial-release";
         rev = "25dfc5a557004e2f71383cd20bc807d3f4c2b680";
         hash = "sha256-PeKXv1/tOxe0ML45M74+JehJ/xq8DuPKe1yVSVEhXOY=";
       };

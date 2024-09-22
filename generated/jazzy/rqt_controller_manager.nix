@@ -2,6 +2,7 @@
   buildRosPackage,
   controller_manager,
   controller_manager_msgs,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,9 +16,10 @@
 let
   sources = rec {
     rqt_controller_manager = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rqt_controller_manager-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        owner = "ros2-gbp";
+        repo = "ros2_control-release";
         rev = "65205255829e721bb04747207330981e1f21fa34";
         hash = "sha256-zM0LHoxUiFkE1Owsi+iBguEht67wUJp2UPMGl1teLm4=";
       };

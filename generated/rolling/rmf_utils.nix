@@ -2,6 +2,7 @@
   ament_cmake_catch2,
   ament_cmake_uncrustify,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,9 +12,10 @@
 let
   sources = rec {
     rmf_utils = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rmf_utils-source";
-        url = "https://github.com/ros2-gbp/rmf_utils-release.git";
+        owner = "ros2-gbp";
+        repo = "rmf_utils-release";
         rev = "b2d4278fa266a69fc67541c312a63c564ba7c76b";
         hash = "sha256-HLMPR4URpPvTGbv5K1BOi9vXURKEkU23kbIAnYHNMaA=";
       };

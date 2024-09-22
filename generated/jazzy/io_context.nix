@@ -5,6 +5,7 @@
   ament_lint_common,
   asio_cmake_module,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,9 +18,10 @@
 let
   sources = rec {
     io_context = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "io_context-source";
-        url = "https://github.com/ros2-gbp/transport_drivers-release.git";
+        owner = "ros2-gbp";
+        repo = "transport_drivers-release";
         rev = "3a6f852f38351b39895ea0189258a87938b80de6";
         hash = "sha256-RINF/bmOZEexBa8eMAkn2J1r1NOrze8SI3fx1t/ywak=";
       };

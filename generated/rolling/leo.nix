@@ -1,6 +1,7 @@
 {
   ament_cmake,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,9 +14,10 @@
 let
   sources = rec {
     leo = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "leo-source";
-        url = "https://github.com/ros2-gbp/leo_common-release.git";
+        owner = "ros2-gbp";
+        repo = "leo_common-release";
         rev = "fb908a97861b43c2c72b2ec5ed193a3adf0f5201";
         hash = "sha256-qRmRxzhzTgwKSELlVR4rhl4PT3KhP04L3wJCEVsnpSI=";
       };

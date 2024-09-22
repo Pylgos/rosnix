@@ -9,6 +9,7 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
+  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,9 +29,10 @@
 let
   sources = rec {
     rviz_visual_testing_framework = substituteSource {
-      src = fetchgit {
+      src = fetchFromGitHub {
         name = "rviz_visual_testing_framework-source";
-        url = "https://github.com/ros2-gbp/rviz-release.git";
+        owner = "ros2-gbp";
+        repo = "rviz-release";
         rev = "a77b9d9d42fd2b58e596a8edb72fecb0e42deae1";
         hash = "sha256-2kTgsFsgMexLa6Q6iUrd2DF+AyyduvppK02QDEdMijQ=";
       };
