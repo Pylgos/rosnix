@@ -138,7 +138,7 @@ let
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
         url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
-        hash = "sha256-sQcxihMnEenHyDJGgC37RMNTtB84hw3LQldRXa2lrYI=";
+        hash = "sha256-fGyeJh2xxsdMe5ABajZXQFyAmCRwp/y3/xtrMm0XYZA=";
       };
       substitutions = [
       ];
@@ -162,8 +162,8 @@ let
       src = fetchgit {
         name = "python_mrpt-vendor_source-mrpt-0-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "fb7ec66611dcac2d3263a1ec7018fdbb1902f716";
-        hash = "sha256-Qy24bQYoUIl6+X6sdgUu8DjJolDlpFufgLTSld1btBY=";
+        rev = "485a2eab1a4da73031c334166b5b524a67912ace";
+        hash = "sha256-3AQhlg9LSKMinjQrQ7h7imqwPv6fD1K8pDlntgd1czI=";
       };
       substitutions = [
         {
