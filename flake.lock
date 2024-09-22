@@ -210,11 +210,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1727011979,
-        "narHash": "sha256-dZ7YjBfBB77PXuT9wipLOixis5HX/x2whQ39T5H/oZs=",
+        "lastModified": 1727013425,
+        "narHash": "sha256-PpG5qm43/+G5ToK3aQBqQCWcXrK6pJfMgFg5CQzBkNY=",
         "owner": "Pylgos",
         "repo": "rosnix-generator",
-        "rev": "56a81654cea61417f2fb7d9aad05f775d330a760",
+        "rev": "e521de0893d8d9f7fdb6ee1fb33d559914c2111d",
         "type": "github"
       },
       "original": {
