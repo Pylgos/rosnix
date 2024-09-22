@@ -137,7 +137,7 @@ let
     librealsense2-vendor_source-gamecontrollerdb-8 = substituteSource {
       src = fetchurl {
         name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
-        url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt";
+        url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/0f4081f054c85b983c5464f0d0ee759b9fddaa0a/gamecontrollerdb.txt";
         hash = "sha256-fGyeJh2xxsdMe5ABajZXQFyAmCRwp/y3/xtrMm0XYZA=";
       };
       substitutions = [

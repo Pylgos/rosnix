@@ -316,9 +316,10 @@ let
       ];
     };
     fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-master-8 = substituteSource {
-      src = fetchzip {
+      src = fetchgit {
         name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-master-8-source";
-        url = "https://github.com/pybind/pybind11/archive/refs/heads/master.tar.gz";
+        url = "https://github.com/pybind/pybind11.git";
+        rev = "1f8b4a7f1a1c5cc9bd6e0d63fe15540e6c458b24";
         hash = "sha256-QbvkYThzqCLesR9NXh6udUdfuNyQSGM9RwOCGshhQQo=";
       };
       substitutions = [
