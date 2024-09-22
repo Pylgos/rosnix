@@ -7,7 +7,6 @@
   ecl_io,
   ecl_sigslots_lite,
   ecl_time_lite,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     ecl_lite = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_lite-source";
-        owner = "ros2-gbp";
-        repo = "ecl_lite-release";
+        url = "https://github.com/ros2-gbp/ecl_lite-release.git";
         rev = "b21a43e7be198acd2a02ba5e51ee340d19675952";
         hash = "sha256-pfGGGa3tTMW+9VEsHT0ofv7mnz478eGmJA10PjrEvJI=";
       };

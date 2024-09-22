@@ -5,7 +5,6 @@
   buildRosPackage,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     forward_command_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "forward_command_controller-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "d539cbff5ab6488ead83a4bf2dd3eb0f0c286134";
         hash = "sha256-ydESp6NxrrtqpTFMzccCiZ1Yvq98COiGGGqZxTBD7s4=";
       };

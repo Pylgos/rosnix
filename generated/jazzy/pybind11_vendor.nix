@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-6 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11-6-source";
-        owner = "pybind";
-        repo = "pybind11";
+        url = "https://github.com/pybind/pybind11.git";
         rev = "8a099e44b3d5f85b20f05828d919d2332a8de841";
         hash = "sha256-sO/Fa+QrAKyq2EYyYMcjPrYI+bdJIrDoj6L3JHoDo3E=";
       };
@@ -23,10 +21,9 @@ let
       ];
     };
     pybind11_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pybind11_vendor-source";
-        owner = "ros2-gbp";
-        repo = "pybind11_vendor-release";
+        url = "https://github.com/ros2-gbp/pybind11_vendor-release.git";
         rev = "6551cb9a99f0e0bb3666b9a9d3b2bda0b598c167";
         hash = "sha256-IqvDvVq5oLGYddeKV7uYtjHnf3SS24Ji+DO4Wua7xbU=";
       };

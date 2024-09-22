@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     visp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "visp-source";
-        owner = "ros2-gbp";
-        repo = "visp-release";
+        url = "https://github.com/ros2-gbp/visp-release.git";
         rev = "40579e7c751095b9add34bc8060cd95ada214ab0";
         hash = "sha256-nMrdYB+RessgluLVeY69cP1jA4ucoAfcxyaNk1gyiSQ=";
       };

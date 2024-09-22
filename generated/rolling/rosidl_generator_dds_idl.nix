@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     rosidl_generator_dds_idl = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosidl_generator_dds_idl-source";
-        owner = "ros2-gbp";
-        repo = "rosidl_dds-release";
+        url = "https://github.com/ros2-gbp/rosidl_dds-release.git";
         rev = "6a982f6a23613fc9e11e8ecba8e801572e086db4";
         hash = "sha256-9NvhSKlCK6YIvPuX1Lp3QZSJ2Wnl+rN0DuNMKvnTH7s=";
       };

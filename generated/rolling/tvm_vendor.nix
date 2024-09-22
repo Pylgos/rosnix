@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     tvm_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tvm_vendor-source";
-        owner = "ros2-gbp";
-        repo = "tvm_vendor-release";
+        url = "https://github.com/ros2-gbp/tvm_vendor-release.git";
         rev = "86b5d14e89904fa76c2a266601ee5f171607445a";
         hash = "sha256-zx1sU7fTJXQqMOjy+jstX1Wq7B7zPKQCxlfV685GzSA=";
       };
@@ -43,10 +41,9 @@ let
       ];
     };
     tvm_vendor-vendor_source-tvm-0-vendor_source-macho-dyld-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tvm_vendor-vendor_source-tvm-0-vendor_source-macho-dyld-0-source";
-        owner = "octoml";
-        repo = "macho-dyld";
+        url = "https://github.com/octoml/macho-dyld.git";
         rev = "0742b8129de7df1130be355b74faa8c036265bfc";
         hash = "sha256-OAa4FiviTL/KoUMLd/vaUFVUBol5C47MXZptb7nL278=";
       };

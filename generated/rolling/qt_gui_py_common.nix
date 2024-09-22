@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     qt_gui_py_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "qt_gui_py_common-source";
-        owner = "ros2-gbp";
-        repo = "qt_gui_core-release";
+        url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
         rev = "f44c96e1a0306fc3c9e68adb9d86020aebf17f83";
         hash = "sha256-wnrYXS+zQXlBgPfVKcuQOJMJwi+ZZ53xzq0/Yk21/iY=";
       };

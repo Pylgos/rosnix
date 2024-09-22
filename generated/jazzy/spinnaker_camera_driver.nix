@@ -6,7 +6,6 @@
   ament_lint_common,
   buildRosPackage,
   camera_info_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     spinnaker_camera_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "spinnaker_camera_driver-source";
-        owner = "ros2-gbp";
-        repo = "flir_camera_driver-release";
+        url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
         rev = "7c6a3104f5cc1e7f807d2533cda87da5bf75e416";
         hash = "sha256-MTLkSEO/NkdU6Fa/1zhCvcWbcyRFQ58qqX66+pGBmdk=";
       };

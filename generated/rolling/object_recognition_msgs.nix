@@ -2,7 +2,6 @@
   action_msgs,
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     object_recognition_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "object_recognition_msgs-source";
-        owner = "ros2-gbp";
-        repo = "object_recognition_msgs-release";
+        url = "https://github.com/ros2-gbp/object_recognition_msgs-release.git";
         rev = "7485fba77d1b2a6cf783f0a288eb029a64b1d1a4";
         hash = "sha256-51GLrMSSWkdlTz5SBW9ImQilU5Rojo8emRiwZZtZtS0=";
       };

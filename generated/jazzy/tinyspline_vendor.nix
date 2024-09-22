@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     tinyspline_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tinyspline_vendor-source";
-        owner = "ros2-gbp";
-        repo = "tinyspline_vendor-release";
+        url = "https://github.com/ros2-gbp/tinyspline_vendor-release.git";
         rev = "a06565ed4aff7d2c19a4a058ea3f43323075b2ab";
         hash = "sha256-mQi06924EtNw7quRVGSQDJ2EFYqUCOsq37JO/eH/gJE=";
       };
@@ -35,10 +33,9 @@ let
       ];
     };
     tinyspline_vendor-vendor_source-tinyspline-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tinyspline_vendor-vendor_source-tinyspline-0-source";
-        owner = "msteinbeck";
-        repo = "tinyspline";
+        url = "https://github.com/msteinbeck/tinyspline.git";
         rev = "5f0e8fad34e86771cfae3dac4beef5f1858d5610";
         hash = "sha256-cvnnVT04R2QnFKsf/lxzkDmxgalAPFw8hGC33HyNsIQ=";
       };

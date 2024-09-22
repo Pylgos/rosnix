@@ -1,7 +1,6 @@
 {
   buildRosPackage,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rqt_robot_dashboard = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_robot_dashboard-source";
-        owner = "ros2-gbp";
-        repo = "rqt_robot_dashboard-release";
+        url = "https://github.com/ros2-gbp/rqt_robot_dashboard-release.git";
         rev = "9af87622aa4d2f3d538fb7353965bb5e49686d92";
         hash = "sha256-o2FskVGSpDLTcYD8PlfRgHpBlDa3UId/Xq+IlAvaZGY=";
       };

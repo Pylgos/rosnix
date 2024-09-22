@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     ros2cli_test_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2cli_test_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "ros2cli-release";
+        url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "b1bf6454355b950121990d46c76a3d882a85c461";
         hash = "sha256-IpL1SqU83kbinY4QSBMYJ9v8CmLnWQdwkLedTylh3ZI=";
       };

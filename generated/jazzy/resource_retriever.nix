@@ -7,7 +7,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     resource_retriever = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "resource_retriever-source";
-        owner = "ros2-gbp";
-        repo = "resource_retriever-release";
+        url = "https://github.com/ros2-gbp/resource_retriever-release.git";
         rev = "b8d030d40febf9e5b6a338ab78471e57682d3c4a";
         hash = "sha256-VwQaQ1RxDY6NO5ZZk4CdkeTkBC60WhAP+nBKX7z/DZM=";
       };

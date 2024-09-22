@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     grid_map_cv = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "grid_map_cv-source";
-        owner = "ros2-gbp";
-        repo = "grid_map-release";
+        url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "6504315ac27f69868585f914363ea1a1f345f250";
         hash = "sha256-Lp09fVPR5XQQzOBAN+e2yIboOKRcMBV7vLPniPun+LA=";
       };

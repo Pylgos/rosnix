@@ -4,7 +4,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     nav2_simple_commander = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_simple_commander-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "4a1746775eda82582b36284167b4614465541c70";
         hash = "sha256-zYsPBi6Y9OHE1Sct61Zk905/ZbLsNw2526c2dtYtElk=";
       };

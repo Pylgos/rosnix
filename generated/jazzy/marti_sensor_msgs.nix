@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     marti_sensor_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "marti_sensor_msgs-source";
-        owner = "ros2-gbp";
-        repo = "marti_messages-release";
+        url = "https://github.com/ros2-gbp/marti_messages-release.git";
         rev = "f3aa1bc57ba7b4ca6c5082bf01d571d4a73e444c";
         hash = "sha256-waPgK4Yx5LSjfVSvjvq9aI0o3wfx0K+KxSkCs103PhM=";
       };

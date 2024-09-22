@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     beluga = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "beluga-source";
-        owner = "ros2-gbp";
-        repo = "beluga-release";
+        url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "5a4b604ada6fee862adc8b71acd5e7a8b76ad2bd";
         hash = "sha256-z5Drm8uEZ590QUMtDES+CD3DJd7gm0OYs542R0quhY8=";
       };

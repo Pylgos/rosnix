@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     gc_spl_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gc_spl_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "game_controller_spl-release";
+        url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
         rev = "8a8f52cc53fe2489e2143ad6d9c8bbdd1ed6e6a3";
         hash = "sha256-zib/AEpu2CDmpEXFyiedKxZD52Ub6+OPzPJpw/a2jqE=";
       };

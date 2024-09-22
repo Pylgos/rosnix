@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     nao_lola_sensor_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nao_lola_sensor_msgs-source";
-        owner = "ros2-gbp";
-        repo = "nao_lola-release";
+        url = "https://github.com/ros2-gbp/nao_lola-release.git";
         rev = "5b22506892455f9a1903d28f19bfc11be1725c68";
         hash = "sha256-I+mOw69Qd5OqCcNdvjpOn3LGw/W/7hPl71P0sgF+42k=";
       };

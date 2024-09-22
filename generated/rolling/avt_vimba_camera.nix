@@ -4,7 +4,6 @@
   camera_info_manager,
   diagnostic_msgs,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     avt_vimba_camera = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "avt_vimba_camera-source";
-        owner = "ros2-gbp";
-        repo = "avt_vimba_camera-release";
+        url = "https://github.com/ros2-gbp/avt_vimba_camera-release.git";
         rev = "7e56860bfcd8f29a48630b2d050f3451b0617a3b";
         hash = "sha256-b1YFGg6j0b9K0ewtxAKbcnT1um/8yTIj7XIIbEChDbY=";
       };

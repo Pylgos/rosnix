@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     nao_button_sim = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nao_button_sim-source";
-        owner = "ros2-gbp";
-        repo = "nao_button_sim-release";
+        url = "https://github.com/ros2-gbp/nao_button_sim-release.git";
         rev = "2079860e6e50b930bf87f6000645ecabb9eb67d7";
         hash = "sha256-IV6xrXwb9dZjmwilXG0QxfVUpofGVKBxJdaqAVjcCO8=";
       };

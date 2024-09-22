@@ -1,7 +1,6 @@
 {
   ament_lint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     ament_flake8 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_flake8-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "14de142529f6aec081b365637f2683109321440d";
         hash = "sha256-0sUE60ee36OXnMpBjLcxwpNlozQqWJUTo5BI9/c2Wfo=";
       };

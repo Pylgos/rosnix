@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ros2_socketcan_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2_socketcan_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ros2_socketcan-release";
+        url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
         rev = "ad6d4962edd86e81eef43390316970e54ab89279";
         hash = "sha256-CdTyUOxtcJWtdaWIWAMV8DBwNPVcpobmkdjvFqDo8xE=";
       };

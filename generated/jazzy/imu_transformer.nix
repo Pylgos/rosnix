@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     imu_transformer = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "imu_transformer-source";
-        owner = "ros2-gbp";
-        repo = "imu_pipeline-release";
+        url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
         rev = "fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61";
         hash = "sha256-lcQiOtqXK/0Dj9s+hSjZPSC6ypDEmOUVpRrIqNzO+Qw=";
       };

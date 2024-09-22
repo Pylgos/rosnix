@@ -7,7 +7,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     ros_image_to_qimage = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros_image_to_qimage-source";
-        owner = "ros2-gbp";
-        repo = "ros_image_to_qimage-release";
+        url = "https://github.com/ros2-gbp/ros_image_to_qimage-release.git";
         rev = "5f468c90083c075edb30b8ec93f78561c542cd1a";
         hash = "sha256-qxt94vxyKVhWR64DyvjU5D5xKcJcflZdDd/jA2e0d9U=";
       };

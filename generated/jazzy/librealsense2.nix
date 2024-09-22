@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     foonathan_memory_vendor-vendor_source-memory-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "foonathan_memory_vendor-vendor_source-memory-0-source";
-        owner = "foonathan";
-        repo = "memory";
+        url = "https://github.com/foonathan/memory.git";
         rev = "0f0775770fd1c506fa9c5ad566bd6ba59659db66";
         hash = "sha256-nLBnxPbPKiLCFF2TJgD/eJKJJfzktVBW3SRW2m3WK/s=";
       };
@@ -21,10 +19,9 @@ let
       ];
     };
     librealsense2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-source";
-        owner = "IntelRealSense";
-        repo = "librealsense2-release";
+        url = "https://github.com/IntelRealSense/librealsense2-release.git";
         rev = "9b999a96567dc0721be20811b3f715c0c33227d1";
         hash = "sha256-tI3pz5+/WaOQ2PifY/4auyUraj3cReWbBOFBn7k6Hok=";
       };
@@ -87,10 +84,9 @@ let
       ];
     };
     librealsense2-vendor_source-Catch2-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-Catch2-0-source";
-        owner = "catchorg";
-        repo = "Catch2";
+        url = "https://github.com/catchorg/Catch2.git";
         rev = "6e79e682b726f524310d55dec8ddac4e9c52fb5f";
         hash = "sha256-DqGGfNjKPW9HFJrX9arFHyNYjB61uoL6NabZatTWrr0=";
       };
@@ -126,10 +122,9 @@ let
       ];
     };
     librealsense2-vendor_source-curl-1 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-curl-1-source";
-        owner = "curl";
-        repo = "curl";
+        url = "https://github.com/curl/curl.git";
         rev = "2f33be817cbce6ad7a36f27dd7ada9219f13584c";
         hash = "sha256-sR4Pv5YWcS5/zWUff5f9ASFkx7Fv75WdtpnxiKG4Ulc=";
       };
@@ -146,10 +141,9 @@ let
       ];
     };
     librealsense2-vendor_source-json-3 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-json-3-source";
-        owner = "nlohmann";
-        repo = "json";
+        url = "https://github.com/nlohmann/json.git";
         rev = "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03";
         hash = "sha256-7F0Jon+1oWL7uqet5i1IgHX0fUw/+z0QwEcA3zs5xHg=";
       };
@@ -157,10 +151,9 @@ let
       ];
     };
     librealsense2-vendor_source-libusb-2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-libusb-2-source";
-        owner = "ev-mp";
-        repo = "libusb";
+        url = "https://github.com/ev-mp/libusb.git";
         rev = "2a7372db54094a406a755f0b8548b614ba8c78ec";
         hash = "sha256-KYM8Aaz4kV7GFiQVy+dgFk6tPvDlJI6iPY5ddt4+OIE=";
       };
@@ -168,10 +161,9 @@ let
       ];
     };
     librealsense2-vendor_source-pybind11-4 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-pybind11-4-source";
-        owner = "pybind";
-        repo = "pybind11";
+        url = "https://github.com/pybind/pybind11.git";
         rev = "0bd8896a4010f2d91b2340570c24fa08606ec406";
         hash = "sha256-Rlr6Ec6BEujTxQkQ9UP+6u0cYeFsJlj7U346MtRM6QM=";
       };
@@ -179,10 +171,9 @@ let
       ];
     };
     librealsense2-vendor_source-pybind11_json-5 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "librealsense2-vendor_source-pybind11_json-5-source";
-        owner = "pybind";
-        repo = "pybind11_json";
+        url = "https://github.com/pybind/pybind11_json.git";
         rev = "b02a2ad597d224c3faee1f05a56d81d4c4453092";
         hash = "sha256-Kl/QflV2bBoH72/LW03K8JDlhBF+DYYXL47A5s1nmTw=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     rcss3d_agent_msgs_to_soccer_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcss3d_agent_msgs_to_soccer_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "rcss3d_agent-release";
+        url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
         rev = "b3ef5116e011b8d30aec1b1bf373e08bb5fbcb0e";
         hash = "sha256-2bEjbfPy02UiTflYzF8AZb2bjZB/Xg1iHUC0deLs7UQ=";
       };

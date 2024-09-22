@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     mola_relocalization = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_relocalization-source";
-        owner = "ros2-gbp";
-        repo = "mola-release";
+        url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "6302471a696325251d61a7d89e0829b892e652eb";
         hash = "sha256-xXFtgqQRz4RRcwaWzI0psVvvIlKDid5pKueu2z6lXoo=";
       };

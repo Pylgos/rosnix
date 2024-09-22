@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     spacenav = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "spacenav-source";
-        owner = "ros2-gbp";
-        repo = "joystick_drivers-release";
+        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "7d9a402af6c74eeef6f7290a9becb946963bc807";
         hash = "sha256-5WXkdmHcAdaPaMSMNcTfScbDq9VNmFSb7jofUAAHyAk=";
       };

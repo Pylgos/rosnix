@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     depthai_ros_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "depthai_ros_msgs-source";
-        owner = "luxonis";
-        repo = "depthai-ros-release";
+        url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "c608aaa9aad5773506878fa49a01368d0f849fcb";
         hash = "sha256-0yQYKTWh/paomwZ8dRVP2+o1icHsm42PlX3SQCFDvok=";
       };

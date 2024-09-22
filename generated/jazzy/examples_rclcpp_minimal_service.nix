@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     examples_rclcpp_minimal_service = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "examples_rclcpp_minimal_service-source";
-        owner = "ros2-gbp";
-        repo = "examples-release";
+        url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "7608f6207925ceaec3e0ad3a65d7e1a5cbbd663f";
         hash = "sha256-TK40aRRYWs3kQbrTRrkP0Hpjoez1wQ+pxCXkq44ckFE=";
       };

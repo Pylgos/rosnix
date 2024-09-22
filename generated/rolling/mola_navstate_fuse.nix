@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     mola_navstate_fuse = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_navstate_fuse-source";
-        owner = "ros2-gbp";
-        repo = "mola-release";
+        url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "284342909b34654f82afcbd1ec6ef339c7569df4";
         hash = "sha256-p37HW/+v5T4mKnI1SZXjCuNmHqNhwu0Brw8LfWV/m0M=";
       };

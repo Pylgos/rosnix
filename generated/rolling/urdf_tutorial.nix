@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     urdf_tutorial = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "urdf_tutorial-source";
-        owner = "ros2-gbp";
-        repo = "urdf_tutorial-release";
+        url = "https://github.com/ros2-gbp/urdf_tutorial-release.git";
         rev = "f50ad9cf19409844dee10830671567cdfff72c98";
         hash = "sha256-is2/qeO2wFsbEBxJ8Kf0u+3EkFtbejI8nZpazjXVziM=";
       };

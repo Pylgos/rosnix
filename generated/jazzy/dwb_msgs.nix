@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     dwb_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dwb_msgs-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "1dc28380a90258ff5deef89dcb84eda522a426f8";
         hash = "sha256-9HSAL6xB2YdYGmB4n8g0hReYRJn4I0vCb65YjT60tS4=";
       };

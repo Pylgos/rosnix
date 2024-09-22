@@ -3,7 +3,6 @@
   buildRosPackage,
   builtin_interfaces,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     find_object_2d = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "find_object_2d-source";
-        owner = "ros2-gbp";
-        repo = "find_object_2d-release";
+        url = "https://github.com/ros2-gbp/find_object_2d-release.git";
         rev = "04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7";
         hash = "sha256-njkQr+O+9huFcwwGGOLQgumrN8K4RuGpTCjeMdVtuhA=";
       };

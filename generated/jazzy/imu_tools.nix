@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     imu_tools = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "imu_tools-source";
-        owner = "ros2-gbp";
-        repo = "imu_tools-release";
+        url = "https://github.com/ros2-gbp/imu_tools-release.git";
         rev = "df19112520926bebd06030f598ac67b9e1c7b9fb";
         hash = "sha256-+i6Cvdit5GQDlcCdOUAFdg6ESROTgWjJQ1IqxGC94Ug=";
       };

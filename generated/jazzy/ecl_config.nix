@@ -6,7 +6,6 @@
   buildRosPackage,
   ecl_build,
   ecl_license,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ecl_config = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_config-source";
-        owner = "ros2-gbp";
-        repo = "ecl_lite-release";
+        url = "https://github.com/ros2-gbp/ecl_lite-release.git";
         rev = "19f1dae955c6a2accdf1e788f69880c70658033c";
         hash = "sha256-eH0ytH9tso+gcYGQSXy83dIPeklxY5K+/Jo0cV9qAxI=";
       };

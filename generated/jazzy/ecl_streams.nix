@@ -12,7 +12,6 @@
   ecl_license,
   ecl_time,
   ecl_type_traits,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     ecl_streams = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_streams-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "73bdd35f128030911ff03e6720e4a5178d89a226";
         hash = "sha256-IpgY894/j+PnAx+KIYX8Wvb7yve2eAvnuYrKq0ZgX0s=";
       };

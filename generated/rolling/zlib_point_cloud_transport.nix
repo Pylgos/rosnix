@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     zlib_point_cloud_transport = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "zlib_point_cloud_transport-source";
-        owner = "ros2-gbp";
-        repo = "point_cloud_transport_plugins-release";
+        url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
         rev = "a4b413ebdd1f05fabd7b90865b8b6f29974bcb0c";
         hash = "sha256-PaeewGTzVRDuHlzt25xNhDLwHn5QdiYT88svwzhisz8=";
       };

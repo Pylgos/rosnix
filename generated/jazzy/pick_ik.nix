@@ -1,7 +1,6 @@
 {
   ament_cmake_ros,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     pick_ik = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pick_ik-source";
-        owner = "ros2-gbp";
-        repo = "pick_ik-release";
+        url = "https://github.com/ros2-gbp/pick_ik-release.git";
         rev = "6dd0fb91beb17489e4511a811c4d55c6351e3eea";
         hash = "sha256-TKEKv9lclKHQqUyAVLAw2f8hI+p0lV4m8xLdNCeqBYA=";
       };
@@ -37,10 +35,9 @@ let
       ];
     };
     pick_ik-vendor_source-Catch2-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pick_ik-vendor_source-Catch2-0-source";
-        owner = "catchorg";
-        repo = "Catch2";
+        url = "https://github.com/catchorg/Catch2.git";
         rev = "7818e2666d5cc7bb1d912acb22b68f6669b74520";
         hash = "sha256-IqTzKPR/RA1uphsr4n5/LfxJNS37I8IFRmMMF/DfBH0=";
       };

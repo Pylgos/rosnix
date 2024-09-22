@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     rmf_charging_schedule = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_charging_schedule-source";
-        owner = "ros2-gbp";
-        repo = "rmf_ros2-release";
+        url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "835b107be43af1e2408ea0a10948c4cd7bff9aec";
         hash = "sha256-t1n90odTaHGDGkC11exZPNOWGu6I1Uo0+ejHFwVIhv8=";
       };

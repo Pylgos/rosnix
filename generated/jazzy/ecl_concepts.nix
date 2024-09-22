@@ -8,7 +8,6 @@
   ecl_config,
   ecl_license,
   ecl_type_traits,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     ecl_concepts = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_concepts-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "a0348c6d3a69b498f2e10dc009637ae7751e6329";
         hash = "sha256-hH2MIha8e5l0G1CqvBSjisV52RKAkaE0J9ZtGpxM9EM=";
       };

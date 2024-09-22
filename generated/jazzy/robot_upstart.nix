@@ -4,7 +4,6 @@
   ament_index_python,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     robot_upstart = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "robot_upstart-source";
-        owner = "clearpath-gbp";
-        repo = "robot_upstart-release";
+        url = "https://github.com/clearpath-gbp/robot_upstart-release.git";
         rev = "bd299c8ce71d1419b31afc8daebfe81daa2c4e13";
         hash = "sha256-rSLxwHWQH5oc7pInTJF/CiLl1feRETCyJtPSyv5ioEE=";
       };

@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     point_cloud_msg_wrapper = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "point_cloud_msg_wrapper-source";
-        owner = "ros2-gbp";
-        repo = "point_cloud_msg_wrapper-release";
+        url = "https://github.com/ros2-gbp/point_cloud_msg_wrapper-release.git";
         rev = "fb047463b9aa30d35af541c7fa4472b2f01c3b1b";
         hash = "sha256-LiHXg+Jj7fMDItxqFAz8F5On1mitqVf18p4luIzXtWk=";
       };

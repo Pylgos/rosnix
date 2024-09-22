@@ -5,7 +5,6 @@
   ament_lint_common,
   angles,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     nav2_rotation_shim_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_rotation_shim_controller-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "cea432085687cc53b3360af029d0a11d160f131e";
         hash = "sha256-0Jo2ONVHMT1mjV5Ehpz+wRsO9hWd3fxGb8YYbvQkkgU=";
       };

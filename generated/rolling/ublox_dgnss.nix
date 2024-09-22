@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ublox_dgnss = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ublox_dgnss-source";
-        owner = "ros2-gbp";
-        repo = "ublox_dgnss-release";
+        url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
         rev = "bff93c47d5c2d066be278b8d207ee821b12d6c3e";
         hash = "sha256-6iGhNZeoJO63+6Z50d7QqpRpzqjKw+GVN0jKCKIK/Nw=";
       };

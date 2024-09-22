@@ -4,7 +4,6 @@
   etsi_its_cpm_ts_coding,
   etsi_its_cpm_ts_msgs,
   etsi_its_primitives_conversion,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     etsi_its_cpm_ts_conversion = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "etsi_its_cpm_ts_conversion-source";
-        owner = "ros2-gbp";
-        repo = "etsi_its_messages-release";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "92bbb5c9773393c415878b5fc03cbd3ddb4f2126";
         hash = "sha256-hzzwrM+Ux6HCi7b1Ocl93n2yAH55fRsQqts/0Llc1n0=";
       };

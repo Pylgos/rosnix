@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     etsi_its_primitives_conversion = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "etsi_its_primitives_conversion-source";
-        owner = "ros2-gbp";
-        repo = "etsi_its_messages-release";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "c008d065b1f3de74466665d29a45950623d5dcf9";
         hash = "sha256-6ym/VNlaFLfr6vT8pV8GzWXX0Me9eQSY4OraLW6DMJ0=";
       };

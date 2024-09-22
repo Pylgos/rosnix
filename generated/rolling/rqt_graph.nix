@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     rqt_graph = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_graph-source";
-        owner = "ros2-gbp";
-        repo = "rqt_graph-release";
+        url = "https://github.com/ros2-gbp/rqt_graph-release.git";
         rev = "ee550e5c05b41bc1eaac99aca04377257c1831d3";
         hash = "sha256-mG3hkj+3Q9TYLwdj6I9eWb5UoHiup4+rK2ScooB7yzE=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     hash_library_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hash_library_vendor-source";
-        owner = "ros2-gbp";
-        repo = "hash_library_vendor-release";
+        url = "https://github.com/ros2-gbp/hash_library_vendor-release.git";
         rev = "cd243a064b6da2fcbd714575e2dd3d6158af7901";
         hash = "sha256-/aXRAfmumq2WRfhcS24fzeg13YY+hDi9NQYpVUQNR6w=";
       };
@@ -29,10 +27,9 @@ let
       ];
     };
     hash_library_vendor-vendor_source-hash-library-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hash_library_vendor-vendor_source-hash-library-0-source";
-        owner = "stbrumme";
-        repo = "hash-library";
+        url = "https://github.com/stbrumme/hash-library.git";
         rev = "70cc93763d49a24c4536c7f0a23248f9b40e30f5";
         hash = "sha256-z4JzmggZnNfsTD8OzBiX4egJax4qJXGYr2Q8GPrInRI=";
       };

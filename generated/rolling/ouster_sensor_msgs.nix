@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ouster_sensor_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ouster_sensor_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ouster-ros-release";
+        url = "https://github.com/ros2-gbp/ouster-ros-release.git";
         rev = "94d5338c7cae844e9bcf539f6ed45d550331ba35";
         hash = "sha256-fWka9voPQDtcLHrGdOeYmWY8U9UNQhMwTOlIudhLi28=";
       };

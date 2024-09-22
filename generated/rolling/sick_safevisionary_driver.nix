@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     sick_safevisionary_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sick_safevisionary_driver-source";
-        owner = "ros2-gbp";
-        repo = "sick_safevisionary_ros2-release";
+        url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
         rev = "65413cf196877b4b2d90c5dcb09594bd64f645ff";
         hash = "sha256-+JkVULStq1kUDR609jEbn44uWsjZ4O5x1ogtxSHoM8Y=";
       };

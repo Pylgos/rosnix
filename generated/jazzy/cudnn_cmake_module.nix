@@ -4,7 +4,6 @@
   ament_cmake_lint_cmake,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     cudnn_cmake_module = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "cudnn_cmake_module-source";
-        owner = "ros2-gbp";
-        repo = "cudnn_cmake_module-release";
+        url = "https://github.com/ros2-gbp/cudnn_cmake_module-release.git";
         rev = "de4d4f9f0b0abe550eb0594bb9cea11ceeb536e7";
         hash = "sha256-J6BqQzZzZMC0MVQ5oJCXgXu5fzoPlV+JErISeIuss6I=";
       };

@@ -3,7 +3,6 @@
   automotive_navigation_msgs,
   automotive_platform_msgs,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     automotive_autonomy_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "automotive_autonomy_msgs-source";
-        owner = "ros2-gbp";
-        repo = "automotive_autonomy_msgs-release";
+        url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
         rev = "34fc7813acfef2ff1efba213b734f4fb35656208";
         hash = "sha256-R/GduU+VD3B9INpzOpa84Bl42xFAtGthn8PEt8iYmpw=";
       };

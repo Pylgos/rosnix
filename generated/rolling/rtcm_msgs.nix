@@ -3,7 +3,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     rtcm_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rtcm_msgs-source";
-        owner = "ros2-gbp";
-        repo = "rtcm_msgs-release";
+        url = "https://github.com/ros2-gbp/rtcm_msgs-release.git";
         rev = "79254b5d483f7f53b6915dfb4c74340b3b81de42";
         hash = "sha256-5yTtIdGostlOwChSlKKL4JivCyK284g0KYZxB6GBtBY=";
       };

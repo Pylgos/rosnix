@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rqt_service_caller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_service_caller-source";
-        owner = "ros2-gbp";
-        repo = "rqt_service_caller-release";
+        url = "https://github.com/ros2-gbp/rqt_service_caller-release.git";
         rev = "e98925d2967198ddbd60bb9df580fd8dff129f3d";
         hash = "sha256-SkbOwJQXbq432M9Ogjsl0vOfVi+A35O7CltyhS/2lk8=";
       };

@@ -5,7 +5,6 @@
   camera_calibration_parsers,
   control_msgs,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     robot_calibration = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "robot_calibration-source";
-        owner = "ros2-gbp";
-        repo = "robot_calibration-release";
+        url = "https://github.com/ros2-gbp/robot_calibration-release.git";
         rev = "a623362c1fe628a1da9a38abe7969055e49dec8b";
         hash = "sha256-R/RGa0/pVTyj3BGOHgYuQMwXXdm3/WMRrE7OsQ1WEGI=";
       };

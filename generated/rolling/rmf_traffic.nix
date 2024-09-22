@@ -3,7 +3,6 @@
   ament_cmake_uncrustify,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rmf_traffic = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_traffic-source";
-        owner = "ros2-gbp";
-        repo = "rmf_traffic-release";
+        url = "https://github.com/ros2-gbp/rmf_traffic-release.git";
         rev = "115cb3d6e520330da26430f58a4d87bba028ec61";
         hash = "sha256-GsvWlGm9wOqDfFFLBx/5bA0m7HX+RXAciWvTU8pvg4Q=";
       };

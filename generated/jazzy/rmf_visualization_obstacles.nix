@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_uncrustify,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     rmf_visualization_obstacles = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_visualization_obstacles-source";
-        owner = "ros2-gbp";
-        repo = "rmf_visualization-release";
+        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "ea5997876c9e316df71b29cb446ba5299b768c7c";
         hash = "sha256-Cu1rClmXAp3Zuzc5DhsHEau7XqrwfIKFKHXhFHYXU0U=";
       };

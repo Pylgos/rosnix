@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     turtle_nest = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "turtle_nest-source";
-        owner = "ros2-gbp";
-        repo = "turtle_nest-release";
+        url = "https://github.com/ros2-gbp/turtle_nest-release.git";
         rev = "cc068c80ccb7397108d36b842a688a3873174b01";
         hash = "sha256-ZOCujpxbSs8G7iK430a6Q5AzSeAzQ5Dh2CfDIZ1XlAY=";
       };

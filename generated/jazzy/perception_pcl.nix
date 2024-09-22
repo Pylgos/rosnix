@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     perception_pcl = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "perception_pcl-source";
-        owner = "ros2-gbp";
-        repo = "perception_pcl-release";
+        url = "https://github.com/ros2-gbp/perception_pcl-release.git";
         rev = "95b50e2aced7d1d6c743f13b7debe0960e9285a8";
         hash = "sha256-P/Qu0+b3vRkm+jivWMUPgmcBsnB+nSLxDlJDEOmtuCQ=";
       };

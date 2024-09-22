@@ -11,7 +11,6 @@
   ament_cmake_xmllint,
   buildRosPackage,
   event_camera_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     metavision_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "metavision_driver-source";
-        owner = "ros2-gbp";
-        repo = "metavision_driver-release";
+        url = "https://github.com/ros2-gbp/metavision_driver-release.git";
         rev = "c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836";
         hash = "sha256-cY39QdEEs1lKLaScyeWrofuyVggQEi1Ofnc2JlfEv34=";
       };

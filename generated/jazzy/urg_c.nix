@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     urg_c = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "urg_c-source";
-        owner = "ros2-gbp";
-        repo = "urg_c-release";
+        url = "https://github.com/ros2-gbp/urg_c-release.git";
         rev = "83e66702d52c8fc284861f6a7064354003c773a3";
         hash = "sha256-d1sMppxyaGt43L2i5Eplkfen4tHz1t6hkC42mCbg0EM=";
       };

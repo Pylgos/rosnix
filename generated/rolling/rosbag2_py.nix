@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,10 +28,9 @@
 let
   sources = rec {
     rosbag2_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosbag2_py-source";
-        owner = "ros2-gbp";
-        repo = "rosbag2-release";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "913d2b93944db49310f7b74c2a22d2a02d5067b4";
         hash = "sha256-Jbjroz4/ce2RjXEw9Rj+z5HtAsGJSMP6IiAxwLBGjWw=";
       };

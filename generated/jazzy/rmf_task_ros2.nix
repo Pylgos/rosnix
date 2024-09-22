@@ -4,7 +4,6 @@
   ament_cmake_uncrustify,
   backward_ros,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     rmf_task_ros2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_task_ros2-source";
-        owner = "ros2-gbp";
-        repo = "rmf_ros2-release";
+        url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "21db0de84f77d1e6e627636c77600231c582df64";
         hash = "sha256-g2F060KdE6F9gJut0a9HaEVWpiXe0Qe1ao27SICYYkw=";
       };

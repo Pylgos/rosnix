@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ros_babel_fish_test_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros_babel_fish_test_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ros_babel_fish-release";
+        url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
         rev = "80081d37d9e05574851208b312f2e09b87783fec";
         hash = "sha256-Mcs37Zkv5q3BkOmP+EdSpGCztN9T1CAU+WlS+pIFoNI=";
       };

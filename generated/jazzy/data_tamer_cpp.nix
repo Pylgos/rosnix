@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   buildRosPackage,
   data_tamer_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     data_tamer_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "data_tamer_cpp-source";
-        owner = "ros2-gbp";
-        repo = "data_tamer-release";
+        url = "https://github.com/ros2-gbp/data_tamer-release.git";
         rev = "5274316290956c5257fb416f790585cc9aa31cd6";
         hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
       };

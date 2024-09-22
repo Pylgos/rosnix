@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     domain_coordinator = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "domain_coordinator-source";
-        owner = "ros2-gbp";
-        repo = "ament_cmake_ros-release";
+        url = "https://github.com/ros2-gbp/ament_cmake_ros-release.git";
         rev = "eaf0238fdaa0c604c82921033279c8087e3e128e";
         hash = "sha256-ARFp7X/6YNr9KXLS7vhc5cfrCwaqklD6uxYvkKc3ABQ=";
       };

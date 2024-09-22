@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     rosbag2_storage_sqlite3 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosbag2_storage_sqlite3-source";
-        owner = "ros2-gbp";
-        repo = "rosbag2-release";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "dc9614637cfcca001e88510a0133e776ec0b89c9";
         hash = "sha256-mkbunv+2kgd6fb0MwEJ2kiWjZy1jN7TE+Mg6j0DKSjI=";
       };

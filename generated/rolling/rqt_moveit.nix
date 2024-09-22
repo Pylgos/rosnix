@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rqt_moveit = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_moveit-source";
-        owner = "ros2-gbp";
-        repo = "rqt_moveit-release";
+        url = "https://github.com/ros2-gbp/rqt_moveit-release.git";
         rev = "77d26a0f8c1dbfb5f7e482933936a95ff0173b5d";
         hash = "sha256-A4bGoHfpokKaYjSrBzvtYgzyf6sJGECfPJCIM0iZgYU=";
       };

@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     turtle_tf2_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "turtle_tf2_py-source";
-        owner = "ros2-gbp";
-        repo = "geometry_tutorials-release";
+        url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
         rev = "d9008b745c653f26866657c862bdfcabc147214c";
         hash = "sha256-YrWOCB771U+0NaRQRIHJxiMl6neFFGabMomNQawWucU=";
       };

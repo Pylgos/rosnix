@@ -5,7 +5,6 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     joy_linux = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "joy_linux-source";
-        owner = "ros2-gbp";
-        repo = "joystick_drivers-release";
+        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "3ba3794b6061c3c7a1ed7904cbc5d337a57c6fec";
         hash = "sha256-MCxXwhqUhQHqDvJeyzEVpjLjHtbbIKly+aduefEBefM=";
       };

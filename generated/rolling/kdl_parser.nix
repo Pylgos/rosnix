@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     kdl_parser = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "kdl_parser-source";
-        owner = "ros2-gbp";
-        repo = "kdl_parser-release";
+        url = "https://github.com/ros2-gbp/kdl_parser-release.git";
         rev = "cdbf9b2a8a2f95a13051dfb795e795b836e5530a";
         hash = "sha256-k9FAvPXK/EUOGHyUHB+uVIFTU+swbET5SO9mHMP450Y=";
       };

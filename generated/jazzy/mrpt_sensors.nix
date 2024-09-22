@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     mrpt_sensors = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_sensors-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_sensors-release";
+        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "eb972a441598acf641fa65ee8b919e6fb82e409b";
         hash = "sha256-B8MCdYv31gBZx0BxHHZYUfyq9ZX2m+fR+E2JFusZQc8=";
       };

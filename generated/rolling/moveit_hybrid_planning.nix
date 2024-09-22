@@ -4,7 +4,6 @@
   ament_index_cpp,
   buildRosPackage,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,10 +35,9 @@
 let
   sources = rec {
     moveit_hybrid_planning = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_hybrid_planning-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "5d04be9286683df4ecf207689ec0d8fd9391eb7d";
         hash = "sha256-x19XytU9ToWagITV+a0cam7SLgASAGczCkjTSQu1C8E=";
       };

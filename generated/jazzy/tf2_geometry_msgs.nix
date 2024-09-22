@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     tf2_geometry_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tf2_geometry_msgs-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "6212e5422373e1c5ec14e74e3ab1786906928261";
         hash = "sha256-+QObzKcNZ9ty7dJGQCLRJxrtxlgCbCr52/ETI6K3cQ0=";
       };

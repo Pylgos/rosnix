@@ -6,7 +6,6 @@
   ament_cmake_test,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ament_cmake_black = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_cmake_black-source";
-        owner = "ros2-gbp";
-        repo = "ament_black-release";
+        url = "https://github.com/ros2-gbp/ament_black-release.git";
         rev = "d65629b35bc41323b75c79df0b24bcc2b817bd87";
         hash = "sha256-0MeW5VEeAx+5Xe3/7vfYkIJ5e5dOzQzYoTKGJKtk7dw=";
       };

@@ -8,7 +8,6 @@
   control_toolbox,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     pid_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pid_controller-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "316768761d9d7ef7def837cfc80ab1de94e220d4";
         hash = "sha256-Z29YqPUQRvie95gO84fkVUaUmk5AzKMFhJuIsGHICtA=";
       };

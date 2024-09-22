@@ -10,7 +10,6 @@
   ecl_linear_algebra,
   ecl_mpl,
   ecl_type_traits,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     ecl_statistics = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_statistics-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "c0e8d8dd7d93057ac24bd8beac89d9212a1a99a2";
         hash = "sha256-znVdvA/1rSX25k4ZeeWg3ageP91ua9cDRosJ2FCTUyo=";
       };

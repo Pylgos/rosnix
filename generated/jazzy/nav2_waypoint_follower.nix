@@ -6,7 +6,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,10 +28,9 @@
 let
   sources = rec {
     nav2_waypoint_follower = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_waypoint_follower-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104";
         hash = "sha256-0cD4CecbDGvV70fMa3RmgpZ5MHzPM4Pm/ee7ksLer8M=";
       };

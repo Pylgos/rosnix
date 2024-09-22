@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     rmf_visualization_floorplans = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_visualization_floorplans-source";
-        owner = "ros2-gbp";
-        repo = "rmf_visualization-release";
+        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "5543de571340f7c6d374ddb0fe404e17adcb0261";
         hash = "sha256-BxNcC59t9WO3W0PX0Rv+O/5chNuWk6lIDXqubQQLMBQ=";
       };

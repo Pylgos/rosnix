@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     sros2_cmake = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sros2_cmake-source";
-        owner = "ros2-gbp";
-        repo = "sros2-release";
+        url = "https://github.com/ros2-gbp/sros2-release.git";
         rev = "12a51521d0473892f40f6003e843e7e38d88bc5c";
         hash = "sha256-ioCjdjttYYVOAfbY/aoutslDt4R+3Jl0rBqwTHLBqqc=";
       };

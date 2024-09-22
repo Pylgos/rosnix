@@ -6,7 +6,6 @@
   builtin_interfaces,
   cv_bridge,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     realsense2_camera = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "realsense2_camera-source";
-        owner = "IntelRealSense";
-        repo = "realsense-ros-release";
+        url = "https://github.com/IntelRealSense/realsense-ros-release.git";
         rev = "7acfab07cc185dbc1feb9a98c38c77a81d45f558";
         hash = "sha256-HLMJvHtjNkhBqaTH95BraW0/xbrTUIcDdAE/18aDBWw=";
       };

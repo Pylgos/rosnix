@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     yaml_cpp_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "yaml_cpp_vendor-source";
-        owner = "ros2-gbp";
-        repo = "yaml_cpp_vendor-release";
+        url = "https://github.com/ros2-gbp/yaml_cpp_vendor-release.git";
         rev = "01001306eb4361d5de3bb06a749a72769884cadd";
         hash = "sha256-+IC1J62UuHdmOjU/1+W0xO33jgHhgeC3OZXA8E8ewDw=";
       };
@@ -28,10 +26,9 @@ let
       ];
     };
     yaml_cpp_vendor-vendor_source-yaml-cpp-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "yaml_cpp_vendor-vendor_source-yaml-cpp-0-source";
-        owner = "jbeder";
-        repo = "yaml-cpp";
+        url = "https://github.com/jbeder/yaml-cpp.git";
         rev = "f7320141120f720aecc4c32be25586e7da9eb978";
         hash = "sha256-J87oS6Az1/vNdyXu3L7KmUGWzU0IAkGrGMUUha+xDXI=";
       };

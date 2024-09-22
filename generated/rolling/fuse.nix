@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     fuse = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "fuse-source";
-        owner = "ros2-gbp";
-        repo = "fuse-release";
+        url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "57fbf54cded896a2bfd424b9d4e17b51825eb505";
         hash = "sha256-MCn/++IrtwFkgmWkiy6/v6byBMQQEueRVUVsKFjvpyE=";
       };

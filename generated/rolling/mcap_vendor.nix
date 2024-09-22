@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     mcap_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mcap_vendor-source";
-        owner = "ros2-gbp";
-        repo = "rosbag2-release";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "2cc61ca16f9137b9facf9e0084978a456469be1a";
         hash = "sha256-+YNlr32TW9G0LC8NqSuLPDuM7crL8dK3GvW3wA4jpPY=";
       };

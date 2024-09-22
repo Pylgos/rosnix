@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     mrpt_tutorials = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_tutorials-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_navigation-release";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "462a5da0510658cfb2ba0a0526652995aa50b4bd";
         hash = "sha256-Jbg3mfVV8tRkqyuSdv/FT3Us24gMojpWOQGWqkAIt5M=";
       };

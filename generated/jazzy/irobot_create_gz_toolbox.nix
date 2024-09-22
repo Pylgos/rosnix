@@ -10,7 +10,6 @@
   ament_lint_auto,
   buildRosPackage,
   control_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,10 +30,9 @@
 let
   sources = rec {
     irobot_create_gz_toolbox = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "irobot_create_gz_toolbox-source";
-        owner = "ros2-gbp";
-        repo = "create3_sim-release";
+        url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "ada75bad2e41122c32af63843c74f5826fdf816b";
         hash = "sha256-VYTMIj+MLARWxYH91hYlU3sej6qrAsoHZfKHrmJGx/w=";
       };

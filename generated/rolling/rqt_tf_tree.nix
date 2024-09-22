@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rqt_tf_tree = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_tf_tree-source";
-        owner = "ros2-gbp";
-        repo = "rqt_tf_tree-release";
+        url = "https://github.com/ros2-gbp/rqt_tf_tree-release.git";
         rev = "9ac6e7eb6042e247e804e02fd83663916e5abb10";
         hash = "sha256-waY5Aa3qycV9O2EEFcztdpfuu+CFOxb42p7gI/IuZUU=";
       };

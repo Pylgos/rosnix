@@ -4,7 +4,6 @@
   ament_pep257,
   bond,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     bondpy = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "bondpy-source";
-        owner = "ros2-gbp";
-        repo = "bond_core-release";
+        url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "8cbc01c7083721aaf19d618eb095bb247d0f3467";
         hash = "sha256-qBFpCzvtA7/Vghb+QkbCL8TBZoc5Kdhp+q876UZqVhM=";
       };

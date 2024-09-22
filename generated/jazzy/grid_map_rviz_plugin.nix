@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     grid_map_rviz_plugin = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "grid_map_rviz_plugin-source";
-        owner = "ros2-gbp";
-        repo = "grid_map-release";
+        url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "b347fa11e021fd9fc2e74c93f3e58ef9080afc72";
         hash = "sha256-DAioUw7W4LJs4Pt/ZYANnFiCDBerU3Rbnk7Ql3LEq7w=";
       };

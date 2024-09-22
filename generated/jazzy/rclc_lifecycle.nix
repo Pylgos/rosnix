@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rclc_lifecycle = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rclc_lifecycle-source";
-        owner = "ros2-gbp";
-        repo = "rclc-release";
+        url = "https://github.com/ros2-gbp/rclc-release.git";
         rev = "63cb85126fa62f19193ad312fb39b8f15ab223c1";
         hash = "sha256-S6rPft/BC8XXLe0C9UCT8oPlYVqM0Vvvoj1MqVoApNQ=";
       };

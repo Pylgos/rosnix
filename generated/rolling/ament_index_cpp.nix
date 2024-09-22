@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     ament_index_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_index_cpp-source";
-        owner = "ros2-gbp";
-        repo = "ament_index-release";
+        url = "https://github.com/ros2-gbp/ament_index-release.git";
         rev = "b25d40851af3f8b572dc8f3d7d9214535de2ac67";
         hash = "sha256-nTz5QUgRwH0FBIhOoOQC9v4MI4Vhnm5iSpweeOD31nU=";
       };

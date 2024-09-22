@@ -8,7 +8,6 @@
   console_bridge_vendor,
   eigen3_cmake_module,
   eigen_stl_containers,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     geometric_shapes = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "geometric_shapes-source";
-        owner = "ros2-gbp";
-        repo = "geometric_shapes-release";
+        url = "https://github.com/ros2-gbp/geometric_shapes-release.git";
         rev = "64d51b830c30086c0e79af229e2394fbb13fbb8b";
         hash = "sha256-o2Eck5v0SgZlsbOmbpf5qikEjkjDqv/wJ2kTdTiq2RQ=";
       };

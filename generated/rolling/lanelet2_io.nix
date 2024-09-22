@@ -1,7 +1,6 @@
 {
   ament_cmake_core,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     lanelet2_io = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "lanelet2_io-source";
-        owner = "ros2-gbp";
-        repo = "lanelet2-release";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
         rev = "38f37dab6a64d5c16ff048611c0a3b4e1bd4d132";
         hash = "sha256-B0AHMNYejPsaUhx0+RpURz56wZfnlpEXWZ/KnhdUuOQ=";
       };

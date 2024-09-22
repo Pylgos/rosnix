@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,10 +31,9 @@
 let
   sources = rec {
     kinova_gen3_7dof_robotiq_2f_85_moveit_config = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "kinova_gen3_7dof_robotiq_2f_85_moveit_config-source";
-        owner = "ros2-gbp";
-        repo = "ros2_kortex-release";
+        url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "8afdd055442af8a24ef81523213282e3e2b8dbff";
         hash = "sha256-/NaCg83rG2s+hq+mRhy/8nEZv10V548lKYoEUVBCEc8=";
       };

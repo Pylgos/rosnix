@@ -5,7 +5,6 @@
   etsi_its_cam_ts_msgs,
   etsi_its_cpm_ts_msgs,
   etsi_its_denm_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     etsi_its_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "etsi_its_msgs-source";
-        owner = "ros2-gbp";
-        repo = "etsi_its_messages-release";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "9f7b31de624de641f11f1d0f6087b6768dce05ab";
         hash = "sha256-iXaUxaXuD+F1ZqEOHM7lamsObfoWjXRn6dEWcv+EYAU=";
       };

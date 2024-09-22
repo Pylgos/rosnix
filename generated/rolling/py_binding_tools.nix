@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     py_binding_tools = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "py_binding_tools-source";
-        owner = "ros-gbp";
-        repo = "py_binding_tools-release";
+        url = "https://github.com/ros-gbp/py_binding_tools-release.git";
         rev = "f84c9aed3b91104b3320e1e3732df4344cd568b7";
         hash = "sha256-ptJcdfTt1QQXFPCJ4R1QqIIcwEOHo+ay+T7OJqwDAYo=";
       };

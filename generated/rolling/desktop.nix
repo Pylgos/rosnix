@@ -29,7 +29,6 @@
   examples_rclpy_minimal_publisher,
   examples_rclpy_minimal_service,
   examples_rclpy_minimal_subscriber,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -60,10 +59,9 @@
 let
   sources = rec {
     desktop = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "desktop-source";
-        owner = "ros2-gbp";
-        repo = "variants-release";
+        url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "d2ceeb23ea147b9e4edc88392520a6e3d2e553e6";
         hash = "sha256-SDdRl/0AhXOo1iKjZqc+XABRaWTXxOE0fiLzJVFnvDY=";
       };

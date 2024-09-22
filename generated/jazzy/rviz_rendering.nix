@@ -11,7 +11,6 @@
   ament_lint_auto,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     rviz_rendering = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rviz_rendering-source";
-        owner = "ros2-gbp";
-        repo = "rviz-release";
+        url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "bf104d65ded14ec2e20dc051ccc20a03b4813af9";
         hash = "sha256-MQmIT2egT7gQ+HbJhdCd+/lVwxoQgsZOmMQ9xIX76uQ=";
       };

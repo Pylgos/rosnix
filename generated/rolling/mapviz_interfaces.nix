@@ -1,7 +1,6 @@
 {
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     mapviz_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mapviz_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "mapviz-release";
+        url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "3a23dd0f1d7f400364a73c54985ad221039a05d9";
         hash = "sha256-69Y5+FasOKVL+kZGv8GjgS4SHUvQb42Cr12PmzVZngY=";
       };

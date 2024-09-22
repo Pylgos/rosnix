@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     rti_connext_dds_cmake_module = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rti_connext_dds_cmake_module-source";
-        owner = "ros2-gbp";
-        repo = "rmw_connextdds-release";
+        url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
         rev = "2ef5476e929c1ce5f1f4b0f6ffab576fad18af4d";
         hash = "sha256-G4Jg0f5c/S87/zsn3lssXeLFNlBkBTwfsbqoV5Q2CfE=";
       };

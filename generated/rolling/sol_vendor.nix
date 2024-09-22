@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     sol_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sol_vendor-source";
-        owner = "ros2-gbp";
-        repo = "sol_vendor-release";
+        url = "https://github.com/ros2-gbp/sol_vendor-release.git";
         rev = "4ea37ff0118e62b1f8577475d5389ee754adc7ef";
         hash = "sha256-KyC2VV3zPu3hKaonkepXXm9mAKqTakBjLDSdKBEh4Os=";
       };
@@ -29,10 +27,9 @@ let
       ];
     };
     sol_vendor-vendor_source-sol2-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sol_vendor-vendor_source-sol2-0-source";
-        owner = "ThePhD";
-        repo = "sol2";
+        url = "https://github.com/ThePhD/sol2.git";
         rev = "dca62a0f02bb45f3de296de3ce00b1275eb34c25";
         hash = "sha256-7QHZRudxq3hdsfEAYKKJydc4rv6lyN6UIt/2Zmaejx8=";
       };

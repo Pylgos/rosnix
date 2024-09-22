@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     neobotix_usboard_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "neobotix_usboard_msgs-source";
-        owner = "ros2-gbp";
-        repo = "astuff_sensor_msgs-release";
+        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "4d80630c58872af31fe2bc99eedddb30fe53971b";
         hash = "sha256-dKwQGX4Fl0MagRbLNTnXobUGLXFfems8P6ArP7uljjs=";
       };

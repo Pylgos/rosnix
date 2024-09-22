@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     ros_gz_image = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros_gz_image-source";
-        owner = "ros2-gbp";
-        repo = "ros_ign-release";
+        url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "85a2bbf46d0b5d4acd8b54922fd56b9b864e215b";
         hash = "sha256-8a6r9ke5unfYcabzOleWF1kzcCQsJZI9ohX8ExafWkQ=";
       };

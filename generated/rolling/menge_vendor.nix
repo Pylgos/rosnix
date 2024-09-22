@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     menge_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "menge_vendor-source";
-        owner = "ros2-gbp";
-        repo = "menge_vendor-release";
+        url = "https://github.com/ros2-gbp/menge_vendor-release.git";
         rev = "cb01b076660d10b31575cfc16bbf4b1d828d18ea";
         hash = "sha256-S+Ns9vIuul9KZVyxvo98m4TJAMvJzj0WWPzIwq/RTuc=";
       };

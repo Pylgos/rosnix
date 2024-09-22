@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rttest = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rttest-source";
-        owner = "ros2-gbp";
-        repo = "realtime_support-release";
+        url = "https://github.com/ros2-gbp/realtime_support-release.git";
         rev = "65d6f7088d03fe7d87ff2bf26281d950f908c4ea";
         hash = "sha256-syi3doCFfPT6ug1jYQqAxc/qkOnPsHMhRIuNszED+ok=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     openvdb_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "openvdb_vendor-source";
-        owner = "SteveMacenski";
-        repo = "spatio_temporal_voxel_layer-release";
+        url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
         rev = "0b03bd682394a382754e396f31b0fa117bd26d71";
         hash = "sha256-+hS4Rke9zP2HolcnMjcA0b7z7S0A+J6JZwrCeBvUyUg=";
       };
@@ -33,10 +31,9 @@ let
       ];
     };
     openvdb_vendor-vendor_source-openvdb-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "openvdb_vendor-vendor_source-openvdb-0-source";
-        owner = "AcademySoftwareFoundation";
-        repo = "openvdb";
+        url = "https://github.com/AcademySoftwareFoundation/openvdb.git";
         rev = "ddf922fea94cbf6e96f6277c46c05ff12f22731f";
         hash = "sha256-kaf5gpGYVWinmnRwR/IafE1SJcwmP2psfe/UZdtH1Og=";
       };
@@ -49,10 +46,9 @@ let
       ];
     };
     openvdb_vendor-vendor_source-openvdb-0-vendor_source-opengametools-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "openvdb_vendor-vendor_source-openvdb-0-vendor_source-opengametools-0-source";
-        owner = "jpaver";
-        repo = "opengametools";
+        url = "https://github.com/jpaver/opengametools.git";
         rev = "1c185fe9ce7217df814ec51482a030d7aa66324d";
         hash = "sha256-euwKNvpVfhtB8hxVHTcetK5iUhSyADxpVtLAEZOiYWs=";
       };

@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     libstatistics_collector = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "libstatistics_collector-source";
-        owner = "ros2-gbp";
-        repo = "libstatistics_collector-release";
+        url = "https://github.com/ros2-gbp/libstatistics_collector-release.git";
         rev = "36f7e3aec1ae3538f3d4c0e98ad61d7f0efe024a";
         hash = "sha256-pDLlCcsNZDblyRfOnxNlBG3aHNJH5DQfzDnkPv67fOA=";
       };

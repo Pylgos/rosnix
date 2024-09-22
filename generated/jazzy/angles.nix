@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     angles = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "angles-source";
-        owner = "ros2-gbp";
-        repo = "angles-release";
+        url = "https://github.com/ros2-gbp/angles-release.git";
         rev = "9192c8b6ce21463dcfb1afdb7312257603f34d11";
         hash = "sha256-l4xIXnIMoWmTEkIubTtt1g/NZdI+H9zvYXd0izyPAKw=";
       };

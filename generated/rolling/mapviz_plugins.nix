@@ -3,7 +3,6 @@
   ament_index_cpp,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,10 +35,9 @@
 let
   sources = rec {
     mapviz_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mapviz_plugins-source";
-        owner = "ros2-gbp";
-        repo = "mapviz-release";
+        url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "6752c94367d4b6b9be05f5029f8e2f0ba4a763e6";
         hash = "sha256-NSStccAh0YxU7PjWnggfTIoejGS9SpbMcDMmryOXaa0=";
       };

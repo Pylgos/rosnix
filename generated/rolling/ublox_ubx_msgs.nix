@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ublox_ubx_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ublox_ubx_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ublox_dgnss-release";
+        url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
         rev = "36e6296bc35b94c9026f69460103b362c00a6e1c";
         hash = "sha256-ERggcaG4kBM5GwH5iM+42CzraKbcqjGc1IMqgeoBtrE=";
       };

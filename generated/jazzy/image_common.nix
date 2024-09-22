@@ -5,7 +5,6 @@
   buildRosPackage,
   camera_calibration_parsers,
   camera_info_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     image_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "image_common-source";
-        owner = "ros2-gbp";
-        repo = "image_common-release";
+        url = "https://github.com/ros2-gbp/image_common-release.git";
         rev = "acc5e443a8ef4111b48a5adf86e358873e77eba0";
         hash = "sha256-zEuvWBkITR9VlL546Qsx9vSbwzkK+uzb4FZwz78NPtQ=";
       };

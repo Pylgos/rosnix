@@ -8,7 +8,6 @@
   bondcpp,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     nav2_util = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_util-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "6492242b8d0928be620a9e5e5642dcda59da41db";
         hash = "sha256-6u+FXfsXDlMcYfZjJy27TrFFUak4cCRrSK3vq7LGC1A=";
       };

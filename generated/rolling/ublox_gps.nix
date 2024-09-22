@@ -3,7 +3,6 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     ublox_gps = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ublox_gps-source";
-        owner = "ros2-gbp";
-        repo = "ublox-release";
+        url = "https://github.com/ros2-gbp/ublox-release.git";
         rev = "ae61d1e2b33979bbdc84943ba3de2bdb16f4c0d8";
         hash = "sha256-reZXChxPuNCtJNjWaATs7ozW63ldzYenGz4KQv8rJ1M=";
       };

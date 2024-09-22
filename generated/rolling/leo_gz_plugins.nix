@@ -7,7 +7,6 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     leo_gz_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "leo_gz_plugins-source";
-        owner = "ros2-gbp";
-        repo = "leo_simulator-release";
+        url = "https://github.com/ros2-gbp/leo_simulator-release.git";
         rev = "b95db463abfebe51b54c717dfc6e80e8945a2dc1";
         hash = "sha256-ga6r0cJy5q52i+zHX5Xo5GGXCKsEWC34Gu3hMMr29FU=";
       };

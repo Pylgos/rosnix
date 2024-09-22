@@ -4,7 +4,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     action_tutorials_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "action_tutorials_py-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "f99ed6007497efa72297e0fe3c73f9977b960921";
         hash = "sha256-zhXHMPPYCn8uNithB7nsjnfp6VSyKyrCqqRB/7JgXS0=";
       };

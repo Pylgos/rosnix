@@ -6,7 +6,6 @@
   autoware_planning_msgs,
   autoware_utils,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     autoware_lanelet2_extension = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "autoware_lanelet2_extension-source";
-        owner = "ros2-gbp";
-        repo = "autoware_lanelet2_extension-release";
+        url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
         rev = "b51bebf797c60e5cb421ce5a388701715924d93f";
         hash = "sha256-hCTVBEAFHHCe8f524kEhnkm4yU9EZnItUg/f2dPj91w=";
       };

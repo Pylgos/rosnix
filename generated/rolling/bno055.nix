@@ -4,7 +4,6 @@
   ament_pep257,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     bno055 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "bno055-source";
-        owner = "ros2-gbp";
-        repo = "bno055-release";
+        url = "https://github.com/ros2-gbp/bno055-release.git";
         rev = "4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c";
         hash = "sha256-C8wFVPMD9UXtgtXX3T4ERtwtrr1IKIwYwiGzp1XWbS4=";
       };

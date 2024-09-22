@@ -6,7 +6,6 @@
   ament_cmake_vendor_package,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     gz_msgs_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_msgs_vendor-source";
-        owner = "ros2-gbp";
-        repo = "gz_msgs_vendor-release";
+        url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
         rev = "25905a007be43a355645730c7be99fad30cc7636";
         hash = "sha256-0geXZdTt4n0yj0TwzXFxblk35LrxZePiOVTUBPLkwH4=";
       };
@@ -35,10 +33,9 @@ let
       ];
     };
     gz_msgs_vendor-vendor_source-gz-msgs-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_msgs_vendor-vendor_source-gz-msgs-0-source";
-        owner = "gazebosim";
-        repo = "gz-msgs";
+        url = "https://github.com/gazebosim/gz-msgs.git";
         rev = "0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4";
         hash = "sha256-PQT8EpTxafldnKG3hDSXw2P22gLRg2EfMllrzaTaDEw=";
       };

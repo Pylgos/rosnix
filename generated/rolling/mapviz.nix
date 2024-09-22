@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     mapviz = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mapviz-source";
-        owner = "ros2-gbp";
-        repo = "mapviz-release";
+        url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "209a4127774e8c8ef5b0a4ddd329b95458f10b0b";
         hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
       };

@@ -1,7 +1,6 @@
 {
   buildRosPackage,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     rqt_robot_monitor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_robot_monitor-source";
-        owner = "ros2-gbp";
-        repo = "rqt_robot_monitor-release";
+        url = "https://github.com/ros2-gbp/rqt_robot_monitor-release.git";
         rev = "1841f5ee767e52b37a7884478766445acad7b0a5";
         hash = "sha256-8SFE5pix0PTYkcufr7ovmE/HYmjWyGUdT073Kolmm4I=";
       };

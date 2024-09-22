@@ -4,7 +4,6 @@
   ament_pep257,
   buildRosPackage,
   domain_coordinator,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     ros2test = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2test-source";
-        owner = "ros2-gbp";
-        repo = "ros_testing-release";
+        url = "https://github.com/ros2-gbp/ros_testing-release.git";
         rev = "87f9361b131712dfb1e3b7e342eb8f293fd919df";
         hash = "sha256-tqKhYA9+IzjW93SioL3LjEtOGETxMpk409QC1KJF5w4=";
       };

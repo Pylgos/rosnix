@@ -3,7 +3,6 @@
   buildRosPackage,
   cv_bridge,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     rtabmap_sync = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rtabmap_sync-source";
-        owner = "introlab";
-        repo = "rtabmap_ros-release";
+        url = "https://github.com/introlab/rtabmap_ros-release.git";
         rev = "0fb73881a470a5bc34724c36330ba679d5655975";
         hash = "sha256-13lwERfEWg8Suvpcc8KG0N2uR4sc0sQDx/ez9ejfXRI=";
       };

@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     sensor_msgs_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sensor_msgs_py-source";
-        owner = "ros2-gbp";
-        repo = "common_interfaces-release";
+        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "01387914c80c8a75bea8b032db9310c0370c49eb";
         hash = "sha256-XP+WzJwxIGpqQshcoZ61DxDJNyXp3xOiZNQgFDC328M=";
       };

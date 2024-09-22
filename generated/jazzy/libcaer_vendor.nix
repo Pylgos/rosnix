@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     libcaer_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "libcaer_vendor-source";
-        owner = "ros2-gbp";
-        repo = "libcaer_vendor-release";
+        url = "https://github.com/ros2-gbp/libcaer_vendor-release.git";
         rev = "0424ca45235d713578a786c73480717ad9b316d6";
         hash = "sha256-qbXJBtbU/GC6K5vEd6Dt1V5gnwyiWAhWD/mya3K/z40=";
       };

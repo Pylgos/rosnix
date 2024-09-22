@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     mola_viz = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_viz-source";
-        owner = "ros2-gbp";
-        repo = "mola-release";
+        url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "b43e97c269d5c6c81151b54e5480694ed7286b22";
         hash = "sha256-Vr0gl/J/Sk30LMusvG3latH8D4wQrrbgSh3hrDE1GWM=";
       };

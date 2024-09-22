@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     urdf_launch = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "urdf_launch-source";
-        owner = "ros2-gbp";
-        repo = "urdf_launch-release";
+        url = "https://github.com/ros2-gbp/urdf_launch-release.git";
         rev = "720838f2c65e468e850c50069f8689faa23f125a";
         hash = "sha256-culhEaUIVzEURBnbx83ibUd3MceQsW3fVCfO2lKvIEQ=";
       };

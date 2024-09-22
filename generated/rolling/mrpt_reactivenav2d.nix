@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     mrpt_reactivenav2d = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_reactivenav2d-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_navigation-release";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "2dbf8f0b243003f888ae61bdc966fafb6cfa7ba6";
         hash = "sha256-Vj9I31JX2xSEyVzzvOJsDGzP5jNL8CpFjeXHuVWczJA=";
       };

@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   compressed_image_transport,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     rqt_image_overlay = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_image_overlay-source";
-        owner = "ros2-gbp";
-        repo = "rqt_image_overlay-release";
+        url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
         rev = "3b47252303977088f137c8bc94c0b375f98e4bf5";
         hash = "sha256-rjv8Zxu7V4qDtMRcwMdiYByPpFiYIRJL8N+KK/Gte+E=";
       };

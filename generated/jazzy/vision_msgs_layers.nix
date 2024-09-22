@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     vision_msgs_layers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "vision_msgs_layers-source";
-        owner = "ros2-gbp";
-        repo = "vision_msgs_layers-release";
+        url = "https://github.com/ros2-gbp/vision_msgs_layers-release.git";
         rev = "309c516bbf9f26bc20f61969a4962659f3b4ad3c";
         hash = "sha256-/AF+whPTfuXAf3vP/iP6XQf4SZFSuJjxb7oQ61JEiGs=";
       };

@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     composition = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "composition-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "7f05ecd2969c5de03f143c16abb5f7caf3d6cb53";
         hash = "sha256-EmoAs308fc6SOrxxpKN2Stt3ik+gTPVxvhbAZLnw3cA=";
       };

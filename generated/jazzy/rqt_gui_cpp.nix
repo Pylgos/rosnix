@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     rqt_gui_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_gui_cpp-source";
-        owner = "ros2-gbp";
-        repo = "rqt-release";
+        url = "https://github.com/ros2-gbp/rqt-release.git";
         rev = "0ff9411e1fae5cdb1942231565a13b10a85d001b";
         hash = "sha256-JJ48LH0MfEaVb8AgbGKYBZ2v/ihBf0A2MZ267/+zhDY=";
       };

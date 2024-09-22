@@ -8,7 +8,6 @@
   ament_lint,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     smach_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "smach_msgs-source";
-        owner = "ros2-gbp";
-        repo = "executive_smach-release";
+        url = "https://github.com/ros2-gbp/executive_smach-release.git";
         rev = "e4906ce6c6e13e5c028b738e8f00b7b518a5d76e";
         hash = "sha256-GO/kVPGJMyEujXHxScev2o0WXzzzWX0rZHWTMJTPCwg=";
       };

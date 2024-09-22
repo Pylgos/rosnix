@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     rmf_robot_sim_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_robot_sim_common-source";
-        owner = "ros2-gbp";
-        repo = "rmf_simulation-release";
+        url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
         rev = "11fbc3b5f59f867be3c8a00b4e354fa600198ea0";
         hash = "sha256-w0qFx4C5VaFH20/vYzf/UCmQRb9mrIetgO+qmcmffcw=";
       };

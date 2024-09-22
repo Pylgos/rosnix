@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     ros2lifecycle_test_fixtures = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2lifecycle_test_fixtures-source";
-        owner = "ros2-gbp";
-        repo = "ros2cli-release";
+        url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "ea85fa884c6417acf21d1d7e858f5379bc8e8b9c";
         hash = "sha256-L4zZbd8fMvXvo0n2Jf5wgcEM3qVeA0Hg0YgjMaWtXVo=";
       };

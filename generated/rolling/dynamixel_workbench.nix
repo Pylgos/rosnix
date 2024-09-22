@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   dynamixel_workbench_toolbox,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     dynamixel_workbench = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dynamixel_workbench-source";
-        owner = "ros2-gbp";
-        repo = "dynamixel_workbench-release";
+        url = "https://github.com/ros2-gbp/dynamixel_workbench-release.git";
         rev = "fef071f094aa45e3d6f7768dcd97e7ef226da19e";
         hash = "sha256-iA1/c6eRcHNi0wnJhwog1K7jH1fKwsqIvSfgCZivKrc=";
       };

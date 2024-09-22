@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     rcgcd_spl_14 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcgcd_spl_14-source";
-        owner = "ros2-gbp";
-        repo = "game_controller_spl-release";
+        url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
         rev = "0d610deaef87d5251720143fcf6e39e29043c610";
         hash = "sha256-naRnWiBaNmsQqaucIPL28thbmjie8mBvwk3zLJibvQA=";
       };

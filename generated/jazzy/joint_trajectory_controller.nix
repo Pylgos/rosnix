@@ -8,7 +8,6 @@
   control_toolbox,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,10 +29,9 @@
 let
   sources = rec {
     joint_trajectory_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "joint_trajectory_controller-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "88cd4c9d6cede6c4c53d63fff4ff5fe7483f3c17";
         hash = "sha256-0OK9tBUKkHZclQedtmxfA6ZmKAL6Kn+gy9g9KtboUy8=";
       };

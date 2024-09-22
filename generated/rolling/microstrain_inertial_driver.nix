@@ -4,7 +4,6 @@
   buildRosPackage,
   diagnostic_aggregator,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,10 +29,9 @@
 let
   sources = rec {
     microstrain_inertial_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "microstrain_inertial_driver-source";
-        owner = "ros2-gbp";
-        repo = "microstrain_inertial-release";
+        url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
         rev = "511879424371ef2b4fd2f6b9a279cfe7f6139417";
         hash = "sha256-X29UZFDfi/zZxdj6lxfQRxhsXTZv1yBdjg0x98wbD/Y=";
       };

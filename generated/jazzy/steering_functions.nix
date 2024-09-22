@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     steering_functions = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "steering_functions-source";
-        owner = "ros2-gbp";
-        repo = "steering_functions-release";
+        url = "https://github.com/ros2-gbp/steering_functions-release.git";
         rev = "6bc9fd51c83a1040d0e1a7f66aca7dfa3a716611";
         hash = "sha256-pU2fKTdPvxp9CHgQpy478rFkO/GvfwD54b2lnQlOAcE=";
       };

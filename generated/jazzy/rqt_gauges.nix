@@ -3,7 +3,6 @@
   ament_index_python,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rqt_gauges = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_gauges-source";
-        owner = "ros2-gbp";
-        repo = "rqt_gauges-release";
+        url = "https://github.com/ros2-gbp/rqt_gauges-release.git";
         rev = "fae55efa182e582154dd83da2cf3e8f2ae94843c";
         hash = "sha256-ie5l6SHrK6cQczLp2R3MdzrJRVZGAxGnuO7NzFIwbJY=";
       };

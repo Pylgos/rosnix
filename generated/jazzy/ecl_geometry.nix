@@ -14,7 +14,6 @@
   ecl_math,
   ecl_mpl,
   ecl_type_traits,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     ecl_geometry = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_geometry-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "88fb603dc11bb212904342a75158fdbad487a916";
         hash = "sha256-XXr9pl1hLn7gS04rAzdTRXa+Fe0p4Mn7sC0scLWC2Zc=";
       };

@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     rmw_dds_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmw_dds_common-source";
-        owner = "ros2-gbp";
-        repo = "rmw_dds_common-release";
+        url = "https://github.com/ros2-gbp/rmw_dds_common-release.git";
         rev = "8d736a951300b342b1d672e7923ad9c50f04f726";
         hash = "sha256-wc3HbuwzxNPLut+Q0TPcQI5xPIZd1euV/y2t3Acat8k=";
       };

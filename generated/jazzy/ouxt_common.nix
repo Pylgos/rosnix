@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     ouxt_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ouxt_common-source";
-        owner = "ros2-gbp";
-        repo = "ouxt_common-release";
+        url = "https://github.com/ros2-gbp/ouxt_common-release.git";
         rev = "73ece7bb9cee3dc13c28efd24b80a0804f0a7f41";
         hash = "sha256-4nyGy7HVcpb5Cb/zBa9+kz8o7aXZyGqY2Fdy17Xd9ZY=";
       };

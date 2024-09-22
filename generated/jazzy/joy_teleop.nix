@@ -6,7 +6,6 @@
   buildRosPackage,
   control_msgs,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     joy_teleop = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "joy_teleop-source";
-        owner = "ros2-gbp";
-        repo = "teleop_tools-release";
+        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "e949663f15f31403152dd8617d3cea16d9b4a00a";
         hash = "sha256-upObp0jfQf198ZPg1eoz2Yg0HPhYRD2GGmIAowZS+ow=";
       };

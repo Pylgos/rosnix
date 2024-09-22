@@ -3,7 +3,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     realsense2_camera_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "realsense2_camera_msgs-source";
-        owner = "IntelRealSense";
-        repo = "realsense-ros-release";
+        url = "https://github.com/IntelRealSense/realsense-ros-release.git";
         rev = "def1802d06398e80848aea8958ce2321d1c439d1";
         hash = "sha256-uL0BZSHsWOr4JF0PxcIJa6XvMAWzM+MVRW7SacxABH4=";
       };

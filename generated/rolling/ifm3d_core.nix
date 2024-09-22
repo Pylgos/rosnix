@@ -1,7 +1,6 @@
 {
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     ifm3d_core = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ifm3d_core-source";
-        owner = "ros2-gbp";
-        repo = "ifm3d-release";
+        url = "https://github.com/ros2-gbp/ifm3d-release.git";
         rev = "01aa8970b76959a9bb14540b198f52f4c4316936";
         hash = "sha256-uR93fGa2he8/x1p8bZM2xobrFhbm7cnUGAw341qYlOE=";
       };

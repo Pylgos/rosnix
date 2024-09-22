@@ -4,7 +4,6 @@
   ament_lint_common,
   ament_vitis,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     vitis_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "vitis_common-source";
-        owner = "ros2-gbp";
-        repo = "vitis_common-release";
+        url = "https://github.com/ros2-gbp/vitis_common-release.git";
         rev = "4abbf109e88120dbdd434027d9747317aec5d032";
         hash = "sha256-K6BliyL56las1cA019YmPWtcy/bVEejNPaYTF7SVYic=";
       };

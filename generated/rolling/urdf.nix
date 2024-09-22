@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     urdf = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "urdf-source";
-        owner = "ros2-gbp";
-        repo = "urdf-release";
+        url = "https://github.com/ros2-gbp/urdf-release.git";
         rev = "36871dcd5a47d953a281ba3d54d41a8d102e1acc";
         hash = "sha256-SvhhpjvdwMyjmAhJdP3SrN72LZ37MKzWvRbd90D4qBI=";
       };

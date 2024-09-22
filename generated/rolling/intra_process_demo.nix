@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     intra_process_demo = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "intra_process_demo-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "e420bc0e875fc896c805e92de58e8a2b5ca01d80";
         hash = "sha256-OzMJX/fXkWvULgBmHV/AvTwlEGdmVRpTsgMyAeT4j3M=";
       };

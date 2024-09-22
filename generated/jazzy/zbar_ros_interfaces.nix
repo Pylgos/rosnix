@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     zbar_ros_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "zbar_ros_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "zbar_ros-release";
+        url = "https://github.com/ros2-gbp/zbar_ros-release.git";
         rev = "fe518793f51e19584dca90504bbcabd4e0e0a549";
         hash = "sha256-SsaDsbUZ3f1a3gVgspGXknM9wXhNvAAQ9iENzeuZQgI=";
       };

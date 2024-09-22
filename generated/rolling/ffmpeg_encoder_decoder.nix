@@ -7,7 +7,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     ffmpeg_encoder_decoder = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ffmpeg_encoder_decoder-source";
-        owner = "ros2-gbp";
-        repo = "ffmpeg_encoder_decoder-release";
+        url = "https://github.com/ros2-gbp/ffmpeg_encoder_decoder-release.git";
         rev = "c846ece739ebf7863a745354ee9f3f1c6e897dea";
         hash = "sha256-r++5zahdLLkPS63l7DhrxtFSCYkRWcbI+FPUFA4+kjA=";
       };

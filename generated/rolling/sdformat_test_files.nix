@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     sdformat_test_files = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sdformat_test_files-source";
-        owner = "ros2-gbp";
-        repo = "sdformat_urdf-release";
+        url = "https://github.com/ros2-gbp/sdformat_urdf-release.git";
         rev = "065a5a0dd7475b2a2b143a4e7c62af270f672ceb";
         hash = "sha256-+OOpBAUO+g0O8UYgUSQRn8TIzn3Zyi//hG89iyzKo8U=";
       };

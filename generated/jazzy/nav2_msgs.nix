@@ -3,7 +3,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     nav2_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_msgs-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "e28ef4988a3e225251626f8cc683f92c6d4f0d86";
         hash = "sha256-m81XNS/H/PgWqdZtzrNIbla1y/4tAKUcZVIC25phoC8=";
       };

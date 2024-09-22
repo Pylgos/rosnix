@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     tl_expected = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tl_expected-source";
-        owner = "ros2-gbp";
-        repo = "cpp_polyfills-release";
+        url = "https://github.com/ros2-gbp/cpp_polyfills-release.git";
         rev = "1b7fd0d9944225b12ed2d8e8840e5608a04d1997";
         hash = "sha256-MRDjBU0WqHHPomrtLuNox0zVGvy6aMGTGO8WBV04bF8=";
       };

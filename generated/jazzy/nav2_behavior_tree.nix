@@ -6,7 +6,6 @@
   behaviortree_cpp,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,10 +31,9 @@
 let
   sources = rec {
     nav2_behavior_tree = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_behavior_tree-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "514435645fd784662bd5646e4452560408cd9ccd";
         hash = "sha256-n8/qWnKTojyTZFNfXLMQRMV9FDbcmLweC+AgTJAwNPI=";
       };

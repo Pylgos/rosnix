@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     bond = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "bond-source";
-        owner = "ros2-gbp";
-        repo = "bond_core-release";
+        url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "ef14f8df594843cad635278c35a496bc76cf3e06";
         hash = "sha256-HumzPokICAnb7HyYW4rIhMDSZ8ZnZ+tzQ6LqYn9/dDU=";
       };

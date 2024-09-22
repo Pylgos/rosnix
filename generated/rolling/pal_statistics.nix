@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     pal_statistics = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pal_statistics-source";
-        owner = "ros2-gbp";
-        repo = "pal_statistics-release";
+        url = "https://github.com/ros2-gbp/pal_statistics-release.git";
         rev = "0cf36f5bd7c0a3e11b39512bcb76faad192a3583";
         hash = "sha256-iuQqs6XBZ9nDhHWgffrR71peHVJVK9W4VBMRw/c3lm0=";
       };

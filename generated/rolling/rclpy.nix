@@ -8,7 +8,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,10 +37,9 @@
 let
   sources = rec {
     rclpy = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rclpy-source";
-        owner = "ros2-gbp";
-        repo = "rclpy-release";
+        url = "https://github.com/ros2-gbp/rclpy-release.git";
         rev = "4c7e307c198bd2307ded4fe07831f9d36e27e687";
         hash = "sha256-EsSy0IECOgkELbzSS6vYlTqBQeEBZdH2bdUujpF834I=";
       };

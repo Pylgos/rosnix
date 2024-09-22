@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     dummy_map_server = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dummy_map_server-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "013262b4101af3984b2783493b5891d248ba0f04";
         hash = "sha256-gy4gx1dyM0ezKzQen9Q6Mnpx5IKPpthH+UePo7rzaw0=";
       };

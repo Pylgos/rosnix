@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     rmf_building_map_tools = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_building_map_tools-source";
-        owner = "ros2-gbp";
-        repo = "rmf_traffic_editor-release";
+        url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
         rev = "a6b0c09699bf074088d044d3d12641925b532289";
         hash = "sha256-4cUoJgBGbyqyS7tb68emxaWNBl+LdMnihmzy7xwvW90=";
       };

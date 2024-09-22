@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_gtest,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     moveit_ros_robot_interaction = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_ros_robot_interaction-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "ddb05e33043712ce2b4d9f1fd8baaf8fbf7e494f";
         hash = "sha256-z8r+vWJe9V5E0HFgvUdAPpSxQN4woZl0l/ec5guTiDo=";
       };

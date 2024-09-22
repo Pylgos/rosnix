@@ -2,7 +2,6 @@
   ament_cmake_ros,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rosbridge_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosbridge_msgs-source";
-        owner = "ros2-gbp";
-        repo = "rosbridge_suite-release";
+        url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "a5f95853c53c54e0d861cff5676376a3adbc082e";
         hash = "sha256-gef94q+tOtKcYirePzrQpnNRqyw/TxlebG49vn/OYXI=";
       };

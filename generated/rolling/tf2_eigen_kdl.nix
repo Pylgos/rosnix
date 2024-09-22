@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     tf2_eigen_kdl = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tf2_eigen_kdl-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "ce6a8144321470bfe42378e436dac553e5971a1a";
         hash = "sha256-lkRiGG90mjYM+rLMfHv4j4wQ8TGQYZQSqS75x/5Ks6w=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     rcl_logging_spdlog = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcl_logging_spdlog-source";
-        owner = "ros2-gbp";
-        repo = "rcl_logging-release";
+        url = "https://github.com/ros2-gbp/rcl_logging-release.git";
         rev = "5648031902b5d7055b6bf46596cf424912d86a3e";
         hash = "sha256-1G9tkqVueqbs4DvEFCJyRqYkNap6ekz9JUZzdLt4emw=";
       };

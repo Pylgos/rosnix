@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     leo_desktop = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "leo_desktop-source";
-        owner = "ros2-gbp";
-        repo = "leo_desktop-release";
+        url = "https://github.com/ros2-gbp/leo_desktop-release.git";
         rev = "66b0c66db9bc1aabf02c8cb22c96a19008a0e114";
         hash = "sha256-6KTjQDWAPViQZPNJ0TvIOpgM0ZK6q5bDKX6joQDuOnw=";
       };

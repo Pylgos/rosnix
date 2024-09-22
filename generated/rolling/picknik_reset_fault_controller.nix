@@ -3,7 +3,6 @@
   buildRosPackage,
   controller_interface,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     picknik_reset_fault_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "picknik_reset_fault_controller-source";
-        owner = "ros2-gbp";
-        repo = "picknik_controllers-release";
+        url = "https://github.com/ros2-gbp/picknik_controllers-release.git";
         rev = "6d183a64ea14c307bcb39906198b8a926664cf60";
         hash = "sha256-1YeT/ItbimfyeiruRaU6K0IcXsIuJworLhzpN4VczDs=";
       };

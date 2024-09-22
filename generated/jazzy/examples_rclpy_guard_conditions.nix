@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     examples_rclpy_guard_conditions = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "examples_rclpy_guard_conditions-source";
-        owner = "ros2-gbp";
-        repo = "examples-release";
+        url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "8e9f8d35826ef49362df7a763dd229f27d3b651a";
         hash = "sha256-XuoPymroDyoXWYabkwprlEVdOyalu5DjW759xyQjsPs=";
       };

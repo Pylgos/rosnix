@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     soccer_model_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "soccer_model_msgs-source";
-        owner = "ros2-gbp";
-        repo = "soccer_interfaces-release";
+        url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
         rev = "8a8afc04ffb47505f4307e34e5b84c6e649e2e56";
         hash = "sha256-CGzaSmn0XKOI2Vq0FoGUiKLfqeE3RryN6A+WRhir8+E=";
       };

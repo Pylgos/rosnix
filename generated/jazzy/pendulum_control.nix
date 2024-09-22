@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     pendulum_control = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pendulum_control-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "9c41f54d091d0e65ce9ca393779b066247e4f793";
         hash = "sha256-zBBWIeQBw01hP3nP2HNVs6iPduXjXSSXMSELX/n2JHQ=";
       };

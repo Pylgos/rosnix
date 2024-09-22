@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     mola_lidar_odometry = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_lidar_odometry-source";
-        owner = "ros2-gbp";
-        repo = "mola_lidar_odometry-release";
+        url = "https://github.com/ros2-gbp/mola_lidar_odometry-release.git";
         rev = "3b0e15e1fc3c9acfaf0f263a7120d9bf9d1b3203";
         hash = "sha256-Kk/DGvTlVBDHrcVpQPS225NY2iZQ1Q/ZRXk+jsWZqrs=";
       };

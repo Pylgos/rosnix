@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     mrpt_libhwdrivers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_libhwdrivers-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_ros-release";
+        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
         rev = "5f5daa6cac9a21057bcf1adbc5c7ecab5b7539c2";
         hash = "sha256-KhSefEhpd5H2dNcYcivWJmUWkHm2nFQmdGsYlCEqMt4=";
       };

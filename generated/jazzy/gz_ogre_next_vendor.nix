@@ -4,7 +4,6 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     gz_ogre_next_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_ogre_next_vendor-source";
-        owner = "ros2-gbp";
-        repo = "gz_ogre_next_vendor-release";
+        url = "https://github.com/ros2-gbp/gz_ogre_next_vendor-release.git";
         rev = "72fb805e4715ba139c8104c830c31a0e3b71c957";
         hash = "sha256-4kfeqp5NoagMC+EqNw8tl7dtjCFunMNruZhuWfzyVow=";
       };
@@ -30,10 +28,9 @@ let
       ];
     };
     gz_ogre_next_vendor-vendor_source-ogre-next-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_ogre_next_vendor-vendor_source-ogre-next-0-source";
-        owner = "OGRECave";
-        repo = "ogre-next";
+        url = "https://github.com/OGRECave/ogre-next.git";
         rev = "8d4daeaf46d7d8f85f1833f17daedd7dac05daec";
         hash = "sha256-elSj35LwsLzj1ssDPsk9NW/KSXfiOGYmw9hQSAWdpFM=";
       };

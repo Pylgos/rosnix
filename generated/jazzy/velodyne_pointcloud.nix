@@ -6,7 +6,6 @@
   angles,
   buildRosPackage,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     velodyne_pointcloud = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "velodyne_pointcloud-source";
-        owner = "ros2-gbp";
-        repo = "velodyne-release";
+        url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "35739a33f8f260a755e03a4dfb6e170fca09b01e";
         hash = "sha256-hkvzuZw8cF8+XSVnSmlVOPLOTlg7vhtPoqd1gNK0mo8=";
       };

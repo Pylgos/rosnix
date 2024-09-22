@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     quality_of_service_demo_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "quality_of_service_demo_cpp-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "4a43a53418c304b8340f7e9854df7c7b8cf9f73e";
         hash = "sha256-xZw+YrqZKW3zb2/D4WbBch4QPBxasrn+fpB8XZM/V5E=";
       };

@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     geometry2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "geometry2-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "84b710261f990955cae9e42f3f8d1b1faa7f93e0";
         hash = "sha256-6s51gmzESDAK4da3TgiWxudQg0zURb6KHC1Qg9BHK1c=";
       };

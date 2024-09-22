@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     composition_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "composition_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "rcl_interfaces-release";
+        url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
         rev = "b0fdee2634f93ebde7828118d72cb692daccee26";
         hash = "sha256-86vBOQKOSZvDC4nfmQVC7hKzgCQbCpdZSCADUMi0QC0=";
       };

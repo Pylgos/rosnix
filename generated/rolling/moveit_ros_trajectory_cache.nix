@@ -3,7 +3,6 @@
   ament_cmake_pytest,
   ament_cmake_uncrustify,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,10 +31,9 @@
 let
   sources = rec {
     moveit_ros_trajectory_cache = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_ros_trajectory_cache-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "52dcc3bcb278818529a53271eaf6437f45fa05e4";
         hash = "sha256-uy4MQ2Y9O3j6x0ti5PIxjE09zuvxcGiwPfFCSXT/S3Y=";
       };

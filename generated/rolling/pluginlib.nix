@@ -4,7 +4,6 @@
   ament_index_cpp,
   buildRosPackage,
   class_loader,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     pluginlib = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pluginlib-source";
-        owner = "ros2-gbp";
-        repo = "pluginlib-release";
+        url = "https://github.com/ros2-gbp/pluginlib-release.git";
         rev = "55497a0f479607be3195b6883a6107a38f2f8dfd";
         hash = "sha256-JB5F/PRTfU9jNzXznaDg8QBlh9q79Rg5RISPTHuPTZA=";
       };

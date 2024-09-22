@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     dynamixel_sdk_custom_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dynamixel_sdk_custom_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "dynamixel_sdk-release";
+        url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
         rev = "85f07909dd34b31e3e7f105b1ae99b47c3e8810b";
         hash = "sha256-pWGzlnONW1lXGAui57EHtKsqI3VguxYMeL+ytq6dgec=";
       };

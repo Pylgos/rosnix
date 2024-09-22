@@ -3,7 +3,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     ros_gz_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros_gz_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "ros_ign-release";
+        url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "386200bc4fb6c9685047c44678798438c04cbd9a";
         hash = "sha256-1Ppfwm3EzH21g4N+3nlQurHRpkDFnq7mO11x2fYgBKs=";
       };

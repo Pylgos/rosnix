@@ -7,7 +7,6 @@
   cv_bridge,
   diagnostic_msgs,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     swri_transform_util = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "swri_transform_util-source";
-        owner = "ros2-gbp";
-        repo = "marti_common-release";
+        url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "2449a87220579100817417aab1f33511f923c23d";
         hash = "sha256-NbABucV7KKYYHI02DVMc9siAlEpqGZuYUkZfd+oI9jk=";
       };

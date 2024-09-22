@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     velodyne_laserscan = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "velodyne_laserscan-source";
-        owner = "ros2-gbp";
-        repo = "velodyne-release";
+        url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "45af76c98be872e120796c9000e764a74205521d";
         hash = "sha256-rSKlfJVrsBMOdfguEVxqRmL3bNJiRLJsyy6iTcxdfKY=";
       };

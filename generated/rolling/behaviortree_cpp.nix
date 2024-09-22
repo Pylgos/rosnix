@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   ament_index_cpp,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     behaviortree_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "behaviortree_cpp-source";
-        owner = "ros2-gbp";
-        repo = "behaviortree_cpp_v4-release";
+        url = "https://github.com/ros2-gbp/behaviortree_cpp_v4-release.git";
         rev = "97fadfef60911ff5e59326f26c684ef1511dd3de";
         hash = "sha256-/wi43gC6qhFEXVP2DkkASIWNXY1t6kLMoiG+KaDm7DY=";
       };

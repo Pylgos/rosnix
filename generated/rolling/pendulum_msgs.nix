@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     pendulum_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pendulum_msgs-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "91b12807120ab8de6c0d05950e34f2c4a06deb99";
         hash = "sha256-NFG6kVGH2H4vvpAx8RitTa4EbTDg6/iPGJNwV2RdozE=";
       };

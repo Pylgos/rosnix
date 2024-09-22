@@ -6,7 +6,6 @@
   dwb_critics,
   dwb_msgs,
   dwb_plugins,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     nav2_dwb_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_dwb_controller-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "f269677c6724cda66e55cb5faac15aff7d76572e";
         hash = "sha256-Y2qarGuMEC/NGv+FBsZPlQmjjaRBr1FP1y+ou0E2dfo=";
       };

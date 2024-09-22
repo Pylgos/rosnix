@@ -1,7 +1,6 @@
 {
   ament_cmake_core,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     lanelet2_traffic_rules = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "lanelet2_traffic_rules-source";
-        owner = "ros2-gbp";
-        repo = "lanelet2-release";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
         rev = "d6fd6456b876951728965f2c46963305ba532373";
         hash = "sha256-4z23mvgIB58yuFaSmCW3z5im50f74rrIYVTXxo8XYRA=";
       };

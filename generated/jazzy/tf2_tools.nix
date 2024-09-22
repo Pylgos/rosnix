@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     tf2_tools = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tf2_tools-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "985d79ecc02978c993c3db46f636a34a43475721";
         hash = "sha256-dHtVvaKNOt1mxXBgaHpNzOjkyZV7NnP1S+DEbqkPvLg=";
       };

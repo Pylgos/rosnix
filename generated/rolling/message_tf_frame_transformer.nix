@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     message_tf_frame_transformer = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "message_tf_frame_transformer-source";
-        owner = "ros2-gbp";
-        repo = "message_tf_frame_transformer-release";
+        url = "https://github.com/ros2-gbp/message_tf_frame_transformer-release.git";
         rev = "8365d8e62c09180ae085e4e225e5f2fb90d0439b";
         hash = "sha256-lYSUvKIMjeyVNRJsf7Qj8XGausPw6UVLCKmHL7D1St8=";
       };

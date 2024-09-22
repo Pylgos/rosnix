@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     nao_sensor_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nao_sensor_msgs-source";
-        owner = "ros2-gbp";
-        repo = "nao_interfaces-release";
+        url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
         rev = "0a14ed88efbf4923f9cc1b219425ee9a0f5e0d35";
         hash = "sha256-z8HBYfJ4SH1kbToGsf6tHPccjImandiilK9gxOLUF90=";
       };

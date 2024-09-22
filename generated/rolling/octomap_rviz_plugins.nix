@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     octomap_rviz_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "octomap_rviz_plugins-source";
-        owner = "ros2-gbp";
-        repo = "octomap_rviz_plugins-release";
+        url = "https://github.com/ros2-gbp/octomap_rviz_plugins-release.git";
         rev = "ef308b3f3c173f50646443d89fb596c2d115a8aa";
         hash = "sha256-jYZZwVA/LByiBlY+KXs0ETYwsDlvq8yjFj31QoHrvM0=";
       };

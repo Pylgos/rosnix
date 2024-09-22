@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     simple_term_menu_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "simple_term_menu_vendor-source";
-        owner = "clearpath-gbp";
-        repo = "simple_term_menu_vendor-release";
+        url = "https://github.com/clearpath-gbp/simple_term_menu_vendor-release.git";
         rev = "6ab8fbe31338a72360563ee2b2f44ba1512e745d";
         hash = "sha256-toTrUyUqy7ijNOnTyHXXDtn+mvXcO8izZRsbIFv9Szw=";
       };

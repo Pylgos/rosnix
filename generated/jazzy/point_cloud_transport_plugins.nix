@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   draco_point_cloud_transport,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     point_cloud_transport_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "point_cloud_transport_plugins-source";
-        owner = "ros2-gbp";
-        repo = "point_cloud_transport_plugins-release";
+        url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
         rev = "c18782cb6ee32f7c17638656243c5771d8ad8d64";
         hash = "sha256-zDt56WEUrMBu9fNwzuGnsNgSzxD/jE/5ulHFanku164=";
       };

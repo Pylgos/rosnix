@@ -3,7 +3,6 @@
   ament_index_cpp,
   buildRosPackage,
   fastcdr,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,

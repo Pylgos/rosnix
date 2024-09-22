@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     aruco_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aruco_msgs-source";
-        owner = "pal-gbp";
-        repo = "aruco_ros-release";
+        url = "https://github.com/pal-gbp/aruco_ros-release.git";
         rev = "dd365b8b0a63b154ef602fb3405829342398996f";
         hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
       };

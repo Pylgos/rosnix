@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     splsm_7_conversion = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "splsm_7_conversion-source";
-        owner = "ros2-gbp";
-        repo = "r2r_spl-release";
+        url = "https://github.com/ros2-gbp/r2r_spl-release.git";
         rev = "dfb857922a764e55bb98304008cfc9066660c501";
         hash = "sha256-hot8TlsdjVjgyVkdoUFaIy47vVP67OUYUwJHsdfSm0M=";
       };

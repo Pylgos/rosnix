@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     mola_test_datasets = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_test_datasets-source";
-        owner = "ros2-gbp";
-        repo = "mola_test_datasets-release";
+        url = "https://github.com/ros2-gbp/mola_test_datasets-release.git";
         rev = "c7b4340bd664ef76cbeed0e1ad86046c4d8928c3";
         hash = "sha256-xywSfsEKXi9rua2N0QUVfsaXS2UdW3cHCKj0Tv7at50=";
       };

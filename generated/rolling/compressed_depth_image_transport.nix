@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     compressed_depth_image_transport = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "compressed_depth_image_transport-source";
-        owner = "ros2-gbp";
-        repo = "image_transport_plugins-release";
+        url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
         rev = "1363f91661bb5c75a098980c7217e017acc65733";
         hash = "sha256-f7U6pV7YQQOfBlgk355xZziYcWniLxfCpEP13+tYSRY=";
       };

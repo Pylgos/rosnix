@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     rmf_demos_assets = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_demos_assets-source";
-        owner = "ros2-gbp";
-        repo = "rmf_demos-release";
+        url = "https://github.com/ros2-gbp/rmf_demos-release.git";
         rev = "26fc620cbddafca3d9f1c8e25d17a4c702a1a5c7";
         hash = "sha256-VsIJqUNdINgbYyJsjQxClBrPuvKaBBu9euUTLv+Ez2o=";
       };

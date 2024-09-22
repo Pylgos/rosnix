@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     theora_image_transport = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "theora_image_transport-source";
-        owner = "ros2-gbp";
-        repo = "image_transport_plugins-release";
+        url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
         rev = "15dad3242bced4bb1c9045ce507ace092bf2b10b";
         hash = "sha256-uLQriOe67EH5xOn08ciMFc/MsoPGdo+MmShfutqfgrI=";
       };

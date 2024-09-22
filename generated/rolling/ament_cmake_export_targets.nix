@@ -2,7 +2,6 @@
   ament_cmake_core,
   ament_cmake_export_libraries,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     ament_cmake_export_targets = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_cmake_export_targets-source";
-        owner = "ros2-gbp";
-        repo = "ament_cmake-release";
+        url = "https://github.com/ros2-gbp/ament_cmake-release.git";
         rev = "d70fc9c7313dd3a18a456ada2d3073005bcfcadb";
         hash = "sha256-/1l07PmpRts2Kiaf4Zv/kQhi/24PAtO/kadLEsvQT9c=";
       };

@@ -5,7 +5,6 @@
   ecl_config,
   ecl_errors,
   ecl_license,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     ecl_sigslots_lite = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_sigslots_lite-source";
-        owner = "ros2-gbp";
-        repo = "ecl_lite-release";
+        url = "https://github.com/ros2-gbp/ecl_lite-release.git";
         rev = "5ef1635c1eef70e7fa3bb94f07a43adf19806042";
         hash = "sha256-nGYQQNr6VnsCIPQoCQfLmIxpw1uEBrqSu1PjF4XPSxk=";
       };

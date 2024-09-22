@@ -5,7 +5,6 @@
   buildRosPackage,
   camera_info_manager,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     v4l2_camera = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "v4l2_camera-source";
-        owner = "ros2-gbp";
-        repo = "ros2_v4l2_camera-release";
+        url = "https://github.com/ros2-gbp/ros2_v4l2_camera-release.git";
         rev = "ad3d1855e15fb303b725cb6522470ac178b88cb7";
         hash = "sha256-OaSGrGK1Lj3ZocwVMqc8WO1+T6jU/Ky2u2UwIpRHqwY=";
       };

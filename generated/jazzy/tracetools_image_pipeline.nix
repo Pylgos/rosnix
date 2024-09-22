@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     tracetools_image_pipeline = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tracetools_image_pipeline-source";
-        owner = "ros2-gbp";
-        repo = "image_pipeline-release";
+        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "3fb7c70cbffb0f133cc2983d97c44a327868b1d7";
         hash = "sha256-syEe+LBPAb854To6mEMEVf6Kbp35tfuyhK2z7uKL0hc=";
       };

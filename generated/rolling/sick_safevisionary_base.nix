@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     sick_safevisionary_base = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sick_safevisionary_base-source";
-        owner = "ros2-gbp";
-        repo = "sick_safevisionary_base-release";
+        url = "https://github.com/ros2-gbp/sick_safevisionary_base-release.git";
         rev = "5687f278b282b28841f11c65d1bd77d9d69bb9d6";
         hash = "sha256-EMtEy8XLykxcLHYCPgk6Ralivtfddx0U4aPIsdnxSlc=";
       };

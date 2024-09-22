@@ -6,7 +6,6 @@
   buildRosPackage,
   diagnostic_msgs,
   diagnostic_updater,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     velodyne_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "velodyne_driver-source";
-        owner = "ros2-gbp";
-        repo = "velodyne-release";
+        url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "0c3d9f0ef24f36a7e6a11e3ef5be6c21e2990b62";
         hash = "sha256-9ysVDD9seg0Ss+VilOfbSs7ysVE2cxvVHaHR3kj+yKQ=";
       };

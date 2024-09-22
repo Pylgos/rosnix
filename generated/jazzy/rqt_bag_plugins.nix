@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     rqt_bag_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_bag_plugins-source";
-        owner = "ros2-gbp";
-        repo = "rqt_bag-release";
+        url = "https://github.com/ros2-gbp/rqt_bag-release.git";
         rev = "611ec8d4d363d887f64260ce376ddce1f586137e";
         hash = "sha256-PlJfh+9GTcXBnMWt/FkDemyryrX4N2GwiEQrKimfSNs=";
       };

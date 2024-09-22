@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   controller_interface,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     battery_state_broadcaster = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "battery_state_broadcaster-source";
-        owner = "ros2-gbp";
-        repo = "ros_battery_monitoring-release";
+        url = "https://github.com/ros2-gbp/ros_battery_monitoring-release.git";
         rev = "0d64cba7565af1681c145bd00be7bd87a8b4b744";
         hash = "sha256-ynQossur/wBDAwdNLaf0DVCZVv6fkXa6OyEyCrDtoWs=";
       };

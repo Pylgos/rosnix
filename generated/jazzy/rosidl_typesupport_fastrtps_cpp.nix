@@ -9,7 +9,6 @@
   buildRosPackage,
   fastcdr,
   fastrtps_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,10 +29,9 @@
 let
   sources = rec {
     rosidl_typesupport_fastrtps_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosidl_typesupport_fastrtps_cpp-source";
-        owner = "ros2-gbp";
-        repo = "rosidl_typesupport_fastrtps-release";
+        url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
         rev = "251957bd6af1dd6f15113952b69d74aaad79eb5c";
         hash = "sha256-ZEqX9gfGLYVCUifj/xBT95/lQvxtssBJj1kRPdX1Ki8=";
       };

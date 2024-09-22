@@ -2,7 +2,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     backward_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "backward_ros-source";
-        owner = "ros2-gbp";
-        repo = "backward_ros-release";
+        url = "https://github.com/ros2-gbp/backward_ros-release.git";
         rev = "7385b7bf6be40bc277b3a73c5ca32104dfb47ea0";
         hash = "sha256-bWsmqFK/qWWpbhuWLQpYSQyNWcbHbMKq/ACVsHa/Vf0=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     can_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "can_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ros_canopen-release";
+        url = "https://github.com/ros2-gbp/ros_canopen-release.git";
         rev = "16b0f665d531eec81533d177c14ce210dc105adb";
         hash = "sha256-9K7mCEEppzWP9ITzFZlJje6JHNIFoBxJ/FXPs+NoX4M=";
       };

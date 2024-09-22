@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     twist_stamper = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "twist_stamper-source";
-        owner = "ros2-gbp";
-        repo = "twist_stamper-release";
+        url = "https://github.com/ros2-gbp/twist_stamper-release.git";
         rev = "55f1d527940dafdcdd83c1e2f4a7165f086262b5";
         hash = "sha256-AE3PKMNhcFfc7nbMllXSYBoKhQmRVHLCirRpDAEknEQ=";
       };

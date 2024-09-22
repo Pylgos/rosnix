@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     mrpt_sensor_imu_taobotics = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_sensor_imu_taobotics-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_sensors-release";
+        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "b503c4a001f57759bf900f5a9ff6c3f190dbbb38";
         hash = "sha256-i/VI6NybgOTVnmZO3RoHSnA7Gbjea8iGtqnuJ2+MjmQ=";
       };

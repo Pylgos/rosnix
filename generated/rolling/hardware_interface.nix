@@ -4,7 +4,6 @@
   ament_cmake_gmock,
   buildRosPackage,
   control_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     hardware_interface = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hardware_interface-source";
-        owner = "ros2-gbp";
-        repo = "ros2_control-release";
+        url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "e88207217dc4f61ce26fd21ef65627889138e09f";
         hash = "sha256-JHXgQo0Gg7eFU5T+H1StU9iMrlbiVQlu9M5Mx0E9JCY=";
       };

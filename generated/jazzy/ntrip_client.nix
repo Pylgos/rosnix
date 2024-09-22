@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     ntrip_client = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ntrip_client-source";
-        owner = "ros2-gbp";
-        repo = "ntrip_client-release";
+        url = "https://github.com/ros2-gbp/ntrip_client-release.git";
         rev = "8b043737e69f30b6c448fc926d7d5192521f2eb1";
         hash = "sha256-mjgvoEVgfLQBBMLRNOu0vuIREhBqOf96dPTY2PVPqV0=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     udp_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "udp_msgs-source";
-        owner = "ros2-gbp";
-        repo = "udp_msgs-release";
+        url = "https://github.com/ros2-gbp/udp_msgs-release.git";
         rev = "cff9e3e887938db4f1281b153e65fd108fd8a4d9";
         hash = "sha256-wk0E8P+RhBD3LVdBSrcJHrF2CwKgOXysrKAiCDRiSPI=";
       };

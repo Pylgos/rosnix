@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     vrpn_mocap = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "vrpn_mocap-source";
-        owner = "ros2-gbp";
-        repo = "vrpn_mocap-release";
+        url = "https://github.com/ros2-gbp/vrpn_mocap-release.git";
         rev = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf";
         hash = "sha256-qTdwB+YAkx59icepyKJgOykWlxF7kMMSSJ/EKm+NVWs=";
       };

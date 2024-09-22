@@ -6,7 +6,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     ntrip_client_node = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ntrip_client_node-source";
-        owner = "ros2-gbp";
-        repo = "ublox_dgnss-release";
+        url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
         rev = "9b9db0855d7f842a8c11150f760e419ecd78d47d";
         hash = "sha256-TOR7OmySSgVy4hvBF0qqUpuD20RQeutyTK7ge2x5Cmk=";
       };

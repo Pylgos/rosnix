@@ -4,7 +4,6 @@
   autoware_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     autoware_utils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "autoware_utils-source";
-        owner = "ros2-gbp";
-        repo = "autoware_utils-release";
+        url = "https://github.com/ros2-gbp/autoware_utils-release.git";
         rev = "4d582d3100af60a9be279e0a93bf70672ba9ab70";
         hash = "sha256-64bVDZx6Rh0NjYj7GrBjcZrD9RGeONzy0Gzq5qQ+1XU=";
       };

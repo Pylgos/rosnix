@@ -3,7 +3,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     robot_calibration_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "robot_calibration_msgs-source";
-        owner = "ros2-gbp";
-        repo = "robot_calibration-release";
+        url = "https://github.com/ros2-gbp/robot_calibration-release.git";
         rev = "9ddd37d1432322248aa032f9db600fb08cad2545";
         hash = "sha256-b3n32e2IjIsvjVq2nY/zf7dUbihjtmww0IfyUiyHFVU=";
       };

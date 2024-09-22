@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     stereo_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "stereo_msgs-source";
-        owner = "ros2-gbp";
-        repo = "common_interfaces-release";
+        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "ac381a89e37baac54f65169fb5eadfb197b5788f";
         hash = "sha256-pslCBNIHA/ok2N2kdjY3FQeLs6/snomzRWKXWnE/iTc=";
       };

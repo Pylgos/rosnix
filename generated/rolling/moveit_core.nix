@@ -9,7 +9,6 @@
   common_interfaces,
   eigen3_cmake_module,
   eigen_stl_containers,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -53,10 +52,9 @@
 let
   sources = rec {
     moveit_core = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_core-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "f5a91d3f79fa363e7b041433e3e0fcb306a4c780";
         hash = "sha256-MvFvH1SaCcBe4lBCyYtBhu7z4R1VqzA3s+0I7DIu15c=";
       };

@@ -5,7 +5,6 @@
   buildRosPackage,
   builtin_interfaces,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     autoware_system_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "autoware_system_msgs-source";
-        owner = "ros2-gbp";
-        repo = "autoware_msgs-release";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
         rev = "0c21e87cb893949350ab5663f97ebfe7a4529850";
         hash = "sha256-hbYa4pl/hLWUDxk+gN234i8Vz2MlS3Jfi1xp8aHXvqY=";
       };

@@ -9,7 +9,6 @@
   aruco_opencv_msgs,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     aruco_opencv = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aruco_opencv-source";
-        owner = "ros2-gbp";
-        repo = "aruco_opencv-release";
+        url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
         rev = "2627ed963f4a6e887754f8e910c15689f0b5c89f";
         hash = "sha256-SidyRIeaYeAZTr6h04wPmYBWhR8Z1YIGnV35sjdHmGY=";
       };

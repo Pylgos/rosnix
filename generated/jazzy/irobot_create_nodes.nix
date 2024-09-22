@@ -11,7 +11,6 @@
   angles,
   buildRosPackage,
   control_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,10 +31,9 @@
 let
   sources = rec {
     irobot_create_nodes = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "irobot_create_nodes-source";
-        owner = "ros2-gbp";
-        repo = "create3_sim-release";
+        url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "9820518e7ad3fd36c67bcd9d217eda7813d62421";
         hash = "sha256-JELgQIoTr3G3GURg9exPGAofcJxoYI7FdjnKC7FiVc8=";
       };

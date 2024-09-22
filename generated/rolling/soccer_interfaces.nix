@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     soccer_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "soccer_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "soccer_interfaces-release";
+        url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
         rev = "b358a9e2bdbc9f45a07ae1cf636a165f52a0e686";
         hash = "sha256-Qyw6VmsZdw+IhJM06b4fGhTFvxrT63DWIjEjqtmU8oI=";
       };

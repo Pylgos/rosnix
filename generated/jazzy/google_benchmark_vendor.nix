@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     google_benchmark_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "google_benchmark_vendor-source";
-        owner = "ros2-gbp";
-        repo = "google_benchmark_vendor-release";
+        url = "https://github.com/ros2-gbp/google_benchmark_vendor-release.git";
         rev = "2da4208dbfcb32f943585ece1d9ff3e51cb916c6";
         hash = "sha256-YHQEziwNPQzFfRVEHovMpimPk2aOqLC0khzmZStlr8Y=";
       };
@@ -26,10 +24,9 @@ let
       ];
     };
     google_benchmark_vendor-vendor_source-benchmark-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "google_benchmark_vendor-vendor_source-benchmark-0-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark.git";
         rev = "344117638c8ff7e239044fd0fa7085839fc03021";
         hash = "sha256-gztnxui9Fe/FTieMjdvfJjWHjkImtlsHn6fM1FruyME=";
       };

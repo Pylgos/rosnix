@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     fmilibrary_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "fmilibrary_vendor-source";
-        owner = "ros2-gbp";
-        repo = "fmilibrary_vendor-release";
+        url = "https://github.com/ros2-gbp/fmilibrary_vendor-release.git";
         rev = "08f471024647d9a20a30699b327405315a202768";
         hash = "sha256-RwFS1j6Bue1ac96cXWL4i1A+KcMFWctqGRc0ZGeTR70=";
       };
@@ -27,10 +25,9 @@ let
       ];
     };
     fmilibrary_vendor-vendor_source-fmi-library-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "fmilibrary_vendor-vendor_source-fmi-library-0-source";
-        owner = "modelon-community";
-        repo = "fmi-library";
+        url = "https://github.com/modelon-community/fmi-library.git";
         rev = "998768cddacce99727d633d045fa6d25314e1d9a";
         hash = "sha256-i8EtjPMg39S/3RyoUaXm5A8Nu/NbgAwjxRCdyh2elyU=";
       };

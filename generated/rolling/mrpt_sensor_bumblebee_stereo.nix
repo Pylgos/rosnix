@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     mrpt_sensor_bumblebee_stereo = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_sensor_bumblebee_stereo-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_sensors-release";
+        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "f96854a0179b96d0f314831f90099c6e9eac52a0";
         hash = "sha256-RdSetxlV3aRkTreC+ol1ENdwAu440EnXqTubJg53Q48=";
       };

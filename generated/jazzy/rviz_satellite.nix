@@ -5,7 +5,6 @@
   ament_lint_common,
   angles,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     rviz_satellite = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rviz_satellite-source";
-        owner = "nobleo";
-        repo = "rviz_satellite-release";
+        url = "https://github.com/nobleo/rviz_satellite-release.git";
         rev = "48cec4c14133a35baed22a947a2a48487f13ee06";
         hash = "sha256-md1r1pU2BDHugOSENoO8Um9K/tJKgazRl80PYKYzQok=";
       };

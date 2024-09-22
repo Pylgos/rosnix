@@ -5,7 +5,6 @@
   ament_lint_auto,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     qml_ros2_plugin = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "qml_ros2_plugin-source";
-        owner = "ros2-gbp";
-        repo = "qml_ros2_plugin-release";
+        url = "https://github.com/ros2-gbp/qml_ros2_plugin-release.git";
         rev = "26fb96c81e6b21a7197c21b96565c4d8a0558d9e";
         hash = "sha256-yoKPHciam4zihyBcYUf/zrVk7LhG14peuJ3WXxLD9No=";
       };

@@ -4,7 +4,6 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     gz_dartsim_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_dartsim_vendor-source";
-        owner = "ros2-gbp";
-        repo = "gz_dartsim_vendor-release";
+        url = "https://github.com/ros2-gbp/gz_dartsim_vendor-release.git";
         rev = "38bdb4c6948952978b640c95beb7b4e8aaea61f3";
         hash = "sha256-M1p+knNPSpbfQpQATwwHo5EqtCKx0Fn9S7rZLTTWICY=";
       };
@@ -30,10 +28,9 @@ let
       ];
     };
     gz_dartsim_vendor-vendor_source-dart-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gz_dartsim_vendor-vendor_source-dart-0-source";
-        owner = "dartsim";
-        repo = "dart";
+        url = "https://github.com/dartsim/dart.git";
         rev = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe";
         hash = "sha256-AfKPqUiW6BsM98TIzTY2ZcFP1WvURs8/dGOzanIiB9g=";
       };

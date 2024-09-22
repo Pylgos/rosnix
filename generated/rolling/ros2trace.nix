@@ -5,7 +5,6 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     ros2trace = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2trace-source";
-        owner = "ros2-gbp";
-        repo = "ros2_tracing-release";
+        url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
         rev = "98e66952de165ccf24aa0af3a1f4de7c1b032747";
         hash = "sha256-R+Nm704+TiBp9ZBjT9M1zfnM50hSgFey7UCI266LzAs=";
       };

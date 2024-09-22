@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     openeb_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "openeb_vendor-source";
-        owner = "ros2-gbp";
-        repo = "openeb_vendor-release";
+        url = "https://github.com/ros2-gbp/openeb_vendor-release.git";
         rev = "4177e27b5c6f57f87689da879aafae15f05028ad";
         hash = "sha256-L3/O55ZRFe3I/pKMTbfJspHt1rNfrJnDD25x1g839lA=";
       };

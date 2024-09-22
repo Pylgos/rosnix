@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   ament_index_cpp,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     moveit_setup_app_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_setup_app_plugins-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "ee56a0dcffa31745c28526cb65f1838c7be43b7b";
         hash = "sha256-R2EfqBGaXZjN46MSrxtlZZ7YKUuwAuQJmKZATkyiHdQ=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_gmock,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     realtime_tools = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "realtime_tools-source";
-        owner = "ros2-gbp";
-        repo = "realtime_tools-release";
+        url = "https://github.com/ros2-gbp/realtime_tools-release.git";
         rev = "204ddaae9374354aa1d951465e0b1df1f8b0b4f7";
         hash = "sha256-mJ0j1sX7BpeTC7S7CmAoZXA0XLrOcy22ZW4+t0CWR4A=";
       };

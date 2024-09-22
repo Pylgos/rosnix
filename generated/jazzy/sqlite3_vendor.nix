@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     sqlite3_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "sqlite3_vendor-source";
-        owner = "ros2-gbp";
-        repo = "rosbag2-release";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "2569c44dcd8d445cd1c163c80e3c96b109b19953";
         hash = "sha256-Q8olSUz24poVU9f/oi+BMW3zUOhL0yuFXwlRcYPsg9U=";
       };

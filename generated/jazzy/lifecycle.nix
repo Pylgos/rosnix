@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     lifecycle = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "lifecycle-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "1823823205a089832815e05640dad53767409e21";
         hash = "sha256-VHQgUWaJSHvx2KXRHjClZcq/8Ev3gBFQzXfavsmv8Lc=";
       };

@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     hls_lfcd_lds_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hls_lfcd_lds_driver-source";
-        owner = "ros2-gbp";
-        repo = "hls_lfcd_lds_driver-release";
+        url = "https://github.com/ros2-gbp/hls_lfcd_lds_driver-release.git";
         rev = "43116c85f64ac8288dd6fb013e81b3fcf98d9bad";
         hash = "sha256-gFslT2HGpW6SzRM8frU8D/gistcJDw02YkcZTXZcfa8=";
       };

@@ -5,7 +5,6 @@
   ament_cmake_test,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     ament_cmake_xmllint = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_cmake_xmllint-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "904d48f56ff10d4a52d71e9fc888738537b1e6c1";
         hash = "sha256-entZvK5aC5kn2mT/f37UGuFduXJbrc4fhuG8dmTL2Aw=";
       };

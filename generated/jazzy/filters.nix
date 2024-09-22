@@ -6,7 +6,6 @@
   ament_cmake_uncrustify,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     filters = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "filters-source";
-        owner = "ros2-gbp";
-        repo = "filters-release";
+        url = "https://github.com/ros2-gbp/filters-release.git";
         rev = "4453644af7cf5338d89bb7df64174695674d45c8";
         hash = "sha256-hz/dFfNO4Dl2v0luZbIJQrfAimC4iBuF7HtT0XInGgk=";
       };

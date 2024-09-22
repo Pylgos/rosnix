@@ -5,7 +5,6 @@
   ament_cmake_python,
   beluga,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     beluga_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "beluga_ros-source";
-        owner = "ros2-gbp";
-        repo = "beluga-release";
+        url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
         hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
       };

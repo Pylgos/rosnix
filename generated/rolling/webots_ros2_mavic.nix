@@ -2,7 +2,6 @@
   ament_copyright,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     webots_ros2_mavic = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "webots_ros2_mavic-source";
-        owner = "ros2-gbp";
-        repo = "webots_ros2-release";
+        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "daa14c43a683a5e993102772d85747e67ac53370";
         hash = "sha256-fFjl+kzo8dFp4pJE8dNCeIPEPsjKsD/fBvf49R8oMzQ=";
       };

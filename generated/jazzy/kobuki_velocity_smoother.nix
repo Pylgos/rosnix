@@ -10,7 +10,6 @@
   ament_lint_auto,
   buildRosPackage,
   ecl_build,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,10 +28,9 @@
 let
   sources = rec {
     kobuki_velocity_smoother = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "kobuki_velocity_smoother-source";
-        owner = "ros2-gbp";
-        repo = "kobuki_velocity_smoother-release";
+        url = "https://github.com/ros2-gbp/kobuki_velocity_smoother-release.git";
         rev = "7851383e06b59c96286db423f2e4db9287693ba9";
         hash = "sha256-kZmyem+NJit8xtwuRz5Zx8AkdojVm7/pxgSOR63CkcM=";
       };

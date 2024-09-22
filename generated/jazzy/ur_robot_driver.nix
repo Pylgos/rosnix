@@ -5,7 +5,6 @@
   buildRosPackage,
   controller_manager,
   controller_manager_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -44,10 +43,9 @@
 let
   sources = rec {
     ur_robot_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ur_robot_driver-source";
-        owner = "ros2-gbp";
-        repo = "Universal_Robots_ROS2_Driver-release";
+        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "099fe0693a6664befe9f3c3824d32ca37f5615e4";
         hash = "sha256-mJ7a9PTlrO5EdPL530/dPZX5cVmd+ht/6uVaVPLQgjU=";
       };

@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     pcl_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pcl_ros-source";
-        owner = "ros2-gbp";
-        repo = "perception_pcl-release";
+        url = "https://github.com/ros2-gbp/perception_pcl-release.git";
         rev = "4200ad2cd0685c607ff4c420e6825f5abeb5457c";
         hash = "sha256-JYaF0rM0jptFPpMnfXIyQDMAwFXoG/ULAVW/d4/CVPs=";
       };

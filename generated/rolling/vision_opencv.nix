@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     vision_opencv = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "vision_opencv-source";
-        owner = "ros2-gbp";
-        repo = "vision_opencv-release";
+        url = "https://github.com/ros2-gbp/vision_opencv-release.git";
         rev = "644863a3ee32533e12bc5ce511a5cdb41ae27620";
         hash = "sha256-PwJir9LBkybRtAwNZwGQr1ZxvFm4f+Id0qbqJNMEokk=";
       };

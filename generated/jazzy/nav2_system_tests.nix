@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -39,10 +38,9 @@
 let
   sources = rec {
     nav2_system_tests = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_system_tests-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "bef514990f02073e6c93fec5fb9d4d9922d1e2be";
         hash = "sha256-ucri0sBHAoyNytUvQdVTK60YwgsLJk8OzyA5m0z+6wE=";
       };

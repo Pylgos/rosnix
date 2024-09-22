@@ -4,7 +4,6 @@
   ament_index_cpp,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     foxglove_bridge = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "foxglove_bridge-source";
-        owner = "ros2-gbp";
-        repo = "foxglove_bridge-release";
+        url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
         rev = "488ba6a290f4df44a014b70da8c39e925ea7af59";
         hash = "sha256-55+rvWwEo3BQQ39q4jHC7MXaagY3vheCEPc3TnNeZZ0=";
       };

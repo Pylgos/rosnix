@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     rqt_robot_steering = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_robot_steering-source";
-        owner = "ros2-gbp";
-        repo = "rqt_robot_steering-release";
+        url = "https://github.com/ros2-gbp/rqt_robot_steering-release.git";
         rev = "0bbc8ad54804819c3b35ca495bc285825d9a0b03";
         hash = "sha256-GQCdfFYxE/yR3Eostcf+T9VKwP2N45EzidAhXz5uVrw=";
       };

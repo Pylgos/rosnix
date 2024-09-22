@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     webots_ros2_driver = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "webots_ros2_driver-source";
-        owner = "ros2-gbp";
-        repo = "webots_ros2-release";
+        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "e4b5418d661d13d7841e889fe614d4f7c8cfe06e";
         hash = "sha256-G6weVTbEsygOn7dKbZRH3n+HRo2Yz1i2JeACgKMjWwk=";
       };

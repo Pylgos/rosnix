@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     mavros_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mavros_msgs-source";
-        owner = "ros2-gbp";
-        repo = "mavros-release";
+        url = "https://github.com/ros2-gbp/mavros-release.git";
         rev = "98c65be6302c0ca9ffa9d627c43f1a8747119386";
         hash = "sha256-AWdktlWefd9i32GeYclFTFzF6N2LKeGhVQgrtV9GIvs=";
       };

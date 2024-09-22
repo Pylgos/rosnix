@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     launch_xml = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "launch_xml-source";
-        owner = "ros2-gbp";
-        repo = "launch-release";
+        url = "https://github.com/ros2-gbp/launch-release.git";
         rev = "d38b5e1dff58ba58a94a822846318b0840786023";
         hash = "sha256-Qqc/i5ghzglsx794HAP6CBwuymTldnwQzcBT/psyhw0=";
       };

@@ -7,7 +7,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     message_filters = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "message_filters-source";
-        owner = "ros2-gbp";
-        repo = "ros2_message_filters-release";
+        url = "https://github.com/ros2-gbp/ros2_message_filters-release.git";
         rev = "10082a67ff9fdf6a00613f42926d53e85df86f64";
         hash = "sha256-EtQ9VQLDeOEXfXhscM0sgx9VuDCLkrtoTSues3tnavY=";
       };

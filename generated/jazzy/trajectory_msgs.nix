@@ -3,7 +3,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     trajectory_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "trajectory_msgs-source";
-        owner = "ros2-gbp";
-        repo = "common_interfaces-release";
+        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "c19aea6c1d72c99aa397289cfcd19213576948ea";
         hash = "sha256-7CDVCo1MH2SjEg2UKfl2N4aU4ygYOLtn8EhASs6E/pE=";
       };

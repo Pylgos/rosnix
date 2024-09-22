@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     moveit_configs_utils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_configs_utils-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "5b1a56d796279057a36d9738191655ecf616b024";
         hash = "sha256-8DDHsJCi1DVNRwZcC9PrM6vw7VJA2mZjeOroGm+NewY=";
       };

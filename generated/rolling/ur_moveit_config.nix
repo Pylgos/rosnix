@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     ur_moveit_config = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ur_moveit_config-source";
-        owner = "ros2-gbp";
-        repo = "Universal_Robots_ROS2_Driver-release";
+        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "af515f6ffb35935685452ca72d0758b0fbe64a86";
         hash = "sha256-qvHGwtUJecBk9mV2nEUbnOjBvR0gkyqZSPeJ9LFYVRc=";
       };

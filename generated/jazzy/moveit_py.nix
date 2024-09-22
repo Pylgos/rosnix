@@ -3,7 +3,6 @@
   ament_cmake_pytest,
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     moveit_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_py-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "1a2ca49341be3d3cfdda1883cf49118ccdf47c62";
         hash = "sha256-g7saOz9IdlSXYFhRUfWk6SF4+/6zNq8nFfHzfeWf2bo=";
       };

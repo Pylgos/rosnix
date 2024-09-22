@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     tile_map = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tile_map-source";
-        owner = "ros2-gbp";
-        repo = "mapviz-release";
+        url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "2d15193b2ca71c3132969dc10c20fb761805efbf";
         hash = "sha256-WgyvpkklqyW7zCw3sbLORctYh38D3EtwOim++l7tyQ0=";
       };

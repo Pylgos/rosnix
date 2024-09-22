@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     tf2_kdl = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tf2_kdl-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "8d26d45e4dc42bbd63f6131e87bf155be983bbf3";
         hash = "sha256-CB6YP4ogLmzcM74QaN9si3SxAC1WoeyJD7velkuF3is=";
       };

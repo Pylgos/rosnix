@@ -3,7 +3,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     turtlesim_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "turtlesim_msgs-source";
-        owner = "ros2-gbp";
-        repo = "ros_tutorials-release";
+        url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
         rev = "32803185ffaa1712359144f154fa283c7ee22ee9";
         hash = "sha256-9dFwJZsBR6QXBfY2HhiX0w5K8eOkSgPLyZpmykHcDe0=";
       };

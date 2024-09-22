@@ -7,7 +7,6 @@
   builtin_interfaces,
   camera_info_manager,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     usb_cam = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "usb_cam-source";
-        owner = "ros2-gbp";
-        repo = "usb_cam-release";
+        url = "https://github.com/ros2-gbp/usb_cam-release.git";
         rev = "79f51e3c7a3a08ee6534de69366d437c7bd41904";
         hash = "sha256-D4YStPBN+X8H0h6dWlVYgxuLYH5T7XWoyN0zLV5xN2E=";
       };

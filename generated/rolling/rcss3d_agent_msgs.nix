@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rcss3d_agent_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcss3d_agent_msgs-source";
-        owner = "ros2-gbp";
-        repo = "rcss3d_agent-release";
+        url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
         rev = "f77c39ad9b2617e0ae8097535ecdea2e6720aae5";
         hash = "sha256-AN/eyLroQDeZjI/JosPYI5tZHhbJn0jP1d8D3wjuN54=";
       };

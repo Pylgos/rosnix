@@ -2,7 +2,6 @@
   ament_cmake_core,
   ament_cmake_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     nav2_common = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_common-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "3b721daad17330c8f5cacb4401bc000e281f2503";
         hash = "sha256-KTLurzrQG9qo/LpbBTVH2NzbYa639rHXC/ODl04veCM=";
       };

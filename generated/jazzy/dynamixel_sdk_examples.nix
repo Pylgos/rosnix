@@ -5,7 +5,6 @@
   buildRosPackage,
   dynamixel_sdk,
   dynamixel_sdk_custom_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     dynamixel_sdk_examples = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dynamixel_sdk_examples-source";
-        owner = "ros2-gbp";
-        repo = "dynamixel_sdk-release";
+        url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
         rev = "35ae7e09eb0d2d3a39c518764c296ea3d1aef187";
         hash = "sha256-TRPWVWEEJtx/attfpSr6SATpy7YhzqP9x8ef/IVsULA=";
       };

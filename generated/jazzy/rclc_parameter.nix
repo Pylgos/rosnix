@@ -7,7 +7,6 @@
   buildRosPackage,
   builtin_interfaces,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     rclc_parameter = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rclc_parameter-source";
-        owner = "ros2-gbp";
-        repo = "rclc-release";
+        url = "https://github.com/ros2-gbp/rclc-release.git";
         rev = "75d6c45f9192e3d14b1b982bf9c25d70e42729e5";
         hash = "sha256-A93x6TfzcxJIYgtjzdk6WxPcZgdk96frAyeKMnqXQKQ=";
       };

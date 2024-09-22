@@ -10,7 +10,6 @@
   apriltag_msgs,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     apriltag_detector_umich = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "apriltag_detector_umich-source";
-        owner = "ros2-gbp";
-        repo = "apriltag_detector-release";
+        url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
         rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
         hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
       };

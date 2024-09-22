@@ -8,7 +8,6 @@
   ament_cmake_uncrustify,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     laser_geometry = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "laser_geometry-source";
-        owner = "ros2-gbp";
-        repo = "laser_geometry-release";
+        url = "https://github.com/ros2-gbp/laser_geometry-release.git";
         rev = "004f7d0e382692374c1c5eef8e0dcda2e1a7c93c";
         hash = "sha256-L14Scv0jSh8t5x8vxSwxFJR6fIc45Ze2YKXzMc/Wp/I=";
       };

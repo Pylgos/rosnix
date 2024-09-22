@@ -2,7 +2,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     rqt_gui_py = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_gui_py-source";
-        owner = "ros2-gbp";
-        repo = "rqt-release";
+        url = "https://github.com/ros2-gbp/rqt-release.git";
         rev = "b669fc86dfcd851f8aee655fe7669e0fc9fd8641";
         hash = "sha256-FjLuCCwlFMtrEDj/HN+2/vB5a3bn+BLOAK5Scr9nD40=";
       };

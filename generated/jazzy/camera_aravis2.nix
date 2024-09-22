@@ -7,7 +7,6 @@
   camera_info_manager,
   cv_bridge,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     camera_aravis2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "camera_aravis2-source";
-        owner = "ros2-gbp";
-        repo = "camera_aravis2-release";
+        url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
         rev = "5f3e3d8ced22c864b03026f8804b1a5b45aa0648";
         hash = "sha256-5Ah7DOmJ1tb7bQ9XttTlDnsH6igmEM8S5i3sZm4pWZc=";
       };

@@ -6,7 +6,6 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     rclc = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rclc-source";
-        owner = "ros2-gbp";
-        repo = "rclc-release";
+        url = "https://github.com/ros2-gbp/rclc-release.git";
         rev = "70eb3fc644ca788823c0565b1dde06c59913f24a";
         hash = "sha256-A49/yUw6gCxZpDhW8qijU7K6AFuP1R5dzLhqDvefndA=";
       };

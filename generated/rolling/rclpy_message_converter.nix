@@ -4,7 +4,6 @@
   ament_pep257,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     rclpy_message_converter = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rclpy_message_converter-source";
-        owner = "ros2-gbp";
-        repo = "rospy_message_converter-release";
+        url = "https://github.com/ros2-gbp/rospy_message_converter-release.git";
         rev = "5587c3cd28283f952dafc544143aef02f38532fc";
         hash = "sha256-DCqqMbmIIzPN9jyxeYneVEa6gg9iyDFuE/X1iv9EYPk=";
       };

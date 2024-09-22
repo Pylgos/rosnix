@@ -4,7 +4,6 @@
   backward_ros,
   buildRosPackage,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     position_controllers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "position_controllers-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "57e6bddacb1e3bac731af3aab31c50b577649f55";
         hash = "sha256-4xB6xG5AyPElwPUSIYyL96i8cDxFNYF94xC3aDrZojY=";
       };

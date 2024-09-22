@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,10 +29,9 @@
 let
   sources = rec {
     stereo_image_proc = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "stereo_image_proc-source";
-        owner = "ros2-gbp";
-        repo = "image_pipeline-release";
+        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "6d3fa2be3c370299c54309c5aee81fca0d2a323f";
         hash = "sha256-j0YwgBwlXe4UuGx3w0jQ1q+s9QfyvsMb5hOKttqvVYc=";
       };

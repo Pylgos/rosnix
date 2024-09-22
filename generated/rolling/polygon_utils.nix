@@ -3,7 +3,6 @@
   ament_cmake_pytest,
   ament_cmake_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     polygon_utils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "polygon_utils-source";
-        owner = "ros2-gbp";
-        repo = "polygon_ros-release";
+        url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "df60fb3315beddf0d11b7be2e83bac8c945ab9b6";
         hash = "sha256-Tt1eWbIDyhUfE+Cfkub8TW8XBNp+ilTdRYr4lfSa5A8=";
       };

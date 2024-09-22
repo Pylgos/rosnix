@@ -2,7 +2,6 @@
   ament_flake8,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     rqt_action = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_action-source";
-        owner = "ros2-gbp";
-        repo = "rqt_action-release";
+        url = "https://github.com/ros2-gbp/rqt_action-release.git";
         rev = "3e7beb2f37abb99e324091b4b07801e0517f66fd";
         hash = "sha256-BpjG5n+k8+z0l/4NhcvSTBOKKYBJF4u3LRRHw1jiGgg=";
       };

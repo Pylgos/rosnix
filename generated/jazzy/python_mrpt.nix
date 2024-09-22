@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -145,10 +144,9 @@ let
       ];
     };
     python_mrpt = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "python_mrpt-source";
-        owner = "ros2-gbp";
-        repo = "python_mrpt_ros-release";
+        url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
         rev = "7dd81301179d76e87147eae87f833d901c4d56ec";
         hash = "sha256-R6aITSw0Q0mhOqYrfsz2G0B/KqBOofxD9E+jIs6ArDE=";
       };
@@ -256,13 +254,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0}";
+          to = "URL ${rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0}";
         }
       ];
     };
-    python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0 = substituteSource {
+    rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0 = substituteSource {
       src = fetchzip {
-        name = "python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0-source";
+        name = "rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0-source";
         url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
         hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
       };

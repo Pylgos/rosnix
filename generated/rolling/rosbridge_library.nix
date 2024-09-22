@@ -7,7 +7,6 @@
   builtin_interfaces,
   diagnostic_msgs,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,10 +28,9 @@
 let
   sources = rec {
     rosbridge_library = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rosbridge_library-source";
-        owner = "ros2-gbp";
-        repo = "rosbridge_suite-release";
+        url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "bd531295b9d1aef7e65db6c72bae7c185d99a66a";
         hash = "sha256-Xk40YYsXUGj/59ea63e2ppoCwrhXp7wDqiWhM84sIR8=";
       };

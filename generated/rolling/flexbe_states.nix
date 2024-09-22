@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     flexbe_states = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "flexbe_states-source";
-        owner = "ros2-gbp";
-        repo = "flexbe_behavior_engine-release";
+        url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
         rev = "4c86a317b76c58c3b06c4e002dafd18129c20e19";
         hash = "sha256-9nCf5YRLrdFBBRGVTkMGtiBfcHoiWNVdCLwqKnaSv3k=";
       };

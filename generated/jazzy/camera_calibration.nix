@@ -4,7 +4,6 @@
   ament_pep257,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     camera_calibration = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "camera_calibration-source";
-        owner = "ros2-gbp";
-        repo = "image_pipeline-release";
+        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "8dbb7a4d835dcbadef8929cc9b82e8ae291e598f";
         hash = "sha256-/1Y3e32+GZEmMxwmY1QjbXJDMqWj5hylEhKW2Et9d7o=";
       };

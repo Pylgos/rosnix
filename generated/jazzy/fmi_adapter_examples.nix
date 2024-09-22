@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     fmi_adapter_examples = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "fmi_adapter_examples-source";
-        owner = "ros2-gbp";
-        repo = "fmi_adapter-release";
+        url = "https://github.com/ros2-gbp/fmi_adapter-release.git";
         rev = "d784763bdaa87a53b3bed241dc18f46bc3fc6d1e";
         hash = "sha256-FNLnKvCy1QMsMlkdwfiwnupdtP9U06oTSPaQTkp7XOA=";
       };

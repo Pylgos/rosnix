@@ -3,7 +3,6 @@
   ament_cmake_auto,
   ament_cmake_gtest,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     quaternion_operation = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "quaternion_operation-source";
-        owner = "ros2-gbp";
-        repo = "quaternion_operation-release";
+        url = "https://github.com/ros2-gbp/quaternion_operation-release.git";
         rev = "5caa679fcf2a9098a3c9fb91fe47c62b4006baf6";
         hash = "sha256-EOoZrowJNVGtJNutD+5WlSgVWbmOGlzSJyvsALmfji8=";
       };

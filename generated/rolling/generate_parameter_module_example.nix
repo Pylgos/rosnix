@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     generate_parameter_module_example = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "generate_parameter_module_example-source";
-        owner = "ros2-gbp";
-        repo = "generate_parameter_library-release";
+        url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
         rev = "9cc2325f63634db9965e347430e91d30465bbc82";
         hash = "sha256-HkXslneaMtWnT7O2G7ZfzPxK8AtAzT0SzjoJ5rVxha0=";
       };

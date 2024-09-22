@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     eigen_stl_containers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "eigen_stl_containers-source";
-        owner = "ros2-gbp";
-        repo = "eigen_stl_containers-release";
+        url = "https://github.com/ros2-gbp/eigen_stl_containers-release.git";
         rev = "e9ab518e7f504037094a576f85e52d674b031009";
         hash = "sha256-Zjjaom5lCGLMKC33kq6er1Ji54XUj/3hkSIWcBnXI+E=";
       };

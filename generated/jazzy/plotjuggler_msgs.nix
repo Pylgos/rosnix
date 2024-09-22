@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     plotjuggler_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "plotjuggler_msgs-source";
-        owner = "ros2-gbp";
-        repo = "plotjuggler_msgs-release";
+        url = "https://github.com/ros2-gbp/plotjuggler_msgs-release.git";
         rev = "5edb7b4a405975459292f0410ccdff2e9f11982d";
         hash = "sha256-Lu4ZRsDpvbS2QzbjWOL23H8lsKRSTPGe6MgiCaUedO4=";
       };

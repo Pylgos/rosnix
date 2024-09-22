@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     vision_msgs_rviz_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "vision_msgs_rviz_plugins-source";
-        owner = "ros2-gbp";
-        repo = "vision_msgs-release";
+        url = "https://github.com/ros2-gbp/vision_msgs-release.git";
         rev = "e8120da5536fc03f24cae5c068d4c4be1b5cd30d";
         hash = "sha256-If7mQ5EP7ZLB2EDPnUwciKX0dBfJa4PjuLnUH/ThGjM=";
       };

@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     rc_genicam_api = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rc_genicam_api-source";
-        owner = "ros2-gbp";
-        repo = "rc_genicam_api-release";
+        url = "https://github.com/ros2-gbp/rc_genicam_api-release.git";
         rev = "57bf6c445677c596d425b929c0f82266f98c1cda";
         hash = "sha256-bp8a9UBIdmzBsLXwZO86DD8/PxRp2Bl0HRWOS+fWgOg=";
       };

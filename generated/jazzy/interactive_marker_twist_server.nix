@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     interactive_marker_twist_server = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "interactive_marker_twist_server-source";
-        owner = "ros2-gbp";
-        repo = "interactive_marker_twist_server-release";
+        url = "https://github.com/ros2-gbp/interactive_marker_twist_server-release.git";
         rev = "ebbcfde78840e10069a8c7d8c7c8255dcd8668a7";
         hash = "sha256-FvPQhN5z6jkYZtScraxOUe3bjI3cA495ni/sp/Hh7uk=";
       };

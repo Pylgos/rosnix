@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_vendor_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     zstd_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "zstd_vendor-source";
-        owner = "ros2-gbp";
-        repo = "rosbag2-release";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "0bfa3f9aeb25214e8850a2dc064a051fb8c9968d";
         hash = "sha256-nH4f7XukIPem3PRW9e9f+HbARZafNefB5pBxxh7esOc=";
       };
@@ -28,10 +26,9 @@ let
       ];
     };
     zstd_vendor-vendor_source-zstd-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "zstd_vendor-vendor_source-zstd-0-source";
-        owner = "facebook";
-        repo = "zstd";
+        url = "https://github.com/facebook/zstd.git";
         rev = "63779c798237346c2b245c546c40b72a5a5913fe";
         hash = "sha256-tHHHIsQU7vJySrVhJuMKUSq11MzkmC+Pcsj00uFJdnQ=";
       };

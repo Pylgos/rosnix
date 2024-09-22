@@ -5,7 +5,6 @@
   ament_lint_common,
   ament_mypy,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     nodl_python = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nodl_python-source";
-        owner = "ros2-gbp";
-        repo = "nodl-release";
+        url = "https://github.com/ros2-gbp/nodl-release.git";
         rev = "b699bd8f49e8cd26b642940300bdecdc79a5a2c7";
         hash = "sha256-rHEAtKnNTsXSB1UGfZYRfy3DQXrnGFWNntTfJyxEymc=";
       };

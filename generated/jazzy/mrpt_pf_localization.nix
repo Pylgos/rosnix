@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     mrpt_pf_localization = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_pf_localization-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_navigation-release";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "4fe27d16855a8bb10f5bf70bf16e6a4353c64c6c";
         hash = "sha256-UsMeijiElVebNnauEAXIlsUoIy1o7qccPZI0FMu7o+I=";
       };

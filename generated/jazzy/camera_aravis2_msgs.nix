@@ -3,7 +3,6 @@
   buildRosPackage,
   builtin_interfaces,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     camera_aravis2_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "camera_aravis2_msgs-source";
-        owner = "ros2-gbp";
-        repo = "camera_aravis2-release";
+        url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
         rev = "779f712fb162187e4c606b1dc4f533d39939481c";
         hash = "sha256-uJNlVnQ0C6eoW8P7lIvVPeQwCegOvlodYxLCKO6fv1Q=";
       };

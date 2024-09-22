@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     depthimage_to_laserscan = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "depthimage_to_laserscan-source";
-        owner = "ros2-gbp";
-        repo = "depthimage_to_laserscan-release";
+        url = "https://github.com/ros2-gbp/depthimage_to_laserscan-release.git";
         rev = "d65eba78eb2e659fdff686da9613fa459b6a92a9";
         hash = "sha256-QU8tJNEPEB6X439eDP+kDXczR29OQNtKRX1uXKDqgDo=";
       };

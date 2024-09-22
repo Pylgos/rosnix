@@ -14,7 +14,6 @@
   ecl_mpl,
   ecl_type_traits,
   ecl_utilities,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     ecl_containers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_containers-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "892731f8c4692aee85993224927d18c845dfe360";
         hash = "sha256-943O8bp1zs58toB05o+e+e5rOiiB7i0OAWEjrbjQ7Ng=";
       };

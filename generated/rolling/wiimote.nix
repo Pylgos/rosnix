@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     wiimote = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "wiimote-source";
-        owner = "ros2-gbp";
-        repo = "joystick_drivers-release";
+        url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "460a47897ace5cf34e38e7ad3435ddc5929bb094";
         hash = "sha256-WghWanmw0GXmNOdR/EHg1/ytIXNtIKstCe5hSIgpQ/s=";
       };

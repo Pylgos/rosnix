@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     rmf_demos_fleet_adapter = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_demos_fleet_adapter-source";
-        owner = "ros2-gbp";
-        repo = "rmf_demos-release";
+        url = "https://github.com/ros2-gbp/rmf_demos-release.git";
         rev = "d2f0ae7941e5a3e6e80363b12c21459549f20dee";
         hash = "sha256-dFYB9ED6GHbtco3ON4yzv8St6msZjkHD7rh0QiCmyC4=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   ament_cmake_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     smach = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "smach-source";
-        owner = "ros2-gbp";
-        repo = "executive_smach-release";
+        url = "https://github.com/ros2-gbp/executive_smach-release.git";
         rev = "b15e2d1392843c513a463dce44ef17bf45b1c103";
         hash = "sha256-vyRxq6EM6nOhjwQFIV+ikGPs5Wr0pb7e9iAq8+R8cwo=";
       };

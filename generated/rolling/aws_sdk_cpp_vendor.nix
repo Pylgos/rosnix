@@ -5,7 +5,6 @@
   ament_lint_common,
   buildPackages,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     aws_sdk_cpp_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aws_sdk_cpp_vendor-source";
-        owner = "ros2-gbp";
-        repo = "aws_sdk_cpp_vendor-release";
+        url = "https://github.com/ros2-gbp/aws_sdk_cpp_vendor-release.git";
         rev = "a14ef6b13a8f54a7837b87fdfe694547ebfc079c";
         hash = "sha256-y9V12GcuRTRxl5BbMVNzmPIoC3qIhoGQhgK3kjmd1xs=";
       };
@@ -56,10 +54,9 @@ let
       ];
     };
     aws_sdk_cpp_vendor-vendor_source-aws-sdk-cpp-0-vendor_source-curl-2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aws_sdk_cpp_vendor-vendor_source-aws-sdk-cpp-0-vendor_source-curl-2-source";
-        owner = "bagder";
-        repo = "curl";
+        url = "https://github.com/bagder/curl.git";
         rev = "44b9b4d4f56d6f6de92c89636994c03984e9cd01";
         hash = "sha256-hoUw0d2nRKdQpAtZzn4Q0a2i++VLHfkJ7weAy8VQu0c=";
       };

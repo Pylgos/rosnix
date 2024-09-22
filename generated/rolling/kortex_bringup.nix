@@ -3,7 +3,6 @@
   ament_cmake_python,
   buildRosPackage,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     kortex_bringup = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "kortex_bringup-source";
-        owner = "ros2-gbp";
-        repo = "ros2_kortex-release";
+        url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "7b1b9e5b58add56d94b77593684e748c7b8b68d0";
         hash = "sha256-IQ2mPpCxvX2VcdeA/0EEI0NE3gUueLUjdVkn5RlveZs=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     geometry_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "geometry_msgs-source";
-        owner = "ros2-gbp";
-        repo = "common_interfaces-release";
+        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "9b595e5a5c793cc02c430a4fcc8c4cda4eef3725";
         hash = "sha256-tnsz8Gchh0hrKtLOTi//KLdKxmJrnhMGrJRz1PbBvxw=";
       };

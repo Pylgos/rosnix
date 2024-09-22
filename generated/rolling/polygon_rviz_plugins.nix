@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   color_util,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     polygon_rviz_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "polygon_rviz_plugins-source";
-        owner = "ros2-gbp";
-        repo = "polygon_ros-release";
+        url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "2097ac05b3dd59f6df042b0a5ff94bbff63c9b26";
         hash = "sha256-kXUTcZF3KsFumuXqXCeIaMwhTxL4CWEfmRduy9+Uiq4=";
       };

@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     grbl_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "grbl_ros-source";
-        owner = "ros2-gbp";
-        repo = "grbl_ros-release";
+        url = "https://github.com/ros2-gbp/grbl_ros-release.git";
         rev = "09d56cf61d98d3674d64af0be2d5a44d4cb0ad65";
         hash = "sha256-F1t2vcBH6JU+xByKp5lu3SCks+qWKp4ztQ5WkL6N+rI=";
       };

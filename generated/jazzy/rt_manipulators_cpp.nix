@@ -5,7 +5,6 @@
   buildRosPackage,
   dynamixel_sdk,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     rt_manipulators_cpp = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rt_manipulators_cpp-source";
-        owner = "ros2-gbp";
-        repo = "rt_manipulators_cpp-release";
+        url = "https://github.com/ros2-gbp/rt_manipulators_cpp-release.git";
         rev = "1f5ee7c892f026a96f5cab09961b0622ef6f5f4c";
         hash = "sha256-TATkY16Ygvjapj2LsTtV0TxnVp37lOfJddAYTTuaCqE=";
       };

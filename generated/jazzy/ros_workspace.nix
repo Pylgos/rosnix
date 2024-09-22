@@ -2,7 +2,6 @@
   ament_cmake_core,
   ament_package,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     ros_workspace = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros_workspace-source";
-        owner = "ros2-gbp";
-        repo = "ros_workspace-release";
+        url = "https://github.com/ros2-gbp/ros_workspace-release.git";
         rev = "7bf5b2dda99e80015f603d80529cf7852471bc39";
         hash = "sha256-+tYPQJjQzjD0UJKtZroIo9VzvGZ6Up1hzFfYxxQKiy0=";
       };

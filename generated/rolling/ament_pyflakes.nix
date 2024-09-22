@@ -1,7 +1,6 @@
 {
   ament_pycodestyle,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     ament_pyflakes = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_pyflakes-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "ddcd0aaab591940e89e7099fc8134fa27707d1c3";
         hash = "sha256-GdDuVhfdtVs/Q6ePDhpXnxvCjqgw/b2+/qxwpYJHXk8=";
       };

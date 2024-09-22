@@ -4,7 +4,6 @@
   builtin_interfaces,
   camera_info_manager,
   depth_image_proc,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     openni2_camera = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "openni2_camera-source";
-        owner = "ros2-gbp";
-        repo = "openni2_camera-release";
+        url = "https://github.com/ros2-gbp/openni2_camera-release.git";
         rev = "60b0bf8f39a9231553ca174a59a5eb437f709461";
         hash = "sha256-zluskCIVNU5rB7PJXU3uYl7qJha6gw33mZminvZOkd8=";
       };

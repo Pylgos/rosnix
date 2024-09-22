@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     microstrain_inertial_examples = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "microstrain_inertial_examples-source";
-        owner = "ros2-gbp";
-        repo = "microstrain_inertial-release";
+        url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
         rev = "d8617764987772ebacb842e6ce10374da496b547";
         hash = "sha256-6qnRt0tiuZyHBlqC5NktccOcL7n5foFcwVNFivIhINg=";
       };

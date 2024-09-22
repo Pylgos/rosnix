@@ -1,7 +1,6 @@
 {
   ament_cmake_core,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     mrt_cmake_modules = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrt_cmake_modules-source";
-        owner = "ros2-gbp";
-        repo = "mrt_cmake_modules-release";
+        url = "https://github.com/ros2-gbp/mrt_cmake_modules-release.git";
         rev = "601662d73c78f5550fb11cf2eca930ed1a05aa80";
         hash = "sha256-OAhwkEQ7sPw4w+eWgo6ca+BV0Sq4c053HhMnKgfZHjU=";
       };

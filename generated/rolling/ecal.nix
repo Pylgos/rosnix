@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -45,10 +44,9 @@ let
       ];
     };
     ecal-vendor_source-asio-2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecal-vendor_source-asio-2-source";
-        owner = "chriskohlhoff";
-        repo = "asio";
+        url = "https://github.com/chriskohlhoff/asio.git";
         rev = "147f7225a96d45a2807a64e443177f621844e51c";
         hash = "sha256-z68qIh0+VTUEjVrv+Jvq2dDzxPHqq1ZRutjuiJ27w+A=";
       };
@@ -56,10 +54,9 @@ let
       ];
     };
     ecal-vendor_source-benchmark-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecal-vendor_source-benchmark-0-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark";
         rev = "62937f91b5c763a8e119d0c20c67b87bde8eff1c";
         hash = "sha256-oFp/TbBpEB993RAcIZUV8ZIqaXKTuvupqDrp76nbaug=";
       };
@@ -85,10 +82,9 @@ let
       ];
     };
     hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark.git";
         rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
         hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
       };

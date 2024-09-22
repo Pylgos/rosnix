@@ -4,7 +4,6 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rpyutils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rpyutils-source";
-        owner = "ros2-gbp";
-        repo = "rpyutils-release";
+        url = "https://github.com/ros2-gbp/rpyutils-release.git";
         rev = "65683d21b74349178a9e518eeac64287dc528127";
         hash = "sha256-irKkZj0IqKDEwaCIh2Rn3jRQmeR3VI8Gkjah0FuSC0I=";
       };

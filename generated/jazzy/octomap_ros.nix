@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     octomap_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "octomap_ros-source";
-        owner = "ros2-gbp";
-        repo = "octomap_ros-release";
+        url = "https://github.com/ros2-gbp/octomap_ros-release.git";
         rev = "d6af3a1fb64520d96be193b149c9e36fd856f25b";
         hash = "sha256-O2xNJ++3IWtObx9amtFyVhAFiV1CMHlVbRq43ZawhE0=";
       };

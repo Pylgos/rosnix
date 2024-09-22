@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     rmw_implementation = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmw_implementation-source";
-        owner = "ros2-gbp";
-        repo = "rmw_implementation-release";
+        url = "https://github.com/ros2-gbp/rmw_implementation-release.git";
         rev = "c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4";
         hash = "sha256-cFnGp39n/off+EM9MnLOoNqSCyWxMwwQkOZbigCn7IA=";
       };

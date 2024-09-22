@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     mrpt_msgs_bridge = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mrpt_msgs_bridge-source";
-        owner = "ros2-gbp";
-        repo = "mrpt_navigation-release";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "5eb3bf55693fbbe721956157c0abdd0a49df799a";
         hash = "sha256-dA9YIQTwlPe7wVZO+FloNtCoGql/sDzX3ppPH7VsEEo=";
       };

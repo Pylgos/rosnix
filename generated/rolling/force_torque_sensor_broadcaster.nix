@@ -5,7 +5,6 @@
   buildRosPackage,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     force_torque_sensor_broadcaster = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "force_torque_sensor_broadcaster-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "b60ec98a3c6809a30a02e2aa4d23c885a3cc3075";
         hash = "sha256-OZL9zqsTR2JItITxtzAlE2HA+N9+kZ29VHNiEGy5k7U=";
       };

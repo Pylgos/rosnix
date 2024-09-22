@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     gtsam = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "gtsam-source";
-        owner = "ros2-gbp";
-        repo = "gtsam-release";
+        url = "https://github.com/ros2-gbp/gtsam-release.git";
         rev = "417ef871550e7e13a51a717e2f4b16ebf17e3f81";
         hash = "sha256-ERY+Se9DNzpNImwnyrl2UGDHhSxLNmhlIL9anEb/CRg=";
       };

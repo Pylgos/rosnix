@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     lusb = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "lusb-source";
-        owner = "DataspeedInc-release";
-        repo = "lusb-release";
+        url = "https://github.com/DataspeedInc-release/lusb-release.git";
         rev = "37d85f008df91a5f6e79482a7538328264e1993d";
         hash = "sha256-SD5KijVFijbNlJHhaYmWwiZUZ9DLVPLymvxKIj2AuoE=";
       };

@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark.git";
         rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
         hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
       };
@@ -25,10 +23,9 @@ let
       ];
     };
     spdlog_vendor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "spdlog_vendor-source";
-        owner = "ros2-gbp";
-        repo = "spdlog_vendor-release";
+        url = "https://github.com/ros2-gbp/spdlog_vendor-release.git";
         rev = "5044abc0cdde628dce0ebf8cff7f571d27878c14";
         hash = "sha256-0BY6luUFbdOJPREolo3FR1ZYPXi1nZG1OB84R+VkFiQ=";
       };
@@ -41,10 +38,9 @@ let
       ];
     };
     spdlog_vendor-vendor_source-spdlog-0 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "spdlog_vendor-vendor_source-spdlog-0-source";
-        owner = "gabime";
-        repo = "spdlog";
+        url = "https://github.com/gabime/spdlog.git";
         rev = "7e635fca68d014934b4af8a1cf874f63989352b7";
         hash = "sha256-cxTaOuLXHRU8xMz9gluYz0a93O0ez2xOxbloyc1m1ns=";
       };

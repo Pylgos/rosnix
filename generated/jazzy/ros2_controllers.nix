@@ -6,7 +6,6 @@
   buildRosPackage,
   diff_drive_controller,
   effort_controllers,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     ros2_controllers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ros2_controllers-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "dd869935a92880cea24a50284ce545ff0d234c5a";
         hash = "sha256-MuYZvs0hB5whSJOO+DZGlpsf/N6KpKhL/z0AoPY3uZA=";
       };

@@ -6,7 +6,6 @@
   aruco_msgs,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     aruco_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aruco_ros-source";
-        owner = "pal-gbp";
-        repo = "aruco_ros-release";
+        url = "https://github.com/pal-gbp/aruco_ros-release.git";
         rev = "6a254acadd05ba78a14ddb800009dd556ab09508";
         hash = "sha256-LIF5MiASkw9eXs5hNg5L1VAmICC588FpCYYSOHAjZjU=";
       };

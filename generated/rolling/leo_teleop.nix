@@ -4,7 +4,6 @@
   ament_cmake_xmllint,
   ament_lint_auto,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     leo_teleop = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "leo_teleop-source";
-        owner = "ros2-gbp";
-        repo = "leo_common-release";
+        url = "https://github.com/ros2-gbp/leo_common-release.git";
         rev = "62b99f851ab3d7a86d2687981077d7fd3ca5eeb5";
         hash = "sha256-JeNimAF404UWrQOSZAjVQxl5ntBZtCKMBiq6oUssPTo=";
       };

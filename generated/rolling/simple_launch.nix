@@ -2,7 +2,6 @@
   ament_cmake_python,
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     simple_launch = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "simple_launch-source";
-        owner = "ros2-gbp";
-        repo = "simple_launch-release";
+        url = "https://github.com/ros2-gbp/simple_launch-release.git";
         rev = "f48f8e0af3e7f45795f209cbc2b8d403f950c9fe";
         hash = "sha256-qGRcyWgJ5d0NzsUAXpLLeRHBywF3IPhCiLyA5ZOLBqs=";
       };

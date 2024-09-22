@@ -5,7 +5,6 @@
   ament_pep257,
   buildRosPackage,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     rqt_runtime_monitor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_runtime_monitor-source";
-        owner = "ros2-gbp";
-        repo = "rqt_runtime_monitor-release";
+        url = "https://github.com/ros2-gbp/rqt_runtime_monitor-release.git";
         rev = "8a3ca23e7d99c28c65dc0400ef34e5833ee4a5cb";
         hash = "sha256-7LyebmhKcj1ltMsj4LbDUxXX5v9ejuW4g4lIKitP28Q=";
       };

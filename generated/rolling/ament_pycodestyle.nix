@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     ament_pycodestyle = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_pycodestyle-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "4a6fe66afc81455e7c1d234d8d149e226af72fc6";
         hash = "sha256-PRAH4qMWsZfuV6QVDxo472LXI8bGtUnTv71iVfxv528=";
       };

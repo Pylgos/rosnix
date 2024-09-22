@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     rqt_console = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_console-source";
-        owner = "ros2-gbp";
-        repo = "rqt_console-release";
+        url = "https://github.com/ros2-gbp/rqt_console-release.git";
         rev = "4e7179b14078dcbeec86ec11008b37b74f5ba133";
         hash = "sha256-nnitj5EX/4GJUalogu9OlEP1Bql0LuzLuCV6Ib+myAo=";
       };

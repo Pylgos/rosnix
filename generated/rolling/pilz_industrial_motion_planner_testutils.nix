@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     pilz_industrial_motion_planner_testutils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pilz_industrial_motion_planner_testutils-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "1ee78e5a7bedf0981632bed513ca786a1c0623d8";
         hash = "sha256-g4otOVNQUFukDBkgy7uvE1FJnmT2yWsR+kIKqDu7csQ=";
       };

@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   class_loader,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -17,10 +16,9 @@
 let
   sources = rec {
     laser_proc = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "laser_proc-source";
-        owner = "ros2-gbp";
-        repo = "laser_proc-release";
+        url = "https://github.com/ros2-gbp/laser_proc-release.git";
         rev = "089952614224b15fcc4e69539094e10a651c626e";
         hash = "sha256-h2lPjaJimCF/20eVEH3+ZS7CDqoML9voXq2B0x32NSY=";
       };

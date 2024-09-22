@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     etsi_its_cam_coding = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "etsi_its_cam_coding-source";
-        owner = "ros2-gbp";
-        repo = "etsi_its_messages-release";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "4a8a600457df3ec22d0c64c43fc69fc4855e0402";
         hash = "sha256-PuPC/TtTPQHlv4AHfo9gGZsznvo31IM95FCqJ03NTew=";
       };

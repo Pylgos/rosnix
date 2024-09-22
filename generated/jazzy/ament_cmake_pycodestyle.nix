@@ -5,7 +5,6 @@
   ament_cmake_test,
   ament_pycodestyle,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     ament_cmake_pycodestyle = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_cmake_pycodestyle-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "f40575f5f47905d401902fe267dd018eb3529c4b";
         hash = "sha256-NZlTgSZUwDO2wYr58UHvavY/enyZAFV6GsQjKSmgqg8=";
       };

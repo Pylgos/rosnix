@@ -6,7 +6,6 @@
   control_msgs,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     bicycle_steering_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "bicycle_steering_controller-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "c33c67256ecbe177b2a8ea48e715dee2cb71d9a1";
         hash = "sha256-DReIua9zsSoVXfBzzHv0uhjiZNype55TV8pR/oUIgHs=";
       };

@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     mola_metric_maps = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_metric_maps-source";
-        owner = "ros2-gbp";
-        repo = "mola-release";
+        url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "fa1f723373199b548ff31c2786fc320248479107";
         hash = "sha256-fzdSSmRbXxNjZgSCh3StlfZkLf4KlHp4XmT9dly/9Yw=";
       };

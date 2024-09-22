@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     ouster_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ouster_ros-source";
-        owner = "ros2-gbp";
-        repo = "ouster-ros-release";
+        url = "https://github.com/ros2-gbp/ouster-ros-release.git";
         rev = "3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0";
         hash = "sha256-Opx0mFprXiIgty9hc+lRjuMa4S82Wsjq0scFsO4oWbs=";
       };

@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   example_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,10 +31,9 @@
 let
   sources = rec {
     domain_bridge = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "domain_bridge-source";
-        owner = "ros2-gbp";
-        repo = "domain_bridge-release";
+        url = "https://github.com/ros2-gbp/domain_bridge-release.git";
         rev = "b791d5fffdc7651f2fa3300adb454ae5674b9e35";
         hash = "sha256-eajUFSE7L+45VSlUvbXcvd6RjjdERKimvpFjuXVbCO8=";
       };

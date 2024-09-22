@@ -4,7 +4,6 @@
   ament_lint_common,
   behaviortree_cpp,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     opennav_docking_bt = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "opennav_docking_bt-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "d473e2331ca4a3f91aff8395439a1c9762510ae7";
         hash = "sha256-zz7vLPntojXP52rohjpWXAV4ejYLcQz4xrsHx6hRHic=";
       };

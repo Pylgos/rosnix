@@ -4,7 +4,6 @@
   ament_cmake_uncrustify,
   backward_ros,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +33,9 @@
 let
   sources = rec {
     rmf_fleet_adapter = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rmf_fleet_adapter-source";
-        owner = "ros2-gbp";
-        repo = "rmf_ros2-release";
+        url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "e3b4acb0f79fda7404ef833b474c5ef5a1d4678b";
         hash = "sha256-4OpVpYiwtkJ0bMwvmGwKhJM8K7CSrD5uPCpyHJnPRF4=";
       };

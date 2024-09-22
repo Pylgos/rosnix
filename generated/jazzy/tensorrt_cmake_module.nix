@@ -4,7 +4,6 @@
   ament_cmake_lint_cmake,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     tensorrt_cmake_module = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tensorrt_cmake_module-source";
-        owner = "ros2-gbp";
-        repo = "tensorrt_cmake_module-release";
+        url = "https://github.com/ros2-gbp/tensorrt_cmake_module-release.git";
         rev = "24346a131e0ffd199c767dd1582fdef9af42e19c";
         hash = "sha256-S620gK89qsxhq1mo2yFSZCD1LP45mJBLXJbCTiT5VZk=";
       };

@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     nav2_navfn_planner = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_navfn_planner-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8";
         hash = "sha256-+VJaEVKOfGsHGPs2VCB0GCaR+Oq9KlTOniN6Cbt/H+0=";
       };

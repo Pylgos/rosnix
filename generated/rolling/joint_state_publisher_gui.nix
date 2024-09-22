@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     joint_state_publisher_gui = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "joint_state_publisher_gui-source";
-        owner = "ros2-gbp";
-        repo = "joint_state_publisher-release";
+        url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
         rev = "80338304f851c7b8190e8cb228a1196b8997b010";
         hash = "sha256-ZumKM1KrbYTFo3f4tigUBtyVcxNOVbG2+FR7x85ZLhM=";
       };

@@ -6,7 +6,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     interactive_markers = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "interactive_markers-source";
-        owner = "ros2-gbp";
-        repo = "interactive_markers-release";
+        url = "https://github.com/ros2-gbp/interactive_markers-release.git";
         rev = "0e209ec4bf7d7ab5eaf38ebe8d9375a04cf49eb0";
         hash = "sha256-AnynI7NBpQeYuWFq0tNqFBkjlyKyY5BekFPSGeZbmrs=";
       };

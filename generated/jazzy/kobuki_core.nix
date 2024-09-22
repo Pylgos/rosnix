@@ -12,7 +12,6 @@
   ecl_sigslots,
   ecl_threads,
   ecl_time,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     kobuki_core = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "kobuki_core-source";
-        owner = "ros2-gbp";
-        repo = "kobuki_core-release";
+        url = "https://github.com/ros2-gbp/kobuki_core-release.git";
         rev = "00876e81a32953ec6b09b474c2f8e82289245f75";
         hash = "sha256-Bq/+5lnLAiJ2HQtIr0h6wB08J7OxRxT4YhcLHIrCUwI=";
       };

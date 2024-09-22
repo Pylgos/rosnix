@@ -6,7 +6,6 @@
   ecl_converters,
   ecl_exceptions,
   ecl_license,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     ecl_formatters = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ecl_formatters-source";
-        owner = "ros2-gbp";
-        repo = "ecl_core-release";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "66e2096786bed9bb97c5e5d2c8d2518a673a3790";
         hash = "sha256-KJ9Xhcl2ACKk7qJz2OTu+dVkgzMcvIBEwmXdl0NaiKg=";
       };

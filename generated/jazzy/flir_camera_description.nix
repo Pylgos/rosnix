@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     flir_camera_description = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "flir_camera_description-source";
-        owner = "ros2-gbp";
-        repo = "flir_camera_driver-release";
+        url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
         rev = "8f67b40ac16a50c4a57a54b1839ca12b61bff0bf";
         hash = "sha256-BW9xfT7JS4SQrUug5BG2EQ0c49xUa1glCNWO0Wpwk2g=";
       };

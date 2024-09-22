@@ -4,7 +4,6 @@
   ds_dbw_can,
   ds_dbw_joystick_demo,
   ds_dbw_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     ds_dbw = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ds_dbw-source";
-        owner = "DataspeedInc-release";
-        repo = "dbw_ros-release";
+        url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
         rev = "b0f9bc0949d6f32e555217540c01b64be7d07c93";
         hash = "sha256-/iPbk8zWWB13NvZWrh8DJAyLsvg5YVa7fb3NNzIx6cA=";
       };

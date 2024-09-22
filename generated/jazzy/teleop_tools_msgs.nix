@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     teleop_tools_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "teleop_tools_msgs-source";
-        owner = "ros2-gbp";
-        repo = "teleop_tools-release";
+        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "b32647dbe0823076ef7fe7fcd153ce802691c826";
         hash = "sha256-ZP73iRktZ99bhO727JQZry6o10V/7WbbL8u14VQJ9+w=";
       };

@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     cmake_generate_parameter_module_example = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "cmake_generate_parameter_module_example-source";
-        owner = "ros2-gbp";
-        repo = "generate_parameter_library-release";
+        url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
         rev = "98db3ef1d11ed8145e5643b2ce060fd0e274db90";
         hash = "sha256-fv1GUmHiJR1Zj2CI0CdtNFcUIVXuykeEmbSN9ib0fRw=";
       };

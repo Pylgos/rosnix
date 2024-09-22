@@ -4,7 +4,6 @@
   ament_pep257,
   ament_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     ament_black = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_black-source";
-        owner = "ros2-gbp";
-        repo = "ament_black-release";
+        url = "https://github.com/ros2-gbp/ament_black-release.git";
         rev = "e327a9bfe96798c1878fd4b0e0d43ee201d73757";
         hash = "sha256-CVThJWwGw8u3uwsE3Z5CF7BueCI08EkNe+eW6X/copE=";
       };

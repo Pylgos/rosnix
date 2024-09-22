@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,10 +10,9 @@
 let
   sources = rec {
     py_trees_js = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "py_trees_js-source";
-        owner = "ros2-gbp";
-        repo = "py_trees_js-release";
+        url = "https://github.com/ros2-gbp/py_trees_js-release.git";
         rev = "2765e2118720c872073470aaae6172497b80e68c";
         hash = "sha256-F1WhgnqYpmF486ZKeT63iO5+AVvNSxET33OZrdH0/88=";
       };

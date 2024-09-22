@@ -4,7 +4,6 @@
   ament_pep257,
   ament_pycodestyle,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     ament_uncrustify = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ament_uncrustify-source";
-        owner = "ros2-gbp";
-        repo = "ament_lint-release";
+        url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "0fb194f168f8ae2750d87f3a9033d0e89417c6a6";
         hash = "sha256-nMC+VH4jmPDZMgJ61eMO71gQieezRJ3jP2cLpV7MDaA=";
       };

@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -10,10 +9,9 @@
 let
   sources = rec {
     cartographer = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "cartographer-source";
-        owner = "ros2-gbp";
-        repo = "cartographer-release";
+        url = "https://github.com/ros2-gbp/cartographer-release.git";
         rev = "1edb1a4891c1ec5d7bdb5064f0d0295390011180";
         hash = "sha256-++Ii26FmyqOYF3zYOPtQ+2ZqNUMomOanyu7Z5uYyu/Y=";
       };

@@ -3,7 +3,6 @@
   ament_cmake_gtest,
   buildRosPackage,
   can_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     dataspeed_can_msg_filters = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "dataspeed_can_msg_filters-source";
-        owner = "DataspeedInc-release";
-        repo = "dataspeed_can-release";
+        url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
         rev = "71d4b786b6be88a3dadbf1f82472610c1eb7b910";
         hash = "sha256-b13Q1VZE/i+3zczFz59cp2UEbtBBLn81/hOsuARwwws=";
       };

@@ -5,7 +5,6 @@
   buildRosPackage,
   class_loader,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,10 +25,9 @@
 let
   sources = rec {
     depth_image_proc = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "depth_image_proc-source";
-        owner = "ros2-gbp";
-        repo = "image_pipeline-release";
+        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "199ab5962f4bf9363ab0b37820ee5fceb91a0d60";
         hash = "sha256-H0Jxs7d2nXmrS94RT2Nz3xfc2OobnX8nCgBnQKQMQR4=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     pcl_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "pcl_msgs-source";
-        owner = "ros2-gbp";
-        repo = "pcl_msgs-release";
+        url = "https://github.com/ros2-gbp/pcl_msgs-release.git";
         rev = "63649a08e304edddf086a71ed8e0c213ec45159d";
         hash = "sha256-YdspDlpwU8CIVBKEa3kLCnDsR3MsuehC9zuvXtAnt4w=";
       };

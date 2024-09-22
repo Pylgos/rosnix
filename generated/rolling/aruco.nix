@@ -2,7 +2,6 @@
   ament_cmake,
   buildRosPackage,
   cv_bridge,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     aruco = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "aruco-source";
-        owner = "pal-gbp";
-        repo = "aruco_ros-release";
+        url = "https://github.com/pal-gbp/aruco_ros-release.git";
         rev = "9ef32a20402915da4a3febabef80d97c3a59a46f";
         hash = "sha256-3Foblmp2VasqOKhDmgA7heDxnleqT6Pqnk7dXajdiE4=";
       };

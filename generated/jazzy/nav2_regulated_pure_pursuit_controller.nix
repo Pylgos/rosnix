@@ -5,7 +5,6 @@
   ament_lint_common,
   angles,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     nav2_regulated_pure_pursuit_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "nav2_regulated_pure_pursuit_controller-source";
-        owner = "SteveMacenski";
-        repo = "navigation2-release";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "63fee1a413678f3e3486048d458c959fe254f822";
         hash = "sha256-h95hho/UqqE9r5MxhSzR2GQ/PLLzTmJTMO60j+wdzwA=";
       };

@@ -2,7 +2,6 @@
   ament_cmake,
   buildPackages,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -450,10 +449,9 @@ let
       ];
     };
     hunter-FP16-0_0_0-febbb1c-p0-vendor_source-psimd-23 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hunter-FP16-0_0_0-febbb1c-p0-vendor_source-psimd-23-source";
-        owner = "Maratyszcza";
-        repo = "psimd";
+        url = "https://github.com/Maratyszcza/psimd.git";
         rev = "072586a71b55b7f8c584153d223e95687148a900";
         hash = "sha256-lV+VZi2b4SQlRYrhKx9Dxc6HlDEFz3newvcBjTekupo=";
       };
@@ -710,10 +708,9 @@ let
       ];
     };
     hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "hunter-spdlog-1_12_0-p0-vendor_source-benchmark-44-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark.git";
         rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
         hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
       };
@@ -758,10 +755,9 @@ let
       ];
     };
     libnop-vendor_source-ab842f51dc2eb13916dc98417c2186b78320ed10-9-vendor_source-googlemock-10 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "libnop-vendor_source-ab842f51dc2eb13916dc98417c2186b78320ed10-9-vendor_source-googlemock-10-source";
-        owner = "google";
-        repo = "googlemock";
+        url = "https://github.com/google/googlemock.git";
         rev = "778dc88acb34184f7c1e9208dac338dd4cd2aaf8";
         hash = "sha256-7KdgGz+dVi1AT/4pHt00wP2AtQJbZyjrYLhLMCsyb30=";
       };
@@ -769,10 +765,9 @@ let
       ];
     };
     libnop-vendor_source-ab842f51dc2eb13916dc98417c2186b78320ed10-9-vendor_source-googletest-9 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "libnop-vendor_source-ab842f51dc2eb13916dc98417c2186b78320ed10-9-vendor_source-googletest-9-source";
-        owner = "google";
-        repo = "googletest";
+        url = "https://github.com/google/googletest.git";
         rev = "6d1deeb565be215554ee28f0ec9c1ed0b12afa8e";
         hash = "sha256-w2JP5XDUPzyOtf6OY/UFkARa5X5w66W/IRnUAQ3Jg0s=";
       };
@@ -803,10 +798,9 @@ let
       ];
     };
     spdlog-vendor_source-v1-2-vendor_source-benchmark-2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "spdlog-vendor_source-v1-2-vendor_source-benchmark-2-source";
-        owner = "google";
-        repo = "benchmark";
+        url = "https://github.com/google/benchmark.git";
         rev = "73d4d5e8d6d449fc8663765a42aa8aeeee844489";
         hash = "sha256-6gKLIKPnY7eXWGQcaWyPbLs3E6Q9VyqVoWoZ/u9TPY8=";
       };

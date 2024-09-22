@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     geographic_info = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "geographic_info-source";
-        owner = "ros2-gbp";
-        repo = "geographic_info-release";
+        url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "d383a93b5b352857206ef02b4826a1ef3b2a3e96";
         hash = "sha256-9v0PhFwY4GRy9FH7XCYu+48GcNisf9Hg2093eaFWEKU=";
       };

@@ -1,7 +1,6 @@
 {
   ament_index_python,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     rqt_publisher = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_publisher-source";
-        owner = "ros2-gbp";
-        repo = "rqt_publisher-release";
+        url = "https://github.com/ros2-gbp/rqt_publisher-release.git";
         rev = "cb589e728965b6994e4ecc79b7bcddf738531acf";
         hash = "sha256-TFsWLYSUlJfO+cj2md0qhAlWz//ATUWUdHtqV4UBbBg=";
       };

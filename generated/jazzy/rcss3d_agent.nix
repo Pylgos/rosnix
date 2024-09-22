@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     rcss3d_agent = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcss3d_agent-source";
-        owner = "ros2-gbp";
-        repo = "rcss3d_agent-release";
+        url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
         rev = "df2d12c89346565c8f54bc45259cb0c19d54c820";
         hash = "sha256-U3T+91EoVbYapHoNLcIBJqlUz/YI9BB5jc7jAEpVpZw=";
       };

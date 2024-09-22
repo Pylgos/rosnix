@@ -1,6 +1,5 @@
 {
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,10 +11,9 @@
 let
   sources = rec {
     mola_imu_preintegration = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "mola_imu_preintegration-source";
-        owner = "ros2-gbp";
-        repo = "mola-release";
+        url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "0a30ed1c7d3d65be3e70a05a63e2f62910e9828a";
         hash = "sha256-EWrctG8g4yWs7i4/MLeTHcPJhsVP8O6nt6oBIE7qZjc=";
       };

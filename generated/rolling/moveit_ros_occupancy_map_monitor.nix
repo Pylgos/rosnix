@@ -3,7 +3,6 @@
   ament_cmake_gmock,
   buildRosPackage,
   eigen3_cmake_module,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     moveit_ros_occupancy_map_monitor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "moveit_ros_occupancy_map_monitor-source";
-        owner = "ros2-gbp";
-        repo = "moveit2-release";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "991022689a091dcf0c988c73877c1cd5e5e81fb9";
         hash = "sha256-/qXfMROt4Kk4mH5il5hWCmaRnkhmIQp7e4a6k/UtmPQ=";
       };

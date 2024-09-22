@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,10 +27,9 @@
 let
   sources = rec {
     rqt_common_plugins = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rqt_common_plugins-source";
-        owner = "ros2-gbp";
-        repo = "rqt_common_plugins-release";
+        url = "https://github.com/ros2-gbp/rqt_common_plugins-release.git";
         rev = "67b5569cee6ac6ea7774944fbc2b9344d3317eac";
         hash = "sha256-rSJ8tB78EOgjtaHw8wleVvW+Rx9+z5d0IAznXj0aKmg=";
       };

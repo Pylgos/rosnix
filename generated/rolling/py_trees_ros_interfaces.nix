@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   diagnostic_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     py_trees_ros_interfaces = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "py_trees_ros_interfaces-source";
-        owner = "ros2-gbp";
-        repo = "py_trees_ros_interfaces-release";
+        url = "https://github.com/ros2-gbp/py_trees_ros_interfaces-release.git";
         rev = "6bd6a582945f5c8bbfe8e1a07ecee856a35d0835";
         hash = "sha256-QrixpzDzAj86KcSWBgYVI0CjrjuAtdFy7bMlEJgweaw=";
       };

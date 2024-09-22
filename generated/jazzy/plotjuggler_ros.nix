@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     plotjuggler_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "plotjuggler_ros-source";
-        owner = "ros2-gbp";
-        repo = "plotjuggler-ros-plugins-release";
+        url = "https://github.com/ros2-gbp/plotjuggler-ros-plugins-release.git";
         rev = "e31f1220d72fc2f17ef195073827140644390fed";
         hash = "sha256-ulay40u10VuTXLPe/c8xBf5qxL1TR6D03Fb1uRYaoAw=";
       };

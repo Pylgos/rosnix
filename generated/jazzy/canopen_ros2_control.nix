@@ -5,7 +5,6 @@
   canopen_402_driver,
   canopen_core,
   canopen_proxy_driver,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     canopen_ros2_control = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "canopen_ros2_control-source";
-        owner = "ros2-gbp";
-        repo = "ros2_canopen-release";
+        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "522659d64c9f9607958b6d52d4ea7da431e48a05";
         hash = "sha256-NGL7U94YdUR2F84u0e/YXtn2NfkFbgya9dhhCSTcpYQ=";
       };

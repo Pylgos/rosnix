@@ -4,7 +4,6 @@
   ament_cmake_gtest,
   buildRosPackage,
   control_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,10 +21,9 @@
 let
   sources = rec {
     control_toolbox = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "control_toolbox-source";
-        owner = "ros2-gbp";
-        repo = "control_toolbox-release";
+        url = "https://github.com/ros2-gbp/control_toolbox-release.git";
         rev = "924817c2137b7280de4254768da3ddba2e0b23e8";
         hash = "sha256-8k2Jlg4wFOuHFj1R/mlh8NMvgEGijDRy6kme0opUgm4=";
       };

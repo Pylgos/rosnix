@@ -6,7 +6,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,10 +19,9 @@
 let
   sources = rec {
     cv_bridge = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "cv_bridge-source";
-        owner = "ros2-gbp";
-        repo = "vision_opencv-release";
+        url = "https://github.com/ros2-gbp/vision_opencv-release.git";
         rev = "d30ec40f8ebf943aaa16b860166e53a49a6f6174";
         hash = "sha256-2p4HVqVl4NRdIrRsJnGkfOapNAmOhKZN1R2KMmpxG/w=";
       };

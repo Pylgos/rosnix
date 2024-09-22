@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     libmavconn = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "libmavconn-source";
-        owner = "ros2-gbp";
-        repo = "mavros-release";
+        url = "https://github.com/ros2-gbp/mavros-release.git";
         rev = "b6360985c2e0b1561ea57a3feef7248b04a9d187";
         hash = "sha256-QBritO4WHraRumwSo3Zp7pZ16Sj5xlwZNFNpMxUNM3M=";
       };

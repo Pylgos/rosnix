@@ -4,7 +4,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,10 +17,9 @@
 let
   sources = rec {
     automotive_platform_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "automotive_platform_msgs-source";
-        owner = "ros2-gbp";
-        repo = "automotive_autonomy_msgs-release";
+        url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
         rev = "4e9bb5fba5ecceab04c7735889f0c0bf9c6cc2b1";
         hash = "sha256-HMhXhLS41h9P1STIbuEdhOgxNORj/YJrfDldGKeMKfA=";
       };

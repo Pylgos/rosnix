@@ -2,7 +2,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     topic_monitor = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "topic_monitor-source";
-        owner = "ros2-gbp";
-        repo = "demos-release";
+        url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "576d1520af7b70aff3ad30e78d323083cb2f5f7e";
         hash = "sha256-tGXgguRxqMKS5aIn3bMykyCWBL0XCW+nh0hFq2WK7So=";
       };

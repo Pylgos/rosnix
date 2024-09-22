@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     examples_rclpy_executors = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "examples_rclpy_executors-source";
-        owner = "ros2-gbp";
-        repo = "examples-release";
+        url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "3cd171437d698a92f9e5a2dae9b1ea9514e156f0";
         hash = "sha256-D2/VFcVtE/o7xbLmqJSRM8BZhaHWvJWpYRoUTnimDR4=";
       };

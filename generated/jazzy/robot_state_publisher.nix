@@ -5,7 +5,6 @@
   ament_lint_common,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +26,9 @@
 let
   sources = rec {
     robot_state_publisher = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "robot_state_publisher-source";
-        owner = "ros2-gbp";
-        repo = "robot_state_publisher-release";
+        url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
         rev = "877b7bc7de42bf1fdb65631902b524a0f70c5942";
         hash = "sha256-5FTqMqeamQAFt8XEpHuYh6JzILoqjaGujXl4Q30xwro=";
       };

@@ -6,7 +6,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     flex_sync = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "flex_sync-source";
-        owner = "ros2-gbp";
-        repo = "flex_sync-release";
+        url = "https://github.com/ros2-gbp/flex_sync-release.git";
         rev = "c9912ffa6d31b5704c13c376b92c0c201fa7ad30";
         hash = "sha256-DRj8hRb5f02ZdXinTOUCOnVQRMHJS/Es67wgVFdZmUs=";
       };

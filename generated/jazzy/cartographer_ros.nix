@@ -4,7 +4,6 @@
   builtin_interfaces,
   cartographer,
   cartographer_ros_msgs,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,10 +30,9 @@
 let
   sources = rec {
     cartographer_ros = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "cartographer_ros-source";
-        owner = "ros2-gbp";
-        repo = "cartographer_ros-release";
+        url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "220cc62d9b410d777c4bd483e9e4861e1a3325d7";
         hash = "sha256-VvGxCdcHPGbZC+Mp6BMa4qpdJ2eoz0PuoBvhe/6gtCE=";
       };

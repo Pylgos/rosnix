@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     joy_tester = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "joy_tester-source";
-        owner = "ros2-gbp";
-        repo = "joy_tester-release";
+        url = "https://github.com/ros2-gbp/joy_tester-release.git";
         rev = "6cdf1a3e3fd9e9c590ce3e563f7ba1f7e14e103c";
         hash = "sha256-4aFhMjPuS3BCh6fHb0WNYkfy1WWLeNrxlXiK8vs/zGI=";
       };

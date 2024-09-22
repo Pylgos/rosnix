@@ -12,7 +12,6 @@
   ament_cmake_uncrustify,
   ament_cmake_xmllint,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,10 +22,9 @@
 let
   sources = rec {
     rcpputils = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcpputils-source";
-        owner = "ros2-gbp";
-        repo = "rcpputils-release";
+        url = "https://github.com/ros2-gbp/rcpputils-release.git";
         rev = "114da6d318c5254ae3ddad8eb29006411796ca8b";
         hash = "sha256-A4fgkUrENQpRAgy7AiiW8WK1huoOIvTvoYr4bKTwQK0=";
       };

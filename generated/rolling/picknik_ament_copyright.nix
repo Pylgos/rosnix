@@ -3,7 +3,6 @@
   ament_flake8,
   ament_pep257,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,10 +12,9 @@
 let
   sources = rec {
     picknik_ament_copyright = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "picknik_ament_copyright-source";
-        owner = "ros2-gbp";
-        repo = "picknik_ament_copyright-release";
+        url = "https://github.com/ros2-gbp/picknik_ament_copyright-release.git";
         rev = "6b7823c44e2f1588d32fcaa65af0d53d9084efbb";
         hash = "sha256-zw0URrOQbcL7fo+BgOUHgI0yqf0DDRVGnOOxbJmog48=";
       };

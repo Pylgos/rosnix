@@ -11,7 +11,6 @@
   ament_cmake_xmllint,
   buildRosPackage,
   builtin_interfaces,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,10 +23,9 @@
 let
   sources = rec {
     tf2 = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "tf2-source";
-        owner = "ros2-gbp";
-        repo = "geometry2-release";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "86604e3174f40883f9b8ba76f00e929b7032e42f";
         hash = "sha256-rO9Wz1RkhuskJyb8ebk9C/Rz3gF1U3GYiJfk28uWYco=";
       };

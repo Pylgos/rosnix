@@ -6,7 +6,6 @@
   control_msgs,
   controller_interface,
   controller_manager,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,10 +24,9 @@
 let
   sources = rec {
     ackermann_steering_controller = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "ackermann_steering_controller-source";
-        owner = "ros2-gbp";
-        repo = "ros2_controllers-release";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "19ad47bef147aa06a241b0f6e7a51e89beda8157";
         hash = "sha256-MmGggsYiIo7GwQEDqlyKEGIyj4mirs2v9RguRzVDyNI=";
       };

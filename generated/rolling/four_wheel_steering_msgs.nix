@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     four_wheel_steering_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "four_wheel_steering_msgs-source";
-        owner = "ros2-gbp";
-        repo = "four_wheel_steering_msgs-release";
+        url = "https://github.com/ros2-gbp/four_wheel_steering_msgs-release.git";
         rev = "b2c7465734330ae339e4ed02946aedea0c133ada";
         hash = "sha256-lESkZ6d2jUSfCCCB5KsV8gJwBTO0EG7O4/LInYggSzc=";
       };

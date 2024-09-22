@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     keyboard_handler = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "keyboard_handler-source";
-        owner = "ros2-gbp";
-        repo = "keyboard_handler-release";
+        url = "https://github.com/ros2-gbp/keyboard_handler-release.git";
         rev = "69c6f6299fa48d6a45e44fbdb040e4dc0fae1423";
         hash = "sha256-MrlcTu+x6mBfTXFBvem82OYZkmwmdCO51eLno3SvoY8=";
       };

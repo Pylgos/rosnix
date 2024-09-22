@@ -3,7 +3,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,10 +15,9 @@
 let
   sources = rec {
     apriltag_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "apriltag_msgs-source";
-        owner = "ros2-gbp";
-        repo = "apriltag_msgs-release";
+        url = "https://github.com/ros2-gbp/apriltag_msgs-release.git";
         rev = "c9eedd48ea144914fc93feeb56812322635a8782";
         hash = "sha256-8gmaJqHmANuH5XDGCZ8C29KjCY7QKQ8r2DSpl1jxp20=";
       };

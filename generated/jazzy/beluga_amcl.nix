@@ -6,7 +6,6 @@
   beluga_ros,
   bondcpp,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     beluga_amcl = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "beluga_amcl-source";
-        owner = "ros2-gbp";
-        repo = "beluga-release";
+        url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "0a28678898be6587e8ef29c6a5d96109761837b1";
         hash = "sha256-o5w8tS4fYcmaf9rRYPabtPGEs27Xf50+6nRPhhPN7B8=";
       };

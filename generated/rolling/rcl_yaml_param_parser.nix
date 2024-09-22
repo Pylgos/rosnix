@@ -5,7 +5,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,10 +20,9 @@
 let
   sources = rec {
     rcl_yaml_param_parser = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rcl_yaml_param_parser-source";
-        owner = "ros2-gbp";
-        repo = "rcl-release";
+        url = "https://github.com/ros2-gbp/rcl-release.git";
         rev = "e8b5b46aaa39c4279c8b023ef75eeee0b3d6175d";
         hash = "sha256-te5lmGHl5WJlqe4nXftjz2BHI3I4C+/BAJRbHrqPfS0=";
       };

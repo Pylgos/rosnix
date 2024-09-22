@@ -1,7 +1,6 @@
 {
   ament_cmake,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,10 +13,9 @@
 let
   sources = rec {
     rviz_2d_overlay_msgs = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "rviz_2d_overlay_msgs-source";
-        owner = "ros2-gbp";
-        repo = "rviz_2d_overlay_plugins-release";
+        url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release.git";
         rev = "10d5fee30864c414dafd3390855c8bb01fd0dfca";
         hash = "sha256-5D74IzZ2A8JXaF9VzMxWd4WryX6A8MsUtaz+3ZRBFK4=";
       };

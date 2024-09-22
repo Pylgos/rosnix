@@ -4,7 +4,6 @@
   ament_lint_auto,
   ament_lint_common,
   buildRosPackage,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -19,10 +18,9 @@
 let
   sources = rec {
     image_transport = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "image_transport-source";
-        owner = "ros2-gbp";
-        repo = "image_common-release";
+        url = "https://github.com/ros2-gbp/image_common-release.git";
         rev = "d1ebdfe1ed0dc2c90d16fa624fc21fe23bce6122";
         hash = "sha256-01/wzTSHt4s99cW7SmDH6W+kpY4ehCc4WbIcsq8Uws8=";
       };

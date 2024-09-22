@@ -4,7 +4,6 @@
   etsi_its_cam_ts_coding,
   etsi_its_cam_ts_msgs,
   etsi_its_primitives_conversion,
-  fetchFromGitHub,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,10 +14,9 @@
 let
   sources = rec {
     etsi_its_cam_ts_conversion = substituteSource {
-      src = fetchFromGitHub {
+      src = fetchgit {
         name = "etsi_its_cam_ts_conversion-source";
-        owner = "ros2-gbp";
-        repo = "etsi_its_messages-release";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "f077c3dd1700aba761bac25ea82ffaa33940d627";
         hash = "sha256-qwuR2yAC0YqNGFmo2DQSsunBWTaRxlPoaz7+lFnkwiQ=";
       };
