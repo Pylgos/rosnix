@@ -819,7 +819,10 @@ in
     qrencode = [ final.qrencode ];
     qt5-image-formats-plugins = [ final.qt5.qtimageformats ];
     qt5-qmake = [ final.qt5.qtbase ];
-    qtbase5-dev = [ final.qt5.qtbase ];
+    qtbase5-dev = [
+      final.qt5.qtbase
+      final.qt5.qtwayland
+    ];
     qtdeclarative5-dev = [ final.qt5.qtdeclarative ];
     qtmultimedia5-dev = [ final.qt5.qtmultimedia ];
     qtquickcontrols2-5-dev = [ final.qt5.qtquickcontrols2 ];
