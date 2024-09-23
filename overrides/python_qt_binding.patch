@@ -2,15 +2,6 @@ diff --git a/cmake/sip_configure.py b/cmake/sip_configure.py
 index 5210ee5..632764c 100644
 --- a/cmake/sip_configure.py
 +++ b/cmake/sip_configure.py
-@@ -130,7 +130,7 @@ if sys.platform == 'win32' and os.path.isdir(sip_bin):
- # Ubuntu 22.04, but shouldn't hurt anything there.
- with tempfile.TemporaryDirectory() as tmpdirname:
-     shutil.copytree(sip_dir, tmpdirname, dirs_exist_ok=True)
--
-+    
-     output = ''
-     with open(os.path.join(tmpdirname, 'QtCore', 'QtCoremod.sip'), 'r') as infp:
-         for line in infp:
 @@ -140,6 +140,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
              else:
                  output += line
