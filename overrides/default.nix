@@ -78,15 +78,7 @@ final: prev: {
         }:
         {
           nativeBuildInputs = nativeBuildInputs ++ [ final.qt5.wrapQtAppsHook ];
-          buildInputs = [
-            final.qt5.qtbase
-            final.qt5.qtdeclarative
-            final.qt5.qtquickcontrols
-            final.qt5.qtquickcontrols2
-            final.qt5.qtgraphicaleffects
-            final.qt5.qtlocation
-            final.qt5.qtpositioning
-          ];
+          buildInputs = [ final.qt5.full ];
           postFixup = ''
             wrapQtApp "$out/opt/gz_tools_vendor/bin/gz"
           '';
