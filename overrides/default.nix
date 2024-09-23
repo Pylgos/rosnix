@@ -78,7 +78,36 @@ final: prev: {
         }:
         {
           nativeBuildInputs = nativeBuildInputs ++ [ final.qt5.wrapQtAppsHook ];
-          buildInputs = [ final.qt5.full ];
+          buildInputs = with final.qt5; [
+            qtbase
+            qt3d
+            qtcharts
+            qtconnectivity
+            qtdatavis3d
+            qtdeclarative
+            qtdoc
+            qtgraphicaleffects
+            qtimageformats
+            qtlocation
+            qtlottie
+            qtmultimedia
+            qtquickcontrols
+            qtquickcontrols2
+            qtscript
+            qtsensors
+            qtserialport
+            qtsvg
+            qttools
+            qttranslations
+            qtvirtualkeyboard
+            qtwayland
+            qtwebchannel
+            qtwebengine
+            qtwebsockets
+            qtwebview
+            qtx11extras
+            qtxmlpatterns
+          ];
           postFixup = ''
             wrapQtApp "$out/opt/gz_tools_vendor/bin/gz"
           '';
