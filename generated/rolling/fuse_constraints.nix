@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "fuse_constraints-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "d8f46ad8c87f7a535538f49a50b3c409e7c60ef8";
-        hash = "sha256-lJ5LV3USpNdPXZkkiq9w0tDV9iGXEc6XDxbIrEbuPlw=";
+        rev = "29aa0e5c4fe2bd6fe6a62821bba6bb542295df92";
+        hash = "sha256-tmhdgTp2sntBuFANPXC7zCPENIzjlk57HXZ8WscmnGU=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "fuse_constraints";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources.fuse_constraints;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

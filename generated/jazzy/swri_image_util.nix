@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "swri_image_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "a8f6cc351f23825d9ef07eac69191fdfc694eb61";
-        hash = "sha256-t1WKMyCVMbl9j7gqh62ANrXzJn5JumlLKQT4qulaoqA=";
+        rev = "80080a0e8502142c80195ba5e2389ddf0ce9dce1";
+        hash = "sha256-j9Mganqzf50jti2W8E9b2PZAepIFOzUkxNgzcua8Tyw=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "swri_image_util";
-  version = "3.7.1-1";
+  version = "3.7.3-1";
   src = sources.swri_image_util;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

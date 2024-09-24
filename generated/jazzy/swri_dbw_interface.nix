@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "swri_dbw_interface-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "0b5d087a5f07a54820d0fbf75bc152deae3ad3d0";
-        hash = "sha256-tC4nopX+Kqj5oNNdGMjHZbbTubgklz1FpXsQrloJiOM=";
+        rev = "b6f466ad9de2050db032b9f389b7fe366fb61b1c";
+        hash = "sha256-sui4AJRXbvUlIwXEiXmtJkOiTx3neUbgobZENVNKvuw=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildRosPackage {
   pname = "swri_dbw_interface";
-  version = "3.7.1-1";
+  version = "3.7.3-1";
   src = sources.swri_dbw_interface;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

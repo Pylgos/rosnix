@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "fuse_optimizers-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "2932c74fac749c78d0038e34e1d11ffa5567c00a";
-        hash = "sha256-JR/RqR1xzblTMsEH7XlJL+xGJN2Vx0/0WcSAUq0DGak=";
+        rev = "ef854833a4ef2cec6e1c7135fc872a3ecf0756fb";
+        hash = "sha256-h/7yPDqWfid98jxASI7wOfQhg8dx8Z3e8RKHU0fshao=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildRosPackage {
   pname = "fuse_optimizers";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources.fuse_optimizers;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

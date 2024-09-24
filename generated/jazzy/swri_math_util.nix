@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "swri_math_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "eee1ac0c1ef4f3474c947f18f69083eba32b1a70";
-        hash = "sha256-ScEdh2kLBshmdbotqhaEycXX50/Jfoh2hG6lr4S0H2o=";
+        rev = "363bafe035c9c957140d9c593f8d04543b1aefae";
+        hash = "sha256-7Tz49UJ5/aCgz0J73FqouSNfQvkBhH2+iWwJdYBnvog=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "swri_math_util";
-  version = "3.7.1-1";
+  version = "3.7.3-1";
   src = sources.swri_math_util;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

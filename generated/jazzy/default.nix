@@ -352,6 +352,7 @@ self:
   forward_command_controller = self.callPackage ./forward_command_controller.nix {};
   four_wheel_steering_msgs = self.callPackage ./four_wheel_steering_msgs.nix {};
   foxglove_bridge = self.callPackage ./foxglove_bridge.nix {};
+  foxglove_compressed_video_transport = self.callPackage ./foxglove_compressed_video_transport.nix {};
   foxglove_msgs = self.callPackage ./foxglove_msgs.nix {};
   fuse = self.callPackage ./fuse.nix {};
   fuse_constraints = self.callPackage ./fuse_constraints.nix {};
@@ -555,6 +556,9 @@ self:
   lusb = self.callPackage ./lusb.nix {};
   magic_enum = self.callPackage ./magic_enum.nix {};
   map_msgs = self.callPackage ./map_msgs.nix {};
+  mapviz = self.callPackage ./mapviz.nix {};
+  mapviz_interfaces = self.callPackage ./mapviz_interfaces.nix {};
+  mapviz_plugins = self.callPackage ./mapviz_plugins.nix {};
   marine_acoustic_msgs = self.callPackage ./marine_acoustic_msgs.nix {};
   marine_sensor_msgs = self.callPackage ./marine_sensor_msgs.nix {};
   marti_can_msgs = self.callPackage ./marti_can_msgs.nix {};
@@ -695,6 +699,7 @@ self:
   mrpt_tps_astar_planner = self.callPackage ./mrpt_tps_astar_planner.nix {};
   mrpt_tutorials = self.callPackage ./mrpt_tutorials.nix {};
   mrt_cmake_modules = self.callPackage ./mrt_cmake_modules.nix {};
+  multires_image = self.callPackage ./multires_image.nix {};
   mvsim = self.callPackage ./mvsim.nix {};
   nao_button_sim = self.callPackage ./nao_button_sim.nix {};
   nao_command_msgs = self.callPackage ./nao_command_msgs.nix {};
@@ -1151,6 +1156,7 @@ self:
   service_msgs = self.callPackage ./service_msgs.nix {};
   shape_msgs = self.callPackage ./shape_msgs.nix {};
   shared_queues_vendor = self.callPackage ./shared_queues_vendor.nix {};
+  sick_safetyscanners_base = self.callPackage ./sick_safetyscanners_base.nix {};
   sick_safevisionary_base = self.callPackage ./sick_safevisionary_base.nix {};
   sick_safevisionary_driver = self.callPackage ./sick_safevisionary_driver.nix {};
   sick_safevisionary_interfaces = self.callPackage ./sick_safevisionary_interfaces.nix {};
@@ -1238,6 +1244,7 @@ self:
   tf2_tools = self.callPackage ./tf2_tools.nix {};
   tf_transformations = self.callPackage ./tf_transformations.nix {};
   theora_image_transport = self.callPackage ./theora_image_transport.nix {};
+  tile_map = self.callPackage ./tile_map.nix {};
   tinyspline_vendor = self.callPackage ./tinyspline_vendor.nix {};
   tinyxml2_vendor = self.callPackage ./tinyxml2_vendor.nix {};
   tinyxml_vendor = self.callPackage ./tinyxml_vendor.nix {};

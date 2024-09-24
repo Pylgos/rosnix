@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mrt_cmake_modules-source";
         url = "https://github.com/ros2-gbp/mrt_cmake_modules-release.git";
-        rev = "d4773f6b74876c2b54b25dc8ca378bebeeeb4c5b";
-        hash = "sha256-OAhwkEQ7sPw4w+eWgo6ca+BV0Sq4c053HhMnKgfZHjU=";
+        rev = "594a0a1eeaf421f36e68f2912c1d1c7368d44ae0";
+        hash = "sha256-P+/sA/qc4KidP4Kzg1VSvYisUOmLdM7Y7gvrVm87rp8=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "mrt_cmake_modules";
-  version = "1.0.10-1";
+  version = "1.0.11-2";
   src = sources.mrt_cmake_modules;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gtest_vendor ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "lcov" "python3-catkin-pkg-modules" "python3-rospkg" "python3-setuptools" "python3-yaml" ]; };

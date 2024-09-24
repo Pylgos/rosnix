@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "fuse_msgs-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "e9a1f4fb66c892b9cd3c11d16bc3e596a35819fd";
-        hash = "sha256-g0UgyBiYXdseeSLUmZ6iu8RAQmpsEH/EAxRlZx/0kQQ=";
+        rev = "dfb1a85e9e5edf52c099aed99eef080dbb5d25d7";
+        hash = "sha256-1MCYwjqTXGSqeLZnuIgbYUWZSiIHDpzEniamI5tCiYA=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "fuse_msgs";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources.fuse_msgs;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

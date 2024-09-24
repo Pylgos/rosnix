@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "fuse_loss-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "370a1067045c01ebb2b3bc7c6c4cde3d05583b3d";
-        hash = "sha256-HTtg7uE0fuI/bzd2g3aY5o2GTttu/qH6Tv8Hc+eFgaA=";
+        rev = "7b05d6a1ccd5499886f3496e98369afc3681b637";
+        hash = "sha256-06MhRmCfOfKljgI2ebmY/Rm9fh0ROvWMgpyPxJD/aKs=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "fuse_loss";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources.fuse_loss;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

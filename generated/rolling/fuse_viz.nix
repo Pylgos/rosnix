@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "fuse_viz-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "fcdcaa2a5fe9c82d74a3c69eeaaa3fbb5d07ffa2";
-        hash = "sha256-fEdSyUDCk4WGGN0YNLus/lXLKoD4XxC0IbDG5+YWn6U=";
+        rev = "4bdb61089c768561c2fb473dc4ff5329e28f361a";
+        hash = "sha256-NCvHYjhFkpD1j5uHnALoy/gv7GrS4HxmJznMhVw5tvc=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "fuse_viz";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources.fuse_viz;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
