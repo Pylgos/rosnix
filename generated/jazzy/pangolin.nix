@@ -26,7 +26,7 @@ let
     pangolin-vendor_source-certdata-0 = substituteSource {
       src = fetchurl {
         name = "pangolin-vendor_source-certdata-0-source";
-        url = "https://raw.githubusercontent.com/mozilla/gecko-dev/5f729ecf36b898a8c7c44b92928424ae3b8417fb/security/nss/lib/ckfw/builtins/certdata.txt";
+        url = "https://raw.githubusercontent.com/mozilla/gecko-dev/af3eccb4999427e42fdcea558297f1cec70dc4db/security/nss/lib/ckfw/builtins/certdata.txt";
         hash = "sha256-NhBbAWMfn8A7Hsp3m0SjChpYkLm/jcB8ywAaBzAeAc8=";
       };
       substitutions = [
