@@ -1,7 +1,8 @@
 {
   ament_cmake,
+  ament_cmake_lint_cmake,
+  ament_cmake_xmllint,
   ament_lint_auto,
-  ament_lint_common,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -26,8 +27,8 @@ let
       src = fetchgit {
         name = "mrpt_pointcloud_pipeline-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "71a61b50be44869ee97b3e50a20504922122c8f4";
-        hash = "sha256-mIl08zhenbl9XcYFUKGwGTRdlFclW86Ciy+edlpeKTo=";
+        rev = "725d88d70e50d2d27b02d3e71a53fbde981e4dbb";
+        hash = "sha256-DvOOW96l+9WUKATwVHIRoKSkMsr4yAJTFBPk5R/bpOE=";
       };
       substitutions = [
       ];
@@ -36,10 +37,10 @@ let
 in
 buildRosPackage {
   pname = "mrpt_pointcloud_pipeline";
-  version = "2.1.1-1";
+  version = "2.2.0-1";
   src = sources.mrpt_pointcloud_pipeline;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ mp2p_icp mrpt_libgui mrpt_libmaps mrpt_libobs mrpt_libros_bridge nav_msgs rclcpp rclcpp_components sensor_msgs tf2 tf2_geometry_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

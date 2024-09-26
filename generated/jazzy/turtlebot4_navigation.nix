@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "turtlebot4_navigation-source";
         url = "https://github.com/ros2-gbp/turtlebot4-release.git";
-        rev = "ada26a1da64461881af8b075d6a39d58e3a0d453";
-        hash = "sha256-XjNHHVWu/xCv1nJYBf7qfVoSs2yHFkEyLY1+3v2gK9E=";
+        rev = "74426a1eceddb92a218751b8986ea535400e8e21";
+        hash = "sha256-eP0VlB/x4/bYG0FbQXDGsrcmzsEV0fcTf/mgpe2JmwA=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "turtlebot4_navigation";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = sources.turtlebot4_navigation;
   nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

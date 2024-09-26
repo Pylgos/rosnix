@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "turtlebot4_desktop-source";
         url = "https://github.com/ros2-gbp/turtlebot4_desktop-release.git";
-        rev = "a46b22f437c4fff85a6b9dd005c40f5d8eba5858";
-        hash = "sha256-YoJZz2faJtiu1RZRR0PX7Zu8Yq2LEtHC+AWWRRB3yL0=";
+        rev = "c216a96b2199bb366549440b715e0efb6a626cbb";
+        hash = "sha256-Sm+AW/MaBF+UFPE6xYjHvSY75R4PSkkxG6FQEsboGsE=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "turtlebot4_desktop";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = sources.turtlebot4_desktop;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

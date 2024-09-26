@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "turtlebot4_gz_gui_plugins-source";
         url = "https://github.com/ros2-gbp/turtlebot4_simulator-release.git";
-        rev = "e970a62f62d599bc96857fe33572accbe522b3c1";
-        hash = "sha256-2z7RxnkbZ1RkQvR6RQNarvfiXmd78IQc6VmvvVva6eQ=";
+        rev = "76b65c1cbeef9b611b2dc132642aa3d5579bf816";
+        hash = "sha256-diJhkfZQeAyXVe34WePyUNEVsnqrcllwQ/hNmH0fje8=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "turtlebot4_gz_gui_plugins";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = sources.turtlebot4_gz_gui_plugins;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

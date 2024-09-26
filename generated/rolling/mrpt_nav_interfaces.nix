@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geometry_msgs,
   mrpt_msgs,
   nav_msgs,
   rosSystemPackages,
@@ -18,8 +19,8 @@ let
       src = fetchgit {
         name = "mrpt_nav_interfaces-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "101c249e03b7515a974db850293e29a8c1d3ea57";
-        hash = "sha256-gbI1wo1cYacZ1nX7ea3HDV9XcB89gM2ZtbIchHvR218=";
+        rev = "a12c99010f1733221da18760d6e932b4bf61899e";
+        hash = "sha256-0yU9H5yVRuETFODJ84/JmcWBnqwTGUu4RFTTPLrlF28=";
       };
       substitutions = [
       ];
@@ -28,12 +29,12 @@ let
 in
 buildRosPackage {
   pname = "mrpt_nav_interfaces";
-  version = "2.1.1-1";
+  version = "2.2.0-1";
   src = sources.mrpt_nav_interfaces;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action_msgs mrpt_msgs nav_msgs rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ action_msgs geometry_msgs mrpt_msgs nav_msgs rosidl_default_runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

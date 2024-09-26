@@ -1,7 +1,8 @@
 {
   ament_cmake,
+  ament_cmake_lint_cmake,
+  ament_cmake_xmllint,
   ament_lint_auto,
-  ament_lint_common,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -17,8 +18,8 @@ let
       src = fetchgit {
         name = "mrpt_tutorials-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "457eb187c962008a3ab3b45c6a6164686d42d4c7";
-        hash = "sha256-Jbg3mfVV8tRkqyuSdv/FT3Us24gMojpWOQGWqkAIt5M=";
+        rev = "1042b2472e59500e55ca0b4955929df637ecec08";
+        hash = "sha256-5FYdUOEGAQz4HmwUQ+Cphg71pzL21u6scSTotQcQusk=";
       };
       substitutions = [
       ];
@@ -27,10 +28,10 @@ let
 in
 buildRosPackage {
   pname = "mrpt_tutorials";
-  version = "2.1.1-1";
+  version = "2.2.0-1";
   src = sources.mrpt_tutorials;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ mvsim teleop_twist_keyboard ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

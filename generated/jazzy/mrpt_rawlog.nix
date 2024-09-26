@@ -1,7 +1,8 @@
 {
   ament_cmake,
+  ament_cmake_lint_cmake,
+  ament_cmake_xmllint,
   ament_lint_auto,
-  ament_lint_common,
   buildRosPackage,
   cv_bridge,
   fetchgit,
@@ -25,8 +26,8 @@ let
       src = fetchgit {
         name = "mrpt_rawlog-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "72eab9b8848f4ed196d662e5ae8c276438b1780d";
-        hash = "sha256-1s7fse7d3JWuA1AsYWnLjucimD/A6U8er7UPqoKS8ck=";
+        rev = "9b407c307e165d1a47442e4ce8f9faf4eaa5116b";
+        hash = "sha256-iBk6TLR19Rb4RQLPWftx2CVjx/ewJ2PCJEP8FuDLWe8=";
       };
       substitutions = [
       ];
@@ -35,10 +36,10 @@ let
 in
 buildRosPackage {
   pname = "mrpt_rawlog";
-  version = "2.1.1-1";
+  version = "2.2.0-1";
   src = sources.mrpt_rawlog;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ cv_bridge mrpt_libros_bridge mrpt_libtclap mrpt_msgs nav_msgs rosbag2_cpp sensor_msgs tf2_geometry_msgs tf2_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

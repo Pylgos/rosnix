@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "e1dace5803f63e201b92f58ae2cfc948cacf12dd";
-        hash = "sha256-Mjiniv7iNG1Jb+Ogm0WGm1zEPubgHm7nPZnS95k3vws=";
+        rev = "c21273ebec73b6f67d50a37f4740f98b0e047830";
+        hash = "sha256-G1Cb2AKGw8ZTZRPwiS0bHyH19wbRyvT/ZGLhuVzQ55c=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "mrpt_libros_bridge";
-  version = "2.14.0-1";
+  version = "2.14.1-1";
   src = sources.mrpt_libros_bridge;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
