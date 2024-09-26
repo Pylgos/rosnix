@@ -80,15 +80,19 @@
                 set -eu
                 pushd poetry
                 poetry update --lock
-                git add ./poetry.lock
-                if ! git diff --quiet --cached ./poetry.lock; then
-                  git commit -m "Update poetry.lock"
+                if [[ -z $DONT_COMMIT ]]; then
+                  git add ./poetry.lock
+                  if ! git diff --quiet --cached ./poetry.lock; then
+                    git commit -m "Update poetry.lock"
+                  fi
                 fi
                 popd
                 rosnix-generator --config-file ./rosnix.toml generate --report-file /tmp/report.md
-                git add ./generated
-                if ! git diff --quiet --cached ./generated; then
-                  git commit -m "Regenerate distro files" -m "$(cat /tmp/report.md)"
+                if [[ -z $DONT_COMMIT ]]; then
+                  git add ./generated
+                  if ! git diff --quiet --cached ./generated; then
+                    git commit -m "Regenerate distro files" -m "$(cat /tmp/report.md)"
+                  fi
                 fi
               '';
             };
