@@ -59,7 +59,7 @@ mkOverlayBuilder stdenv.mkDerivation (
       ;
 
     nativeBuildInputs = nativeBuildInputs ++ [
-      buildPackages.python3Packages.colcon-common-extensions
+      buildPackages.pythonForRosPackages.colcon-common-extensions
       rosSetupHook
     ];
 
