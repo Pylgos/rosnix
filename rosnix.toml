@@ -57,4 +57,5 @@ ignore_urls = [
   'fast-dds\.docs\.eprosima\.com',
   '^https://github\.com/.*?/.*?/archive/refs/heads/.*$',
   '^https://raw\.githubusercontent\.com/.*?/.*?/(master|main)/.*$',
+  '^https://librealsense\.intel\.com/Releases/connectivity_check$',
 ]

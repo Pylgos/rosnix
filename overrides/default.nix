@@ -113,6 +113,16 @@ final: prev: {
           '';
         }
       );
+      librealsense2 = rosPrev.librealsense2.overrideAttrs (
+        {
+          patches ? [ ],
+          ...
+        }:
+        {
+          patches = patches ++ [ ./librealsense2-install-presets.patch ];
+        }
+      );
+
     })
   );
 }

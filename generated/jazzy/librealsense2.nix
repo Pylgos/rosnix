@@ -32,11 +32,6 @@ let
           to = "URL ${librealsense2-vendor_source-Catch2-0}";
         }
         {
-          path = "CMake/connectivity_check.cmake";
-          from = "DOWNLOAD \"https://librealsense.intel.com/Releases/connectivity_check\"";
-          to = "DOWNLOAD file://${librealsense2-vendor_source-connectivity_check-8}";
-        }
-        {
           path = "CMake/external_fastdds.cmake";
           from = "GIT_REPOSITORY https://github.com/eProsima/Fast-DDS.git";
           to = "URL ${librealsense2-vendor_source-Fast-DDS-6}";
@@ -103,15 +98,6 @@ let
         name = "librealsense2-vendor_source-MobileNetSSD_deploy-8-source";
         url = "https://raw.githubusercontent.com/chuanqi305/MobileNet-SSD/f5d072ccc7e3dcddaa830e9805da4bf1000b2836/MobileNetSSD_deploy.prototxt";
         hash = "sha256-54FVnE9b6uwqSGzNlSr1tvpAjpSYdhv19PuAtOnw0l4=";
-      };
-      substitutions = [
-      ];
-    };
-    librealsense2-vendor_source-connectivity_check-8 = substituteSource {
-      src = fetchurl {
-        name = "librealsense2-vendor_source-connectivity_check-8-source";
-        url = "https://librealsense.intel.com/Releases/connectivity_check";
-        hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
       };
       substitutions = [
       ];
