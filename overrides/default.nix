@@ -115,10 +115,12 @@ final: prev: {
       );
       librealsense2 = rosPrev.librealsense2.overrideAttrs (
         {
+          nativeBuildInputs ? [ ],
           patches ? [ ],
           ...
         }:
         {
+          nativeBuildInputs = nativeBuildInputs ++ [ final.autoPatchelfHook ];
           patches = patches ++ [ ./librealsense2-install-presets.patch ];
         }
       );
