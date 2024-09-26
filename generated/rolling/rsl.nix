@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19 = substituteSource {
       src = fetchurl {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19-source";
         url = "https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
         hash = "sha256-HIlS9jhR+Ic9j73/EY/9nZG6QJEjsYFu59zTqNHlWHA=";
       };
@@ -31,7 +31,7 @@ let
         {
           path = "docs/CMakeLists.txt";
           from = "DOWNLOAD\n     https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20}";
+          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19}";
         }
       ];
     };

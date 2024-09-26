@@ -53,4 +53,8 @@ DISABLE_GROUPS_WORKAROUND = "1"
 
 [auto_patching]
 ignore_files = ['test', 'example', 'ci-build\.cmake']
-ignore_urls = ['fast-dds\.docs\.eprosima\.com']
+ignore_urls = [
+  'fast-dds\.docs\.eprosima\.com',
+  '^https://github\.com/.*?/.*?/archive/refs/heads/.*$',
+  '^https://raw\.githubusercontent\.com/.*?/.*?/(master|main)/.*$',
+]

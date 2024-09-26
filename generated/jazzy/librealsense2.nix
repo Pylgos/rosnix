@@ -72,11 +72,6 @@ let
           to = "URL ${librealsense2-vendor_source-pybind11_json-5}";
         }
         {
-          path = "third-party/glfw/CMake/GenerateMappings.cmake";
-          from = "DOWNLOAD \"\${source_url}\"";
-          to = "DOWNLOAD file://${librealsense2-vendor_source-gamecontrollerdb-8}";
-        }
-        {
           path = "wrappers/opencv/dnn/CMakeLists.txt";
           from = "DOWNLOAD \"\${PROTOTEXT_URL}\"";
           to = "DOWNLOAD file://${librealsense2-vendor_source-MobileNetSSD_deploy-8}";
@@ -127,15 +122,6 @@ let
         url = "https://github.com/curl/curl.git";
         rev = "2f33be817cbce6ad7a36f27dd7ada9219f13584c";
         hash = "sha256-sR4Pv5YWcS5/zWUff5f9ASFkx7Fv75WdtpnxiKG4Ulc=";
-      };
-      substitutions = [
-      ];
-    };
-    librealsense2-vendor_source-gamecontrollerdb-8 = substituteSource {
-      src = fetchurl {
-        name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
-        url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/0f4081f054c85b983c5464f0d0ee759b9fddaa0a/gamecontrollerdb.txt";
-        hash = "sha256-fGyeJh2xxsdMe5ABajZXQFyAmCRwp/y3/xtrMm0XYZA=";
       };
       substitutions = [
       ];

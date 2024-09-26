@@ -16,20 +16,6 @@ let
         hash = "sha256-VAE6VKDuVagjFsw1q6X/hpGUYbDSIx+Os9F+/76bo08=";
       };
       substitutions = [
-        {
-          path = "scripts/vcpkg/ports/qca/portfile.cmake";
-          from = "DOWNLOAD https://raw.githubusercontent.com/mozilla/gecko-dev/master/security/nss/lib/ckfw/builtins/certdata.txt";
-          to = "DOWNLOAD file://${pangolin-vendor_source-certdata-0}";
-        }
-      ];
-    };
-    pangolin-vendor_source-certdata-0 = substituteSource {
-      src = fetchurl {
-        name = "pangolin-vendor_source-certdata-0-source";
-        url = "https://raw.githubusercontent.com/mozilla/gecko-dev/6b6c3965d0a79880493b8ae44a92389b72d90636/security/nss/lib/ckfw/builtins/certdata.txt";
-        hash = "sha256-NhBbAWMfn8A7Hsp3m0SjChpYkLm/jcB8ywAaBzAeAc8=";
-      };
-      substitutions = [
       ];
     };
   };

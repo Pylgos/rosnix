@@ -20,7 +20,7 @@ let
         {
           path = "cmake/F2CUtils.cmake";
           from = "GIT_REPOSITORY https://github.com/Fields2Cover/steering_functions.git";
-          to = "URL ${fields2cover-vendor_source-steering_functions-23}";
+          to = "URL ${fields2cover-vendor_source-steering_functions-22}";
         }
         {
           path = "cmake/F2CUtils.cmake";
@@ -30,23 +30,23 @@ let
         {
           path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
-          to = "URL ${fields2cover-vendor_source-or-tools_amd64_ubuntu-22-21}";
+          to = "URL ${fields2cover-vendor_source-or-tools_amd64_ubuntu-22-20}";
         }
         {
           path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
-          to = "URL ${fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-22}";
+          to = "URL ${fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-21}";
         }
         {
           path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz";
-          to = "URL ${fields2cover-vendor_source-json-24}";
+          to = "URL ${fields2cover-vendor_source-json-23}";
         }
       ];
     };
-    fields2cover-vendor_source-json-24 = substituteSource {
+    fields2cover-vendor_source-json-23 = substituteSource {
       src = fetchzip {
-        name = "fields2cover-vendor_source-json-24-source";
+        name = "fields2cover-vendor_source-json-23-source";
         url = "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz";
         hash = "sha256-cnGfiVhXzqfj5Fay823wntWcTnbh8r2SefDLslb1Dh0=";
       };
@@ -64,42 +64,42 @@ let
         {
           path = "cmake/cpp.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20}";
+          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/ERGO-Code/HiGHS.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-12}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-11}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/Cbc.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-18}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-17}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/Cgl.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-17}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-16}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/Clp.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Clp-16}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Clp-15}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/CoinUtils.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-14}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-13}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/GLPK.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-11}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-10}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/Mizux/Osi.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Osi-15}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-Osi-14}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
@@ -134,12 +134,12 @@ let
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11_protobuf.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-10}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-9}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/scipopt/scip.git\"";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-scip-13}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-scip-12}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
@@ -149,28 +149,28 @@ let
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/google/googletest.git";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-googletest-19}";
+          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-googletest-18}";
         }
         {
           path = "cmake/dotnet.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20}";
+          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19}";
         }
         {
           path = "cmake/java.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20}";
+          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19}";
         }
         {
           path = "cmake/python.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20}";
+          to = "DOWNLOAD file://${fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19}";
         }
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-18 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-17 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-18-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Cbc-17-source";
         url = "https://github.com/Mizux/Cbc.git";
         rev = "b01a53da39577380acdb84d8a3577911c5d91a13";
         hash = "sha256-BZbcxscWO29o0haRtO4ND5EPm2v6k23t6bWnrtrG7AQ=";
@@ -178,9 +178,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-17 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-16 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-17-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Cgl-16-source";
         url = "https://github.com/Mizux/Cgl.git";
         rev = "59d95fba6605329d615d44ac7be0be2397210d5a";
         hash = "sha256-lSNsHs6BcGGMs5jnaYTqa+V6xzYshrB5U2AapkNxPR8=";
@@ -188,9 +188,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-Clp-16 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-Clp-15 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Clp-16-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Clp-15-source";
         url = "https://github.com/Mizux/Clp.git";
         rev = "914e0af16285ab6b0514947296213a0e67e80880";
         hash = "sha256-CpWM0t3CBPvuMbWq1fEsagP9kPFxI+VreeHjjH9cwkI=";
@@ -198,9 +198,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-14 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-13 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-14-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-CoinUtils-13-source";
         url = "https://github.com/Mizux/CoinUtils.git";
         rev = "675cbb8e131f07705544a2e9074355cfa1a319b4";
         hash = "sha256-sR+ZM5mBAFss1NubW2jDg6oaCoPoRxn6YsSmk7xi2xI=";
@@ -208,9 +208,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-11 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-10 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-11-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-GLPK-10-source";
         url = "https://github.com/Mizux/GLPK.git";
         rev = "2a3bad935570eb3339792b888a08e61a90db0be0";
         hash = "sha256-3sWQuyWpf62zyrGJwpWdsUBibIwdfiGeivdm3zEkjXk=";
@@ -218,9 +218,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-12 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-11 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-12-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-HiGHS-11-source";
         url = "https://github.com/ERGO-Code/HiGHS.git";
         rev = "21da9b90e0dceeb22ef9e35e5ff2c3ab17dc5232";
         hash = "sha256-Wa5ivUJk0t58FhZD0zy0zxHHj4/p8e9WcxXwu5zenxI=";
@@ -228,9 +228,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-Osi-15 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-Osi-14 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Osi-15-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-Osi-14-source";
         url = "https://github.com/Mizux/Osi.git";
         rev = "d2809dd1ab01eb5c766edce7cea2ca2c1c5ecd2a";
         hash = "sha256-/kwsR3bauIp2BNvTLqgoAivEZTLmIkcgUfzzcYB5Ytg=";
@@ -258,9 +258,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19 = substituteSource {
       src = fetchurl {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-20-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-doxygen-awesome-19-source";
         url = "https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
         hash = "sha256-HIlS9jhR+Ic9j73/EY/9nZG6QJEjsYFu59zTqNHlWHA=";
       };
@@ -282,9 +282,9 @@ let
         }
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-googletest-19 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-googletest-18 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-googletest-19-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-googletest-18-source";
         url = "https://github.com/google/googletest.git";
         rev = "f8d7d77c06936315286eb55f8de22cd23c188571";
         hash = "sha256-t0RchAHTJbuI5YW4uyBPykTvcjy90JW9AOPNjIhwh6U=";
@@ -340,11 +340,6 @@ let
           from = "URL https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
           to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-20230802-7}";
         }
-        {
-          path = "CMakeLists.txt";
-          from = "URL https://github.com/pybind/pybind11/archive/refs/heads/master.tar.gz";
-          to = "URL ${fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-master-8}";
-        }
       ];
     };
     fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-20230802-7 = substituteSource {
@@ -356,19 +351,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-master-8 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-9 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_abseil-7-vendor_source-master-8-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "7e418f49243bb7d13fa92cf2634af1eeac386465";
-        hash = "sha256-XZIS48ZWNBHBMr+gvxCuimD24jAIU8P/fUoDiBhQzaU=";
-      };
-      substitutions = [
-      ];
-    };
-    fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-10 = substituteSource {
-      src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-10-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-pybind11_protobuf-9-source";
         url = "https://github.com/pybind/pybind11_protobuf.git";
         rev = "3b11990a99dea5101799e61d98a82c4737d240cc";
         hash = "sha256-saeBxffAbDoHI/YvLatSubpdch9vb5DAfp/Bz3MC8ps=";
@@ -386,9 +371,9 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools-0-vendor_source-scip-13 = substituteSource {
+    fields2cover-vendor_source-or-tools-0-vendor_source-scip-12 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-or-tools-0-vendor_source-scip-13-source";
+        name = "fields2cover-vendor_source-or-tools-0-vendor_source-scip-12-source";
         url = "https://github.com/scipopt/scip.git";
         rev = "61297938717271f462c995b99ab4b217ca1d9499";
         hash = "sha256-Ub0eykyZOlJtqUofTx4a2YcOMiyG6AUX0llxsqJ+YvE=";
@@ -396,27 +381,27 @@ let
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools_amd64_ubuntu-22-21 = substituteSource {
+    fields2cover-vendor_source-or-tools_amd64_ubuntu-22-20 = substituteSource {
       src = fetchzip {
-        name = "fields2cover-vendor_source-or-tools_amd64_ubuntu-22-21-source";
+        name = "fields2cover-vendor_source-or-tools_amd64_ubuntu-22-20-source";
         url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
         hash = "sha256-PC2FL81bvEvvu1G1ylGVZdDYndsQCceoE07+0BD+ob4=";
       };
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-22 = substituteSource {
+    fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-21 = substituteSource {
       src = fetchzip {
-        name = "fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-22-source";
+        name = "fields2cover-vendor_source-or-tools_arm64_debian-11_cpp_v9-21-source";
         url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
         hash = "sha256-26Ekgc9p+qiVj5hNswVmdXy2gTLMQqYTbuwBXTGd6oo=";
       };
       substitutions = [
       ];
     };
-    fields2cover-vendor_source-steering_functions-23 = substituteSource {
+    fields2cover-vendor_source-steering_functions-22 = substituteSource {
       src = fetchgit {
-        name = "fields2cover-vendor_source-steering_functions-23-source";
+        name = "fields2cover-vendor_source-steering_functions-22-source";
         url = "https://github.com/Fields2Cover/steering_functions.git";
         rev = "13e3f5658144b3832fb1eb31a0e2f5a3cbf57db9";
         hash = "sha256-+gGBX6kKKI0G+0AVwvIRyuzFKlCgHp+woiV0jfu0REo=";

@@ -134,15 +134,6 @@ let
       substitutions = [
       ];
     };
-    librealsense2-vendor_source-gamecontrollerdb-8 = substituteSource {
-      src = fetchurl {
-        name = "librealsense2-vendor_source-gamecontrollerdb-8-source";
-        url = "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/0f4081f054c85b983c5464f0d0ee759b9fddaa0a/gamecontrollerdb.txt";
-        hash = "sha256-fGyeJh2xxsdMe5ABajZXQFyAmCRwp/y3/xtrMm0XYZA=";
-      };
-      substitutions = [
-      ];
-    };
     python_mrpt = substituteSource {
       src = fetchgit {
         name = "python_mrpt-source";
@@ -166,11 +157,6 @@ let
         hash = "sha256-4008v02Hqakjti9XZz1Np9JxXiUFcgT1Pku3raTNsyA=";
       };
       substitutions = [
-        {
-          path = "3rdparty/nanogui/ext/glfw/CMake/GenerateMappings.cmake";
-          from = "DOWNLOAD \"\${source_url}\"";
-          to = "DOWNLOAD file://${librealsense2-vendor_source-gamecontrollerdb-8}";
-        }
         {
           path = "cmakemodules/script_assimp.cmake";
           from = "URL               \"https://github.com/assimp/assimp/archive/v5.3.1.tar.gz\"";
@@ -254,13 +240,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0}";
+          to = "URL ${rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0}";
         }
       ];
     };
-    python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0 = substituteSource {
+    rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0 = substituteSource {
       src = fetchzip {
-        name = "python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0-source";
+        name = "rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0-source";
         url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
         hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
       };
