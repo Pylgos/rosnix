@@ -122,7 +122,6 @@ final: prev: {
           patches = patches ++ [ ./librealsense2-install-presets.patch ];
         }
       );
-
     })
   );
 }

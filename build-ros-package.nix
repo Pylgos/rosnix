@@ -6,22 +6,31 @@
   mkShell,
 }:
 let
-  addShellAttr =
-    drv:
-    drv
-    // {
-      shell = mkShell {
-        name = "${drv.pname or "ros"}-workspace";
-        nativeBuildInputs = [ rosSetupHook ];
-        buildInputs = [ drv ];
-        shellHook = ''
-          ROSNIX_SETUP_DEVEL_ENV=1 _rosnixSetupHook_postHook 2> /dev/null
-        '';
+  mkOverlayBuilder =
+    builderFn: overlay: arg:
+    let
+      argAttrs = (lib.toFunction arg) finalAttrs;
+      finalAttrs = argAttrs // (overlay final finalAttrs argAttrs);
+      final = (builderFn finalAttrs) // {
+        inherit overrideAttrs;
       };
-    };
+      overrideAttrs =
+        f:
+        let
+          newOverlay =
+            final: finalAttrs: prev:
+            let
+              firstAttrs = overlay final finalAttrs prev;
+              secondAttrs = firstAttrs // (lib.toFunction f) firstAttrs;
+            in
+            secondAttrs;
+        in
+        mkOverlayBuilder builderFn newOverlay arg;
+    in
+    final;
 in
-lib.adaptMkDerivation { modify = addShellAttr; } stdenv.mkDerivation (
-  finalAttrs:
+mkOverlayBuilder stdenv.mkDerivation (
+  finalDrv: finalAttrs:
   {
     nativeBuildInputs ? [ ],
     buildPhase ? null,
@@ -33,7 +42,6 @@ lib.adaptMkDerivation { modify = addShellAttr; } stdenv.mkDerivation (
     dontWrapQtApps ? true,
     shellHook ? "",
     rosCmakeArgs ? [ ],
-    missingDependencies ? [ ],
     passthru ? { },
     cmakeBuildType ? "Release",
     ...
@@ -108,7 +116,14 @@ lib.adaptMkDerivation { modify = addShellAttr; } stdenv.mkDerivation (
       + shellHook;
 
     passthru = {
-      inherit missingDependencies;
+      shell = mkShell {
+        name = "${finalAttrs.pname or "ros"}-workspace";
+        nativeBuildInputs = [ rosSetupHook ];
+        buildInputs = [ finalDrv ];
+        shellHook = ''
+          ROSNIX_SETUP_DEVEL_ENV=1 _rosnixSetupHook_postHook 2> /dev/null
+        '';
+      };
     } // passthru;
   }
 )
