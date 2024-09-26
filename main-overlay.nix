@@ -11,7 +11,7 @@ let
         self:
         {
           wrapRosQtAppsHook = self.callPackage ./hooks/wrap-ros-qt-apps-hook.nix { };
-          rosSetupHook = self.callPackage ./hooks/setup-hook.nix { };
+          rosSetupHook = self.callPackage ./hooks/ros-setup-hook.nix { };
           buildRosPackage = self.callPackage ./build-ros-package.nix { };
         }
         // (import ./generated/${distro} self);
