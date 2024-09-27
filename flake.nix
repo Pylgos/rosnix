@@ -75,6 +75,7 @@
               ];
               text = ''
                 set -eu
+                DONT_COMMIT=''${DONT_COMMIT:-}
                 pushd poetry
                 poetry update --lock
                 if [[ -z $DONT_COMMIT ]]; then
