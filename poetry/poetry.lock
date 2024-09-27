@@ -139,19 +139,19 @@ recommended = ["colcon-override-check"]
 
 [[package]]
 name = "colcon-core"
-version = "0.17.1"
+version = "0.18.0"
 description = "Command line tool to build sets of software packages."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "colcon-core-0.17.1.tar.gz", hash = "sha256:548d281c9f063ee5780b775b23cdb4f11f4ba5870707ecd2091bd9abae2e5e20"},
-    {file = "colcon_core-0.17.1-py3-none-any.whl", hash = "sha256:862a96fd9c247a08632f176f895159d01c6a21f90e799570bcf39f047fd28746"},
+    {file = "colcon-core-0.18.0.tar.gz", hash = "sha256:3177db75466515ac1b40194c1bc66d0aa15f05474fce0b9df5755133000e3b0e"},
+    {file = "colcon_core-0.18.0-py3-none-any.whl", hash = "sha256:882d0f51b3277731903292958563d8496528cb561203e78b68cf03b6a72b428b"},
 ]
 
 [package.dependencies]
 coloredlogs = {version = "*", markers = "sys_platform == \"win32\""}
 distlib = "*"
-EmPy = "<4"
+EmPy = "*"
 packaging = "*"
 pytest = "*"
 pytest-cov = "*"
@@ -578,12 +578,12 @@ files = [
 
 [[package]]
 name = "empy"
-version = "3.3.4"
+version = "4.2"
 description = "A templating system for Python."
 optional = false
-python-versions = "*"
+python-versions = ">=2.4"
 files = [
-    {file = "empy-3.3.4.tar.gz", hash = "sha256:73ac49785b601479df4ea18a7c79bc1304a8a7c34c02b9472cf1206ae88f01b3"},
+    {file = "empy-4.2.tar.gz", hash = "sha256:86f15e1da9743e79a2e9b2cbacf1a13d0b7fb1835b6254eb253c978b72287f4f"},
 ]
 
 [[package]]
