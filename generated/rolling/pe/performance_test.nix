@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "performance_test-source";
         url = "https://github.com/ros2-gbp/performance_test-release.git";
-        rev = "05dbef9b6d0d3d460efe5452bdf58621e2c7f1b9";
-        hash = "sha256-wlQOogTIJm3/yPmuBAhSGRXFNiy0UAJyPZfWK+NgsyQ=";
+        rev = "bb8375cdd83c85fd78c27dbb34f7c75ee5444628";
+        hash = "sha256-xnTxHvplWaFior1NZmiF+oFRCJ2cvWwKWUY55BnS4ns=";
       };
       substitutions = [
         {
@@ -91,7 +91,7 @@ let
 in
 buildRosPackage {
   pname = "performance_test";
-  version = "2.0.0-1";
+  version = "2.3.0-1";
   src = sources.performance_test;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

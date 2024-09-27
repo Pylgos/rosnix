@@ -121,39 +121,9 @@ let
       substitutions = [
       ];
     };
-    rviz_assimp_vendor = substituteSource {
-      src = fetchgit {
-        name = "rviz_assimp_vendor-source";
-        url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "440613e22116aae5f35e5724e5f12940bab3b400";
-        hash = "sha256-Aoy6roz9YZN3aM9DFeaIM8HrOHfthE5rI+t/UWApmXg=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "VCS_URL https://github.com/assimp/assimp.git";
-          to = "VCS_TYPE path VCS_URL ${rviz_assimp_vendor-vendor_source-assimp-0}";
-        }
-      ];
-    };
-    rviz_assimp_vendor-vendor_source-assimp-0 = substituteSource {
-      src = fetchgit {
-        name = "rviz_assimp_vendor-vendor_source-assimp-0-source";
-        url = "https://github.com/assimp/assimp.git";
-        rev = "6a08c39e3a91ef385e76515cfad86aca4bfd57ff";
-        hash = "sha256-ResIn+TA/FvrFt5+svMyLCJb2e+lyHFWopHBuzoXAhQ=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0}";
-        }
-      ];
-    };
-    rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0 = substituteSource {
+    python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0 = substituteSource {
       src = fetchzip {
-        name = "rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0-source";
+        name = "python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0-source";
         url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
         hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
       };
@@ -222,6 +192,36 @@ let
           path = "cmake/projects/zip/hunter.cmake";
           from = "URL\n    \"https://github.com/kuba--/zip/archive/v0.1.15.tar.gz\"";
           to = "URL ${hunter-zip-0_1_15}";
+        }
+      ];
+    };
+    rviz_assimp_vendor = substituteSource {
+      src = fetchgit {
+        name = "rviz_assimp_vendor-source";
+        url = "https://github.com/ros2-gbp/rviz-release.git";
+        rev = "440613e22116aae5f35e5724e5f12940bab3b400";
+        hash = "sha256-Aoy6roz9YZN3aM9DFeaIM8HrOHfthE5rI+t/UWApmXg=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "VCS_URL https://github.com/assimp/assimp.git";
+          to = "VCS_TYPE path VCS_URL ${rviz_assimp_vendor-vendor_source-assimp-0}";
+        }
+      ];
+    };
+    rviz_assimp_vendor-vendor_source-assimp-0 = substituteSource {
+      src = fetchgit {
+        name = "rviz_assimp_vendor-vendor_source-assimp-0-source";
+        url = "https://github.com/assimp/assimp.git";
+        rev = "6a08c39e3a91ef385e76515cfad86aca4bfd57ff";
+        hash = "sha256-ResIn+TA/FvrFt5+svMyLCJb2e+lyHFWopHBuzoXAhQ=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
+          to = "URL ${python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0}";
         }
       ];
     };

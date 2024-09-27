@@ -240,13 +240,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0}";
+          to = "URL ${python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0}";
         }
       ];
     };
-    rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0 = substituteSource {
+    python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0 = substituteSource {
       src = fetchzip {
-        name = "rviz_assimp_vendor-vendor_source-assimp-0-vendor_source-v0-0-source";
+        name = "python_mrpt-vendor_source-mrpt-0-vendor_source-v5-0-vendor_source-v0-0-source";
         url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
         hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
       };

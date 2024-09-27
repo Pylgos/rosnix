@@ -12,7 +12,7 @@ let
       src = fetchgit {
         name = "apriltag_mit-source";
         url = "https://github.com/ros2-gbp/apriltag_mit-release.git";
-        rev = "bb963180b5229dcd9aa44ac2720d084ea141df89";
+        rev = "fce3634b5b12e17f90fa8c0f404fa7fca1bcb8cc";
         hash = "sha256-1WPBqs7VNnRYSSvoR7Jfk3a9CYGHOzfdA0KQgv/tfck=";
       };
       substitutions = [
