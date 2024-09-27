@@ -13,6 +13,7 @@
   generate_parameter_library,
   geometry_msgs,
   hardware_interface,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -28,10 +29,10 @@
   tf2_msgs,
 }:
 let
-  sources = rec {
-    steering_controllers_library-c5acc4f63f282e2b63e256670491bcaa70194b3c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "steering_controllers_library" = substituteSource {
       src = fetchgit {
-        name = "steering_controllers_library-c5acc4f63f282e2b63e256670491bcaa70194b3c-source";
+        name = "steering_controllers_library-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "c5acc4f63f282e2b63e256670491bcaa70194b3c";
         hash = "sha256-V3qCThykszaekeQgWNloyxAkNP7Ss1d3GL8ZpFck2ig=";
@@ -39,12 +40,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "steering_controllers_library";
   version = "4.14.0-1";
-  src = sources.steering_controllers_library-c5acc4f63f282e2b63e256670491bcaa70194b3c;
+  src = sources."steering_controllers_library";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

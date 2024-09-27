@@ -18,6 +18,7 @@
   joint_trajectory_controller,
   kinematics_interface,
   kinematics_interface_kdl,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -33,10 +34,10 @@
   trajectory_msgs,
 }:
 let
-  sources = rec {
-    admittance_controller-1541012ca0aedc52662e244ec9bac5fa02b5196c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "admittance_controller" = substituteSource {
       src = fetchgit {
-        name = "admittance_controller-1541012ca0aedc52662e244ec9bac5fa02b5196c-source";
+        name = "admittance_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "1541012ca0aedc52662e244ec9bac5fa02b5196c";
         hash = "sha256-gXGKMcrzhuK4TA07VVx2TPmwuw6V38lDgLotJgP6E4E=";
@@ -44,12 +45,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "admittance_controller";
   version = "4.14.0-1";
-  src = sources.admittance_controller-1541012ca0aedc52662e244ec9bac5fa02b5196c;
+  src = sources."admittance_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

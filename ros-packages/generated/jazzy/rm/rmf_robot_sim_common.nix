@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rmf_building_map_msgs,
   rmf_dispenser_msgs,
@@ -17,10 +18,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    rmf_robot_sim_common-11fbc3b5f59f867be3c8a00b4e354fa600198ea0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_robot_sim_common" = substituteSource {
       src = fetchgit {
-        name = "rmf_robot_sim_common-11fbc3b5f59f867be3c8a00b4e354fa600198ea0-source";
+        name = "rmf_robot_sim_common-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
         rev = "11fbc3b5f59f867be3c8a00b4e354fa600198ea0";
         hash = "sha256-w0qFx4C5VaFH20/vYzf/UCmQRb9mrIetgO+qmcmffcw=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_robot_sim_common";
   version = "2.3.2-1";
-  src = sources.rmf_robot_sim_common-11fbc3b5f59f867be3c8a00b4e354fa600198ea0;
+  src = sources."rmf_robot_sim_common";
   nativeBuildInputs = [ ament_cmake eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

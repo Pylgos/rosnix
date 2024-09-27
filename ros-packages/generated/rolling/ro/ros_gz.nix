@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_gz_bridge,
   ros_gz_image,
@@ -15,10 +16,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    ros_gz-726335aabc427ca7108a126f193d1bbcc395d93e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_gz" = substituteSource {
       src = fetchgit {
-        name = "ros_gz-726335aabc427ca7108a126f193d1bbcc395d93e-source";
+        name = "ros_gz-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "726335aabc427ca7108a126f193d1bbcc395d93e";
         hash = "sha256-HNXoQBBENKUNTi0KIyW3PO+CIWUDqgKagBGS8mdCgXQ=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_gz";
   version = "2.1.0-1";
-  src = sources.ros_gz-726335aabc427ca7108a126f193d1bbcc395d93e;
+  src = sources."ros_gz";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

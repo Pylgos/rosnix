@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "beluga_amcl" = substituteSource {
       src = fetchgit {
-        name = "beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1-source";
+        name = "beluga_amcl-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "0a28678898be6587e8ef29c6a5d96109761837b1";
         hash = "sha256-o5w8tS4fYcmaf9rRYPabtPGEs27Xf50+6nRPhhPN7B8=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "beluga_amcl";
   version = "2.0.2-1";
-  src = sources.beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1;
+  src = sources."beluga_amcl";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

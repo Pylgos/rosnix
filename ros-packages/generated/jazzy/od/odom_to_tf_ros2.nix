@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    odom_to_tf_ros2-cdb19962a1ac17d970b355a94691a32d54b87c35 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "odom_to_tf_ros2" = substituteSource {
       src = fetchgit {
-        name = "odom_to_tf_ros2-cdb19962a1ac17d970b355a94691a32d54b87c35-source";
+        name = "odom_to_tf_ros2-source";
         url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release.git";
         rev = "cdb19962a1ac17d970b355a94691a32d54b87c35";
         hash = "sha256-0/u/YYeXujwGxRaQtoi8WfVuy0NFu558FY9r5etmJkY=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "odom_to_tf_ros2";
   version = "1.0.2-4";
-  src = sources.odom_to_tf_ros2-cdb19962a1ac17d970b355a94691a32d54b87c35;
+  src = sources."odom_to_tf_ros2";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

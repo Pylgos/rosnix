@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_action,
   rclcpp_lifecycle,
@@ -14,10 +15,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    realtime_tools-204ddaae9374354aa1d951465e0b1df1f8b0b4f7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "realtime_tools" = substituteSource {
       src = fetchgit {
-        name = "realtime_tools-204ddaae9374354aa1d951465e0b1df1f8b0b4f7-source";
+        name = "realtime_tools-source";
         url = "https://github.com/ros2-gbp/realtime_tools-release.git";
         rev = "204ddaae9374354aa1d951465e0b1df1f8b0b4f7";
         hash = "sha256-mJ0j1sX7BpeTC7S7CmAoZXA0XLrOcy22ZW4+t0CWR4A=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "realtime_tools";
   version = "2.6.0-1";
-  src = sources.realtime_tools-204ddaae9374354aa1d951465e0b1df1f8b0b4f7;
+  src = sources."realtime_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rclcpp_components,
@@ -15,10 +16,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab = substituteSource {
+  sources = mkSourceSet (sources: {
+    "imu_processors" = substituteSource {
       src = fetchgit {
-        name = "imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab-source";
+        name = "imu_processors-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
         rev = "96e485da4d27f0f792095ad361ce54d8cdc6e6ab";
         hash = "sha256-ShCwGu82++kzA8jDNQZHJIG8R7Av04iVDxp8sMYze2g=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "imu_processors";
   version = "0.5.0-2";
-  src = sources.imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab;
+  src = sources."imu_processors";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

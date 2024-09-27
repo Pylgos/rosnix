@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   performance_test_fixture,
   rcpputils,
   rcutils,
@@ -25,10 +26,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_typesupport_cpp-59f9c537ad108522c54f09136b76a8eba3ac152a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_typesupport_cpp" = substituteSource {
       src = fetchgit {
-        name = "rosidl_typesupport_cpp-59f9c537ad108522c54f09136b76a8eba3ac152a-source";
+        name = "rosidl_typesupport_cpp-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport-release.git";
         rev = "59f9c537ad108522c54f09136b76a8eba3ac152a";
         hash = "sha256-tnLctSk/csqw5TavBsy52puxoT2/DhJml9KIuJygN7I=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_typesupport_cpp";
   version = "3.3.1-1";
-  src = sources.rosidl_typesupport_cpp-59f9c537ad108522c54f09136b76a8eba3ac152a;
+  src = sources."rosidl_typesupport_cpp";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core rosidl_cli rosidl_generator_c rosidl_generator_type_description rosidl_pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -23,10 +24,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    etsi_its_rviz_plugins-7afb1932d1e8ffc0bf29661d281c544aaada73aa = substituteSource {
+  sources = mkSourceSet (sources: {
+    "etsi_its_rviz_plugins" = substituteSource {
       src = fetchgit {
-        name = "etsi_its_rviz_plugins-7afb1932d1e8ffc0bf29661d281c544aaada73aa-source";
+        name = "etsi_its_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "7afb1932d1e8ffc0bf29661d281c544aaada73aa";
         hash = "sha256-1PsO7RaqrI25xAc4Z7eZ0HIG+lwxJEQIPpBvse0KCQ8=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "etsi_its_rviz_plugins";
   version = "2.2.0-1";
-  src = sources.etsi_its_rviz_plugins-7afb1932d1e8ffc0bf29661d281c544aaada73aa;
+  src = sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

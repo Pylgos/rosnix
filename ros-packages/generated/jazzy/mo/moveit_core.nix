@@ -18,6 +18,7 @@
   google_benchmark_vendor,
   kdl_parser,
   launch_testing_ament_cmake,
+  mkSourceSet,
   moveit_common,
   moveit_msgs,
   moveit_resources_panda_moveit_config,
@@ -50,10 +51,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_core-4ddbf0913eeb711c68b916e71d92c144500892da = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_core" = substituteSource {
       src = fetchgit {
-        name = "moveit_core-4ddbf0913eeb711c68b916e71d92c144500892da-source";
+        name = "moveit_core-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "4ddbf0913eeb711c68b916e71d92c144500892da";
         hash = "sha256-WwWn+S+POgbqVVFiTNS9YCPW4HwH0UtkvCrAYRmEuIE=";
@@ -61,12 +62,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_core";
   version = "2.10.0-1";
-  src = sources.moveit_core-4ddbf0913eeb711c68b916e71d92c144500892da;
+  src = sources."moveit_core";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module google_benchmark_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

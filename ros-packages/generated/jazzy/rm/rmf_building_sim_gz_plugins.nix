@@ -11,6 +11,7 @@
   gz_sim_vendor,
   gz_transport_vendor,
   menge_vendor,
+  mkSourceSet,
   rclcpp,
   rmf_door_msgs,
   rmf_fleet_msgs,
@@ -20,10 +21,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rmf_building_sim_gz_plugins-b4f209d394558c80991e7e17cf0e04754d58c0db = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_building_sim_gz_plugins" = substituteSource {
       src = fetchgit {
-        name = "rmf_building_sim_gz_plugins-b4f209d394558c80991e7e17cf0e04754d58c0db-source";
+        name = "rmf_building_sim_gz_plugins-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
         rev = "b4f209d394558c80991e7e17cf0e04754d58c0db";
         hash = "sha256-QVQQUL2yytg0sEDzQAdj3kKsPVD+98c7O/zrkeUB348=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_building_sim_gz_plugins";
   version = "2.3.2-1";
-  src = sources.rmf_building_sim_gz_plugins-b4f209d394558c80991e7e17cf0e04754d58c0db;
+  src = sources."rmf_building_sim_gz_plugins";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

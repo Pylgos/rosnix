@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   joint_state_publisher,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   substituteSource,
@@ -14,10 +15,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    nav2_minimal_tb4_description-d799d33ee1346defee3f1c815d5eb62102f6011e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_minimal_tb4_description" = substituteSource {
       src = fetchgit {
-        name = "nav2_minimal_tb4_description-d799d33ee1346defee3f1c815d5eb62102f6011e-source";
+        name = "nav2_minimal_tb4_description-source";
         url = "https://github.com/ros-navigation/nav2_minimal_turtlebot_simulation-release.git";
         rev = "d799d33ee1346defee3f1c815d5eb62102f6011e";
         hash = "sha256-r1KPRn5VOO/olYF6Mmv/bf6pcOMHjL89MxlPhLetbyI=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_minimal_tb4_description";
   version = "1.0.1-1";
-  src = sources.nav2_minimal_tb4_description-d799d33ee1346defee3f1c815d5eb62102f6011e;
+  src = sources."nav2_minimal_tb4_description";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

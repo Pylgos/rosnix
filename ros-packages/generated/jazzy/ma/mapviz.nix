@@ -9,6 +9,7 @@
   image_transport,
   mapviz_interfaces,
   marti_common_msgs,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -25,10 +26,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mapviz" = substituteSource {
       src = fetchgit {
-        name = "mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5-source";
+        name = "mapviz-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "adaa809f2d4a98bf51fe6f79726a3641267309d5";
         hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mapviz";
   version = "2.4.3-1";
-  src = sources.mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5;
+  src = sources."mapviz";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };

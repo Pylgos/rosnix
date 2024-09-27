@@ -7,6 +7,7 @@
   geometry_msgs,
   launch,
   launch_ros,
+  mkSourceSet,
   ouster_sensor_msgs,
   pcl_conversions,
   pcl_ros,
@@ -24,10 +25,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ouster_ros" = substituteSource {
       src = fetchgit {
-        name = "ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0-source";
+        name = "ouster_ros-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
         rev = "3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0";
         hash = "sha256-Opx0mFprXiIgty9hc+lRjuMa4S82Wsjq0scFsO4oWbs=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ouster_ros";
   version = "0.11.1-6";
-  src = sources.ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0;
+  src = sources."ouster_ros";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

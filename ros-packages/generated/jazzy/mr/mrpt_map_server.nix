@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mp2p_icp,
   mrpt_libmaps,
   mrpt_libobs,
@@ -21,10 +22,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    mrpt_map_server-74ed88f79cd2ad6391cdc1493229a9b41d911f5f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_map_server" = substituteSource {
       src = fetchgit {
-        name = "mrpt_map_server-74ed88f79cd2ad6391cdc1493229a9b41d911f5f-source";
+        name = "mrpt_map_server-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "74ed88f79cd2ad6391cdc1493229a9b41d911f5f";
         hash = "sha256-rpNgZdhrt9jg15OAcuimTW8LQ3VQM8VysiW+7f3jRHo=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_map_server";
   version = "2.2.0-1";
-  src = sources.mrpt_map_server-74ed88f79cd2ad6391cdc1493229a9b41d911f5f;
+  src = sources."mrpt_map_server";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

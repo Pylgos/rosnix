@@ -10,6 +10,7 @@
   geometry_msgs,
   lifecycle_msgs,
   microstrain_inertial_msgs,
+  mkSourceSet,
   nav_msgs,
   nmea_msgs,
   rclcpp_lifecycle,
@@ -27,10 +28,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    microstrain_inertial_driver-511879424371ef2b4fd2f6b9a279cfe7f6139417 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "microstrain_inertial_driver" = substituteSource {
       src = fetchgit {
-        name = "microstrain_inertial_driver-511879424371ef2b4fd2f6b9a279cfe7f6139417-source";
+        name = "microstrain_inertial_driver-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
         rev = "511879424371ef2b4fd2f6b9a279cfe7f6139417";
         hash = "sha256-X29UZFDfi/zZxdj6lxfQRxhsXTZv1yBdjg0x98wbD/Y=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "microstrain_inertial_driver";
   version = "4.3.0-1";
-  src = sources.microstrain_inertial_driver-511879424371ef2b4fd2f6b9a279cfe7f6139417;
+  src = sources."microstrain_inertial_driver";
   nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

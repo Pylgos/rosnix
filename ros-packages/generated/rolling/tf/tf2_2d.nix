@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   substituteSource,
@@ -15,10 +16,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    tf2_2d-b51411b00ce51735ebf5fca39ff90ffea39e6b78 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tf2_2d" = substituteSource {
       src = fetchgit {
-        name = "tf2_2d-b51411b00ce51735ebf5fca39ff90ffea39e6b78-source";
+        name = "tf2_2d-source";
         url = "https://github.com/ros2-gbp/tf2_2d-release.git";
         rev = "b51411b00ce51735ebf5fca39ff90ffea39e6b78";
         hash = "sha256-4ty09wIhIUq3vI2s5th/54iRL5jTzcYeDumtwzLqeVk=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tf2_2d";
   version = "1.0.1-3";
-  src = sources.tf2_2d-b51411b00ce51735ebf5fca39ff90ffea39e6b78;
+  src = sources."tf2_2d";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

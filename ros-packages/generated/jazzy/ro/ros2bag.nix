@@ -9,6 +9,7 @@
   fetchzip,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2bag-d5418e17655d72763d6a2f88982d5cc347477e42 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2bag" = substituteSource {
       src = fetchgit {
-        name = "ros2bag-d5418e17655d72763d6a2f88982d5cc347477e42-source";
+        name = "ros2bag-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "d5418e17655d72763d6a2f88982d5cc347477e42";
         hash = "sha256-iWXoKIBIZLwf+Zy7UaVeP09RVwtFDK3eHh5lRgFncP0=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2bag";
   version = "0.26.5-1";
-  src = sources.ros2bag-d5418e17655d72763d6a2f88982d5cc347477e42;
+  src = sources."ros2bag";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

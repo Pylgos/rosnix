@@ -10,6 +10,7 @@
   fetchzip,
   image_transport,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclpy,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    image_view-3421ca8f0da7cf0d33b8a11f27827498969623de = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_view" = substituteSource {
       src = fetchgit {
-        name = "image_view-3421ca8f0da7cf0d33b8a11f27827498969623de-source";
+        name = "image_view-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "3421ca8f0da7cf0d33b8a11f27827498969623de";
         hash = "sha256-nlmUPk6L6CGxxVJmEPOE9f57Cttaq7ji5mWxsOAA1IY=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_view";
   version = "5.0.4-1";
-  src = sources.image_view-3421ca8f0da7cf0d33b8a11f27827498969623de;
+  src = sources."image_view";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -10,15 +10,16 @@
   launch,
   launch_xml,
   launch_yaml,
+  mkSourceSet,
   osrf_pycommon,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    launch_testing-b79367de3cd844ef48059d8e4b91ebe48ec9535d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "launch_testing" = substituteSource {
       src = fetchgit {
-        name = "launch_testing-b79367de3cd844ef48059d8e4b91ebe48ec9535d-source";
+        name = "launch_testing-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
         rev = "b79367de3cd844ef48059d8e4b91ebe48ec9535d";
         hash = "sha256-e6Zfr3gooc/K16iYNLOe8NrtH2ikKvKRBQGka3T0Jm8=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "launch_testing";
   version = "3.4.2-2";
-  src = sources.launch_testing-b79367de3cd844ef48059d8e4b91ebe48ec9535d;
+  src = sources."launch_testing";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

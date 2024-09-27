@@ -22,26 +22,17 @@
   gz_tools_vendor,
   gz_transport_vendor,
   gz_utils_vendor,
+  mkSourceSet,
   rosSystemPackages,
   sdformat_vendor,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_sim_vendor" = substituteSource {
       src = fetchgit {
-        name = "gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501-source";
-        url = "https://github.com/gazebosim/gz-sim.git";
-        rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
-        hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_sim_vendor-c0f753371bf676c571049995e5094a117a3801a6 = substituteSource {
-      src = fetchgit {
-        name = "gz_sim_vendor-c0f753371bf676c571049995e5094a117a3801a6-source";
+        name = "gz_sim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sim_vendor-release.git";
         rev = "c0f753371bf676c571049995e5094a117a3801a6";
         hash = "sha256-UUKPw98W66wrptTZTOyVG5yzrMELSFJ9vIrluYTgCGY=";
@@ -50,16 +41,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_sim_vendor/gz-sim"}";
         }
       ];
     };
-  };
+    "gz_sim_vendor/gz-sim" = substituteSource {
+      src = fetchgit {
+        name = "gz-sim-source";
+        url = "https://github.com/gazebosim/gz-sim.git";
+        rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
+        hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_sim_vendor";
   version = "0.0.5-1";
-  src = sources.gz_sim_vendor-c0f753371bf676c571049995e5094a117a3801a6;
+  src = sources."gz_sim_vendor";
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

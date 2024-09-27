@@ -7,24 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    dart-vendor_source-a51e08c210d7892605c6dc0b9ae96fce4446d9fe = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_dartsim_vendor" = substituteSource {
       src = fetchgit {
-        name = "dart-vendor_source-a51e08c210d7892605c6dc0b9ae96fce4446d9fe-source";
-        url = "https://github.com/dartsim/dart.git";
-        rev = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe";
-        hash = "sha256-AfKPqUiW6BsM98TIzTY2ZcFP1WvURs8/dGOzanIiB9g=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_dartsim_vendor-38bdb4c6948952978b640c95beb7b4e8aaea61f3 = substituteSource {
-      src = fetchgit {
-        name = "gz_dartsim_vendor-38bdb4c6948952978b640c95beb7b4e8aaea61f3-source";
+        name = "gz_dartsim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_dartsim_vendor-release.git";
         rev = "38bdb4c6948952978b640c95beb7b4e8aaea61f3";
         hash = "sha256-M1p+knNPSpbfQpQATwwHo5EqtCKx0Fn9S7rZLTTWICY=";
@@ -33,16 +24,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/dartsim/dart.git";
-          to = "VCS_TYPE path VCS_URL ${dart-vendor_source-a51e08c210d7892605c6dc0b9ae96fce4446d9fe}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_dartsim_vendor/dart"}";
         }
       ];
     };
-  };
+    "gz_dartsim_vendor/dart" = substituteSource {
+      src = fetchgit {
+        name = "dart-source";
+        url = "https://github.com/dartsim/dart.git";
+        rev = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe";
+        hash = "sha256-AfKPqUiW6BsM98TIzTY2ZcFP1WvURs8/dGOzanIiB9g=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_dartsim_vendor";
   version = "0.0.2-1";
-  src = sources.gz_dartsim_vendor-38bdb4c6948952978b640c95beb7b4e8aaea61f3;
+  src = sources."gz_dartsim_vendor";
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

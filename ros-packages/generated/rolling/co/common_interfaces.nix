@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rosSystemPackages,
   sensor_msgs,
@@ -22,10 +23,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    common_interfaces-5bdd17489af0e10295441cf99d06ea662173c04a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "common_interfaces" = substituteSource {
       src = fetchgit {
-        name = "common_interfaces-5bdd17489af0e10295441cf99d06ea662173c04a-source";
+        name = "common_interfaces-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "5bdd17489af0e10295441cf99d06ea662173c04a";
         hash = "sha256-sY3G36Si+RGICbER9vogXSz2Ooba4wre6O0uI78NBKw=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "common_interfaces";
   version = "5.4.1-1";
-  src = sources.common_interfaces-5bdd17489af0e10295441cf99d06ea662173c04a;
+  src = sources."common_interfaces";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

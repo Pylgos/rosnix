@@ -9,6 +9,7 @@
   geometry_msgs,
   image_transport,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   ros_environment,
@@ -23,10 +24,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "find_object_2d" = substituteSource {
       src = fetchgit {
-        name = "find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7-source";
+        name = "find_object_2d-source";
         url = "https://github.com/ros2-gbp/find_object_2d-release.git";
         rev = "04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7";
         hash = "sha256-njkQr+O+9huFcwwGGOLQgumrN8K4RuGpTCjeMdVtuhA=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "find_object_2d";
   version = "0.7.1-1";
-  src = sources.find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7;
+  src = sources."find_object_2d";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

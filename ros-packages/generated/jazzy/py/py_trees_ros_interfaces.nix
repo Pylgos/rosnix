@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -15,10 +16,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    py_trees_ros_interfaces-461e14c922c6c5c08dac7346b43608f832d30045 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "py_trees_ros_interfaces" = substituteSource {
       src = fetchgit {
-        name = "py_trees_ros_interfaces-461e14c922c6c5c08dac7346b43608f832d30045-source";
+        name = "py_trees_ros_interfaces-source";
         url = "https://github.com/ros2-gbp/py_trees_ros_interfaces-release.git";
         rev = "461e14c922c6c5c08dac7346b43608f832d30045";
         hash = "sha256-QrixpzDzAj86KcSWBgYVI0CjrjuAtdFy7bMlEJgweaw=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "py_trees_ros_interfaces";
   version = "2.1.0-4";
-  src = sources.py_trees_ros_interfaces-461e14c922c6c5c08dac7346b43608f832d30045;
+  src = sources."py_trees_ros_interfaces";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    examples_rclcpp_minimal_composition-57e117a6f3abab42731451a1caf69efe7406e5bb = substituteSource {
+  sources = mkSourceSet (sources: {
+    "examples_rclcpp_minimal_composition" = substituteSource {
       src = fetchgit {
-        name = "examples_rclcpp_minimal_composition-57e117a6f3abab42731451a1caf69efe7406e5bb-source";
+        name = "examples_rclcpp_minimal_composition-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "57e117a6f3abab42731451a1caf69efe7406e5bb";
         hash = "sha256-8PFSuIsF6vGmJAw1abfN/iDCDDPbqeekh6otF+tXZFs=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "examples_rclcpp_minimal_composition";
   version = "0.20.2-1";
-  src = sources.examples_rclcpp_minimal_composition-57e117a6f3abab42731451a1caf69efe7406e5bb;
+  src = sources."examples_rclcpp_minimal_composition";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

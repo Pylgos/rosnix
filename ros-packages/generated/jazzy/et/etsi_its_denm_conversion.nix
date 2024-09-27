@@ -7,15 +7,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
 let
-  sources = rec {
-    etsi_its_denm_conversion-28f55eda118ffd3d526032fb4b711b436b01f111 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "etsi_its_denm_conversion" = substituteSource {
       src = fetchgit {
-        name = "etsi_its_denm_conversion-28f55eda118ffd3d526032fb4b711b436b01f111-source";
+        name = "etsi_its_denm_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "28f55eda118ffd3d526032fb4b711b436b01f111";
         hash = "sha256-+7UxfhxlZUpNRycs8KsytG+qmcQ4MnY/kNVPUf0kRz8=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "etsi_its_denm_conversion";
   version = "2.2.0-1";
-  src = sources.etsi_its_denm_conversion-28f55eda118ffd3d526032fb4b711b436b01f111;
+  src = sources."etsi_its_denm_conversion";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

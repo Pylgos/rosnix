@@ -9,6 +9,7 @@
   fetchzip,
   geometry_msgs,
   launch,
+  mkSourceSet,
   nav_msgs,
   pcl_conversions,
   rclcpp,
@@ -28,10 +29,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    cartographer_ros-3d872cd7a18b999cdf018395efa737ad62005e46 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "cartographer_ros" = substituteSource {
       src = fetchgit {
-        name = "cartographer_ros-3d872cd7a18b999cdf018395efa737ad62005e46-source";
+        name = "cartographer_ros-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "3d872cd7a18b999cdf018395efa737ad62005e46";
         hash = "sha256-VvGxCdcHPGbZC+Mp6BMa4qpdJ2eoz0PuoBvhe/6gtCE=";
@@ -39,12 +40,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "cartographer_ros";
   version = "2.0.9003-1";
-  src = sources.cartographer_ros-3d872cd7a18b999cdf018395efa737ad62005e46;
+  src = sources."cartographer_ros";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

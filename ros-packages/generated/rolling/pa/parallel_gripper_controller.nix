@@ -12,6 +12,7 @@
   fetchzip,
   generate_parameter_library,
   hardware_interface,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_action,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    parallel_gripper_controller-5888ed8b0f5dab1a3e4a8b52ae67673a51df4a66 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "parallel_gripper_controller" = substituteSource {
       src = fetchgit {
-        name = "parallel_gripper_controller-5888ed8b0f5dab1a3e4a8b52ae67673a51df4a66-source";
+        name = "parallel_gripper_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "5888ed8b0f5dab1a3e4a8b52ae67673a51df4a66";
         hash = "sha256-EDvM4qiyO5pkqdi1E8pUDdrcV9kVtii4LrBUrpPxsSg=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "parallel_gripper_controller";
   version = "4.14.0-1";
-  src = sources.parallel_gripper_controller-5888ed8b0f5dab1a3e4a8b52ae67673a51df4a66;
+  src = sources."parallel_gripper_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,6 +9,7 @@
   filters,
   laser_geometry,
   message_filters,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -19,10 +20,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    laser_filters-6ad8d2b8f63eb700eda85dc14dbd49cbf12e3c69 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "laser_filters" = substituteSource {
       src = fetchgit {
-        name = "laser_filters-6ad8d2b8f63eb700eda85dc14dbd49cbf12e3c69-source";
+        name = "laser_filters-source";
         url = "https://github.com/ros2-gbp/laser_filters-release.git";
         rev = "6ad8d2b8f63eb700eda85dc14dbd49cbf12e3c69";
         hash = "sha256-ruSsWz10XSElakzxzN1wQp+rS0CVAcaNHQpoVnP0f3k=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "laser_filters";
   version = "2.0.7-2";
-  src = sources.laser_filters-6ad8d2b8f63eb700eda85dc14dbd49cbf12e3c69;
+  src = sources."laser_filters";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,6 +7,7 @@
   fetchzip,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclpy,
   ros2topic,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    joint_state_publisher-95191ef225b7c3c295aea1921f32752c95f58d19 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "joint_state_publisher" = substituteSource {
       src = fetchgit {
-        name = "joint_state_publisher-95191ef225b7c3c295aea1921f32752c95f58d19-source";
+        name = "joint_state_publisher-source";
         url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
         rev = "95191ef225b7c3c295aea1921f32752c95f58d19";
         hash = "sha256-Nw7THKbjIvXASwE8//Ta0Z1Q5BPXlK5VafC2jZvMs4E=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "joint_state_publisher";
   version = "2.4.0-2";
-  src = sources.joint_state_publisher-95191ef225b7c3c295aea1921f32752c95f58d19;
+  src = sources."joint_state_publisher";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

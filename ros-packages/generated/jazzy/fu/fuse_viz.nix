@@ -11,6 +11,7 @@
   fuse_msgs,
   fuse_variables,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rviz_common,
   rviz_rendering,
@@ -19,10 +20,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    fuse_viz-1368b1b48e2bbd395801fa762ba6b607f9c81054 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_viz" = substituteSource {
       src = fetchgit {
-        name = "fuse_viz-1368b1b48e2bbd395801fa762ba6b607f9c81054-source";
+        name = "fuse_viz-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "1368b1b48e2bbd395801fa762ba6b607f9c81054";
         hash = "sha256-lnugFK/IinY63VpqqOFq53NwuUHa/hYedDm1S0QM30E=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_viz";
   version = "1.1.1-1";
-  src = sources.fuse_viz-1368b1b48e2bbd395801fa762ba6b607f9c81054;
+  src = sources."fuse_viz";
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

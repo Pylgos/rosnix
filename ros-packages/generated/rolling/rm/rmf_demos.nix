@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch_xml,
+  mkSourceSet,
   rmf_building_map_tools,
   rmf_demos_assets,
   rmf_demos_fleet_adapter,
@@ -20,10 +21,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rmf_demos-a4adcf382443e25aa205630ed14fb126e95c3b3a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_demos" = substituteSource {
       src = fetchgit {
-        name = "rmf_demos-a4adcf382443e25aa205630ed14fb126e95c3b3a-source";
+        name = "rmf_demos-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
         rev = "a4adcf382443e25aa205630ed14fb126e95c3b3a";
         hash = "sha256-Eqxl47veB826oMBkeGleZfr/J8uO5bBruT9ZftBpB1Q=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_demos";
   version = "2.4.0-1";
-  src = sources.rmf_demos-a4adcf382443e25aa205630ed14fb126e95c3b3a;
+  src = sources."rmf_demos";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

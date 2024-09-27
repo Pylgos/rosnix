@@ -3,24 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "sophus" = substituteSource {
       src = fetchgit {
-        name = "pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "7e418f49243bb7d13fa92cf2634af1eeac386465";
-        hash = "sha256-XZIS48ZWNBHBMr+gvxCuimD24jAIU8P/fUoDiBhQzaU=";
-      };
-      substitutions = [
-      ];
-    };
-    sophus-39c729040cd2c3720879b0df85f162c4ac789877 = substituteSource {
-      src = fetchgit {
-        name = "sophus-39c729040cd2c3720879b0df85f162c4ac789877-source";
+        name = "sophus-source";
         url = "https://github.com/ros2-gbp/sophus-release.git";
         rev = "39c729040cd2c3720879b0df85f162c4ac789877";
         hash = "sha256-xTS2ysDs9SSKpvKrxnhooJVtfpwRvYCuMpbFc4skbDM=";
@@ -29,16 +20,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/pybind/pybind11.git";
-          to = "URL ${pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465}";
+          to = "URL ${sources."sophus/pybind11"}";
         }
       ];
     };
-  };
+    "sophus/pybind11" = substituteSource {
+      src = fetchgit {
+        name = "pybind11-source";
+        url = "https://github.com/pybind/pybind11.git";
+        rev = "7e418f49243bb7d13fa92cf2634af1eeac386465";
+        hash = "sha256-XZIS48ZWNBHBMr+gvxCuimD24jAIU8P/fUoDiBhQzaU=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "sophus";
   version = "1.22.9102-2";
-  src = sources.sophus-39c729040cd2c3720879b0df85f162c4ac789877;
+  src = sources."sophus";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

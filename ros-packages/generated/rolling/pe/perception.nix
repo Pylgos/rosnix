@@ -9,6 +9,7 @@
   image_transport_plugins,
   laser_filters,
   laser_geometry,
+  mkSourceSet,
   perception_pcl,
   rosSystemPackages,
   ros_base,
@@ -16,10 +17,10 @@
   vision_opencv,
 }:
 let
-  sources = rec {
-    perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "perception" = substituteSource {
       src = fetchgit {
-        name = "perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1-source";
+        name = "perception-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "28fb3d7d11f2167ea52c6968256958a2eb45d0d1";
         hash = "sha256-dm1psyuV0pFw4lLrVBcz/ElZ/T+49Lqaf1kDqahOvLs=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "perception";
   version = "0.11.0-1";
-  src = sources.perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1;
+  src = sources."perception";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

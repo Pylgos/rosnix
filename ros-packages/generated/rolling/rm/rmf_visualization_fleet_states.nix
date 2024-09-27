@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rmf_fleet_msgs,
@@ -16,10 +17,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    rmf_visualization_fleet_states-1eb0b4f1bcda34147b95ba805fff5abaa05a635b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_visualization_fleet_states" = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization_fleet_states-1eb0b4f1bcda34147b95ba805fff5abaa05a635b-source";
+        name = "rmf_visualization_fleet_states-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "1eb0b4f1bcda34147b95ba805fff5abaa05a635b";
         hash = "sha256-cRJbXpBi7w81AFyIbgfNZYmU5yfAG7GZla81mgGErVs=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_visualization_fleet_states";
   version = "2.4.0-1";
-  src = sources.rmf_visualization_fleet_states-1eb0b4f1bcda34147b95ba805fff5abaa05a635b;
+  src = sources."rmf_visualization_fleet_states";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_pyflakes-1862376009b02b5088acb8ac300da55e65394d8a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_pyflakes" = substituteSource {
       src = fetchgit {
-        name = "ament_pyflakes-1862376009b02b5088acb8ac300da55e65394d8a-source";
+        name = "ament_pyflakes-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "1862376009b02b5088acb8ac300da55e65394d8a";
         hash = "sha256-KMHU5aqi9tt95GgtqbB7obYtSAUxzWzR/UFQhILKkdk=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_pyflakes";
   version = "0.17.1-1";
-  src = sources.ament_pyflakes-1862376009b02b5088acb8ac300da55e65394d8a;
+  src = sources."ament_pyflakes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pyflakes3" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

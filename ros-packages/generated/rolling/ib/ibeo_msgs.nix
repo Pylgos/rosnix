@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ibeo_msgs-7b2b41c497c5067996da1c998296fa859ebb05f2 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ibeo_msgs" = substituteSource {
       src = fetchgit {
-        name = "ibeo_msgs-7b2b41c497c5067996da1c998296fa859ebb05f2-source";
+        name = "ibeo_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "7b2b41c497c5067996da1c998296fa859ebb05f2";
         hash = "sha256-RLaDU8WKC534uEb0HZcS/iP0//JhyyaFVG8osixglEY=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ibeo_msgs";
   version = "4.0.0-3";
-  src = sources.ibeo_msgs-7b2b41c497c5067996da1c998296fa859ebb05f2;
+  src = sources."ibeo_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -20,10 +21,10 @@
   wiimote_msgs,
 }:
 let
-  sources = rec {
-    wiimote-460a47897ace5cf34e38e7ad3435ddc5929bb094 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "wiimote" = substituteSource {
       src = fetchgit {
-        name = "wiimote-460a47897ace5cf34e38e7ad3435ddc5929bb094-source";
+        name = "wiimote-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "460a47897ace5cf34e38e7ad3435ddc5929bb094";
         hash = "sha256-WghWanmw0GXmNOdR/EHg1/ytIXNtIKstCe5hSIgpQ/s=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "wiimote";
   version = "3.3.0-2";
-  src = sources.wiimote-460a47897ace5cf34e38e7ad3435ddc5929bb094;
+  src = sources."wiimote";
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

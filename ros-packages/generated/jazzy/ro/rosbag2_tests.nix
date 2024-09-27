@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rcpputils,
   ros2bag,
@@ -25,10 +26,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    rosbag2_tests-182b07fa2009df9288a80cbc30a0811339a722d1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_tests" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_tests-182b07fa2009df9288a80cbc30a0811339a722d1-source";
+        name = "rosbag2_tests-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "182b07fa2009df9288a80cbc30a0811339a722d1";
         hash = "sha256-jfZUwDCZWNmPRjKOM+vuJ2KjJl7HwtUGgm0LrZgAG1M=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_tests";
   version = "0.26.5-1";
-  src = sources.rosbag2_tests-182b07fa2009df9288a80cbc30a0811339a722d1;
+  src = sources."rosbag2_tests";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

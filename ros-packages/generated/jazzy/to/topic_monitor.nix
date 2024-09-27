@@ -7,16 +7,17 @@
   fetchzip,
   launch,
   launch_ros,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    topic_monitor-33f1dde29a4a146bde0270c8bc347b4c67c0927b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "topic_monitor" = substituteSource {
       src = fetchgit {
-        name = "topic_monitor-33f1dde29a4a146bde0270c8bc347b4c67c0927b-source";
+        name = "topic_monitor-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "33f1dde29a4a146bde0270c8bc347b4c67c0927b";
         hash = "sha256-t0E1z5SMZD+Ik7csZ+S4pk9+8qvyZdw5J9IW3uGSEAY=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "topic_monitor";
   version = "0.33.5-1";
-  src = sources.topic_monitor-33f1dde29a4a146bde0270c8bc347b4c67c0927b;
+  src = sources."topic_monitor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

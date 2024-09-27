@@ -10,6 +10,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "network_bridge" = substituteSource {
       src = fetchgit {
-        name = "network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b-source";
+        name = "network_bridge-source";
         url = "https://github.com/ros2-gbp/network_bridge-release.git";
         rev = "c625bfef13c67072a1a39f37fc3859d5f3cfb27b";
         hash = "sha256-Gfm+jv0L73LlZMytVTDOCyqyBGqctp6URffWJU/opmk=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "network_bridge";
   version = "1.0.2-1";
-  src = sources.network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b;
+  src = sources."network_bridge";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

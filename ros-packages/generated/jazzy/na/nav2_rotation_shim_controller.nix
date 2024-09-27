@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_controller,
   nav2_core,
@@ -23,10 +24,10 @@
   tf2,
 }:
 let
-  sources = rec {
-    nav2_rotation_shim_controller-cea432085687cc53b3360af029d0a11d160f131e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_rotation_shim_controller" = substituteSource {
       src = fetchgit {
-        name = "nav2_rotation_shim_controller-cea432085687cc53b3360af029d0a11d160f131e-source";
+        name = "nav2_rotation_shim_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "cea432085687cc53b3360af029d0a11d160f131e";
         hash = "sha256-0Jo2ONVHMT1mjV5Ehpz+wRsO9hWd3fxGb8YYbvQkkgU=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_rotation_shim_controller";
   version = "1.3.2-1";
-  src = sources.nav2_rotation_shim_controller-cea432085687cc53b3360af029d0a11d160f131e;
+  src = sources."nav2_rotation_shim_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

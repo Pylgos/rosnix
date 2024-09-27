@@ -11,6 +11,7 @@
   launch,
   launch_testing,
   launch_testing_ament_cmake,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rcutils,
@@ -29,10 +30,10 @@
   zstd_vendor,
 }:
 let
-  sources = rec {
-    domain_bridge-b791d5fffdc7651f2fa3300adb454ae5674b9e35 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "domain_bridge" = substituteSource {
       src = fetchgit {
-        name = "domain_bridge-b791d5fffdc7651f2fa3300adb454ae5674b9e35-source";
+        name = "domain_bridge-source";
         url = "https://github.com/ros2-gbp/domain_bridge-release.git";
         rev = "b791d5fffdc7651f2fa3300adb454ae5674b9e35";
         hash = "sha256-eajUFSE7L+45VSlUvbXcvd6RjjdERKimvpFjuXVbCO8=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "domain_bridge";
   version = "0.5.0-4";
-  src = sources.domain_bridge-b791d5fffdc7651f2fa3300adb454ae5674b9e35;
+  src = sources."domain_bridge";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

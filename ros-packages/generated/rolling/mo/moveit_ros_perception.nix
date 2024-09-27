@@ -7,6 +7,7 @@
   fetchzip,
   image_transport,
   message_filters,
+  mkSourceSet,
   moveit_common,
   moveit_core,
   moveit_msgs,
@@ -26,10 +27,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_ros_perception-043463672defc12b592a9268dafa4d39be534d5f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_ros_perception" = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_perception-043463672defc12b592a9268dafa4d39be534d5f-source";
+        name = "moveit_ros_perception-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "043463672defc12b592a9268dafa4d39be534d5f";
         hash = "sha256-rFSC9YlLgiexWdX1cjk8llWmlEL1xjfBAlCcCd2EWR0=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_ros_perception";
   version = "2.11.0-1";
-  src = sources.moveit_ros_perception-043463672defc12b592a9268dafa4d39be534d5f;
+  src = sources."moveit_ros_perception";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

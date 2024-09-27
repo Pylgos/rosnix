@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   ouxt_lint_common,
   rclcpp,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf = substituteSource {
+  sources = mkSourceSet (sources: {
+    "color_names" = substituteSource {
       src = fetchgit {
-        name = "color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf-source";
+        name = "color_names-source";
         url = "https://github.com/ros2-gbp/color_names-release.git";
         rev = "95114d283146ea0c7f98ff3c354fb6ecd2627daf";
         hash = "sha256-956LQvQPv4QtQBKeDL62YimdLDh1yLGsi9AYgWiBh/k=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "color_names";
   version = "0.0.3-5";
-  src = sources.color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf;
+  src = sources."color_names";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

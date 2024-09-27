@@ -15,6 +15,7 @@
   fetchzip,
   irobot_create_msgs,
   irobot_create_toolbox,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rclcpp_action,
@@ -28,10 +29,10 @@
   tf2_geometry_msgs,
 }:
 let
-  sources = rec {
-    irobot_create_gz_toolbox-ada75bad2e41122c32af63843c74f5826fdf816b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "irobot_create_gz_toolbox" = substituteSource {
       src = fetchgit {
-        name = "irobot_create_gz_toolbox-ada75bad2e41122c32af63843c74f5826fdf816b-source";
+        name = "irobot_create_gz_toolbox-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "ada75bad2e41122c32af63843c74f5826fdf816b";
         hash = "sha256-VYTMIj+MLARWxYH91hYlU3sej6qrAsoHZfKHrmJGx/w=";
@@ -39,12 +40,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "irobot_create_gz_toolbox";
   version = "3.0.2-2";
-  src = sources.irobot_create_gz_toolbox-ada75bad2e41122c32af63843c74f5826fdf816b;
+  src = sources."irobot_create_gz_toolbox";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

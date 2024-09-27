@@ -8,16 +8,17 @@
   fetchurl,
   fetchzip,
   joy_linux,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   teleop_twist_joy,
   teleop_twist_keyboard,
 }:
 let
-  sources = rec {
-    leo_teleop-8f00e8b87e7197ac928ad1c538d672ca6ae5b152 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "leo_teleop" = substituteSource {
       src = fetchgit {
-        name = "leo_teleop-8f00e8b87e7197ac928ad1c538d672ca6ae5b152-source";
+        name = "leo_teleop-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
         rev = "8f00e8b87e7197ac928ad1c538d672ca6ae5b152";
         hash = "sha256-JeNimAF404UWrQOSZAjVQxl5ntBZtCKMBiq6oUssPTo=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "leo_teleop";
   version = "3.0.3-1";
-  src = sources.leo_teleop-8f00e8b87e7197ac928ad1c538d672ca6ae5b152;
+  src = sources."leo_teleop";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

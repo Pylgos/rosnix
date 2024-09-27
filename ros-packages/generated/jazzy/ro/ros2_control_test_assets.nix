@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2_control_test_assets-abf0b7fb0962594e2bd4fee1b62e3911d9888d55 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2_control_test_assets" = substituteSource {
       src = fetchgit {
-        name = "ros2_control_test_assets-abf0b7fb0962594e2bd4fee1b62e3911d9888d55-source";
+        name = "ros2_control_test_assets-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "abf0b7fb0962594e2bd4fee1b62e3911d9888d55";
         hash = "sha256-uveeh/bq7keFihHp8uCPfXuMGHMy2NEH/jB4n5Gurds=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2_control_test_assets";
   version = "4.17.0-1";
-  src = sources.ros2_control_test_assets-abf0b7fb0962594e2bd4fee1b62e3911d9888d55;
+  src = sources."ros2_control_test_assets";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

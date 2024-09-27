@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometric_shapes,
+  mkSourceSet,
   moveit_common,
   moveit_core,
   moveit_msgs,
@@ -18,10 +19,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_ros_occupancy_map_monitor-991022689a091dcf0c988c73877c1cd5e5e81fb9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_ros_occupancy_map_monitor" = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_occupancy_map_monitor-991022689a091dcf0c988c73877c1cd5e5e81fb9-source";
+        name = "moveit_ros_occupancy_map_monitor-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "991022689a091dcf0c988c73877c1cd5e5e81fb9";
         hash = "sha256-/qXfMROt4Kk4mH5il5hWCmaRnkhmIQp7e4a6k/UtmPQ=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_ros_occupancy_map_monitor";
   version = "2.11.0-1";
-  src = sources.moveit_ros_occupancy_map_monitor-991022689a091dcf0c988c73877c1cd5e5e81fb9;
+  src = sources."moveit_ros_occupancy_map_monitor";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

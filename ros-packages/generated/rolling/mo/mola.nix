@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   kitti_metrics_eval,
+  mkSourceSet,
   mola_bridge_ros2,
   mola_demos,
   mola_imu_preintegration,
@@ -32,10 +33,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mola-3b9def039f65d86718af191cb2be10c2dfd1c072 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola" = substituteSource {
       src = fetchgit {
-        name = "mola-3b9def039f65d86718af191cb2be10c2dfd1c072-source";
+        name = "mola-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "3b9def039f65d86718af191cb2be10c2dfd1c072";
         hash = "sha256-ipO82jeMotVk0cSmiGBk8V7jn/4frQFFnEwGqowuf64=";
@@ -43,12 +44,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola";
   version = "1.2.0-1";
-  src = sources.mola-3b9def039f65d86718af191cb2be10c2dfd1c072;
+  src = sources."mola";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

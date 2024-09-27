@@ -12,6 +12,7 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   pybind11_vendor,
   python_cmake_module,
   rcl,
@@ -35,10 +36,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    rclpy-2420e710343e83118a000a5984840ba6dfb18e25 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rclpy" = substituteSource {
       src = fetchgit {
-        name = "rclpy-2420e710343e83118a000a5984840ba6dfb18e25-source";
+        name = "rclpy-source";
         url = "https://github.com/ros2-gbp/rclpy-release.git";
         rev = "2420e710343e83118a000a5984840ba6dfb18e25";
         hash = "sha256-MBkwBgKvA9xDSekCGOo86del7PHIMWGv5F7XBue1Fhs=";
@@ -46,12 +47,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rclpy";
   version = "7.1.2-1";
-  src = sources.rclpy-2420e710343e83118a000a5984840ba6dfb18e25;
+  src = sources."rclpy";
   nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw_implementation_cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

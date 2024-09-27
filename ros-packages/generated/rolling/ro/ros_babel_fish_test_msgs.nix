@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros_babel_fish_test_msgs-6b0d6f51b32b7c9a9b38f987ecba606cff845b64 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_babel_fish_test_msgs" = substituteSource {
       src = fetchgit {
-        name = "ros_babel_fish_test_msgs-6b0d6f51b32b7c9a9b38f987ecba606cff845b64-source";
+        name = "ros_babel_fish_test_msgs-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
         rev = "6b0d6f51b32b7c9a9b38f987ecba606cff845b64";
         hash = "sha256-Mcs37Zkv5q3BkOmP+EdSpGCztN9T1CAU+WlS+pIFoNI=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_babel_fish_test_msgs";
   version = "0.9.3-1";
-  src = sources.ros_babel_fish_test_msgs-6b0d6f51b32b7c9a9b38f987ecba606cff845b64;
+  src = sources."ros_babel_fish_test_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

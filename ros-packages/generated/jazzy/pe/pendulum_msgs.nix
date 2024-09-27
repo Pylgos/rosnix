@@ -5,16 +5,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    pendulum_msgs-83f032490db157d7ed8370f619b4c1c66a1f357b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pendulum_msgs" = substituteSource {
       src = fetchgit {
-        name = "pendulum_msgs-83f032490db157d7ed8370f619b4c1c66a1f357b-source";
+        name = "pendulum_msgs-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "83f032490db157d7ed8370f619b4c1c66a1f357b";
         hash = "sha256-1JWm79OTUZtFSw5uQlLrFJa7pFC4lPijuZdDjWMq3X4=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pendulum_msgs";
   version = "0.33.5-1";
-  src = sources.pendulum_msgs-83f032490db157d7ed8370f619b4c1c66a1f357b;
+  src = sources."pendulum_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

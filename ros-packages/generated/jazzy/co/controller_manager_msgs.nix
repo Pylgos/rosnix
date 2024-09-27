@@ -7,16 +7,17 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    controller_manager_msgs-62dc0aacc3b02635167ad74d3864b3ee052cd091 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "controller_manager_msgs" = substituteSource {
       src = fetchgit {
-        name = "controller_manager_msgs-62dc0aacc3b02635167ad74d3864b3ee052cd091-source";
+        name = "controller_manager_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "62dc0aacc3b02635167ad74d3864b3ee052cd091";
         hash = "sha256-Fg0EJj/nzK+Jz0PTRMUeZaMbFi0IJ2KvTPQW7XpDHIw=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "controller_manager_msgs";
   version = "4.17.0-1";
-  src = sources.controller_manager_msgs-62dc0aacc3b02635167ad74d3864b3ee052cd091;
+  src = sources."controller_manager_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

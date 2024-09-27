@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   phidgets_api,
   rclcpp,
   rclcpp_components,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    phidgets_magnetometer-c3be132b5cbcf62e2eabc71c39be8314811d9c9a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "phidgets_magnetometer" = substituteSource {
       src = fetchgit {
-        name = "phidgets_magnetometer-c3be132b5cbcf62e2eabc71c39be8314811d9c9a-source";
+        name = "phidgets_magnetometer-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "c3be132b5cbcf62e2eabc71c39be8314811d9c9a";
         hash = "sha256-3Ggm9kmzc70h+9ehA3T5rBXPWdUFeWN5ptgZJMeh+sk=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "phidgets_magnetometer";
   version = "2.3.3-2";
-  src = sources.phidgets_magnetometer-c3be132b5cbcf62e2eabc71c39be8314811d9c9a;
+  src = sources."phidgets_magnetometer";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

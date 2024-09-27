@@ -6,6 +6,7 @@
   fetchzip,
   geometry_msgs,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -16,10 +17,10 @@
   tf2_sensor_msgs,
 }:
 let
-  sources = rec {
-    imu_transformer-fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "imu_transformer" = substituteSource {
       src = fetchgit {
-        name = "imu_transformer-fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61-source";
+        name = "imu_transformer-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
         rev = "fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61";
         hash = "sha256-lcQiOtqXK/0Dj9s+hSjZPSC6ypDEmOUVpRrIqNzO+Qw=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "imu_transformer";
   version = "0.5.0-3";
-  src = sources.imu_transformer-fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61;
+  src = sources."imu_transformer";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

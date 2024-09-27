@@ -8,16 +8,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    system_modes_msgs-54ca985a62ba5234ccc4578a795f722e79168f9d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "system_modes_msgs" = substituteSource {
       src = fetchgit {
-        name = "system_modes_msgs-54ca985a62ba5234ccc4578a795f722e79168f9d-source";
+        name = "system_modes_msgs-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
         rev = "54ca985a62ba5234ccc4578a795f722e79168f9d";
         hash = "sha256-UcVnvMWo1lcz8PljlXg4m53YoUKsphq4TbfgB7Z3dgw=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "system_modes_msgs";
   version = "0.9.0-5";
-  src = sources.system_modes_msgs-54ca985a62ba5234ccc4578a795f722e79168f9d;
+  src = sources."system_modes_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

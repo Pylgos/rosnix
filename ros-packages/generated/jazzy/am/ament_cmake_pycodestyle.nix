@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_cmake_pycodestyle-f40575f5f47905d401902fe267dd018eb3529c4b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_cmake_pycodestyle" = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_pycodestyle-f40575f5f47905d401902fe267dd018eb3529c4b-source";
+        name = "ament_cmake_pycodestyle-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "f40575f5f47905d401902fe267dd018eb3529c4b";
         hash = "sha256-NZlTgSZUwDO2wYr58UHvavY/enyZAFV6GsQjKSmgqg8=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_cmake_pycodestyle";
   version = "0.17.1-1";
-  src = sources.ament_cmake_pycodestyle-f40575f5f47905d401902fe267dd018eb3529c4b;
+  src = sources."ament_cmake_pycodestyle";
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ament_pycodestyle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,6 +17,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ament_cmake,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rclcpp_components,
@@ -33,10 +34,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    ros_gz_bridge-c56d5cca5c72cfdfc42e6a9163bdaaa9603a973c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_gz_bridge" = substituteSource {
       src = fetchgit {
-        name = "ros_gz_bridge-c56d5cca5c72cfdfc42e6a9163bdaaa9603a973c-source";
+        name = "ros_gz_bridge-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "c56d5cca5c72cfdfc42e6a9163bdaaa9603a973c";
         hash = "sha256-DVyXWmjXDnqe1xquRVM2diUiRecMhWN240t8zmwSeIE=";
@@ -44,12 +45,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_gz_bridge";
   version = "2.1.0-1";
-  src = sources.ros_gz_bridge-c56d5cca5c72cfdfc42e6a9163bdaaa9603a973c;
+  src = sources."ros_gz_bridge";
   nativeBuildInputs = [ ament_cmake ament_cmake_python rosidl_pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

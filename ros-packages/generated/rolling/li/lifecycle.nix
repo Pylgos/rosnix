@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lifecycle" = substituteSource {
       src = fetchgit {
-        name = "lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f-source";
+        name = "lifecycle-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f";
         hash = "sha256-FsE0FfTIL0evPmqz06a7A/9RYzRqIwKo3UeE0l+vUgo=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lifecycle";
   version = "0.34.2-1";
-  src = sources.lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f;
+  src = sources."lifecycle";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

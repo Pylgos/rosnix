@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    derived_object_msgs-1dfd8e6f1209b7008d35424f62b0fc392de8724e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "derived_object_msgs" = substituteSource {
       src = fetchgit {
-        name = "derived_object_msgs-1dfd8e6f1209b7008d35424f62b0fc392de8724e-source";
+        name = "derived_object_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "1dfd8e6f1209b7008d35424f62b0fc392de8724e";
         hash = "sha256-gHKh+ix0fZzuNvAtc/i+u0v6YLY+jUfqW9BPaLgC0/U=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "derived_object_msgs";
   version = "4.0.0-3";
-  src = sources.derived_object_msgs-1dfd8e6f1209b7008d35424f62b0fc392de8724e;
+  src = sources."derived_object_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

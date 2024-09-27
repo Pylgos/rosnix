@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   message_filters,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_components,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    image_transport-d1ebdfe1ed0dc2c90d16fa624fc21fe23bce6122 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_transport" = substituteSource {
       src = fetchgit {
-        name = "image_transport-d1ebdfe1ed0dc2c90d16fa624fc21fe23bce6122-source";
+        name = "image_transport-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
         rev = "d1ebdfe1ed0dc2c90d16fa624fc21fe23bce6122";
         hash = "sha256-01/wzTSHt4s99cW7SmDH6W+kpY4ehCc4WbIcsq8Uws8=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_transport";
   version = "5.1.4-1";
-  src = sources.image_transport-d1ebdfe1ed0dc2c90d16fa624fc21fe23bce6122;
+  src = sources."image_transport";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

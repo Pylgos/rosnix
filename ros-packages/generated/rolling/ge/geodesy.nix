@@ -7,16 +7,17 @@
   fetchzip,
   geographic_msgs,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   sensor_msgs,
   substituteSource,
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    geodesy-6e391bae8989fbb7fde2f2a9ff047b752323712f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "geodesy" = substituteSource {
       src = fetchgit {
-        name = "geodesy-6e391bae8989fbb7fde2f2a9ff047b752323712f-source";
+        name = "geodesy-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "6e391bae8989fbb7fde2f2a9ff047b752323712f";
         hash = "sha256-+iSI/nF1U9zJNt1tRwph3J72AI6GDwamBRol2QrwTUY=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "geodesy";
   version = "1.0.6-1";
-  src = sources.geodesy-6e391bae8989fbb7fde2f2a9ff047b752323712f;
+  src = sources."geodesy";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

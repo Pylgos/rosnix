@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   phidgets_api,
   rclcpp,
   rclcpp_components,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    phidgets_spatial-5d15528ce95e1cb59abb2919a5bec0b1b8647562 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "phidgets_spatial" = substituteSource {
       src = fetchgit {
-        name = "phidgets_spatial-5d15528ce95e1cb59abb2919a5bec0b1b8647562-source";
+        name = "phidgets_spatial-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "5d15528ce95e1cb59abb2919a5bec0b1b8647562";
         hash = "sha256-My63osp4yOvSPXWqo60ZVvGbG6cF/ApGd5AegiOUg/M=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "phidgets_spatial";
   version = "2.3.3-1";
-  src = sources.phidgets_spatial-5d15528ce95e1cb59abb2919a5bec0b1b8647562;
+  src = sources."phidgets_spatial";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,16 +7,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    dummy_map_server-013262b4101af3984b2783493b5891d248ba0f04 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dummy_map_server" = substituteSource {
       src = fetchgit {
-        name = "dummy_map_server-013262b4101af3984b2783493b5891d248ba0f04-source";
+        name = "dummy_map_server-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "013262b4101af3984b2783493b5891d248ba0f04";
         hash = "sha256-gy4gx1dyM0ezKzQen9Q6Mnpx5IKPpthH+UePo7rzaw0=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dummy_map_server";
   version = "0.34.2-1";
-  src = sources.dummy_map_server-013262b4101af3984b2783493b5891d248ba0f04;
+  src = sources."dummy_map_server";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

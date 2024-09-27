@@ -3,6 +3,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mola_common,
   mrpt_libmath,
   mrpt_libposes,
@@ -11,10 +12,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    kitti_metrics_eval-29a9f75ff6c19b616b30244dd5d4bb13cb26547d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kitti_metrics_eval" = substituteSource {
       src = fetchgit {
-        name = "kitti_metrics_eval-29a9f75ff6c19b616b30244dd5d4bb13cb26547d-source";
+        name = "kitti_metrics_eval-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "29a9f75ff6c19b616b30244dd5d4bb13cb26547d";
         hash = "sha256-VSqzYNJIgz5CqK7xGpN+cc7LapBV9vuzflS0XSYPYQs=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kitti_metrics_eval";
   version = "1.2.0-1";
-  src = sources.kitti_metrics_eval-29a9f75ff6c19b616b30244dd5d4bb13cb26547d;
+  src = sources."kitti_metrics_eval";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

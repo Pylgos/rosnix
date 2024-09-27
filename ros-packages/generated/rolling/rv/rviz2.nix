@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   rviz_common,
@@ -19,10 +20,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz2" = substituteSource {
       src = fetchgit {
-        name = "rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425-source";
+        name = "rviz2-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "429eb1da1f3cec77cf33c7029e0a698f1c48e425";
         hash = "sha256-Psm9m/If+FbxR2caYYQTpowhUvPyDZrcWGhtcoJcmkM=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz2";
   version = "14.2.6-1";
-  src = sources.rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425;
+  src = sources."rviz2";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

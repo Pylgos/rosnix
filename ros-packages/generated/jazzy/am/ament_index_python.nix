@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_index_python-86457bacaeec03825e194c05e908a6fb2f9a6061 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_index_python" = substituteSource {
       src = fetchgit {
-        name = "ament_index_python-86457bacaeec03825e194c05e908a6fb2f9a6061-source";
+        name = "ament_index_python-source";
         url = "https://github.com/ros2-gbp/ament_index-release.git";
         rev = "86457bacaeec03825e194c05e908a6fb2f9a6061";
         hash = "sha256-7lIMorXGjQYthb0K4PtdrLSyjiRuLQ9ixmanpMqP83Y=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_index_python";
   version = "1.8.1-1";
-  src = sources.ament_index_python-86457bacaeec03825e194c05e908a6fb2f9a6061;
+  src = sources."ament_index_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

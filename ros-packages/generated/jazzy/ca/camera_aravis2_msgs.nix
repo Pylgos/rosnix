@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    camera_aravis2_msgs-779f712fb162187e4c606b1dc4f533d39939481c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "camera_aravis2_msgs" = substituteSource {
       src = fetchgit {
-        name = "camera_aravis2_msgs-779f712fb162187e4c606b1dc4f533d39939481c-source";
+        name = "camera_aravis2_msgs-source";
         url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
         rev = "779f712fb162187e4c606b1dc4f533d39939481c";
         hash = "sha256-uJNlVnQ0C6eoW8P7lIvVPeQwCegOvlodYxLCKO6fv1Q=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "camera_aravis2_msgs";
   version = "1.0.0-1";
-  src = sources.camera_aravis2_msgs-779f712fb162187e4c606b1dc4f533d39939481c;
+  src = sources."camera_aravis2_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

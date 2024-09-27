@@ -9,14 +9,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_cmake_black-71b72e28a838b97a561bb0340e64508af62c910b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_cmake_black" = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_black-71b72e28a838b97a561bb0340e64508af62c910b-source";
+        name = "ament_cmake_black-source";
         url = "https://github.com/ros2-gbp/ament_black-release.git";
         rev = "71b72e28a838b97a561bb0340e64508af62c910b";
         hash = "sha256-0MeW5VEeAx+5Xe3/7vfYkIJ5e5dOzQzYoTKGJKtk7dw=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_cmake_black";
   version = "0.2.6-1";
-  src = sources.ament_cmake_black-71b72e28a838b97a561bb0340e64508af62c910b;
+  src = sources."ament_cmake_black";
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_black ament_cmake_test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

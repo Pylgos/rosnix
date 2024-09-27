@@ -6,16 +6,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    turtlesim_msgs-32803185ffaa1712359144f154fa283c7ee22ee9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtlesim_msgs" = substituteSource {
       src = fetchgit {
-        name = "turtlesim_msgs-32803185ffaa1712359144f154fa283c7ee22ee9-source";
+        name = "turtlesim_msgs-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
         rev = "32803185ffaa1712359144f154fa283c7ee22ee9";
         hash = "sha256-9dFwJZsBR6QXBfY2HhiX0w5K8eOkSgPLyZpmykHcDe0=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtlesim_msgs";
   version = "1.9.2-1";
-  src = sources.turtlesim_msgs-32803185ffaa1712359144f154fa283c7ee22ee9;
+  src = sources."turtlesim_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,16 +15,17 @@
   lanelet2_routing,
   lanelet2_traffic_rules,
   lanelet2_validation,
+  mkSourceSet,
   python_cmake_module,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    autoware_lanelet2_extension_python-9fda8535cad8bed7a90354c5ee35e0a1a74aa897 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "autoware_lanelet2_extension_python" = substituteSource {
       src = fetchgit {
-        name = "autoware_lanelet2_extension_python-9fda8535cad8bed7a90354c5ee35e0a1a74aa897-source";
+        name = "autoware_lanelet2_extension_python-source";
         url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
         rev = "9fda8535cad8bed7a90354c5ee35e0a1a74aa897";
         hash = "sha256-66WcbYI3aeUgqJcN2CZXyxPBZJPyYveuZl6MQLPMS2I=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "autoware_lanelet2_extension_python";
   version = "0.6.0-1";
-  src = sources.autoware_lanelet2_extension_python-9fda8535cad8bed7a90354c5ee35e0a1a74aa897;
+  src = sources."autoware_lanelet2_extension_python";
   nativeBuildInputs = [ ament_cmake_auto autoware_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

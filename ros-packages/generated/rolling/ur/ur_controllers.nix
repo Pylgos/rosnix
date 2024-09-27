@@ -8,6 +8,7 @@
   fetchzip,
   joint_trajectory_controller,
   lifecycle_msgs,
+  mkSourceSet,
   pluginlib,
   rclcpp_lifecycle,
   rcutils,
@@ -20,10 +21,10 @@
   ur_msgs,
 }:
 let
-  sources = rec {
-    ur_controllers-5129ac53e25b6ab3d3f73314eb6c0644206c186f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ur_controllers" = substituteSource {
       src = fetchgit {
-        name = "ur_controllers-5129ac53e25b6ab3d3f73314eb6c0644206c186f-source";
+        name = "ur_controllers-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "5129ac53e25b6ab3d3f73314eb6c0644206c186f";
         hash = "sha256-prONobOmyydNDLHVvl1DNcE6ELVrfWOIMQTirs52LNk=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ur_controllers";
   version = "2.4.10-1";
-  src = sources.ur_controllers-5129ac53e25b6ab3d3f73314eb6c0644206c186f;
+  src = sources."ur_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

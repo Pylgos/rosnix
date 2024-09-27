@@ -9,6 +9,7 @@
   fetchzip,
   hardware_interface,
   joint_limits,
+  mkSourceSet,
   ros2_control_test_assets,
   ros2controlcli,
   rosSystemPackages,
@@ -16,10 +17,10 @@
   transmission_interface,
 }:
 let
-  sources = rec {
-    ros2_control-4cac9bf1048391801e561bb61cf75d118b1de41b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2_control" = substituteSource {
       src = fetchgit {
-        name = "ros2_control-4cac9bf1048391801e561bb61cf75d118b1de41b-source";
+        name = "ros2_control-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "4cac9bf1048391801e561bb61cf75d118b1de41b";
         hash = "sha256-Ehy5rcDHq2jWCrhCs+8tPY9dKivEIcRZdNl0Q0NoErA=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2_control";
   version = "4.17.0-1";
-  src = sources.ros2_control-4cac9bf1048391801e561bb61cf75d118b1de41b;
+  src = sources."ros2_control";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

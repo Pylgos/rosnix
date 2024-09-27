@@ -7,14 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rpyutils" = substituteSource {
       src = fetchgit {
-        name = "rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b-source";
+        name = "rpyutils-source";
         url = "https://github.com/ros2-gbp/rpyutils-release.git";
         rev = "6695a538e5cba92c66847abb6574eec63aa18c8b";
         hash = "sha256-t72zIwVtVJX3ZymNZ2iOhOwgSN/sycNcRLBiEDjmEag=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rpyutils";
   version = "0.5.0-1";
-  src = sources.rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b;
+  src = sources."rpyutils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

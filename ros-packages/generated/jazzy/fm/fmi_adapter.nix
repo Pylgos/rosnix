@@ -13,6 +13,7 @@
   launch,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   rcl_interfaces,
   rclcpp,
   rclcpp_components,
@@ -23,10 +24,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fmi_adapter" = substituteSource {
       src = fetchgit {
-        name = "fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7-source";
+        name = "fmi_adapter-source";
         url = "https://github.com/ros2-gbp/fmi_adapter-release.git";
         rev = "7cd1b63789fc2756d115d493ec4d79add7e8edc7";
         hash = "sha256-bdDksqaZAqG/5URM3Ifb8DOvHvjwqqadN4eguWTN3Vk=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fmi_adapter";
   version = "2.1.2-1";
-  src = sources.fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7;
+  src = sources."fmi_adapter";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

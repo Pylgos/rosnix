@@ -5,16 +5,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   urdf_launch,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    urdf_tutorial-f50ad9cf19409844dee10830671567cdfff72c98 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "urdf_tutorial" = substituteSource {
       src = fetchgit {
-        name = "urdf_tutorial-f50ad9cf19409844dee10830671567cdfff72c98-source";
+        name = "urdf_tutorial-source";
         url = "https://github.com/ros2-gbp/urdf_tutorial-release.git";
         rev = "f50ad9cf19409844dee10830671567cdfff72c98";
         hash = "sha256-is2/qeO2wFsbEBxJ8Kf0u+3EkFtbejI8nZpazjXVziM=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "urdf_tutorial";
   version = "1.1.0-2";
-  src = sources.urdf_tutorial-f50ad9cf19409844dee10830671567cdfff72c98;
+  src = sources."urdf_tutorial";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

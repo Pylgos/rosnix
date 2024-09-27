@@ -18,6 +18,7 @@
   launch,
   launch_pytest,
   launch_ros,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -27,10 +28,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    fuse_optimizers-cfabad7a430ea1c75b98f294edddf5dd4679e1c6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_optimizers" = substituteSource {
       src = fetchgit {
-        name = "fuse_optimizers-cfabad7a430ea1c75b98f294edddf5dd4679e1c6-source";
+        name = "fuse_optimizers-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "cfabad7a430ea1c75b98f294edddf5dd4679e1c6";
         hash = "sha256-dabQsl6P+3hhZYHysGHSSw3bSnbLe+0tgaMNcYyu6kY=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_optimizers";
   version = "1.1.1-1";
-  src = sources.fuse_optimizers-cfabad7a430ea1c75b98f294edddf5dd4679e1c6;
+  src = sources."fuse_optimizers";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

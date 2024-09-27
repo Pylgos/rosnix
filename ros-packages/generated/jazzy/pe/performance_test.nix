@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rmw_implementation,
   rosSystemPackages,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    performance_test-ca283fe37b185a11c03565f4506cb0eb36c12564 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "performance_test" = substituteSource {
       src = fetchgit {
-        name = "performance_test-ca283fe37b185a11c03565f4506cb0eb36c12564-source";
+        name = "performance_test-source";
         url = "https://github.com/ros2-gbp/performance_test-release.git";
         rev = "ca283fe37b185a11c03565f4506cb0eb36c12564";
         hash = "sha256-xnTxHvplWaFior1NZmiF+oFRCJ2cvWwKWUY55BnS4ns=";
@@ -28,28 +29,28 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/Tencent/rapidjson.git";
-          to = "URL ${rapidjson-vendor_source-f54b0e47a08782a6131cc3d60f94d038fa6e0a51}";
+          to = "URL ${sources."performance_test/rapidjson"}";
         }
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/mirror/tclap.git";
-          to = "URL ${tclap-vendor_source-799a8b1f99818e39fee19d0601030770af1221e1}";
+          to = "URL ${sources."performance_test/tclap"}";
         }
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/p-ranav/tabulate.git";
-          to = "URL ${tabulate-vendor_source-57b1032aff2d8b115a56d20c2584170bae0ff852}";
+          to = "URL ${sources."performance_test/tabulate"}";
         }
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/r-lyeh-archived/sole.git";
-          to = "URL ${sole-vendor_source-e4678426147adb9d4f9f978c9560a7d0343b8c32}";
+          to = "URL ${sources."performance_test/sole"}";
         }
       ];
     };
-    rapidjson-vendor_source-f54b0e47a08782a6131cc3d60f94d038fa6e0a51 = substituteSource {
+    "performance_test/rapidjson" = substituteSource {
       src = fetchgit {
-        name = "rapidjson-vendor_source-f54b0e47a08782a6131cc3d60f94d038fa6e0a51-source";
+        name = "rapidjson-source";
         url = "https://github.com/Tencent/rapidjson.git";
         rev = "f54b0e47a08782a6131cc3d60f94d038fa6e0a51";
         hash = "sha256-mFM1Etpf+qF/G0t91eXD8FQXwSQKyQbJq8gUA0jsm4Q=";
@@ -57,9 +58,9 @@ let
       substitutions = [
       ];
     };
-    sole-vendor_source-e4678426147adb9d4f9f978c9560a7d0343b8c32 = substituteSource {
+    "performance_test/sole" = substituteSource {
       src = fetchgit {
-        name = "sole-vendor_source-e4678426147adb9d4f9f978c9560a7d0343b8c32-source";
+        name = "sole-source";
         url = "https://github.com/r-lyeh-archived/sole.git";
         rev = "e4678426147adb9d4f9f978c9560a7d0343b8c32";
         hash = "sha256-HxTUT2NFLkg4MDqN8iIUr/22gXiWV0CKSi1TD0nSazc=";
@@ -67,9 +68,9 @@ let
       substitutions = [
       ];
     };
-    tabulate-vendor_source-57b1032aff2d8b115a56d20c2584170bae0ff852 = substituteSource {
+    "performance_test/tabulate" = substituteSource {
       src = fetchgit {
-        name = "tabulate-vendor_source-57b1032aff2d8b115a56d20c2584170bae0ff852-source";
+        name = "tabulate-source";
         url = "https://github.com/p-ranav/tabulate.git";
         rev = "57b1032aff2d8b115a56d20c2584170bae0ff852";
         hash = "sha256-yI6KLWjquuxnqXPe9Q4rPTwQv+FBr/EtPJx3fOqg63M=";
@@ -77,9 +78,9 @@ let
       substitutions = [
       ];
     };
-    tclap-vendor_source-799a8b1f99818e39fee19d0601030770af1221e1 = substituteSource {
+    "performance_test/tclap" = substituteSource {
       src = fetchgit {
-        name = "tclap-vendor_source-799a8b1f99818e39fee19d0601030770af1221e1-source";
+        name = "tclap-source";
         url = "https://github.com/mirror/tclap.git";
         rev = "799a8b1f99818e39fee19d0601030770af1221e1";
         hash = "sha256-kdrzAj5C/9AmA8OGntgmq4bAadAFzu6nz2brAddLNIk=";
@@ -87,12 +88,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "performance_test";
   version = "2.3.0-1";
-  src = sources.performance_test-ca283fe37b185a11c03565f4506cb0eb36c12564;
+  src = sources."performance_test";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

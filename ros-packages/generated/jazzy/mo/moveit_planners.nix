@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   moveit_planners_ompl,
   moveit_planners_stomp,
   pilz_industrial_motion_planner,
@@ -12,10 +13,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_planners-52849597ee1e7579bd26f4d857e96fd813815e1e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_planners" = substituteSource {
       src = fetchgit {
-        name = "moveit_planners-52849597ee1e7579bd26f4d857e96fd813815e1e-source";
+        name = "moveit_planners-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "52849597ee1e7579bd26f4d857e96fd813815e1e";
         hash = "sha256-tHhEg3jwekHAsyucoYE+gFnMw+bCXkrKzo++Lkpf0So=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_planners";
   version = "2.10.0-1";
-  src = sources.moveit_planners-52849597ee1e7579bd26f4d857e96fd813815e1e;
+  src = sources."moveit_planners";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

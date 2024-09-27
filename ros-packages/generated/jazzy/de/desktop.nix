@@ -37,6 +37,7 @@
   joy,
   lifecycle,
   logging_demo,
+  mkSourceSet,
   pcl_conversions,
   pendulum_control,
   pendulum_msgs,
@@ -57,10 +58,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    desktop-32f68b6baa355c7a47de783407f272843654644e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "desktop" = substituteSource {
       src = fetchgit {
-        name = "desktop-32f68b6baa355c7a47de783407f272843654644e-source";
+        name = "desktop-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "32f68b6baa355c7a47de783407f272843654644e";
         hash = "sha256-SDdRl/0AhXOo1iKjZqc+XABRaWTXxOE0fiLzJVFnvDY=";
@@ -68,12 +69,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "desktop";
   version = "0.11.0-1";
-  src = sources.desktop-32f68b6baa355c7a47de783407f272843654644e;
+  src = sources."desktop";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,6 +14,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -27,10 +28,10 @@
   urdf,
 }:
 let
-  sources = rec {
-    joint_trajectory_controller-88cd4c9d6cede6c4c53d63fff4ff5fe7483f3c17 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "joint_trajectory_controller" = substituteSource {
       src = fetchgit {
-        name = "joint_trajectory_controller-88cd4c9d6cede6c4c53d63fff4ff5fe7483f3c17-source";
+        name = "joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "88cd4c9d6cede6c4c53d63fff4ff5fe7483f3c17";
         hash = "sha256-0OK9tBUKkHZclQedtmxfA6ZmKAL6Kn+gy9g9KtboUy8=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "joint_trajectory_controller";
   version = "4.14.0-1";
-  src = sources.joint_trajectory_controller-88cd4c9d6cede6c4c53d63fff4ff5fe7483f3c17;
+  src = sources."joint_trajectory_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

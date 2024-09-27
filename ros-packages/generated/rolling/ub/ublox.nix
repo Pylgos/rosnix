@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   ublox_gps,
@@ -11,10 +12,10 @@
   ublox_serialization,
 }:
 let
-  sources = rec {
-    ublox-2d85ed646da6998974f76b2e2dbd086401b46e61 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ublox" = substituteSource {
       src = fetchgit {
-        name = "ublox-2d85ed646da6998974f76b2e2dbd086401b46e61-source";
+        name = "ublox-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
         rev = "2d85ed646da6998974f76b2e2dbd086401b46e61";
         hash = "sha256-tCPY6Wu0TQ0Auvkx3xW6yyreMV7K0GruiyS4AZ29LtI=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ublox";
   version = "2.3.0-3";
-  src = sources.ublox-2d85ed646da6998974f76b2e2dbd086401b46e61;
+  src = sources."ublox";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

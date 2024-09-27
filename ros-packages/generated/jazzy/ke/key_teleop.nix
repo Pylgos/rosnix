@@ -7,15 +7,16 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    key_teleop-3f8d5d54af459301260c5f52b986eb16f1c21cf3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "key_teleop" = substituteSource {
       src = fetchgit {
-        name = "key_teleop-3f8d5d54af459301260c5f52b986eb16f1c21cf3-source";
+        name = "key_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "3f8d5d54af459301260c5f52b986eb16f1c21cf3";
         hash = "sha256-yukkmxu9PPCdLMc+IBlED7GoJdpbmKM/1HtlFOarSAc=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "key_teleop";
   version = "1.5.1-1";
-  src = sources.key_teleop-3f8d5d54af459301260c5f52b986eb16f1c21cf3;
+  src = sources."key_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

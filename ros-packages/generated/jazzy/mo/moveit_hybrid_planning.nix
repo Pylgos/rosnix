@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   moveit_common,
   moveit_configs_utils,
   moveit_core,
@@ -33,10 +34,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_hybrid_planning-85a5b5c67eb522f7730ee025c2e603c36e4acaeb = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_hybrid_planning" = substituteSource {
       src = fetchgit {
-        name = "moveit_hybrid_planning-85a5b5c67eb522f7730ee025c2e603c36e4acaeb-source";
+        name = "moveit_hybrid_planning-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "85a5b5c67eb522f7730ee025c2e603c36e4acaeb";
         hash = "sha256-KUzQByTujYnu6ZUbStJRiivd3oUpOSdi34fHHSs9Zy0=";
@@ -44,12 +45,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_hybrid_planning";
   version = "2.10.0-1";
-  src = sources.moveit_hybrid_planning-85a5b5c67eb522f7730ee025c2e603c36e4acaeb;
+  src = sources."moveit_hybrid_planning";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -12,6 +12,7 @@
   launch,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   nav2_amcl,
   nav2_behavior_tree,
   nav2_bringup,
@@ -36,10 +37,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    nav2_system_tests-bef514990f02073e6c93fec5fb9d4d9922d1e2be = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_system_tests" = substituteSource {
       src = fetchgit {
-        name = "nav2_system_tests-bef514990f02073e6c93fec5fb9d4d9922d1e2be-source";
+        name = "nav2_system_tests-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "bef514990f02073e6c93fec5fb9d4d9922d1e2be";
         hash = "sha256-ucri0sBHAoyNytUvQdVTK60YwgsLJk8OzyA5m0z+6wE=";
@@ -47,12 +48,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_system_tests";
   version = "1.3.2-1";
-  src = sources.nav2_system_tests-bef514990f02073e6c93fec5fb9d4d9922d1e2be;
+  src = sources."nav2_system_tests";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "lcov" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

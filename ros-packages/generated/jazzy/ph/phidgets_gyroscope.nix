@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   phidgets_api,
   rclcpp,
   rclcpp_components,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    phidgets_gyroscope-72021452c01dbeab059587f5315966915cd0d4af = substituteSource {
+  sources = mkSourceSet (sources: {
+    "phidgets_gyroscope" = substituteSource {
       src = fetchgit {
-        name = "phidgets_gyroscope-72021452c01dbeab059587f5315966915cd0d4af-source";
+        name = "phidgets_gyroscope-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "72021452c01dbeab059587f5315966915cd0d4af";
         hash = "sha256-umLPYnGNeRNHzYU1z5tXxDJe/QFYAnmXCCPxLFH4E5U=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "phidgets_gyroscope";
   version = "2.3.3-2";
-  src = sources.phidgets_gyroscope-72021452c01dbeab059587f5315966915cd0d4af;
+  src = sources."phidgets_gyroscope";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

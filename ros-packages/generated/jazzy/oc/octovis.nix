@@ -3,16 +3,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   octomap,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    octovis-5e9de4466ea20bce487a9d3a30a5294567904faa = substituteSource {
+  sources = mkSourceSet (sources: {
+    "octovis" = substituteSource {
       src = fetchgit {
-        name = "octovis-5e9de4466ea20bce487a9d3a30a5294567904faa-source";
+        name = "octovis-source";
         url = "https://github.com/ros2-gbp/octomap-release.git";
         rev = "5e9de4466ea20bce487a9d3a30a5294567904faa";
         hash = "sha256-TxMKU0t80X4leyZ3fdp6/PWCKK9UQhv7DITRuosz9Xw=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "octovis";
   version = "1.10.0-4";
-  src = sources.octovis-5e9de4466ea20bce487a9d3a30a5294567904faa;
+  src = sources."octovis";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

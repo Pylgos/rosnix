@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rc_reason_msgs,
   rclpy,
   ros2pkg,
@@ -16,10 +17,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    rc_reason_clients-e8e4ce1459a8bae56c3865eaa512dbf4ee360532 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rc_reason_clients" = substituteSource {
       src = fetchgit {
-        name = "rc_reason_clients-e8e4ce1459a8bae56c3865eaa512dbf4ee360532-source";
+        name = "rc_reason_clients-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
         rev = "e8e4ce1459a8bae56c3865eaa512dbf4ee360532";
         hash = "sha256-nrDAYPBtkbSi1QAZJHR9jYhMnPLwemNMDxIzccehO1o=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rc_reason_clients";
   version = "0.3.1-3";
-  src = sources.rc_reason_clients-e8e4ce1459a8bae56c3865eaa512dbf4ee360532;
+  src = sources."rc_reason_clients";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

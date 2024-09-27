@@ -13,15 +13,16 @@
   image_publisher,
   image_rotate,
   image_view,
+  mkSourceSet,
   rosSystemPackages,
   stereo_image_proc,
   substituteSource,
 }:
 let
-  sources = rec {
-    image_pipeline-c714cee87edfff8a390f892ac07ec39681fa2e79 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_pipeline" = substituteSource {
       src = fetchgit {
-        name = "image_pipeline-c714cee87edfff8a390f892ac07ec39681fa2e79-source";
+        name = "image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "c714cee87edfff8a390f892ac07ec39681fa2e79";
         hash = "sha256-ML1wI5cUHCKYUxZFsy2VsLHd/hlKwMXxYsxBqwxjTMk=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_pipeline";
   version = "5.0.4-1";
-  src = sources.image_pipeline-c714cee87edfff8a390f892ac07ec39681fa2e79;
+  src = sources."image_pipeline";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

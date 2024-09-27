@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosapi,
   rosbridge_library,
@@ -11,10 +12,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rosbridge_suite-4ef1885bc1236d00835567dc1c9e1ee677c59d13 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbridge_suite" = substituteSource {
       src = fetchgit {
-        name = "rosbridge_suite-4ef1885bc1236d00835567dc1c9e1ee677c59d13-source";
+        name = "rosbridge_suite-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "4ef1885bc1236d00835567dc1c9e1ee677c59d13";
         hash = "sha256-MWpailueIvylSaPCRcXsKgmzpatxkZq+HsJMGXnMUPs=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbridge_suite";
   version = "1.3.2-2";
-  src = sources.rosbridge_suite-4ef1885bc1236d00835567dc1c9e1ee677c59d13;
+  src = sources."rosbridge_suite";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

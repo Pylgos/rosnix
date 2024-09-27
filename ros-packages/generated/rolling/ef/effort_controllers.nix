@@ -10,6 +10,7 @@
   forward_command_controller,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   ros2_control_test_assets,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    effort_controllers-3c5b6884ed74d4e314ad046821558050c54144df = substituteSource {
+  sources = mkSourceSet (sources: {
+    "effort_controllers" = substituteSource {
       src = fetchgit {
-        name = "effort_controllers-3c5b6884ed74d4e314ad046821558050c54144df-source";
+        name = "effort_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "3c5b6884ed74d4e314ad046821558050c54144df";
         hash = "sha256-pCxBjbRTUphp1LsQePLlukEF+8bNUxLq93XugUd/ZuI=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "effort_controllers";
   version = "4.14.0-1";
-  src = sources.effort_controllers-3c5b6884ed74d4e314ad046821558050c54144df;
+  src = sources."effort_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

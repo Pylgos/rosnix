@@ -6,6 +6,7 @@
   fetchzip,
   geometry2,
   kdl_parser,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   ros_core,
@@ -14,10 +15,10 @@
   urdf,
 }:
 let
-  sources = rec {
-    ros_base-9b8f81587ab619ba9007c0befc8378b3fe060657 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_base" = substituteSource {
       src = fetchgit {
-        name = "ros_base-9b8f81587ab619ba9007c0befc8378b3fe060657-source";
+        name = "ros_base-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "9b8f81587ab619ba9007c0befc8378b3fe060657";
         hash = "sha256-qDeMCM1VeU74XfEYB3E5caLxe/rMeyfJaQYQTyUmR98=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_base";
   version = "0.11.0-1";
-  src = sources.ros_base-9b8f81587ab619ba9007c0befc8378b3fe060657;
+  src = sources."ros_base";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

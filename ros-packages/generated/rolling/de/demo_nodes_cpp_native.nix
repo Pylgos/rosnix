@@ -11,6 +11,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rmw_fastrtps_cpp,
@@ -19,10 +20,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    demo_nodes_cpp_native-af9c8b310f26ead4b23392f22418b464a2029229 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "demo_nodes_cpp_native" = substituteSource {
       src = fetchgit {
-        name = "demo_nodes_cpp_native-af9c8b310f26ead4b23392f22418b464a2029229-source";
+        name = "demo_nodes_cpp_native-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "af9c8b310f26ead4b23392f22418b464a2029229";
         hash = "sha256-wJhu0peCUdKL5aq94ACi+fybAiJvJH8YMQaDSCK4G8c=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "demo_nodes_cpp_native";
   version = "0.34.2-1";
-  src = sources.demo_nodes_cpp_native-af9c8b310f26ead4b23392f22418b464a2029229;
+  src = sources."demo_nodes_cpp_native";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

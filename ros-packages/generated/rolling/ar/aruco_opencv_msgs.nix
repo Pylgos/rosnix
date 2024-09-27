@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    aruco_opencv_msgs-447a1e7b8f67eac20c3bf6fcbf89fa8a927be379 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "aruco_opencv_msgs" = substituteSource {
       src = fetchgit {
-        name = "aruco_opencv_msgs-447a1e7b8f67eac20c3bf6fcbf89fa8a927be379-source";
+        name = "aruco_opencv_msgs-source";
         url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
         rev = "447a1e7b8f67eac20c3bf6fcbf89fa8a927be379";
         hash = "sha256-dP2eRoPV3R8Okt63Wb5WW9MsbCpOeZ/3ti0YVxYtkKU=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "aruco_opencv_msgs";
   version = "6.0.1-1";
-  src = sources.aruco_opencv_msgs-447a1e7b8f67eac20c3bf6fcbf89fa8a927be379;
+  src = sources."aruco_opencv_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

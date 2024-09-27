@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    spacenav-d5e13eaca0ffde926e41a100f3a23638fece1334 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "spacenav" = substituteSource {
       src = fetchgit {
-        name = "spacenav-d5e13eaca0ffde926e41a100f3a23638fece1334-source";
+        name = "spacenav-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "d5e13eaca0ffde926e41a100f3a23638fece1334";
         hash = "sha256-5WXkdmHcAdaPaMSMNcTfScbDq9VNmFSb7jofUAAHyAk=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "spacenav";
   version = "3.3.0-2";
-  src = sources.spacenav-d5e13eaca0ffde926e41a100f3a23638fece1334;
+  src = sources."spacenav";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    robotraconteur-ee1fbebc5e9d29bcb6250b83c47f98316cee882d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "robotraconteur" = substituteSource {
       src = fetchgit {
-        name = "robotraconteur-ee1fbebc5e9d29bcb6250b83c47f98316cee882d-source";
+        name = "robotraconteur-source";
         url = "https://github.com/ros2-gbp/robotraconteur-release.git";
         rev = "ee1fbebc5e9d29bcb6250b83c47f98316cee882d";
         hash = "sha256-lwy+TIS4VQPImEpGmeQmWXZuZMifwRv9GfxdNiF3FGM=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "robotraconteur";
   version = "1.2.2-1";
-  src = sources.robotraconteur-ee1fbebc5e9d29bcb6250b83c47f98316cee882d;
+  src = sources."robotraconteur";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-numpy" "python3-setuptools" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

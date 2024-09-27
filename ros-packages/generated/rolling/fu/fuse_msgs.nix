@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    fuse_msgs-dfb1a85e9e5edf52c099aed99eef080dbb5d25d7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_msgs" = substituteSource {
       src = fetchgit {
-        name = "fuse_msgs-dfb1a85e9e5edf52c099aed99eef080dbb5d25d7-source";
+        name = "fuse_msgs-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "dfb1a85e9e5edf52c099aed99eef080dbb5d25d7";
         hash = "sha256-1MCYwjqTXGSqeLZnuIgbYUWZSiIHDpzEniamI5tCiYA=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_msgs";
   version = "1.2.1-1";
-  src = sources.fuse_msgs-dfb1a85e9e5edf52c099aed99eef080dbb5d25d7;
+  src = sources."fuse_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

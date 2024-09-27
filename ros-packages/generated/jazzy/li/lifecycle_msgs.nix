@@ -6,16 +6,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    lifecycle_msgs-30b6f421c32024a0d90ba0d026c41a3d4214181a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lifecycle_msgs" = substituteSource {
       src = fetchgit {
-        name = "lifecycle_msgs-30b6f421c32024a0d90ba0d026c41a3d4214181a-source";
+        name = "lifecycle_msgs-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
         rev = "30b6f421c32024a0d90ba0d026c41a3d4214181a";
         hash = "sha256-nPm3livoSK0Z2bpSS4SLfqqc0ya2k0zP9IdIfR94V1E=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lifecycle_msgs";
   version = "2.0.2-2";
-  src = sources.lifecycle_msgs-30b6f421c32024a0d90ba0d026c41a3d4214181a;
+  src = sources."lifecycle_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

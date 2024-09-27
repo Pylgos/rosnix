@@ -16,6 +16,7 @@
   launch,
   launch_ros,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -26,10 +27,10 @@
   tf2_sensor_msgs,
 }:
 let
-  sources = rec {
-    pointcloud_to_laserscan-d19872adb793dfa32827e6e782be47947070a30a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pointcloud_to_laserscan" = substituteSource {
       src = fetchgit {
-        name = "pointcloud_to_laserscan-d19872adb793dfa32827e6e782be47947070a30a-source";
+        name = "pointcloud_to_laserscan-source";
         url = "https://github.com/ros2-gbp/pointcloud_to_laserscan-release.git";
         rev = "d19872adb793dfa32827e6e782be47947070a30a";
         hash = "sha256-qr3WavBoAsGaLii5dCMmNk764fMGdISwf7EAd5q14MQ=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pointcloud_to_laserscan";
   version = "2.0.2-3";
-  src = sources.pointcloud_to_laserscan-d19872adb793dfa32827e6e782be47947070a30a;
+  src = sources."pointcloud_to_laserscan";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

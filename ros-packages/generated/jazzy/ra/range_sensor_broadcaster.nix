@@ -11,6 +11,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    range_sensor_broadcaster-8908382d49b8556271e1992fbf3d0b37b244eabd = substituteSource {
+  sources = mkSourceSet (sources: {
+    "range_sensor_broadcaster" = substituteSource {
       src = fetchgit {
-        name = "range_sensor_broadcaster-8908382d49b8556271e1992fbf3d0b37b244eabd-source";
+        name = "range_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "8908382d49b8556271e1992fbf3d0b37b244eabd";
         hash = "sha256-HbIL4I9z9CKhFWx9VgE7MoLXp4dvB9Lmra1rSzCHAt4=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "range_sensor_broadcaster";
   version = "4.14.0-1";
-  src = sources.range_sensor_broadcaster-8908382d49b8556271e1992fbf3d0b37b244eabd;
+  src = sources."range_sensor_broadcaster";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

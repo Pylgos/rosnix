@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rcutils,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   urdf_parser_plugin,
 }:
 let
-  sources = rec {
-    sdformat_urdf-d923456c7a3c40a1cf8b8c32e52f9838c95ddfde = substituteSource {
+  sources = mkSourceSet (sources: {
+    "sdformat_urdf" = substituteSource {
       src = fetchgit {
-        name = "sdformat_urdf-d923456c7a3c40a1cf8b8c32e52f9838c95ddfde-source";
+        name = "sdformat_urdf-source";
         url = "https://github.com/ros2-gbp/sdformat_urdf-release.git";
         rev = "d923456c7a3c40a1cf8b8c32e52f9838c95ddfde";
         hash = "sha256-QJfr03O+ead4T8Bj6BazQbRKJsmW3J6I9g1XWtun6Us=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "sdformat_urdf";
   version = "1.0.2-1";
-  src = sources.sdformat_urdf-d923456c7a3c40a1cf8b8c32e52f9838c95ddfde;
+  src = sources."sdformat_urdf";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

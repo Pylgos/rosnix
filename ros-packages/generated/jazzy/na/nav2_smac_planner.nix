@@ -12,6 +12,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_core,
   nav2_costmap_2d,
@@ -29,10 +30,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    nav2_smac_planner-4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_smac_planner" = substituteSource {
       src = fetchgit {
-        name = "nav2_smac_planner-4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867-source";
+        name = "nav2_smac_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867";
         hash = "sha256-XPoM1zgQ8+Oi7SPouSGBnhxuRDCQyA4UmmNf46yn9y0=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_smac_planner";
   version = "1.3.2-1";
-  src = sources.nav2_smac_planner-4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867;
+  src = sources."nav2_smac_planner";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_pclint-8528eae1a994af8f534563cf0c33183ea82ea31d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_pclint" = substituteSource {
       src = fetchgit {
-        name = "ament_pclint-8528eae1a994af8f534563cf0c33183ea82ea31d-source";
+        name = "ament_pclint-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "8528eae1a994af8f534563cf0c33183ea82ea31d";
         hash = "sha256-bYw3jnkJZaKw5R+nGt/LUb3AKpSBsQ/PWSGQjqZERuc=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_pclint";
   version = "0.18.1-1";
-  src = sources.ament_pclint-8528eae1a994af8f534563cf0c33183ea82ea31d;
+  src = sources."ament_pclint";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

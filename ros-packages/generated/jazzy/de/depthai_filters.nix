@@ -8,6 +8,7 @@
   fetchzip,
   image_transport,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    depthai_filters-b7f494bc702d23e8f84c1773d504a6a2d73e742b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "depthai_filters" = substituteSource {
       src = fetchgit {
-        name = "depthai_filters-b7f494bc702d23e8f84c1773d504a6a2d73e742b-source";
+        name = "depthai_filters-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "b7f494bc702d23e8f84c1773d504a6a2d73e742b";
         hash = "sha256-fObI+H8TFdmOepC0b3MqAl3IOtB8NScNGeZPY+aZapk=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "depthai_filters";
   version = "2.10.1-1";
-  src = sources.depthai_filters-b7f494bc702d23e8f84c1773d504a6a2d73e742b;
+  src = sources."depthai_filters";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

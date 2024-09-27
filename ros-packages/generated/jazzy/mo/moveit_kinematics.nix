@@ -8,6 +8,7 @@
   fetchzip,
   generate_parameter_library,
   launch_param_builder,
+  mkSourceSet,
   moveit_common,
   moveit_configs_utils,
   moveit_core,
@@ -29,10 +30,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_kinematics-e6bac77b77b63caf01dda902c3d3c38b8de6cc18 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_kinematics" = substituteSource {
       src = fetchgit {
-        name = "moveit_kinematics-e6bac77b77b63caf01dda902c3d3c38b8de6cc18-source";
+        name = "moveit_kinematics-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "e6bac77b77b63caf01dda902c3d3c38b8de6cc18";
         hash = "sha256-hseesEOBXSfOj36mGIbEmGSddLotrO+orC8BkjQnkzw=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_kinematics";
   version = "2.10.0-1";
-  src = sources.moveit_kinematics-e6bac77b77b63caf01dda902c3d3c38b8de6cc18;
+  src = sources."moveit_kinematics";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

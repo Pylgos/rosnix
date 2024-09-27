@@ -18,6 +18,7 @@
   irobot_create_description,
   irobot_create_gz_toolbox,
   irobot_create_msgs,
+  mkSourceSet,
   rosSystemPackages,
   ros_gz_bridge,
   ros_gz_interfaces,
@@ -27,10 +28,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    irobot_create_gz_bringup-95d7acda183f66171e3a24bb75c395026f5a6630 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "irobot_create_gz_bringup" = substituteSource {
       src = fetchgit {
-        name = "irobot_create_gz_bringup-95d7acda183f66171e3a24bb75c395026f5a6630-source";
+        name = "irobot_create_gz_bringup-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "95d7acda183f66171e3a24bb75c395026f5a6630";
         hash = "sha256-Sfg7l5+rnwMRG6DSEy5tGG9P20EjqhuNF/De6TeC1ps=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "irobot_create_gz_bringup";
   version = "3.0.2-2";
-  src = sources.irobot_create_gz_bringup-95d7acda183f66171e3a24bb75c395026f5a6630;
+  src = sources."irobot_create_gz_bringup";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

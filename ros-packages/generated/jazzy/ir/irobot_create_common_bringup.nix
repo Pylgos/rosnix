@@ -17,6 +17,7 @@
   irobot_create_description,
   irobot_create_nodes,
   joint_state_publisher,
+  mkSourceSet,
   robot_state_publisher,
   ros2launch,
   rosSystemPackages,
@@ -27,10 +28,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    irobot_create_common_bringup-bd99fd9c0355badce636104cfd147f706cfbd38c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "irobot_create_common_bringup" = substituteSource {
       src = fetchgit {
-        name = "irobot_create_common_bringup-bd99fd9c0355badce636104cfd147f706cfbd38c-source";
+        name = "irobot_create_common_bringup-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "bd99fd9c0355badce636104cfd147f706cfbd38c";
         hash = "sha256-xZk2IQByXC1uVYZgWUEWuv63eg4pLo3nwj3VGpWU0Vk=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "irobot_create_common_bringup";
   version = "3.0.2-2";
-  src = sources.irobot_create_common_bringup-bd99fd9c0355badce636104cfd147f706cfbd38c;
+  src = sources."irobot_create_common_bringup";
   nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

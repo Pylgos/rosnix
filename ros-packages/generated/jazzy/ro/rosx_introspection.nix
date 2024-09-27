@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   rosbag2_cpp,
@@ -14,19 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv = substituteSource {
-      src = fetchurl {
-        name = "CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv-source";
-        url = "https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.0/CPM.cmake";
-        hash = "sha256-ezVPOll2xGJsh2hQyTlE5SyD7FmhWa5d5b55g/Dheio=";
-      };
-      substitutions = [
-      ];
-    };
-    rosx_introspection-02a0c9e70eb60d10f9590739864b061f6d6ad667 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosx_introspection" = substituteSource {
       src = fetchgit {
-        name = "rosx_introspection-02a0c9e70eb60d10f9590739864b061f6d6ad667-source";
+        name = "rosx_introspection-source";
         url = "https://github.com/ros2-gbp/rosx_introspection-release.git";
         rev = "02a0c9e70eb60d10f9590739864b061f6d6ad667";
         hash = "sha256-PxUiV3BPyRmYvvYjQmfa7BTP7kFxgfyXAC44akRvT08=";
@@ -35,16 +27,25 @@ let
         {
           path = "cmake/CPM.cmake";
           from = "DOWNLOAD\n     https://github.com/cpm-cmake/CPM.cmake/releases/download/v\${CPM_DOWNLOAD_VERSION}/CPM.cmake";
-          to = "DOWNLOAD file://${CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv}";
+          to = "DOWNLOAD file://${sources."rosx_introspection/CPM"}";
         }
       ];
     };
-  };
+    "rosx_introspection/CPM" = substituteSource {
+      src = fetchurl {
+        name = "CPM-source";
+        url = "https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.0/CPM.cmake";
+        hash = "sha256-ezVPOll2xGJsh2hQyTlE5SyD7FmhWa5d5b55g/Dheio=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "rosx_introspection";
   version = "1.0.2-1";
-  src = sources.rosx_introspection-02a0c9e70eb60d10f9590739864b061f6d6ad667;
+  src = sources."rosx_introspection";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

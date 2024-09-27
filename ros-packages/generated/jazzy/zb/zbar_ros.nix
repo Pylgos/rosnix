@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   sensor_msgs,
@@ -15,10 +16,10 @@
   zbar_ros_interfaces,
 }:
 let
-  sources = rec {
-    zbar_ros-bd55b012222f2a79ae26429d1990cc2e818de827 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "zbar_ros" = substituteSource {
       src = fetchgit {
-        name = "zbar_ros-bd55b012222f2a79ae26429d1990cc2e818de827-source";
+        name = "zbar_ros-source";
         url = "https://github.com/ros2-gbp/zbar_ros-release.git";
         rev = "bd55b012222f2a79ae26429d1990cc2e818de827";
         hash = "sha256-WZR9JZCFn6iUWjl8bwdsbzYpvyCWFaOPEmSgu8WuO0A=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "zbar_ros";
   version = "0.6.0-1";
-  src = sources.zbar_ros-bd55b012222f2a79ae26429d1990cc2e818de827;
+  src = sources."zbar_ros";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

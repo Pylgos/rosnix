@@ -13,6 +13,7 @@
   launch,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   rclpy,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "diagnostic_updater" = substituteSource {
       src = fetchgit {
-        name = "diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597-source";
+        name = "diagnostic_updater-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
         rev = "06e42e306472072aa04ba4bf4b17226f61fc4597";
         hash = "sha256-KAWRfucJofJJnbuh6aOY1GmC8Ddnev7OR15k8OsUX04=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "diagnostic_updater";
   version = "4.3.1-1";
-  src = sources.diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597;
+  src = sources."diagnostic_updater";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

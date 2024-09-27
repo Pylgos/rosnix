@@ -7,15 +7,16 @@
   fetchzip,
   launch,
   launch_ros,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   xacro,
 }:
 let
-  sources = rec {
-    simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "simple_launch" = substituteSource {
       src = fetchgit {
-        name = "simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905-source";
+        name = "simple_launch-source";
         url = "https://github.com/ros2-gbp/simple_launch-release.git";
         rev = "1f59783c83fbc769bcce5b61cd78b57bcdcdf905";
         hash = "sha256-qGRcyWgJ5d0NzsUAXpLLeRHBywF3IPhCiLyA5ZOLBqs=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "simple_launch";
   version = "1.10.1-1";
-  src = sources.simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905;
+  src = sources."simple_launch";
   nativeBuildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

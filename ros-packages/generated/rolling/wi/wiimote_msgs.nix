@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    wiimote_msgs-ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "wiimote_msgs" = substituteSource {
       src = fetchgit {
-        name = "wiimote_msgs-ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897-source";
+        name = "wiimote_msgs-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897";
         hash = "sha256-CTizMiNOKAwVd/bOq8yB5s7j00cvCsHVQotPLLXwrhI=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "wiimote_msgs";
   version = "3.3.0-2";
-  src = sources.wiimote_msgs-ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897;
+  src = sources."wiimote_msgs";
   nativeBuildInputs = [ ament_cmake ament_cmake_auto rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

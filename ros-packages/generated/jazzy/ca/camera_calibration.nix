@@ -9,6 +9,7 @@
   fetchzip,
   image_geometry,
   message_filters,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   sensor_msgs,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    camera_calibration-8dbb7a4d835dcbadef8929cc9b82e8ae291e598f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "camera_calibration" = substituteSource {
       src = fetchgit {
-        name = "camera_calibration-8dbb7a4d835dcbadef8929cc9b82e8ae291e598f-source";
+        name = "camera_calibration-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "8dbb7a4d835dcbadef8929cc9b82e8ae291e598f";
         hash = "sha256-/1Y3e32+GZEmMxwmY1QjbXJDMqWj5hylEhKW2Et9d7o=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "camera_calibration";
   version = "5.0.4-1";
-  src = sources.camera_calibration-8dbb7a4d835dcbadef8929cc9b82e8ae291e598f;
+  src = sources."camera_calibration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    marti_visualization_msgs-d58be137efd71fda87644de7876c1c4ac20a2df0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "marti_visualization_msgs" = substituteSource {
       src = fetchgit {
-        name = "marti_visualization_msgs-d58be137efd71fda87644de7876c1c4ac20a2df0-source";
+        name = "marti_visualization_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
         rev = "d58be137efd71fda87644de7876c1c4ac20a2df0";
         hash = "sha256-YNsCs5+k+7cvdOc35aJo5NeZfXvNOqSFDlyGbWKeW7o=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "marti_visualization_msgs";
   version = "1.6.1-1";
-  src = sources.marti_visualization_msgs-d58be137efd71fda87644de7876c1c4ac20a2df0;
+  src = sources."marti_visualization_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

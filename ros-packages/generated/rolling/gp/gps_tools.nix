@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   gps_msgs,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rclcpp_components,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    gps_tools-9a31b611731b288d0e6e348a809458bd3c6c1c86 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gps_tools" = substituteSource {
       src = fetchgit {
-        name = "gps_tools-9a31b611731b288d0e6e348a809458bd3c6c1c86-source";
+        name = "gps_tools-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
         rev = "9a31b611731b288d0e6e348a809458bd3c6c1c86";
         hash = "sha256-+bW839E0UolKzA4D0kkBoqHgk4d/WmPJZLONWM/hGV0=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "gps_tools";
   version = "2.0.4-1";
-  src = sources.gps_tools-9a31b611731b288d0e6e348a809458bd3c6c1c86;
+  src = sources."gps_tools";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

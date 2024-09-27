@@ -12,6 +12,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2doctor-de0f2b78fac592f82ef568a19fdb0bf63a19b92d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2doctor" = substituteSource {
       src = fetchgit {
-        name = "ros2doctor-de0f2b78fac592f82ef568a19fdb0bf63a19b92d-source";
+        name = "ros2doctor-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "de0f2b78fac592f82ef568a19fdb0bf63a19b92d";
         hash = "sha256-JXBAZbli5oJOfIgCmMgvtoe2omh/HSe5ghJP6JBBxms=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2doctor";
   version = "0.32.1-1";
-  src = sources.ros2doctor-de0f2b78fac592f82ef568a19fdb0bf63a19b92d;
+  src = sources."ros2doctor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-importlib-metadata" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

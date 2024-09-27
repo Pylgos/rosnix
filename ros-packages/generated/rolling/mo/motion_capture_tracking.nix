@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   motion_capture_tracking_interfaces,
   rclcpp,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    motion_capture_tracking-6ce17d4d0b82379be6cdf4464085cded684562e5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "motion_capture_tracking" = substituteSource {
       src = fetchgit {
-        name = "motion_capture_tracking-6ce17d4d0b82379be6cdf4464085cded684562e5-source";
+        name = "motion_capture_tracking-source";
         url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
         rev = "6ce17d4d0b82379be6cdf4464085cded684562e5";
         hash = "sha256-i4x1fFnItmyr13Kz2YfUYfYKcessV15UqBvrOb4Q41c=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "motion_capture_tracking";
   version = "1.0.3-2";
-  src = sources.motion_capture_tracking-6ce17d4d0b82379be6cdf4464085cded684562e5;
+  src = sources."motion_capture_tracking";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

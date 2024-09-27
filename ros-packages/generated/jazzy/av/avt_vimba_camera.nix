@@ -10,6 +10,7 @@
   image_proc,
   image_transport,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -19,10 +20,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    avt_vimba_camera-b9560dba83cf75fde6656e573957548ef314dec6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "avt_vimba_camera" = substituteSource {
       src = fetchgit {
-        name = "avt_vimba_camera-b9560dba83cf75fde6656e573957548ef314dec6-source";
+        name = "avt_vimba_camera-source";
         url = "https://github.com/ros2-gbp/avt_vimba_camera-release.git";
         rev = "b9560dba83cf75fde6656e573957548ef314dec6";
         hash = "sha256-b1YFGg6j0b9K0ewtxAKbcnT1um/8yTIj7XIIbEChDbY=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "avt_vimba_camera";
   version = "2001.1.0-6";
-  src = sources.avt_vimba_camera-b9560dba83cf75fde6656e573957548ef314dec6;
+  src = sources."avt_vimba_camera";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

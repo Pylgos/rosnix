@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   orocos_kdl_vendor,
   pybind11_vendor,
   python_cmake_module,
@@ -14,19 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ce4bcb65a050615b6d7f21bc60fbb2656515791b-vendor_source-1vyp8gwwrr92xb54csjl4mzckv2zck0dwff2g0vmpslmmd5lwwr5 = substituteSource {
-      src = fetchzip {
-        name = "ce4bcb65a050615b6d7f21bc60fbb2656515791b-vendor_source-1vyp8gwwrr92xb54csjl4mzckv2zck0dwff2g0vmpslmmd5lwwr5-source";
-        url = "https://github.com/orocos/orocos_kinematics_dynamics/archive/ce4bcb65a050615b6d7f21bc60fbb2656515791b.zip";
-        hash = "sha256-JXNOS6uV6ls3eMI53sBkX+zJfiVUakbK6iLlzPlD1+8=";
-      };
-      substitutions = [
-      ];
-    };
-    python_orocos_kdl_vendor-573fe19a96d05b976e2d7734a5f7dc0c09077601 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "python_orocos_kdl_vendor" = substituteSource {
       src = fetchgit {
-        name = "python_orocos_kdl_vendor-573fe19a96d05b976e2d7734a5f7dc0c09077601-source";
+        name = "python_orocos_kdl_vendor-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
         rev = "573fe19a96d05b976e2d7734a5f7dc0c09077601";
         hash = "sha256-V3BBOQVqhrrQUHacG4mKlmLmCaiIq1uYPc7qgwem+2s=";
@@ -35,16 +27,25 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://github.com/orocos/orocos_kinematics_dynamics/archive/ce4bcb65a050615b6d7f21bc60fbb2656515791b.zip";
-          to = "URL ${ce4bcb65a050615b6d7f21bc60fbb2656515791b-vendor_source-1vyp8gwwrr92xb54csjl4mzckv2zck0dwff2g0vmpslmmd5lwwr5}";
+          to = "URL ${sources."python_orocos_kdl_vendor/ce4bcb65a050615b6d7f21bc60fbb2656515791b"}";
         }
       ];
     };
-  };
+    "python_orocos_kdl_vendor/ce4bcb65a050615b6d7f21bc60fbb2656515791b" = substituteSource {
+      src = fetchzip {
+        name = "ce4bcb65a050615b6d7f21bc60fbb2656515791b-source";
+        url = "https://github.com/orocos/orocos_kinematics_dynamics/archive/ce4bcb65a050615b6d7f21bc60fbb2656515791b.zip";
+        hash = "sha256-JXNOS6uV6ls3eMI53sBkX+zJfiVUakbK6iLlzPlD1+8=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "python_orocos_kdl_vendor";
   version = "0.6.1-1";
-  src = sources.python_orocos_kdl_vendor-573fe19a96d05b976e2d7734a5f7dc0c09077601;
+  src = sources."python_orocos_kdl_vendor";
   nativeBuildInputs = [ ament_cmake ament_cmake_python python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

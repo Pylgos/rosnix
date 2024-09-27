@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   qt_gui,
   rclpy,
@@ -18,10 +19,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_runtime_monitor-f30d349549c838cdf2f7ff70e8e3c1d6c49c028f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_runtime_monitor" = substituteSource {
       src = fetchgit {
-        name = "rqt_runtime_monitor-f30d349549c838cdf2f7ff70e8e3c1d6c49c028f-source";
+        name = "rqt_runtime_monitor-source";
         url = "https://github.com/ros2-gbp/rqt_runtime_monitor-release.git";
         rev = "f30d349549c838cdf2f7ff70e8e3c1d6c49c028f";
         hash = "sha256-7LyebmhKcj1ltMsj4LbDUxXX5v9ejuW4g4lIKitP28Q=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_runtime_monitor";
   version = "1.0.0-5";
-  src = sources.rqt_runtime_monitor-f30d349549c838cdf2f7ff70e8e3c1d6c49c028f;
+  src = sources."rqt_runtime_monitor";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

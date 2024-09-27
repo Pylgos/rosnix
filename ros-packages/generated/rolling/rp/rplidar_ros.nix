@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rplidar_ros" = substituteSource {
       src = fetchgit {
-        name = "rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6-source";
+        name = "rplidar_ros-source";
         url = "https://github.com/ros2-gbp/rplidar_ros-release.git";
         rev = "025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6";
         hash = "sha256-lOiYrTggsDiQb9sCYtWAup4+kVoMnpSYqKqWGtnb2AU=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rplidar_ros";
   version = "2.1.0-3";
-  src = sources.rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6;
+  src = sources."rplidar_ros";
   nativeBuildInputs = [ ament_cmake_auto ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

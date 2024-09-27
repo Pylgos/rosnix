@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   velodyne_driver,
@@ -12,10 +13,10 @@
   velodyne_pointcloud,
 }:
 let
-  sources = rec {
-    velodyne-a4862d6b99f2a857fc3e0d5c17cac86296c51e51 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "velodyne" = substituteSource {
       src = fetchgit {
-        name = "velodyne-a4862d6b99f2a857fc3e0d5c17cac86296c51e51-source";
+        name = "velodyne-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "a4862d6b99f2a857fc3e0d5c17cac86296c51e51";
         hash = "sha256-Wr9qH+muZay+hoPYPI7pJRs11jWr4I26LKKsmaWL/4A=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "velodyne";
   version = "2.3.0-3";
-  src = sources.velodyne-a4862d6b99f2a857fc3e0d5c17cac86296c51e51;
+  src = sources."velodyne";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

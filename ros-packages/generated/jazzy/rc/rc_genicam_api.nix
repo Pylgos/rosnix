@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rc_genicam_api-57bf6c445677c596d425b929c0f82266f98c1cda = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rc_genicam_api" = substituteSource {
       src = fetchgit {
-        name = "rc_genicam_api-57bf6c445677c596d425b929c0f82266f98c1cda-source";
+        name = "rc_genicam_api-source";
         url = "https://github.com/ros2-gbp/rc_genicam_api-release.git";
         rev = "57bf6c445677c596d425b929c0f82266f98c1cda";
         hash = "sha256-bp8a9UBIdmzBsLXwZO86DD8/PxRp2Bl0HRWOS+fWgOg=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rc_genicam_api";
   version = "2.6.5-2";
-  src = sources.rc_genicam_api-57bf6c445677c596d425b929c0f82266f98c1cda;
+  src = sources."rc_genicam_api";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

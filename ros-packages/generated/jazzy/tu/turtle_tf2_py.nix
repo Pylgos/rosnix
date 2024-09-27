@@ -9,6 +9,7 @@
   geometry_msgs,
   launch,
   launch_ros,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   substituteSource,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    turtle_tf2_py-d9008b745c653f26866657c862bdfcabc147214c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtle_tf2_py" = substituteSource {
       src = fetchgit {
-        name = "turtle_tf2_py-d9008b745c653f26866657c862bdfcabc147214c-source";
+        name = "turtle_tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
         rev = "d9008b745c653f26866657c862bdfcabc147214c";
         hash = "sha256-YrWOCB771U+0NaRQRIHJxiMl6neFFGabMomNQawWucU=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtle_tf2_py";
   version = "0.5.0-1";
-  src = sources.turtle_tf2_py-d9008b745c653f26866657c862bdfcabc147214c;
+  src = sources."turtle_tf2_py";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

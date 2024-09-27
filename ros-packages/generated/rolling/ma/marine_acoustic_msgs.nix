@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    marine_acoustic_msgs-38d4fc11273b589bf376bb015127ddac160964e7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "marine_acoustic_msgs" = substituteSource {
       src = fetchgit {
-        name = "marine_acoustic_msgs-38d4fc11273b589bf376bb015127ddac160964e7-source";
+        name = "marine_acoustic_msgs-source";
         url = "https://github.com/ros2-gbp/marine_msgs-release.git";
         rev = "38d4fc11273b589bf376bb015127ddac160964e7";
         hash = "sha256-ALbjKiPGNTichMtqbwwJIA4Y52MYdCELmDl3tLU3dC4=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "marine_acoustic_msgs";
   version = "2.1.0-1";
-  src = sources.marine_acoustic_msgs-38d4fc11273b589bf376bb015127ddac160964e7;
+  src = sources."marine_acoustic_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

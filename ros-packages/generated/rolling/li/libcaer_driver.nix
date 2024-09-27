@@ -17,6 +17,7 @@
   fetchzip,
   image_transport,
   libcaer_vendor,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -26,10 +27,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "libcaer_driver" = substituteSource {
       src = fetchgit {
-        name = "libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895-source";
+        name = "libcaer_driver-source";
         url = "https://github.com/ros2-gbp/libcaer_driver-release.git";
         rev = "56e4267b26ea29a0cf9724b87f5959723354a895";
         hash = "sha256-RkhPG89kIKkm8AePQkzjAzAZ012RtBVSK2AQZwKYHTQ=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "libcaer_driver";
   version = "1.0.3-1";
-  src = sources.libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895;
+  src = sources."libcaer_driver";
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

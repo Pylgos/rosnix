@@ -12,6 +12,7 @@
   geometry_msgs,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -25,10 +26,10 @@
   tf2_msgs,
 }:
 let
-  sources = rec {
-    diff_drive_controller-6e5268983e17c9144c8291b42d8c436c58e6874e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "diff_drive_controller" = substituteSource {
       src = fetchgit {
-        name = "diff_drive_controller-6e5268983e17c9144c8291b42d8c436c58e6874e-source";
+        name = "diff_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "6e5268983e17c9144c8291b42d8c436c58e6874e";
         hash = "sha256-4PkXN/OSjR1h02SSoSMtv8Up4XTkBPDFzkQpj6ADXME=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "diff_drive_controller";
   version = "4.14.0-1";
-  src = sources.diff_drive_controller-6e5268983e17c9144c8291b42d8c436c58e6874e;
+  src = sources."diff_drive_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

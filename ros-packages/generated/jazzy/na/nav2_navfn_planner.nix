@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_core,
   nav2_costmap_2d,
@@ -25,10 +26,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    nav2_navfn_planner-3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_navfn_planner" = substituteSource {
       src = fetchgit {
-        name = "nav2_navfn_planner-3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8-source";
+        name = "nav2_navfn_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8";
         hash = "sha256-+VJaEVKOfGsHGPs2VCB0GCaR+Oq9KlTOniN6Cbt/H+0=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_navfn_planner";
   version = "1.3.2-1";
-  src = sources.nav2_navfn_planner-3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8;
+  src = sources."nav2_navfn_planner";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

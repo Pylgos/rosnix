@@ -14,6 +14,7 @@
   imu_sensor_broadcaster,
   joint_state_broadcaster,
   joint_trajectory_controller,
+  mkSourceSet,
   pid_controller,
   position_controllers,
   range_sensor_broadcaster,
@@ -25,10 +26,10 @@
   velocity_controllers,
 }:
 let
-  sources = rec {
-    ros2_controllers-dd869935a92880cea24a50284ce545ff0d234c5a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2_controllers" = substituteSource {
       src = fetchgit {
-        name = "ros2_controllers-dd869935a92880cea24a50284ce545ff0d234c5a-source";
+        name = "ros2_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "dd869935a92880cea24a50284ce545ff0d234c5a";
         hash = "sha256-MuYZvs0hB5whSJOO+DZGlpsf/N6KpKhL/z0AoPY3uZA=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2_controllers";
   version = "4.14.0-1";
-  src = sources.ros2_controllers-dd869935a92880cea24a50284ce545ff0d234c5a;
+  src = sources."ros2_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

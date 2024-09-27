@@ -11,6 +11,7 @@
   launch_ros,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    teleop_twist_joy-4509e68c15e09d8b975b3771fdddbec5a596322c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "teleop_twist_joy" = substituteSource {
       src = fetchgit {
-        name = "teleop_twist_joy-4509e68c15e09d8b975b3771fdddbec5a596322c-source";
+        name = "teleop_twist_joy-source";
         url = "https://github.com/ros2-gbp/teleop_twist_joy-release.git";
         rev = "4509e68c15e09d8b975b3771fdddbec5a596322c";
         hash = "sha256-nB0va0g6TkrL+6KcyPKFB7ft9opzePCbv4kYmx7f6ug=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "teleop_twist_joy";
   version = "2.6.2-1";
-  src = sources.teleop_twist_joy-4509e68c15e09d8b975b3771fdddbec5a596322c;
+  src = sources."teleop_twist_joy";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

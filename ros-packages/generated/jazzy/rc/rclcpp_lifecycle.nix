@@ -9,6 +9,7 @@
   fetchzip,
   lifecycle_msgs,
   mimick_vendor,
+  mkSourceSet,
   performance_test_fixture,
   rcl,
   rcl_interfaces,
@@ -23,10 +24,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    rclcpp_lifecycle-27c28b345607f87b77086a086fc9cd047de49714 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rclcpp_lifecycle" = substituteSource {
       src = fetchgit {
-        name = "rclcpp_lifecycle-27c28b345607f87b77086a086fc9cd047de49714-source";
+        name = "rclcpp_lifecycle-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
         rev = "27c28b345607f87b77086a086fc9cd047de49714";
         hash = "sha256-Kp6770FSOuJSNLfeErsbQpLEnFJJOk4S35EY/qZpUWk=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rclcpp_lifecycle";
   version = "28.1.5-1";
-  src = sources.rclcpp_lifecycle-27c28b345607f87b77086a086fc9cd047de49714;
+  src = sources."rclcpp_lifecycle";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

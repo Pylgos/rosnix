@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_acceleration-7e0cf4e578a5509e687bb9e0f36398e0334a0e62 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_acceleration" = substituteSource {
       src = fetchgit {
-        name = "ament_acceleration-7e0cf4e578a5509e687bb9e0f36398e0334a0e62-source";
+        name = "ament_acceleration-source";
         url = "https://github.com/ros2-gbp/ament_acceleration-release.git";
         rev = "7e0cf4e578a5509e687bb9e0f36398e0334a0e62";
         hash = "sha256-tnkilfsTlrhC8xcFlu9E8VIt8hGsNKCcdD53KV8JRac=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_acceleration";
   version = "0.2.0-5";
-  src = sources.ament_acceleration-7e0cf4e578a5509e687bb9e0f36398e0334a0e62;
+  src = sources."ament_acceleration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

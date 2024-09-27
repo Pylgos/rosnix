@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   smach,
   smach_msgs,
@@ -11,10 +12,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    executive_smach-d89d702228daab0e0f1aff6dd3c57b70cb37a998 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "executive_smach" = substituteSource {
       src = fetchgit {
-        name = "executive_smach-d89d702228daab0e0f1aff6dd3c57b70cb37a998-source";
+        name = "executive_smach-source";
         url = "https://github.com/ros2-gbp/executive_smach-release.git";
         rev = "d89d702228daab0e0f1aff6dd3c57b70cb37a998";
         hash = "sha256-68w8XZNadjLJdkgr+OVVW8Stg9rqS5wqQgYUxlZtOo0=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "executive_smach";
   version = "3.0.3-2";
-  src = sources.executive_smach-d89d702228daab0e0f1aff6dd3c57b70cb37a998;
+  src = sources."executive_smach";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

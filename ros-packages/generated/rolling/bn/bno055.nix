@@ -7,16 +7,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "bno055" = substituteSource {
       src = fetchgit {
-        name = "bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c-source";
+        name = "bno055-source";
         url = "https://github.com/ros2-gbp/bno055-release.git";
         rev = "4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c";
         hash = "sha256-C8wFVPMD9UXtgtXX3T4ERtwtrr1IKIwYwiGzp1XWbS4=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "bno055";
   version = "0.5.0-2";
-  src = sources.bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c;
+  src = sources."bno055";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

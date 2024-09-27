@@ -6,6 +6,7 @@
   fetchzip,
   geometry_msgs,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   sensor_msgs,
@@ -15,10 +16,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca = substituteSource {
+  sources = mkSourceSet (sources: {
+    "imu_complementary_filter" = substituteSource {
       src = fetchgit {
-        name = "imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca-source";
+        name = "imu_complementary_filter-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
         rev = "16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca";
         hash = "sha256-kPPY/UhAq3XZ1BFaGYMoE8IuKH67Dyuc7Pih7/4eY1Q=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "imu_complementary_filter";
   version = "2.1.4-1";
-  src = sources.imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca;
+  src = sources."imu_complementary_filter";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

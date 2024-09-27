@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rcutils,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    topic_statistics_demo-e1907df448636e5dd94ff2d850c0113c94daa4df = substituteSource {
+  sources = mkSourceSet (sources: {
+    "topic_statistics_demo" = substituteSource {
       src = fetchgit {
-        name = "topic_statistics_demo-e1907df448636e5dd94ff2d850c0113c94daa4df-source";
+        name = "topic_statistics_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "e1907df448636e5dd94ff2d850c0113c94daa4df";
         hash = "sha256-OlO5t7+iAoMYbqErFwVmm6hLKUhUroA88+QHpxjBuPE=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "topic_statistics_demo";
   version = "0.33.5-1";
-  src = sources.topic_statistics_demo-e1907df448636e5dd94ff2d850c0113c94daa4df;
+  src = sources."topic_statistics_demo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

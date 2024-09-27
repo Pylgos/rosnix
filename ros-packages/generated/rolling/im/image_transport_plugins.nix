@@ -6,16 +6,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   theora_image_transport,
   zstd_image_transport,
 }:
 let
-  sources = rec {
-    image_transport_plugins-bd4c8419b2e58ee263c58f2900fdbecb0feada27 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_transport_plugins" = substituteSource {
       src = fetchgit {
-        name = "image_transport_plugins-bd4c8419b2e58ee263c58f2900fdbecb0feada27-source";
+        name = "image_transport_plugins-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
         rev = "bd4c8419b2e58ee263c58f2900fdbecb0feada27";
         hash = "sha256-Kff7avXfi8zrLe4JBJ/j1eLrZ1kpPPZWLUtGTO5VtQM=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_transport_plugins";
   version = "5.0.0-1";
-  src = sources.image_transport_plugins-bd4c8419b2e58ee263c58f2900fdbecb0feada27;
+  src = sources."image_transport_plugins";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

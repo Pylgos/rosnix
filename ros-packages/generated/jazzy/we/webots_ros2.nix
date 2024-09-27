@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
@@ -23,10 +24,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    webots_ros2-e465a2d49062e1fb9e10606d3db646602944bd3c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "webots_ros2" = substituteSource {
       src = fetchgit {
-        name = "webots_ros2-e465a2d49062e1fb9e10606d3db646602944bd3c-source";
+        name = "webots_ros2-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "e465a2d49062e1fb9e10606d3db646602944bd3c";
         hash = "sha256-MU8z5pasd46CfN/dGIGVbDVgC6W0iUUPh9lf0TeCFUQ=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "webots_ros2";
   version = "2023.1.3-1";
-  src = sources.webots_ros2-e465a2d49062e1fb9e10606d3db646602944bd3c;
+  src = sources."webots_ros2";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

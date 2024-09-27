@@ -11,6 +11,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_costmap_2d,
   nav2_util,
@@ -23,10 +24,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    dwb_critics-00046f3080526574858c7f69ce01afc7863a2db5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dwb_critics" = substituteSource {
       src = fetchgit {
-        name = "dwb_critics-00046f3080526574858c7f69ce01afc7863a2db5-source";
+        name = "dwb_critics-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "00046f3080526574858c7f69ce01afc7863a2db5";
         hash = "sha256-c+8YZUUvd0Ipo9SmePe+EIe5+BTSHmj7MzT6l2EuTI4=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dwb_critics";
   version = "1.3.2-1";
-  src = sources.dwb_critics-00046f3080526574858c7f69ce01afc7863a2db5;
+  src = sources."dwb_critics";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

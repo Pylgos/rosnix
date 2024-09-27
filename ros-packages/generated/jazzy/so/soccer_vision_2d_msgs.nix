@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   vision_msgs,
 }:
 let
-  sources = rec {
-    soccer_vision_2d_msgs-c7037ba9eb39939b2e5008c671d14566ff53b9cc = substituteSource {
+  sources = mkSourceSet (sources: {
+    "soccer_vision_2d_msgs" = substituteSource {
       src = fetchgit {
-        name = "soccer_vision_2d_msgs-c7037ba9eb39939b2e5008c671d14566ff53b9cc-source";
+        name = "soccer_vision_2d_msgs-source";
         url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
         rev = "c7037ba9eb39939b2e5008c671d14566ff53b9cc";
         hash = "sha256-em8g5g678f+FbD3DqO9JWOOeAsMRCYf+KT4Uo7ZFh1g=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "soccer_vision_2d_msgs";
   version = "1.0.0-2";
-  src = sources.soccer_vision_2d_msgs-c7037ba9eb39939b2e5008c671d14566ff53b9cc;
+  src = sources."soccer_vision_2d_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

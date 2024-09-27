@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   qt_gui,
   rclpy,
@@ -16,10 +17,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_robot_dashboard-5f494a3d0b594188ba864a2ef165ea22e059566e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_robot_dashboard" = substituteSource {
       src = fetchgit {
-        name = "rqt_robot_dashboard-5f494a3d0b594188ba864a2ef165ea22e059566e-source";
+        name = "rqt_robot_dashboard-source";
         url = "https://github.com/ros2-gbp/rqt_robot_dashboard-release.git";
         rev = "5f494a3d0b594188ba864a2ef165ea22e059566e";
         hash = "sha256-o2FskVGSpDLTcYD8PlfRgHpBlDa3UId/Xq+IlAvaZGY=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_robot_dashboard";
   version = "0.6.1-4";
-  src = sources.rqt_robot_dashboard-5f494a3d0b594188ba864a2ef165ea22e059566e;
+  src = sources."rqt_robot_dashboard";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

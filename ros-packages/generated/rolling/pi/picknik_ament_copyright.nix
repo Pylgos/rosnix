@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    picknik_ament_copyright-6b7823c44e2f1588d32fcaa65af0d53d9084efbb = substituteSource {
+  sources = mkSourceSet (sources: {
+    "picknik_ament_copyright" = substituteSource {
       src = fetchgit {
-        name = "picknik_ament_copyright-6b7823c44e2f1588d32fcaa65af0d53d9084efbb-source";
+        name = "picknik_ament_copyright-source";
         url = "https://github.com/ros2-gbp/picknik_ament_copyright-release.git";
         rev = "6b7823c44e2f1588d32fcaa65af0d53d9084efbb";
         hash = "sha256-zw0URrOQbcL7fo+BgOUHgI0yqf0DDRVGnOOxbJmog48=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "picknik_ament_copyright";
   version = "0.0.2-4";
-  src = sources.picknik_ament_copyright-6b7823c44e2f1588d32fcaa65af0d53d9084efbb;
+  src = sources."picknik_ament_copyright";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

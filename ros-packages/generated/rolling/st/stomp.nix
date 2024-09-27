@@ -3,15 +3,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_industrial_cmake_boilerplate,
   substituteSource,
 }:
 let
-  sources = rec {
-    stomp-f34537da09d99cc27b25f1a307e6ecb5cac30631 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "stomp" = substituteSource {
       src = fetchgit {
-        name = "stomp-f34537da09d99cc27b25f1a307e6ecb5cac30631-source";
+        name = "stomp-source";
         url = "https://github.com/ros2-gbp/stomp-release.git";
         rev = "f34537da09d99cc27b25f1a307e6ecb5cac30631";
         hash = "sha256-SMIxIQFBhVkKNSvnxdsAWw5pg4rc6p5xSsSck1Ig4Y8=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "stomp";
   version = "0.1.2-3";
-  src = sources.stomp-f34537da09d99cc27b25f1a307e6ecb5cac30631;
+  src = sources."stomp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

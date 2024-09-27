@@ -9,6 +9,7 @@
   fetchzip,
   geographic_msgs,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -18,10 +19,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    autoware_adapi_v1_msgs-d70f09816ad6d12d139b08530895fff549518325 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "autoware_adapi_v1_msgs" = substituteSource {
       src = fetchgit {
-        name = "autoware_adapi_v1_msgs-d70f09816ad6d12d139b08530895fff549518325-source";
+        name = "autoware_adapi_v1_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release.git";
         rev = "d70f09816ad6d12d139b08530895fff549518325";
         hash = "sha256-5jgqVvAOI02ArN1EDxTdvc/F1f4E/LDkN9nPbnHYSQI=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "autoware_adapi_v1_msgs";
   version = "1.3.0-1";
-  src = sources.autoware_adapi_v1_msgs-d70f09816ad6d12d139b08530895fff549518325;
+  src = sources."autoware_adapi_v1_msgs";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

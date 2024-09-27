@@ -6,15 +6,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   smclib,
   substituteSource,
 }:
 let
-  sources = rec {
-    bond_core-37dcfcd24735776aa874b749575f1c6ebd5787ff = substituteSource {
+  sources = mkSourceSet (sources: {
+    "bond_core" = substituteSource {
       src = fetchgit {
-        name = "bond_core-37dcfcd24735776aa874b749575f1c6ebd5787ff-source";
+        name = "bond_core-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "37dcfcd24735776aa874b749575f1c6ebd5787ff";
         hash = "sha256-pieGbpeYdGAOAULspCbQLtOYRAMogAi8zxZoMZkCNJI=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "bond_core";
   version = "4.1.0-1";
-  src = sources.bond_core-37dcfcd24735776aa874b749575f1c6ebd5787ff;
+  src = sources."bond_core";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

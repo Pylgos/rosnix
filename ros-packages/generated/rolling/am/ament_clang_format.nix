@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_clang_format-54f8d000f29a50030491bbf38daeeb3da0974570 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_clang_format" = substituteSource {
       src = fetchgit {
-        name = "ament_clang_format-54f8d000f29a50030491bbf38daeeb3da0974570-source";
+        name = "ament_clang_format-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "54f8d000f29a50030491bbf38daeeb3da0974570";
         hash = "sha256-afwmjLbKUV4zVbDoL9dK9MDhL7Z+HGo8Z8oE/eatP00=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_clang_format";
   version = "0.18.1-1";
-  src = sources.ament_clang_format-54f8d000f29a50030491bbf38daeeb3da0974570;
+  src = sources."ament_clang_format";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-format" "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

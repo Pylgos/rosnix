@@ -12,15 +12,16 @@
   fetchzip,
   launch,
   launch_ros,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    dummy_robot_bringup-ce97419b6cd330a7b4eacf837949c369ee29e0db = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dummy_robot_bringup" = substituteSource {
       src = fetchgit {
-        name = "dummy_robot_bringup-ce97419b6cd330a7b4eacf837949c369ee29e0db-source";
+        name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "ce97419b6cd330a7b4eacf837949c369ee29e0db";
         hash = "sha256-kJh0WAW3P3UPHmVb2h6QmE7cPgws9qZxrLp8+Faol9s=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dummy_robot_bringup";
   version = "0.33.5-1";
-  src = sources.dummy_robot_bringup-ce97419b6cd330a7b4eacf837949c369ee29e0db;
+  src = sources."dummy_robot_bringup";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

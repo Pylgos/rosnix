@@ -8,6 +8,7 @@
   fetchzip,
   geometry_msgs,
   message_filters,
+  mkSourceSet,
   nav_msgs,
   octomap_msgs,
   octomap_ros,
@@ -27,10 +28,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "octomap_server" = substituteSource {
       src = fetchgit {
-        name = "octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a-source";
+        name = "octomap_server-source";
         url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
         rev = "d50f0f59e12b7ed1dd6a733a170fb1e5f494891a";
         hash = "sha256-qokWpx6Dn8+CCs6PtkaIlxri9WRcZqpqj34kbhZR1Cc=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "octomap_server";
   version = "2.3.0-1";
-  src = sources.octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a;
+  src = sources."octomap_server";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

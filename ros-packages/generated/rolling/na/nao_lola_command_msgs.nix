@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    nao_lola_command_msgs-5b8562298bce0b0a607fa4df2833d91c3ef3ed61 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nao_lola_command_msgs" = substituteSource {
       src = fetchgit {
-        name = "nao_lola_command_msgs-5b8562298bce0b0a607fa4df2833d91c3ef3ed61-source";
+        name = "nao_lola_command_msgs-source";
         url = "https://github.com/ros2-gbp/nao_lola-release.git";
         rev = "5b8562298bce0b0a607fa4df2833d91c3ef3ed61";
         hash = "sha256-IndgGzImBnJw0rE9ABJUpaTnide4Sgyo0iQGNQ2MAC0=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nao_lola_command_msgs";
   version = "1.3.0-1";
-  src = sources.nao_lola_command_msgs-5b8562298bce0b0a607fa4df2833d91c3ef3ed61;
+  src = sources."nao_lola_command_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   phidgets_api,
   rclcpp,
   rclcpp_components,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    phidgets_temperature-727c5532a02296d0807b6c498805a38de9d3af75 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "phidgets_temperature" = substituteSource {
       src = fetchgit {
-        name = "phidgets_temperature-727c5532a02296d0807b6c498805a38de9d3af75-source";
+        name = "phidgets_temperature-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "727c5532a02296d0807b6c498805a38de9d3af75";
         hash = "sha256-AUCf5/QLj4oi3q8yB/SIYcdPJoog9kG0irWiQraVKgQ=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "phidgets_temperature";
   version = "2.3.3-2";
-  src = sources.phidgets_temperature-727c5532a02296d0807b6c498805a38de9d3af75;
+  src = sources."phidgets_temperature";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,15 +9,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    dolly-d421634724723dfbd39e53d934452d59a55e8336 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dolly" = substituteSource {
       src = fetchgit {
-        name = "dolly-d421634724723dfbd39e53d934452d59a55e8336-source";
+        name = "dolly-source";
         url = "https://github.com/ros2-gbp/dolly-release.git";
         rev = "d421634724723dfbd39e53d934452d59a55e8336";
         hash = "sha256-1ugxemjgNM3QtSsQ64TCZHu8J9gYPS5Qh2s6VRBTiFA=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dolly";
   version = "0.4.0-5";
-  src = sources.dolly-d421634724723dfbd39e53d934452d59a55e8336;
+  src = sources."dolly";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

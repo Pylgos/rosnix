@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libhwdrivers,
   mrpt_libros_bridge,
   mrpt_msgs,
@@ -25,10 +26,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    mrpt_sensor_bumblebee_stereo-f96854a0179b96d0f314831f90099c6e9eac52a0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_sensor_bumblebee_stereo" = substituteSource {
       src = fetchgit {
-        name = "mrpt_sensor_bumblebee_stereo-f96854a0179b96d0f314831f90099c6e9eac52a0-source";
+        name = "mrpt_sensor_bumblebee_stereo-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "f96854a0179b96d0f314831f90099c6e9eac52a0";
         hash = "sha256-RdSetxlV3aRkTreC+ol1ENdwAu440EnXqTubJg53Q48=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_sensor_bumblebee_stereo";
   version = "0.2.3-1";
-  src = sources.mrpt_sensor_bumblebee_stereo-f96854a0179b96d0f314831f90099c6e9eac52a0;
+  src = sources."mrpt_sensor_bumblebee_stereo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

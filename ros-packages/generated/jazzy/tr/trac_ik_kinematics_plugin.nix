@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   generate_parameter_library,
+  mkSourceSet,
   moveit_core,
   pluginlib,
   rclcpp,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    trac_ik_kinematics_plugin-e608e52b92b8e9306bc8ef4ae7488bc8c90350df = substituteSource {
+  sources = mkSourceSet (sources: {
+    "trac_ik_kinematics_plugin" = substituteSource {
       src = fetchgit {
-        name = "trac_ik_kinematics_plugin-e608e52b92b8e9306bc8ef4ae7488bc8c90350df-source";
+        name = "trac_ik_kinematics_plugin-source";
         url = "https://github.com/ros2-gbp/trac_ik-release.git";
         rev = "e608e52b92b8e9306bc8ef4ae7488bc8c90350df";
         hash = "sha256-Xj4omXPV8GY+CWCUvSBOT33WTxVQiW0A8N57S5bpDNo=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "trac_ik_kinematics_plugin";
   version = "2.0.1-1";
-  src = sources.trac_ik_kinematics_plugin-e608e52b92b8e9306bc8ef4ae7488bc8c90350df;
+  src = sources."trac_ik_kinematics_plugin";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

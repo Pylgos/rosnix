@@ -21,8 +21,9 @@ use crate::{
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct PatchedSource {
+    pub local_name: Option<String>,
     pub source: Source,
-    pub substitutions: BTreeSet<Substitution>,
+    pub substitutions: Vec<Substitution>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -42,9 +43,89 @@ pub enum Replacement {
     Shebang(String, String),
 }
 
+impl Substitution {
+    fn patched_source(&self) -> Option<&PatchedSource> {
+        match &self.with {
+            Replacement::Path(src)
+            | Replacement::Url(src)
+            | Replacement::Download(src)
+            | Replacement::Prefixed(_, src) => Some(src),
+            _ => None,
+        }
+    }
+
+    fn patched_source_mut(&mut self) -> Option<&mut PatchedSource> {
+        match &mut self.with {
+            Replacement::Path(src)
+            | Replacement::Url(src)
+            | Replacement::Download(src)
+            | Replacement::Prefixed(_, src) => Some(src),
+            _ => None,
+        }
+    }
+}
+
 impl PatchedSource {
-    pub fn name(&self) -> &str {
-        self.source.name()
+    pub fn local_name(&self) -> &str {
+        self.local_name.as_ref().unwrap()
+    }
+
+    fn new(source: Source, substitutions: BTreeSet<Substitution>) -> Self {
+        Self {
+            local_name: None,
+            source,
+            substitutions: substitutions.into_iter().collect(),
+        }
+    }
+
+    fn set_local_names(&mut self, is_root: bool) {
+        // Set local name for root source
+        if is_root {
+            self.local_name = Some(self.source.name().to_string())
+        }
+
+        // Create a HashMap to store the count of each source name
+        let mut name_counts = HashMap::new();
+        for subst in self.substitutions.iter() {
+            if let Some(src) = subst.patched_source() {
+                let name = src.source.name().to_string();
+                *name_counts.entry(name).or_insert(0) += 1;
+            }
+        }
+
+        // Create a HashMap to store the current count of each source name
+        let mut name_counter: HashMap<_, _> =
+            name_counts.keys().map(|name| (name.clone(), 0)).collect();
+
+        for subst in self.substitutions.iter_mut() {
+            if let Some(src) = subst.patched_source_mut() {
+                let name = src.source.name().to_string();
+                let total = name_counts[&name];
+                let count = name_counter.get_mut(&name).unwrap();
+                *count += 1;
+
+                // If the source name is not unique, append the count to it
+                let local_name = if total > 1 {
+                    format!("{name}-{count}")
+                } else {
+                    name
+                };
+
+                // If a parent name is provided, prepend it to the local name
+                src.local_name = Some(format!(
+                    "{}/{}",
+                    self.local_name.as_ref().unwrap(),
+                    local_name
+                ));
+            }
+        }
+
+        // Set the local names for all substitutions
+        for subst in self.substitutions.iter_mut() {
+            if let Some(src) = subst.patched_source_mut() {
+                src.set_local_names(false);
+            }
+        }
     }
 }
 
@@ -59,16 +140,7 @@ fn guess_name_from_url(url: &str) -> Option<String> {
 }
 
 fn get_vendor_source_name(url: &str) -> String {
-    let mut name = guess_name_from_url(url).unwrap_or("unknown".into());
-    name = name
-        .chars()
-        .map(|c| if c.is_ascii_alphanumeric() { c } else { '_' })
-        .collect();
-    let first_char = name.chars().next().unwrap();
-    if first_char.is_ascii_digit() {
-        name = format!("_{}", name);
-    }
-    format!("{name}-vendor_source")
+    guess_name_from_url(url).unwrap_or("unknown".to_string())
 }
 
 async fn fetch_url(
@@ -244,9 +316,11 @@ pub async fn auto_patch_source(
         patched: HashMap::new(),
         hunter: None,
     };
-    auto_patch_source_impl(cfg, fetcher, src, &mut state)
+    let mut patched_source = auto_patch_source_impl(cfg, fetcher, src, &mut state)
         .await
-        .with_context(|| format!("failed to auto_patch source {src:?}"))
+        .with_context(|| format!("failed to auto_patch source {src:?}"))?;
+    patched_source.set_local_names(true);
+    Ok(patched_source)
 }
 
 async fn auto_patch_source_impl(
@@ -432,10 +506,7 @@ async fn auto_patch_source_inner(
             substitutions.insert(Substitution {
                 path: rel_path.to_path_buf(),
                 from,
-                with: Replacement::Download(PatchedSource {
-                    source,
-                    substitutions: BTreeSet::new(),
-                }),
+                with: Replacement::Download(PatchedSource::new(source, BTreeSet::new())),
             });
         }
     }
@@ -496,10 +567,10 @@ async fn auto_patch_source_inner(
                 with: Replacement::Literal("".into()),
             });
         }
-        let patched_hunter = PatchedSource {
-            source: state.hunter.as_ref().unwrap().source().clone(),
-            substitutions: hunter_subst,
-        };
+        let patched_hunter = PatchedSource::new(
+            state.hunter.as_ref().unwrap().source().clone(),
+            hunter_subst,
+        );
         substitutions.insert(Substitution {
             path: rel_path,
             from: url_arg,
@@ -509,10 +580,7 @@ async fn auto_patch_source_inner(
 
     substitutions.extend(patch_shebangs(src.path())?);
 
-    let patched = PatchedSource {
-        source: src.clone(),
-        substitutions,
-    };
+    let patched = PatchedSource::new(src.clone(), substitutions);
 
     state.patched.insert(src.clone(), patched.clone());
 

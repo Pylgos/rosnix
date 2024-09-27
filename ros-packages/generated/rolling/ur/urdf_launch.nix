@@ -7,6 +7,7 @@
   joint_state_publisher,
   joint_state_publisher_gui,
   launch_ros,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   rviz2,
@@ -17,10 +18,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "urdf_launch" = substituteSource {
       src = fetchgit {
-        name = "urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83-source";
+        name = "urdf_launch-source";
         url = "https://github.com/ros2-gbp/urdf_launch-release.git";
         rev = "b595a6baa8c331c2a90a3d70ccedad6ad8062a83";
         hash = "sha256-culhEaUIVzEURBnbx83ibUd3MceQsW3fVCfO2lKvIEQ=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "urdf_launch";
   version = "0.1.1-2";
-  src = sources.urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83;
+  src = sources."urdf_launch";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

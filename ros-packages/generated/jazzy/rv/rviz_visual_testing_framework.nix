@@ -13,6 +13,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rcutils,
   rosSystemPackages,
@@ -26,10 +27,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rviz_visual_testing_framework-a77b9d9d42fd2b58e596a8edb72fecb0e42deae1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz_visual_testing_framework" = substituteSource {
       src = fetchgit {
-        name = "rviz_visual_testing_framework-a77b9d9d42fd2b58e596a8edb72fecb0e42deae1-source";
+        name = "rviz_visual_testing_framework-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "a77b9d9d42fd2b58e596a8edb72fecb0e42deae1";
         hash = "sha256-2kTgsFsgMexLa6Q6iUrd2DF+AyyduvppK02QDEdMijQ=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz_visual_testing_framework";
   version = "14.1.5-1";
-  src = sources.rviz_visual_testing_framework-a77b9d9d42fd2b58e596a8edb72fecb0e42deae1;
+  src = sources."rviz_visual_testing_framework";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

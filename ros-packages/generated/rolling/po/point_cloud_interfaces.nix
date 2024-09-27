@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    point_cloud_interfaces-94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "point_cloud_interfaces" = substituteSource {
       src = fetchgit {
-        name = "point_cloud_interfaces-94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70-source";
+        name = "point_cloud_interfaces-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
         rev = "94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70";
         hash = "sha256-hijq0cE+AbzE2YCfnlqxbEHL/9OsqrR5Nv35rDhX7Vw=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "point_cloud_interfaces";
   version = "5.0.1-1";
-  src = sources.point_cloud_interfaces-94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70;
+  src = sources."point_cloud_interfaces";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

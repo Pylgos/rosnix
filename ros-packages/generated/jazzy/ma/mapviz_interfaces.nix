@@ -5,16 +5,17 @@
   fetchurl,
   fetchzip,
   marti_common_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    mapviz_interfaces-1814b69b518a8d50136f1c58935b5d01b4489332 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mapviz_interfaces" = substituteSource {
       src = fetchgit {
-        name = "mapviz_interfaces-1814b69b518a8d50136f1c58935b5d01b4489332-source";
+        name = "mapviz_interfaces-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "1814b69b518a8d50136f1c58935b5d01b4489332";
         hash = "sha256-69Y5+FasOKVL+kZGv8GjgS4SHUvQb42Cr12PmzVZngY=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mapviz_interfaces";
   version = "2.4.3-1";
-  src = sources.mapviz_interfaces-1814b69b518a8d50136f1c58935b5d01b4489332;
+  src = sources."mapviz_interfaces";
   nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

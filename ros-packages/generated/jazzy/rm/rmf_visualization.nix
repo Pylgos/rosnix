@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   launch_xml,
+  mkSourceSet,
   rmf_visualization_building_systems,
   rmf_visualization_fleet_states,
   rmf_visualization_floorplans,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rmf_visualization-7425f0eec9cfae30f755539a7e3ff8c4e99c6736 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_visualization" = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization-7425f0eec9cfae30f755539a7e3ff8c4e99c6736-source";
+        name = "rmf_visualization-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "7425f0eec9cfae30f755539a7e3ff8c4e99c6736";
         hash = "sha256-Yf6tYLAXIEZoxfZmTA0Wxl67vp5SeI90iIog9NWMJvw=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_visualization";
   version = "2.3.2-1";
-  src = sources.rmf_visualization-7425f0eec9cfae30f755539a7e3ff8c4e99c6736;
+  src = sources."rmf_visualization";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

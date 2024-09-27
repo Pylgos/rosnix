@@ -11,6 +11,7 @@
   image_proc,
   leo_description,
   leo_fw,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   rosapi,
@@ -21,10 +22,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    leo_bringup-154a4f309420538c58de02ee7b89b87c39a8c43a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "leo_bringup" = substituteSource {
       src = fetchgit {
-        name = "leo_bringup-154a4f309420538c58de02ee7b89b87c39a8c43a-source";
+        name = "leo_bringup-source";
         url = "https://github.com/ros2-gbp/leo_robot-release.git";
         rev = "154a4f309420538c58de02ee7b89b87c39a8c43a";
         hash = "sha256-L+gWo7c5nMDO1ro4o4wCIQuFWuJzcQOQKBKcJOdViwI=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "leo_bringup";
   version = "1.4.0-2";
-  src = sources.leo_bringup-154a4f309420538c58de02ee7b89b87c39a8c43a;
+  src = sources."leo_bringup";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

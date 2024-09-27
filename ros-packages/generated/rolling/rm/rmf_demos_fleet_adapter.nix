@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   launch_xml,
+  mkSourceSet,
   rclpy,
   rmf_fleet_adapter_python,
   rmf_fleet_msgs,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_demos_fleet_adapter-d2f0ae7941e5a3e6e80363b12c21459549f20dee = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_demos_fleet_adapter" = substituteSource {
       src = fetchgit {
-        name = "rmf_demos_fleet_adapter-d2f0ae7941e5a3e6e80363b12c21459549f20dee-source";
+        name = "rmf_demos_fleet_adapter-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
         rev = "d2f0ae7941e5a3e6e80363b12c21459549f20dee";
         hash = "sha256-dFYB9ED6GHbtco3ON4yzv8St6msZjkHD7rh0QiCmyC4=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_demos_fleet_adapter";
   version = "2.4.0-1";
-  src = sources.rmf_demos_fleet_adapter-d2f0ae7941e5a3e6e80363b12c21459549f20dee;
+  src = sources."rmf_demos_fleet_adapter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   std_msgs,
@@ -13,10 +14,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    radar_msgs-6c0b968beda9b9ca9623b7b2bea09a66ecf9f8de = substituteSource {
+  sources = mkSourceSet (sources: {
+    "radar_msgs" = substituteSource {
       src = fetchgit {
-        name = "radar_msgs-6c0b968beda9b9ca9623b7b2bea09a66ecf9f8de-source";
+        name = "radar_msgs-source";
         url = "https://github.com/ros2-gbp/radar_msgs-release.git";
         rev = "6c0b968beda9b9ca9623b7b2bea09a66ecf9f8de";
         hash = "sha256-HO0hAoc99su0O3J40Mywg7/qtbQJof/b5/wwBnx6xbI=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "radar_msgs";
   version = "0.2.2-4";
-  src = sources.radar_msgs-6c0b968beda9b9ca9623b7b2bea09a66ecf9f8de;
+  src = sources."radar_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

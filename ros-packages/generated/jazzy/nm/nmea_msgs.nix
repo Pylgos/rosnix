@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    nmea_msgs-b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nmea_msgs" = substituteSource {
       src = fetchgit {
-        name = "nmea_msgs-b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac-source";
+        name = "nmea_msgs-source";
         url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
         rev = "b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac";
         hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nmea_msgs";
   version = "2.1.0-3";
-  src = sources.nmea_msgs-b80bfbffa9a31b97cfa2952ce66e2758c00bd0ac;
+  src = sources."nmea_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

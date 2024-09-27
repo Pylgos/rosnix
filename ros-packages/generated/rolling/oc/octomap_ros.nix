@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   octomap_msgs,
   rosSystemPackages,
   sensor_msgs,
@@ -14,10 +15,10 @@
   tf2,
 }:
 let
-  sources = rec {
-    octomap_ros-eb4c4fdf125a35a9a3b0f9c45f63fee7117be16a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "octomap_ros" = substituteSource {
       src = fetchgit {
-        name = "octomap_ros-eb4c4fdf125a35a9a3b0f9c45f63fee7117be16a-source";
+        name = "octomap_ros-source";
         url = "https://github.com/ros2-gbp/octomap_ros-release.git";
         rev = "eb4c4fdf125a35a9a3b0f9c45f63fee7117be16a";
         hash = "sha256-O2xNJ++3IWtObx9amtFyVhAFiV1CMHlVbRq43ZawhE0=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "octomap_ros";
   version = "0.4.4-1";
-  src = sources.octomap_ros-eb4c4fdf125a35a9a3b0f9c45f63fee7117be16a;
+  src = sources."octomap_ros";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

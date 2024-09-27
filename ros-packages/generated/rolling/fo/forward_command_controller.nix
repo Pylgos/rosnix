@@ -11,6 +11,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    forward_command_controller-d539cbff5ab6488ead83a4bf2dd3eb0f0c286134 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "forward_command_controller" = substituteSource {
       src = fetchgit {
-        name = "forward_command_controller-d539cbff5ab6488ead83a4bf2dd3eb0f0c286134-source";
+        name = "forward_command_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "d539cbff5ab6488ead83a4bf2dd3eb0f0c286134";
         hash = "sha256-ydESp6NxrrtqpTFMzccCiZ1Yvq98COiGGGqZxTBD7s4=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "forward_command_controller";
   version = "4.14.0-1";
-  src = sources.forward_command_controller-d539cbff5ab6488ead83a4bf2dd3eb0f0c286134;
+  src = sources."forward_command_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rclpy,
   rosSystemPackages,
@@ -25,10 +26,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    rosbridge_test_msgs-fd996cb68650164c34169addc8fb596dc279b917 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbridge_test_msgs" = substituteSource {
       src = fetchgit {
-        name = "rosbridge_test_msgs-fd996cb68650164c34169addc8fb596dc279b917-source";
+        name = "rosbridge_test_msgs-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "fd996cb68650164c34169addc8fb596dc279b917";
         hash = "sha256-ZgToC3Qm971d8Pn8MxepqwV+Qby1hi//qfK1idwJSIc=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbridge_test_msgs";
   version = "1.3.2-2";
-  src = sources.rosbridge_test_msgs-fd996cb68650164c34169addc8fb596dc279b917;
+  src = sources."rosbridge_test_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

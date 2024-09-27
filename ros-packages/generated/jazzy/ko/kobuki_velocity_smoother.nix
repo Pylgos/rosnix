@@ -17,6 +17,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   nav_msgs,
   rcl_interfaces,
   rclcpp,
@@ -26,10 +27,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    kobuki_velocity_smoother-7851383e06b59c96286db423f2e4db9287693ba9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kobuki_velocity_smoother" = substituteSource {
       src = fetchgit {
-        name = "kobuki_velocity_smoother-7851383e06b59c96286db423f2e4db9287693ba9-source";
+        name = "kobuki_velocity_smoother-source";
         url = "https://github.com/ros2-gbp/kobuki_velocity_smoother-release.git";
         rev = "7851383e06b59c96286db423f2e4db9287693ba9";
         hash = "sha256-kZmyem+NJit8xtwuRz5Zx8AkdojVm7/pxgSOR63CkcM=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kobuki_velocity_smoother";
   version = "0.15.0-4";
-  src = sources.kobuki_velocity_smoother-7851383e06b59c96286db423f2e4db9287693ba9;
+  src = sources."kobuki_velocity_smoother";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

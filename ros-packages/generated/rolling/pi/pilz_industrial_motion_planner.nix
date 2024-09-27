@@ -10,6 +10,7 @@
   generate_parameter_library,
   geometry_msgs,
   launch_param_builder,
+  mkSourceSet,
   moveit_common,
   moveit_configs_utils,
   moveit_core,
@@ -36,10 +37,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    pilz_industrial_motion_planner-6c4e09661847e7e58281c4b9781ba4cf7469e3a8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pilz_industrial_motion_planner" = substituteSource {
       src = fetchgit {
-        name = "pilz_industrial_motion_planner-6c4e09661847e7e58281c4b9781ba4cf7469e3a8-source";
+        name = "pilz_industrial_motion_planner-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "6c4e09661847e7e58281c4b9781ba4cf7469e3a8";
         hash = "sha256-RSFyg5wm+9tWtBgOD5RaB8k0P6n+77DZ6lMbVpB9GeI=";
@@ -47,12 +48,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pilz_industrial_motion_planner";
   version = "2.11.0-1";
-  src = sources.pilz_industrial_motion_planner-6c4e09661847e7e58281c4b9781ba4cf7469e3a8;
+  src = sources."pilz_industrial_motion_planner";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

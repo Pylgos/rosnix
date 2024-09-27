@@ -7,16 +7,17 @@
   fetchzip,
   launch,
   launch_ros,
+  mkSourceSet,
   osrf_pycommon,
   rclpy,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    nav2_common-3b721daad17330c8f5cacb4401bc000e281f2503 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_common" = substituteSource {
       src = fetchgit {
-        name = "nav2_common-3b721daad17330c8f5cacb4401bc000e281f2503-source";
+        name = "nav2_common-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "3b721daad17330c8f5cacb4401bc000e281f2503";
         hash = "sha256-KTLurzrQG9qo/LpbBTVH2NzbYa639rHXC/ODl04veCM=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_common";
   version = "1.3.2-1";
-  src = sources.nav2_common-3b721daad17330c8f5cacb4401bc000e281f2503;
+  src = sources."nav2_common";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

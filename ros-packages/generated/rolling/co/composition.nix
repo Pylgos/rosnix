@@ -13,6 +13,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rcutils,
@@ -22,10 +23,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    composition-f2a76a348f58e59065c8b2106fb2dbb4ec0f9467 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "composition" = substituteSource {
       src = fetchgit {
-        name = "composition-f2a76a348f58e59065c8b2106fb2dbb4ec0f9467-source";
+        name = "composition-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "f2a76a348f58e59065c8b2106fb2dbb4ec0f9467";
         hash = "sha256-Ld/hGyzQUc279KalrI4VrlNrdSt03Jv4Oizphd82JsU=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "composition";
   version = "0.34.2-1";
-  src = sources.composition-f2a76a348f58e59065c8b2106fb2dbb4ec0f9467;
+  src = sources."composition";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

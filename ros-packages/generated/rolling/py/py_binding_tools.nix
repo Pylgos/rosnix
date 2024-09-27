@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   pybind11_vendor,
   rclcpp,
   rclpy,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "py_binding_tools" = substituteSource {
       src = fetchgit {
-        name = "py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7-source";
+        name = "py_binding_tools-source";
         url = "https://github.com/ros-gbp/py_binding_tools-release.git";
         rev = "f84c9aed3b91104b3320e1e3732df4344cd568b7";
         hash = "sha256-ptJcdfTt1QQXFPCJ4R1QqIIcwEOHo+ay+T7OJqwDAYo=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "py_binding_tools";
   version = "2.0.1-1";
-  src = sources.py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7;
+  src = sources."py_binding_tools";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

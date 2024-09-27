@@ -13,6 +13,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   resource_retriever,
   rosSystemPackages,
   rviz_rendering,
@@ -20,10 +21,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rviz_rendering_tests-3f583b19763660add53035c77e263497807026a3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz_rendering_tests" = substituteSource {
       src = fetchgit {
-        name = "rviz_rendering_tests-3f583b19763660add53035c77e263497807026a3-source";
+        name = "rviz_rendering_tests-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "3f583b19763660add53035c77e263497807026a3";
         hash = "sha256-XMZucfdWV95/Sa4rYi3DxWiBRSNmBjjz7i6VfrlBFDQ=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz_rendering_tests";
   version = "14.1.5-1";
-  src = sources.rviz_rendering_tests-3f583b19763660add53035c77e263497807026a3;
+  src = sources."rviz_rendering_tests";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

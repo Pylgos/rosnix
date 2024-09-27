@@ -13,6 +13,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pybind11_vendor,
   python_cmake_module,
   rclpy,
@@ -25,10 +26,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    event_camera_py-d8d4e7da07d442fb6c0a5293960c10c1ee4194e2 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "event_camera_py" = substituteSource {
       src = fetchgit {
-        name = "event_camera_py-d8d4e7da07d442fb6c0a5293960c10c1ee4194e2-source";
+        name = "event_camera_py-source";
         url = "https://github.com/ros2-gbp/event_camera_py-release.git";
         rev = "d8d4e7da07d442fb6c0a5293960c10c1ee4194e2";
         hash = "sha256-HVgDdepsNCe6JZ99bjcAJCaX3dKNocNo65RDq2tvwok=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "event_camera_py";
   version = "1.0.6-1";
-  src = sources.event_camera_py-d8d4e7da07d442fb6c0a5293960c10c1ee4194e2;
+  src = sources."event_camera_py";
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_python ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

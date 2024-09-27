@@ -12,6 +12,7 @@
   geometry_msgs,
   launch,
   launch_pytest,
+  mkSourceSet,
   pluginlib,
   rcl_interfaces,
   rclcpp,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    fuse_core-b3b1cb3f75ff1d3fa4e45646dbdbf24f5497857b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_core" = substituteSource {
       src = fetchgit {
-        name = "fuse_core-b3b1cb3f75ff1d3fa4e45646dbdbf24f5497857b-source";
+        name = "fuse_core-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "b3b1cb3f75ff1d3fa4e45646dbdbf24f5497857b";
         hash = "sha256-Ge1xbnN6OG5f2HhwAR/cxfzZv6PBB4W7N18Zhhi0RL0=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_core";
   version = "1.1.1-1";
-  src = sources.fuse_core-b3b1cb3f75ff1d3fa4e45646dbdbf24f5497857b;
+  src = sources."fuse_core";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

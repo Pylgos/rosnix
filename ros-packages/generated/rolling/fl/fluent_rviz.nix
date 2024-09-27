@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   ouxt_lint_common,
   rclcpp,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fluent_rviz" = substituteSource {
       src = fetchgit {
-        name = "fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178-source";
+        name = "fluent_rviz-source";
         url = "https://github.com/ros2-gbp/fluent_rviz-release.git";
         rev = "dfc47e81339f939273e719512fd2ddac32195178";
         hash = "sha256-/LmzIiGEHhv+jlon28dyJAjyB233kvyupBzUS01rdjA=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fluent_rviz";
   version = "0.0.3-4";
-  src = sources.fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178;
+  src = sources."fluent_rviz";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

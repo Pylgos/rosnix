@@ -6,16 +6,17 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    canopen_utils-181beef157c2ca0a620517759160ed38a96b752b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen_utils" = substituteSource {
       src = fetchgit {
-        name = "canopen_utils-181beef157c2ca0a620517759160ed38a96b752b-source";
+        name = "canopen_utils-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "181beef157c2ca0a620517759160ed38a96b752b";
         hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen_utils";
   version = "0.2.9-2";
-  src = sources.canopen_utils-181beef157c2ca0a620517759160ed38a96b752b;
+  src = sources."canopen_utils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

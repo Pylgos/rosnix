@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    ros2acceleration-68bb4a8cac40d09d0935915f94804cd724705761 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2acceleration" = substituteSource {
       src = fetchgit {
-        name = "ros2acceleration-68bb4a8cac40d09d0935915f94804cd724705761-source";
+        name = "ros2acceleration-source";
         url = "https://github.com/ros2-gbp/ros2acceleration-release.git";
         rev = "68bb4a8cac40d09d0935915f94804cd724705761";
         hash = "sha256-DRkaUv6JAKKbX1+DqnpK8wTDm1+jlEoHal/0i6rhA6I=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2acceleration";
   version = "0.5.1-3";
-  src = sources.ros2acceleration-68bb4a8cac40d09d0935915f94804cd724705761;
+  src = sources."ros2acceleration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

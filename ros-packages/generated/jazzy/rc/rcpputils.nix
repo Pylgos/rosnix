@@ -15,15 +15,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rcutils,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rcpputils-114da6d318c5254ae3ddad8eb29006411796ca8b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rcpputils" = substituteSource {
       src = fetchgit {
-        name = "rcpputils-114da6d318c5254ae3ddad8eb29006411796ca8b-source";
+        name = "rcpputils-source";
         url = "https://github.com/ros2-gbp/rcpputils-release.git";
         rev = "114da6d318c5254ae3ddad8eb29006411796ca8b";
         hash = "sha256-A4fgkUrENQpRAgy7AiiW8WK1huoOIvTvoYr4bKTwQK0=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rcpputils";
   version = "2.11.0-2";
-  src = sources.rcpputils-114da6d318c5254ae3ddad8eb29006411796ca8b;
+  src = sources."rcpputils";
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

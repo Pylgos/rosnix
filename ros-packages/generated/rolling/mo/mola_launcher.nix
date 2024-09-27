@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mola_kernel,
   mrpt_libbase,
   mrpt_libtclap,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mola_launcher-a0dd346613def04c864ec30a0ef97801b6a4e6ad = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola_launcher" = substituteSource {
       src = fetchgit {
-        name = "mola_launcher-a0dd346613def04c864ec30a0ef97801b6a4e6ad-source";
+        name = "mola_launcher-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "a0dd346613def04c864ec30a0ef97801b6a4e6ad";
         hash = "sha256-t+SvG1m0boHugXxwPsxff6QyiBGYbCvHURDjrt7K7TU=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola_launcher";
   version = "1.2.0-1";
-  src = sources.mola_launcher-a0dd346613def04c864ec30a0ef97801b6a4e6ad;
+  src = sources."mola_launcher";
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   lifecycle_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    sick_safevisionary_driver-65413cf196877b4b2d90c5dcb09594bd64f645ff = substituteSource {
+  sources = mkSourceSet (sources: {
+    "sick_safevisionary_driver" = substituteSource {
       src = fetchgit {
-        name = "sick_safevisionary_driver-65413cf196877b4b2d90c5dcb09594bd64f645ff-source";
+        name = "sick_safevisionary_driver-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
         rev = "65413cf196877b4b2d90c5dcb09594bd64f645ff";
         hash = "sha256-+JkVULStq1kUDR609jEbn44uWsjZ4O5x1ogtxSHoM8Y=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "sick_safevisionary_driver";
   version = "1.0.3-2";
-  src = sources.sick_safevisionary_driver-65413cf196877b4b2d90c5dcb09594bd64f645ff;
+  src = sources."sick_safevisionary_driver";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,6 +11,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rcl_interfaces,
   rclpy,
   ros2bag,
@@ -19,10 +20,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    launch_testing_examples-e108dbcd077d21661317d3f2aec1bbc1ce82719f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "launch_testing_examples" = substituteSource {
       src = fetchgit {
-        name = "launch_testing_examples-e108dbcd077d21661317d3f2aec1bbc1ce82719f-source";
+        name = "launch_testing_examples-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "e108dbcd077d21661317d3f2aec1bbc1ce82719f";
         hash = "sha256-Kw/HBLjTaLj+zjxaMJ/3mItcr9/VgqQIp0U7ibvwrck=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "launch_testing_examples";
   version = "0.20.2-1";
-  src = sources.launch_testing_examples-e108dbcd077d21661317d3f2aec1bbc1ce82719f;
+  src = sources."launch_testing_examples";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

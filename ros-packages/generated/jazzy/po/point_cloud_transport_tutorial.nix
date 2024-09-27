@@ -10,6 +10,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   point_cloud_transport,
   point_cloud_transport_plugins,
   rclcpp,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    point_cloud_transport_tutorial-ccd2158c015825d178014cf7a96d1a6e48165bd2 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "point_cloud_transport_tutorial" = substituteSource {
       src = fetchgit {
-        name = "point_cloud_transport_tutorial-ccd2158c015825d178014cf7a96d1a6e48165bd2-source";
+        name = "point_cloud_transport_tutorial-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_tutorial-release.git";
         rev = "ccd2158c015825d178014cf7a96d1a6e48165bd2";
         hash = "sha256-buQXTqTqhIZJ68B+sbZ3lVovLVRVKBrL7yCCoQygSc8=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "point_cloud_transport_tutorial";
   version = "0.0.2-2";
-  src = sources.point_cloud_transport_tutorial-ccd2158c015825d178014cf7a96d1a6e48165bd2;
+  src = sources."point_cloud_transport_tutorial";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

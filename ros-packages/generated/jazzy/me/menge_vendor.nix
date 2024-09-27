@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    menge_vendor-dc8e4100a05e84a960dcb1362a6c08fd42f7cb06 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "menge_vendor" = substituteSource {
       src = fetchgit {
-        name = "menge_vendor-dc8e4100a05e84a960dcb1362a6c08fd42f7cb06-source";
+        name = "menge_vendor-source";
         url = "https://github.com/ros2-gbp/menge_vendor-release.git";
         rev = "dc8e4100a05e84a960dcb1362a6c08fd42f7cb06";
         hash = "sha256-AJu4LBC/jCbOc7xsuWQYqlSM6c4VDKO69VNdPQljsDE=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "menge_vendor";
   version = "1.2.1-1";
-  src = sources.menge_vendor-dc8e4100a05e84a960dcb1362a6c08fd42f7cb06;
+  src = sources."menge_vendor";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

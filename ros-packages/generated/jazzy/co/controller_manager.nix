@@ -17,6 +17,7 @@
   hardware_interface_testing,
   launch,
   launch_ros,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rcpputils,
@@ -29,10 +30,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    controller_manager-7fc492da65daaa9af68a50a09ca41113f13c2977 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "controller_manager" = substituteSource {
       src = fetchgit {
-        name = "controller_manager-7fc492da65daaa9af68a50a09ca41113f13c2977-source";
+        name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "7fc492da65daaa9af68a50a09ca41113f13c2977";
         hash = "sha256-AURhVjjIW1iQszNXkH6YWyBbn+/6a3A8KUNIVE8fiDA=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "controller_manager";
   version = "4.17.0-1";
-  src = sources.controller_manager-7fc492da65daaa9af68a50a09ca41113f13c2977;
+  src = sources."controller_manager";
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,6 +13,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_action,
@@ -22,10 +23,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    gripper_controllers-eeea0d7eae538f89690b25e309941da77ca30553 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gripper_controllers" = substituteSource {
       src = fetchgit {
-        name = "gripper_controllers-eeea0d7eae538f89690b25e309941da77ca30553-source";
+        name = "gripper_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "eeea0d7eae538f89690b25e309941da77ca30553";
         hash = "sha256-UMxav6pRuZYG0Gkt4NNrhFwMh+zqbgoG1CK85yQV1wU=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "gripper_controllers";
   version = "4.14.0-1";
-  src = sources.gripper_controllers-eeea0d7eae538f89690b25e309941da77ca30553;
+  src = sources."gripper_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

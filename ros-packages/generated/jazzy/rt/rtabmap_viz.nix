@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rtabmap_viz-95c83fa8acd187ccd7be6fd8ca6682afb4c16722 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rtabmap_viz" = substituteSource {
       src = fetchgit {
-        name = "rtabmap_viz-95c83fa8acd187ccd7be6fd8ca6682afb4c16722-source";
+        name = "rtabmap_viz-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
         rev = "95c83fa8acd187ccd7be6fd8ca6682afb4c16722";
         hash = "sha256-i/Ejwe1AqGUqr5YWHKW0QY/bMtLwiWrtUd/S6kdAw8Q=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rtabmap_viz";
   version = "0.21.5-3";
-  src = sources.rtabmap_viz-95c83fa8acd187ccd7be6fd8ca6682afb4c16722;
+  src = sources."rtabmap_viz";
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

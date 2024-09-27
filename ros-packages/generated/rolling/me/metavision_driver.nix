@@ -14,6 +14,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   openeb_vendor,
   rclcpp,
   rclcpp_components,
@@ -23,10 +24,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "metavision_driver" = substituteSource {
       src = fetchgit {
-        name = "metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836-source";
+        name = "metavision_driver-source";
         url = "https://github.com/ros2-gbp/metavision_driver-release.git";
         rev = "c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836";
         hash = "sha256-cY39QdEEs1lKLaScyeWrofuyVggQEi1Ofnc2JlfEv34=";
@@ -35,13 +36,13 @@ let
         {
           path = "cmake/ROS1.cmake";
           from = "GIT_REPOSITORY https://github.com/ros-event-camera/openeb.git";
-          to = "URL ${openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9}";
+          to = "URL ${sources."metavision_driver/openeb"}";
         }
       ];
     };
-    openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9 = substituteSource {
+    "metavision_driver/openeb" = substituteSource {
       src = fetchgit {
-        name = "openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9-source";
+        name = "openeb-source";
         url = "https://github.com/ros-event-camera/openeb.git";
         rev = "db34531b9d0fef952e39f5fef7169e583575b6e9";
         hash = "sha256-QHs3Bz6Mj08Rk8lUAIyWfMwMcoW1XCswASYhX0hfPiM=";
@@ -49,12 +50,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "metavision_driver";
   version = "2.0.0-1";
-  src = sources.metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836;
+  src = sources."metavision_driver";
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

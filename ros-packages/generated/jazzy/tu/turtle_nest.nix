@@ -6,15 +6,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    turtle_nest-c72ef68cf0a0269dbe9a93fc49b4d2bbd44ce78c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtle_nest" = substituteSource {
       src = fetchgit {
-        name = "turtle_nest-c72ef68cf0a0269dbe9a93fc49b4d2bbd44ce78c-source";
+        name = "turtle_nest-source";
         url = "https://github.com/ros2-gbp/turtle_nest-release.git";
         rev = "c72ef68cf0a0269dbe9a93fc49b4d2bbd44ce78c";
         hash = "sha256-ZOCujpxbSs8G7iK430a6Q5AzSeAzQ5Dh2CfDIZ1XlAY=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtle_nest";
   version = "1.0.2-1";
-  src = sources.turtle_nest-c72ef68cf0a0269dbe9a93fc49b4d2bbd44ce78c;
+  src = sources."turtle_nest";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

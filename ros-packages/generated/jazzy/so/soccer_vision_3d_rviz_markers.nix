@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   soccer_vision_3d_msgs,
@@ -14,10 +15,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    soccer_vision_3d_rviz_markers-0f9e4a04b95b9a0bb158ed0d6529cd8ce72cea53 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "soccer_vision_3d_rviz_markers" = substituteSource {
       src = fetchgit {
-        name = "soccer_vision_3d_rviz_markers-0f9e4a04b95b9a0bb158ed0d6529cd8ce72cea53-source";
+        name = "soccer_vision_3d_rviz_markers-source";
         url = "https://github.com/ros2-gbp/soccer_vision_3d_rviz_markers-release.git";
         rev = "0f9e4a04b95b9a0bb158ed0d6529cd8ce72cea53";
         hash = "sha256-69FCCxAxZa6hSkchZAWrsNb7uNruIRhwkIConj14Ue4=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "soccer_vision_3d_rviz_markers";
   version = "1.0.0-2";
-  src = sources.soccer_vision_3d_rviz_markers-0f9e4a04b95b9a0bb158ed0d6529cd8ce72cea53;
+  src = sources."soccer_vision_3d_rviz_markers";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -76,11 +76,12 @@ fn generate_parameters(
         .collect();
     params.extend([
         "buildRosPackage",
+        "fetchgit",
         "fetchurl",
         "fetchzip",
-        "fetchgit",
-        "substituteSource",
+        "mkSourceSet",
         "rosSystemPackages",
+        "substituteSource",
     ]);
     writeln!(dst, "{{")?;
     for param in params {
@@ -93,7 +94,11 @@ fn generate_parameters(
 fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManifest) -> Result<()> {
     writeln!(dst, "pname = {};", escape(&manifest.name))?;
     writeln!(dst, "version = {};", escape(&manifest.release_version))?;
-    writeln!(dst, "src = sources.{};", ctx.sources[&manifest.name].name())?;
+    writeln!(
+        dst,
+        "src = sources.{};",
+        escape(ctx.sources[&manifest.name].local_name())
+    )?;
     let deps = &ctx.deps[&manifest.name];
     let get_dep_string = |kind: NixDependencyKind, propagated: bool| -> String {
         let ros_pkgs_str = deps
@@ -179,12 +184,12 @@ fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> R
     );
     generate_parameters(ctx, &mut dst, manifest, &extra_packages)?;
     writeln!(dst, "let")?;
-    writeln!(dst, "  sources = rec {{")?;
+    writeln!(dst, "  sources = mkSourceSet (sources: {{")?;
     generate_source_list(
         indented(&mut dst).with_str("    "),
         all_srcs.values().copied(),
     )?;
-    writeln!(dst, "  }};")?;
+    writeln!(dst, "  }});")?;
     writeln!(dst, "in")?;
     writeln!(dst, "buildRosPackage {{")?;
     generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest)?;
@@ -199,7 +204,7 @@ fn collect_sources_and_packages<'a>(
     packages: &mut BTreeSet<String>,
     src: &'a PatchedSource,
 ) {
-    sources.insert(src.name().to_string(), src);
+    sources.insert(src.local_name().to_string(), src);
     for sub in src.substitutions.iter() {
         match &sub.with {
             Replacement::Path(src) => collect_sources_and_packages(sources, packages, src),
@@ -219,8 +224,9 @@ fn generate_source_list<'a>(
     sources: impl IntoIterator<Item = &'a PatchedSource>,
 ) -> Result<()> {
     for src in sources.into_iter() {
-        let drv_name = src.name().to_string() + "-source";
-        writeln!(dst, "{} = substituteSource {{", src.name())?;
+        let local_name = src.local_name();
+        let drv_name = src.source.name().to_string() + "-source";
+        writeln!(dst, "{} = substituteSource {{", escape(local_name))?;
         write!(dst, "  src = ")?;
         match src.source.kind() {
             SourceKind::Git { rev } => {
@@ -256,14 +262,20 @@ fn generate_source_list<'a>(
                     writeln!(
                         dst,
                         "      to = {};",
-                        quote(&format!("VCS_TYPE path VCS_URL ${{{}}}", with_src.name()))
+                        quote(&format!(
+                            "VCS_TYPE path VCS_URL ${{sources.{}}}",
+                            escape(with_src.local_name())
+                        ))
                     )?;
                 }
                 Replacement::Url(with_src) => {
                     writeln!(
                         dst,
                         "      to = {};",
-                        quote(&format!("URL ${{{}}}", with_src.name()))
+                        quote(&format!(
+                            "URL ${{sources.{}}}",
+                            escape(with_src.local_name())
+                        ))
                     )?;
                 }
                 Replacement::Literal(to) => {
@@ -273,7 +285,10 @@ fn generate_source_list<'a>(
                     writeln!(
                         dst,
                         "      to = {};",
-                        quote(&format!("DOWNLOAD file://${{{}}}", with_src.name()))
+                        quote(&format!(
+                            "DOWNLOAD file://${{sources.{}}}",
+                            escape(with_src.local_name())
+                        ))
                     )?;
                 }
                 Replacement::Prefixed(prefix, with_src) => {
@@ -281,7 +296,7 @@ fn generate_source_list<'a>(
                         dst,
                         "      to = {} + {};",
                         escape(prefix),
-                        quote(&format!("${{{}}}", with_src.name()))
+                        quote(&format!("${{sources.{}}}", escape(with_src.local_name())))
                     )?;
                 }
                 Replacement::Shebang(package, program) => {

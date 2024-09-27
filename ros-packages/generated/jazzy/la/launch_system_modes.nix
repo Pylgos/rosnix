@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   osrf_pycommon,
   rclpy,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   system_modes_msgs,
 }:
 let
-  sources = rec {
-    launch_system_modes-a08a9c8c80eee8713a7f490c95cd4db75d3f1805 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "launch_system_modes" = substituteSource {
       src = fetchgit {
-        name = "launch_system_modes-a08a9c8c80eee8713a7f490c95cd4db75d3f1805-source";
+        name = "launch_system_modes-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
         rev = "a08a9c8c80eee8713a7f490c95cd4db75d3f1805";
         hash = "sha256-igv7EQutLOf+qcExGB554hDDTuFxB1P9COvQUY2izGA=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "launch_system_modes";
   version = "0.9.0-6";
-  src = sources.launch_system_modes-a08a9c8c80eee8713a7f490c95cd4db75d3f1805;
+  src = sources."launch_system_modes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

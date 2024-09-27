@@ -10,6 +10,7 @@
   fetchzip,
   geometry_msgs,
   image_transport,
+  mkSourceSet,
   rcl_interfaces,
   rclcpp,
   rclcpp_components,
@@ -21,10 +22,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    image_rotate-f9648c9be7f8b4d9923990b4b106fd89cc62652c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_rotate" = substituteSource {
       src = fetchgit {
-        name = "image_rotate-f9648c9be7f8b4d9923990b4b106fd89cc62652c-source";
+        name = "image_rotate-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "f9648c9be7f8b4d9923990b4b106fd89cc62652c";
         hash = "sha256-jV2awc/4IqzpRf0eROKHMgP7SVwoUXyX1ZkqyhG3NeA=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_rotate";
   version = "5.0.4-1";
-  src = sources.image_rotate-f9648c9be7f8b4d9923990b4b106fd89cc62652c;
+  src = sources."image_rotate";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

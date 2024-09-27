@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rcpputils,
   rcutils,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   tinyxml2_vendor,
 }:
 let
-  sources = rec {
-    pluginlib-e8b556270ca67d5640214fb34d895a2ff5081689 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pluginlib" = substituteSource {
       src = fetchgit {
-        name = "pluginlib-e8b556270ca67d5640214fb34d895a2ff5081689-source";
+        name = "pluginlib-source";
         url = "https://github.com/ros2-gbp/pluginlib-release.git";
         rev = "e8b556270ca67d5640214fb34d895a2ff5081689";
         hash = "sha256-ZIVIHw0nimqFqss8537p3ec6RbiUeWpREml5RkLqwdg=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pluginlib";
   version = "5.4.2-2";
-  src = sources.pluginlib-e8b556270ca67d5640214fb34d895a2ff5081689;
+  src = sources."pluginlib";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

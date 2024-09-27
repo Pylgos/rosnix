@@ -7,91 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl = substituteSource {
-      src = fetchurl {
-        name = "SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl-source";
-        url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
-        hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
-      };
-      substitutions = [
-      ];
-    };
-    freetype2-vendor_source-920c5502cc3ddda88f6c7d85ee834ac611bb11cc = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz_ogre_vendor" = substituteSource {
       src = fetchgit {
-        name = "freetype2-vendor_source-920c5502cc3ddda88f6c7d85ee834ac611bb11cc-source";
-        url = "https://git.savannah.gnu.org/git/freetype/freetype2.git";
-        rev = "920c5502cc3ddda88f6c7d85ee834ac611bb11cc";
-        hash = "sha256-yylSmVM3D5xnbFx9qEEHFIP/K0x/WDXZr0MA4C7ng7k=";
-      };
-      substitutions = [
-      ];
-    };
-    freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s = substituteSource {
-      src = fetchurl {
-        name = "freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s-source";
-        url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-        hash = "sha256-OmDTkf1XlEBWG/Dn8xryIivGEK1s5NnXvSFlvKhmkRA=";
-      };
-      substitutions = [
-      ];
-    };
-    ogre-vendor_source-93d7eb5282d31b956f008a53e837bbb820b34454 = substituteSource {
-      src = fetchgit {
-        name = "ogre-vendor_source-93d7eb5282d31b956f008a53e837bbb820b34454-source";
-        url = "https://github.com/OGRECave/ogre.git";
-        rev = "93d7eb5282d31b956f008a53e837bbb820b34454";
-        hash = "sha256-Z0ixdSmkV93coBBVZ5R3lPLfVMXRfWsFz/RsSyqPWFY=";
-      };
-      substitutions = [
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-          to = "DOWNLOAD file://${freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s}";
-        }
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
-          to = "DOWNLOAD file://${SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl}";
-        }
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n          https://github.com/assimp/assimp/archive/v5.0.1.tar.gz";
-          to = "DOWNLOAD file://${v5-vendor_source-1z6vndvvkqixbv2ha9m1kbz1xaksiz5gm25sjmmx8b5dyb0hwc8i}";
-        }
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n        https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz";
-          to = "DOWNLOAD file://${v0-vendor_source-1qlxid5k911mz5y5frfjbmk8s7y5gf2n4nyydg27rv3qpgxy1q9f}";
-        }
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n        https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
-          to = "DOWNLOAD file://${pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm}";
-        }
-        {
-          path = "Components/Overlay/CMakeLists.txt";
-          from = "DOWNLOAD\n        https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
-          to = "DOWNLOAD file://${v1-vendor_source-196h9is33nnjm39qh15ihhk8hvvzhicr5hkjsnjbhvfwyq0qb47i}";
-        }
-      ];
-    };
-    pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm = substituteSource {
-      src = fetchurl {
-        name = "pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm-source";
-        url = "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
-        hash = "sha256-VfOZ+7RwlCQQ00hYTclTvK7JJkFdNGL0ce81Dym1hwo=";
-      };
-      substitutions = [
-      ];
-    };
-    rviz_ogre_vendor-2a7577f98d3e60b0136f6871e5ba260fe7ffef6c = substituteSource {
-      src = fetchgit {
-        name = "rviz_ogre_vendor-2a7577f98d3e60b0136f6871e5ba260fe7ffef6c-source";
+        name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "2a7577f98d3e60b0136f6871e5ba260fe7ffef6c";
         hash = "sha256-95DQnpkL5cSkC6FXod+ZogsXePqG29UBGPrjrOjycUM=";
@@ -100,50 +24,127 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git";
-          to = "VCS_TYPE path VCS_URL ${freetype2-vendor_source-920c5502cc3ddda88f6c7d85ee834ac611bb11cc}";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype2"}";
         }
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/OGRECave/ogre.git";
-          to = "VCS_TYPE path VCS_URL ${ogre-vendor_source-93d7eb5282d31b956f008a53e837bbb820b34454}";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/ogre"}";
         }
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/madler/zlib.git";
-          to = "VCS_TYPE path VCS_URL ${zlib-vendor_source-09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851}";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
       ];
     };
-    v0-vendor_source-1qlxid5k911mz5y5frfjbmk8s7y5gf2n4nyydg27rv3qpgxy1q9f = substituteSource {
+    "rviz_ogre_vendor/freetype2" = substituteSource {
+      src = fetchgit {
+        name = "freetype2-source";
+        url = "https://git.savannah.gnu.org/git/freetype/freetype2.git";
+        rev = "920c5502cc3ddda88f6c7d85ee834ac611bb11cc";
+        hash = "sha256-yylSmVM3D5xnbFx9qEEHFIP/K0x/WDXZr0MA4C7ng7k=";
+      };
+      substitutions = [
+      ];
+    };
+    "rviz_ogre_vendor/ogre" = substituteSource {
+      src = fetchgit {
+        name = "ogre-source";
+        url = "https://github.com/OGRECave/ogre.git";
+        rev = "93d7eb5282d31b956f008a53e837bbb820b34454";
+        hash = "sha256-Z0ixdSmkV93coBBVZ5R3lPLfVMXRfWsFz/RsSyqPWFY=";
+      };
+      substitutions = [
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-2"}";
+        }
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/SDL2-2"}";
+        }
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n          https://github.com/assimp/assimp/archive/v5.0.1.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/v5"}";
+        }
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n        https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/v0"}";
+        }
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n        https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/pugixml-1"}";
+        }
+        {
+          path = "Components/Overlay/CMakeLists.txt";
+          from = "DOWNLOAD\n        https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/v1"}";
+        }
+      ];
+    };
+    "rviz_ogre_vendor/ogre/SDL2-2" = substituteSource {
       src = fetchurl {
-        name = "v0-vendor_source-1qlxid5k911mz5y5frfjbmk8s7y5gf2n4nyydg27rv3qpgxy1q9f-source";
+        name = "SDL2-2-source";
+        url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
+        hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
+      };
+      substitutions = [
+      ];
+    };
+    "rviz_ogre_vendor/ogre/freetype-2" = substituteSource {
+      src = fetchurl {
+        name = "freetype-2-source";
+        url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
+        hash = "sha256-OmDTkf1XlEBWG/Dn8xryIivGEK1s5NnXvSFlvKhmkRA=";
+      };
+      substitutions = [
+      ];
+    };
+    "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {
+      src = fetchurl {
+        name = "pugixml-1-source";
+        url = "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
+        hash = "sha256-VfOZ+7RwlCQQ00hYTclTvK7JJkFdNGL0ce81Dym1hwo=";
+      };
+      substitutions = [
+      ];
+    };
+    "rviz_ogre_vendor/ogre/v0" = substituteSource {
+      src = fetchurl {
+        name = "v0-source";
         url = "https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz";
         hash = "sha256-LuHg+7t47HzEa95bYoV7xR+NZl3SZVd8+TWENEuLneI=";
       };
       substitutions = [
       ];
     };
-    v1-vendor_source-196h9is33nnjm39qh15ihhk8hvvzhicr5hkjsnjbhvfwyq0qb47i = substituteSource {
+    "rviz_ogre_vendor/ogre/v1" = substituteSource {
       src = fetchurl {
-        name = "v1-vendor_source-196h9is33nnjm39qh15ihhk8hvvzhicr5hkjsnjbhvfwyq0qb47i-source";
+        name = "v1-source";
         url = "https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
         hash = "sha256-8ZCFAfbcbbik1XLCklmEf2+IJoSxBIjTqNLaMXRM0KQ=";
       };
       substitutions = [
       ];
     };
-    v5-vendor_source-1z6vndvvkqixbv2ha9m1kbz1xaksiz5gm25sjmmx8b5dyb0hwc8i = substituteSource {
+    "rviz_ogre_vendor/ogre/v5" = substituteSource {
       src = fetchurl {
-        name = "v5-vendor_source-1z6vndvvkqixbv2ha9m1kbz1xaksiz5gm25sjmmx8b5dyb0hwc8i-source";
+        name = "v5-source";
         url = "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz";
         hash = "sha256-ETEOwfKtLNRrlbqI+sqPeqoe/pqhJgXFXj3iuXez2/w=";
       };
       substitutions = [
       ];
     };
-    zlib-vendor_source-09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851 = substituteSource {
+    "rviz_ogre_vendor/zlib" = substituteSource {
       src = fetchgit {
-        name = "zlib-vendor_source-09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851-source";
+        name = "zlib-source";
         url = "https://github.com/madler/zlib.git";
         rev = "09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851";
         hash = "sha256-eUuXV5zfy+fmiMNdWw5QCqDloBkaxy1tgi7by9nYHNA=";
@@ -151,12 +152,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz_ogre_vendor";
   version = "14.2.6-1";
-  src = sources.rviz_ogre_vendor-2a7577f98d3e60b0136f6871e5ba260fe7ffef6c;
+  src = sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

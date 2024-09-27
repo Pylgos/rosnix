@@ -17,6 +17,7 @@
   launch,
   launch_ros,
   launch_testing_ament_cmake,
+  mkSourceSet,
   pluginlib,
   position_controllers,
   rclcpp,
@@ -41,10 +42,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    ur_robot_driver-099fe0693a6664befe9f3c3824d32ca37f5615e4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ur_robot_driver" = substituteSource {
       src = fetchgit {
-        name = "ur_robot_driver-099fe0693a6664befe9f3c3824d32ca37f5615e4-source";
+        name = "ur_robot_driver-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "099fe0693a6664befe9f3c3824d32ca37f5615e4";
         hash = "sha256-mJ7a9PTlrO5EdPL530/dPZX5cVmd+ht/6uVaVPLQgjU=";
@@ -52,12 +53,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ur_robot_driver";
   version = "2.4.10-1";
-  src = sources.ur_robot_driver-099fe0693a6664befe9f3c3824d32ca37f5615e4;
+  src = sources."ur_robot_driver";
   nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

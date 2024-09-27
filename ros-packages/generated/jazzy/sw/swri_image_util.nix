@@ -12,6 +12,7 @@
   image_geometry,
   image_transport,
   message_filters,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rclcpp_components,
@@ -26,10 +27,10 @@
   tf2,
 }:
 let
-  sources = rec {
-    swri_image_util-80080a0e8502142c80195ba5e2389ddf0ce9dce1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "swri_image_util" = substituteSource {
       src = fetchgit {
-        name = "swri_image_util-80080a0e8502142c80195ba5e2389ddf0ce9dce1-source";
+        name = "swri_image_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "80080a0e8502142c80195ba5e2389ddf0ce9dce1";
         hash = "sha256-j9Mganqzf50jti2W8E9b2PZAepIFOzUkxNgzcua8Tyw=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "swri_image_util";
   version = "3.7.3-1";
-  src = sources.swri_image_util-80080a0e8502142c80195ba5e2389ddf0ce9dce1;
+  src = sources."swri_image_util";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

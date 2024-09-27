@@ -4,6 +4,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   rosbag2,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_bag_plugins-611ec8d4d363d887f64260ce376ddce1f586137e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_bag_plugins" = substituteSource {
       src = fetchgit {
-        name = "rqt_bag_plugins-611ec8d4d363d887f64260ce376ddce1f586137e-source";
+        name = "rqt_bag_plugins-source";
         url = "https://github.com/ros2-gbp/rqt_bag-release.git";
         rev = "611ec8d4d363d887f64260ce376ddce1f586137e";
         hash = "sha256-PlJfh+9GTcXBnMWt/FkDemyryrX4N2GwiEQrKimfSNs=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_bag_plugins";
   version = "1.5.4-1";
-  src = sources.rqt_bag_plugins-611ec8d4d363d887f64260ce376ddce1f586137e;
+  src = sources."rqt_bag_plugins";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

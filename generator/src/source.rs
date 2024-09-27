@@ -59,6 +59,7 @@ pub enum SourceKind {
 }
 
 impl Source {
+    #[tracing::instrument]
     pub async fn fetch_url(name: &str, url: &str, unpack: bool) -> Result<Self> {
         debug!("fetching archive {}", url);
         let mut url = url.to_string();
@@ -142,7 +143,7 @@ impl Source {
         let hash = parse_nix_base32(nix32_hash).context("failed to pares hash")?;
         let path = lines.next().context("no path from nix-prefetch-url")?;
         Ok(Source {
-            name: format!("{name}-{nix32_hash}"),
+            name: name.to_string(),
             url: url.to_string(),
             path: path.into(),
             nar_hash: format!("sha256-{}", STANDARD.encode(hash)),
@@ -154,6 +155,7 @@ impl Source {
         })
     }
 
+    #[tracing::instrument]
     pub async fn fetch_git(name: &str, url: &str, rev_or_branch: &str) -> Result<Self> {
         #[derive(Debug, Deserialize)]
         struct Out {
@@ -205,7 +207,7 @@ impl Source {
             out.path.to_string_lossy()
         );
         Ok(Source {
-            name: format!("{name}-{}", out.rev),
+            name: name.to_string(),
             url: url.to_string(),
             path: out.path,
             nar_hash: out.hash,
@@ -316,7 +318,6 @@ impl Fetcher {
         Arc::new(Self::new(cfg, name))
     }
 
-    #[tracing::instrument(skip(self))]
     pub async fn fetch_url(&self, name: &str, url: &str, unpack: bool) -> Result<Source> {
         let key = format!("url {url}{}", if unpack { " unpacked" } else { "" });
         let cell = self
@@ -327,7 +328,7 @@ impl Fetcher {
             .entry(key)
             .or_default()
             .clone();
-        let source = cell
+        let mut source = cell
             .get_or_init(|| async {
                 let _permit = self.semaphore.acquire().await.unwrap();
                 let source = Source::fetch_url(name, url, unpack)
@@ -339,10 +340,10 @@ impl Fetcher {
             .await
             .clone()
             .map_err(|e| anyhow!(e))?;
+        source.name = name.to_string();
         Ok(source)
     }
 
-    #[tracing::instrument(skip(self))]
     pub async fn fetch_git(&self, name: &str, url: &str, rev_or_branch: &str) -> Result<Source> {
         let key = format!("git {url} {rev_or_branch}");
         let cell = self
@@ -353,7 +354,7 @@ impl Fetcher {
             .entry(key)
             .or_default()
             .clone();
-        let source = cell
+        let mut source = cell
             .get_or_init(|| async {
                 let _permit = self.semaphore.acquire().await.unwrap();
                 let source = Source::fetch_git(name, url, rev_or_branch)
@@ -365,6 +366,7 @@ impl Fetcher {
             .await
             .clone()
             .map_err(|e| anyhow!(e))?;
+        source.name = name.to_string();
         Ok(source)
     }
 

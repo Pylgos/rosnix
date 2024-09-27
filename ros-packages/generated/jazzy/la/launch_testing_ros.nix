@@ -9,16 +9,17 @@
   fetchzip,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    launch_testing_ros-8e943047d58bff614e8f7dd35c0c809bf58a1f12 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "launch_testing_ros" = substituteSource {
       src = fetchgit {
-        name = "launch_testing_ros-8e943047d58bff614e8f7dd35c0c809bf58a1f12-source";
+        name = "launch_testing_ros-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
         rev = "8e943047d58bff614e8f7dd35c0c809bf58a1f12";
         hash = "sha256-EaW2/JmgZXRjYiG0YFcWQA2jQNQVAnPudqOLe3J7/kA=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "launch_testing_ros";
   version = "0.26.5-2";
-  src = sources.launch_testing_ros-8e943047d58bff614e8f7dd35c0c809bf58a1f12;
+  src = sources."launch_testing_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

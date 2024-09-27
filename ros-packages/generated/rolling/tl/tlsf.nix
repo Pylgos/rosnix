@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    tlsf-7343faeacbd482de59c5b354142c9768dbefd5cf = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tlsf" = substituteSource {
       src = fetchgit {
-        name = "tlsf-7343faeacbd482de59c5b354142c9768dbefd5cf-source";
+        name = "tlsf-source";
         url = "https://github.com/ros2-gbp/tlsf-release.git";
         rev = "7343faeacbd482de59c5b354142c9768dbefd5cf";
         hash = "sha256-LlSOBxVaivTLUWDXxw8htxFqfRTn3hQ96vU2rW6XVM4=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tlsf";
   version = "0.10.0-1";
-  src = sources.tlsf-7343faeacbd482de59c5b354142c9768dbefd5cf;
+  src = sources."tlsf";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   realtime_tools,
   rosSystemPackages,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    battery_state_broadcaster-e524fc46c70f55c6dc99857564279390e1291ffb = substituteSource {
+  sources = mkSourceSet (sources: {
+    "battery_state_broadcaster" = substituteSource {
       src = fetchgit {
-        name = "battery_state_broadcaster-e524fc46c70f55c6dc99857564279390e1291ffb-source";
+        name = "battery_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros_battery_monitoring-release.git";
         rev = "e524fc46c70f55c6dc99857564279390e1291ffb";
         hash = "sha256-ynQossur/wBDAwdNLaf0DVCZVv6fkXa6OyEyCrDtoWs=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "battery_state_broadcaster";
   version = "1.0.0-1";
-  src = sources.battery_state_broadcaster-e524fc46c70f55c6dc99857564279390e1291ffb;
+  src = sources."battery_state_broadcaster";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

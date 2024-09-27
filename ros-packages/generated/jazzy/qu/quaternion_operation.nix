@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   ouxt_lint_common,
   rclcpp,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "quaternion_operation" = substituteSource {
       src = fetchgit {
-        name = "quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6-source";
+        name = "quaternion_operation-source";
         url = "https://github.com/ros2-gbp/quaternion_operation-release.git";
         rev = "5caa679fcf2a9098a3c9fb91fe47c62b4006baf6";
         hash = "sha256-EOoZrowJNVGtJNutD+5WlSgVWbmOGlzSJyvsALmfji8=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "quaternion_operation";
   version = "0.0.7-5";
-  src = sources.quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6;
+  src = sources."quaternion_operation";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,6 +13,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   std_msgs,
@@ -21,10 +22,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    twist_mux-87f98d24c9376887efec3fc2767e307804831d1e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "twist_mux" = substituteSource {
       src = fetchgit {
-        name = "twist_mux-87f98d24c9376887efec3fc2767e307804831d1e-source";
+        name = "twist_mux-source";
         url = "https://github.com/ros2-gbp/twist_mux-release.git";
         rev = "87f98d24c9376887efec3fc2767e307804831d1e";
         hash = "sha256-1U2LplwpCgA8qKz24xmFg4QH73v52isEVKL9Xck6OlA=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "twist_mux";
   version = "4.3.0-2";
-  src = sources.twist_mux-87f98d24c9376887efec3fc2767e307804831d1e;
+  src = sources."twist_mux";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

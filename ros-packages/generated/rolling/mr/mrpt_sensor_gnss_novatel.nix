@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libhwdrivers,
   mrpt_libros_bridge,
   mrpt_msgs,
@@ -25,10 +26,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    mrpt_sensor_gnss_novatel-479838fcf32f37be59a42a1e8a025f3dda0ffc5d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_sensor_gnss_novatel" = substituteSource {
       src = fetchgit {
-        name = "mrpt_sensor_gnss_novatel-479838fcf32f37be59a42a1e8a025f3dda0ffc5d-source";
+        name = "mrpt_sensor_gnss_novatel-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "479838fcf32f37be59a42a1e8a025f3dda0ffc5d";
         hash = "sha256-a+Dr6zLT/8aT1Es2/Z+1frdq7qfMXe/ogHp5XRpXhgg=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_sensor_gnss_novatel";
   version = "0.2.3-1";
-  src = sources.mrpt_sensor_gnss_novatel-479838fcf32f37be59a42a1e8a025f3dda0ffc5d;
+  src = sources."mrpt_sensor_gnss_novatel";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

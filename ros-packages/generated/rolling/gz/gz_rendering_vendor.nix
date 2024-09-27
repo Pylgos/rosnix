@@ -15,24 +15,15 @@
   gz_ogre_next_vendor,
   gz_plugin_vendor,
   gz_utils_vendor,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_rendering_vendor" = substituteSource {
       src = fetchgit {
-        name = "gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741-source";
-        url = "https://github.com/gazebosim/gz-rendering.git";
-        rev = "8a547d5386a33789313abbb5bbbe1b2ec4c04741";
-        hash = "sha256-eaWkZKHu566Rub7YSO2lnKdj8YQbhl86v+JR4zrgtjs=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_rendering_vendor-a033c34e67f2ebdbd692fb2b8a1a4140acade567 = substituteSource {
-      src = fetchgit {
-        name = "gz_rendering_vendor-a033c34e67f2ebdbd692fb2b8a1a4140acade567-source";
+        name = "gz_rendering_vendor-source";
         url = "https://github.com/ros2-gbp/gz_rendering_vendor-release.git";
         rev = "a033c34e67f2ebdbd692fb2b8a1a4140acade567";
         hash = "sha256-ttaU1/Q6/g1NSJlyAAt9ez77iHFKkZJNnngU6zI3YaQ=";
@@ -41,16 +32,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_rendering_vendor/gz-rendering"}";
         }
       ];
     };
-  };
+    "gz_rendering_vendor/gz-rendering" = substituteSource {
+      src = fetchgit {
+        name = "gz-rendering-source";
+        url = "https://github.com/gazebosim/gz-rendering.git";
+        rev = "8a547d5386a33789313abbb5bbbe1b2ec4c04741";
+        hash = "sha256-eaWkZKHu566Rub7YSO2lnKdj8YQbhl86v+JR4zrgtjs=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_rendering_vendor";
   version = "0.1.1-1";
-  src = sources.gz_rendering_vendor-a033c34e67f2ebdbd692fb2b8a1a4140acade567;
+  src = sources."gz_rendering_vendor";
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   performance_test_fixture,
   rcpputils,
   rcutils,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmw_implementation-c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmw_implementation" = substituteSource {
       src = fetchgit {
-        name = "rmw_implementation-c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4-source";
+        name = "rmw_implementation-source";
         url = "https://github.com/ros2-gbp/rmw_implementation-release.git";
         rev = "c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4";
         hash = "sha256-cFnGp39n/off+EM9MnLOoNqSCyWxMwwQkOZbigCn7IA=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmw_implementation";
   version = "3.0.1-1";
-  src = sources.rmw_implementation-c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4;
+  src = sources."rmw_implementation";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw_implementation_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

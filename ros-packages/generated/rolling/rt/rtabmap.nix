@@ -7,14 +7,15 @@
   gtsam,
   libg2o,
   libpointmatcher,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rtabmap-2b006d498b6df04f4dcddf01fe1d9d90e94570e8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rtabmap" = substituteSource {
       src = fetchgit {
-        name = "rtabmap-2b006d498b6df04f4dcddf01fe1d9d90e94570e8-source";
+        name = "rtabmap-source";
         url = "https://github.com/ros2-gbp/rtabmap-release.git";
         rev = "2b006d498b6df04f4dcddf01fe1d9d90e94570e8";
         hash = "sha256-dg5NbiIJYYT3CPzwPwMVxK1ag4M310PlkRCB5iNkHHs=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rtabmap";
   version = "0.21.6-1";
-  src = sources.rtabmap-2b006d498b6df04f4dcddf01fe1d9d90e94570e8;
+  src = sources."rtabmap";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libobs,
   mrpt_libros_bridge,
   mrpt_msgs,
@@ -18,10 +19,10 @@
   tf2,
 }:
 let
-  sources = rec {
-    mrpt_msgs_bridge-7ace0a8738f6fe554e80d4e8e048e0639a2c1735 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_msgs_bridge" = substituteSource {
       src = fetchgit {
-        name = "mrpt_msgs_bridge-7ace0a8738f6fe554e80d4e8e048e0639a2c1735-source";
+        name = "mrpt_msgs_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "7ace0a8738f6fe554e80d4e8e048e0639a2c1735";
         hash = "sha256-Sk5Tg1H0m/JeksTur+3ngLXeUkNwJmoV0w4+IUSFPjY=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_msgs_bridge";
   version = "2.2.0-1";
-  src = sources.mrpt_msgs_bridge-7ace0a8738f6fe554e80d4e8e048e0639a2c1735;
+  src = sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

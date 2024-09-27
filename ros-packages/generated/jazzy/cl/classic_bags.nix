@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclpy,
   rosSystemPackages,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    classic_bags-fa40e137b62cdb218282b15b08ae42359462390d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "classic_bags" = substituteSource {
       src = fetchgit {
-        name = "classic_bags-fa40e137b62cdb218282b15b08ae42359462390d-source";
+        name = "classic_bags-source";
         url = "https://github.com/ros2-gbp/classic_bags-release.git";
         rev = "fa40e137b62cdb218282b15b08ae42359462390d";
         hash = "sha256-ZJSMrs9eRmeojheIs6GQcdz6FbdvasObPF8AjZg6XQM=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "classic_bags";
   version = "0.4.0-1";
-  src = sources.classic_bags-fa40e137b62cdb218282b15b08ae42359462390d;
+  src = sources."classic_bags";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,6 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   rcpputils,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    camera_info_manager-fc3506eb9461bd21bdc0856e310a12b76839d52b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "camera_info_manager" = substituteSource {
       src = fetchgit {
-        name = "camera_info_manager-fc3506eb9461bd21bdc0856e310a12b76839d52b-source";
+        name = "camera_info_manager-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
         rev = "fc3506eb9461bd21bdc0856e310a12b76839d52b";
         hash = "sha256-rAyQW9fPco1Qtj7JsbH8JxEagevREOdPrnwOJcgqWvE=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "camera_info_manager";
   version = "5.3.2-1";
-  src = sources.camera_info_manager-fc3506eb9461bd21bdc0856e310a12b76839d52b;
+  src = sources."camera_info_manager";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

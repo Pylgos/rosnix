@@ -14,6 +14,7 @@
   joint_trajectory_controller,
   joy,
   launch_param_builder,
+  mkSourceSet,
   moveit_common,
   moveit_configs_utils,
   moveit_core,
@@ -36,10 +37,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_servo-cb66905f35b3d028d549fedb54280842822adbe6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_servo" = substituteSource {
       src = fetchgit {
-        name = "moveit_servo-cb66905f35b3d028d549fedb54280842822adbe6-source";
+        name = "moveit_servo-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "cb66905f35b3d028d549fedb54280842822adbe6";
         hash = "sha256-4S4Bt6Fu+LWXvvdRWVqxwaCP7Q2ELAJsz0I3zGYIWvM=";
@@ -47,12 +48,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_servo";
   version = "2.10.0-1";
-  src = sources.moveit_servo-cb66905f35b3d028d549fedb54280842822adbe6;
+  src = sources."moveit_servo";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

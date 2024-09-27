@@ -9,16 +9,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_cli,
   rosidl_parser,
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_generator_type_description-2658b5c7feaf5787efdee9b81112684c608da99c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_generator_type_description" = substituteSource {
       src = fetchgit {
-        name = "rosidl_generator_type_description-2658b5c7feaf5787efdee9b81112684c608da99c-source";
+        name = "rosidl_generator_type_description-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "2658b5c7feaf5787efdee9b81112684c608da99c";
         hash = "sha256-c98D7RfhghgAqr+EgAFQzdmhR7n+q+tIkS7SEXI9JuE=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_generator_type_description";
   version = "4.6.4-1";
-  src = sources.rosidl_generator_type_description-2658b5c7feaf5787efdee9b81112684c608da99c;
+  src = sources."rosidl_generator_type_description";
   nativeBuildInputs = [ ament_cmake_python ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core rosidl_cli rosidl_parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   buildInputs = [ ament_cmake_python ament_cmake_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,6 +11,7 @@
   fetchzip,
   ffmpeg_image_transport_msgs,
   image_transport,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rcutils,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ffmpeg_image_transport" = substituteSource {
       src = fetchgit {
-        name = "ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e-source";
+        name = "ffmpeg_image_transport-source";
         url = "https://github.com/ros2-gbp/ffmpeg_image_transport-release.git";
         rev = "a9ce3897ba712754c30d0d8a5da5b90a00b5871e";
         hash = "sha256-NNfHNOjQyl6FVnmws3dcgDvUuE+EkIy2CyhFkCqoDNM=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ffmpeg_image_transport";
   version = "1.0.1-1";
-  src = sources.ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e;
+  src = sources."ffmpeg_image_transport";
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

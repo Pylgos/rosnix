@@ -11,6 +11,7 @@
   fetchurl,
   fetchzip,
   hardware_interface,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    canopen_ros2_controllers-c38699e89e1eab1a0d1984daf277c82f7e7a0a12 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen_ros2_controllers" = substituteSource {
       src = fetchgit {
-        name = "canopen_ros2_controllers-c38699e89e1eab1a0d1984daf277c82f7e7a0a12-source";
+        name = "canopen_ros2_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "c38699e89e1eab1a0d1984daf277c82f7e7a0a12";
         hash = "sha256-koxHonzCdViHXf1kTwf19nMEa8F/YF+ILwVF5p+Muhw=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen_ros2_controllers";
   version = "0.2.9-2";
-  src = sources.canopen_ros2_controllers-c38699e89e1eab1a0d1984daf277c82f7e7a0a12;
+  src = sources."canopen_ros2_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

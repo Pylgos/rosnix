@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ouster_sensor_msgs-88c8ddb06249e2ea9d794edd07856dfb06d05ebd = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ouster_sensor_msgs" = substituteSource {
       src = fetchgit {
-        name = "ouster_sensor_msgs-88c8ddb06249e2ea9d794edd07856dfb06d05ebd-source";
+        name = "ouster_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
         rev = "88c8ddb06249e2ea9d794edd07856dfb06d05ebd";
         hash = "sha256-fWka9voPQDtcLHrGdOeYmWY8U9UNQhMwTOlIudhLi28=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ouster_sensor_msgs";
   version = "0.11.1-6";
-  src = sources.ouster_sensor_msgs-88c8ddb06249e2ea9d794edd07856dfb06d05ebd;
+  src = sources."ouster_sensor_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

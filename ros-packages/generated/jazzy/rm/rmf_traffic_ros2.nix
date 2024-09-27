@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rmf_building_map_msgs,
   rmf_fleet_msgs,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_traffic_ros2-40fa2ed90aa5a1e948f10bd91179e7f69a266bb1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_traffic_ros2" = substituteSource {
       src = fetchgit {
-        name = "rmf_traffic_ros2-40fa2ed90aa5a1e948f10bd91179e7f69a266bb1-source";
+        name = "rmf_traffic_ros2-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "40fa2ed90aa5a1e948f10bd91179e7f69a266bb1";
         hash = "sha256-KFBuTj1Pd07XXDg4yJb/k/348Kok9/gssa/Sp2avtes=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_traffic_ros2";
   version = "2.7.2-1";
-  src = sources.rmf_traffic_ros2-40fa2ed90aa5a1e948f10bd91179e7f69a266bb1;
+  src = sources."rmf_traffic_ros2";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

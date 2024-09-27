@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   tf2,
 }:
 let
-  sources = rec {
-    turtlebot3_gazebo-434656b1bec803b2902412c911eec878dd666ac6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtlebot3_gazebo" = substituteSource {
       src = fetchgit {
-        name = "turtlebot3_gazebo-434656b1bec803b2902412c911eec878dd666ac6-source";
+        name = "turtlebot3_gazebo-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
         rev = "434656b1bec803b2902412c911eec878dd666ac6";
         hash = "sha256-v6xnRm6M8asU/HVNlinmuyhrm7cTaIuA3aSHJzPeX6c=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtlebot3_gazebo";
   version = "2.2.5-4";
-  src = sources.turtlebot3_gazebo-434656b1bec803b2902412c911eec878dd666ac6;
+  src = sources."turtlebot3_gazebo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

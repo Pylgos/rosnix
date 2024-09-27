@@ -17,14 +17,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ecl_geometry-6f23070b3de606ffa640f469551d3aa5e59a3e30 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ecl_geometry" = substituteSource {
       src = fetchgit {
-        name = "ecl_geometry-6f23070b3de606ffa640f469551d3aa5e59a3e30-source";
+        name = "ecl_geometry-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "6f23070b3de606ffa640f469551d3aa5e59a3e30";
         hash = "sha256-XXr9pl1hLn7gS04rAzdTRXa+Fe0p4Mn7sC0scLWC2Zc=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ecl_geometry";
   version = "1.2.1-4";
-  src = sources.ecl_geometry-6f23070b3de606ffa640f469551d3aa5e59a3e30;
+  src = sources."ecl_geometry";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

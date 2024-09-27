@@ -4,15 +4,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    swri_console_util-a2106748187eee41a9ca5b4d5bc3dbd15005d013 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "swri_console_util" = substituteSource {
       src = fetchgit {
-        name = "swri_console_util-a2106748187eee41a9ca5b4d5bc3dbd15005d013-source";
+        name = "swri_console_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "a2106748187eee41a9ca5b4d5bc3dbd15005d013";
         hash = "sha256-kzSZInTsgWLY1tBOwqmsKcv6dwgmwwBvI5E5C+WzLDo=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "swri_console_util";
   version = "3.7.3-1";
-  src = sources.swri_console_util-a2106748187eee41a9ca5b4d5bc3dbd15005d013;
+  src = sources."swri_console_util";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

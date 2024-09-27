@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    kartech_linear_actuator_msgs-eab32fa9f9e949bfd3653074483f2cdafd4bd3ac = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kartech_linear_actuator_msgs" = substituteSource {
       src = fetchgit {
-        name = "kartech_linear_actuator_msgs-eab32fa9f9e949bfd3653074483f2cdafd4bd3ac-source";
+        name = "kartech_linear_actuator_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "eab32fa9f9e949bfd3653074483f2cdafd4bd3ac";
         hash = "sha256-Xad77u1Iv7LJdsdK8vW1H475ls/kjnSvZbln4wUXpmQ=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kartech_linear_actuator_msgs";
   version = "4.0.0-3";
-  src = sources.kartech_linear_actuator_msgs-eab32fa9f9e949bfd3653074483f2cdafd4bd3ac;
+  src = sources."kartech_linear_actuator_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   ur_calibration,
@@ -16,10 +17,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    ur-b29702700d71334cf74727cd2b35a73e0bd89c80 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ur" = substituteSource {
       src = fetchgit {
-        name = "ur-b29702700d71334cf74727cd2b35a73e0bd89c80-source";
+        name = "ur-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "b29702700d71334cf74727cd2b35a73e0bd89c80";
         hash = "sha256-eFDwfiHhXTd/aKgaiyo5G08UvSN4JVbQKz6MWZfQQUE=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ur";
   version = "2.4.10-1";
-  src = sources.ur-b29702700d71334cf74727cd2b35a73e0bd89c80;
+  src = sources."ur";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

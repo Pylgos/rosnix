@@ -12,24 +12,15 @@
   gz_cmake_vendor,
   gz_tools_vendor,
   gz_utils_vendor,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    gz_plugin-vendor_source-23c28a25aa0c52c87378a28543723b73d475c417 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_plugin_vendor" = substituteSource {
       src = fetchgit {
-        name = "gz_plugin-vendor_source-23c28a25aa0c52c87378a28543723b73d475c417-source";
-        url = "https://github.com/gazebosim/gz-plugin.git";
-        rev = "23c28a25aa0c52c87378a28543723b73d475c417";
-        hash = "sha256-9t6vcnBbfRWu6ptmqYAhmWKDoKAaK631JD9u1C0G0mY=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_plugin_vendor-51389742f66ee9612a68092bfb2ca2a02d63e623 = substituteSource {
-      src = fetchgit {
-        name = "gz_plugin_vendor-51389742f66ee9612a68092bfb2ca2a02d63e623-source";
+        name = "gz_plugin_vendor-source";
         url = "https://github.com/ros2-gbp/gz_plugin_vendor-release.git";
         rev = "51389742f66ee9612a68092bfb2ca2a02d63e623";
         hash = "sha256-/y43QtJVsVEotHcmAu+Ttyji97D5EFXJIH1HzVkePAM=";
@@ -38,16 +29,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_plugin-vendor_source-23c28a25aa0c52c87378a28543723b73d475c417}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_plugin_vendor/gz-plugin"}";
         }
       ];
     };
-  };
+    "gz_plugin_vendor/gz-plugin" = substituteSource {
+      src = fetchgit {
+        name = "gz-plugin-source";
+        url = "https://github.com/gazebosim/gz-plugin.git";
+        rev = "23c28a25aa0c52c87378a28543723b73d475c417";
+        hash = "sha256-9t6vcnBbfRWu6ptmqYAhmWKDoKAaK631JD9u1C0G0mY=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_plugin_vendor";
   version = "0.0.4-1";
-  src = sources.gz_plugin_vendor-51389742f66ee9612a68092bfb2ca2a02d63e623;
+  src = sources."gz_plugin_vendor";
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

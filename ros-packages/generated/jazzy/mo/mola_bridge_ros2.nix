@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mola_common,
   mola_kernel,
   mola_msgs,
@@ -25,10 +26,10 @@
   tf2_geometry_msgs,
 }:
 let
-  sources = rec {
-    mola_bridge_ros2-66777666192d9b2510648971c8ac5265155dc55c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola_bridge_ros2" = substituteSource {
       src = fetchgit {
-        name = "mola_bridge_ros2-66777666192d9b2510648971c8ac5265155dc55c-source";
+        name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "66777666192d9b2510648971c8ac5265155dc55c";
         hash = "sha256-ULBVt/bMvtpdMO0lt7ER9jz+C2W3n5Fn9jpmnt/S2fU=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola_bridge_ros2";
   version = "1.2.0-1";
-  src = sources.mola_bridge_ros2-66777666192d9b2510648971c8ac5265155dc55c;
+  src = sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

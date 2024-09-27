@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rcl_interfaces,
   rclpy,
   rmw_dds_common,
@@ -23,10 +24,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rosapi-72cbe2e3a2f5a98e160d86e54667eceda6d47114 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosapi" = substituteSource {
       src = fetchgit {
-        name = "rosapi-72cbe2e3a2f5a98e160d86e54667eceda6d47114-source";
+        name = "rosapi-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "72cbe2e3a2f5a98e160d86e54667eceda6d47114";
         hash = "sha256-5gDyqSXHMOUheu+7fjleKwHApIpOlhVvL9dpEujRBA4=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosapi";
   version = "1.3.2-3";
-  src = sources.rosapi-72cbe2e3a2f5a98e160d86e54667eceda6d47114;
+  src = sources."rosapi";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

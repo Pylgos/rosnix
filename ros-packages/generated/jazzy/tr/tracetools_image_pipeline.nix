@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    tracetools_image_pipeline-3fb7c70cbffb0f133cc2983d97c44a327868b1d7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tracetools_image_pipeline" = substituteSource {
       src = fetchgit {
-        name = "tracetools_image_pipeline-3fb7c70cbffb0f133cc2983d97c44a327868b1d7-source";
+        name = "tracetools_image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "3fb7c70cbffb0f133cc2983d97c44a327868b1d7";
         hash = "sha256-syEe+LBPAb854To6mEMEVf6Kbp35tfuyhK2z7uKL0hc=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tracetools_image_pipeline";
   version = "5.0.4-1";
-  src = sources.tracetools_image_pipeline-3fb7c70cbffb0f133cc2983d97c44a327868b1d7;
+  src = sources."tracetools_image_pipeline";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

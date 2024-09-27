@@ -8,6 +8,7 @@
   fetchzip,
   lely_core_libraries,
   lifecycle_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -16,10 +17,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    canopen_core-23063f5f0371cb8c8d997c7a00cb5a1b2a6e6303 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen_core" = substituteSource {
       src = fetchgit {
-        name = "canopen_core-23063f5f0371cb8c8d997c7a00cb5a1b2a6e6303-source";
+        name = "canopen_core-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "23063f5f0371cb8c8d997c7a00cb5a1b2a6e6303";
         hash = "sha256-fYhg6RaztX+p+lFzVCRADsxQLq4G0yuwwDPIjyYoVbg=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen_core";
   version = "0.2.12-2";
-  src = sources.canopen_core-23063f5f0371cb8c8d997c7a00cb5a1b2a6e6303;
+  src = sources."canopen_core";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

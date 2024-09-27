@@ -8,6 +8,7 @@
   image_geometry,
   laser_geometry,
   message_filters,
+  mkSourceSet,
   nav_msgs,
   pcl_conversions,
   pcl_ros,
@@ -24,10 +25,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rtabmap_odom" = substituteSource {
       src = fetchgit {
-        name = "rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627-source";
+        name = "rtabmap_odom-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
         rev = "8228b4545c1f1bd89b35e75b76bd67e652811627";
         hash = "sha256-0owvQSXMQlE+Y8M0UBrrHLvgxACHLwndNVXcFYqLy+Q=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rtabmap_odom";
   version = "0.21.5-3";
-  src = sources.rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627;
+  src = sources."rtabmap_odom";
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

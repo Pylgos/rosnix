@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_cmake_mypy-705ae426f665fa378fe2b962bf460bb85426f6d8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_cmake_mypy" = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_mypy-705ae426f665fa378fe2b962bf460bb85426f6d8-source";
+        name = "ament_cmake_mypy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "705ae426f665fa378fe2b962bf460bb85426f6d8";
         hash = "sha256-bEBmui69Fivty7/hw53LagD0lrC9qHgSMMkYZQUzKRE=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_cmake_mypy";
   version = "0.17.1-1";
-  src = sources.ament_cmake_mypy-705ae426f665fa378fe2b962bf460bb85426f6d8;
+  src = sources."ament_cmake_mypy";
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ament_mypy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

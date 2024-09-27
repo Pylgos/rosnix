@@ -7,15 +7,16 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   polygon_msgs,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    polygon_utils-df60fb3315beddf0d11b7be2e83bac8c945ab9b6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "polygon_utils" = substituteSource {
       src = fetchgit {
-        name = "polygon_utils-df60fb3315beddf0d11b7be2e83bac8c945ab9b6-source";
+        name = "polygon_utils-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "df60fb3315beddf0d11b7be2e83bac8c945ab9b6";
         hash = "sha256-Tt1eWbIDyhUfE+Cfkub8TW8XBNp+ilTdRYr4lfSa5A8=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "polygon_utils";
   version = "1.1.0-1";
-  src = sources.polygon_utils-df60fb3315beddf0d11b7be2e83bac8c945ab9b6;
+  src = sources."polygon_utils";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

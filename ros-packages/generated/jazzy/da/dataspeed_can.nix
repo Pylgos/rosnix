@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    dataspeed_can-215fd5105f5b84039373012493bfb6c49316b6c3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dataspeed_can" = substituteSource {
       src = fetchgit {
-        name = "dataspeed_can-215fd5105f5b84039373012493bfb6c49316b6c3-source";
+        name = "dataspeed_can-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
         rev = "215fd5105f5b84039373012493bfb6c49316b6c3";
         hash = "sha256-9p4ziWt8ief6N+GFSFlNIRqrz/HfSNqpIR7/UtwU6aI=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dataspeed_can";
   version = "2.0.4-1";
-  src = sources.dataspeed_can-215fd5105f5b84039373012493bfb6c49316b6c3;
+  src = sources."dataspeed_can";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rcutils,
@@ -17,10 +18,10 @@
   zstd_vendor,
 }:
 let
-  sources = rec {
-    rosbag2_compression_zstd-3f3c01609c3bef74cfc3f3229b0d57964c6bd465 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_compression_zstd" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_compression_zstd-3f3c01609c3bef74cfc3f3229b0d57964c6bd465-source";
+        name = "rosbag2_compression_zstd-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "3f3c01609c3bef74cfc3f3229b0d57964c6bd465";
         hash = "sha256-bqsmwtbjweCojt3neyXtpzwtXCgTBGd7nOdMQZiabVY=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_compression_zstd";
   version = "0.26.5-1";
-  src = sources.rosbag2_compression_zstd-3f3c01609c3bef74cfc3f3229b0d57964c6bd465;
+  src = sources."rosbag2_compression_zstd";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

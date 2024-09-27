@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   marti_introspection_msgs,
+  mkSourceSet,
   rcl_interfaces,
   rclpy,
   ros2cli,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    swri_cli_tools-e22f7603d5cdefc019d425ddb587eb875b0930e0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "swri_cli_tools" = substituteSource {
       src = fetchgit {
-        name = "swri_cli_tools-e22f7603d5cdefc019d425ddb587eb875b0930e0-source";
+        name = "swri_cli_tools-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "e22f7603d5cdefc019d425ddb587eb875b0930e0";
         hash = "sha256-+KMCtFe8+XjU+SFjS+H4Jmexp8YCW+t4IBLP3dQT10Y=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "swri_cli_tools";
   version = "3.7.3-1";
-  src = sources.swri_cli_tools-e22f7603d5cdefc019d425ddb587eb875b0930e0;
+  src = sources."swri_cli_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

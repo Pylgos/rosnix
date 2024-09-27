@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    actionlib_msgs-e5ca8552eb6cf8f1a9006a91eba15929fb78e5c9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "actionlib_msgs" = substituteSource {
       src = fetchgit {
-        name = "actionlib_msgs-e5ca8552eb6cf8f1a9006a91eba15929fb78e5c9-source";
+        name = "actionlib_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "e5ca8552eb6cf8f1a9006a91eba15929fb78e5c9";
         hash = "sha256-W5qtKfERMOml/Kju3tQbLWR1kBr0jb2InsRMwMFDQwE=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "actionlib_msgs";
   version = "5.3.5-1";
-  src = sources.actionlib_msgs-e5ca8552eb6cf8f1a9006a91eba15929fb78e5c9;
+  src = sources."actionlib_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

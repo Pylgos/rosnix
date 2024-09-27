@@ -14,6 +14,7 @@
   fetchzip,
   launch,
   launch_system_modes,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   ros2launch,
@@ -23,10 +24,10 @@
   system_modes_msgs,
 }:
 let
-  sources = rec {
-    system_modes_examples-82dc72703a933e257875ff35ddd912ed010dc775 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "system_modes_examples" = substituteSource {
       src = fetchgit {
-        name = "system_modes_examples-82dc72703a933e257875ff35ddd912ed010dc775-source";
+        name = "system_modes_examples-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
         rev = "82dc72703a933e257875ff35ddd912ed010dc775";
         hash = "sha256-0kfAi8ExAnUicuzTFtWKNQwRZP8qipcdbz4XUrg7EQM=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "system_modes_examples";
   version = "0.9.0-6";
-  src = sources.system_modes_examples-82dc72703a933e257875ff35ddd912ed010dc775;
+  src = sources."system_modes_examples";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

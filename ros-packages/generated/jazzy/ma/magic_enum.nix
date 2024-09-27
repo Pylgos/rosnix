@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    magic_enum-3902a9d0889326323d903f8f788dab02860013b0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "magic_enum" = substituteSource {
       src = fetchgit {
-        name = "magic_enum-3902a9d0889326323d903f8f788dab02860013b0-source";
+        name = "magic_enum-source";
         url = "https://github.com/ros2-gbp/magic_enum-release.git";
         rev = "3902a9d0889326323d903f8f788dab02860013b0";
         hash = "sha256-maDyPAh57gP3vZwB34IYIwVCnmcDwi1msh639mFMdRE=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "magic_enum";
   version = "0.9.6-1";
-  src = sources.magic_enum-3902a9d0889326323d903f8f788dab02860013b0;
+  src = sources."magic_enum";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

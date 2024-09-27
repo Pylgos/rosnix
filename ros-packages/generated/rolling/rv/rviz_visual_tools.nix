@@ -14,6 +14,7 @@
   interactive_markers,
   launch,
   launch_ros,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_components,
@@ -35,10 +36,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rviz_visual_tools-cd3a380ad00334a4c3385476a2e98f9bdd75680b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz_visual_tools" = substituteSource {
       src = fetchgit {
-        name = "rviz_visual_tools-cd3a380ad00334a4c3385476a2e98f9bdd75680b-source";
+        name = "rviz_visual_tools-source";
         url = "https://github.com/ros2-gbp/rviz_visual_tools-release.git";
         rev = "cd3a380ad00334a4c3385476a2e98f9bdd75680b";
         hash = "sha256-tVfPKQNpM962nm3D4nPbalanEed98pZ6A4v4ySC79yI=";
@@ -46,12 +47,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz_visual_tools";
   version = "4.1.4-3";
-  src = sources.rviz_visual_tools-cd3a380ad00334a4c3385476a2e98f9bdd75680b;
+  src = sources."rviz_visual_tools";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,14 +11,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ecl_sigslots-bf1c66ab1688b4bf9d7051d232c5142eceb2d7fa = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ecl_sigslots" = substituteSource {
       src = fetchgit {
-        name = "ecl_sigslots-bf1c66ab1688b4bf9d7051d232c5142eceb2d7fa-source";
+        name = "ecl_sigslots-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "bf1c66ab1688b4bf9d7051d232c5142eceb2d7fa";
         hash = "sha256-c5lvTwI1CTmfeMKJsCuyr/ilN2KWeABt+RYdAxB9cdI=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ecl_sigslots";
   version = "1.2.1-4";
-  src = sources.ecl_sigslots-bf1c66ab1688b4bf9d7051d232c5142eceb2d7fa;
+  src = sources."ecl_sigslots";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

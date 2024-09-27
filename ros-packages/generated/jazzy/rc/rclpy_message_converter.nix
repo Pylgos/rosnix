@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclpy,
   rclpy_message_converter_msgs,
   rosSystemPackages,
@@ -20,10 +21,10 @@
   tf2_msgs,
 }:
 let
-  sources = rec {
-    rclpy_message_converter-5e7b6eadffc924bce02c147aaee115e21b564fc8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rclpy_message_converter" = substituteSource {
       src = fetchgit {
-        name = "rclpy_message_converter-5e7b6eadffc924bce02c147aaee115e21b564fc8-source";
+        name = "rclpy_message_converter-source";
         url = "https://github.com/ros2-gbp/rospy_message_converter-release.git";
         rev = "5e7b6eadffc924bce02c147aaee115e21b564fc8";
         hash = "sha256-4HeOI1VnkkBwlxa0SlJMAGbmV5bMUIvxslRecDwZm04=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rclpy_message_converter";
   version = "2.0.1-4";
-  src = sources.rclpy_message_converter-5e7b6eadffc924bce02c147aaee115e21b564fc8;
+  src = sources."rclpy_message_converter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators rosidl_parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

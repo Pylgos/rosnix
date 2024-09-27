@@ -6,15 +6,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_parser,
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_pycommon-e9738d1d7fa9939313becbed59cae2729a662d77 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_pycommon" = substituteSource {
       src = fetchgit {
-        name = "rosidl_pycommon-e9738d1d7fa9939313becbed59cae2729a662d77-source";
+        name = "rosidl_pycommon-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "e9738d1d7fa9939313becbed59cae2729a662d77";
         hash = "sha256-2BitDnrOlRMxAJfeVf0gS58CWAfvtzYMQA3rkBRTyW0=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_pycommon";
   version = "4.8.1-1";
-  src = sources.rosidl_pycommon-e9738d1d7fa9939313becbed59cae2729a662d77;
+  src = sources."rosidl_pycommon";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

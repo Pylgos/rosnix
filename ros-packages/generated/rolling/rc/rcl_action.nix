@@ -9,6 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   osrf_testing_tools_cpp,
   rcl,
   rcutils,
@@ -20,10 +21,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    rcl_action-7ed2d0833f31d142072ab3052c970dcb10eda127 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rcl_action" = substituteSource {
       src = fetchgit {
-        name = "rcl_action-7ed2d0833f31d142072ab3052c970dcb10eda127-source";
+        name = "rcl_action-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
         rev = "7ed2d0833f31d142072ab3052c970dcb10eda127";
         hash = "sha256-NFUDSZqQhXHkrkhLsXlYyhacBdeifTRdog4rOAmK7es=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rcl_action";
   version = "9.4.1-1";
-  src = sources.rcl_action-7ed2d0833f31d142072ab3052c970dcb10eda127;
+  src = sources."rcl_action";
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

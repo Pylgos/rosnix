@@ -9,6 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   velodyne_msgs,
 }:
 let
-  sources = rec {
-    velodyne_driver-0c3d9f0ef24f36a7e6a11e3ef5be6c21e2990b62 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "velodyne_driver" = substituteSource {
       src = fetchgit {
-        name = "velodyne_driver-0c3d9f0ef24f36a7e6a11e3ef5be6c21e2990b62-source";
+        name = "velodyne_driver-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "0c3d9f0ef24f36a7e6a11e3ef5be6c21e2990b62";
         hash = "sha256-9ysVDD9seg0Ss+VilOfbSs7ysVE2cxvVHaHR3kj+yKQ=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "velodyne_driver";
   version = "2.3.0-3";
-  src = sources.velodyne_driver-0c3d9f0ef24f36a7e6a11e3ef5be6c21e2990b62;
+  src = sources."velodyne_driver";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

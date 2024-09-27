@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   polygon_msgs,
   polygon_rviz_plugins,
   polygon_utils,
@@ -19,10 +20,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    polygon_demos-9e17055840027168be00de88ebd3c201cf4ba67e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "polygon_demos" = substituteSource {
       src = fetchgit {
-        name = "polygon_demos-9e17055840027168be00de88ebd3c201cf4ba67e-source";
+        name = "polygon_demos-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "9e17055840027168be00de88ebd3c201cf4ba67e";
         hash = "sha256-0p5CmgvpCwgYTqq1/egNbK/tMR5x1wX9GTj0/VpxTYs=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "polygon_demos";
   version = "1.1.0-1";
-  src = sources.polygon_demos-9e17055840027168be00de88ebd3c201cf4ba67e;
+  src = sources."polygon_demos";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,6 +8,7 @@
   fetchzip,
   geographic_msgs,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav_msgs,
   rclcpp,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    nav2_msgs-e28ef4988a3e225251626f8cc683f92c6d4f0d86 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_msgs" = substituteSource {
       src = fetchgit {
-        name = "nav2_msgs-e28ef4988a3e225251626f8cc683f92c6d4f0d86-source";
+        name = "nav2_msgs-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "e28ef4988a3e225251626f8cc683f92c6d4f0d86";
         hash = "sha256-m81XNS/H/PgWqdZtzrNIbla1y/4tAKUcZVIC25phoC8=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_msgs";
   version = "1.3.2-1";
-  src = sources.nav2_msgs-e28ef4988a3e225251626f8cc683f92c6d4f0d86;
+  src = sources."nav2_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

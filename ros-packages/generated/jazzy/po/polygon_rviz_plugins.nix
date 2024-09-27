@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   pluginlib,
   polygon_msgs,
   polygon_utils,
@@ -16,10 +17,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    polygon_rviz_plugins-a374e3b90d7508c96a78eb18fd2b7afcd9274720 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "polygon_rviz_plugins" = substituteSource {
       src = fetchgit {
-        name = "polygon_rviz_plugins-a374e3b90d7508c96a78eb18fd2b7afcd9274720-source";
+        name = "polygon_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "a374e3b90d7508c96a78eb18fd2b7afcd9274720";
         hash = "sha256-kXUTcZF3KsFumuXqXCeIaMwhTxL4CWEfmRduy9+Uiq4=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "polygon_rviz_plugins";
   version = "1.1.0-1";
-  src = sources.polygon_rviz_plugins-a374e3b90d7508c96a78eb18fd2b7afcd9274720;
+  src = sources."polygon_rviz_plugins";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

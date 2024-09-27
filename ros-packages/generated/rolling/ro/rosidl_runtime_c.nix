@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   performance_test_fixture,
   rcutils,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_runtime_c-c9f71b76ce2957db0d32271093b471f602806085 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_runtime_c" = substituteSource {
       src = fetchgit {
-        name = "rosidl_runtime_c-c9f71b76ce2957db0d32271093b471f602806085-source";
+        name = "rosidl_runtime_c-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "c9f71b76ce2957db0d32271093b471f602806085";
         hash = "sha256-LsBMOCV/d7waCHAY7ujB/d/xZgJPHutOM3r+tsECVO0=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_runtime_c";
   version = "4.8.1-1";
-  src = sources.rosidl_runtime_c-c9f71b76ce2957db0d32271093b471f602806085;
+  src = sources."rosidl_runtime_c";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

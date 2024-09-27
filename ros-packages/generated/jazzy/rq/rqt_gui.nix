@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   qt_gui,
   rclpy,
@@ -14,10 +15,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_gui-8eec9c6a8d6951524a0d1fe98f9640ef8ef40267 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_gui" = substituteSource {
       src = fetchgit {
-        name = "rqt_gui-8eec9c6a8d6951524a0d1fe98f9640ef8ef40267-source";
+        name = "rqt_gui-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
         rev = "8eec9c6a8d6951524a0d1fe98f9640ef8ef40267";
         hash = "sha256-nY0zbmJ/xPK7ZekKh0ONOV+us66g03mWsFQeC42Wx7Y=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_gui";
   version = "1.6.0-2";
-  src = sources.rqt_gui-8eec9c6a8d6951524a0d1fe98f9640ef8ef40267;
+  src = sources."rqt_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

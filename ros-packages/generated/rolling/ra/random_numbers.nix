@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    random_numbers-76e3073d3b6ff781466beaad1449c578e124efb0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "random_numbers" = substituteSource {
       src = fetchgit {
-        name = "random_numbers-76e3073d3b6ff781466beaad1449c578e124efb0-source";
+        name = "random_numbers-source";
         url = "https://github.com/ros2-gbp/random_numbers-release.git";
         rev = "76e3073d3b6ff781466beaad1449c578e124efb0";
         hash = "sha256-hQN9n+tLK1rKA+wXOXW/TfT4RzrXxvaIfDlzgV+LJnU=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "random_numbers";
   version = "2.0.1-4";
-  src = sources.random_numbers-76e3073d3b6ff781466beaad1449c578e124efb0;
+  src = sources."random_numbers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

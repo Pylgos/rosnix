@@ -3,6 +3,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mola_kernel,
   mrpt_libgui,
   mrpt_libmaps,
@@ -11,10 +12,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mola_viz-b43e97c269d5c6c81151b54e5480694ed7286b22 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola_viz" = substituteSource {
       src = fetchgit {
-        name = "mola_viz-b43e97c269d5c6c81151b54e5480694ed7286b22-source";
+        name = "mola_viz-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "b43e97c269d5c6c81151b54e5480694ed7286b22";
         hash = "sha256-Vr0gl/J/Sk30LMusvG3latH8D4wQrrbgSh3hrDE1GWM=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola_viz";
   version = "1.2.0-1";
-  src = sources.mola_viz-b43e97c269d5c6c81151b54e5480694ed7286b22;
+  src = sources."mola_viz";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

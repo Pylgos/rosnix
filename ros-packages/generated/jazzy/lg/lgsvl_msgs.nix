@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    lgsvl_msgs-df62ae3eea8caa26f3b54f6c394ca369ddfa63be = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lgsvl_msgs" = substituteSource {
       src = fetchgit {
-        name = "lgsvl_msgs-df62ae3eea8caa26f3b54f6c394ca369ddfa63be-source";
+        name = "lgsvl_msgs-source";
         url = "https://github.com/ros2-gbp/lgsvl_msgs-release.git";
         rev = "df62ae3eea8caa26f3b54f6c394ca369ddfa63be";
         hash = "sha256-Pd5TP0wLuUr0/m+WvLpkvURpB0d0hbik3SOPkifg8YU=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lgsvl_msgs";
   version = "0.0.4-5";
-  src = sources.lgsvl_msgs-df62ae3eea8caa26f3b54f6c394ca369ddfa63be;
+  src = sources."lgsvl_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

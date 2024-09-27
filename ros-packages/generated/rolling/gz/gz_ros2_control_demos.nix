@@ -20,6 +20,7 @@
   joint_trajectory_controller,
   launch,
   launch_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_action,
   robot_state_publisher,
@@ -36,10 +37,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    gz_ros2_control_demos-c571fcf46fbdca658c807be858ea229df5549f8b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_ros2_control_demos" = substituteSource {
       src = fetchgit {
-        name = "gz_ros2_control_demos-c571fcf46fbdca658c807be858ea229df5549f8b-source";
+        name = "gz_ros2_control_demos-source";
         url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
         rev = "c571fcf46fbdca658c807be858ea229df5549f8b";
         hash = "sha256-tZqLOrLXsKkI8q46NTIqVM5zWnMienyrYmbbOmhYYqw=";
@@ -47,12 +48,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "gz_ros2_control_demos";
   version = "2.0.1-1";
-  src = sources.gz_ros2_control_demos-c571fcf46fbdca658c807be858ea229df5549f8b;
+  src = sources."gz_ros2_control_demos";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -5,14 +5,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    angles-327da84cd9263d1231e9a82d5942baf744b833bc = substituteSource {
+  sources = mkSourceSet (sources: {
+    "angles" = substituteSource {
       src = fetchgit {
-        name = "angles-327da84cd9263d1231e9a82d5942baf744b833bc-source";
+        name = "angles-source";
         url = "https://github.com/ros2-gbp/angles-release.git";
         rev = "327da84cd9263d1231e9a82d5942baf744b833bc";
         hash = "sha256-l4xIXnIMoWmTEkIubTtt1g/NZdI+H9zvYXd0izyPAKw=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "angles";
   version = "1.16.0-4";
-  src = sources.angles-327da84cd9263d1231e9a82d5942baf744b833bc;
+  src = sources."angles";
   nativeBuildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   sqlite3_vendor,
@@ -17,10 +18,10 @@
   warehouse_ros,
 }:
 let
-  sources = rec {
-    warehouse_ros_sqlite-73680e23c32c168ac82d2033a13d4cd8a5c08f74 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "warehouse_ros_sqlite" = substituteSource {
       src = fetchgit {
-        name = "warehouse_ros_sqlite-73680e23c32c168ac82d2033a13d4cd8a5c08f74-source";
+        name = "warehouse_ros_sqlite-source";
         url = "https://github.com/ros2-gbp/warehouse_ros_sqlite-release.git";
         rev = "73680e23c32c168ac82d2033a13d4cd8a5c08f74";
         hash = "sha256-c1zikw94u1NKRvvSe3QEhXnRv1v5RH+vZQe6zOWG+mQ=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "warehouse_ros_sqlite";
   version = "1.0.5-1";
-  src = sources.warehouse_ros_sqlite-73680e23c32c168ac82d2033a13d4cd8a5c08f74;
+  src = sources."warehouse_ros_sqlite";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

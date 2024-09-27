@@ -9,6 +9,7 @@
   fetchzip,
   joint_limits,
   lifecycle_msgs,
+  mkSourceSet,
   pluginlib,
   rclcpp_lifecycle,
   rcpputils,
@@ -20,10 +21,10 @@
   urdf,
 }:
 let
-  sources = rec {
-    hardware_interface-85d73156d4aa6ea4b037c4c1198546f585d6ef4a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "hardware_interface" = substituteSource {
       src = fetchgit {
-        name = "hardware_interface-85d73156d4aa6ea4b037c4c1198546f585d6ef4a-source";
+        name = "hardware_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "85d73156d4aa6ea4b037c4c1198546f585d6ef4a";
         hash = "sha256-JHXgQo0Gg7eFU5T+H1StU9iMrlbiVQlu9M5Mx0E9JCY=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "hardware_interface";
   version = "4.17.0-1";
-  src = sources.hardware_interface-85d73156d4aa6ea4b037c4c1198546f585d6ef4a;
+  src = sources."hardware_interface";
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

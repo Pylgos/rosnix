@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_base,
   ros_gz_bridge,
@@ -14,10 +15,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    simulation-0cd1c0427876f68c227a63f8e2051185965da6ac = substituteSource {
+  sources = mkSourceSet (sources: {
+    "simulation" = substituteSource {
       src = fetchgit {
-        name = "simulation-0cd1c0427876f68c227a63f8e2051185965da6ac-source";
+        name = "simulation-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "0cd1c0427876f68c227a63f8e2051185965da6ac";
         hash = "sha256-F5Xdwf30yp+svq3b6jwcfeMbm+oLQKi9hw3ZkozBy68=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "simulation";
   version = "0.11.0-1";
-  src = sources.simulation-0cd1c0427876f68c227a63f8e2051185965da6ac;
+  src = sources."simulation";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

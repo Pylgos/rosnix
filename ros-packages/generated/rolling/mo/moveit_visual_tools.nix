@@ -8,6 +8,7 @@
   fetchzip,
   geometry_msgs,
   graph_msgs,
+  mkSourceSet,
   moveit_common,
   moveit_core,
   moveit_ros_planning,
@@ -23,10 +24,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_visual_tools" = substituteSource {
       src = fetchgit {
-        name = "moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876-source";
+        name = "moveit_visual_tools-source";
         url = "https://github.com/ros2-gbp/moveit_visual_tools-release.git";
         rev = "15653a26d06fb4725cdd4ec2626caa895586e876";
         hash = "sha256-OsgJs0kV7m3GzRlDL1x8i5hG03piwA+9f+Mbpx+dOmw=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_visual_tools";
   version = "4.1.0-3";
-  src = sources.moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876;
+  src = sources."moveit_visual_tools";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

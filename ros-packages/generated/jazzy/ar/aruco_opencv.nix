@@ -13,6 +13,7 @@
   fetchurl,
   fetchzip,
   image_transport,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -22,10 +23,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    aruco_opencv-2627ed963f4a6e887754f8e910c15689f0b5c89f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "aruco_opencv" = substituteSource {
       src = fetchgit {
-        name = "aruco_opencv-2627ed963f4a6e887754f8e910c15689f0b5c89f-source";
+        name = "aruco_opencv-source";
         url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
         rev = "2627ed963f4a6e887754f8e910c15689f0b5c89f";
         hash = "sha256-SidyRIeaYeAZTr6h04wPmYBWhR8Z1YIGnV35sjdHmGY=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "aruco_opencv";
   version = "6.0.1-1";
-  src = sources.aruco_opencv-2627ed963f4a6e887754f8e910c15689f0b5c89f;
+  src = sources."aruco_opencv";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

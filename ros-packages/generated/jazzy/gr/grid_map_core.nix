@@ -8,14 +8,15 @@
   fetchurl,
   fetchzip,
   grid_map_cmake_helpers,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    grid_map_core-62a7d5dbc8dac1525797c562015107125df608b5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "grid_map_core" = substituteSource {
       src = fetchgit {
-        name = "grid_map_core-62a7d5dbc8dac1525797c562015107125df608b5-source";
+        name = "grid_map_core-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "62a7d5dbc8dac1525797c562015107125df608b5";
         hash = "sha256-9aVbWWdPmtYwrYhuIxr84Ft0dddBBrOP3ZUbBrz4TXE=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "grid_map_core";
   version = "2.2.0-1";
-  src = sources.grid_map_core-62a7d5dbc8dac1525797c562015107125df608b5;
+  src = sources."grid_map_core";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,16 +8,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   ros2cli,
   rosSystemPackages,
   substituteSource,
   tracetools_analysis,
 }:
 let
-  sources = rec {
-    ros2trace_analysis-23e4677fbc691efadbad1a8a231fab60e2d794a5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2trace_analysis" = substituteSource {
       src = fetchgit {
-        name = "ros2trace_analysis-23e4677fbc691efadbad1a8a231fab60e2d794a5-source";
+        name = "ros2trace_analysis-source";
         url = "https://github.com/ros2-gbp/tracetools_analysis-release.git";
         rev = "23e4677fbc691efadbad1a8a231fab60e2d794a5";
         hash = "sha256-88nEQ39lxqn4A5k9lH63DZqI0nV7umn2QUpbOCQyVpE=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2trace_analysis";
   version = "3.0.0-6";
-  src = sources.ros2trace_analysis-23e4677fbc691efadbad1a8a231fab60e2d794a5;
+  src = sources."ros2trace_analysis";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

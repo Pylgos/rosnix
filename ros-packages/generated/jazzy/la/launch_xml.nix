@@ -7,14 +7,15 @@
   fetchurl,
   fetchzip,
   launch,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    launch_xml-d38b5e1dff58ba58a94a822846318b0840786023 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "launch_xml" = substituteSource {
       src = fetchgit {
-        name = "launch_xml-d38b5e1dff58ba58a94a822846318b0840786023-source";
+        name = "launch_xml-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
         rev = "d38b5e1dff58ba58a94a822846318b0840786023";
         hash = "sha256-Qqc/i5ghzglsx794HAP6CBwuymTldnwQzcBT/psyhw0=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "launch_xml";
   version = "3.4.2-2";
-  src = sources.launch_xml-d38b5e1dff58ba58a94a822846318b0840786023;
+  src = sources."launch_xml";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

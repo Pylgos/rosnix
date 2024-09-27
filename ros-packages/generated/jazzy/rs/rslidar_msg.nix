@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   rosidl_default_generators,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rslidar_msg-c179432169346c66a82bf4e003eea95df144ea1f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rslidar_msg" = substituteSource {
       src = fetchgit {
-        name = "rslidar_msg-c179432169346c66a82bf4e003eea95df144ea1f-source";
+        name = "rslidar_msg-source";
         url = "https://github.com/ros2-gbp/rslidar_msg-release.git";
         rev = "c179432169346c66a82bf4e003eea95df144ea1f";
         hash = "sha256-hoIl9SGx6AoaPdOqKDzxdwuXznCZhGG3cNJvuGb9OPg=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rslidar_msg";
   version = "0.0.0-1";
-  src = sources.rslidar_msg-c179432169346c66a82bf4e003eea95df144ea1f;
+  src = sources."rslidar_msg";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

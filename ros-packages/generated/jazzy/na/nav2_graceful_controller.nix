@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_controller,
   nav2_core,
@@ -24,10 +25,10 @@
   tf2_geometry_msgs,
 }:
 let
-  sources = rec {
-    nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_graceful_controller" = substituteSource {
       src = fetchgit {
-        name = "nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903-source";
+        name = "nav2_graceful_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "531c39e19ced9c9d1fc7f9708b7d0aa91ad27903";
         hash = "sha256-HMbaIXM4eHC7iq4gPO/DBRlM6zBWUo510ifLC5BZs7s=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_graceful_controller";
   version = "1.3.2-1";
-  src = sources.nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903;
+  src = sources."nav2_graceful_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

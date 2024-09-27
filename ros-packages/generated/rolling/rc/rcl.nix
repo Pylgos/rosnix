@@ -13,6 +13,7 @@
   launch_testing_ament_cmake,
   libyaml_vendor,
   mimick_vendor,
+  mkSourceSet,
   osrf_testing_tools_cpp,
   rcl_interfaces,
   rcl_logging_interface,
@@ -33,10 +34,10 @@
   type_description_interfaces,
 }:
 let
-  sources = rec {
-    rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rcl" = substituteSource {
       src = fetchgit {
-        name = "rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960-source";
+        name = "rcl-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
         rev = "835ad62c4d7e2a7b90e9b4d6155d52a60ce68960";
         hash = "sha256-uqrAQ9kh2zscOf18YSX9OgaRhlrfcAlRuagZfVIIRdg=";
@@ -44,12 +45,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rcl";
   version = "9.4.1-1";
-  src = sources.rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960;
+  src = sources."rcl";
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

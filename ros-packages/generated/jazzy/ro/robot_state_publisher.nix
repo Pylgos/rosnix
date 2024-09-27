@@ -12,6 +12,7 @@
   kdl_parser,
   launch_ros,
   launch_testing_ament_cmake,
+  mkSourceSet,
   orocos_kdl_vendor,
   rcl_interfaces,
   rclcpp,
@@ -24,10 +25,10 @@
   urdf,
 }:
 let
-  sources = rec {
-    robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "robot_state_publisher" = substituteSource {
       src = fetchgit {
-        name = "robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942-source";
+        name = "robot_state_publisher-source";
         url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
         rev = "877b7bc7de42bf1fdb65631902b524a0f70c5942";
         hash = "sha256-5FTqMqeamQAFt8XEpHuYh6JzILoqjaGujXl4Q30xwro=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "robot_state_publisher";
   version = "3.3.3-3";
-  src = sources.robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942;
+  src = sources."robot_state_publisher";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

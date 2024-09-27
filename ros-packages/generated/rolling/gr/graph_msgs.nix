@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    graph_msgs-f4120aae7ca5141b367d82bb42066f4b7e2bc321 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "graph_msgs" = substituteSource {
       src = fetchgit {
-        name = "graph_msgs-f4120aae7ca5141b367d82bb42066f4b7e2bc321-source";
+        name = "graph_msgs-source";
         url = "https://github.com/ros2-gbp/graph_msgs-release.git";
         rev = "f4120aae7ca5141b367d82bb42066f4b7e2bc321";
         hash = "sha256-Zs/vEflqm3Ft6PVC5rmE7JAj2pPFja8QAhBxSsH93dg=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "graph_msgs";
   version = "0.2.0-5";
-  src = sources.graph_msgs-f4120aae7ca5141b367d82bb42066f4b7e2bc321;
+  src = sources."graph_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   mapviz,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    tile_map-73ecd90d1cab837ad85ab51c5ef346339c19599a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tile_map" = substituteSource {
       src = fetchgit {
-        name = "tile_map-73ecd90d1cab837ad85ab51c5ef346339c19599a-source";
+        name = "tile_map-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "73ecd90d1cab837ad85ab51c5ef346339c19599a";
         hash = "sha256-WgyvpkklqyW7zCw3sbLORctYh38D3EtwOim++l7tyQ0=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tile_map";
   version = "2.4.3-1";
-  src = sources.tile_map-73ecd90d1cab837ad85ab51c5ef346339c19599a;
+  src = sources."tile_map";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };

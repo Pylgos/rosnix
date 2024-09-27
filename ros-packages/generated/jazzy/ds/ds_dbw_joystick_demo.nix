@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   joy,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ds_dbw_joystick_demo-4fd5bd051b97be1e93f64ef84400d43d12ebd2d6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ds_dbw_joystick_demo" = substituteSource {
       src = fetchgit {
-        name = "ds_dbw_joystick_demo-4fd5bd051b97be1e93f64ef84400d43d12ebd2d6-source";
+        name = "ds_dbw_joystick_demo-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
         rev = "4fd5bd051b97be1e93f64ef84400d43d12ebd2d6";
         hash = "sha256-jVoMuLK571eFsrStIFvFwNR5FjL9qpA8I2qVXrot5MQ=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ds_dbw_joystick_demo";
   version = "2.2.0-1";
-  src = sources.ds_dbw_joystick_demo-4fd5bd051b97be1e93f64ef84400d43d12ebd2d6;
+  src = sources."ds_dbw_joystick_demo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

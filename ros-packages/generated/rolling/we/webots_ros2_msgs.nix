@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -16,10 +17,10 @@
   vision_msgs,
 }:
 let
-  sources = rec {
-    webots_ros2_msgs-2da9e20d9c002bf9bcba1ab7bf78c5244a9c55d1 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "webots_ros2_msgs" = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_msgs-2da9e20d9c002bf9bcba1ab7bf78c5244a9c55d1-source";
+        name = "webots_ros2_msgs-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "2da9e20d9c002bf9bcba1ab7bf78c5244a9c55d1";
         hash = "sha256-JqQw9sZlQ+FC3E6cjgt+uIWAOIo71p5qQUTns/ppNZ8=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "webots_ros2_msgs";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_msgs-2da9e20d9c002bf9bcba1ab7bf78c5244a9c55d1;
+  src = sources."webots_ros2_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

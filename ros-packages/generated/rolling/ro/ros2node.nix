@@ -11,6 +11,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    ros2node-f0e9aa2108c225140121d80f3679e87569156d59 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2node" = substituteSource {
       src = fetchgit {
-        name = "ros2node-f0e9aa2108c225140121d80f3679e87569156d59-source";
+        name = "ros2node-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "f0e9aa2108c225140121d80f3679e87569156d59";
         hash = "sha256-Qe5QPGSUYtkg1l2R8V0oen9m8BP97iXaZqvdB3rn5Zs=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2node";
   version = "0.34.1-1";
-  src = sources.ros2node-f0e9aa2108c225140121d80f3679e87569156d59;
+  src = sources."ros2node";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

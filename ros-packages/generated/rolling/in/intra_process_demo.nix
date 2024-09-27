@@ -10,6 +10,7 @@
   launch,
   launch_testing,
   launch_testing_ament_cmake,
+  mkSourceSet,
   rclcpp,
   rmw_implementation_cmake,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    intra_process_demo-e420bc0e875fc896c805e92de58e8a2b5ca01d80 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "intra_process_demo" = substituteSource {
       src = fetchgit {
-        name = "intra_process_demo-e420bc0e875fc896c805e92de58e8a2b5ca01d80-source";
+        name = "intra_process_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "e420bc0e875fc896c805e92de58e8a2b5ca01d80";
         hash = "sha256-OzMJX/fXkWvULgBmHV/AvTwlEGdmVRpTsgMyAeT4j3M=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "intra_process_demo";
   version = "0.34.2-1";
-  src = sources.intra_process_demo-e420bc0e875fc896c805e92de58e8a2b5ca01d80;
+  src = sources."intra_process_demo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

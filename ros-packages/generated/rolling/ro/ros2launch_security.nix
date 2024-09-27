@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   launch_ros,
+  mkSourceSet,
   nodl_python,
   ros2launch,
   rosSystemPackages,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2launch_security-43e55f1907071b6ac525d871539b6a3a8b9f11ca = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2launch_security" = substituteSource {
       src = fetchgit {
-        name = "ros2launch_security-43e55f1907071b6ac525d871539b6a3a8b9f11ca-source";
+        name = "ros2launch_security-source";
         url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
         rev = "43e55f1907071b6ac525d871539b6a3a8b9f11ca";
         hash = "sha256-MM1mvGLVBpSePXEUKQScahRPpulucGxMTaTp+jSKbNo=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2launch_security";
   version = "1.0.0-4";
-  src = sources.ros2launch_security-43e55f1907071b6ac525d871539b6a3a8b9f11ca;
+  src = sources."ros2launch_security";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

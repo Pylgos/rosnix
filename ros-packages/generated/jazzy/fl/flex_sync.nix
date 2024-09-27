@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    flex_sync-96e1e5af12f61327a7453551c34e6ecc2d6fb750 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "flex_sync" = substituteSource {
       src = fetchgit {
-        name = "flex_sync-96e1e5af12f61327a7453551c34e6ecc2d6fb750-source";
+        name = "flex_sync-source";
         url = "https://github.com/ros2-gbp/flex_sync-release.git";
         rev = "96e1e5af12f61327a7453551c34e6ecc2d6fb750";
         hash = "sha256-DRj8hRb5f02ZdXinTOUCOnVQRMHJS/Es67wgVFdZmUs=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "flex_sync";
   version = "2.0.0-1";
-  src = sources.flex_sync-96e1e5af12f61327a7453551c34e6ecc2d6fb750;
+  src = sources."flex_sync";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

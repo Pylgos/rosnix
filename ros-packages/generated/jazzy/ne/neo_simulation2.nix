@@ -7,14 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    neo_simulation2-c13b97f6ffbb4750704ec1811473e7b2a6489e57 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "neo_simulation2" = substituteSource {
       src = fetchgit {
-        name = "neo_simulation2-c13b97f6ffbb4750704ec1811473e7b2a6489e57-source";
+        name = "neo_simulation2-source";
         url = "https://github.com/ros2-gbp/neo_simulation2-release.git";
         rev = "c13b97f6ffbb4750704ec1811473e7b2a6489e57";
         hash = "sha256-RDPwVwW9QTfOVM8jYVgKbR+YmGDSXRq1Wz5minbCbD8=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "neo_simulation2";
   version = "1.0.0-5";
-  src = sources.neo_simulation2-c13b97f6ffbb4750704ec1811473e7b2a6489e57;
+  src = sources."neo_simulation2";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

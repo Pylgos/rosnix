@@ -7,16 +7,17 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "twist_stamper" = substituteSource {
       src = fetchgit {
-        name = "twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37-source";
+        name = "twist_stamper-source";
         url = "https://github.com/ros2-gbp/twist_stamper-release.git";
         rev = "32213e5bb95ab8a6d3d5202f84bbad81ca359d37";
         hash = "sha256-AE3PKMNhcFfc7nbMllXSYBoKhQmRVHLCirRpDAEknEQ=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "twist_stamper";
   version = "0.0.3-4";
-  src = sources.twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37;
+  src = sources."twist_stamper";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

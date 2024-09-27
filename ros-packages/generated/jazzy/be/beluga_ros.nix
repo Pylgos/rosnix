@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rosSystemPackages,
   sensor_msgs,
@@ -21,10 +22,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "beluga_ros" = substituteSource {
       src = fetchgit {
-        name = "beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55-source";
+        name = "beluga_ros-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
         hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "beluga_ros";
   version = "2.0.2-1";
-  src = sources.beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55;
+  src = sources."beluga_ros";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,15 +4,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mrt_cmake_modules,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    lanelet2_core-5630708c5df854376fa1a16947d6172dc6468b1f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lanelet2_core" = substituteSource {
       src = fetchgit {
-        name = "lanelet2_core-5630708c5df854376fa1a16947d6172dc6468b1f-source";
+        name = "lanelet2_core-source";
         url = "https://github.com/ros2-gbp/lanelet2-release.git";
         rev = "5630708c5df854376fa1a16947d6172dc6468b1f";
         hash = "sha256-Nz/Uglhw2hDL1gfYqEdDLJHWEOErA4wg5rDzu3S1wik=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lanelet2_core";
   version = "1.2.1-1";
-  src = sources.lanelet2_core-5630708c5df854376fa1a16947d6172dc6468b1f;
+  src = sources."lanelet2_core";
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

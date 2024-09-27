@@ -6,16 +6,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    adaptive_component-cea369fddf909c0d41112e9c498b90d7cd44c0de = substituteSource {
+  sources = mkSourceSet (sources: {
+    "adaptive_component" = substituteSource {
       src = fetchgit {
-        name = "adaptive_component-cea369fddf909c0d41112e9c498b90d7cd44c0de-source";
+        name = "adaptive_component-source";
         url = "https://github.com/ros2-gbp/adaptive_component-release.git";
         rev = "cea369fddf909c0d41112e9c498b90d7cd44c0de";
         hash = "sha256-W7/vGlSCfAW+RH7nsv4Po+MFZLDvwzuq/iSATbF9jaQ=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "adaptive_component";
   version = "0.2.1-4";
-  src = sources.adaptive_component-cea369fddf909c0d41112e9c498b90d7cd44c0de;
+  src = sources."adaptive_component";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

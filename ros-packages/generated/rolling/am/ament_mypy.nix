@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_mypy-c31f1d8ae9d65d1f0d48429ae9e33c4c2d786657 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_mypy" = substituteSource {
       src = fetchgit {
-        name = "ament_mypy-c31f1d8ae9d65d1f0d48429ae9e33c4c2d786657-source";
+        name = "ament_mypy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "c31f1d8ae9d65d1f0d48429ae9e33c4c2d786657";
         hash = "sha256-R7jHNYuhpeiCE5glxRX9kuYPgQD5j6RoEqbNkX48ivo=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_mypy";
   version = "0.18.1-1";
-  src = sources.ament_mypy-c31f1d8ae9d65d1f0d48429ae9e33c4c2d786657;
+  src = sources."ament_mypy";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-mypy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

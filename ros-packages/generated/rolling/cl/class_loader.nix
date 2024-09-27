@@ -9,15 +9,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rcpputils,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "class_loader" = substituteSource {
       src = fetchgit {
-        name = "class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7-source";
+        name = "class_loader-source";
         url = "https://github.com/ros2-gbp/class_loader-release.git";
         rev = "3812dadf48b00ed1b3d9957c50ddb2741bd447b7";
         hash = "sha256-V+6oUSK7M95ihfg1lxWWhZG258UL04cmtUGoh/eQqOI=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "class_loader";
   version = "2.8.0-1";
-  src = sources.class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7;
+  src = sources."class_loader";
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

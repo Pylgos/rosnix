@@ -14,6 +14,7 @@
   fetchzip,
   libstatistics_collector,
   mimick_vendor,
+  mkSourceSet,
   performance_test_fixture,
   rcl,
   rcl_interfaces,
@@ -37,10 +38,10 @@
   tracetools,
 }:
 let
-  sources = rec {
-    rclcpp-725693dab47a5b65aa8631b4fe03bfa21fe5ea7f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rclcpp" = substituteSource {
       src = fetchgit {
-        name = "rclcpp-725693dab47a5b65aa8631b4fe03bfa21fe5ea7f-source";
+        name = "rclcpp-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
         rev = "725693dab47a5b65aa8631b4fe03bfa21fe5ea7f";
         hash = "sha256-BMNYlzGpWN34ozMIk2Lvte6dN0QxJ0yxGs0VeTxYnFs=";
@@ -48,12 +49,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rclcpp";
   version = "28.1.5-1";
-  src = sources.rclcpp-725693dab47a5b65aa8631b4fe03bfa21fe5ea7f;
+  src = sources."rclcpp";
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

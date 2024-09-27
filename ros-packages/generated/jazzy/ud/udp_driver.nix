@@ -10,6 +10,7 @@
   fetchzip,
   io_context,
   lifecycle_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -19,10 +20,10 @@
   udp_msgs,
 }:
 let
-  sources = rec {
-    udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "udp_driver" = substituteSource {
       src = fetchgit {
-        name = "udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a-source";
+        name = "udp_driver-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
         rev = "de1037c5bdee946ffc06ca634e2fd26f1333528a";
         hash = "sha256-ufshq3ku5f0OLD1L+CJhsfg8tSqLiOzmXueZGXDO9+4=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "udp_driver";
   version = "1.2.0-4";
-  src = sources.udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a;
+  src = sources."udp_driver";
   nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

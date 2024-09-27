@@ -10,6 +10,7 @@
   launch_ros,
   launch_testing,
   message_filters,
+  mkSourceSet,
   nav2_common,
   nav2_msgs,
   nav2_util,
@@ -25,10 +26,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    nav2_amcl-eb8e521784d20f21b4b1b082a787d62f135dbb58 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_amcl" = substituteSource {
       src = fetchgit {
-        name = "nav2_amcl-eb8e521784d20f21b4b1b082a787d62f135dbb58-source";
+        name = "nav2_amcl-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "eb8e521784d20f21b4b1b082a787d62f135dbb58";
         hash = "sha256-ftBsEeUAubF+P6qFhfqYx7vf2WJBYybtUJG3mKFM1xE=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_amcl";
   version = "1.3.2-1";
-  src = sources.nav2_amcl-eb8e521784d20f21b4b1b082a787d62f135dbb58;
+  src = sources."nav2_amcl";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

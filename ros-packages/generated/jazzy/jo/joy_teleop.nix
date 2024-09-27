@@ -12,6 +12,7 @@
   geometry_msgs,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   rosidl_runtime_py,
@@ -24,10 +25,10 @@
   trajectory_msgs,
 }:
 let
-  sources = rec {
-    joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "joy_teleop" = substituteSource {
       src = fetchgit {
-        name = "joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a-source";
+        name = "joy_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "e949663f15f31403152dd8617d3cea16d9b4a00a";
         hash = "sha256-upObp0jfQf198ZPg1eoz2Yg0HPhYRD2GGmIAowZS+ow=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "joy_teleop";
   version = "1.5.1-1";
-  src = sources.joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a;
+  src = sources."joy_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

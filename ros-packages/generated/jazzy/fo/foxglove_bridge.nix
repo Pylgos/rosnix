@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   resource_retriever,
@@ -19,10 +20,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    foxglove_bridge-488ba6a290f4df44a014b70da8c39e925ea7af59 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "foxglove_bridge" = substituteSource {
       src = fetchgit {
-        name = "foxglove_bridge-488ba6a290f4df44a014b70da8c39e925ea7af59-source";
+        name = "foxglove_bridge-source";
         url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
         rev = "488ba6a290f4df44a014b70da8c39e925ea7af59";
         hash = "sha256-55+rvWwEo3BQQ39q4jHC7MXaagY3vheCEPc3TnNeZZ0=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "foxglove_bridge";
   version = "0.8.0-1";
-  src = sources.foxglove_bridge-488ba6a290f4df44a014b70da8c39e925ea7af59;
+  src = sources."foxglove_bridge";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

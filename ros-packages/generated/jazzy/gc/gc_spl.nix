@@ -7,15 +7,16 @@
   fetchurl,
   fetchzip,
   gc_spl_interfaces,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    gc_spl-348df86f0c57eea9c7b2f5f7d9f9dc381beb9efa = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gc_spl" = substituteSource {
       src = fetchgit {
-        name = "gc_spl-348df86f0c57eea9c7b2f5f7d9f9dc381beb9efa-source";
+        name = "gc_spl-source";
         url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
         rev = "348df86f0c57eea9c7b2f5f7d9f9dc381beb9efa";
         hash = "sha256-kZmdkalxnRdGGdrKhvxICSX3XNubLGW9lgzSf1zTjys=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "gc_spl";
   version = "4.0.1-1";
-  src = sources.gc_spl-348df86f0c57eea9c7b2f5f7d9f9dc381beb9efa;
+  src = sources."gc_spl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

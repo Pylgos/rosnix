@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rmf_obstacle_msgs,
@@ -17,10 +18,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    rmf_visualization_obstacles-c75a9e1ed2868e34b13e8dffedd0bbd7e07ac56c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_visualization_obstacles" = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization_obstacles-c75a9e1ed2868e34b13e8dffedd0bbd7e07ac56c-source";
+        name = "rmf_visualization_obstacles-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "c75a9e1ed2868e34b13e8dffedd0bbd7e07ac56c";
         hash = "sha256-Zr/9GdPOB+2XnT7jgy9505tsIxS44QbsZHsqS0drSgM=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_visualization_obstacles";
   version = "2.4.0-1";
-  src = sources.rmf_visualization_obstacles-c75a9e1ed2868e34b13e8dffedd0bbd7e07ac56c;
+  src = sources."rmf_visualization_obstacles";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

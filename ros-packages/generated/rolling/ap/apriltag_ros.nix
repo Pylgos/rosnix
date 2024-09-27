@@ -11,6 +11,7 @@
   fetchurl,
   fetchzip,
   image_transport,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -19,10 +20,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    apriltag_ros-de4b420c4311d350268c7e03a850accf7e164218 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "apriltag_ros" = substituteSource {
       src = fetchgit {
-        name = "apriltag_ros-de4b420c4311d350268c7e03a850accf7e164218-source";
+        name = "apriltag_ros-source";
         url = "https://github.com/ros2-gbp/apriltag_ros-release.git";
         rev = "de4b420c4311d350268c7e03a850accf7e164218";
         hash = "sha256-1BAPfaLgYZ+JV3LFidzL5IOnM4wd7fvcXNRkAzCyZU4=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "apriltag_ros";
   version = "3.2.2-1";
-  src = sources.apriltag_ros-de4b420c4311d350268c7e03a850accf7e164218;
+  src = sources."apriltag_ros";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

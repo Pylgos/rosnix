@@ -11,6 +11,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rcl_interfaces,
   rclpy,
   ros2cli,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2param-a98c2a5c83e1364660a625aef68dff1979c534b2 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2param" = substituteSource {
       src = fetchgit {
-        name = "ros2param-a98c2a5c83e1364660a625aef68dff1979c534b2-source";
+        name = "ros2param-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "a98c2a5c83e1364660a625aef68dff1979c534b2";
         hash = "sha256-zOQUR6gwAev32UdMK+efB6uZKzTyJ2811oI6Jcag6Zk=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2param";
   version = "0.34.1-1";
-  src = sources.ros2param-a98c2a5c83e1364660a625aef68dff1979c534b2;
+  src = sources."ros2param";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

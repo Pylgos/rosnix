@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libhwdrivers,
   mrpt_libros_bridge,
   mrpt_msgs,
@@ -25,10 +26,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    mrpt_sensor_imu_taobotics-b503c4a001f57759bf900f5a9ff6c3f190dbbb38 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_sensor_imu_taobotics" = substituteSource {
       src = fetchgit {
-        name = "mrpt_sensor_imu_taobotics-b503c4a001f57759bf900f5a9ff6c3f190dbbb38-source";
+        name = "mrpt_sensor_imu_taobotics-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "b503c4a001f57759bf900f5a9ff6c3f190dbbb38";
         hash = "sha256-i/VI6NybgOTVnmZO3RoHSnA7Gbjea8iGtqnuJ2+MjmQ=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_sensor_imu_taobotics";
   version = "0.2.3-1";
-  src = sources.mrpt_sensor_imu_taobotics-b503c4a001f57759bf900f5a9ff6c3f190dbbb38;
+  src = sources."mrpt_sensor_imu_taobotics";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

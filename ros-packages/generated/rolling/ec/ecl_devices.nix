@@ -16,14 +16,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ecl_devices-067078139b70a895cd6de9ad582ab8734e39ccb9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ecl_devices" = substituteSource {
       src = fetchgit {
-        name = "ecl_devices-067078139b70a895cd6de9ad582ab8734e39ccb9-source";
+        name = "ecl_devices-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "067078139b70a895cd6de9ad582ab8734e39ccb9";
         hash = "sha256-fdhKBuF9q7x8XDG5ld90RQRXHhZf4I6pJGU5KK6EOeI=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ecl_devices";
   version = "1.2.1-4";
-  src = sources.ecl_devices-067078139b70a895cd6de9ad582ab8734e39ccb9;
+  src = sources."ecl_devices";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

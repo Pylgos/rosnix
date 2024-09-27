@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mrpt_msgs,
   mrpt_sensorlib,
   rclcpp,
@@ -19,10 +20,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    mrpt_generic_sensor-99d31fd797f85b5c25a26d38b2de79c9c9258230 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_generic_sensor" = substituteSource {
       src = fetchgit {
-        name = "mrpt_generic_sensor-99d31fd797f85b5c25a26d38b2de79c9c9258230-source";
+        name = "mrpt_generic_sensor-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "99d31fd797f85b5c25a26d38b2de79c9c9258230";
         hash = "sha256-zy7AqmAH8M/rMumF0LopeoC7jzQOPo5Y436ngxwaoxk=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_generic_sensor";
   version = "0.2.3-1";
-  src = sources.mrpt_generic_sensor-99d31fd797f85b5c25a26d38b2de79c9c9258230;
+  src = sources."mrpt_generic_sensor";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

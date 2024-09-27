@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ouxt_lint_common-9df07eae34ba86ab0378e1fbcd9c5aedea232362 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ouxt_lint_common" = substituteSource {
       src = fetchgit {
-        name = "ouxt_lint_common-9df07eae34ba86ab0378e1fbcd9c5aedea232362-source";
+        name = "ouxt_lint_common-source";
         url = "https://github.com/ros2-gbp/ouxt_common-release.git";
         rev = "9df07eae34ba86ab0378e1fbcd9c5aedea232362";
         hash = "sha256-CzvbzrJWL16B2/c63ryLS008hT4dSu50P4AhU+lsHpQ=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ouxt_lint_common";
   version = "0.0.8-5";
-  src = sources.ouxt_lint_common-9df07eae34ba86ab0378e1fbcd9c5aedea232362;
+  src = sources."ouxt_lint_common";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_copyright ament_cmake_pep257 ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

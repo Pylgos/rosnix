@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rmf_building_map_msgs,
   rmf_door_msgs,
   rmf_lift_msgs,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_visualization_building_systems-091dd4ddd3de80bb08af0af8e10b88da60072c77 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_visualization_building_systems" = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization_building_systems-091dd4ddd3de80bb08af0af8e10b88da60072c77-source";
+        name = "rmf_visualization_building_systems-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "091dd4ddd3de80bb08af0af8e10b88da60072c77";
         hash = "sha256-lTaY75owEt1+2JAjgITJGaf9qqpBv0Lkc+D9WhneXp8=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_visualization_building_systems";
   version = "2.4.0-1";
-  src = sources.rmf_visualization_building_systems-091dd4ddd3de80bb08af0af8e10b88da60072c77;
+  src = sources."rmf_visualization_building_systems";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

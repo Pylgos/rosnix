@@ -11,6 +11,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
@@ -19,10 +20,10 @@
   test_msgs,
 }:
 let
-  sources = rec {
-    ros2service-3e8a7ef2065c1a1e21e5555e47eb4173e953c934 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2service" = substituteSource {
       src = fetchgit {
-        name = "ros2service-3e8a7ef2065c1a1e21e5555e47eb4173e953c934-source";
+        name = "ros2service-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "3e8a7ef2065c1a1e21e5555e47eb4173e953c934";
         hash = "sha256-9W3jDKzG+3FeN34+2KE7hBQpqnR6MvwlvJujDtVlAkY=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2service";
   version = "0.34.1-1";
-  src = sources.ros2service-3e8a7ef2065c1a1e21e5555e47eb4173e953c934;
+  src = sources."ros2service";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

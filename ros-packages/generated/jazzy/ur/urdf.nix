@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rosSystemPackages,
   substituteSource,
@@ -16,10 +17,10 @@
   urdfdom_headers,
 }:
 let
-  sources = rec {
-    urdf-6d6d4f6455766d6b900ee8fe1b702d1f9ddc2303 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "urdf" = substituteSource {
       src = fetchgit {
-        name = "urdf-6d6d4f6455766d6b900ee8fe1b702d1f9ddc2303-source";
+        name = "urdf-source";
         url = "https://github.com/ros2-gbp/urdf-release.git";
         rev = "6d6d4f6455766d6b900ee8fe1b702d1f9ddc2303";
         hash = "sha256-Jbhvu/SUA7Ophk3dwW/j/f2HG3k2+/JlUH4E7yQmm8k=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "urdf";
   version = "2.10.0-3";
-  src = sources.urdf-6d6d4f6455766d6b900ee8fe1b702d1f9ddc2303;
+  src = sources."urdf";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -18,15 +18,16 @@
   grid_map_rviz_plugin,
   grid_map_sdf,
   grid_map_visualization,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    grid_map-19690009ed1768c25a09a4c60d40a8ded52f3878 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "grid_map" = substituteSource {
       src = fetchgit {
-        name = "grid_map-19690009ed1768c25a09a4c60d40a8ded52f3878-source";
+        name = "grid_map-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "19690009ed1768c25a09a4c60d40a8ded52f3878";
         hash = "sha256-UDD+yaCrVCJ7CRgcWz9eNZ7foYmtVwX4JxVlJlrE1A0=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "grid_map";
   version = "2.2.0-1";
-  src = sources.grid_map-19690009ed1768c25a09a4c60d40a8ded52f3878;
+  src = sources."grid_map";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

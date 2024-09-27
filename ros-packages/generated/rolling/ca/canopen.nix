@@ -10,14 +10,15 @@
   fetchurl,
   fetchzip,
   lely_core_libraries,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    canopen-2295c5b5328ef7bb5ac8f10f956390d9fd405e80 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen" = substituteSource {
       src = fetchgit {
-        name = "canopen-2295c5b5328ef7bb5ac8f10f956390d9fd405e80-source";
+        name = "canopen-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "2295c5b5328ef7bb5ac8f10f956390d9fd405e80";
         hash = "sha256-sm7FaP2yTmcMeJhV7bqSBuDjGyDXyxt3MwaxCUyoi1s=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen";
   version = "0.2.12-2";
-  src = sources.canopen-2295c5b5328ef7bb5ac8f10f956390d9fd405e80;
+  src = sources."canopen";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

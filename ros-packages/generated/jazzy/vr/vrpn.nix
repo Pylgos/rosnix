@@ -4,14 +4,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    vrpn-0b68703610a8b017be5d3b8a773b7dfaa63103ab = substituteSource {
+  sources = mkSourceSet (sources: {
+    "vrpn" = substituteSource {
       src = fetchgit {
-        name = "vrpn-0b68703610a8b017be5d3b8a773b7dfaa63103ab-source";
+        name = "vrpn-source";
         url = "https://github.com/ros2-gbp/vrpn-release.git";
         rev = "0b68703610a8b017be5d3b8a773b7dfaa63103ab";
         hash = "sha256-2oOc4KpLGkfRc8tNDvM7xxjiHahtaoa5tGYhQEA7ViA=";
@@ -19,12 +20,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "vrpn";
   version = "7.35.0-18";
-  src = sources.vrpn-0b68703610a8b017be5d3b8a773b7dfaa63103ab;
+  src = sources."vrpn";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

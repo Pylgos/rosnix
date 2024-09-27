@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_cmake_module,
   python_qt_binding,
   qt_gui,
@@ -18,10 +19,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_py_common-e0a36bfb9e414974c9b8d96873b03355c306a6a7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_py_common" = substituteSource {
       src = fetchgit {
-        name = "rqt_py_common-e0a36bfb9e414974c9b8d96873b03355c306a6a7-source";
+        name = "rqt_py_common-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
         rev = "e0a36bfb9e414974c9b8d96873b03355c306a6a7";
         hash = "sha256-mMelbqXlcWi70Y6hRbxH682BUSN5AOmWZk2/FtaUqYY=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_py_common";
   version = "1.7.2-1";
-  src = sources.rqt_py_common-e0a36bfb9e414974c9b8d96873b03355c306a6a7;
+  src = sources."rqt_py_common";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

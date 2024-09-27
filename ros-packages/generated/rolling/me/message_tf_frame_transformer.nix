@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   ros_environment,
@@ -16,10 +17,10 @@
   tf2_sensor_msgs,
 }:
 let
-  sources = rec {
-    message_tf_frame_transformer-8365d8e62c09180ae085e4e225e5f2fb90d0439b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "message_tf_frame_transformer" = substituteSource {
       src = fetchgit {
-        name = "message_tf_frame_transformer-8365d8e62c09180ae085e4e225e5f2fb90d0439b-source";
+        name = "message_tf_frame_transformer-source";
         url = "https://github.com/ros2-gbp/message_tf_frame_transformer-release.git";
         rev = "8365d8e62c09180ae085e4e225e5f2fb90d0439b";
         hash = "sha256-lYSUvKIMjeyVNRJsf7Qj8XGausPw6UVLCKmHL7D1St8=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "message_tf_frame_transformer";
   version = "1.1.1-1";
-  src = sources.message_tf_frame_transformer-8365d8e62c09180ae085e4e225e5f2fb90d0439b;
+  src = sources."message_tf_frame_transformer";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

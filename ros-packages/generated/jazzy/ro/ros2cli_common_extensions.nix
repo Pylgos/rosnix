@@ -8,6 +8,7 @@
   fetchzip,
   launch_xml,
   launch_yaml,
+  mkSourceSet,
   ros2action,
   ros2cli,
   ros2component,
@@ -27,10 +28,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2cli_common_extensions-1687ba1b3328e41ebee8c4e51255f1d728243bf0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2cli_common_extensions" = substituteSource {
       src = fetchgit {
-        name = "ros2cli_common_extensions-1687ba1b3328e41ebee8c4e51255f1d728243bf0-source";
+        name = "ros2cli_common_extensions-source";
         url = "https://github.com/ros2-gbp/ros2cli_common_extensions-release.git";
         rev = "1687ba1b3328e41ebee8c4e51255f1d728243bf0";
         hash = "sha256-b3Ru11kcJWZbAquNYaTJOX8DiTVNJAWNcV6N8QA4ykQ=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2cli_common_extensions";
   version = "0.3.0-3";
-  src = sources.ros2cli_common_extensions-1687ba1b3328e41ebee8c4e51255f1d728243bf0;
+  src = sources."ros2cli_common_extensions";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,24 +14,15 @@
   gz_msgs_vendor,
   gz_tools_vendor,
   gz_utils_vendor,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_transport_vendor" = substituteSource {
       src = fetchgit {
-        name = "gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85-source";
-        url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "73757e716dcf21e395e1884fbfb4afc6bac10d85";
-        hash = "sha256-2Akd3vKr07IdgoJppvUV1nZlHE4RdQfI2R18ihHTDHk=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_transport_vendor-c8c307618da42388953426950d9153192e655929 = substituteSource {
-      src = fetchgit {
-        name = "gz_transport_vendor-c8c307618da42388953426950d9153192e655929-source";
+        name = "gz_transport_vendor-source";
         url = "https://github.com/ros2-gbp/gz_transport_vendor-release.git";
         rev = "c8c307618da42388953426950d9153192e655929";
         hash = "sha256-SoTRYKwraLJ9eQAUVK/DpiIMIoEw3WDSGDeh7tLy3sU=";
@@ -40,16 +31,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_transport_vendor/gz-transport"}";
         }
       ];
     };
-  };
+    "gz_transport_vendor/gz-transport" = substituteSource {
+      src = fetchgit {
+        name = "gz-transport-source";
+        url = "https://github.com/gazebosim/gz-transport.git";
+        rev = "73757e716dcf21e395e1884fbfb4afc6bac10d85";
+        hash = "sha256-2Akd3vKr07IdgoJppvUV1nZlHE4RdQfI2R18ihHTDHk=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_transport_vendor";
   version = "0.1.2-2";
-  src = sources.gz_transport_vendor-c8c307618da42388953426950d9153192e655929;
+  src = sources."gz_transport_vendor";
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "python3-dev" "python3-pytest" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

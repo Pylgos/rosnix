@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mola_common,
   mola_input_kitti360_dataset,
   mola_input_kitti_dataset,
@@ -31,10 +32,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mola_lidar_odometry-92843073b9960b44335c0b82b531ef3ae8ddb190 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola_lidar_odometry" = substituteSource {
       src = fetchgit {
-        name = "mola_lidar_odometry-92843073b9960b44335c0b82b531ef3ae8ddb190-source";
+        name = "mola_lidar_odometry-source";
         url = "https://github.com/ros2-gbp/mola_lidar_odometry-release.git";
         rev = "92843073b9960b44335c0b82b531ef3ae8ddb190";
         hash = "sha256-Kk/DGvTlVBDHrcVpQPS225NY2iZQ1Q/ZRXk+jsWZqrs=";
@@ -42,12 +43,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola_lidar_odometry";
   version = "0.3.3-1";
-  src = sources.mola_lidar_odometry-92843073b9960b44335c0b82b531ef3ae8ddb190;
+  src = sources."mola_lidar_odometry";
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pybind11_json_vendor,
   pybind11_vendor,
   rclpy,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_fleet_adapter_python-8610a99d68bcb570375b501d06425abab9df31c5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_fleet_adapter_python" = substituteSource {
       src = fetchgit {
-        name = "rmf_fleet_adapter_python-8610a99d68bcb570375b501d06425abab9df31c5-source";
+        name = "rmf_fleet_adapter_python-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "8610a99d68bcb570375b501d06425abab9df31c5";
         hash = "sha256-XfTRe/cSJkIfMDeYg8+8REz8J6kBWUPi3zslGOtnAtk=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_fleet_adapter_python";
   version = "2.7.2-1";
-  src = sources.rmf_fleet_adapter_python-8610a99d68bcb570375b501d06425abab9df31c5;
+  src = sources."rmf_fleet_adapter_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

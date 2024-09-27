@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    tracetools-fdd540cbf8e465c0258cb732e3e121c5fd5f9a3f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tracetools" = substituteSource {
       src = fetchgit {
-        name = "tracetools-fdd540cbf8e465c0258cb732e3e121c5fd5f9a3f-source";
+        name = "tracetools-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
         rev = "fdd540cbf8e465c0258cb732e3e121c5fd5f9a3f";
         hash = "sha256-7Q5l3XnsaRS3e00Mam1vFw9JGEA6Y1DWFMdVSfPgsL4=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tracetools";
   version = "8.2.2-1";
-  src = sources.tracetools-fdd540cbf8e465c0258cb732e3e121c5fd5f9a3f;
+  src = sources."tracetools";
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

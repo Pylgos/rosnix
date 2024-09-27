@@ -7,16 +7,17 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   realtime_tools,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    picknik_twist_controller-3b25e7bf6d2761642de9ad7b58f555e1eaf60eba = substituteSource {
+  sources = mkSourceSet (sources: {
+    "picknik_twist_controller" = substituteSource {
       src = fetchgit {
-        name = "picknik_twist_controller-3b25e7bf6d2761642de9ad7b58f555e1eaf60eba-source";
+        name = "picknik_twist_controller-source";
         url = "https://github.com/ros2-gbp/picknik_controllers-release.git";
         rev = "3b25e7bf6d2761642de9ad7b58f555e1eaf60eba";
         hash = "sha256-y6aZb1J/2JpuY/SFhUMgaDqYvXU7KiQYiETGOGIYF3I=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "picknik_twist_controller";
   version = "0.0.3-2";
-  src = sources.picknik_twist_controller-3b25e7bf6d2761642de9ad7b58f555e1eaf60eba;
+  src = sources."picknik_twist_controller";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

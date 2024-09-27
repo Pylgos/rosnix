@@ -5,14 +5,15 @@
   fetchurl,
   fetchzip,
   hpp-fcl,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    pinocchio-4ece81b852e001508a82e42194a34de911b1db5b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pinocchio" = substituteSource {
       src = fetchgit {
-        name = "pinocchio-4ece81b852e001508a82e42194a34de911b1db5b-source";
+        name = "pinocchio-source";
         url = "https://github.com/ros2-gbp/pinocchio-release.git";
         rev = "4ece81b852e001508a82e42194a34de911b1db5b";
         hash = "sha256-YFDwdoORgCb/x5PR//6nJtG6NghoeKsE60VEwuNP/ik=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pinocchio";
   version = "2.6.21-3";
-  src = sources.pinocchio-4ece81b852e001508a82e42194a34de911b1db5b;
+  src = sources."pinocchio";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

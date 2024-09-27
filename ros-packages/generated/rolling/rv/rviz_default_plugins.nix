@@ -16,6 +16,7 @@
   interactive_markers,
   laser_geometry,
   map_msgs,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   point_cloud_transport,
@@ -36,10 +37,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rviz_default_plugins-1ac15c09f0cbc59111513a6fc78ac00155681828 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rviz_default_plugins" = substituteSource {
       src = fetchgit {
-        name = "rviz_default_plugins-1ac15c09f0cbc59111513a6fc78ac00155681828-source";
+        name = "rviz_default_plugins-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "1ac15c09f0cbc59111513a6fc78ac00155681828";
         hash = "sha256-Fryn4lcRiYavvFgGC1OfWU9c1e4Swzc97+u8+bPjzeI=";
@@ -47,12 +48,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rviz_default_plugins";
   version = "14.2.6-1";
-  src = sources.rviz_default_plugins-1ac15c09f0cbc59111513a6fc78ac00155681828;
+  src = sources."rviz_default_plugins";
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

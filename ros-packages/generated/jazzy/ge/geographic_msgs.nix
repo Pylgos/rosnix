@@ -12,6 +12,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -20,10 +21,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "geographic_msgs" = substituteSource {
       src = fetchgit {
-        name = "geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e-source";
+        name = "geographic_msgs-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "caa6354cd98e112a31d8f26ab3168880bb3d327e";
         hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "geographic_msgs";
   version = "1.0.6-2";
-  src = sources.geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e;
+  src = sources."geographic_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

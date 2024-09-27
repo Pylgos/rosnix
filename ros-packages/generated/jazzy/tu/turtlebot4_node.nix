@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   irobot_create_msgs,
+  mkSourceSet,
   rclcpp,
   rclcpp_action,
   rcutils,
@@ -18,10 +19,10 @@
   turtlebot4_msgs,
 }:
 let
-  sources = rec {
-    turtlebot4_node-0be5e29b81e3aa797dfc9f7631336960ed2a66ab = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtlebot4_node" = substituteSource {
       src = fetchgit {
-        name = "turtlebot4_node-0be5e29b81e3aa797dfc9f7631336960ed2a66ab-source";
+        name = "turtlebot4_node-source";
         url = "https://github.com/ros2-gbp/turtlebot4-release.git";
         rev = "0be5e29b81e3aa797dfc9f7631336960ed2a66ab";
         hash = "sha256-GrJ7FKrgpc0hJWDIvcvyIKAR9f1LaCkTIpqzA2IncgM=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtlebot4_node";
   version = "2.0.1-1";
-  src = sources.turtlebot4_node-0be5e29b81e3aa797dfc9f7631336960ed2a66ab;
+  src = sources."turtlebot4_node";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

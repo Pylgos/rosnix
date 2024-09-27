@@ -13,16 +13,17 @@
   flexbe_msgs,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    flexbe_testing-7cbe302c79f606b5f242338a4d8fdfc0c1cd7e94 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "flexbe_testing" = substituteSource {
       src = fetchgit {
-        name = "flexbe_testing-7cbe302c79f606b5f242338a4d8fdfc0c1cd7e94-source";
+        name = "flexbe_testing-source";
         url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
         rev = "7cbe302c79f606b5f242338a4d8fdfc0c1cd7e94";
         hash = "sha256-Z8v7JR6IuSmak5toK1AzflLXgHOoa40m9WxX883LZ7w=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "flexbe_testing";
   version = "3.0.3-1";
-  src = sources.flexbe_testing-7cbe302c79f606b5f242338a4d8fdfc0c1cd7e94;
+  src = sources."flexbe_testing";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -3,6 +3,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   mola_common,
   mrpt_libmaps,
   mrpt_libposes,
@@ -10,10 +11,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mola_pose_list-db579a61bc763053752ac2cbd4232793cbdd8056 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mola_pose_list" = substituteSource {
       src = fetchgit {
-        name = "mola_pose_list-db579a61bc763053752ac2cbd4232793cbdd8056-source";
+        name = "mola_pose_list-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "db579a61bc763053752ac2cbd4232793cbdd8056";
         hash = "sha256-IpZ1gQEevyLYkxFdJ99SHHLIX1maNZPTyRaU5iIgPCw=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mola_pose_list";
   version = "1.2.0-1";
-  src = sources.mola_pose_list-db579a61bc763053752ac2cbd4232793cbdd8056;
+  src = sources."mola_pose_list";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

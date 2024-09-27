@@ -11,6 +11,7 @@
   fetchurl,
   fetchzip,
   mcap_vendor,
+  mkSourceSet,
   pluginlib,
   rcutils,
   rosSystemPackages,
@@ -21,10 +22,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    rosbag2_storage_mcap-b5c88ecb4a741c44d467d791b76beabe13646055 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_storage_mcap" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_storage_mcap-b5c88ecb4a741c44d467d791b76beabe13646055-source";
+        name = "rosbag2_storage_mcap-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "b5c88ecb4a741c44d467d791b76beabe13646055";
         hash = "sha256-LDI62PpmzQh2d5/irOMb87UNPlUY6GCqT2cDjTisKIc=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_storage_mcap";
   version = "0.26.5-1";
-  src = sources.rosbag2_storage_mcap-b5c88ecb4a741c44d467d791b76beabe13646055;
+  src = sources."rosbag2_storage_mcap";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

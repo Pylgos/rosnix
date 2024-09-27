@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libnav,
   mrpt_libros_bridge,
   mrpt_nav_interfaces,
@@ -25,10 +26,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    mrpt_reactivenav2d-c3c584383b2415fe46900ad278de7da163f8c96e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mrpt_reactivenav2d" = substituteSource {
       src = fetchgit {
-        name = "mrpt_reactivenav2d-c3c584383b2415fe46900ad278de7da163f8c96e-source";
+        name = "mrpt_reactivenav2d-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "c3c584383b2415fe46900ad278de7da163f8c96e";
         hash = "sha256-iDWejQBkrSTmop7pPuyZvrNLQsSsvq61OV//YWkSBxU=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mrpt_reactivenav2d";
   version = "2.2.0-1";
-  src = sources.mrpt_reactivenav2d-c3c584383b2415fe46900ad278de7da163f8c96e;
+  src = sources."mrpt_reactivenav2d";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

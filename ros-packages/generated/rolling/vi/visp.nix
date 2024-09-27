@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    visp-40579e7c751095b9add34bc8060cd95ada214ab0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "visp" = substituteSource {
       src = fetchgit {
-        name = "visp-40579e7c751095b9add34bc8060cd95ada214ab0-source";
+        name = "visp-source";
         url = "https://github.com/ros2-gbp/visp-release.git";
         rev = "40579e7c751095b9add34bc8060cd95ada214ab0";
         hash = "sha256-nMrdYB+RessgluLVeY69cP1jA4ucoAfcxyaNk1gyiSQ=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "visp";
   version = "3.5.0-3";
-  src = sources.visp-40579e7c751095b9add34bc8060cd95ada214ab0;
+  src = sources."visp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

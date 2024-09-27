@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_action,
   rclpy,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    simple_actions-a7c1a14741bfdeff9bf7b7d7ae2bc1164f9f9ab7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "simple_actions" = substituteSource {
       src = fetchgit {
-        name = "simple_actions-a7c1a14741bfdeff9bf7b7d7ae2bc1164f9f9ab7-source";
+        name = "simple_actions-source";
         url = "https://github.com/ros2-gbp/simple_actions-release.git";
         rev = "a7c1a14741bfdeff9bf7b7d7ae2bc1164f9f9ab7";
         hash = "sha256-BC5T9iKxbIolH0TXwEUcRhXO0b9xjFOdnM4+le2X27Q=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "simple_actions";
   version = "0.4.0-1";
-  src = sources.simple_actions-a7c1a14741bfdeff9bf7b7d7ae2bc1164f9f9ab7;
+  src = sources."simple_actions";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

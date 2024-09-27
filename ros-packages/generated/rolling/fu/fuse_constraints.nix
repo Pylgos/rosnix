@@ -11,16 +11,17 @@
   fuse_graphs,
   fuse_variables,
   geometry_msgs,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    fuse_constraints-29aa0e5c4fe2bd6fe6a62821bba6bb542295df92 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_constraints" = substituteSource {
       src = fetchgit {
-        name = "fuse_constraints-29aa0e5c4fe2bd6fe6a62821bba6bb542295df92-source";
+        name = "fuse_constraints-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "29aa0e5c4fe2bd6fe6a62821bba6bb542295df92";
         hash = "sha256-tmhdgTp2sntBuFANPXC7zCPENIzjlk57HXZ8WscmnGU=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_constraints";
   version = "1.2.1-1";
-  src = sources.fuse_constraints-29aa0e5c4fe2bd6fe6a62821bba6bb542295df92;
+  src = sources."fuse_constraints";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

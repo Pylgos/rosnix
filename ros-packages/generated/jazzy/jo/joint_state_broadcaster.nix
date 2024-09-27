@@ -13,6 +13,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -25,10 +26,10 @@
   urdf,
 }:
 let
-  sources = rec {
-    joint_state_broadcaster-f24ed1506f66f313c62b8b16a04bd0550706582c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "joint_state_broadcaster" = substituteSource {
       src = fetchgit {
-        name = "joint_state_broadcaster-f24ed1506f66f313c62b8b16a04bd0550706582c-source";
+        name = "joint_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "f24ed1506f66f313c62b8b16a04bd0550706582c";
         hash = "sha256-e84+qPInnPPJrtZyiSu3yPDH3aLbkwBLjx8wFTNAt1A=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "joint_state_broadcaster";
   version = "4.14.0-1";
-  src = sources.joint_state_broadcaster-f24ed1506f66f313c62b8b16a04bd0550706582c;
+  src = sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

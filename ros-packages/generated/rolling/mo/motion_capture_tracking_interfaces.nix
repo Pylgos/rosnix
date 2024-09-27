@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "motion_capture_tracking_interfaces" = substituteSource {
       src = fetchgit {
-        name = "motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966-source";
+        name = "motion_capture_tracking_interfaces-source";
         url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
         rev = "a9b72a5a549beb50b53da5959a19bc658d535966";
         hash = "sha256-ho+25GyuWOKXqZqIp74ZO8leEndRFRqfn74DBKWKZWk=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "motion_capture_tracking_interfaces";
   version = "1.0.3-2";
-  src = sources.motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966;
+  src = sources."motion_capture_tracking_interfaces";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

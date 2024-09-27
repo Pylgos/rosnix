@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   osrf_testing_tools_cpp,
   rcutils,
   rosSystemPackages,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmw" = substituteSource {
       src = fetchgit {
-        name = "rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3-source";
+        name = "rmw-source";
         url = "https://github.com/ros2-gbp/rmw-release.git";
         rev = "785f02ef6ccd4c863ddb665f39498a854c14d0a3";
         hash = "sha256-ytGuQrW/Nt8ZX9IJPoGLQCbkrs/QPjZxskxKOD2rLtU=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmw";
   version = "7.3.1-1";
-  src = sources.rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3;
+  src = sources."rmw";
   nativeBuildInputs = [ ament_cmake_ros ament_cmake_version ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

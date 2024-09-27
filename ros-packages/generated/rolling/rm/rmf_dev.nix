@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   menge_vendor,
+  mkSourceSet,
   nlohmann_json_schema_validator_vendor,
   pybind11_json_vendor,
   rmf_api_msgs,
@@ -54,10 +55,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rmf_dev-6df76b4024e822ab3669ae7f131f7828255e587a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_dev" = substituteSource {
       src = fetchgit {
-        name = "rmf_dev-6df76b4024e822ab3669ae7f131f7828255e587a-source";
+        name = "rmf_dev-source";
         url = "https://github.com/ros2-gbp/rmf_variants-release.git";
         rev = "6df76b4024e822ab3669ae7f131f7828255e587a";
         hash = "sha256-1zapMn4jZKX6C1ftizIpnt9WJ+DERnvtTUHY3p4zBVY=";
@@ -65,12 +66,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_dev";
   version = "0.2.0-1";
-  src = sources.rmf_dev-6df76b4024e822ab3669ae7f131f7828255e587a;
+  src = sources."rmf_dev";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

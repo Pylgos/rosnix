@@ -14,6 +14,7 @@
   launch_ros,
   launch_testing,
   launch_testing_ament_cmake,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   std_msgs,
@@ -21,10 +22,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_gz_sim" = substituteSource {
       src = fetchgit {
-        name = "ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b-source";
+        name = "ros_gz_sim-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b";
         hash = "sha256-FoRu+Y1cHe74E4jeWffOy6YumycexOfzGyIbn4DEeHM=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_gz_sim";
   version = "1.0.4-1";
-  src = sources.ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b;
+  src = sources."ros_gz_sim";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

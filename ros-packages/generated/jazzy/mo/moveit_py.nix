@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   moveit_core,
   moveit_ros_planning,
   moveit_ros_planning_interface,
@@ -19,10 +20,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_py-1a2ca49341be3d3cfdda1883cf49118ccdf47c62 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_py" = substituteSource {
       src = fetchgit {
-        name = "moveit_py-1a2ca49341be3d3cfdda1883cf49118ccdf47c62-source";
+        name = "moveit_py-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "1a2ca49341be3d3cfdda1883cf49118ccdf47c62";
         hash = "sha256-g7saOz9IdlSXYFhRUfWk6SF4+/6zNq8nFfHzfeWf2bo=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_py";
   version = "2.10.0-1";
-  src = sources.moveit_py-1a2ca49341be3d3cfdda1883cf49118ccdf47c62;
+  src = sources."moveit_py";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

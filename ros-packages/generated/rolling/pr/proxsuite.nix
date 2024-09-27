@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    proxsuite-66e547dc78521793ba4ec7d0efb48fe3a00bf0a4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "proxsuite" = substituteSource {
       src = fetchgit {
-        name = "proxsuite-66e547dc78521793ba4ec7d0efb48fe3a00bf0a4-source";
+        name = "proxsuite-source";
         url = "https://github.com/ros2-gbp/proxsuite-release.git";
         rev = "66e547dc78521793ba4ec7d0efb48fe3a00bf0a4";
         hash = "sha256-Qfv+vWLLcZfUtZpRYZaoL3rQ3ibCYBKQcAkpFP0YdWI=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "proxsuite";
   version = "0.6.5-1";
-  src = sources.proxsuite-66e547dc78521793ba4ec7d0efb48fe3a00bf0a4;
+  src = sources."proxsuite";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

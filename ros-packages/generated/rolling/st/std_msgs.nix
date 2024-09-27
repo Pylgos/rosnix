@@ -6,16 +6,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    std_msgs-6caa3d659eddf3f3520a563afd579207e7b0e060 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "std_msgs" = substituteSource {
       src = fetchgit {
-        name = "std_msgs-6caa3d659eddf3f3520a563afd579207e7b0e060-source";
+        name = "std_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "6caa3d659eddf3f3520a563afd579207e7b0e060";
         hash = "sha256-ZlucnBjZl0ribV8kErdUu63DstFByzgVOh4X6GEJvCk=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "std_msgs";
   version = "5.4.1-1";
-  src = sources.std_msgs-6caa3d659eddf3f3520a563afd579207e7b0e060;
+  src = sources."std_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

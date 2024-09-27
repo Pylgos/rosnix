@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   gz_fuel_tools_vendor,
+  mkSourceSet,
   rclpy,
   rmf_building_map_msgs,
   rmf_site_map_msgs,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_building_map_tools-a6b0c09699bf074088d044d3d12641925b532289 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_building_map_tools" = substituteSource {
       src = fetchgit {
-        name = "rmf_building_map_tools-a6b0c09699bf074088d044d3d12641925b532289-source";
+        name = "rmf_building_map_tools-source";
         url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
         rev = "a6b0c09699bf074088d044d3d12641925b532289";
         hash = "sha256-4cUoJgBGbyqyS7tb68emxaWNBl+LdMnihmzy7xwvW90=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_building_map_tools";
   version = "1.9.1-1";
-  src = sources.rmf_building_map_tools-a6b0c09699bf074088d044d3d12641925b532289;
+  src = sources."rmf_building_map_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

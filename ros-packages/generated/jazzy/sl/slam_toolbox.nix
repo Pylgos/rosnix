@@ -17,6 +17,7 @@
   launch_testing,
   lifecycle_msgs,
   message_filters,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -39,10 +40,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    slam_toolbox-1e73a216a61722acd0b77d7ef25759db4b183dc4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "slam_toolbox" = substituteSource {
       src = fetchgit {
-        name = "slam_toolbox-1e73a216a61722acd0b77d7ef25759db4b183dc4-source";
+        name = "slam_toolbox-source";
         url = "https://github.com/SteveMacenski/slam_toolbox-release.git";
         rev = "1e73a216a61722acd0b77d7ef25759db4b183dc4";
         hash = "sha256-XuG5qBercHsZopAr/jEnaSer+0FrgZ0DhIdnHt+thkE=";
@@ -50,12 +51,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "slam_toolbox";
   version = "2.8.1-2";
-  src = sources.slam_toolbox-1e73a216a61722acd0b77d7ef25759db4b183dc4;
+  src = sources."slam_toolbox";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   qt_dotgraph,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_graph" = substituteSource {
       src = fetchgit {
-        name = "rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595-source";
+        name = "rqt_graph-source";
         url = "https://github.com/ros2-gbp/rqt_graph-release.git";
         rev = "6771816961fa978fc42be3f8b5bf6b241052d595";
         hash = "sha256-Y3VJbiQ/I3s1fFoCRZ+OkJiLE/9+pabzSDJ0ja/xuJo=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_graph";
   version = "1.5.4-1";
-  src = sources.rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595;
+  src = sources."rqt_graph";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

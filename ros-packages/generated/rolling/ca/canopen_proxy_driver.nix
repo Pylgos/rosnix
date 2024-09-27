@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    canopen_proxy_driver-d3130ee628e1deb37ae6b3e2f273d2f56e59dc9f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen_proxy_driver" = substituteSource {
       src = fetchgit {
-        name = "canopen_proxy_driver-d3130ee628e1deb37ae6b3e2f273d2f56e59dc9f-source";
+        name = "canopen_proxy_driver-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "d3130ee628e1deb37ae6b3e2f273d2f56e59dc9f";
         hash = "sha256-9VxrJeE2dvYh55IGbOTts51CA4ogHdj9GVdvEOwf4q8=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen_proxy_driver";
   version = "0.2.12-2";
-  src = sources.canopen_proxy_driver-d3130ee628e1deb37ae6b3e2f273d2f56e59dc9f;
+  src = sources."canopen_proxy_driver";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

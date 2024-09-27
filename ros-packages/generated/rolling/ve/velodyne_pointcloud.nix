@@ -11,6 +11,7 @@
   fetchzip,
   geometry_msgs,
   message_filters,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -21,10 +22,10 @@
   velodyne_msgs,
 }:
 let
-  sources = rec {
-    velodyne_pointcloud-d11c91eb9d18e83ee33133cecb4fc1737d5140f6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "velodyne_pointcloud" = substituteSource {
       src = fetchgit {
-        name = "velodyne_pointcloud-d11c91eb9d18e83ee33133cecb4fc1737d5140f6-source";
+        name = "velodyne_pointcloud-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "d11c91eb9d18e83ee33133cecb4fc1737d5140f6";
         hash = "sha256-hkvzuZw8cF8+XSVnSmlVOPLOTlg7vhtPoqd1gNK0mo8=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "velodyne_pointcloud";
   version = "2.3.0-3";
-  src = sources.velodyne_pointcloud-d11c91eb9d18e83ee33133cecb4fc1737d5140f6;
+  src = sources."velodyne_pointcloud";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

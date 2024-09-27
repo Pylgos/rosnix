@@ -15,25 +15,16 @@
   gz_math_vendor,
   gz_plugin_vendor,
   gz_utils_vendor,
+  mkSourceSet,
   rosSystemPackages,
   sdformat_vendor,
   substituteSource,
 }:
 let
-  sources = rec {
-    gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "gz_physics_vendor" = substituteSource {
       src = fetchgit {
-        name = "gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f-source";
-        url = "https://github.com/gazebosim/gz-physics.git";
-        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
-        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
-      };
-      substitutions = [
-      ];
-    };
-    gz_physics_vendor-53288c00b4ac180945be5466ce87a9e1b1f32366 = substituteSource {
-      src = fetchgit {
-        name = "gz_physics_vendor-53288c00b4ac180945be5466ce87a9e1b1f32366-source";
+        name = "gz_physics_vendor-source";
         url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
         rev = "53288c00b4ac180945be5466ce87a9e1b1f32366";
         hash = "sha256-iDCkqgePD0uE6dcCI23Zq502xOXwGQ9b0iyMmHs94lk=";
@@ -42,16 +33,26 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f}";
+          to = "VCS_TYPE path VCS_URL ${sources."gz_physics_vendor/gz-physics"}";
         }
       ];
     };
-  };
+    "gz_physics_vendor/gz-physics" = substituteSource {
+      src = fetchgit {
+        name = "gz-physics-source";
+        url = "https://github.com/gazebosim/gz-physics.git";
+        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
+        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
+      };
+      substitutions = [
+      ];
+    };
+  });
 in
 buildRosPackage {
   pname = "gz_physics_vendor";
   version = "0.0.4-1";
-  src = sources.gz_physics_vendor-53288c00b4ac180945be5466ce87a9e1b1f32366;
+  src = sources."gz_physics_vendor";
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

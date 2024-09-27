@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    marti_perception_msgs-d427ac464463e6d1c05701757a36af85c15f5d51 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "marti_perception_msgs" = substituteSource {
       src = fetchgit {
-        name = "marti_perception_msgs-d427ac464463e6d1c05701757a36af85c15f5d51-source";
+        name = "marti_perception_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
         rev = "d427ac464463e6d1c05701757a36af85c15f5d51";
         hash = "sha256-FZTo6sslxugGts/jf3daCxSI2sgmW4NAeYssvIrh1P8=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "marti_perception_msgs";
   version = "1.6.1-1";
-  src = sources.marti_perception_msgs-d427ac464463e6d1c05701757a36af85c15f5d51;
+  src = sources."marti_perception_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

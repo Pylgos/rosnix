@@ -10,6 +10,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   tinyxml2_vendor,
@@ -18,10 +19,10 @@
   urdfdom_py,
 }:
 let
-  sources = rec {
-    srdfdom-631a38d245e6b93126aaa6377f6950b9df4d807a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "srdfdom" = substituteSource {
       src = fetchgit {
-        name = "srdfdom-631a38d245e6b93126aaa6377f6950b9df4d807a-source";
+        name = "srdfdom-source";
         url = "https://github.com/ros2-gbp/srdfdom-release.git";
         rev = "631a38d245e6b93126aaa6377f6950b9df4d807a";
         hash = "sha256-4SrjgL5tauV2LvLisilSnXwyD2qTdhVdYDtH8D/69yg=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "srdfdom";
   version = "2.0.4-3";
-  src = sources.srdfdom-631a38d245e6b93126aaa6377f6950b9df4d807a;
+  src = sources."srdfdom";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,6 +13,7 @@
   fuse_msgs,
   fuse_variables,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -23,10 +24,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    fuse_publishers-8a90a768d315b7d3d002994c4cb9f4edc34ab147 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_publishers" = substituteSource {
       src = fetchgit {
-        name = "fuse_publishers-8a90a768d315b7d3d002994c4cb9f4edc34ab147-source";
+        name = "fuse_publishers-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "8a90a768d315b7d3d002994c4cb9f4edc34ab147";
         hash = "sha256-XCcEiaJD6vYXpgKsLFonssmY6QczSnBMUhpLzG4o0eA=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_publishers";
   version = "1.2.1-1";
-  src = sources.fuse_publishers-8a90a768d315b7d3d002994c4cb9f4edc34ab147;
+  src = sources."fuse_publishers";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

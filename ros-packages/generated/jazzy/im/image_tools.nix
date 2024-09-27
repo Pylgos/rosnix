@@ -12,6 +12,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rmw_implementation_cmake,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    image_tools-e53f2dfe1be71d79d0cddf23b4e7f61bb33ba97d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "image_tools" = substituteSource {
       src = fetchgit {
-        name = "image_tools-e53f2dfe1be71d79d0cddf23b4e7f61bb33ba97d-source";
+        name = "image_tools-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "e53f2dfe1be71d79d0cddf23b4e7f61bb33ba97d";
         hash = "sha256-hRy5xFGeKMfoRZT1Od8NONXd3wCtorOEaYHJCHMrUH4=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "image_tools";
   version = "0.33.5-1";
-  src = sources.image_tools-e53f2dfe1be71d79d0cddf23b4e7f61bb33ba97d;
+  src = sources."image_tools";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -10,15 +10,16 @@
   lanelet2_projection,
   lanelet2_routing,
   lanelet2_traffic_rules,
+  mkSourceSet,
   mrt_cmake_modules,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    lanelet2_python-4cfdc2c64a26f91af854d2bc8a035f2a2562e7eb = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lanelet2_python" = substituteSource {
       src = fetchgit {
-        name = "lanelet2_python-4cfdc2c64a26f91af854d2bc8a035f2a2562e7eb-source";
+        name = "lanelet2_python-source";
         url = "https://github.com/ros2-gbp/lanelet2-release.git";
         rev = "4cfdc2c64a26f91af854d2bc8a035f2a2562e7eb";
         hash = "sha256-ShlQQ/+8TBL3/8PE/BeVaLtJW5l2B8FQO8eY06yg5Lc=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lanelet2_python";
   version = "1.2.1-1";
-  src = sources.lanelet2_python-4cfdc2c64a26f91af854d2bc8a035f2a2562e7eb;
+  src = sources."lanelet2_python";
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

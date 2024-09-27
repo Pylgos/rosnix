@@ -14,15 +14,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   sophus,
   substituteSource,
 }:
 let
-  sources = rec {
-    ecl_linear_algebra-09bd9ba9ce1f8ff86c333392f789104f7b556161 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ecl_linear_algebra" = substituteSource {
       src = fetchgit {
-        name = "ecl_linear_algebra-09bd9ba9ce1f8ff86c333392f789104f7b556161-source";
+        name = "ecl_linear_algebra-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "09bd9ba9ce1f8ff86c333392f789104f7b556161";
         hash = "sha256-2Mofxug8ckLfTnStaTQtx69z6SvToiY8incBV3OMXJo=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ecl_linear_algebra";
   version = "1.2.1-4";
-  src = sources.ecl_linear_algebra-09bd9ba9ce1f8ff86c333392f789104f7b556161;
+  src = sources."ecl_linear_algebra";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

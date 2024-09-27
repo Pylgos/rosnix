@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    bondcpp-d205351d049e87b939b61b2b68efc622d544b5b8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "bondcpp" = substituteSource {
       src = fetchgit {
-        name = "bondcpp-d205351d049e87b939b61b2b68efc622d544b5b8-source";
+        name = "bondcpp-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "d205351d049e87b939b61b2b68efc622d544b5b8";
         hash = "sha256-fbNSgNmnnRCTFEsui9H+C9BJOcZyqF8Cv6sZjP+89qo=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "bondcpp";
   version = "4.1.0-1";
-  src = sources.bondcpp-d205351d049e87b939b61b2b68efc622d544b5b8;
+  src = sources."bondcpp";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

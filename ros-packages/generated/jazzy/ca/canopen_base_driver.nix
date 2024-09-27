@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   lely_core_libraries,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rclcpp_lifecycle,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    canopen_base_driver-ef623be7c9fcfa9e325e4a05fcdb0cfda9904565 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "canopen_base_driver" = substituteSource {
       src = fetchgit {
-        name = "canopen_base_driver-ef623be7c9fcfa9e325e4a05fcdb0cfda9904565-source";
+        name = "canopen_base_driver-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "ef623be7c9fcfa9e325e4a05fcdb0cfda9904565";
         hash = "sha256-okKOznu5KCRhv5byFy36jawqcLh98ZQB/VR7Jjkf8gw=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "canopen_base_driver";
   version = "0.2.9-2";
-  src = sources.canopen_base_driver-ef623be7c9fcfa9e325e4a05fcdb0cfda9904565;
+  src = sources."canopen_base_driver";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

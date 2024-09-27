@@ -12,6 +12,7 @@
   fetchzip,
   ffmpeg_image_transport_msgs,
   image_transport,
+  mkSourceSet,
   rclcpp,
   robot_state_publisher,
   rosSystemPackages,
@@ -27,10 +28,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "depthai_bridge" = substituteSource {
       src = fetchgit {
-        name = "depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438-source";
+        name = "depthai_bridge-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "e3e759286e8a64dc356dc9b9b7d46e87f65ad438";
         hash = "sha256-EPZDRhsYvK3tHASVb5R0u3fcyaLQMiSNsI7YZ21OWLM=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "depthai_bridge";
   version = "2.10.1-1";
-  src = sources.depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438;
+  src = sources."depthai_bridge";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

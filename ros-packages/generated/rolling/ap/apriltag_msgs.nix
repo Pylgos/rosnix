@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    apriltag_msgs-555203ded954f72af530a0415c8ba5b356669d8c = substituteSource {
+  sources = mkSourceSet (sources: {
+    "apriltag_msgs" = substituteSource {
       src = fetchgit {
-        name = "apriltag_msgs-555203ded954f72af530a0415c8ba5b356669d8c-source";
+        name = "apriltag_msgs-source";
         url = "https://github.com/ros2-gbp/apriltag_msgs-release.git";
         rev = "555203ded954f72af530a0415c8ba5b356669d8c";
         hash = "sha256-8gmaJqHmANuH5XDGCZ8C29KjCY7QKQ8r2DSpl1jxp20=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "apriltag_msgs";
   version = "2.0.1-4";
-  src = sources.apriltag_msgs-555203ded954f72af530a0415c8ba5b356669d8c;
+  src = sources."apriltag_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

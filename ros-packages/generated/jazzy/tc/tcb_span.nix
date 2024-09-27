@@ -5,14 +5,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    tcb_span-8995fcd50c0d65df37a701dac05b1d29f7db167e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tcb_span" = substituteSource {
       src = fetchgit {
-        name = "tcb_span-8995fcd50c0d65df37a701dac05b1d29f7db167e-source";
+        name = "tcb_span-source";
         url = "https://github.com/ros2-gbp/cpp_polyfills-release.git";
         rev = "8995fcd50c0d65df37a701dac05b1d29f7db167e";
         hash = "sha256-61JrUYgWw+LJJmryzDfZte0H+hhzDbHqOY1wEyk996Q=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tcb_span";
   version = "1.0.2-5";
-  src = sources.tcb_span-8995fcd50c0d65df37a701dac05b1d29f7db167e;
+  src = sources."tcb_span";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

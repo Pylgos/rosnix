@@ -11,6 +11,7 @@
   fetchzip,
   geographic_msgs,
   image_transport,
+  mkSourceSet,
   nav2_common,
   nav2_core,
   nav2_msgs,
@@ -26,10 +27,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    nav2_waypoint_follower-f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_waypoint_follower" = substituteSource {
       src = fetchgit {
-        name = "nav2_waypoint_follower-f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104-source";
+        name = "nav2_waypoint_follower-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104";
         hash = "sha256-0cD4CecbDGvV70fMa3RmgpZ5MHzPM4Pm/ee7ksLer8M=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_waypoint_follower";
   version = "1.3.2-1";
-  src = sources.nav2_waypoint_follower-f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104;
+  src = sources."nav2_waypoint_follower";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

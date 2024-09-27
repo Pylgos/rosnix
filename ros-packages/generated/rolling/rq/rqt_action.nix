@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rqt_gui,
   rqt_gui_py,
@@ -14,10 +15,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_action-55dd23a694f1bceba5f1d3bc26893e4d8194acd5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_action" = substituteSource {
       src = fetchgit {
-        name = "rqt_action-55dd23a694f1bceba5f1d3bc26893e4d8194acd5-source";
+        name = "rqt_action-source";
         url = "https://github.com/ros2-gbp/rqt_action-release.git";
         rev = "55dd23a694f1bceba5f1d3bc26893e4d8194acd5";
         hash = "sha256-c7Q3DoUUYVugs2Hu5w1qmS/qM5Spa5By2NOxCVS/ZsI=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_action";
   version = "2.3.0-1";
-  src = sources.rqt_action-55dd23a694f1bceba5f1d3bc26893e4d8194acd5;
+  src = sources."rqt_action";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

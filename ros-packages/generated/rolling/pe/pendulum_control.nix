@@ -11,6 +11,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   pendulum_msgs,
   rclcpp,
   rmw_implementation_cmake,
@@ -21,10 +22,10 @@
   tlsf_cpp,
 }:
 let
-  sources = rec {
-    pendulum_control-232a1d728e9ba144c7cf543e161be50c6012caa7 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pendulum_control" = substituteSource {
       src = fetchgit {
-        name = "pendulum_control-232a1d728e9ba144c7cf543e161be50c6012caa7-source";
+        name = "pendulum_control-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "232a1d728e9ba144c7cf543e161be50c6012caa7";
         hash = "sha256-9/Ors/bbkAlZOJwhFakzdVXxULm8pfNuBfkStvUxvHQ=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pendulum_control";
   version = "0.34.2-1";
-  src = sources.pendulum_control-232a1d728e9ba144c7cf543e161be50c6012caa7;
+  src = sources."pendulum_control";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

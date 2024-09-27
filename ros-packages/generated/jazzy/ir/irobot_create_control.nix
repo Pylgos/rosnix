@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   joint_state_broadcaster,
+  mkSourceSet,
   ros2_controllers,
   ros2launch,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    irobot_create_control-20487f911a4a5f4f72f4f504d5688d9a306fcddf = substituteSource {
+  sources = mkSourceSet (sources: {
+    "irobot_create_control" = substituteSource {
       src = fetchgit {
-        name = "irobot_create_control-20487f911a4a5f4f72f4f504d5688d9a306fcddf-source";
+        name = "irobot_create_control-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
         rev = "20487f911a4a5f4f72f4f504d5688d9a306fcddf";
         hash = "sha256-IXqVo8BbiiDdcAmLFminNRK7GUjf9VjzE4oJaXmmoqs=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "irobot_create_control";
   version = "3.0.2-2";
-  src = sources.irobot_create_control-20487f911a4a5f4f72f4f504d5688d9a306fcddf;
+  src = sources."irobot_create_control";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,15 +7,16 @@
   launch,
   launch_param_builder,
   launch_ros,
+  mkSourceSet,
   rosSystemPackages,
   srdfdom,
   substituteSource,
 }:
 let
-  sources = rec {
-    moveit_configs_utils-5b1a56d796279057a36d9738191655ecf616b024 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_configs_utils" = substituteSource {
       src = fetchgit {
-        name = "moveit_configs_utils-5b1a56d796279057a36d9738191655ecf616b024-source";
+        name = "moveit_configs_utils-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "5b1a56d796279057a36d9738191655ecf616b024";
         hash = "sha256-8DDHsJCi1DVNRwZcC9PrM6vw7VJA2mZjeOroGm+NewY=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_configs_utils";
   version = "2.10.0-1";
-  src = sources.moveit_configs_utils-5b1a56d796279057a36d9738191655ecf616b024;
+  src = sources."moveit_configs_utils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

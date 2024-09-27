@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   object_recognition_msgs,
   octomap_msgs,
   rosSystemPackages,
@@ -20,10 +21,10 @@
   trajectory_msgs,
 }:
 let
-  sources = rec {
-    moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_msgs" = substituteSource {
       src = fetchgit {
-        name = "moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f-source";
+        name = "moveit_msgs-source";
         url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
         rev = "0daba4a04b95f58faeb7fecc078126948195df1f";
         hash = "sha256-eWWWhKKdKRwr1U0N2bGllNmgC2EzT0l5DNKFFjjXAYI=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_msgs";
   version = "2.6.0-1";
-  src = sources.moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f;
+  src = sources."moveit_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

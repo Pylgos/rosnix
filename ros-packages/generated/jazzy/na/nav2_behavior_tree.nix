@@ -11,6 +11,7 @@
   fetchzip,
   geometry_msgs,
   lifecycle_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_msgs,
   nav2_util,
@@ -29,10 +30,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_behavior_tree" = substituteSource {
       src = fetchgit {
-        name = "nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd-source";
+        name = "nav2_behavior_tree-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "514435645fd784662bd5646e4452560408cd9ccd";
         hash = "sha256-n8/qWnKTojyTZFNfXLMQRMV9FDbcmLweC+AgTJAwNPI=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_behavior_tree";
   version = "1.3.2-1";
-  src = sources.nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd;
+  src = sources."nav2_behavior_tree";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

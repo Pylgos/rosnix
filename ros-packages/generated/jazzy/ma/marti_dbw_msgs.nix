@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    marti_dbw_msgs-395b8d9708b56b76552a69b69d52d0380d171975 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "marti_dbw_msgs" = substituteSource {
       src = fetchgit {
-        name = "marti_dbw_msgs-395b8d9708b56b76552a69b69d52d0380d171975-source";
+        name = "marti_dbw_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
         rev = "395b8d9708b56b76552a69b69d52d0380d171975";
         hash = "sha256-ukl9yb5v2+9dOAAuO4GvYdLnUutr8zuxIqQ5NcpYo1c=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "marti_dbw_msgs";
   version = "1.6.1-1";
-  src = sources.marti_dbw_msgs-395b8d9708b56b76552a69b69d52d0380d171975;
+  src = sources."marti_dbw_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

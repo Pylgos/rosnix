@@ -7,15 +7,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_pycommon,
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_cmake-a003cbd7665f995804f8d856ecb01f3245a3c077 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_cmake" = substituteSource {
       src = fetchgit {
-        name = "rosidl_cmake-a003cbd7665f995804f8d856ecb01f3245a3c077-source";
+        name = "rosidl_cmake-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "a003cbd7665f995804f8d856ecb01f3245a3c077";
         hash = "sha256-aCwffyruQROE+FYmTQdkdKA3SYXXi8PJIe9CrlJbqUc=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_cmake";
   version = "4.6.4-1";
-  src = sources.rosidl_cmake-a003cbd7665f995804f8d856ecb01f3245a3c077;
+  src = sources."rosidl_cmake";
   nativeBuildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake rosidl_pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   buildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

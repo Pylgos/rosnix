@@ -12,6 +12,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp_lifecycle,
@@ -22,10 +23,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    bicycle_steering_controller-d617d46aa8a953f0635f397df31228ac982eff3a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "bicycle_steering_controller" = substituteSource {
       src = fetchgit {
-        name = "bicycle_steering_controller-d617d46aa8a953f0635f397df31228ac982eff3a-source";
+        name = "bicycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "d617d46aa8a953f0635f397df31228ac982eff3a";
         hash = "sha256-DReIua9zsSoVXfBzzHv0uhjiZNype55TV8pR/oUIgHs=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "bicycle_steering_controller";
   version = "4.14.0-1";
-  src = sources.bicycle_steering_controller-d617d46aa8a953f0635f397df31228ac982eff3a;
+  src = sources."bicycle_steering_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

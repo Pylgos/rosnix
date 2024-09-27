@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rcl_interfaces,
   rclcpp,
   rclcpp_components,
@@ -19,10 +20,10 @@
   ublox_serialization,
 }:
 let
-  sources = rec {
-    ublox_gps-ae61d1e2b33979bbdc84943ba3de2bdb16f4c0d8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ublox_gps" = substituteSource {
       src = fetchgit {
-        name = "ublox_gps-ae61d1e2b33979bbdc84943ba3de2bdb16f4c0d8-source";
+        name = "ublox_gps-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
         rev = "ae61d1e2b33979bbdc84943ba3de2bdb16f4c0d8";
         hash = "sha256-reZXChxPuNCtJNjWaATs7ozW63ldzYenGz4KQv8rJ1M=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ublox_gps";
   version = "2.3.0-3";
-  src = sources.ublox_gps-ae61d1e2b33979bbdc84943ba3de2bdb16f4c0d8;
+  src = sources."ublox_gps";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

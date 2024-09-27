@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_msgs,
   nav2_util,
@@ -20,10 +21,10 @@
   tf2_geometry_msgs,
 }:
 let
-  sources = rec {
-    nav_2d_utils-76bb66e123bf41365ce2941e1f51f43a7e5d19f8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav_2d_utils" = substituteSource {
       src = fetchgit {
-        name = "nav_2d_utils-76bb66e123bf41365ce2941e1f51f43a7e5d19f8-source";
+        name = "nav_2d_utils-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "76bb66e123bf41365ce2941e1f51f43a7e5d19f8";
         hash = "sha256-5P63XaMAJ5CIDgEfLAmp4hzdQSV5RHVrjG472kse7AQ=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav_2d_utils";
   version = "1.3.2-1";
-  src = sources.nav_2d_utils-76bb66e123bf41365ce2941e1f51f43a7e5d19f8;
+  src = sources."nav_2d_utils";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

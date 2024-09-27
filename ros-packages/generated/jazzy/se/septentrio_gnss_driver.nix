@@ -7,6 +7,7 @@
   fetchzip,
   geometry_msgs,
   gps_msgs,
+  mkSourceSet,
   nav_msgs,
   nmea_msgs,
   rclcpp,
@@ -22,10 +23,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    septentrio_gnss_driver-eb96ef59eedf47dc809ec590f844586bfdf67b21 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "septentrio_gnss_driver" = substituteSource {
       src = fetchgit {
-        name = "septentrio_gnss_driver-eb96ef59eedf47dc809ec590f844586bfdf67b21-source";
+        name = "septentrio_gnss_driver-source";
         url = "https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git";
         rev = "eb96ef59eedf47dc809ec590f844586bfdf67b21";
         hash = "sha256-0hF2yHegysVB6UW1kJ6htFYxwG5CX3O5uEtfuVT7LYg=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "septentrio_gnss_driver";
   version = "1.4.1-1";
-  src = sources.septentrio_gnss_driver-eb96ef59eedf47dc809ec590f844586bfdf67b21;
+  src = sources."septentrio_gnss_driver";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

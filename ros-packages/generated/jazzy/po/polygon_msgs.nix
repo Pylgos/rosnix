@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -11,10 +12,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    polygon_msgs-98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "polygon_msgs" = substituteSource {
       src = fetchgit {
-        name = "polygon_msgs-98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427-source";
+        name = "polygon_msgs-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
         rev = "98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427";
         hash = "sha256-4GkgBnE5C7hUbJ0y5cLFQikMFGsFt4qwlGqCNYZ81EI=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "polygon_msgs";
   version = "1.1.0-1";
-  src = sources.polygon_msgs-98167ebd85ee2e26652af1bc3fc8b3e7f6cdf427;
+  src = sources."polygon_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

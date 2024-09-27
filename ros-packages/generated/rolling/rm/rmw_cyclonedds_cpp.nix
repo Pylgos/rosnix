@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   iceoryx_binding_c,
+  mkSourceSet,
   rcpputils,
   rcutils,
   rmw,
@@ -20,10 +21,10 @@
   tracetools,
 }:
 let
-  sources = rec {
-    rmw_cyclonedds_cpp-670c822cdadb2bf8e4da98d7d8ab7b6129ea1492 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmw_cyclonedds_cpp" = substituteSource {
       src = fetchgit {
-        name = "rmw_cyclonedds_cpp-670c822cdadb2bf8e4da98d7d8ab7b6129ea1492-source";
+        name = "rmw_cyclonedds_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_cyclonedds-release.git";
         rev = "670c822cdadb2bf8e4da98d7d8ab7b6129ea1492";
         hash = "sha256-eOj4umaDcGlk3wveY/VY/DI3aIGKgjHHr77JRlu90AA=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmw_cyclonedds_cpp";
   version = "3.0.2-1";
-  src = sources.rmw_cyclonedds_cpp-670c822cdadb2bf8e4da98d7d8ab7b6129ea1492;
+  src = sources."rmw_cyclonedds_cpp";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rclpy,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   tf_transformations,
 }:
 let
-  sources = rec {
-    nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_loopback_sim" = substituteSource {
       src = fetchgit {
-        name = "nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9-source";
+        name = "nav2_loopback_sim-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "0c1736afb9ce7684200dee034620c05da7a3ede9";
         hash = "sha256-JsQnEvE47ybiHdLPwyBF8N6oH36t/gUgyypgOtDezVI=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_loopback_sim";
   version = "1.3.2-1";
-  src = sources.nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9;
+  src = sources."nav2_loopback_sim";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

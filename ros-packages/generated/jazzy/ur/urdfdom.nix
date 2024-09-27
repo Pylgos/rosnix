@@ -4,16 +4,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
   tinyxml2_vendor,
   urdfdom_headers,
 }:
 let
-  sources = rec {
-    urdfdom-84afc1cd65e0ee5b3a75be93d990a776a13f1824 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "urdfdom" = substituteSource {
       src = fetchgit {
-        name = "urdfdom-84afc1cd65e0ee5b3a75be93d990a776a13f1824-source";
+        name = "urdfdom-source";
         url = "https://github.com/ros2-gbp/urdfdom-release.git";
         rev = "84afc1cd65e0ee5b3a75be93d990a776a13f1824";
         hash = "sha256-/0IvAf1sIUtnSXOrcXhQ/JPG+41miGQLc9oSo1/XS8g=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "urdfdom";
   version = "4.0.1-1";
-  src = sources.urdfdom-84afc1cd65e0ee5b3a75be93d990a776a13f1824;
+  src = sources."urdfdom";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

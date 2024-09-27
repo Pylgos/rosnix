@@ -11,15 +11,16 @@
   launch_ros,
   launch_testing,
   launch_testing_ros,
+  mkSourceSet,
   ros2cli,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2test" = substituteSource {
       src = fetchgit {
-        name = "ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df-source";
+        name = "ros2test-source";
         url = "https://github.com/ros2-gbp/ros_testing-release.git";
         rev = "87f9361b131712dfb1e3b7e342eb8f293fd919df";
         hash = "sha256-tqKhYA9+IzjW93SioL3LjEtOGETxMpk409QC1KJF5w4=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2test";
   version = "0.6.0-3";
-  src = sources.ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df;
+  src = sources."ros2test";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ domain_coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

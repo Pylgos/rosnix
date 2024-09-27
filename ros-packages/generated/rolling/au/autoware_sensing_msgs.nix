@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    autoware_sensing_msgs-788d2f03f7032f1acc81b4ada0cdf7c99436ae3b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "autoware_sensing_msgs" = substituteSource {
       src = fetchgit {
-        name = "autoware_sensing_msgs-788d2f03f7032f1acc81b4ada0cdf7c99436ae3b-source";
+        name = "autoware_sensing_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
         rev = "788d2f03f7032f1acc81b4ada0cdf7c99436ae3b";
         hash = "sha256-tnSGZtUUErZDyMsltqWrm00QGikUuXEXi1SxlOzRXWY=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "autoware_sensing_msgs";
   version = "1.1.0-1";
-  src = sources.autoware_sensing_msgs-788d2f03f7032f1acc81b4ada0cdf7c99436ae3b;
+  src = sources."autoware_sensing_msgs";
   nativeBuildInputs = [ ament_cmake_auto rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

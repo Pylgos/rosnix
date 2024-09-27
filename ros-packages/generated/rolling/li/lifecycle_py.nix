@@ -7,6 +7,7 @@
   fetchzip,
   lifecycle,
   lifecycle_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   ros_testing,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    lifecycle_py-3709ef36abeacdbf04ec1b1ee9b0b772faa82e01 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lifecycle_py" = substituteSource {
       src = fetchgit {
-        name = "lifecycle_py-3709ef36abeacdbf04ec1b1ee9b0b772faa82e01-source";
+        name = "lifecycle_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "3709ef36abeacdbf04ec1b1ee9b0b772faa82e01";
         hash = "sha256-RlEzOdqd2xp/IFNdMyEWO0oTC+oWkPAcTA7UExNXlBA=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lifecycle_py";
   version = "0.34.2-1";
-  src = sources.lifecycle_py-3709ef36abeacdbf04ec1b1ee9b0b772faa82e01;
+  src = sources."lifecycle_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

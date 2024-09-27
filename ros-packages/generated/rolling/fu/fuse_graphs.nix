@@ -8,16 +8,17 @@
   fetchurl,
   fetchzip,
   fuse_core,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    fuse_graphs-f25e0c77ca4aed1f08bed1053c0f08ba9eb03867 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fuse_graphs" = substituteSource {
       src = fetchgit {
-        name = "fuse_graphs-f25e0c77ca4aed1f08bed1053c0f08ba9eb03867-source";
+        name = "fuse_graphs-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "f25e0c77ca4aed1f08bed1053c0f08ba9eb03867";
         hash = "sha256-32nxS7uulXMvmTuvb4Bhy+Z86eKI/ze4+kck7ecZi9c=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fuse_graphs";
   version = "1.2.1-1";
-  src = sources.fuse_graphs-f25e0c77ca4aed1f08bed1053c0f08ba9eb03867;
+  src = sources."fuse_graphs";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

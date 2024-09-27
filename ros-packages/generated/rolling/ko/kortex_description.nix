@@ -7,6 +7,7 @@
   joint_state_publisher,
   joint_state_publisher_gui,
   joint_trajectory_controller,
+  mkSourceSet,
   picknik_reset_fault_controller,
   picknik_twist_controller,
   robot_state_publisher,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kortex_description" = substituteSource {
       src = fetchgit {
-        name = "kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6-source";
+        name = "kortex_description-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "819182cb6c4933cae39cd85e078838b614ec5ea6";
         hash = "sha256-eH7UKiSAo+QFISA/cyGSkHrLrr4LNrQRNQJoNIQrK8M=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kortex_description";
   version = "0.2.2-2";
-  src = sources.kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6;
+  src = sources."kortex_description";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,16 +7,17 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
   substituteSource,
 }:
 let
-  sources = rec {
-    rmf_traffic_msgs-878206895e1dcdf7c0b21dd41f0953e0bebf5991 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rmf_traffic_msgs" = substituteSource {
       src = fetchgit {
-        name = "rmf_traffic_msgs-878206895e1dcdf7c0b21dd41f0953e0bebf5991-source";
+        name = "rmf_traffic_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
         rev = "878206895e1dcdf7c0b21dd41f0953e0bebf5991";
         hash = "sha256-AFZalqcapZOxO9m3KqMakovAIUJNb5ucV403kSXzvQ0=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rmf_traffic_msgs";
   version = "3.3.1-1";
-  src = sources.rmf_traffic_msgs-878206895e1dcdf7c0b21dd41f0953e0bebf5991;
+  src = sources."rmf_traffic_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

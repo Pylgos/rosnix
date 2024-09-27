@@ -4,16 +4,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosbag2_storage_mcap,
   rosbag2_storage_sqlite3,
   substituteSource,
 }:
 let
-  sources = rec {
-    rosbag2_storage_default_plugins-c6be948ed2c3e08c153102e5f0136acdd91744cc = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_storage_default_plugins" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_storage_default_plugins-c6be948ed2c3e08c153102e5f0136acdd91744cc-source";
+        name = "rosbag2_storage_default_plugins-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "c6be948ed2c3e08c153102e5f0136acdd91744cc";
         hash = "sha256-qYKofx+YsiUi5fB0miblbrQfohN2A1NR/n3CxeRQ2yM=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_storage_default_plugins";
   version = "0.29.0-1";
-  src = sources.rosbag2_storage_default_plugins-c6be948ed2c3e08c153102e5f0136acdd91744cc;
+  src = sources."rosbag2_storage_default_plugins";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

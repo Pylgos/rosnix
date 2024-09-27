@@ -7,14 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    ament_cppcheck-9edd3b221e520812c71d1a6f7618c7935e1bade3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ament_cppcheck" = substituteSource {
       src = fetchgit {
-        name = "ament_cppcheck-9edd3b221e520812c71d1a6f7618c7935e1bade3-source";
+        name = "ament_cppcheck-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "9edd3b221e520812c71d1a6f7618c7935e1bade3";
         hash = "sha256-rzEn4wrykS30AoLSNj/AE0mFJLKHBMnWSg8p6G5N0Nk=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ament_cppcheck";
   version = "0.18.1-1";
-  src = sources.ament_cppcheck-9edd3b221e520812c71d1a6f7618c7935e1bade3;
+  src = sources."ament_cppcheck";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cppcheck" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

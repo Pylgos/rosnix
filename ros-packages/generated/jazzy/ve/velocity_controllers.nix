@@ -10,6 +10,7 @@
   forward_command_controller,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   ros2_control_test_assets,
@@ -17,10 +18,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    velocity_controllers-8aa37491e45ece91eab46754d096a5bb0fae67d4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "velocity_controllers" = substituteSource {
       src = fetchgit {
-        name = "velocity_controllers-8aa37491e45ece91eab46754d096a5bb0fae67d4-source";
+        name = "velocity_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "8aa37491e45ece91eab46754d096a5bb0fae67d4";
         hash = "sha256-PWviUVk+O8BPR1IjaQ7q0K8dZueuBJMGfPjJuuh2ohg=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "velocity_controllers";
   version = "4.14.0-1";
-  src = sources.velocity_controllers-8aa37491e45ece91eab46754d096a5bb0fae67d4;
+  src = sources."velocity_controllers";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

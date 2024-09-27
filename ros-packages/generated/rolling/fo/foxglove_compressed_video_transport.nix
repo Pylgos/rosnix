@@ -11,6 +11,7 @@
   ffmpeg_encoder_decoder,
   foxglove_msgs,
   image_transport,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rcutils,
@@ -21,10 +22,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    foxglove_compressed_video_transport-34efcc0932b3c09d09aecd8e1cea456c8f0b6274 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "foxglove_compressed_video_transport" = substituteSource {
       src = fetchgit {
-        name = "foxglove_compressed_video_transport-34efcc0932b3c09d09aecd8e1cea456c8f0b6274-source";
+        name = "foxglove_compressed_video_transport-source";
         url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
         rev = "34efcc0932b3c09d09aecd8e1cea456c8f0b6274";
         hash = "sha256-ru3czXqeURYGh9sqc15zME8C9tUTa6Vkwo8Z7fOkBbc=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "foxglove_compressed_video_transport";
   version = "1.0.0-1";
-  src = sources.foxglove_compressed_video_transport-34efcc0932b3c09d09aecd8e1cea456c8f0b6274;
+  src = sources."foxglove_compressed_video_transport";
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

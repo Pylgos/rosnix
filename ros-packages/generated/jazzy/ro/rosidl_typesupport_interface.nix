@@ -7,14 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosidl_typesupport_interface" = substituteSource {
       src = fetchgit {
-        name = "rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582-source";
+        name = "rosidl_typesupport_interface-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "5bf5a0d16d6cf1a47dc5f952a2f62854e8195582";
         hash = "sha256-kQxdJ7mirw4WofaEfh4lS6avIwbWrWHSd4YUk3DxWOo=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosidl_typesupport_interface";
   version = "4.6.4-1";
-  src = sources.rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582;
+  src = sources."rosidl_typesupport_interface";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

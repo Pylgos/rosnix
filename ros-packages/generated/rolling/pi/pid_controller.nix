@@ -14,6 +14,7 @@
   generate_parameter_library,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   parameter_traits,
   pluginlib,
   rclcpp,
@@ -25,10 +26,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    pid_controller-19410186f81d87f1b797949f61b21e692009bf4e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "pid_controller" = substituteSource {
       src = fetchgit {
-        name = "pid_controller-19410186f81d87f1b797949f61b21e692009bf4e-source";
+        name = "pid_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "19410186f81d87f1b797949f61b21e692009bf4e";
         hash = "sha256-Z29YqPUQRvie95gO84fkVUaUmk5AzKMFhJuIsGHICtA=";
@@ -36,12 +37,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "pid_controller";
   version = "4.14.0-1";
-  src = sources.pid_controller-19410186f81d87f1b797949f61b21e692009bf4e;
+  src = sources."pid_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

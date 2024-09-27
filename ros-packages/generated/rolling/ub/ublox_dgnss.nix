@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   ntrip_client_node,
   rosSystemPackages,
   substituteSource,
@@ -13,10 +14,10 @@
   ublox_ubx_msgs,
 }:
 let
-  sources = rec {
-    ublox_dgnss-bff93c47d5c2d066be278b8d207ee821b12d6c3e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ublox_dgnss" = substituteSource {
       src = fetchgit {
-        name = "ublox_dgnss-bff93c47d5c2d066be278b8d207ee821b12d6c3e-source";
+        name = "ublox_dgnss-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
         rev = "bff93c47d5c2d066be278b8d207ee821b12d6c3e";
         hash = "sha256-6iGhNZeoJO63+6Z50d7QqpRpzqjKw+GVN0jKCKIK/Nw=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ublox_dgnss";
   version = "0.5.3-1";
-  src = sources.ublox_dgnss-bff93c47d5c2d066be278b8d207ee821b12d6c3e;
+  src = sources."ublox_dgnss";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

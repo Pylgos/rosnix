@@ -5,16 +5,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   substituteSource,
   webots_ros2_driver,
 }:
 let
-  sources = rec {
-    webots_ros2_mavic-daa14c43a683a5e993102772d85747e67ac53370 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "webots_ros2_mavic" = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_mavic-daa14c43a683a5e993102772d85747e67ac53370-source";
+        name = "webots_ros2_mavic-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "daa14c43a683a5e993102772d85747e67ac53370";
         hash = "sha256-fFjl+kzo8dFp4pJE8dNCeIPEPsjKsD/fBvf49R8oMzQ=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "webots_ros2_mavic";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_mavic-daa14c43a683a5e993102772d85747e67ac53370;
+  src = sources."webots_ros2_mavic";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

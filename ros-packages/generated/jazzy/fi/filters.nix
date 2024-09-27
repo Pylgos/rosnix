@@ -9,16 +9,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    filters-4453644af7cf5338d89bb7df64174695674d45c8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "filters" = substituteSource {
       src = fetchgit {
-        name = "filters-4453644af7cf5338d89bb7df64174695674d45c8-source";
+        name = "filters-source";
         url = "https://github.com/ros2-gbp/filters-release.git";
         rev = "4453644af7cf5338d89bb7df64174695674d45c8";
         hash = "sha256-hz/dFfNO4Dl2v0luZbIJQrfAimC4iBuF7HtT0XInGgk=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "filters";
   version = "2.1.2-2";
-  src = sources.filters-4453644af7cf5338d89bb7df64174695674d45c8;
+  src = sources."filters";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

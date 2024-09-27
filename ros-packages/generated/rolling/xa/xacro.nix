@@ -8,14 +8,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    xacro-b40362a1d5d97599cac992900b0177b36308c257 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "xacro" = substituteSource {
       src = fetchgit {
-        name = "xacro-b40362a1d5d97599cac992900b0177b36308c257-source";
+        name = "xacro-source";
         url = "https://github.com/ros2-gbp/xacro-release.git";
         rev = "b40362a1d5d97599cac992900b0177b36308c257";
         hash = "sha256-+93WLiVZewjzhzlEzSTG/zTjYx3+ri7uv+d7nO1xdX8=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "xacro";
   version = "2.0.11-1";
-  src = sources.xacro-b40362a1d5d97599cac992900b0177b36308c257;
+  src = sources."xacro";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    azure_iot_sdk_c-b08c4fbb256b9438813e8c86c42512e330eb18f5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "azure_iot_sdk_c" = substituteSource {
       src = fetchgit {
-        name = "azure_iot_sdk_c-b08c4fbb256b9438813e8c86c42512e330eb18f5-source";
+        name = "azure_iot_sdk_c-source";
         url = "https://github.com/ros2-gbp/azure_iot_sdk_c-release.git";
         rev = "b08c4fbb256b9438813e8c86c42512e330eb18f5";
         hash = "sha256-zGeKBP8LXVA/vOI7EHJ8q6AZ/d2YyMv5VGdvVlaFzCI=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "azure_iot_sdk_c";
   version = "1.14.0-1";
-  src = sources.azure_iot_sdk_c-b08c4fbb256b9438813e8c86c42512e330eb18f5;
+  src = sources."azure_iot_sdk_c";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

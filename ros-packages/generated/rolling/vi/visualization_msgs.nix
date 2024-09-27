@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    visualization_msgs-1e543ac937d80aaffa1e61f7ceff31b5fe61f59d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "visualization_msgs" = substituteSource {
       src = fetchgit {
-        name = "visualization_msgs-1e543ac937d80aaffa1e61f7ceff31b5fe61f59d-source";
+        name = "visualization_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "1e543ac937d80aaffa1e61f7ceff31b5fe61f59d";
         hash = "sha256-ZlS9JdcYbrNlGsduohJAZQT6DFfNF1DdOYxhQk5xoOw=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "visualization_msgs";
   version = "5.4.1-1";
-  src = sources.visualization_msgs-1e543ac937d80aaffa1e61f7ceff31b5fe61f59d;
+  src = sources."visualization_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

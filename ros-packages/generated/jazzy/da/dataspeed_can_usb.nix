@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   lusb,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dataspeed_can_usb" = substituteSource {
       src = fetchgit {
-        name = "dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976-source";
+        name = "dataspeed_can_usb-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
         rev = "fd9e730828c76794727d487dcbdf04df6bb1c976";
         hash = "sha256-MEqRh40rqPPZKh38w3FJEACnlHS8d8pk63+Mp5sdWkM=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dataspeed_can_usb";
   version = "2.0.4-1";
-  src = sources.dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976;
+  src = sources."dataspeed_can_usb";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,16 +7,17 @@
   fetchurl,
   fetchzip,
   grbl_msgs,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   std_msgs,
   substituteSource,
 }:
 let
-  sources = rec {
-    grbl_ros-09d56cf61d98d3674d64af0be2d5a44d4cb0ad65 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "grbl_ros" = substituteSource {
       src = fetchgit {
-        name = "grbl_ros-09d56cf61d98d3674d64af0be2d5a44d4cb0ad65-source";
+        name = "grbl_ros-source";
         url = "https://github.com/ros2-gbp/grbl_ros-release.git";
         rev = "09d56cf61d98d3674d64af0be2d5a44d4cb0ad65";
         hash = "sha256-F1t2vcBH6JU+xByKp5lu3SCks+qWKp4ztQ5WkL6N+rI=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "grbl_ros";
   version = "0.0.16-6";
-  src = sources.grbl_ros-09d56cf61d98d3674d64af0be2d5a44d4cb0ad65;
+  src = sources."grbl_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

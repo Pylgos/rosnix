@@ -6,6 +6,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   rosidl_default_generators,
@@ -15,10 +16,10 @@
   vision_msgs,
 }:
 let
-  sources = rec {
-    depthai_ros_msgs-43af8436e28e4ea676f64b5a5863781a52a89f2b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "depthai_ros_msgs" = substituteSource {
       src = fetchgit {
-        name = "depthai_ros_msgs-43af8436e28e4ea676f64b5a5863781a52a89f2b-source";
+        name = "depthai_ros_msgs-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "43af8436e28e4ea676f64b5a5863781a52a89f2b";
         hash = "sha256-5A0/Z/vwU/rVDNWrOasNe5R5gXfbD/OihxBIewlekOg=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "depthai_ros_msgs";
   version = "2.10.1-1";
-  src = sources.depthai_ros_msgs-43af8436e28e4ea676f64b5a5863781a52a89f2b;
+  src = sources."depthai_ros_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

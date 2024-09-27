@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_lifecycle_manager,
   nav2_msgs,
   nav2_util,
@@ -29,10 +30,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    nav2_rviz_plugins-6fa0a928c11367965d18de1db92dd32764729b15 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_rviz_plugins" = substituteSource {
       src = fetchgit {
-        name = "nav2_rviz_plugins-6fa0a928c11367965d18de1db92dd32764729b15-source";
+        name = "nav2_rviz_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "6fa0a928c11367965d18de1db92dd32764729b15";
         hash = "sha256-xPI0IwHmylfSWm036ptYq2DFSUosgFvONkgJ9/LNCPA=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_rviz_plugins";
   version = "1.3.2-1";
-  src = sources.nav2_rviz_plugins-6fa0a928c11367965d18de1db92dd32764729b15;
+  src = sources."nav2_rviz_plugins";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,6 +7,7 @@
   fetchzip,
   geometry_msgs,
   image_transport,
+  mkSourceSet,
   qt_gui_cpp,
   rclcpp,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_image_view" = substituteSource {
       src = fetchgit {
-        name = "rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127-source";
+        name = "rqt_image_view-source";
         url = "https://github.com/ros2-gbp/rqt_image_view-release.git";
         rev = "04f951986b694c547d718f8ad62b7a6019a8d127";
         hash = "sha256-yg3Ts00hd8hELleYHejS5qrq7xSwPt9WphpSoj5mBTY=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_image_view";
   version = "1.3.0-1";
-  src = sources.rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127;
+  src = sources."rqt_image_view";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,6 +4,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nmea_msgs,
   rclpy,
   rosSystemPackages,
@@ -12,10 +13,10 @@
   tf_transformations,
 }:
 let
-  sources = rec {
-    nmea_navsat_driver-653584d333ea4290927125ab49c0927c52fe2c4b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nmea_navsat_driver" = substituteSource {
       src = fetchgit {
-        name = "nmea_navsat_driver-653584d333ea4290927125ab49c0927c52fe2c4b-source";
+        name = "nmea_navsat_driver-source";
         url = "https://github.com/ros2-gbp/nmea_navsat_driver-release.git";
         rev = "653584d333ea4290927125ab49c0927c52fe2c4b";
         hash = "sha256-Sk5PVLiGhnZlswzI74j4DqsxsA7icXEWu6Wb6JlbN4s=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nmea_navsat_driver";
   version = "2.0.1-3";
-  src = sources.nmea_navsat_driver-653584d333ea4290927125ab49c0927c52fe2c4b;
+  src = sources."nmea_navsat_driver";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

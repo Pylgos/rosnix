@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pybind11_vendor,
   python_cmake_module,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    lttngpy-2c7b30db3e61601b3dd5c535a1803e9d326cf83d = substituteSource {
+  sources = mkSourceSet (sources: {
+    "lttngpy" = substituteSource {
       src = fetchgit {
-        name = "lttngpy-2c7b30db3e61601b3dd5c535a1803e9d326cf83d-source";
+        name = "lttngpy-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
         rev = "2c7b30db3e61601b3dd5c535a1803e9d326cf83d";
         hash = "sha256-5vRRZtQ1w7J1zFwuBTNgxd/Qkme4BbOoiL8Orc/GjtY=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "lttngpy";
   version = "8.3.0-1";
-  src = sources.lttngpy-2c7b30db3e61601b3dd5c535a1803e9d326cf83d;
+  src = sources."lttngpy";
   nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

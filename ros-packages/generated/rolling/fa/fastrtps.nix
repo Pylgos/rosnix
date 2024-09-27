@@ -5,14 +5,15 @@
   fetchurl,
   fetchzip,
   foonathan_memory_vendor,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "fastrtps" = substituteSource {
       src = fetchgit {
-        name = "fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f-source";
+        name = "fastrtps-source";
         url = "https://github.com/ros2-gbp/fastrtps-release.git";
         rev = "9d6f48dc2ecfe0bc33d20f96717755d11826616f";
         hash = "sha256-KSSHJqNx1mzl93n+QLasqWT2+NllPGG82pdzSM97uh4=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "fastrtps";
   version = "2.14.3-1";
-  src = sources.fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f;
+  src = sources."fastrtps";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

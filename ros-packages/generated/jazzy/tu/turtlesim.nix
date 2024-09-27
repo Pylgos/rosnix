@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rcl_interfaces,
   rclcpp,
   rclcpp_action,
@@ -20,10 +21,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "turtlesim" = substituteSource {
       src = fetchgit {
-        name = "turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02-source";
+        name = "turtlesim-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
         rev = "dee596e8c4643aec9e5a6f93098371f93b5c8a02";
         hash = "sha256-+NwG+0EX/wiy8jFqWI7LoLitojrfxvVmRfY4duvQICU=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "turtlesim";
   version = "1.8.3-1";
-  src = sources.turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02;
+  src = sources."turtlesim";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

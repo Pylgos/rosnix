@@ -22,6 +22,7 @@
   launch_testing_ros,
   launch_xml,
   launch_yaml,
+  mkSourceSet,
   pluginlib,
   rcl_lifecycle,
   rclcpp,
@@ -39,10 +40,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros_core-57df522c61794399f11cf3acd025160470e14de8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_core" = substituteSource {
       src = fetchgit {
-        name = "ros_core-57df522c61794399f11cf3acd025160470e14de8-source";
+        name = "ros_core-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "57df522c61794399f11cf3acd025160470e14de8";
         hash = "sha256-kDPxLgU8jx1J5KfLiQqBhPR9zuKlluBb1whA8WDCOjA=";
@@ -50,12 +51,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_core";
   version = "0.11.0-1";
-  src = sources.ros_core-57df522c61794399f11cf3acd025160470e14de8;
+  src = sources."ros_core";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest ament_cmake_ros ament_lint_auto ament_lint_common launch_testing_ament_cmake ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,6 +13,7 @@
   launch,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   nav2_common,
   nav2_minimal_tb3_sim,
   nav2_minimal_tb4_sim,
@@ -26,10 +27,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    nav2_bringup-3ed52d2e3b71b48b5f0141e0c4475baf17770d08 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "nav2_bringup" = substituteSource {
       src = fetchgit {
-        name = "nav2_bringup-3ed52d2e3b71b48b5f0141e0c4475baf17770d08-source";
+        name = "nav2_bringup-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "3ed52d2e3b71b48b5f0141e0c4475baf17770d08";
         hash = "sha256-Deg2qAY6VvKeHrjquPFWHy8FbL6BRP3LR1hQWoJsHNk=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "nav2_bringup";
   version = "1.3.2-1";
-  src = sources.nav2_bringup-3ed52d2e3b71b48b5f0141e0c4475baf17770d08;
+  src = sources."nav2_bringup";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

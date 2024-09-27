@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    autoware_vehicle_msgs-13cec2fa837684eb0dec0135cbbf8f3a6e808cd8 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "autoware_vehicle_msgs" = substituteSource {
       src = fetchgit {
-        name = "autoware_vehicle_msgs-13cec2fa837684eb0dec0135cbbf8f3a6e808cd8-source";
+        name = "autoware_vehicle_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
         rev = "13cec2fa837684eb0dec0135cbbf8f3a6e808cd8";
         hash = "sha256-6aO0NolqbPRlwrCNG4AgviUdoV/VJBIl8qrwZw9uYfw=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "autoware_vehicle_msgs";
   version = "1.1.0-1";
-  src = sources.autoware_vehicle_msgs-13cec2fa837684eb0dec0135cbbf8f3a6e808cd8;
+  src = sources."autoware_vehicle_msgs";
   nativeBuildInputs = [ ament_cmake_auto rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

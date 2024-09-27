@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   qt_gui_py_common,
   rclpy,
@@ -16,10 +17,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_publisher-cb589e728965b6994e4ecc79b7bcddf738531acf = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_publisher" = substituteSource {
       src = fetchgit {
-        name = "rqt_publisher-cb589e728965b6994e4ecc79b7bcddf738531acf-source";
+        name = "rqt_publisher-source";
         url = "https://github.com/ros2-gbp/rqt_publisher-release.git";
         rev = "cb589e728965b6994e4ecc79b7bcddf738531acf";
         hash = "sha256-TFsWLYSUlJfO+cj2md0qhAlWz//ATUWUdHtqV4UBbBg=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_publisher";
   version = "1.7.2-2";
-  src = sources.rqt_publisher-cb589e728965b6994e4ecc79b7bcddf738531acf;
+  src = sources."rqt_publisher";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,6 +11,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rcutils,
@@ -22,10 +23,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "logging_demo" = substituteSource {
       src = fetchgit {
-        name = "logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54-source";
+        name = "logging_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "0637cc57d07f827c4eb3415d9c1f5a60af3c4d54";
         hash = "sha256-CfJAEKfLBIjGGwjGRHUsmR35+Z2H1I2Gby0C4Hw+zi4=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "logging_demo";
   version = "0.33.5-1";
-  src = sources.logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54;
+  src = sources."logging_demo";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -12,10 +13,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mqtt_client_interfaces-5bbfaa35ec2e98fd94da37e5878c53a910930c1e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mqtt_client_interfaces" = substituteSource {
       src = fetchgit {
-        name = "mqtt_client_interfaces-5bbfaa35ec2e98fd94da37e5878c53a910930c1e-source";
+        name = "mqtt_client_interfaces-source";
         url = "https://github.com/ros2-gbp/mqtt_client-release.git";
         rev = "5bbfaa35ec2e98fd94da37e5878c53a910930c1e";
         hash = "sha256-uodTNl9Jgjak1DPQpOe1aOEwSCdyfYY8zvExpOctHJE=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mqtt_client_interfaces";
   version = "2.3.0-1";
-  src = sources.mqtt_client_interfaces-5bbfaa35ec2e98fd94da37e5878c53a910930c1e;
+  src = sources."mqtt_client_interfaces";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

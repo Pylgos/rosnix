@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   laser_proc,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -21,10 +22,10 @@
   urg_node_msgs,
 }:
 let
-  sources = rec {
-    urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "urg_node" = substituteSource {
       src = fetchgit {
-        name = "urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837-source";
+        name = "urg_node-source";
         url = "https://github.com/ros2-gbp/urg_node-release.git";
         rev = "ebab3358cbd4ace0a537f30cdc416dcd738e5837";
         hash = "sha256-hz6upepfbgI1ToUr7XupzHvWBA7oKZk4QZTKCZwbMRI=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "urg_node";
   version = "1.1.1-3";
-  src = sources.urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837;
+  src = sources."urg_node";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

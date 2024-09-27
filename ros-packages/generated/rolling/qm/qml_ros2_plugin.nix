@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   image_transport,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   ros_babel_fish,
@@ -19,10 +20,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    qml_ros2_plugin-26fb96c81e6b21a7197c21b96565c4d8a0558d9e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "qml_ros2_plugin" = substituteSource {
       src = fetchgit {
-        name = "qml_ros2_plugin-26fb96c81e6b21a7197c21b96565c4d8a0558d9e-source";
+        name = "qml_ros2_plugin-source";
         url = "https://github.com/ros2-gbp/qml_ros2_plugin-release.git";
         rev = "26fb96c81e6b21a7197c21b96565c4d8a0558d9e";
         hash = "sha256-yoKPHciam4zihyBcYUf/zrVk7LhG14peuJ3WXxLD9No=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "qml_ros2_plugin";
   version = "1.0.1-1";
-  src = sources.qml_ros2_plugin-26fb96c81e6b21a7197c21b96565c4d8a0558d9e;
+  src = sources."qml_ros2_plugin";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

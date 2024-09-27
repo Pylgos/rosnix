@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   rosidl_default_generators,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    mobileye_560_660_msgs-e8de98737d059f4e2e5b2fef12cb57ecc8ff8283 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mobileye_560_660_msgs" = substituteSource {
       src = fetchgit {
-        name = "mobileye_560_660_msgs-e8de98737d059f4e2e5b2fef12cb57ecc8ff8283-source";
+        name = "mobileye_560_660_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "e8de98737d059f4e2e5b2fef12cb57ecc8ff8283";
         hash = "sha256-VUBlCZa6YHrHj0N2L4MPJZXOD74+Uu4leG3oXg1ZOJg=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mobileye_560_660_msgs";
   version = "4.0.0-4";
-  src = sources.mobileye_560_660_msgs-e8de98737d059f4e2e5b2fef12cb57ecc8ff8283;
+  src = sources."mobileye_560_660_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

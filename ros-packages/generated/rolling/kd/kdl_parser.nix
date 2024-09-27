@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   orocos_kdl_vendor,
   rcutils,
   rosSystemPackages,
@@ -15,10 +16,10 @@
   urdfdom_headers,
 }:
 let
-  sources = rec {
-    kdl_parser-cdbf9b2a8a2f95a13051dfb795e795b836e5530a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kdl_parser" = substituteSource {
       src = fetchgit {
-        name = "kdl_parser-cdbf9b2a8a2f95a13051dfb795e795b836e5530a-source";
+        name = "kdl_parser-source";
         url = "https://github.com/ros2-gbp/kdl_parser-release.git";
         rev = "cdbf9b2a8a2f95a13051dfb795e795b836e5530a";
         hash = "sha256-k9FAvPXK/EUOGHyUHB+uVIFTU+swbET5SO9mHMP450Y=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kdl_parser";
   version = "2.12.1-1";
-  src = sources.kdl_parser-cdbf9b2a8a2f95a13051dfb795e795b836e5530a;
+  src = sources."kdl_parser";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

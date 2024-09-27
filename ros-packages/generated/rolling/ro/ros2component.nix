@@ -9,6 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rcl_interfaces,
   rclcpp_components,
   rclpy,
@@ -20,10 +21,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros2component-6f70d44f4a359fb30dae3ec551cc6bb15d9f85c0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros2component" = substituteSource {
       src = fetchgit {
-        name = "ros2component-6f70d44f4a359fb30dae3ec551cc6bb15d9f85c0-source";
+        name = "ros2component-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "6f70d44f4a359fb30dae3ec551cc6bb15d9f85c0";
         hash = "sha256-BsisMzMtMV12CcgLV6J/mj1xQDJYE4D4TLAIj4vHiJU=";
@@ -31,12 +32,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros2component";
   version = "0.34.1-1";
-  src = sources.ros2component-6f70d44f4a359fb30dae3ec551cc6bb15d9f85c0;
+  src = sources."ros2component";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

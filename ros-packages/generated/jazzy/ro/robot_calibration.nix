@@ -14,6 +14,7 @@
   launch,
   launch_ros,
   launch_testing,
+  mkSourceSet,
   moveit_msgs,
   nav_msgs,
   pluginlib,
@@ -31,10 +32,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    robot_calibration-aa1a98c2d363abddf3067426c2c52b2e34acbe11 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "robot_calibration" = substituteSource {
       src = fetchgit {
-        name = "robot_calibration-aa1a98c2d363abddf3067426c2c52b2e34acbe11-source";
+        name = "robot_calibration-source";
         url = "https://github.com/ros2-gbp/robot_calibration-release.git";
         rev = "aa1a98c2d363abddf3067426c2c52b2e34acbe11";
         hash = "sha256-R/RGa0/pVTyj3BGOHgYuQMwXXdm3/WMRrE7OsQ1WEGI=";
@@ -42,12 +43,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "robot_calibration";
   version = "0.9.0-1";
-  src = sources.robot_calibration-aa1a98c2d363abddf3067426c2c52b2e34acbe11;
+  src = sources."robot_calibration";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

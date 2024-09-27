@@ -5,6 +5,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   python_qt_binding,
   rclpy,
   rosSystemPackages,
@@ -14,10 +15,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_robot_steering-23aabcc88d8b6f2ec7260073b80eaf8bb5d51d24 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_robot_steering" = substituteSource {
       src = fetchgit {
-        name = "rqt_robot_steering-23aabcc88d8b6f2ec7260073b80eaf8bb5d51d24-source";
+        name = "rqt_robot_steering-source";
         url = "https://github.com/ros2-gbp/rqt_robot_steering-release.git";
         rev = "23aabcc88d8b6f2ec7260073b80eaf8bb5d51d24";
         hash = "sha256-GQCdfFYxE/yR3Eostcf+T9VKwP2N45EzidAhXz5uVrw=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_robot_steering";
   version = "1.0.0-5";
-  src = sources.rqt_robot_steering-23aabcc88d8b6f2ec7260073b80eaf8bb5d51d24;
+  src = sources."rqt_robot_steering";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,14 +8,15 @@
   fetchurl,
   fetchzip,
   mavlink,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    libmavconn-1ad9db29a5ebe61ce571344e569fd3a92235953e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "libmavconn" = substituteSource {
       src = fetchgit {
-        name = "libmavconn-1ad9db29a5ebe61ce571344e569fd3a92235953e-source";
+        name = "libmavconn-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
         rev = "1ad9db29a5ebe61ce571344e569fd3a92235953e";
         hash = "sha256-QBritO4WHraRumwSo3Zp7pZ16Sj5xlwZNFNpMxUNM3M=";
@@ -23,12 +24,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "libmavconn";
   version = "2.8.0-1";
-  src = sources.libmavconn-1ad9db29a5ebe61ce571344e569fd3a92235953e;
+  src = sources."libmavconn";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

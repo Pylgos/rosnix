@@ -14,6 +14,7 @@
   kortex_driver,
   launch,
   launch_ros,
+  mkSourceSet,
   rclpy,
   robotiq_description,
   rosSystemPackages,
@@ -24,10 +25,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    kortex_bringup-7b1b9e5b58add56d94b77593684e748c7b8b68d0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "kortex_bringup" = substituteSource {
       src = fetchgit {
-        name = "kortex_bringup-7b1b9e5b58add56d94b77593684e748c7b8b68d0-source";
+        name = "kortex_bringup-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "7b1b9e5b58add56d94b77593684e748c7b8b68d0";
         hash = "sha256-IQ2mPpCxvX2VcdeA/0EEI0NE3gUueLUjdVkn5RlveZs=";
@@ -35,12 +36,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "kortex_bringup";
   version = "0.2.2-2";
-  src = sources.kortex_bringup-7b1b9e5b58add56d94b77593684e748c7b8b68d0;
+  src = sources."kortex_bringup";
   nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

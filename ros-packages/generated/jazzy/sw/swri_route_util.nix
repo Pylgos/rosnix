@@ -6,6 +6,7 @@
   fetchzip,
   marti_common_msgs,
   marti_nav_msgs,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   substituteSource,
@@ -17,10 +18,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    swri_route_util-20bce421f924f9a3875722f985ebca7f55840fd9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "swri_route_util" = substituteSource {
       src = fetchgit {
-        name = "swri_route_util-20bce421f924f9a3875722f985ebca7f55840fd9-source";
+        name = "swri_route_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "20bce421f924f9a3875722f985ebca7f55840fd9";
         hash = "sha256-YxAqGUa1ocmwiqAltTWqsseGPMp3R2hdRa+sIpB6zC0=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "swri_route_util";
   version = "3.7.3-1";
-  src = sources.swri_route_util-20bce421f924f9a3875722f985ebca7f55840fd9;
+  src = sources."swri_route_util";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -6,6 +6,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rclcpp,
   rclcpp_components,
   rosSystemPackages,
@@ -13,10 +14,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ntpd_driver-b9ea092843fd97dd6db73043aaf23e5336f75dd3 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ntpd_driver" = substituteSource {
       src = fetchgit {
-        name = "ntpd_driver-b9ea092843fd97dd6db73043aaf23e5336f75dd3-source";
+        name = "ntpd_driver-source";
         url = "https://github.com/ros2-gbp/ntpd_driver-release.git";
         rev = "b9ea092843fd97dd6db73043aaf23e5336f75dd3";
         hash = "sha256-Y3hISLK0EHzcJD4MrfgxDdmYH+cpgQTjbH3DCmbd0VE=";
@@ -24,12 +25,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ntpd_driver";
   version = "2.2.0-3";
-  src = sources.ntpd_driver-b9ea092843fd97dd6db73043aaf23e5336f75dd3;
+  src = sources."ntpd_driver";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

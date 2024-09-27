@@ -5,14 +5,15 @@
   fetchurl,
   fetchzip,
   launch_testing,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    async_web_server_cpp-8874c7a0cf8a444467852bff277bfa23f6e20f4f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "async_web_server_cpp" = substituteSource {
       src = fetchgit {
-        name = "async_web_server_cpp-8874c7a0cf8a444467852bff277bfa23f6e20f4f-source";
+        name = "async_web_server_cpp-source";
         url = "https://github.com/ros2-gbp/async_web_server_cpp-release.git";
         rev = "8874c7a0cf8a444467852bff277bfa23f6e20f4f";
         hash = "sha256-bz0je03yD60CjR08T++F1rGD5GhfXZJWAbL6L5rINbo=";
@@ -20,12 +21,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "async_web_server_cpp";
   version = "2.0.0-5";
-  src = sources.async_web_server_cpp-8874c7a0cf8a444467852bff277bfa23f6e20f4f;
+  src = sources."async_web_server_cpp";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

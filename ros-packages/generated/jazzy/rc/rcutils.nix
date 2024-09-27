@@ -13,16 +13,17 @@
   launch_testing,
   launch_testing_ament_cmake,
   mimick_vendor,
+  mkSourceSet,
   osrf_testing_tools_cpp,
   performance_test_fixture,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rcutils" = substituteSource {
       src = fetchgit {
-        name = "rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e-source";
+        name = "rcutils-source";
         url = "https://github.com/ros2-gbp/rcutils-release.git";
         rev = "7e50a16c954f3b426baae3d00a721521a08ba45e";
         hash = "sha256-LAv9gWyFoyZkmn3Y8slcwvWj7QaAxxaV+h4+AmXhdjA=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rcutils";
   version = "6.7.2-1";
-  src = sources.rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e;
+  src = sources."rcutils";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

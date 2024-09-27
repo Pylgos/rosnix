@@ -6,14 +6,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    domain_coordinator-eaf0238fdaa0c604c82921033279c8087e3e128e = substituteSource {
+  sources = mkSourceSet (sources: {
+    "domain_coordinator" = substituteSource {
       src = fetchgit {
-        name = "domain_coordinator-eaf0238fdaa0c604c82921033279c8087e3e128e-source";
+        name = "domain_coordinator-source";
         url = "https://github.com/ros2-gbp/ament_cmake_ros-release.git";
         rev = "eaf0238fdaa0c604c82921033279c8087e3e128e";
         hash = "sha256-ARFp7X/6YNr9KXLS7vhc5cfrCwaqklD6uxYvkKc3ABQ=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "domain_coordinator";
   version = "0.13.0-1";
-  src = sources.domain_coordinator-eaf0238fdaa0c604c82921033279c8087e3e128e;
+  src = sources."domain_coordinator";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

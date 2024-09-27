@@ -16,6 +16,7 @@
   launch_testing,
   launch_testing_ament_cmake,
   message_filters,
+  mkSourceSet,
   python_cmake_module,
   rclcpp,
   rclcpp_components,
@@ -27,10 +28,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    stereo_image_proc-6d3fa2be3c370299c54309c5aee81fca0d2a323f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "stereo_image_proc" = substituteSource {
       src = fetchgit {
-        name = "stereo_image_proc-6d3fa2be3c370299c54309c5aee81fca0d2a323f-source";
+        name = "stereo_image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "6d3fa2be3c370299c54309c5aee81fca0d2a323f";
         hash = "sha256-j0YwgBwlXe4UuGx3w0jQ1q+s9QfyvsMb5hOKttqvVYc=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "stereo_image_proc";
   version = "5.0.4-1";
-  src = sources.stereo_image_proc-6d3fa2be3c370299c54309c5aee81fca0d2a323f;
+  src = sources."stereo_image_proc";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

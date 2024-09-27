@@ -11,6 +11,7 @@
   filters,
   grid_map_cmake_helpers,
   grid_map_core,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -18,10 +19,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    grid_map_cv-6504315ac27f69868585f914363ea1a1f345f250 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "grid_map_cv" = substituteSource {
       src = fetchgit {
-        name = "grid_map_cv-6504315ac27f69868585f914363ea1a1f345f250-source";
+        name = "grid_map_cv-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "6504315ac27f69868585f914363ea1a1f345f250";
         hash = "sha256-Lp09fVPR5XQQzOBAN+e2yIboOKRcMBV7vLPniPun+LA=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "grid_map_cv";
   version = "2.2.0-1";
-  src = sources.grid_map_cv-6504315ac27f69868585f914363ea1a1f345f250;
+  src = sources."grid_map_cv";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

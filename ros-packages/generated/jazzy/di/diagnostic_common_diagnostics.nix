@@ -11,14 +11,15 @@
   fetchurl,
   fetchzip,
   launch_testing_ament_cmake,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    diagnostic_common_diagnostics-63df07968b261e3b11fbe4a1ea95e448d5aa0af2 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "diagnostic_common_diagnostics" = substituteSource {
       src = fetchgit {
-        name = "diagnostic_common_diagnostics-63df07968b261e3b11fbe4a1ea95e448d5aa0af2-source";
+        name = "diagnostic_common_diagnostics-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
         rev = "63df07968b261e3b11fbe4a1ea95e448d5aa0af2";
         hash = "sha256-eWgig3BA0/7wXwWPPvjt708xl2DtP2Ll7XnpPE5M6Q0=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "diagnostic_common_diagnostics";
   version = "4.2.1-1";
-  src = sources.diagnostic_common_diagnostics-63df07968b261e3b11fbe4a1ea95e448d5aa0af2;
+  src = sources."diagnostic_common_diagnostics";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

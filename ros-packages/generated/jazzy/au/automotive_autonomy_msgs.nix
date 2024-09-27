@@ -6,15 +6,16 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   ros_environment,
   substituteSource,
 }:
 let
-  sources = rec {
-    automotive_autonomy_msgs-34fc7813acfef2ff1efba213b734f4fb35656208 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "automotive_autonomy_msgs" = substituteSource {
       src = fetchgit {
-        name = "automotive_autonomy_msgs-34fc7813acfef2ff1efba213b734f4fb35656208-source";
+        name = "automotive_autonomy_msgs-source";
         url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
         rev = "34fc7813acfef2ff1efba213b734f4fb35656208";
         hash = "sha256-R/GduU+VD3B9INpzOpa84Bl42xFAtGthn8PEt8iYmpw=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "automotive_autonomy_msgs";
   version = "3.0.4-6";
-  src = sources.automotive_autonomy_msgs-34fc7813acfef2ff1efba213b734f4fb35656208;
+  src = sources."automotive_autonomy_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

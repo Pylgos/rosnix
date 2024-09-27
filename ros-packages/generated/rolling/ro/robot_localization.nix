@@ -16,6 +16,7 @@
   launch_ros,
   launch_testing_ament_cmake,
   message_filters,
+  mkSourceSet,
   nav_msgs,
   rclcpp,
   rosSystemPackages,
@@ -32,10 +33,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    robot_localization-d9a82c26115fb5aa2185daa1fb49a2273550a606 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "robot_localization" = substituteSource {
       src = fetchgit {
-        name = "robot_localization-d9a82c26115fb5aa2185daa1fb49a2273550a606-source";
+        name = "robot_localization-source";
         url = "https://github.com/ros2-gbp/robot_localization-release.git";
         rev = "d9a82c26115fb5aa2185daa1fb49a2273550a606";
         hash = "sha256-msp4BzyHMrZjhF4/2VpgHOzkGRXIArt0rqvqgiMLt9g=";
@@ -43,12 +44,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "robot_localization";
   version = "3.9.1-1";
-  src = sources.robot_localization-d9a82c26115fb5aa2185daa1fb49a2273550a606;
+  src = sources."robot_localization";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,16 +4,17 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   rqt_gui_py,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    slider_publisher-d628ed2b9a8034affc7aa6da4127bfea724f26ad = substituteSource {
+  sources = mkSourceSet (sources: {
+    "slider_publisher" = substituteSource {
       src = fetchgit {
-        name = "slider_publisher-d628ed2b9a8034affc7aa6da4127bfea724f26ad-source";
+        name = "slider_publisher-source";
         url = "https://github.com/ros2-gbp/slider_publisher-release.git";
         rev = "d628ed2b9a8034affc7aa6da4127bfea724f26ad";
         hash = "sha256-t3ye55W5XqkQUd/eAabhQKJUazIAi3ly0BsO7vpuHu4=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "slider_publisher";
   version = "2.3.1-2";
-  src = sources.slider_publisher-d628ed2b9a8034affc7aa6da4127bfea724f26ad;
+  src = sources."slider_publisher";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

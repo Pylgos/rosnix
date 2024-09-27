@@ -7,14 +7,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    tensorrt_cmake_module-aed26d07f736c1d47720e09fea410a2107eebab9 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tensorrt_cmake_module" = substituteSource {
       src = fetchgit {
-        name = "tensorrt_cmake_module-aed26d07f736c1d47720e09fea410a2107eebab9-source";
+        name = "tensorrt_cmake_module-source";
         url = "https://github.com/ros2-gbp/tensorrt_cmake_module-release.git";
         rev = "aed26d07f736c1d47720e09fea410a2107eebab9";
         hash = "sha256-S620gK89qsxhq1mo2yFSZCD1LP45mJBLXJbCTiT5VZk=";
@@ -22,12 +23,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tensorrt_cmake_module";
   version = "0.0.3-3";
-  src = sources.tensorrt_cmake_module-aed26d07f736c1d47720e09fea410a2107eebab9;
+  src = sources."tensorrt_cmake_module";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

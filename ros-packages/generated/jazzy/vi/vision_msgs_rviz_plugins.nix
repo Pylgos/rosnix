@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rclpy,
@@ -21,10 +22,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    vision_msgs_rviz_plugins-ebb9be37660ba670afd284336523d0de9dd2d0ee = substituteSource {
+  sources = mkSourceSet (sources: {
+    "vision_msgs_rviz_plugins" = substituteSource {
       src = fetchgit {
-        name = "vision_msgs_rviz_plugins-ebb9be37660ba670afd284336523d0de9dd2d0ee-source";
+        name = "vision_msgs_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/vision_msgs-release.git";
         rev = "ebb9be37660ba670afd284336523d0de9dd2d0ee";
         hash = "sha256-If7mQ5EP7ZLB2EDPnUwciKX0dBfJa4PjuLnUH/ThGjM=";
@@ -32,12 +33,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "vision_msgs_rviz_plugins";
   version = "4.1.1-3";
-  src = sources.vision_msgs_rviz_plugins-ebb9be37660ba670afd284336523d0de9dd2d0ee;
+  src = sources."vision_msgs_rviz_plugins";
   nativeBuildInputs = [ ament_cmake ament_cmake_python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

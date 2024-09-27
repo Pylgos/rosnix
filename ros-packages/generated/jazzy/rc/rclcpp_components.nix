@@ -12,6 +12,7 @@
   fetchurl,
   fetchzip,
   launch_testing,
+  mkSourceSet,
   rclcpp,
   rcpputils,
   rosSystemPackages,
@@ -19,10 +20,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rclcpp_components-cc0f4043f5e4c90ce9c6e1a6345ecff5d74773ff = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rclcpp_components" = substituteSource {
       src = fetchgit {
-        name = "rclcpp_components-cc0f4043f5e4c90ce9c6e1a6345ecff5d74773ff-source";
+        name = "rclcpp_components-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
         rev = "cc0f4043f5e4c90ce9c6e1a6345ecff5d74773ff";
         hash = "sha256-W2Jh7P63lv44bA2K/9LmEY0MbhdeXt+9btCmBgt5VME=";
@@ -30,12 +31,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rclcpp_components";
   version = "28.1.5-1";
-  src = sources.rclcpp_components-cc0f4043f5e4c90ce9c6e1a6345ecff5d74773ff;
+  src = sources."rclcpp_components";
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

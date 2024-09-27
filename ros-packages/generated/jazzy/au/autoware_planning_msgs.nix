@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav_msgs,
   rosSystemPackages,
   rosidl_default_generators,
@@ -17,10 +18,10 @@
   unique_identifier_msgs,
 }:
 let
-  sources = rec {
-    autoware_planning_msgs-b4f96f6e29387ed979065537dea862cc25a59fab = substituteSource {
+  sources = mkSourceSet (sources: {
+    "autoware_planning_msgs" = substituteSource {
       src = fetchgit {
-        name = "autoware_planning_msgs-b4f96f6e29387ed979065537dea862cc25a59fab-source";
+        name = "autoware_planning_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
         rev = "b4f96f6e29387ed979065537dea862cc25a59fab";
         hash = "sha256-BrRhj72+4kvRvHLaCv9roAUChrtG4jbulSwy8eF02VY=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "autoware_planning_msgs";
   version = "1.1.0-1";
-  src = sources.autoware_planning_msgs-b4f96f6e29387ed979065537dea862cc25a59fab;
+  src = sources."autoware_planning_msgs";
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

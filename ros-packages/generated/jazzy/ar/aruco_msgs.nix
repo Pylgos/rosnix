@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -14,10 +15,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    aruco_msgs-dd365b8b0a63b154ef602fb3405829342398996f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "aruco_msgs" = substituteSource {
       src = fetchgit {
-        name = "aruco_msgs-dd365b8b0a63b154ef602fb3405829342398996f-source";
+        name = "aruco_msgs-source";
         url = "https://github.com/pal-gbp/aruco_ros-release.git";
         rev = "dd365b8b0a63b154ef602fb3405829342398996f";
         hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
@@ -25,12 +26,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "aruco_msgs";
   version = "5.0.5-1";
-  src = sources.aruco_msgs-dd365b8b0a63b154ef602fb3405829342398996f;
+  src = sources."aruco_msgs";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

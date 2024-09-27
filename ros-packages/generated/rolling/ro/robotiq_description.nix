@@ -9,6 +9,7 @@
   joint_state_publisher_gui,
   launch,
   launch_ros,
+  mkSourceSet,
   robot_state_publisher,
   rosSystemPackages,
   rviz2,
@@ -18,10 +19,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    robotiq_description-491ee7d0eb1c3a99e101076d2f06e76d61679f46 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "robotiq_description" = substituteSource {
       src = fetchgit {
-        name = "robotiq_description-491ee7d0eb1c3a99e101076d2f06e76d61679f46-source";
+        name = "robotiq_description-source";
         url = "https://github.com/ros2-gbp/ros2_robotiq_gripper-release.git";
         rev = "491ee7d0eb1c3a99e101076d2f06e76d61679f46";
         hash = "sha256-CO6k93lrA+H92beTQuG1tnfMsO99+vpYtYXmfABHcr4=";
@@ -29,12 +30,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "robotiq_description";
   version = "0.0.1-2";
-  src = sources.robotiq_description-491ee7d0eb1c3a99e101076d2f06e76d61679f46;
+  src = sources."robotiq_description";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

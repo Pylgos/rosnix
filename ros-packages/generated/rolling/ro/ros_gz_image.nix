@@ -9,6 +9,7 @@
   gz_msgs_vendor,
   gz_transport_vendor,
   image_transport,
+  mkSourceSet,
   rclcpp,
   rosSystemPackages,
   ros_gz_bridge,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    ros_gz_image-85a2bbf46d0b5d4acd8b54922fd56b9b864e215b = substituteSource {
+  sources = mkSourceSet (sources: {
+    "ros_gz_image" = substituteSource {
       src = fetchgit {
-        name = "ros_gz_image-85a2bbf46d0b5d4acd8b54922fd56b9b864e215b-source";
+        name = "ros_gz_image-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "85a2bbf46d0b5d4acd8b54922fd56b9b864e215b";
         hash = "sha256-8a6r9ke5unfYcabzOleWF1kzcCQsJZI9ohX8ExafWkQ=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "ros_gz_image";
   version = "2.1.0-1";
-  src = sources.ros_gz_image-85a2bbf46d0b5d4acd8b54922fd56b9b864e215b;
+  src = sources."ros_gz_image";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

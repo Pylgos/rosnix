@@ -10,6 +10,7 @@
   fetchzip,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   rclcpp,
   rclcpp_lifecycle,
   robot_state_publisher,
@@ -23,10 +24,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    sick_safetyscanners2-96914d8dd6643a74aabae6292156b3aacaf790ca = substituteSource {
+  sources = mkSourceSet (sources: {
+    "sick_safetyscanners2" = substituteSource {
       src = fetchgit {
-        name = "sick_safetyscanners2-96914d8dd6643a74aabae6292156b3aacaf790ca-source";
+        name = "sick_safetyscanners2-source";
         url = "https://github.com/ros2-gbp/sick_safetyscanners2-release.git";
         rev = "96914d8dd6643a74aabae6292156b3aacaf790ca";
         hash = "sha256-DW09MAyJl2QfVunwcVkkufbRSONasFc8m8M5qpi9Dw8=";
@@ -34,12 +35,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "sick_safetyscanners2";
   version = "1.0.4-1";
-  src = sources.sick_safetyscanners2-96914d8dd6643a74aabae6292156b3aacaf790ca;
+  src = sources."sick_safetyscanners2";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rosSystemPackages,
@@ -17,10 +18,10 @@
   tf2_ros,
 }:
 let
-  sources = rec {
-    warehouse_ros-b0ba8527e61cc2e1cb6097044a7071b9a68b4228 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "warehouse_ros" = substituteSource {
       src = fetchgit {
-        name = "warehouse_ros-b0ba8527e61cc2e1cb6097044a7071b9a68b4228-source";
+        name = "warehouse_ros-source";
         url = "https://github.com/ros2-gbp/warehouse_ros-release.git";
         rev = "b0ba8527e61cc2e1cb6097044a7071b9a68b4228";
         hash = "sha256-X45/qATzogkTqKBnEvt1wH7hKl9/qSTTVboEsAuL/Es=";
@@ -28,12 +29,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "warehouse_ros";
   version = "2.0.5-1";
-  src = sources.warehouse_ros-b0ba8527e61cc2e1cb6097044a7071b9a68b4228;
+  src = sources."warehouse_ros";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

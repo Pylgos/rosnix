@@ -14,6 +14,7 @@
   geometry_msgs,
   hardware_interface,
   hardware_interface_testing,
+  mkSourceSet,
   nav_msgs,
   pluginlib,
   rclcpp,
@@ -28,10 +29,10 @@
   tf2_msgs,
 }:
 let
-  sources = rec {
-    tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "tricycle_controller" = substituteSource {
       src = fetchgit {
-        name = "tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98-source";
+        name = "tricycle_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "e2f589e72666e281c811bbe3e5b40b91610d4b98";
         hash = "sha256-KY4Dgle2PDGoS+1gSFOn6SKAhe1tKgIFdG0RDnv4iKk=";
@@ -39,12 +40,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "tricycle_controller";
   version = "4.14.0-1";
-  src = sources.tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98;
+  src = sources."tricycle_controller";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

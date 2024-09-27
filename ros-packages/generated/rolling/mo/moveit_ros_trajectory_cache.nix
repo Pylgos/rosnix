@@ -9,6 +9,7 @@
   geometry_msgs,
   launch_pytest,
   launch_testing_ament_cmake,
+  mkSourceSet,
   moveit_common,
   moveit_configs_utils,
   moveit_planners_ompl,
@@ -29,10 +30,10 @@
   xacro,
 }:
 let
-  sources = rec {
-    moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_ros_trajectory_cache" = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4-source";
+        name = "moveit_ros_trajectory_cache-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "52dcc3bcb278818529a53271eaf6437f45fa05e4";
         hash = "sha256-uy4MQ2Y9O3j6x0ti5PIxjE09zuvxcGiwPfFCSXT/S3Y=";
@@ -40,12 +41,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_ros_trajectory_cache";
   version = "2.11.0-1";
-  src = sources.moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4;
+  src = sources."moveit_ros_trajectory_cache";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,6 +11,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   mrpt_libgui,
   mrpt_libmaps,
   mrpt_libposes,
@@ -30,10 +31,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "mvsim" = substituteSource {
       src = fetchgit {
-        name = "mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5-source";
+        name = "mvsim-source";
         url = "https://github.com/ros2-gbp/mvsim-release.git";
         rev = "3ba55bc51c40f93c428423f7a04d7ead15e0a2e5";
         hash = "sha256-fRwEC+/pNuYDTorLW+TRc1K0o8oRvfTnMXGqtXn2Alc=";
@@ -41,12 +42,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "mvsim";
   version = "0.10.0-1";
-  src = sources.mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5;
+  src = sources."mvsim";
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" "wget" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

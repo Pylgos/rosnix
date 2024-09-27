@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   python_qt_binding,
   rcl_interfaces,
   rclpy,
@@ -15,10 +16,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    rqt_console-7687bc5a9cc8ac81046ef38b3a8258f5dcc7057f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_console" = substituteSource {
       src = fetchgit {
-        name = "rqt_console-7687bc5a9cc8ac81046ef38b3a8258f5dcc7057f-source";
+        name = "rqt_console-source";
         url = "https://github.com/ros2-gbp/rqt_console-release.git";
         rev = "7687bc5a9cc8ac81046ef38b3a8258f5dcc7057f";
         hash = "sha256-rF3jOEKJh1Dxf55KPt0uAahS9Tsrze7kdEnUyVnwylE=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_console";
   version = "2.3.0-1";
-  src = sources.rqt_console-7687bc5a9cc8ac81046ef38b3a8258f5dcc7057f;
+  src = sources."rqt_console";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

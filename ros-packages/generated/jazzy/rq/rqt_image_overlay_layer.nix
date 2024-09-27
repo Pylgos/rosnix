@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   message_filters,
+  mkSourceSet,
   pluginlib,
   rclcpp,
   rcpputils,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rqt_image_overlay_layer-02784b28cc1e852177b9e4d0b25b49f144422fe6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rqt_image_overlay_layer" = substituteSource {
       src = fetchgit {
-        name = "rqt_image_overlay_layer-02784b28cc1e852177b9e4d0b25b49f144422fe6-source";
+        name = "rqt_image_overlay_layer-source";
         url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
         rev = "02784b28cc1e852177b9e4d0b25b49f144422fe6";
         hash = "sha256-w86vqlc7t/EJJOh8aI+DT1ECcEMdvidOeDtsyDhjTXc=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rqt_image_overlay_layer";
   version = "0.3.1-4";
-  src = sources.rqt_image_overlay_layer-02784b28cc1e852177b9e4d0b25b49f144422fe6;
+  src = sources."rqt_image_overlay_layer";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

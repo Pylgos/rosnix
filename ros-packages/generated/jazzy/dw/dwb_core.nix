@@ -9,6 +9,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   nav2_common,
   nav2_core,
   nav2_costmap_2d,
@@ -26,10 +27,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "dwb_core" = substituteSource {
       src = fetchgit {
-        name = "dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a-source";
+        name = "dwb_core-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "d601c7ec253305ccf6fef058cd1aaf913bfa9c1a";
         hash = "sha256-CxMMRdvdGeXbpXUmbJZ4RD5D+N8vMBzpzTF5GWasHLI=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "dwb_core";
   version = "1.3.2-1";
-  src = sources.dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a;
+  src = sources."dwb_core";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

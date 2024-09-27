@@ -6,14 +6,15 @@
   iceoryx_binding_c,
   iceoryx_hoofs,
   iceoryx_posh,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    cyclonedds-7f10fb21cb022d5f70201931f11f0b97b4d37d1f = substituteSource {
+  sources = mkSourceSet (sources: {
+    "cyclonedds" = substituteSource {
       src = fetchgit {
-        name = "cyclonedds-7f10fb21cb022d5f70201931f11f0b97b4d37d1f-source";
+        name = "cyclonedds-source";
         url = "https://github.com/ros2-gbp/cyclonedds-release.git";
         rev = "7f10fb21cb022d5f70201931f11f0b97b4d37d1f";
         hash = "sha256-JFn8HlIahFX99o5SBpVkhfap+EIKfLy3mZICNlZNh0o=";
@@ -21,12 +22,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "cyclonedds";
   version = "0.10.5-1";
-  src = sources.cyclonedds-7f10fb21cb022d5f70201931f11f0b97b4d37d1f;
+  src = sources."cyclonedds";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

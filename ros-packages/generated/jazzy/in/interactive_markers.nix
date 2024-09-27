@@ -10,6 +10,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rclcpp,
   rclpy,
   rcutils,
@@ -22,10 +23,10 @@
   visualization_msgs,
 }:
 let
-  sources = rec {
-    interactive_markers-0e209ec4bf7d7ab5eaf38ebe8d9375a04cf49eb0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "interactive_markers" = substituteSource {
       src = fetchgit {
-        name = "interactive_markers-0e209ec4bf7d7ab5eaf38ebe8d9375a04cf49eb0-source";
+        name = "interactive_markers-source";
         url = "https://github.com/ros2-gbp/interactive_markers-release.git";
         rev = "0e209ec4bf7d7ab5eaf38ebe8d9375a04cf49eb0";
         hash = "sha256-AnynI7NBpQeYuWFq0tNqFBkjlyKyY5BekFPSGeZbmrs=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "interactive_markers";
   version = "2.5.4-2";
-  src = sources.interactive_markers-0e209ec4bf7d7ab5eaf38ebe8d9375a04cf49eb0;
+  src = sources."interactive_markers";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

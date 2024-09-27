@@ -9,6 +9,7 @@
   fetchzip,
   launch,
   launch_ros,
+  mkSourceSet,
   rclcpp,
   rmw,
   ros2bag,
@@ -27,10 +28,10 @@
   yaml_cpp_vendor,
 }:
 let
-  sources = rec {
-    rosbag2_performance_benchmarking-fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_performance_benchmarking" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_performance_benchmarking-fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557-source";
+        name = "rosbag2_performance_benchmarking-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557";
         hash = "sha256-0ti0o5YC/Jf7W6qTqpcQA6g9D7b7OZhsSPm3I4qQEy0=";
@@ -38,12 +39,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_performance_benchmarking";
   version = "0.29.0-1";
-  src = sources.rosbag2_performance_benchmarking-fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557;
+  src = sources."rosbag2_performance_benchmarking";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

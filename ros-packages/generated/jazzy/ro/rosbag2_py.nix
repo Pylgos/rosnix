@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pybind11_vendor,
   python_cmake_module,
   rcl_interfaces,
@@ -26,10 +27,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    rosbag2_py-d0aa54ab8f7742dc69706a2232233fa94155ebe5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "rosbag2_py" = substituteSource {
       src = fetchgit {
-        name = "rosbag2_py-d0aa54ab8f7742dc69706a2232233fa94155ebe5-source";
+        name = "rosbag2_py-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "d0aa54ab8f7742dc69706a2232233fa94155ebe5";
         hash = "sha256-6AX9hd2I1XveB4iQYPmMXWVnhWHk9T/8DndTRVENvU8=";
@@ -37,12 +38,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "rosbag2_py";
   version = "0.26.5-1";
-  src = sources.rosbag2_py-d0aa54ab8f7742dc69706a2232233fa94155ebe5;
+  src = sources."rosbag2_py";
   nativeBuildInputs = [ ament_cmake_python ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

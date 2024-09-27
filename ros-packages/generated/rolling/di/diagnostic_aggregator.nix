@@ -13,6 +13,7 @@
   launch_pytest,
   launch_testing_ament_cmake,
   launch_testing_ros,
+  mkSourceSet,
   pluginlib,
   rcl_interfaces,
   rclcpp,
@@ -22,10 +23,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    diagnostic_aggregator-37a392e96761542fcda890216b400d1bf36bd09a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "diagnostic_aggregator" = substituteSource {
       src = fetchgit {
-        name = "diagnostic_aggregator-37a392e96761542fcda890216b400d1bf36bd09a-source";
+        name = "diagnostic_aggregator-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
         rev = "37a392e96761542fcda890216b400d1bf36bd09a";
         hash = "sha256-W0Tdf/Yhy7H7CY58VyRJMmJ+M2279VMtp+BEhLvriZA=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "diagnostic_aggregator";
   version = "4.3.1-1";
-  src = sources.diagnostic_aggregator-37a392e96761542fcda890216b400d1bf36bd09a;
+  src = sources."diagnostic_aggregator";
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -3,14 +3,15 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 let
-  sources = rec {
-    apriltag_mit-bb963180b5229dcd9aa44ac2720d084ea141df89 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "apriltag_mit" = substituteSource {
       src = fetchgit {
-        name = "apriltag_mit-bb963180b5229dcd9aa44ac2720d084ea141df89-source";
+        name = "apriltag_mit-source";
         url = "https://github.com/ros2-gbp/apriltag_mit-release.git";
         rev = "bb963180b5229dcd9aa44ac2720d084ea141df89";
         hash = "sha256-1WPBqs7VNnRYSSvoR7Jfk3a9CYGHOzfdA0KQgv/tfck=";
@@ -18,12 +19,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "apriltag_mit";
   version = "1.0.3-1";
-  src = sources.apriltag_mit-bb963180b5229dcd9aa44ac2720d084ea141df89;
+  src = sources."apriltag_mit";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-tidy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

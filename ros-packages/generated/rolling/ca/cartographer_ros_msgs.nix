@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   geometry_msgs,
+  mkSourceSet,
   rosSystemPackages,
   rosidl_default_generators,
   rosidl_default_runtime,
@@ -15,10 +16,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a = substituteSource {
+  sources = mkSourceSet (sources: {
+    "cartographer_ros_msgs" = substituteSource {
       src = fetchgit {
-        name = "cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a-source";
+        name = "cartographer_ros_msgs-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "0f8c1669775f566ff9272c7115b81e64f8c9695a";
         hash = "sha256-POmR42dN/mrsnISU7egd4dQ/y+W+VWvPUwQK+JlLCeU=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "cartographer_ros_msgs";
   version = "2.0.9003-1";
-  src = sources.cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a;
+  src = sources."cartographer_ros_msgs";
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

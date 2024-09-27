@@ -8,6 +8,7 @@
   fetchzip,
   geometry_msgs,
   launch_ros,
+  mkSourceSet,
   rclpy,
   rosSystemPackages,
   sensor_msgs,
@@ -15,10 +16,10 @@
   tf2_ros_py,
 }:
 let
-  sources = rec {
-    examples_tf2_py-684c650fa72d57a815634547d67d85bd5d7cd8c5 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "examples_tf2_py" = substituteSource {
       src = fetchgit {
-        name = "examples_tf2_py-684c650fa72d57a815634547d67d85bd5d7cd8c5-source";
+        name = "examples_tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "684c650fa72d57a815634547d67d85bd5d7cd8c5";
         hash = "sha256-pMk7tDj+6IB2MqJ4DuR77oWQ/ZJG+SL3qQNsviDWwYA=";
@@ -26,12 +27,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "examples_tf2_py";
   version = "0.36.4-1";
-  src = sources.examples_tf2_py-684c650fa72d57a815634547d67d85bd5d7cd8c5;
+  src = sources."examples_tf2_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

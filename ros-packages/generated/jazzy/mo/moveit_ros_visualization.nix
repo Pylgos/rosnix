@@ -7,6 +7,7 @@
   fetchzip,
   geometric_shapes,
   interactive_markers,
+  mkSourceSet,
   moveit_common,
   moveit_ros_planning_interface,
   moveit_ros_robot_interaction,
@@ -22,10 +23,10 @@
   wrapRosQtAppsHook,
 }:
 let
-  sources = rec {
-    moveit_ros_visualization-2ff04821cc1ca95f85ab9e1149e77387453c11a6 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "moveit_ros_visualization" = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_visualization-2ff04821cc1ca95f85ab9e1149e77387453c11a6-source";
+        name = "moveit_ros_visualization-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "2ff04821cc1ca95f85ab9e1149e77387453c11a6";
         hash = "sha256-T8ZN045rArWrW5ioSB6F5P+mx5YprOYmizGj9sKsUrM=";
@@ -33,12 +34,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "moveit_ros_visualization";
   version = "2.10.0-1";
-  src = sources.moveit_ros_visualization-2ff04821cc1ca95f85ab9e1149e77387453c11a6;
+  src = sources."moveit_ros_visualization";
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

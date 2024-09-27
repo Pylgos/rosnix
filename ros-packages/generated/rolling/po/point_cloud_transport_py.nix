@@ -5,6 +5,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  mkSourceSet,
   pluginlib,
   point_cloud_transport,
   pybind11_vendor,
@@ -16,10 +17,10 @@
   substituteSource,
 }:
 let
-  sources = rec {
-    point_cloud_transport_py-49c807df7d677b7a6e2b27c339065743a10ea3d0 = substituteSource {
+  sources = mkSourceSet (sources: {
+    "point_cloud_transport_py" = substituteSource {
       src = fetchgit {
-        name = "point_cloud_transport_py-49c807df7d677b7a6e2b27c339065743a10ea3d0-source";
+        name = "point_cloud_transport_py-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
         rev = "49c807df7d677b7a6e2b27c339065743a10ea3d0";
         hash = "sha256-v+zx6s3LYmv2cZe4MlRIr+g6FhyaieqasQcsiBygONg=";
@@ -27,12 +28,12 @@ let
       substitutions = [
       ];
     };
-  };
+  });
 in
 buildRosPackage {
   pname = "point_cloud_transport_py";
   version = "5.0.3-1";
-  src = sources.point_cloud_transport_py-49c807df7d677b7a6e2b27c339065743a10ea3d0;
+  src = sources."point_cloud_transport_py";
   nativeBuildInputs = [ ament_cmake_python ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
