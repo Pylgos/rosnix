@@ -100,7 +100,6 @@ final: prev: {
             qttools
             qttranslations
             qtvirtualkeyboard
-            qtwayland
             qtwebchannel
             qtwebengine
             qtwebsockets
