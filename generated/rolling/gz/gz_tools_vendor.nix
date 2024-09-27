@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    gz-tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f = substituteSource {
+    gz_tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f = substituteSource {
       src = fetchgit {
-        name = "gz-tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f-source";
+        name = "gz_tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f-source";
         url = "https://github.com/gazebosim/gz-tools.git";
         rev = "efcc504bd3665151266f38db627c9095e5a5773f";
         hash = "sha256-sV/T53oVk1fgjwqn/SRTaPTukt+vAlGGxGvTN8+G6Mo=";
@@ -36,7 +36,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f}";
+          to = "VCS_TYPE path VCS_URL ${gz_tools-vendor_source-efcc504bd3665151266f38db627c9095e5a5773f}";
         }
       ];
     };

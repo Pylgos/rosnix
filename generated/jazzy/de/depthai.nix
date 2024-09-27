@@ -11,27 +11,27 @@
 }:
 let
   sources = rec {
-    072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm = substituteSource {
+    _072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm = substituteSource {
       src = fetchzip {
-        name = "072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm-source";
+        name = "_072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm-source";
         url = "https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.tar.gz";
         hash = "sha256-lV+VZi2b4SQlRYrhKx9Dxc6HlDEFz3newvcBjTekupo=";
       };
       substitutions = [
       ];
     };
-    25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y = substituteSource {
+    _25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y = substituteSource {
       src = fetchzip {
-        name = "25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y-source";
+        name = "_25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y-source";
         url = "https://github.com/cpp-pm/curl/archive/25d45e89d140d6ab27103cd7f8f6d7d6cf548d47.tar.gz";
         hash = "sha256-vlSBSnJ1xWC9eKAoG5TdOfD3/Lgs+4VnkMTL6x7MMt8=";
       };
       substitutions = [
       ];
     };
-    2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az = substituteSource {
+    _2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az = substituteSource {
       src = fetchzip {
-        name = "2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az-source";
+        name = "_2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az-source";
         url = "https://github.com/luxonis/XLink/archive/2b517e1cb1ca77bea17679f9fdeb739812431174.tar.gz";
         hash = "sha256-X5VUjpblZeGHaweY1KMRIfH3zEBpfkBZXV8qesiDejU=";
       };
@@ -43,27 +43,27 @@ let
         }
       ];
     };
-    45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978 = substituteSource {
+    _45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978 = substituteSource {
       src = fetchzip {
-        name = "45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978-source";
+        name = "_45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978-source";
         url = "https://github.com/luxonis/libarchive/archive/45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a.tar.gz";
         hash = "sha256-6KTBpL1ibQAwRdzcan+qPhV5cNPHlxwhPJ+swOwJ92g=";
       };
       substitutions = [
       ];
     };
-    50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda = substituteSource {
+    _50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda = substituteSource {
       src = fetchzip {
-        name = "50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda-source";
+        name = "_50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda-source";
         url = "https://github.com/luxonis/cpr/archive/50a1321738554e0152b0a6f1b0ca24e4fdecff5c.tar.gz";
         hash = "sha256-qvFkVEI+5DmK1fE+U7Rm8G5NyF1wqVq0oOE2TGoQiAE=";
       };
       substitutions = [
       ];
     };
-    9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd = substituteSource {
+    _9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd = substituteSource {
       src = fetchzip {
-        name = "9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd-source";
+        name = "_9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd-source";
         url = "https://github.com/cpp-pm/hunter/archive/9d9242b60d5236269f894efd3ddd60a9ca83dd7f.tar.gz";
         hash = "sha256-zd7ddxplyZccBOqWCyLeMhCysxsnRIK48ccdIks9dBA=";
       };
@@ -308,7 +308,7 @@ let
         {
           path = "cmake/DownloadPSimd.cmake";
           from = "URL https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.tar.gz";
-          to = "URL ${072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm}";
+          to = "URL ${_072586a71b55b7f8c584153d223e95687148a900-vendor_source-16mslhvqs0gpqbg7kkq566a8gkn58cgjpqca8ljj9qcv5mk9apwm}";
         }
       ];
     };
@@ -332,7 +332,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL \"https://github.com/cpp-pm/hunter/archive/9d9242b60d5236269f894efd3ddd60a9ca83dd7f.tar.gz\"";
-          to = "URL ${9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd}";
+          to = "URL ${_9d9242b60d5236269f894efd3ddd60a9ca83dd7f-vendor_source-043l7m5j47f7y6w84i173frv441jvqi0p5pa0hf9gjb539vxvpnd}";
         }
         {
           path = "cmake/Hunter/config.cmake";
@@ -347,7 +347,7 @@ let
         {
           path = "cmake/Hunter/config.cmake";
           from = "URL \"https://github.com/cpp-pm/curl/archive/25d45e89d140d6ab27103cd7f8f6d7d6cf548d47.tar.gz\"";
-          to = "URL ${25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y}";
+          to = "URL ${_25d45e89d140d6ab27103cd7f8f6d7d6cf548d47-vendor_source-1prjrhgfpjy4j1kqbyrcp3yggw1rvna1na50g2yn1ibmf9582m5y}";
         }
         {
           path = "cmake/Hunter/config.cmake";
@@ -362,12 +362,12 @@ let
         {
           path = "cmake/Hunter/config.cmake";
           from = "URL \"https://github.com/luxonis/XLink/archive/2b517e1cb1ca77bea17679f9fdeb739812431174.tar.gz\"";
-          to = "URL ${2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az}";
+          to = "URL ${_2b517e1cb1ca77bea17679f9fdeb739812431174-vendor_source-0dbshg47lajzbmcl0zk9836ggw9126ix9607df3y2rg5js7595az}";
         }
         {
           path = "cmake/Hunter/config.cmake";
           from = "URL \"https://github.com/luxonis/cpr/archive/50a1321738554e0152b0a6f1b0ca24e4fdecff5c.tar.gz\"";
-          to = "URL ${50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda}";
+          to = "URL ${_50a1321738554e0152b0a6f1b0ca24e4fdecff5c-vendor_source-00c821m4qdp1l2s5mabhbp44svphcss56gpisn53kr1y89a69wda}";
         }
         {
           path = "cmake/Hunter/config.cmake";
@@ -377,7 +377,7 @@ let
         {
           path = "cmake/Hunter/config.cmake";
           from = "URL \"https://github.com/luxonis/libarchive/archive/45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a.tar.gz\"";
-          to = "URL ${45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978}";
+          to = "URL ${_45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-vendor_source-0s7p17nc1b4z7hhir5y7sdq7j59ym9znmp6w8lq00vb2pnjc3978}";
         }
         {
           path = "cmake/Hunter/config.cmake";

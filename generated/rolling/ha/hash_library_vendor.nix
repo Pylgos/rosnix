@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    hash-library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5 = substituteSource {
+    hash_library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5 = substituteSource {
       src = fetchgit {
-        name = "hash-library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5-source";
+        name = "hash_library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5-source";
         url = "https://github.com/stbrumme/hash-library.git";
         rev = "70cc93763d49a24c4536c7f0a23248f9b40e30f5";
         hash = "sha256-z4JzmggZnNfsTD8OzBiX4egJax4qJXGYr2Q8GPrInRI=";
@@ -32,7 +32,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/stbrumme/hash-library.git";
-          to = "URL ${hash-library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5}";
+          to = "URL ${hash_library-vendor_source-70cc93763d49a24c4536c7f0a23248f9b40e30f5}";
         }
       ];
     };

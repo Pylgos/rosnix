@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    gz-sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757 = substituteSource {
+    gz_sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757 = substituteSource {
       src = fetchgit {
-        name = "gz-sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757-source";
+        name = "gz_sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757-source";
         url = "https://github.com/gazebosim/gz-sensors.git";
         rev = "410a999f1e0e91bdcf81c6aff70fa3e95e369757";
         hash = "sha256-j/8kS+Bvaim2gtsZcp+/u8CAE+N24/5qZhciFR0Q8+M=";
@@ -43,7 +43,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757}";
+          to = "VCS_TYPE path VCS_URL ${gz_sensors-vendor_source-410a999f1e0e91bdcf81c6aff70fa3e95e369757}";
         }
       ];
     };

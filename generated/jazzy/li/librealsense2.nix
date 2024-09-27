@@ -18,9 +18,9 @@ let
       substitutions = [
       ];
     };
-    Fast-DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46 = substituteSource {
+    Fast_DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46 = substituteSource {
       src = fetchgit {
-        name = "Fast-DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46-source";
+        name = "Fast_DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46-source";
         url = "https://github.com/eProsima/Fast-DDS.git";
         rev = "ff71eabb0f054a50837638d8b669f1db17243b46";
         hash = "sha256-H1Unfwhu0fWMzck85fEUWOrCPWUHKxbWZEF8ay0Wtak=";
@@ -73,7 +73,7 @@ let
         {
           path = "CMake/external_fastdds.cmake";
           from = "GIT_REPOSITORY https://github.com/eProsima/Fast-DDS.git";
-          to = "URL ${Fast-DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46}";
+          to = "URL ${Fast_DDS-vendor_source-ff71eabb0f054a50837638d8b669f1db17243b46}";
         }
         {
           path = "CMake/external_foonathan_memory.cmake";

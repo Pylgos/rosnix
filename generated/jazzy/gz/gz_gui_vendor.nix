@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    gz-gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421 = substituteSource {
+    gz_gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421 = substituteSource {
       src = fetchgit {
-        name = "gz-gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421-source";
+        name = "gz_gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421-source";
         url = "https://github.com/gazebosim/gz-gui.git";
         rev = "036df090d5fb9323617ad186156e295a85e38421";
         hash = "sha256-V0zaL6qrd510hMECCr3/mMkyqf4yu2aaKLRZ6Rw0s/4=";
@@ -45,7 +45,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421}";
+          to = "VCS_TYPE path VCS_URL ${gz_gui-vendor_source-036df090d5fb9323617ad186156e295a85e38421}";
         }
       ];
     };

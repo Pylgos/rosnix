@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    gz-cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73 = substituteSource {
+    gz_cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73 = substituteSource {
       src = fetchgit {
-        name = "gz-cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73-source";
+        name = "gz_cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73-source";
         url = "https://github.com/gazebosim/gz-cmake.git";
         rev = "ddd38ff196640024d6e054ff59cf5fea1ef01d73";
         hash = "sha256-fnN3Fmp7F5W0JixJUEp2v/OnXzmRidS5ujmSYxIRWto=";
@@ -35,7 +35,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73}";
+          to = "VCS_TYPE path VCS_URL ${gz_cmake-vendor_source-ddd38ff196640024d6e054ff59cf5fea1ef01d73}";
         }
       ];
     };

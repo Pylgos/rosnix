@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96 = substituteSource {
+    gz_fuel_tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96 = substituteSource {
       src = fetchgit {
-        name = "gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96-source";
+        name = "gz_fuel_tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96-source";
         url = "https://github.com/gazebosim/gz-fuel-tools.git";
         rev = "9726ac5ec3299a7b13dc9d09db0edb1be08f9d96";
         hash = "sha256-txeIzj2vmvL5NDu6O07c7LwcCWE26OFEzvyc9TBrJAw=";
@@ -41,7 +41,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96}";
+          to = "VCS_TYPE path VCS_URL ${gz_fuel_tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96}";
         }
       ];
     };

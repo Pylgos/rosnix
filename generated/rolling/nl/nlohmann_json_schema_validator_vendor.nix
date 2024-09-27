@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    json-schema-validator-vendor_source-5ef4f903af055550e06955973a193e17efded896 = substituteSource {
+    json_schema_validator-vendor_source-5ef4f903af055550e06955973a193e17efded896 = substituteSource {
       src = fetchgit {
-        name = "json-schema-validator-vendor_source-5ef4f903af055550e06955973a193e17efded896-source";
+        name = "json_schema_validator-vendor_source-5ef4f903af055550e06955973a193e17efded896-source";
         url = "https://github.com/pboettch/json-schema-validator.git";
         rev = "5ef4f903af055550e06955973a193e17efded896";
         hash = "sha256-b02OFUx0BxUA6HN6IaacSg1t3RP4o7NND7X0U635W8U=";
@@ -30,7 +30,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/pboettch/json-schema-validator.git";
-          to = "URL ${json-schema-validator-vendor_source-5ef4f903af055550e06955973a193e17efded896}";
+          to = "URL ${json_schema_validator-vendor_source-5ef4f903af055550e06955973a193e17efded896}";
         }
       ];
     };

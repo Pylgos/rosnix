@@ -29,7 +29,7 @@ let
         {
           path = "src/extern/yaml-cpp/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git";
-          to = "URL ${yaml-cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0}";
+          to = "URL ${yaml_cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0}";
         }
       ];
     };
@@ -53,9 +53,9 @@ let
       substitutions = [
       ];
     };
-    yaml-cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0 = substituteSource {
+    yaml_cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0 = substituteSource {
       src = fetchgit {
-        name = "yaml-cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0-source";
+        name = "yaml_cpp-vendor_source-ee99c4151c1af794a412b101a75921c086acaac0-source";
         url = "https://github.com/jbeder/yaml-cpp.git";
         rev = "ee99c4151c1af794a412b101a75921c086acaac0";
         hash = "sha256-D5brGCzg0v9SmCLcLx+NEOIXz//74ofQjA4kqw2LH4A=";

@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    aws-sdk-cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88 = substituteSource {
+    aws_sdk_cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88 = substituteSource {
       src = fetchgit {
-        name = "aws-sdk-cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88-source";
+        name = "aws_sdk_cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88-source";
         url = "https://github.com/aws/aws-sdk-cpp.git";
         rev = "615458352b71fd29de142e01b8ecf293fcd08a88";
         hash = "sha256-P44Q84E6tVyV6sGcB7Z3+/lnAtR65X4JIws6T/+7a+Q=";
@@ -34,7 +34,7 @@ let
         {
           path = "tools/android-build/CMakeLists.txt";
           from = "URL https://sdk.amazonaws.com/cpp/builds/zlib-1.2.11.tar.gz";
-          to = "URL ${zlib-1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1}";
+          to = "URL ${zlib_1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1}";
         }
       ];
     };
@@ -49,7 +49,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/aws/aws-sdk-cpp.git";
-          to = "VCS_TYPE path VCS_URL ${aws-sdk-cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88}";
+          to = "VCS_TYPE path VCS_URL ${aws_sdk_cpp-vendor_source-615458352b71fd29de142e01b8ecf293fcd08a88}";
         }
       ];
     };
@@ -78,9 +78,9 @@ let
         }
       ];
     };
-    zlib-1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1 = substituteSource {
+    zlib_1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1 = substituteSource {
       src = fetchzip {
-        name = "zlib-1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1-source";
+        name = "zlib_1-vendor_source-098k1dq86ix9r5z63s1snxkmqz0mhdd1jy7inf5djwd3vv5jh0h1-source";
         url = "https://sdk.amazonaws.com/cpp/builds/zlib-1.2.11.tar.gz";
         hash = "sha256-AQIoy96jcdmKs/F4GVqDFXxcZ7c66GF+yalHg3ALEyU=";
       };

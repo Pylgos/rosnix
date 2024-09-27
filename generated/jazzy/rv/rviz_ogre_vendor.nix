@@ -12,20 +12,11 @@
 }:
 let
   sources = rec {
-    SDL2-2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl = substituteSource {
+    SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl = substituteSource {
       src = fetchurl {
-        name = "SDL2-2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl-source";
+        name = "SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl-source";
         url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
         hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
-      };
-      substitutions = [
-      ];
-    };
-    freetype-2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s = substituteSource {
-      src = fetchurl {
-        name = "freetype-2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s-source";
-        url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-        hash = "sha256-OmDTkf1XlEBWG/Dn8xryIivGEK1s5NnXvSFlvKhmkRA=";
       };
       substitutions = [
       ];
@@ -36,6 +27,15 @@ let
         url = "https://git.savannah.gnu.org/git/freetype/freetype2.git";
         rev = "3f83daeecb1a78d851b660eed025eeba362c0e4a";
         hash = "sha256-UEn5Renp7EK9hTNRLiV7sec70zvY8mrLRwJoZ6aUJEE=";
+      };
+      substitutions = [
+      ];
+    };
+    freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s = substituteSource {
+      src = fetchurl {
+        name = "freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s-source";
+        url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
+        hash = "sha256-OmDTkf1XlEBWG/Dn8xryIivGEK1s5NnXvSFlvKhmkRA=";
       };
       substitutions = [
       ];
@@ -51,12 +51,12 @@ let
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-          to = "DOWNLOAD file://${freetype-2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s}";
+          to = "DOWNLOAD file://${freetype_2-vendor_source-044icslbqr91ppbxkr3cml8ccar2y8dg7rzh3db4152pzn8x6q1s}";
         }
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
-          to = "DOWNLOAD file://${SDL2-2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl}";
+          to = "DOWNLOAD file://${SDL2_2-vendor_source-0mqxp6w5jhbq6y1j690g9r3gpzwjxh4czaglw8x05l7hl49nqrdl}";
         }
         {
           path = "CMake/Dependencies.cmake";
@@ -71,7 +71,7 @@ let
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n        https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
-          to = "DOWNLOAD file://${pugixml-1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm}";
+          to = "DOWNLOAD file://${pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm}";
         }
         {
           path = "Components/Overlay/CMakeLists.txt";
@@ -80,9 +80,9 @@ let
         }
       ];
     };
-    pugixml-1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm = substituteSource {
+    pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm = substituteSource {
       src = fetchurl {
-        name = "pugixml-1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm-source";
+        name = "pugixml_1-vendor_source-02l7nllhydggf7s64d2x84kckbmwag4lsn28sc82953hnkxrkwsm-source";
         url = "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz";
         hash = "sha256-VfOZ+7RwlCQQ00hYTclTvK7JJkFdNGL0ce81Dym1hwo=";
       };

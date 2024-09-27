@@ -24,13 +24,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
-          to = "URL ${linux_x86-64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr}";
+          to = "URL ${linux_x86_64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr}";
         }
       ];
     };
-    linux_x86-64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr = substituteSource {
+    linux_x86_64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr = substituteSource {
       src = fetchzip {
-        name = "linux_x86-64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr-source";
+        name = "linux_x86_64_x86_gcc-vendor_source-0izma2q5k5kfqx4xbvfrzw6bmwk5sdl0pdg3jlni4km8f2shrxgr-source";
         url = "https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
         hash = "sha256-+fUMtXCoThItleO1C2jTZfK6DP/Z7dVJx26WWbBQ9Uc=";
       };

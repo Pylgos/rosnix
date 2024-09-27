@@ -23,13 +23,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/OGRECave/ogre-next.git";
-          to = "VCS_TYPE path VCS_URL ${ogre-next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec}";
+          to = "VCS_TYPE path VCS_URL ${ogre_next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec}";
         }
       ];
     };
-    ogre-next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec = substituteSource {
+    ogre_next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec = substituteSource {
       src = fetchgit {
-        name = "ogre-next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec-source";
+        name = "ogre_next-vendor_source-8d4daeaf46d7d8f85f1833f17daedd7dac05daec-source";
         url = "https://github.com/OGRECave/ogre-next.git";
         rev = "8d4daeaf46d7d8f85f1833f17daedd7dac05daec";
         hash = "sha256-elSj35LwsLzj1ssDPsk9NW/KSXfiOGYmw9hQSAWdpFM=";

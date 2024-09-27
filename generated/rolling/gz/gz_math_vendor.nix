@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    gz-math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021 = substituteSource {
+    gz_math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021 = substituteSource {
       src = fetchgit {
-        name = "gz-math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021-source";
+        name = "gz_math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021-source";
         url = "https://github.com/gazebosim/gz-math.git";
         rev = "7a595ca81b2914c765e09075c656ae08078e9021";
         hash = "sha256-TEadejtPCR3FAUbyAAME28tmqaxypPTJDYidjZ3FPIY=";
@@ -37,7 +37,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021}";
+          to = "VCS_TYPE path VCS_URL ${gz_math-vendor_source-7a595ca81b2914c765e09075c656ae08078e9021}";
         }
       ];
     };

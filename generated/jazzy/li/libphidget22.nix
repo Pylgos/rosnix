@@ -9,15 +9,6 @@
 }:
 let
   sources = rec {
-    libphidget22-1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d = substituteSource {
-      src = fetchzip {
-        name = "libphidget22-1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d-source";
-        url = "https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.19.20240304.tar.gz";
-        hash = "sha256-TQg72tGQsU7ygESyh3gR68l+RXNF4uDHR/tj5vVlXY0=";
-      };
-      substitutions = [
-      ];
-    };
     libphidget22-f325a1971b200ca0531ddcbdc51241c1e6a2d3e5 = substituteSource {
       src = fetchgit {
         name = "libphidget22-f325a1971b200ca0531ddcbdc51241c1e6a2d3e5-source";
@@ -29,8 +20,17 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.19.20240304.tar.gz";
-          to = "URL ${libphidget22-1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d}";
+          to = "URL ${libphidget22_1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d}";
         }
+      ];
+    };
+    libphidget22_1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d = substituteSource {
+      src = fetchzip {
+        name = "libphidget22_1-vendor_source-13axcpsycqzv8z3y1qj5fd2pxjgb25w8gcj4h3r4xcchs7d3n22d-source";
+        url = "https://www.phidgets.com/downloads/phidget22/libraries/linux/libphidget22/libphidget22-1.19.20240304.tar.gz";
+        hash = "sha256-TQg72tGQsU7ygESyh3gR68l+RXNF4uDHR/tj5vVlXY0=";
+      };
+      substitutions = [
       ];
     };
   };

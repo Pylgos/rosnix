@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4 = substituteSource {
+    gz_msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4 = substituteSource {
       src = fetchgit {
-        name = "gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4-source";
+        name = "gz_msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
         rev = "0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4";
         hash = "sha256-PQT8EpTxafldnKG3hDSXw2P22gLRg2EfMllrzaTaDEw=";
@@ -38,7 +38,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4}";
+          to = "VCS_TYPE path VCS_URL ${gz_msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4}";
         }
       ];
     };

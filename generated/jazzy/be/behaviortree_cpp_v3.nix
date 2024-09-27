@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z = substituteSource {
+    _609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z = substituteSource {
       src = fetchzip {
-        name = "609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z-source";
+        name = "_609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z-source";
         url = "https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip";
         hash = "sha256-P8l4pv8z1n/XUBYpdpLumX8VTnzO+AvBLg+8wD4+ldg=";
       };
@@ -33,7 +33,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip";
-          to = "URL ${609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z}";
+          to = "URL ${_609281088cfefc76f9d0ce82e1ff6c30cc3591e5-vendor_source-1n4m7qzc1g0g5v0hpy6fgi71azwrxs97ca8na3bpzmikzyk7ij9z}";
         }
       ];
     };

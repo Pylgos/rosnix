@@ -53,27 +53,27 @@ let
         {
           path = "CMakeLists.txt";
           from = "DOWNLOAD \"https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-local/network/mobilenet-ssd_openvino_2021.2_6shave.blob\"";
-          to = "DOWNLOAD file://${mobilenet-ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i}";
+          to = "DOWNLOAD file://${mobilenet_ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i}";
         }
         {
           path = "CMakeLists.txt";
           from = "DOWNLOAD \"https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-local/network/tiny-yolo-v4_openvino_2021.2_6shave.blob\"";
-          to = "DOWNLOAD file://${tiny-yolo-v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q}";
+          to = "DOWNLOAD file://${tiny_yolo_v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q}";
         }
       ];
     };
-    mobilenet-ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i = substituteSource {
+    mobilenet_ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i = substituteSource {
       src = fetchurl {
-        name = "mobilenet-ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i-source";
+        name = "mobilenet_ssd_openvino_2021-vendor_source-0w9ym71gdq7176jwzlm70j63axq9hw4hwa68475hxgcas7jx0l2i-source";
         url = "https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-local/network/mobilenet-ssd_openvino_2021.2_6shave.blob";
         hash = "sha256-UVDQ5dGKvQ7LIcgoDgmHCXc1jASn0s+lOeHg9sKpPnE=";
       };
       substitutions = [
       ];
     };
-    tiny-yolo-v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q = substituteSource {
+    tiny_yolo_v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q = substituteSource {
       src = fetchurl {
-        name = "tiny-yolo-v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q-source";
+        name = "tiny_yolo_v4_openvino_2021-vendor_source-0lg8ypdpgx1j6vzn8yddwj09xqpahmqlipwja31fjav557i50k4q-source";
         url = "https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-local/network/tiny-yolo-v4_openvino_2021.2_6shave.blob";
         hash = "sha256-mExQ4illK+nCUJLfSHGF6uKegOSteWT/NjL0d9v16FE=";
       };

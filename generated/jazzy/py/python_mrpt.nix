@@ -17,18 +17,18 @@
 }:
 let
   sources = rec {
-    1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb = substituteSource {
+    _1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb = substituteSource {
       src = fetchzip {
-        name = "1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb-source";
+        name = "_1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb-source";
         url = "https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz";
         hash = "sha256-yw8qGdNf35VrplhI+Sq2xNuwk78Ld6wkF6IVF5V8nKQ=";
       };
       substitutions = [
       ];
     };
-    eigen-3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1 = substituteSource {
+    eigen_3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1 = substituteSource {
       src = fetchzip {
-        name = "eigen-3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1-source";
+        name = "eigen_3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1-source";
         url = "https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2";
         hash = "sha256-oXJ4V5rakL9EPtQF0Geptl0HMR8700FdSrOB09DbbMQ=";
       };
@@ -173,12 +173,12 @@ let
         {
           path = "cmakemodules/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
-          to = "URL ${eigen-3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1}";
+          to = "URL ${eigen_3-vendor_source-1i3cvg8d70dk99fl3lrv3wqhfpdnm5kx01fl7r2bz46sk9bphwm1}";
         }
         {
           path = "cmakemodules/script_jpeg.cmake";
           from = "URL               \"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz\"";
-          to = "URL ${1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb}";
+          to = "URL ${_1-vendor_source-194wgjaif5d22wjaqxqbpy9v1ny4nqmgjj2qlrmrbpszsccjl3yb}";
         }
         {
           path = "cmakemodules/script_octomap.cmake";

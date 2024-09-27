@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    fmi-library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a = substituteSource {
+    fmi_library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a = substituteSource {
       src = fetchgit {
-        name = "fmi-library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a-source";
+        name = "fmi_library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a-source";
         url = "https://github.com/modelon-community/fmi-library.git";
         rev = "998768cddacce99727d633d045fa6d25314e1d9a";
         hash = "sha256-i8EtjPMg39S/3RyoUaXm5A8Nu/NbgAwjxRCdyh2elyU=";
@@ -30,7 +30,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/modelon-community/fmi-library.git";
-          to = "URL ${fmi-library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a}";
+          to = "URL ${fmi_library-vendor_source-998768cddacce99727d633d045fa6d25314e1d9a}";
         }
       ];
     };

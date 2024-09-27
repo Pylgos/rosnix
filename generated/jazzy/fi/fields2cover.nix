@@ -9,15 +9,6 @@
 }:
 let
   sources = rec {
-    20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8 = substituteSource {
-      src = fetchzip {
-        name = "20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8-source";
-        url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-        hash = "sha256-yILAsAERUDMbRWh8t4o6W74YiswvGIHSyBAIuLVbzxY=";
-      };
-      substitutions = [
-      ];
-    };
     Cbc-vendor_source-b01a53da39577380acdb84d8a3577911c5d91a13 = substituteSource {
       src = fetchgit {
         name = "Cbc-vendor_source-b01a53da39577380acdb84d8a3577911c5d91a13-source";
@@ -98,9 +89,18 @@ let
       substitutions = [
       ];
     };
-    abseil-cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac = substituteSource {
+    _20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8 = substituteSource {
+      src = fetchzip {
+        name = "_20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8-source";
+        url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
+        hash = "sha256-yILAsAERUDMbRWh8t4o6W74YiswvGIHSyBAIuLVbzxY=";
+      };
+      substitutions = [
+      ];
+    };
+    abseil_cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac = substituteSource {
       src = fetchgit {
-        name = "abseil-cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac-source";
+        name = "abseil_cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac-source";
         url = "https://github.com/abseil/abseil-cpp.git";
         rev = "2f9e432cce407ce0ae50676696666f33a77d42ac";
         hash = "sha256-D4E11bICKr3Z5RRah7QkfXVsXtuUg32FMmKpiOGjZDM=";
@@ -108,9 +108,9 @@ let
       substitutions = [
       ];
     };
-    doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w = substituteSource {
+    doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w = substituteSource {
       src = fetchurl {
-        name = "doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w-source";
+        name = "doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w-source";
         url = "https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
         hash = "sha256-HIlS9jhR+Ic9j73/EY/9nZG6QJEjsYFu59zTqNHlWHA=";
       };
@@ -148,17 +148,17 @@ let
         {
           path = "cmake/F2CUtils.cmake";
           from = "GIT_REPOSITORY https://github.com/google/or-tools.git";
-          to = "URL ${or-tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94}";
+          to = "URL ${or_tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94}";
         }
         {
           path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
-          to = "URL ${or-tools_amd64_ubuntu-22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w}";
+          to = "URL ${or_tools_amd64_ubuntu_22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w}";
         }
         {
           path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
-          to = "URL ${or-tools_arm64_debian-11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv}";
+          to = "URL ${or_tools_arm64_debian_11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv}";
         }
         {
           path = "cmake/F2CUtils.cmake";
@@ -195,9 +195,9 @@ let
       substitutions = [
       ];
     };
-    or-tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94 = substituteSource {
+    or_tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94 = substituteSource {
       src = fetchgit {
-        name = "or-tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94-source";
+        name = "or_tools-vendor_source-3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94-source";
         url = "https://github.com/google/or-tools.git";
         rev = "3c5c99c278ef3d0ac85cdbd4f008f8c0fd2f3f94";
         hash = "sha256-Ip2mKl+MuzOPaF1a2FTubqT0tA4gzDnD8dR7dLaHHo8=";
@@ -206,7 +206,7 @@ let
         {
           path = "cmake/cpp.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
+          to = "DOWNLOAD file://${doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
@@ -246,7 +246,7 @@ let
         {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/abseil/abseil-cpp.git\"";
-          to = "URL ${abseil-cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac}";
+          to = "URL ${abseil_cpp-vendor_source-2f9e432cce407ce0ae50676696666f33a77d42ac}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
@@ -296,32 +296,32 @@ let
         {
           path = "cmake/dotnet.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
+          to = "DOWNLOAD file://${doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
         }
         {
           path = "cmake/java.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
+          to = "DOWNLOAD file://${doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
         }
         {
           path = "cmake/python.cmake";
           from = "DOWNLOAD\n      https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/v2.1.0/doxygen-awesome.css";
-          to = "DOWNLOAD file://${doxygen-awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
+          to = "DOWNLOAD file://${doxygen_awesome-vendor_source-0w2qwp8silywwxp83c93j50bm4cxzn7i3zxxiwyqgy2i73v5528w}";
         }
       ];
     };
-    or-tools_amd64_ubuntu-22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w = substituteSource {
+    or_tools_amd64_ubuntu_22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w = substituteSource {
       src = fetchzip {
-        name = "or-tools_amd64_ubuntu-22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w-source";
+        name = "or_tools_amd64_ubuntu_22-vendor_source-1gm1zq8d1zjf2flcf28hvffxil35jm8wmdaipgplpg2vrlpqab9w-source";
         url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
         hash = "sha256-PC2FL81bvEvvu1G1ylGVZdDYndsQCceoE07+0BD+ob4=";
       };
       substitutions = [
       ];
     };
-    or-tools_arm64_debian-11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv = substituteSource {
+    or_tools_arm64_debian_11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv = substituteSource {
       src = fetchzip {
-        name = "or-tools_arm64_debian-11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv-source";
+        name = "or_tools_arm64_debian_11_cpp_v9-vendor_source-12paklqms0gcdq9schnc6a0vcz3mcq2v6kcqiyasiyk9ry0j98fv-source";
         url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
         hash = "sha256-26Ekgc9p+qiVj5hNswVmdXy2gTLMQqYTbuwBXTGd6oo=";
       };
@@ -364,7 +364,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-          to = "URL ${20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8}";
+          to = "URL ${_20230802-vendor_source-05ngbfsvh20hr398261grj51igjv7a5bfz388ldk6l0i06qc10n8}";
         }
       ];
     };

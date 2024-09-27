@@ -64,27 +64,27 @@ let
         {
           path = "thirdparty/udpcap/thirdparty/npcap/npcap_make_available.cmake";
           from = "URL      \"\${NPCAP_SDK_ARCHIVE_URL}\"";
-          to = "URL ${npcap-sdk-1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5}";
+          to = "URL ${npcap_sdk_1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5}";
         }
         {
           path = "thirdparty/udpcap/thirdparty/pcapplusplus/pcapplusplus_make_available.cmake";
           from = "URL      \"\${PCAPPLUSPLUS_ARCHIVE_URL}\"";
-          to = "URL ${pcapplusplus-22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h}";
+          to = "URL ${pcapplusplus_22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h}";
         }
       ];
     };
-    npcap-sdk-1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5 = substituteSource {
+    npcap_sdk_1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5 = substituteSource {
       src = fetchzip {
-        name = "npcap-sdk-1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5-source";
+        name = "npcap_sdk_1-vendor_source-0a17n2nkcz76v81wb8lfp1w3q9dfvnzhm02prsq6l18ymhja24r5-source";
         url = "https://npcap.com/dist/npcap-sdk-1.13.zip";
         hash = "sha256-JROhJKweBWqwzleACr/driU8eLiOosUD2uZ8Nq2wJyg=";
       };
       substitutions = [
       ];
     };
-    pcapplusplus-22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h = substituteSource {
+    pcapplusplus_22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h = substituteSource {
       src = fetchzip {
-        name = "pcapplusplus-22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h-source";
+        name = "pcapplusplus_22-vendor_source-18sw56p59zqp1nczi9kf1wma90hgyra0qr6ffi9qjhd92rp8ly7h-source";
         url = "https://github.com/seladb/PcapPlusPlus/releases/download/v22.05/pcapplusplus-22.05-windows-vs2015.zip";
         hash = "sha256-8HiKbhapQYlTdM5kDFT2D4KkKg9upviZDRf/VK4pXKM=";
       };

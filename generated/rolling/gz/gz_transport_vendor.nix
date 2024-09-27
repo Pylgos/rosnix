@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    gz-transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85 = substituteSource {
+    gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85 = substituteSource {
       src = fetchgit {
-        name = "gz-transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85-source";
+        name = "gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85-source";
         url = "https://github.com/gazebosim/gz-transport.git";
         rev = "73757e716dcf21e395e1884fbfb4afc6bac10d85";
         hash = "sha256-2Akd3vKr07IdgoJppvUV1nZlHE4RdQfI2R18ihHTDHk=";
@@ -40,7 +40,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85}";
+          to = "VCS_TYPE path VCS_URL ${gz_transport-vendor_source-73757e716dcf21e395e1884fbfb4afc6bac10d85}";
         }
       ];
     };

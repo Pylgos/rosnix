@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    SDL2-2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g = substituteSource {
+    SDL2_2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g = substituteSource {
       src = fetchzip {
-        name = "SDL2-2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g-source";
+        name = "SDL2_2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g-source";
         url = "https://www.libsdl.org/release/SDL2-2.0.20.tar.gz";
         hash = "sha256-DyBhGqPrQBiCq7gcAZhgD4X0KQ0mT6utCCXhJECpT3c=";
       };
@@ -29,7 +29,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "URL https://www.libsdl.org/release/SDL2-2.0.20.tar.gz";
-          to = "URL ${SDL2-2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g}";
+          to = "URL ${SDL2_2-vendor_source-0xsgm5029q9512nsnkr61llz918gc2c0275qmf11hh7blcd6280g}";
         }
       ];
     };

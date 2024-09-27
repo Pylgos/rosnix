@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    gz-rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741 = substituteSource {
+    gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741 = substituteSource {
       src = fetchgit {
-        name = "gz-rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741-source";
+        name = "gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741-source";
         url = "https://github.com/gazebosim/gz-rendering.git";
         rev = "8a547d5386a33789313abbb5bbbe1b2ec4c04741";
         hash = "sha256-eaWkZKHu566Rub7YSO2lnKdj8YQbhl86v+JR4zrgtjs=";
@@ -41,7 +41,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741}";
+          to = "VCS_TYPE path VCS_URL ${gz_rendering-vendor_source-8a547d5386a33789313abbb5bbbe1b2ec4c04741}";
         }
       ];
     };

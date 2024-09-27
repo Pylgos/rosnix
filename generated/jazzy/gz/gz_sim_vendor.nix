@@ -29,9 +29,9 @@
 }:
 let
   sources = rec {
-    gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501 = substituteSource {
+    gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501 = substituteSource {
       src = fetchgit {
-        name = "gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501-source";
+        name = "gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501-source";
         url = "https://github.com/gazebosim/gz-sim.git";
         rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
         hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
@@ -50,7 +50,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501}";
+          to = "VCS_TYPE path VCS_URL ${gz_sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501}";
         }
       ];
     };

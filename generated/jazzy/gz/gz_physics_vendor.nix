@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f = substituteSource {
+    gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f = substituteSource {
       src = fetchgit {
-        name = "gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f-source";
+        name = "gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f-source";
         url = "https://github.com/gazebosim/gz-physics.git";
         rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
         hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
@@ -42,7 +42,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f}";
+          to = "VCS_TYPE path VCS_URL ${gz_physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f}";
         }
       ];
     };

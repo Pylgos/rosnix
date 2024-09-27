@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132 = substituteSource {
+    gz_launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132 = substituteSource {
       src = fetchgit {
-        name = "gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132-source";
+        name = "gz_launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132-source";
         url = "https://github.com/gazebosim/gz-launch.git";
         rev = "1317511d365d1b2c312c86f9062b8a4b7bfdc132";
         hash = "sha256-En3V8i/Ie8+KnSHGlm9Bap7REdLhYBaVHVbOM+/Pzno=";
@@ -45,7 +45,7 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132}";
+          to = "VCS_TYPE path VCS_URL ${gz_launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132}";
         }
       ];
     };
