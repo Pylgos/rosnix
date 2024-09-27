@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    foxglove_bridge = substituteSource {
+    foxglove_bridge-74c97342e76388a9ac8340ce319e4f2800c9e717 = substituteSource {
       src = fetchgit {
-        name = "foxglove_bridge-source";
+        name = "foxglove_bridge-74c97342e76388a9ac8340ce319e4f2800c9e717-source";
         url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
         rev = "74c97342e76388a9ac8340ce319e4f2800c9e717";
         hash = "sha256-55+rvWwEo3BQQ39q4jHC7MXaagY3vheCEPc3TnNeZZ0=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "foxglove_bridge";
   version = "0.8.0-1";
-  src = sources.foxglove_bridge;
+  src = sources.foxglove_bridge-74c97342e76388a9ac8340ce319e4f2800c9e717;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

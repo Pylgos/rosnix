@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    micro_ros_msgs = substituteSource {
+    micro_ros_msgs-68328fce0490d843544f5d50941ac3ea2f424ad0 = substituteSource {
       src = fetchgit {
-        name = "micro_ros_msgs-source";
+        name = "micro_ros_msgs-68328fce0490d843544f5d50941ac3ea2f424ad0-source";
         url = "https://github.com/ros2-gbp/micro_ros_msgs-release.git";
         rev = "68328fce0490d843544f5d50941ac3ea2f424ad0";
         hash = "sha256-kuDv7e3C0BCXolx6ePv0TLEpK9E3OfLGFAh0K/9Wb8o=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "micro_ros_msgs";
   version = "1.0.0-5";
-  src = sources.micro_ros_msgs;
+  src = sources.micro_ros_msgs-68328fce0490d843544f5d50941ac3ea2f424ad0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

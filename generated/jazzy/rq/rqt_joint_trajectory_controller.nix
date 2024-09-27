@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_joint_trajectory_controller = substituteSource {
+    rqt_joint_trajectory_controller-ca9fceacfce72b0089f9569332f41be7bce047d5 = substituteSource {
       src = fetchgit {
-        name = "rqt_joint_trajectory_controller-source";
+        name = "rqt_joint_trajectory_controller-ca9fceacfce72b0089f9569332f41be7bce047d5-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "ca9fceacfce72b0089f9569332f41be7bce047d5";
         hash = "sha256-WHjx7AHFEsSAXQPROHhOsI4tnNe5jhRk3V4VBbRJ1bU=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_joint_trajectory_controller";
   version = "4.14.0-1";
-  src = sources.rqt_joint_trajectory_controller;
+  src = sources.rqt_joint_trajectory_controller-ca9fceacfce72b0089f9569332f41be7bce047d5;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

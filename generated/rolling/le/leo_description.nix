@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    leo_description = substituteSource {
+    leo_description-fb10fa4cfb080e6967126b19ac1abc4c85aa85f0 = substituteSource {
       src = fetchgit {
-        name = "leo_description-source";
+        name = "leo_description-fb10fa4cfb080e6967126b19ac1abc4c85aa85f0-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
         rev = "fb10fa4cfb080e6967126b19ac1abc4c85aa85f0";
         hash = "sha256-Yi8hUp1UDui0Zdzwx6JhxHXBD4N3/L36/mN0dwOHufY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "leo_description";
   version = "3.0.3-1";
-  src = sources.leo_description;
+  src = sources.leo_description-fb10fa4cfb080e6967126b19ac1abc4c85aa85f0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

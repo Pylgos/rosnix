@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    rc_reason_msgs = substituteSource {
+    rc_reason_msgs-c2bfd85279bd8034d4fd68c8b63394160884d4d2 = substituteSource {
       src = fetchgit {
-        name = "rc_reason_msgs-source";
+        name = "rc_reason_msgs-c2bfd85279bd8034d4fd68c8b63394160884d4d2-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
         rev = "c2bfd85279bd8034d4fd68c8b63394160884d4d2";
         hash = "sha256-4UWrVAe/idz19Rp3JIISd3dreXqEZKnY2FgbPcNPfqQ=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "rc_reason_msgs";
   version = "0.3.1-3";
-  src = sources.rc_reason_msgs;
+  src = sources.rc_reason_msgs-c2bfd85279bd8034d4fd68c8b63394160884d4d2;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

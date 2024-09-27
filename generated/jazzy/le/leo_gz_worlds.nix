@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    leo_gz_worlds = substituteSource {
+    leo_gz_worlds-0b56515cc9fcb0a59080c1f37dbfaa6e9a46cbf7 = substituteSource {
       src = fetchgit {
-        name = "leo_gz_worlds-source";
+        name = "leo_gz_worlds-0b56515cc9fcb0a59080c1f37dbfaa6e9a46cbf7-source";
         url = "https://github.com/ros2-gbp/leo_simulator-release.git";
         rev = "0b56515cc9fcb0a59080c1f37dbfaa6e9a46cbf7";
         hash = "sha256-EK1pczV1p2fHTbGPgwjCdNvPHbNkIXiSHcLDo6OfCGQ=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "leo_gz_worlds";
   version = "2.0.0-1";
-  src = sources.leo_gz_worlds;
+  src = sources.leo_gz_worlds-0b56515cc9fcb0a59080c1f37dbfaa6e9a46cbf7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    nav2_graceful_controller = substituteSource {
+    nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903 = substituteSource {
       src = fetchgit {
-        name = "nav2_graceful_controller-source";
+        name = "nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "531c39e19ced9c9d1fc7f9708b7d0aa91ad27903";
         hash = "sha256-HMbaIXM4eHC7iq4gPO/DBRlM6zBWUo510ifLC5BZs7s=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "nav2_graceful_controller";
   version = "1.3.2-1";
-  src = sources.nav2_graceful_controller;
+  src = sources.nav2_graceful_controller-531c39e19ced9c9d1fc7f9708b7d0aa91ad27903;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

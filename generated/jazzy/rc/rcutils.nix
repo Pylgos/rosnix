@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rcutils = substituteSource {
+    rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e = substituteSource {
       src = fetchgit {
-        name = "rcutils-source";
+        name = "rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e-source";
         url = "https://github.com/ros2-gbp/rcutils-release.git";
         rev = "7e50a16c954f3b426baae3d00a721521a08ba45e";
         hash = "sha256-LAv9gWyFoyZkmn3Y8slcwvWj7QaAxxaV+h4+AmXhdjA=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rcutils";
   version = "6.7.2-1";
-  src = sources.rcutils;
+  src = sources.rcutils-7e50a16c954f3b426baae3d00a721521a08ba45e;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

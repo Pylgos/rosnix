@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    ffmpeg_encoder_decoder = substituteSource {
+    ffmpeg_encoder_decoder-c846ece739ebf7863a745354ee9f3f1c6e897dea = substituteSource {
       src = fetchgit {
-        name = "ffmpeg_encoder_decoder-source";
+        name = "ffmpeg_encoder_decoder-c846ece739ebf7863a745354ee9f3f1c6e897dea-source";
         url = "https://github.com/ros2-gbp/ffmpeg_encoder_decoder-release.git";
         rev = "c846ece739ebf7863a745354ee9f3f1c6e897dea";
         hash = "sha256-r++5zahdLLkPS63l7DhrxtFSCYkRWcbI+FPUFA4+kjA=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "ffmpeg_encoder_decoder";
   version = "1.0.1-1";
-  src = sources.ffmpeg_encoder_decoder;
+  src = sources.ffmpeg_encoder_decoder-c846ece739ebf7863a745354ee9f3f1c6e897dea;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

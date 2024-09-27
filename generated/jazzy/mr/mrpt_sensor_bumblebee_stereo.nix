@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    mrpt_sensor_bumblebee_stereo = substituteSource {
+    mrpt_sensor_bumblebee_stereo-a3ff6a91d54ab63f950a534275ec9696d6abd1c0 = substituteSource {
       src = fetchgit {
-        name = "mrpt_sensor_bumblebee_stereo-source";
+        name = "mrpt_sensor_bumblebee_stereo-a3ff6a91d54ab63f950a534275ec9696d6abd1c0-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "a3ff6a91d54ab63f950a534275ec9696d6abd1c0";
         hash = "sha256-RdSetxlV3aRkTreC+ol1ENdwAu440EnXqTubJg53Q48=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "mrpt_sensor_bumblebee_stereo";
   version = "0.2.3-1";
-  src = sources.mrpt_sensor_bumblebee_stereo;
+  src = sources.mrpt_sensor_bumblebee_stereo-a3ff6a91d54ab63f950a534275ec9696d6abd1c0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

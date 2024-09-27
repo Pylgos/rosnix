@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    eigenpy = substituteSource {
+    eigenpy-a7fcfca7312d7d98686fce1b2b23b9b5af161e46 = substituteSource {
       src = fetchgit {
-        name = "eigenpy-source";
+        name = "eigenpy-a7fcfca7312d7d98686fce1b2b23b9b5af161e46-source";
         url = "https://github.com/ros2-gbp/eigenpy-release.git";
         rev = "a7fcfca7312d7d98686fce1b2b23b9b5af161e46";
         hash = "sha256-SjF0ivZjk1x6wk3jjCcgoenV6ZIsE6PF1YxvNwIFVVo=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "eigenpy";
   version = "3.8.2-1";
-  src = sources.eigenpy;
+  src = sources.eigenpy-a7fcfca7312d7d98686fce1b2b23b9b5af161e46;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

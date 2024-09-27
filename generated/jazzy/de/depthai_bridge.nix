@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    depthai_bridge = substituteSource {
+    depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438 = substituteSource {
       src = fetchgit {
-        name = "depthai_bridge-source";
+        name = "depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "e3e759286e8a64dc356dc9b9b7d46e87f65ad438";
         hash = "sha256-EPZDRhsYvK3tHASVb5R0u3fcyaLQMiSNsI7YZ21OWLM=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "depthai_bridge";
   version = "2.10.1-1";
-  src = sources.depthai_bridge;
+  src = sources.depthai_bridge-e3e759286e8a64dc356dc9b9b7d46e87f65ad438;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

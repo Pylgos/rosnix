@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    adaptive_component = substituteSource {
+    adaptive_component-d9dd18ab639552e3a078a7ee900a99583d7368b7 = substituteSource {
       src = fetchgit {
-        name = "adaptive_component-source";
+        name = "adaptive_component-d9dd18ab639552e3a078a7ee900a99583d7368b7-source";
         url = "https://github.com/ros2-gbp/adaptive_component-release.git";
         rev = "d9dd18ab639552e3a078a7ee900a99583d7368b7";
         hash = "sha256-W7/vGlSCfAW+RH7nsv4Po+MFZLDvwzuq/iSATbF9jaQ=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "adaptive_component";
   version = "0.2.1-5";
-  src = sources.adaptive_component;
+  src = sources.adaptive_component-d9dd18ab639552e3a078a7ee900a99583d7368b7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

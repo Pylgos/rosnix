@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    bag2_to_image = substituteSource {
+    bag2_to_image-3297bdaf4e1c18b523774df23c0da5d666acca50 = substituteSource {
       src = fetchgit {
-        name = "bag2_to_image-source";
+        name = "bag2_to_image-3297bdaf4e1c18b523774df23c0da5d666acca50-source";
         url = "https://github.com/ros2-gbp/bag2_to_image-release.git";
         rev = "3297bdaf4e1c18b523774df23c0da5d666acca50";
         hash = "sha256-D602KBwsYPh+wbNrK2y25DZk1/wPPc2PlZj4ktvPhqI=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "bag2_to_image";
   version = "0.1.0-5";
-  src = sources.bag2_to_image;
+  src = sources.bag2_to_image-3297bdaf4e1c18b523774df23c0da5d666acca50;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

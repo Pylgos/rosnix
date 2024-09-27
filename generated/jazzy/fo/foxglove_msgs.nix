@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    foxglove_msgs = substituteSource {
+    foxglove_msgs-1643daf92cf16b9a75cc2e3e184c7077de87db2a = substituteSource {
       src = fetchgit {
-        name = "foxglove_msgs-source";
+        name = "foxglove_msgs-1643daf92cf16b9a75cc2e3e184c7077de87db2a-source";
         url = "https://github.com/ros2-gbp/ros_foxglove_msgs-release.git";
         rev = "1643daf92cf16b9a75cc2e3e184c7077de87db2a";
         hash = "sha256-M7/eEP7tPukgpkdDKo93zEfydXTiLUzUaeR6h4c6lxM=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "foxglove_msgs";
   version = "3.0.0-3";
-  src = sources.foxglove_msgs;
+  src = sources.foxglove_msgs-1643daf92cf16b9a75cc2e3e184c7077de87db2a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

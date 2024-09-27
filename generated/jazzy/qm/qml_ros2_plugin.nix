@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    qml_ros2_plugin = substituteSource {
+    qml_ros2_plugin-19ec80de0e25500271e651a41f9ba00daa72cd41 = substituteSource {
       src = fetchgit {
-        name = "qml_ros2_plugin-source";
+        name = "qml_ros2_plugin-19ec80de0e25500271e651a41f9ba00daa72cd41-source";
         url = "https://github.com/ros2-gbp/qml_ros2_plugin-release.git";
         rev = "19ec80de0e25500271e651a41f9ba00daa72cd41";
         hash = "sha256-yoKPHciam4zihyBcYUf/zrVk7LhG14peuJ3WXxLD9No=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "qml_ros2_plugin";
   version = "1.0.1-1";
-  src = sources.qml_ros2_plugin;
+  src = sources.qml_ros2_plugin-19ec80de0e25500271e651a41f9ba00daa72cd41;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    sensor_msgs = substituteSource {
+    sensor_msgs-25593c7bb356cae9badacb11b6598a0b1b639901 = substituteSource {
       src = fetchgit {
-        name = "sensor_msgs-source";
+        name = "sensor_msgs-25593c7bb356cae9badacb11b6598a0b1b639901-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "25593c7bb356cae9badacb11b6598a0b1b639901";
         hash = "sha256-hszAgR55yQyD6P85LEtYsMVCaf4OpnWk0gS5G8tjEdk=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "sensor_msgs";
   version = "5.3.5-1";
-  src = sources.sensor_msgs;
+  src = sources.sensor_msgs-25593c7bb356cae9badacb11b6598a0b1b639901;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

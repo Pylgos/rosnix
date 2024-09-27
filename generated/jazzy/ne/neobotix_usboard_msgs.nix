@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    neobotix_usboard_msgs = substituteSource {
+    neobotix_usboard_msgs-4d80630c58872af31fe2bc99eedddb30fe53971b = substituteSource {
       src = fetchgit {
-        name = "neobotix_usboard_msgs-source";
+        name = "neobotix_usboard_msgs-4d80630c58872af31fe2bc99eedddb30fe53971b-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "4d80630c58872af31fe2bc99eedddb30fe53971b";
         hash = "sha256-dKwQGX4Fl0MagRbLNTnXobUGLXFfems8P6ArP7uljjs=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "neobotix_usboard_msgs";
   version = "4.0.0-4";
-  src = sources.neobotix_usboard_msgs;
+  src = sources.neobotix_usboard_msgs-4d80630c58872af31fe2bc99eedddb30fe53971b;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    rmf_visualization_rviz2_plugins = substituteSource {
+    rmf_visualization_rviz2_plugins-6a446a8b53432f788570fd1d75e5004fc5d784a2 = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization_rviz2_plugins-source";
+        name = "rmf_visualization_rviz2_plugins-6a446a8b53432f788570fd1d75e5004fc5d784a2-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "6a446a8b53432f788570fd1d75e5004fc5d784a2";
         hash = "sha256-JW8h27nDnZY7HFklphMYJCP/FARy5JqLWMrGFx5R2wY=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "rmf_visualization_rviz2_plugins";
   version = "2.3.2-1";
-  src = sources.rmf_visualization_rviz2_plugins;
+  src = sources.rmf_visualization_rviz2_plugins-6a446a8b53432f788570fd1d75e5004fc5d784a2;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

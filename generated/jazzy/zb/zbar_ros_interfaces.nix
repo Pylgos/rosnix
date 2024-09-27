@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    zbar_ros_interfaces = substituteSource {
+    zbar_ros_interfaces-fe518793f51e19584dca90504bbcabd4e0e0a549 = substituteSource {
       src = fetchgit {
-        name = "zbar_ros_interfaces-source";
+        name = "zbar_ros_interfaces-fe518793f51e19584dca90504bbcabd4e0e0a549-source";
         url = "https://github.com/ros2-gbp/zbar_ros-release.git";
         rev = "fe518793f51e19584dca90504bbcabd4e0e0a549";
         hash = "sha256-SsaDsbUZ3f1a3gVgspGXknM9wXhNvAAQ9iENzeuZQgI=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "zbar_ros_interfaces";
   version = "0.6.0-1";
-  src = sources.zbar_ros_interfaces;
+  src = sources.zbar_ros_interfaces-fe518793f51e19584dca90504bbcabd4e0e0a549;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

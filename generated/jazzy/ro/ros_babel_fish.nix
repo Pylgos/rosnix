@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    ros_babel_fish = substituteSource {
+    ros_babel_fish-7867e75abcda2937b762a3d824698e00df647212 = substituteSource {
       src = fetchgit {
-        name = "ros_babel_fish-source";
+        name = "ros_babel_fish-7867e75abcda2937b762a3d824698e00df647212-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
         rev = "7867e75abcda2937b762a3d824698e00df647212";
         hash = "sha256-XoiEc4FfDXjQDZH62Ttxms7TepvyTOKzO1dGp3HDqDA=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "ros_babel_fish";
   version = "0.9.3-1";
-  src = sources.ros_babel_fish;
+  src = sources.ros_babel_fish-7867e75abcda2937b762a3d824698e00df647212;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

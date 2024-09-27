@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    lifecycle = substituteSource {
+    lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f = substituteSource {
       src = fetchgit {
-        name = "lifecycle-source";
+        name = "lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f";
         hash = "sha256-FsE0FfTIL0evPmqz06a7A/9RYzRqIwKo3UeE0l+vUgo=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "lifecycle";
   version = "0.34.2-1";
-  src = sources.lifecycle;
+  src = sources.lifecycle-7e5f9531f4afd9fa10ac2778386cea8e0d0fff7f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

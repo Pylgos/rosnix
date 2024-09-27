@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    urg_node = substituteSource {
+    urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837 = substituteSource {
       src = fetchgit {
-        name = "urg_node-source";
+        name = "urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837-source";
         url = "https://github.com/ros2-gbp/urg_node-release.git";
         rev = "ebab3358cbd4ace0a537f30cdc416dcd738e5837";
         hash = "sha256-hz6upepfbgI1ToUr7XupzHvWBA7oKZk4QZTKCZwbMRI=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "urg_node";
   version = "1.1.1-3";
-  src = sources.urg_node;
+  src = sources.urg_node-ebab3358cbd4ace0a537f30cdc416dcd738e5837;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

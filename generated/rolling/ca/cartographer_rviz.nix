@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    cartographer_rviz = substituteSource {
+    cartographer_rviz-bbfcf90c36c5c15f560b572c98f886d744b51253 = substituteSource {
       src = fetchgit {
-        name = "cartographer_rviz-source";
+        name = "cartographer_rviz-bbfcf90c36c5c15f560b572c98f886d744b51253-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "bbfcf90c36c5c15f560b572c98f886d744b51253";
         hash = "sha256-HBhTH+7iZCDSV9zi8Okp+MFALOAAQc3TV+szBXmIvPU=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "cartographer_rviz";
   version = "2.0.9003-1";
-  src = sources.cartographer_rviz;
+  src = sources.cartographer_rviz-bbfcf90c36c5c15f560b572c98f886d744b51253;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

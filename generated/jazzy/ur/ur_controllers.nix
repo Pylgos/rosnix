@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    ur_controllers = substituteSource {
+    ur_controllers-8561f29bf4f89984e43c159a6ab3e46bc5245aa5 = substituteSource {
       src = fetchgit {
-        name = "ur_controllers-source";
+        name = "ur_controllers-8561f29bf4f89984e43c159a6ab3e46bc5245aa5-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "8561f29bf4f89984e43c159a6ab3e46bc5245aa5";
         hash = "sha256-prONobOmyydNDLHVvl1DNcE6ELVrfWOIMQTirs52LNk=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "ur_controllers";
   version = "2.4.10-1";
-  src = sources.ur_controllers;
+  src = sources.ur_controllers-8561f29bf4f89984e43c159a6ab3e46bc5245aa5;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

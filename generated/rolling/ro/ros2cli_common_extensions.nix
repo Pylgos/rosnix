@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    ros2cli_common_extensions = substituteSource {
+    ros2cli_common_extensions-21502210766d834d779da1b5d11e361d3262a735 = substituteSource {
       src = fetchgit {
-        name = "ros2cli_common_extensions-source";
+        name = "ros2cli_common_extensions-21502210766d834d779da1b5d11e361d3262a735-source";
         url = "https://github.com/ros2-gbp/ros2cli_common_extensions-release.git";
         rev = "21502210766d834d779da1b5d11e361d3262a735";
         hash = "sha256-JJqh2FemdwUAY4ztCaMD2FtYyJwGX84hvXiboLpZ00Q=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "ros2cli_common_extensions";
   version = "0.4.0-1";
-  src = sources.ros2cli_common_extensions;
+  src = sources.ros2cli_common_extensions-21502210766d834d779da1b5d11e361d3262a735;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

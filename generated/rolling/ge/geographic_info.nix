@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    geographic_info = substituteSource {
+    geographic_info-d383a93b5b352857206ef02b4826a1ef3b2a3e96 = substituteSource {
       src = fetchgit {
-        name = "geographic_info-source";
+        name = "geographic_info-d383a93b5b352857206ef02b4826a1ef3b2a3e96-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "d383a93b5b352857206ef02b4826a1ef3b2a3e96";
         hash = "sha256-9v0PhFwY4GRy9FH7XCYu+48GcNisf9Hg2093eaFWEKU=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "geographic_info";
   version = "1.0.6-1";
-  src = sources.geographic_info;
+  src = sources.geographic_info-d383a93b5b352857206ef02b4826a1ef3b2a3e96;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

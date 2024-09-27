@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    openni2_camera = substituteSource {
+    openni2_camera-60b0bf8f39a9231553ca174a59a5eb437f709461 = substituteSource {
       src = fetchgit {
-        name = "openni2_camera-source";
+        name = "openni2_camera-60b0bf8f39a9231553ca174a59a5eb437f709461-source";
         url = "https://github.com/ros2-gbp/openni2_camera-release.git";
         rev = "60b0bf8f39a9231553ca174a59a5eb437f709461";
         hash = "sha256-zluskCIVNU5rB7PJXU3uYl7qJha6gw33mZminvZOkd8=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "openni2_camera";
   version = "2.2.1-1";
-  src = sources.openni2_camera;
+  src = sources.openni2_camera-60b0bf8f39a9231553ca174a59a5eb437f709461;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

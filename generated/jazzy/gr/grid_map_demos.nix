@@ -32,9 +32,9 @@
 }:
 let
   sources = rec {
-    grid_map_demos = substituteSource {
+    grid_map_demos-f8ef8b26e250de7ad625a5cfbde7d95e4ee82690 = substituteSource {
       src = fetchgit {
-        name = "grid_map_demos-source";
+        name = "grid_map_demos-f8ef8b26e250de7ad625a5cfbde7d95e4ee82690-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "f8ef8b26e250de7ad625a5cfbde7d95e4ee82690";
         hash = "sha256-1hNk5OqnoIp2LALotd5QPxfUP/Mc9QZMQeMYJNi6f1I=";
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "grid_map_demos";
   version = "2.2.0-1";
-  src = sources.grid_map_demos;
+  src = sources.grid_map_demos-f8ef8b26e250de7ad625a5cfbde7d95e4ee82690;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

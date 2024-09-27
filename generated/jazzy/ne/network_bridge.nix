@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    network_bridge = substituteSource {
+    network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b = substituteSource {
       src = fetchgit {
-        name = "network_bridge-source";
+        name = "network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b-source";
         url = "https://github.com/ros2-gbp/network_bridge-release.git";
         rev = "c625bfef13c67072a1a39f37fc3859d5f3cfb27b";
         hash = "sha256-Gfm+jv0L73LlZMytVTDOCyqyBGqctp6URffWJU/opmk=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "network_bridge";
   version = "1.0.2-1";
-  src = sources.network_bridge;
+  src = sources.network_bridge-c625bfef13c67072a1a39f37fc3859d5f3cfb27b;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

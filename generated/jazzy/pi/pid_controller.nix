@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    pid_controller = substituteSource {
+    pid_controller-316768761d9d7ef7def837cfc80ab1de94e220d4 = substituteSource {
       src = fetchgit {
-        name = "pid_controller-source";
+        name = "pid_controller-316768761d9d7ef7def837cfc80ab1de94e220d4-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "316768761d9d7ef7def837cfc80ab1de94e220d4";
         hash = "sha256-Z29YqPUQRvie95gO84fkVUaUmk5AzKMFhJuIsGHICtA=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "pid_controller";
   version = "4.14.0-1";
-  src = sources.pid_controller;
+  src = sources.pid_controller-316768761d9d7ef7def837cfc80ab1de94e220d4;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

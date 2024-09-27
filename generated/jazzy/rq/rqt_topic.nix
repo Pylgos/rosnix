@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_topic = substituteSource {
+    rqt_topic-412d3f7290b3bfefc12c991589ca10044ea64252 = substituteSource {
       src = fetchgit {
-        name = "rqt_topic-source";
+        name = "rqt_topic-412d3f7290b3bfefc12c991589ca10044ea64252-source";
         url = "https://github.com/ros2-gbp/rqt_topic-release.git";
         rev = "412d3f7290b3bfefc12c991589ca10044ea64252";
         hash = "sha256-1GUkB2gBxpzqAS5sfsL4iVAvf+2hN5+x2nwVzfr6ojQ=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_topic";
   version = "1.7.2-2";
-  src = sources.rqt_topic;
+  src = sources.rqt_topic-412d3f7290b3bfefc12c991589ca10044ea64252;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

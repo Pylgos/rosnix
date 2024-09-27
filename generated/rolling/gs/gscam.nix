@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    gscam = substituteSource {
+    gscam-e8c1c1524a3a80ab89425305ce63f338fdb0f0a5 = substituteSource {
       src = fetchgit {
-        name = "gscam-source";
+        name = "gscam-e8c1c1524a3a80ab89425305ce63f338fdb0f0a5-source";
         url = "https://github.com/ros2-gbp/gscam-release.git";
         rev = "e8c1c1524a3a80ab89425305ce63f338fdb0f0a5";
         hash = "sha256-CKQzdZxZ6OZeWkirhmcrfJhb0hNN0vSimKIRHSUDT3k=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "gscam";
   version = "2.0.2-4";
-  src = sources.gscam;
+  src = sources.gscam-e8c1c1524a3a80ab89425305ce63f338fdb0f0a5;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

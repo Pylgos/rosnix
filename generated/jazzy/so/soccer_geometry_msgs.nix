@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    soccer_geometry_msgs = substituteSource {
+    soccer_geometry_msgs-889363aa5db8950eaa22156ff7e66d46ab9acc61 = substituteSource {
       src = fetchgit {
-        name = "soccer_geometry_msgs-source";
+        name = "soccer_geometry_msgs-889363aa5db8950eaa22156ff7e66d46ab9acc61-source";
         url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
         rev = "889363aa5db8950eaa22156ff7e66d46ab9acc61";
         hash = "sha256-gMowKNUK3HPz9hWgGtJ8VWq8btZTIYly2Ydi23VUsdA=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "soccer_geometry_msgs";
   version = "1.0.0-2";
-  src = sources.soccer_geometry_msgs;
+  src = sources.soccer_geometry_msgs-889363aa5db8950eaa22156ff7e66d46ab9acc61;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

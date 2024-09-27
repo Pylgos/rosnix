@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    color_names = substituteSource {
+    color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf = substituteSource {
       src = fetchgit {
-        name = "color_names-source";
+        name = "color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf-source";
         url = "https://github.com/ros2-gbp/color_names-release.git";
         rev = "95114d283146ea0c7f98ff3c354fb6ecd2627daf";
         hash = "sha256-956LQvQPv4QtQBKeDL62YimdLDh1yLGsi9AYgWiBh/k=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "color_names";
   version = "0.0.3-5";
-  src = sources.color_names;
+  src = sources.color_names-95114d283146ea0c7f98ff3c354fb6ecd2627daf;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

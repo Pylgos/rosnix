@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    turtlebot3_fake_node = substituteSource {
+    turtlebot3_fake_node-d51d854fb17df3f0dc2ab07fb0a086f8166bca5e = substituteSource {
       src = fetchgit {
-        name = "turtlebot3_fake_node-source";
+        name = "turtlebot3_fake_node-d51d854fb17df3f0dc2ab07fb0a086f8166bca5e-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
         rev = "d51d854fb17df3f0dc2ab07fb0a086f8166bca5e";
         hash = "sha256-RC56Xh4EBNwDvXTRDOIw1kV2Q9fZB4veFuXoOZI3KZA=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "turtlebot3_fake_node";
   version = "2.2.5-5";
-  src = sources.turtlebot3_fake_node;
+  src = sources.turtlebot3_fake_node-d51d854fb17df3f0dc2ab07fb0a086f8166bca5e;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

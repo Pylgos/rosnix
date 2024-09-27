@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    test_apex_test_tools = substituteSource {
+    test_apex_test_tools-590ff5f45328eaf6331bcda20fc8edd30c7dd1a8 = substituteSource {
       src = fetchgit {
-        name = "test_apex_test_tools-source";
+        name = "test_apex_test_tools-590ff5f45328eaf6331bcda20fc8edd30c7dd1a8-source";
         url = "https://github.com/ros2-gbp/apex_test_tools-release.git";
         rev = "590ff5f45328eaf6331bcda20fc8edd30c7dd1a8";
         hash = "sha256-ZB2lhFknuQ+9fA1s+tCKrhHEUOnSLF2ogSsE0tVMrjE=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "test_apex_test_tools";
   version = "0.0.2-9";
-  src = sources.test_apex_test_tools;
+  src = sources.test_apex_test_tools-590ff5f45328eaf6331bcda20fc8edd30c7dd1a8;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

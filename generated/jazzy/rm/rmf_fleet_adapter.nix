@@ -32,9 +32,9 @@
 }:
 let
   sources = rec {
-    rmf_fleet_adapter = substituteSource {
+    rmf_fleet_adapter-e954912b45d187dcfe3efa3cb0d4b7182d34996b = substituteSource {
       src = fetchgit {
-        name = "rmf_fleet_adapter-source";
+        name = "rmf_fleet_adapter-e954912b45d187dcfe3efa3cb0d4b7182d34996b-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "e954912b45d187dcfe3efa3cb0d4b7182d34996b";
         hash = "sha256-oQ0/oL7OkU5P/UTAStvoPh/dF525gW4Idrj15egR9rw=";
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "rmf_fleet_adapter";
   version = "2.7.2-1";
-  src = sources.rmf_fleet_adapter;
+  src = sources.rmf_fleet_adapter-e954912b45d187dcfe3efa3cb0d4b7182d34996b;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

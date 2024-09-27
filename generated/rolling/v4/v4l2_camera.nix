@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    v4l2_camera = substituteSource {
+    v4l2_camera-e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e = substituteSource {
       src = fetchgit {
-        name = "v4l2_camera-source";
+        name = "v4l2_camera-e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e-source";
         url = "https://github.com/ros2-gbp/ros2_v4l2_camera-release.git";
         rev = "e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e";
         hash = "sha256-OaSGrGK1Lj3ZocwVMqc8WO1+T6jU/Ky2u2UwIpRHqwY=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "v4l2_camera";
   version = "0.7.1-1";
-  src = sources.v4l2_camera;
+  src = sources.v4l2_camera-e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

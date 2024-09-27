@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    fluent_rviz = substituteSource {
+    fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178 = substituteSource {
       src = fetchgit {
-        name = "fluent_rviz-source";
+        name = "fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178-source";
         url = "https://github.com/ros2-gbp/fluent_rviz-release.git";
         rev = "dfc47e81339f939273e719512fd2ddac32195178";
         hash = "sha256-/LmzIiGEHhv+jlon28dyJAjyB233kvyupBzUS01rdjA=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "fluent_rviz";
   version = "0.0.3-4";
-  src = sources.fluent_rviz;
+  src = sources.fluent_rviz-dfc47e81339f939273e719512fd2ddac32195178;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

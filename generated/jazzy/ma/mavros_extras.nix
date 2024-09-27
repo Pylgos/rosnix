@@ -41,9 +41,9 @@
 }:
 let
   sources = rec {
-    mavros_extras = substituteSource {
+    mavros_extras-50cca906c0e232e86bae6f6311a6e2e59c0c9c3a = substituteSource {
       src = fetchgit {
-        name = "mavros_extras-source";
+        name = "mavros_extras-50cca906c0e232e86bae6f6311a6e2e59c0c9c3a-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
         rev = "50cca906c0e232e86bae6f6311a6e2e59c0c9c3a";
         hash = "sha256-ed8UPRtqFOo6c7dGBvyW2v0z91P70cELsh5bH2xApKY=";
@@ -56,7 +56,7 @@ in
 buildRosPackage {
   pname = "mavros_extras";
   version = "2.8.0-1";
-  src = sources.mavros_extras;
+  src = sources.mavros_extras-50cca906c0e232e86bae6f6311a6e2e59c0c9c3a;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_gauges = substituteSource {
+    rqt_gauges-4a0554e45ca3d3a92a83d66e4695ba18363d358a = substituteSource {
       src = fetchgit {
-        name = "rqt_gauges-source";
+        name = "rqt_gauges-4a0554e45ca3d3a92a83d66e4695ba18363d358a-source";
         url = "https://github.com/ros2-gbp/rqt_gauges-release.git";
         rev = "4a0554e45ca3d3a92a83d66e4695ba18363d358a";
         hash = "sha256-ie5l6SHrK6cQczLp2R3MdzrJRVZGAxGnuO7NzFIwbJY=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_gauges";
   version = "0.0.3-1";
-  src = sources.rqt_gauges;
+  src = sources.rqt_gauges-4a0554e45ca3d3a92a83d66e4695ba18363d358a;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

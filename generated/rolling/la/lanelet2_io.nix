@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    lanelet2_io = substituteSource {
+    lanelet2_io-38f37dab6a64d5c16ff048611c0a3b4e1bd4d132 = substituteSource {
       src = fetchgit {
-        name = "lanelet2_io-source";
+        name = "lanelet2_io-38f37dab6a64d5c16ff048611c0a3b4e1bd4d132-source";
         url = "https://github.com/ros2-gbp/lanelet2-release.git";
         rev = "38f37dab6a64d5c16ff048611c0a3b4e1bd4d132";
         hash = "sha256-B0AHMNYejPsaUhx0+RpURz56wZfnlpEXWZ/KnhdUuOQ=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "lanelet2_io";
   version = "1.2.1-6";
-  src = sources.lanelet2_io;
+  src = sources.lanelet2_io-38f37dab6a64d5c16ff048611c0a3b4e1bd4d132;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ mrt_cmake_modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

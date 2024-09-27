@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    nav2_theta_star_planner = substituteSource {
+    nav2_theta_star_planner-e36d6e0da50f7626d260f756dbfe141ed990c020 = substituteSource {
       src = fetchgit {
-        name = "nav2_theta_star_planner-source";
+        name = "nav2_theta_star_planner-e36d6e0da50f7626d260f756dbfe141ed990c020-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "e36d6e0da50f7626d260f756dbfe141ed990c020";
         hash = "sha256-Nr2c+669UgvzGc55Tz1013vuzVVZAiOI6lKDv6g2Sww=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "nav2_theta_star_planner";
   version = "1.3.2-1";
-  src = sources.nav2_theta_star_planner;
+  src = sources.nav2_theta_star_planner-e36d6e0da50f7626d260f756dbfe141ed990c020;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

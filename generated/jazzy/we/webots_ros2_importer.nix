@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    webots_ros2_importer = substituteSource {
+    webots_ros2_importer-ab7ad4c33c287904075a6bb56d13703b36c3b113 = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_importer-source";
+        name = "webots_ros2_importer-ab7ad4c33c287904075a6bb56d13703b36c3b113-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "ab7ad4c33c287904075a6bb56d13703b36c3b113";
         hash = "sha256-0BjkWBfT9UijOpEXMxJlQSl5ecFhKxV3II4hqj3MLsY=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "webots_ros2_importer";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_importer;
+  src = sources.webots_ros2_importer-ab7ad4c33c287904075a6bb56d13703b36c3b113;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

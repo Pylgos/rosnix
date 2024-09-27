@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    catch_ros2 = substituteSource {
+    catch_ros2-d164e3f107e6da28fba2edf351654f487e8b73cd = substituteSource {
       src = fetchgit {
-        name = "catch_ros2-source";
+        name = "catch_ros2-d164e3f107e6da28fba2edf351654f487e8b73cd-source";
         url = "https://github.com/ros2-gbp/catch_ros2-release.git";
         rev = "d164e3f107e6da28fba2edf351654f487e8b73cd";
         hash = "sha256-8+FIcqzIHZrfEeATgko1oxSpJA3YY5lis1+sEd2Y/Rk=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "catch_ros2";
   version = "0.2.1-1";
-  src = sources.catch_ros2;
+  src = sources.catch_ros2-d164e3f107e6da28fba2edf351654f487e8b73cd;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

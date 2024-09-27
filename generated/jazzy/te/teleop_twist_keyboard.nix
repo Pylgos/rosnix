@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    teleop_twist_keyboard = substituteSource {
+    teleop_twist_keyboard-4a7be17b9cce71cb672485fb1e0afecf3bba628f = substituteSource {
       src = fetchgit {
-        name = "teleop_twist_keyboard-source";
+        name = "teleop_twist_keyboard-4a7be17b9cce71cb672485fb1e0afecf3bba628f-source";
         url = "https://github.com/ros2-gbp/teleop_twist_keyboard-release.git";
         rev = "4a7be17b9cce71cb672485fb1e0afecf3bba628f";
         hash = "sha256-RIp2xSUZdrlSj/8rUnbFawM86Cz5qYfDOhW28D0mr3Q=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "teleop_twist_keyboard";
   version = "2.4.0-2";
-  src = sources.teleop_twist_keyboard;
+  src = sources.teleop_twist_keyboard-4a7be17b9cce71cb672485fb1e0afecf3bba628f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

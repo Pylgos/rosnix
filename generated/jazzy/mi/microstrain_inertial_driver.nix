@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    microstrain_inertial_driver = substituteSource {
+    microstrain_inertial_driver-2a8e8a4f6c2870f11e6c826e72a19efc0c0f0b30 = substituteSource {
       src = fetchgit {
-        name = "microstrain_inertial_driver-source";
+        name = "microstrain_inertial_driver-2a8e8a4f6c2870f11e6c826e72a19efc0c0f0b30-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
         rev = "2a8e8a4f6c2870f11e6c826e72a19efc0c0f0b30";
         hash = "sha256-X29UZFDfi/zZxdj6lxfQRxhsXTZv1yBdjg0x98wbD/Y=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "microstrain_inertial_driver";
   version = "4.3.0-1";
-  src = sources.microstrain_inertial_driver;
+  src = sources.microstrain_inertial_driver-2a8e8a4f6c2870f11e6c826e72a19efc0c0f0b30;
   nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    rqt_msg = substituteSource {
+    rqt_msg-c283d62faec39121b5d5cc7ae440a1da9f75e0f4 = substituteSource {
       src = fetchgit {
-        name = "rqt_msg-source";
+        name = "rqt_msg-c283d62faec39121b5d5cc7ae440a1da9f75e0f4-source";
         url = "https://github.com/ros2-gbp/rqt_msg-release.git";
         rev = "c283d62faec39121b5d5cc7ae440a1da9f75e0f4";
         hash = "sha256-HLLdZuTgk34mEBVPJlTRHzk598ItMroTW4gKtcJw0X8=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "rqt_msg";
   version = "1.6.0-1";
-  src = sources.rqt_msg;
+  src = sources.rqt_msg-c283d62faec39121b5d5cc7ae440a1da9f75e0f4;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    stereo_msgs = substituteSource {
+    stereo_msgs-ac381a89e37baac54f65169fb5eadfb197b5788f = substituteSource {
       src = fetchgit {
-        name = "stereo_msgs-source";
+        name = "stereo_msgs-ac381a89e37baac54f65169fb5eadfb197b5788f-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "ac381a89e37baac54f65169fb5eadfb197b5788f";
         hash = "sha256-pslCBNIHA/ok2N2kdjY3FQeLs6/snomzRWKXWnE/iTc=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "stereo_msgs";
   version = "5.3.5-1";
-  src = sources.stereo_msgs;
+  src = sources.stereo_msgs-ac381a89e37baac54f65169fb5eadfb197b5788f;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

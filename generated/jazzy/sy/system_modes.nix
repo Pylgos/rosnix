@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    system_modes = substituteSource {
+    system_modes-fa0c72a8417d876e4a40d82d550d329fd85f9b8a = substituteSource {
       src = fetchgit {
-        name = "system_modes-source";
+        name = "system_modes-fa0c72a8417d876e4a40d82d550d329fd85f9b8a-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
         rev = "fa0c72a8417d876e4a40d82d550d329fd85f9b8a";
         hash = "sha256-0KjnR6c32kc4yM0vwAGYI1LgRZn4tLfIZSO+UE2llbM=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "system_modes";
   version = "0.9.0-6";
-  src = sources.system_modes;
+  src = sources.system_modes-fa0c72a8417d876e4a40d82d550d329fd85f9b8a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

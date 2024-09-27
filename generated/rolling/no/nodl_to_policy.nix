@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    nodl_to_policy = substituteSource {
+    nodl_to_policy-c36cf6636fb76d8d170a8afbb8f182db45fd351d = substituteSource {
       src = fetchgit {
-        name = "nodl_to_policy-source";
+        name = "nodl_to_policy-c36cf6636fb76d8d170a8afbb8f182db45fd351d-source";
         url = "https://github.com/ros2-gbp/nodl_to_policy-release.git";
         rev = "c36cf6636fb76d8d170a8afbb8f182db45fd351d";
         hash = "sha256-e3+aKkyGXpBFCwulLKU8Tv8PSYEtqUTsp6iL1bE5W9g=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "nodl_to_policy";
   version = "1.0.0-4";
-  src = sources.nodl_to_policy;
+  src = sources.nodl_to_policy-c36cf6636fb76d8d170a8afbb8f182db45fd351d;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

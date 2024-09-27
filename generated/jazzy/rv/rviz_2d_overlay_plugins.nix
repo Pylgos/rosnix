@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    rviz_2d_overlay_plugins = substituteSource {
+    rviz_2d_overlay_plugins-ef1d6cf9de03f4c0db3a7f47cdde9ed6bde6208e = substituteSource {
       src = fetchgit {
-        name = "rviz_2d_overlay_plugins-source";
+        name = "rviz_2d_overlay_plugins-ef1d6cf9de03f4c0db3a7f47cdde9ed6bde6208e-source";
         url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release.git";
         rev = "ef1d6cf9de03f4c0db3a7f47cdde9ed6bde6208e";
         hash = "sha256-5KPjUMZyqAgUXuO87e61O6tTFRDf9qA4oCK56AOXXPE=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "rviz_2d_overlay_plugins";
   version = "1.3.0-3";
-  src = sources.rviz_2d_overlay_plugins;
+  src = sources.rviz_2d_overlay_plugins-ef1d6cf9de03f4c0db3a7f47cdde9ed6bde6208e;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

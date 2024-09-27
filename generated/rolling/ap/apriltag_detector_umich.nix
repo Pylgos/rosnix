@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    apriltag_detector_umich = substituteSource {
+    apriltag_detector_umich-b9f3375255a5b2b64a44202a618273c318389c3a = substituteSource {
       src = fetchgit {
-        name = "apriltag_detector_umich-source";
+        name = "apriltag_detector_umich-b9f3375255a5b2b64a44202a618273c318389c3a-source";
         url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
         rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
         hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "apriltag_detector_umich";
   version = "2.0.0-1";
-  src = sources.apriltag_detector_umich;
+  src = sources.apriltag_detector_umich-b9f3375255a5b2b64a44202a618273c318389c3a;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

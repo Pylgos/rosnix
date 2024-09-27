@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    nav2_mppi_controller = substituteSource {
+    nav2_mppi_controller-08b4b177721f7728db0d97ab714d3bfa0f387b6f = substituteSource {
       src = fetchgit {
-        name = "nav2_mppi_controller-source";
+        name = "nav2_mppi_controller-08b4b177721f7728db0d97ab714d3bfa0f387b6f-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "08b4b177721f7728db0d97ab714d3bfa0f387b6f";
         hash = "sha256-4CddM03BKfM5pwz77c4aVffGkIep/OMgIakWNQ+zkiY=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "nav2_mppi_controller";
   version = "1.3.2-1";
-  src = sources.nav2_mppi_controller;
+  src = sources.nav2_mppi_controller-08b4b177721f7728db0d97ab714d3bfa0f387b6f;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    resource_retriever = substituteSource {
+    resource_retriever-97e308d39d07457b1d2ef7a751b5954e683e736c = substituteSource {
       src = fetchgit {
-        name = "resource_retriever-source";
+        name = "resource_retriever-97e308d39d07457b1d2ef7a751b5954e683e736c-source";
         url = "https://github.com/ros2-gbp/resource_retriever-release.git";
         rev = "97e308d39d07457b1d2ef7a751b5954e683e736c";
         hash = "sha256-+42HRlTp4jWYQMljcY2um/rlmb5jlk34Q+45GOBWs9w=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "resource_retriever";
   version = "3.5.1-1";
-  src = sources.resource_retriever;
+  src = sources.resource_retriever-97e308d39d07457b1d2ef7a751b5954e683e736c;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

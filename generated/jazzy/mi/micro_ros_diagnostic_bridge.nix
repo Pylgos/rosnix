@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    micro_ros_diagnostic_bridge = substituteSource {
+    micro_ros_diagnostic_bridge-453216f9df2aeba2bd83c63ba0fe56186fc34585 = substituteSource {
       src = fetchgit {
-        name = "micro_ros_diagnostic_bridge-source";
+        name = "micro_ros_diagnostic_bridge-453216f9df2aeba2bd83c63ba0fe56186fc34585-source";
         url = "https://github.com/ros2-gbp/micro_ros_diagnostics-release.git";
         rev = "453216f9df2aeba2bd83c63ba0fe56186fc34585";
         hash = "sha256-mBsQdSKOPVQJVBc/FxvaxH5NOtAJy3M+bYciq7eHg+c=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "micro_ros_diagnostic_bridge";
   version = "0.3.0-6";
-  src = sources.micro_ros_diagnostic_bridge;
+  src = sources.micro_ros_diagnostic_bridge-453216f9df2aeba2bd83c63ba0fe56186fc34585;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

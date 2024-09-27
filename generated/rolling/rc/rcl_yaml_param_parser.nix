@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    rcl_yaml_param_parser = substituteSource {
+    rcl_yaml_param_parser-e8b5b46aaa39c4279c8b023ef75eeee0b3d6175d = substituteSource {
       src = fetchgit {
-        name = "rcl_yaml_param_parser-source";
+        name = "rcl_yaml_param_parser-e8b5b46aaa39c4279c8b023ef75eeee0b3d6175d-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
         rev = "e8b5b46aaa39c4279c8b023ef75eeee0b3d6175d";
         hash = "sha256-te5lmGHl5WJlqe4nXftjz2BHI3I4C+/BAJRbHrqPfS0=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "rcl_yaml_param_parser";
   version = "9.4.1-1";
-  src = sources.rcl_yaml_param_parser;
+  src = sources.rcl_yaml_param_parser-e8b5b46aaa39c4279c8b023ef75eeee0b3d6175d;
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

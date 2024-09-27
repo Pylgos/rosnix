@@ -29,9 +29,9 @@
 }:
 let
   sources = rec {
-    tricycle_controller = substituteSource {
+    tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98 = substituteSource {
       src = fetchgit {
-        name = "tricycle_controller-source";
+        name = "tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "e2f589e72666e281c811bbe3e5b40b91610d4b98";
         hash = "sha256-KY4Dgle2PDGoS+1gSFOn6SKAhe1tKgIFdG0RDnv4iKk=";
@@ -44,7 +44,7 @@ in
 buildRosPackage {
   pname = "tricycle_controller";
   version = "4.14.0-1";
-  src = sources.tricycle_controller;
+  src = sources.tricycle_controller-e2f589e72666e281c811bbe3e5b40b91610d4b98;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

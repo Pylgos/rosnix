@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    swri_console = substituteSource {
+    swri_console-eef1f1308ad2ce5d5745d1e8084231115b0bd856 = substituteSource {
       src = fetchgit {
-        name = "swri_console-source";
+        name = "swri_console-eef1f1308ad2ce5d5745d1e8084231115b0bd856-source";
         url = "https://github.com/ros2-gbp/swri_console-release.git";
         rev = "eef1f1308ad2ce5d5745d1e8084231115b0bd856";
         hash = "sha256-zA1cDmzrE6co8sEykB922TKHYC0Dzkqfp9Re4OUxMqk=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "swri_console";
   version = "2.0.5-1";
-  src = sources.swri_console;
+  src = sources.swri_console-eef1f1308ad2ce5d5745d1e8084231115b0bd856;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

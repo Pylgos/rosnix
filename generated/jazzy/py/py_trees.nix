@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    py_trees = substituteSource {
+    py_trees-6aa58f8414fb672071074c6d4621c3ca8968488f = substituteSource {
       src = fetchgit {
-        name = "py_trees-source";
+        name = "py_trees-6aa58f8414fb672071074c6d4621c3ca8968488f-source";
         url = "https://github.com/ros2-gbp/py_trees-release.git";
         rev = "6aa58f8414fb672071074c6d4621c3ca8968488f";
         hash = "sha256-D4D4KgMpC2gXiPRmmTMkb2IW5rzxXUbEUFu5RVEnaqc=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "py_trees";
   version = "2.2.1-4";
-  src = sources.py_trees;
+  src = sources.py_trees-6aa58f8414fb672071074c6d4621c3ca8968488f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

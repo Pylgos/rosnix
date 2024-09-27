@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    tuw_geometry = substituteSource {
+    tuw_geometry-b481f3946598b103d054533dbdd6d66efc89161f = substituteSource {
       src = fetchgit {
-        name = "tuw_geometry-source";
+        name = "tuw_geometry-b481f3946598b103d054533dbdd6d66efc89161f-source";
         url = "https://github.com/ros2-gbp/tuw_geometry-release.git";
         rev = "b481f3946598b103d054533dbdd6d66efc89161f";
         hash = "sha256-3joMrg733OXs5YY23/zK9hQEuS0t3jlDrTEsNlr8C3Q=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "tuw_geometry";
   version = "0.0.7-3";
-  src = sources.tuw_geometry;
+  src = sources.tuw_geometry-b481f3946598b103d054533dbdd6d66efc89161f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

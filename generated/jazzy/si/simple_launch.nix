@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    simple_launch = substituteSource {
+    simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905 = substituteSource {
       src = fetchgit {
-        name = "simple_launch-source";
+        name = "simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905-source";
         url = "https://github.com/ros2-gbp/simple_launch-release.git";
         rev = "1f59783c83fbc769bcce5b61cd78b57bcdcdf905";
         hash = "sha256-qGRcyWgJ5d0NzsUAXpLLeRHBywF3IPhCiLyA5ZOLBqs=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "simple_launch";
   version = "1.10.1-1";
-  src = sources.simple_launch;
+  src = sources.simple_launch-1f59783c83fbc769bcce5b61cd78b57bcdcdf905;
   nativeBuildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

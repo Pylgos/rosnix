@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    depthai-ros = substituteSource {
+    depthai-ros-3b33ccec2ebf621d2932374e799e6c5f08de0013 = substituteSource {
       src = fetchgit {
-        name = "depthai-ros-source";
+        name = "depthai-ros-3b33ccec2ebf621d2932374e799e6c5f08de0013-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
         rev = "3b33ccec2ebf621d2932374e799e6c5f08de0013";
         hash = "sha256-ux03CKLIoNv8q3t1KzqIHtCbVoIwB4BEmAlOJIXOGk8=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "depthai-ros";
   version = "2.10.1-1";
-  src = sources.depthai-ros;
+  src = sources.depthai-ros-3b33ccec2ebf621d2932374e799e6c5f08de0013;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

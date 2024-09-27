@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    leo_desktop = substituteSource {
+    leo_desktop-c1a54f9b40ddbf3bc97fee01d5c59273e6dde297 = substituteSource {
       src = fetchgit {
-        name = "leo_desktop-source";
+        name = "leo_desktop-c1a54f9b40ddbf3bc97fee01d5c59273e6dde297-source";
         url = "https://github.com/ros2-gbp/leo_desktop-release.git";
         rev = "c1a54f9b40ddbf3bc97fee01d5c59273e6dde297";
         hash = "sha256-6KTjQDWAPViQZPNJ0TvIOpgM0ZK6q5bDKX6joQDuOnw=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "leo_desktop";
   version = "3.0.0-3";
-  src = sources.leo_desktop;
+  src = sources.leo_desktop-c1a54f9b40ddbf3bc97fee01d5c59273e6dde297;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    gtsam = substituteSource {
+    gtsam-417ef871550e7e13a51a717e2f4b16ebf17e3f81 = substituteSource {
       src = fetchgit {
-        name = "gtsam-source";
+        name = "gtsam-417ef871550e7e13a51a717e2f4b16ebf17e3f81-source";
         url = "https://github.com/ros2-gbp/gtsam-release.git";
         rev = "417ef871550e7e13a51a717e2f4b16ebf17e3f81";
         hash = "sha256-ERY+Se9DNzpNImwnyrl2UGDHhSxLNmhlIL9anEb/CRg=";
@@ -19,13 +19,13 @@ let
         {
           path = "gtsam/3rdparty/Eigen/lapack/CMakeLists.txt";
           from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
-          to = "DOWNLOAD file://${gtsam-vendor_source-lapack_addons_3-0}";
+          to = "DOWNLOAD file://${lapack_addons_3-vendor_source-0g14qljdn9i6zqiplgx4l6nspxyv8qmsa6h435islaa7vjvyv6dx}";
         }
       ];
     };
-    gtsam-vendor_source-lapack_addons_3-0 = substituteSource {
+    lapack_addons_3-vendor_source-0g14qljdn9i6zqiplgx4l6nspxyv8qmsa6h435islaa7vjvyv6dx = substituteSource {
       src = fetchurl {
-        name = "gtsam-vendor_source-lapack_addons_3-0-source";
+        name = "lapack_addons_3-vendor_source-0g14qljdn9i6zqiplgx4l6nspxyv8qmsa6h435islaa7vjvyv6dx-source";
         url = "http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz";
         hash = "sha256-vZntt9xHKapjGQQapStG2/erraGkP3oj/iYm2yTFJDw=";
       };
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "gtsam";
   version = "4.2.0-4";
-  src = sources.gtsam;
+  src = sources.gtsam-417ef871550e7e13a51a717e2f4b16ebf17e3f81;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

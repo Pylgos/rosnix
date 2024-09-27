@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    rclcpp_action = substituteSource {
+    rclcpp_action-9d4880075ab1018dbaefb8d47423202f01aa3070 = substituteSource {
       src = fetchgit {
-        name = "rclcpp_action-source";
+        name = "rclcpp_action-9d4880075ab1018dbaefb8d47423202f01aa3070-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
         rev = "9d4880075ab1018dbaefb8d47423202f01aa3070";
         hash = "sha256-l4IhMEhZ5SSBGLAckpIvCZx6hi/nnVVt74lPagfXd+s=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "rclcpp_action";
   version = "28.3.3-1";
-  src = sources.rclcpp_action;
+  src = sources.rclcpp_action-9d4880075ab1018dbaefb8d47423202f01aa3070;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

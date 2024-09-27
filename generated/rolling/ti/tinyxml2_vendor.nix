@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    tinyxml2_vendor = substituteSource {
+    tinyxml2_vendor-141f943e8a56d4445d631696658690d2fe25c311 = substituteSource {
       src = fetchgit {
-        name = "tinyxml2_vendor-source";
+        name = "tinyxml2_vendor-141f943e8a56d4445d631696658690d2fe25c311-source";
         url = "https://github.com/ros2-gbp/tinyxml2_vendor-release.git";
         rev = "141f943e8a56d4445d631696658690d2fe25c311";
         hash = "sha256-JcopBYS3JtmhMOyufT16RtNIUMAMMn7/mt00AcXLyXs=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "tinyxml2_vendor";
   version = "0.10.0-1";
-  src = sources.tinyxml2_vendor;
+  src = sources.tinyxml2_vendor-141f943e8a56d4445d631696658690d2fe25c311;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

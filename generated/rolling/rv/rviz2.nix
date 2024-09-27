@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rviz2 = substituteSource {
+    rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425 = substituteSource {
       src = fetchgit {
-        name = "rviz2-source";
+        name = "rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "429eb1da1f3cec77cf33c7029e0a698f1c48e425";
         hash = "sha256-Psm9m/If+FbxR2caYYQTpowhUvPyDZrcWGhtcoJcmkM=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rviz2";
   version = "14.2.6-1";
-  src = sources.rviz2;
+  src = sources.rviz2-429eb1da1f3cec77cf33c7029e0a698f1c48e425;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

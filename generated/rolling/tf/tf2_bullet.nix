@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    tf2_bullet = substituteSource {
+    tf2_bullet-c6ddf880bff4f7ca9e8a9132fb0dd350f554202f = substituteSource {
       src = fetchgit {
-        name = "tf2_bullet-source";
+        name = "tf2_bullet-c6ddf880bff4f7ca9e8a9132fb0dd350f554202f-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "c6ddf880bff4f7ca9e8a9132fb0dd350f554202f";
         hash = "sha256-GNLOhibPOOtz5caJ7wYbYMmU7hqt2MhvBZSsS05hvAU=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "tf2_bullet";
   version = "0.38.2-1";
-  src = sources.tf2_bullet;
+  src = sources.tf2_bullet-c6ddf880bff4f7ca9e8a9132fb0dd350f554202f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

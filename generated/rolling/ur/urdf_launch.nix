@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    urdf_launch = substituteSource {
+    urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83 = substituteSource {
       src = fetchgit {
-        name = "urdf_launch-source";
+        name = "urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83-source";
         url = "https://github.com/ros2-gbp/urdf_launch-release.git";
         rev = "b595a6baa8c331c2a90a3d70ccedad6ad8062a83";
         hash = "sha256-culhEaUIVzEURBnbx83ibUd3MceQsW3fVCfO2lKvIEQ=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "urdf_launch";
   version = "0.1.1-2";
-  src = sources.urdf_launch;
+  src = sources.urdf_launch-b595a6baa8c331c2a90a3d70ccedad6ad8062a83;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

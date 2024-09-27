@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    nav2_loopback_sim = substituteSource {
+    nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9 = substituteSource {
       src = fetchgit {
-        name = "nav2_loopback_sim-source";
+        name = "nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "0c1736afb9ce7684200dee034620c05da7a3ede9";
         hash = "sha256-JsQnEvE47ybiHdLPwyBF8N6oH36t/gUgyypgOtDezVI=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "nav2_loopback_sim";
   version = "1.3.2-1";
-  src = sources.nav2_loopback_sim;
+  src = sources.nav2_loopback_sim-0c1736afb9ce7684200dee034620c05da7a3ede9;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

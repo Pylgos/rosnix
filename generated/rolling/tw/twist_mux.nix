@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    twist_mux = substituteSource {
+    twist_mux-87f98d24c9376887efec3fc2767e307804831d1e = substituteSource {
       src = fetchgit {
-        name = "twist_mux-source";
+        name = "twist_mux-87f98d24c9376887efec3fc2767e307804831d1e-source";
         url = "https://github.com/ros2-gbp/twist_mux-release.git";
         rev = "87f98d24c9376887efec3fc2767e307804831d1e";
         hash = "sha256-1U2LplwpCgA8qKz24xmFg4QH73v52isEVKL9Xck6OlA=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "twist_mux";
   version = "4.3.0-2";
-  src = sources.twist_mux;
+  src = sources.twist_mux-87f98d24c9376887efec3fc2767e307804831d1e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

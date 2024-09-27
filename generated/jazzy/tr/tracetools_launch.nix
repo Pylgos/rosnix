@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    tracetools_launch = substituteSource {
+    tracetools_launch-107987b687166c110ffb91c1d817b85a4cae9a43 = substituteSource {
       src = fetchgit {
-        name = "tracetools_launch-source";
+        name = "tracetools_launch-107987b687166c110ffb91c1d817b85a4cae9a43-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
         rev = "107987b687166c110ffb91c1d817b85a4cae9a43";
         hash = "sha256-pPHDdLreGR01AaB5KIHa5S4OiGOOlzNiRcNmdkNNB4w=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "tracetools_launch";
   version = "8.2.2-1";
-  src = sources.tracetools_launch;
+  src = sources.tracetools_launch-107987b687166c110ffb91c1d817b85a4cae9a43;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

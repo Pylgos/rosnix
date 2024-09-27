@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    diagnostic_updater = substituteSource {
+    diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597 = substituteSource {
       src = fetchgit {
-        name = "diagnostic_updater-source";
+        name = "diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
         rev = "06e42e306472072aa04ba4bf4b17226f61fc4597";
         hash = "sha256-KAWRfucJofJJnbuh6aOY1GmC8Ddnev7OR15k8OsUX04=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "diagnostic_updater";
   version = "4.3.1-1";
-  src = sources.diagnostic_updater;
+  src = sources.diagnostic_updater-06e42e306472072aa04ba4bf4b17226f61fc4597;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    opennav_docking_bt = substituteSource {
+    opennav_docking_bt-d473e2331ca4a3f91aff8395439a1c9762510ae7 = substituteSource {
       src = fetchgit {
-        name = "opennav_docking_bt-source";
+        name = "opennav_docking_bt-d473e2331ca4a3f91aff8395439a1c9762510ae7-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "d473e2331ca4a3f91aff8395439a1c9762510ae7";
         hash = "sha256-zz7vLPntojXP52rohjpWXAV4ejYLcQz4xrsHx6hRHic=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "opennav_docking_bt";
   version = "1.3.2-1";
-  src = sources.opennav_docking_bt;
+  src = sources.opennav_docking_bt-d473e2331ca4a3f91aff8395439a1c9762510ae7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    rqt_robot_monitor = substituteSource {
+    rqt_robot_monitor-db0cd6f3ab0f5e11e51cfdaff829566704a4d410 = substituteSource {
       src = fetchgit {
-        name = "rqt_robot_monitor-source";
+        name = "rqt_robot_monitor-db0cd6f3ab0f5e11e51cfdaff829566704a4d410-source";
         url = "https://github.com/ros2-gbp/rqt_robot_monitor-release.git";
         rev = "db0cd6f3ab0f5e11e51cfdaff829566704a4d410";
         hash = "sha256-8SFE5pix0PTYkcufr7ovmE/HYmjWyGUdT073Kolmm4I=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "rqt_robot_monitor";
   version = "1.0.6-1";
-  src = sources.rqt_robot_monitor;
+  src = sources.rqt_robot_monitor-db0cd6f3ab0f5e11e51cfdaff829566704a4d410;
   nativeBuildInputs = [ rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

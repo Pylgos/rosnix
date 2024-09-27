@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    bno055 = substituteSource {
+    bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c = substituteSource {
       src = fetchgit {
-        name = "bno055-source";
+        name = "bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c-source";
         url = "https://github.com/ros2-gbp/bno055-release.git";
         rev = "4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c";
         hash = "sha256-C8wFVPMD9UXtgtXX3T4ERtwtrr1IKIwYwiGzp1XWbS4=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "bno055";
   version = "0.5.0-2";
-  src = sources.bno055;
+  src = sources.bno055-4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

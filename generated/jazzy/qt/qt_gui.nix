@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    qt_gui = substituteSource {
+    qt_gui-f7a152206f14b0d5e5120c41677a073aad67797b = substituteSource {
       src = fetchgit {
-        name = "qt_gui-source";
+        name = "qt_gui-f7a152206f14b0d5e5120c41677a073aad67797b-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
         rev = "f7a152206f14b0d5e5120c41677a073aad67797b";
         hash = "sha256-YuRclZVVR6g6KaGhlNV5lAJE4+tZoD2yCApPKtlMw5w=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "qt_gui";
   version = "2.7.4-2";
-  src = sources.qt_gui;
+  src = sources.qt_gui-f7a152206f14b0d5e5120c41677a073aad67797b;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

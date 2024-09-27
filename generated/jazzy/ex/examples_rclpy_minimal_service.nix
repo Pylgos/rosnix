@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    examples_rclpy_minimal_service = substituteSource {
+    examples_rclpy_minimal_service-974f22c135ba13dab49c95d5268e06ecd6d46805 = substituteSource {
       src = fetchgit {
-        name = "examples_rclpy_minimal_service-source";
+        name = "examples_rclpy_minimal_service-974f22c135ba13dab49c95d5268e06ecd6d46805-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "974f22c135ba13dab49c95d5268e06ecd6d46805";
         hash = "sha256-jrpXqNzN9kxaRAjcxrJQvNyjOtifMEcr+3dqMovB9zY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "examples_rclpy_minimal_service";
   version = "0.19.4-1";
-  src = sources.examples_rclpy_minimal_service;
+  src = sources.examples_rclpy_minimal_service-974f22c135ba13dab49c95d5268e06ecd6d46805;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

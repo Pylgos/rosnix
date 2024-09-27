@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    ros2test = substituteSource {
+    ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df = substituteSource {
       src = fetchgit {
-        name = "ros2test-source";
+        name = "ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df-source";
         url = "https://github.com/ros2-gbp/ros_testing-release.git";
         rev = "87f9361b131712dfb1e3b7e342eb8f293fd919df";
         hash = "sha256-tqKhYA9+IzjW93SioL3LjEtOGETxMpk409QC1KJF5w4=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "ros2test";
   version = "0.6.0-3";
-  src = sources.ros2test;
+  src = sources.ros2test-87f9361b131712dfb1e3b7e342eb8f293fd919df;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ domain_coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

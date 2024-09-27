@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    sros2_cmake = substituteSource {
+    sros2_cmake-1a083aac5944c3e33072b5dd99adf8d9d1c3b076 = substituteSource {
       src = fetchgit {
-        name = "sros2_cmake-source";
+        name = "sros2_cmake-1a083aac5944c3e33072b5dd99adf8d9d1c3b076-source";
         url = "https://github.com/ros2-gbp/sros2-release.git";
         rev = "1a083aac5944c3e33072b5dd99adf8d9d1c3b076";
         hash = "sha256-Lk74feQcy27POAavf9+1v/TP/9b5J0tRA/mb7qTBdH0=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "sros2_cmake";
   version = "0.13.2-1";
-  src = sources.sros2_cmake;
+  src = sources.sros2_cmake-1a083aac5944c3e33072b5dd99adf8d9d1c3b076;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

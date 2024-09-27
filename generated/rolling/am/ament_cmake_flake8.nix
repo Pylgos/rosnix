@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    ament_cmake_flake8 = substituteSource {
+    ament_cmake_flake8-e7a0ecd8bf25d988dbbea9ef6e3596242557852d = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_flake8-source";
+        name = "ament_cmake_flake8-e7a0ecd8bf25d988dbbea9ef6e3596242557852d-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "e7a0ecd8bf25d988dbbea9ef6e3596242557852d";
         hash = "sha256-GzbWu2ZZCMu0THva1BaruSf2TsLcpi9FVddqmdDFpec=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "ament_cmake_flake8";
   version = "0.18.1-1";
-  src = sources.ament_cmake_flake8;
+  src = sources.ament_cmake_flake8-e7a0ecd8bf25d988dbbea9ef6e3596242557852d;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ament_flake8 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

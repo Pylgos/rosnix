@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    launch_ros = substituteSource {
+    launch_ros-614dac856387c97632678b01252b0de112f1a346 = substituteSource {
       src = fetchgit {
-        name = "launch_ros-source";
+        name = "launch_ros-614dac856387c97632678b01252b0de112f1a346-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
         rev = "614dac856387c97632678b01252b0de112f1a346";
         hash = "sha256-cV925fWAMrUPzECwVRsuI+lqITsE2hoUUK+5X0gGpik=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "launch_ros";
   version = "0.26.5-2";
-  src = sources.launch_ros;
+  src = sources.launch_ros-614dac856387c97632678b01252b0de112f1a346;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

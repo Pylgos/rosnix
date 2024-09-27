@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ament_xmllint = substituteSource {
+    ament_xmllint-e9ba8180050ef6c9cc988053dc002c12a649d3f9 = substituteSource {
       src = fetchgit {
-        name = "ament_xmllint-source";
+        name = "ament_xmllint-e9ba8180050ef6c9cc988053dc002c12a649d3f9-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "e9ba8180050ef6c9cc988053dc002c12a649d3f9";
         hash = "sha256-hEPWBk0jFXWmN31PEl3WknzxY1V5ToOead2AJ1xNJUA=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ament_xmllint";
   version = "0.17.1-1";
-  src = sources.ament_xmllint;
+  src = sources.ament_xmllint-e9ba8180050ef6c9cc988053dc002c12a649d3f9;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libxml2-utils" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

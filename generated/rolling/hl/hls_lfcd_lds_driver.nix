@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    hls_lfcd_lds_driver = substituteSource {
+    hls_lfcd_lds_driver-7559d0b5b1527b6b0034fa341be3aac5c58cf931 = substituteSource {
       src = fetchgit {
-        name = "hls_lfcd_lds_driver-source";
+        name = "hls_lfcd_lds_driver-7559d0b5b1527b6b0034fa341be3aac5c58cf931-source";
         url = "https://github.com/ros2-gbp/hls_lfcd_lds_driver-release.git";
         rev = "7559d0b5b1527b6b0034fa341be3aac5c58cf931";
         hash = "sha256-gFslT2HGpW6SzRM8frU8D/gistcJDw02YkcZTXZcfa8=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "hls_lfcd_lds_driver";
   version = "2.0.4-5";
-  src = sources.hls_lfcd_lds_driver;
+  src = sources.hls_lfcd_lds_driver-7559d0b5b1527b6b0034fa341be3aac5c58cf931;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

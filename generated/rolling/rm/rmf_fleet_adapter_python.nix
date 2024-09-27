@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rmf_fleet_adapter_python = substituteSource {
+    rmf_fleet_adapter_python-a304c5813ef79237ee0996be9c5aee5fa9e1c1dc = substituteSource {
       src = fetchgit {
-        name = "rmf_fleet_adapter_python-source";
+        name = "rmf_fleet_adapter_python-a304c5813ef79237ee0996be9c5aee5fa9e1c1dc-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "a304c5813ef79237ee0996be9c5aee5fa9e1c1dc";
         hash = "sha256-IrWspRQCLirNJ7Y1cLy3uzuvENbHmiLgfUNF4nwsRxw=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rmf_fleet_adapter_python";
   version = "2.7.1-1";
-  src = sources.rmf_fleet_adapter_python;
+  src = sources.rmf_fleet_adapter_python-a304c5813ef79237ee0996be9c5aee5fa9e1c1dc;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

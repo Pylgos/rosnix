@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    sick_safevisionary_driver = substituteSource {
+    sick_safevisionary_driver-88de2851a6fc1871b02acf8d5984603a7609b555 = substituteSource {
       src = fetchgit {
-        name = "sick_safevisionary_driver-source";
+        name = "sick_safevisionary_driver-88de2851a6fc1871b02acf8d5984603a7609b555-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
         rev = "88de2851a6fc1871b02acf8d5984603a7609b555";
         hash = "sha256-+JkVULStq1kUDR609jEbn44uWsjZ4O5x1ogtxSHoM8Y=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "sick_safevisionary_driver";
   version = "1.0.3-3";
-  src = sources.sick_safevisionary_driver;
+  src = sources.sick_safevisionary_driver-88de2851a6fc1871b02acf8d5984603a7609b555;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    metavision_driver = substituteSource {
+    metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836 = substituteSource {
       src = fetchgit {
-        name = "metavision_driver-source";
+        name = "metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836-source";
         url = "https://github.com/ros2-gbp/metavision_driver-release.git";
         rev = "c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836";
         hash = "sha256-cY39QdEEs1lKLaScyeWrofuyVggQEi1Ofnc2JlfEv34=";
@@ -35,13 +35,13 @@ let
         {
           path = "cmake/ROS1.cmake";
           from = "GIT_REPOSITORY https://github.com/ros-event-camera/openeb.git";
-          to = "URL ${metavision_driver-vendor_source-openeb-0}";
+          to = "URL ${openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9}";
         }
       ];
     };
-    metavision_driver-vendor_source-openeb-0 = substituteSource {
+    openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9 = substituteSource {
       src = fetchgit {
-        name = "metavision_driver-vendor_source-openeb-0-source";
+        name = "openeb-vendor_source-db34531b9d0fef952e39f5fef7169e583575b6e9-source";
         url = "https://github.com/ros-event-camera/openeb.git";
         rev = "db34531b9d0fef952e39f5fef7169e583575b6e9";
         hash = "sha256-QHs3Bz6Mj08Rk8lUAIyWfMwMcoW1XCswASYhX0hfPiM=";
@@ -54,7 +54,7 @@ in
 buildRosPackage {
   pname = "metavision_driver";
   version = "2.0.0-1";
-  src = sources.metavision_driver;
+  src = sources.metavision_driver-c8e5deb84ac18c0fbeeeb90c8b96ed39bc17f836;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

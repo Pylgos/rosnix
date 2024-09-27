@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    pendulum_control = substituteSource {
+    pendulum_control-9c41f54d091d0e65ce9ca393779b066247e4f793 = substituteSource {
       src = fetchgit {
-        name = "pendulum_control-source";
+        name = "pendulum_control-9c41f54d091d0e65ce9ca393779b066247e4f793-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "9c41f54d091d0e65ce9ca393779b066247e4f793";
         hash = "sha256-zBBWIeQBw01hP3nP2HNVs6iPduXjXSSXMSELX/n2JHQ=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "pendulum_control";
   version = "0.33.5-1";
-  src = sources.pendulum_control;
+  src = sources.pendulum_control-9c41f54d091d0e65ce9ca393779b066247e4f793;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

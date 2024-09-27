@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    find_object_2d = substituteSource {
+    find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7 = substituteSource {
       src = fetchgit {
-        name = "find_object_2d-source";
+        name = "find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7-source";
         url = "https://github.com/ros2-gbp/find_object_2d-release.git";
         rev = "04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7";
         hash = "sha256-njkQr+O+9huFcwwGGOLQgumrN8K4RuGpTCjeMdVtuhA=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "find_object_2d";
   version = "0.7.1-1";
-  src = sources.find_object_2d;
+  src = sources.find_object_2d-04c9e7c8afdb14b1afe8aaa8b577ed8fe8b706c7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

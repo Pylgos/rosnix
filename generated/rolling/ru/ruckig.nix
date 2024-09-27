@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    ruckig = substituteSource {
+    ruckig-32c387d879a88ffaf2a9ea5510a9f1eeabe47ab5 = substituteSource {
       src = fetchgit {
-        name = "ruckig-source";
+        name = "ruckig-32c387d879a88ffaf2a9ea5510a9f1eeabe47ab5-source";
         url = "https://github.com/ros2-gbp/ruckig-release.git";
         rev = "32c387d879a88ffaf2a9ea5510a9f1eeabe47ab5";
         hash = "sha256-xzv0PejVB2frTXtd7fnF72E49MOQaARx6boGHYzyVnQ=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "ruckig";
   version = "0.9.2-4";
-  src = sources.ruckig;
+  src = sources.ruckig-32c387d879a88ffaf2a9ea5510a9f1eeabe47ab5;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

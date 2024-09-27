@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    py_binding_tools = substituteSource {
+    py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7 = substituteSource {
       src = fetchgit {
-        name = "py_binding_tools-source";
+        name = "py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7-source";
         url = "https://github.com/ros-gbp/py_binding_tools-release.git";
         rev = "f84c9aed3b91104b3320e1e3732df4344cd568b7";
         hash = "sha256-ptJcdfTt1QQXFPCJ4R1QqIIcwEOHo+ay+T7OJqwDAYo=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "py_binding_tools";
   version = "2.0.1-1";
-  src = sources.py_binding_tools;
+  src = sources.py_binding_tools-f84c9aed3b91104b3320e1e3732df4344cd568b7;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

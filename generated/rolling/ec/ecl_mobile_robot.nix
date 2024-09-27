@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    ecl_mobile_robot = substituteSource {
+    ecl_mobile_robot-7b8eb21c5679d0573c700db0d9c7e32401edf84e = substituteSource {
       src = fetchgit {
-        name = "ecl_mobile_robot-source";
+        name = "ecl_mobile_robot-7b8eb21c5679d0573c700db0d9c7e32401edf84e-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "7b8eb21c5679d0573c700db0d9c7e32401edf84e";
         hash = "sha256-NQJy3LdrqwiDAynl1fLCbDJz/A4qCxq6VpeaO+fr/4Y=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "ecl_mobile_robot";
   version = "1.2.1-4";
-  src = sources.ecl_mobile_robot;
+  src = sources.ecl_mobile_robot-7b8eb21c5679d0573c700db0d9c7e32401edf84e;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    sick_safetyscanners2_interfaces = substituteSource {
+    sick_safetyscanners2_interfaces-e38d66596e0853867c4576ed63bc86538c86795e = substituteSource {
       src = fetchgit {
-        name = "sick_safetyscanners2_interfaces-source";
+        name = "sick_safetyscanners2_interfaces-e38d66596e0853867c4576ed63bc86538c86795e-source";
         url = "https://github.com/ros2-gbp/sick_safetyscanners2_interfaces-release.git";
         rev = "e38d66596e0853867c4576ed63bc86538c86795e";
         hash = "sha256-FFsjwMwXpIDUcZce2QdkhLAspn9kJgyNkvTQ8UhjUYQ=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "sick_safetyscanners2_interfaces";
   version = "1.0.0-1";
-  src = sources.sick_safetyscanners2_interfaces;
+  src = sources.sick_safetyscanners2_interfaces-e38d66596e0853867c4576ed63bc86538c86795e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

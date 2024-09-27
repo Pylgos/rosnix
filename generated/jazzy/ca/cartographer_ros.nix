@@ -29,9 +29,9 @@
 }:
 let
   sources = rec {
-    cartographer_ros = substituteSource {
+    cartographer_ros-220cc62d9b410d777c4bd483e9e4861e1a3325d7 = substituteSource {
       src = fetchgit {
-        name = "cartographer_ros-source";
+        name = "cartographer_ros-220cc62d9b410d777c4bd483e9e4861e1a3325d7-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "220cc62d9b410d777c4bd483e9e4861e1a3325d7";
         hash = "sha256-VvGxCdcHPGbZC+Mp6BMa4qpdJ2eoz0PuoBvhe/6gtCE=";
@@ -44,7 +44,7 @@ in
 buildRosPackage {
   pname = "cartographer_ros";
   version = "2.0.9003-2";
-  src = sources.cartographer_ros;
+  src = sources.cartographer_ros-220cc62d9b410d777c4bd483e9e4861e1a3325d7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

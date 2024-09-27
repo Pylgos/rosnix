@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    geographic_msgs = substituteSource {
+    geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e = substituteSource {
       src = fetchgit {
-        name = "geographic_msgs-source";
+        name = "geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "caa6354cd98e112a31d8f26ab3168880bb3d327e";
         hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "geographic_msgs";
   version = "1.0.6-2";
-  src = sources.geographic_msgs;
+  src = sources.geographic_msgs-caa6354cd98e112a31d8f26ab3168880bb3d327e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

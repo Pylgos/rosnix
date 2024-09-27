@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    common_interfaces = substituteSource {
+    common_interfaces-d3cd7bc2ac70c1f793bb486b8890a3e705d51955 = substituteSource {
       src = fetchgit {
-        name = "common_interfaces-source";
+        name = "common_interfaces-d3cd7bc2ac70c1f793bb486b8890a3e705d51955-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "d3cd7bc2ac70c1f793bb486b8890a3e705d51955";
         hash = "sha256-wxRD1b3gGcPbjpovwadMlw+A3m7bfdNsaOyxgcA/lSI=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "common_interfaces";
   version = "5.3.5-1";
-  src = sources.common_interfaces;
+  src = sources.common_interfaces-d3cd7bc2ac70c1f793bb486b8890a3e705d51955;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

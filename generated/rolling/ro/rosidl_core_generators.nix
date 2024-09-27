@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    rosidl_core_generators = substituteSource {
+    rosidl_core_generators-1a614797780455cc4ee9a39225e6972654ee2ce9 = substituteSource {
       src = fetchgit {
-        name = "rosidl_core_generators-source";
+        name = "rosidl_core_generators-1a614797780455cc4ee9a39225e6972654ee2ce9-source";
         url = "https://github.com/ros2-gbp/rosidl_core-release.git";
         rev = "1a614797780455cc4ee9a39225e6972654ee2ce9";
         hash = "sha256-8xQ6QVBB8W8vIMnzuTIqjHAXayVbahDYqhw0OVL0kQU=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "rosidl_core_generators";
   version = "0.3.1-1";
-  src = sources.rosidl_core_generators;
+  src = sources.rosidl_core_generators-1a614797780455cc4ee9a39225e6972654ee2ce9;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core rosidl_cmake rosidl_generator_c rosidl_generator_cpp rosidl_generator_type_description ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

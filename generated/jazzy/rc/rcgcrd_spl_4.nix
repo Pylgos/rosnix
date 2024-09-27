@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rcgcrd_spl_4 = substituteSource {
+    rcgcrd_spl_4-1a4163d230639126421ebff6381f7887eba98caa = substituteSource {
       src = fetchgit {
-        name = "rcgcrd_spl_4-source";
+        name = "rcgcrd_spl_4-1a4163d230639126421ebff6381f7887eba98caa-source";
         url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
         rev = "1a4163d230639126421ebff6381f7887eba98caa";
         hash = "sha256-du68Eq0gNlBSz8RHUaKfCmnCe4dMuBRNBVY/Xr+/+cU=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rcgcrd_spl_4";
   version = "4.0.1-1";
-  src = sources.rcgcrd_spl_4;
+  src = sources.rcgcrd_spl_4-1a4163d230639126421ebff6381f7887eba98caa;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

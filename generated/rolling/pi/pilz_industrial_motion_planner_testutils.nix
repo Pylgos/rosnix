@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    pilz_industrial_motion_planner_testutils = substituteSource {
+    pilz_industrial_motion_planner_testutils-1ee78e5a7bedf0981632bed513ca786a1c0623d8 = substituteSource {
       src = fetchgit {
-        name = "pilz_industrial_motion_planner_testutils-source";
+        name = "pilz_industrial_motion_planner_testutils-1ee78e5a7bedf0981632bed513ca786a1c0623d8-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "1ee78e5a7bedf0981632bed513ca786a1c0623d8";
         hash = "sha256-g4otOVNQUFukDBkgy7uvE1FJnmT2yWsR+kIKqDu7csQ=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "pilz_industrial_motion_planner_testutils";
   version = "2.11.0-1";
-  src = sources.pilz_industrial_motion_planner_testutils;
+  src = sources.pilz_industrial_motion_planner_testutils-1ee78e5a7bedf0981632bed513ca786a1c0623d8;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

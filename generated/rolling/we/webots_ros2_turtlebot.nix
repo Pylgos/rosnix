@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    webots_ros2_turtlebot = substituteSource {
+    webots_ros2_turtlebot-4e9488d44cac30db5bb962bab23d369bb4fe2886 = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_turtlebot-source";
+        name = "webots_ros2_turtlebot-4e9488d44cac30db5bb962bab23d369bb4fe2886-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "4e9488d44cac30db5bb962bab23d369bb4fe2886";
         hash = "sha256-evpv72wFd54k1J7+73ZIwzfKiS5H2Yta/AVnzHPLwK8=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "webots_ros2_turtlebot";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_turtlebot;
+  src = sources.webots_ros2_turtlebot-4e9488d44cac30db5bb962bab23d369bb4fe2886;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

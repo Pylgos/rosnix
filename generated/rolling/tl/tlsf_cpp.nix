@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    tlsf_cpp = substituteSource {
+    tlsf_cpp-875209961463330f80ea29ebf6597e6678135727 = substituteSource {
       src = fetchgit {
-        name = "tlsf_cpp-source";
+        name = "tlsf_cpp-875209961463330f80ea29ebf6597e6678135727-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
         rev = "875209961463330f80ea29ebf6597e6678135727";
         hash = "sha256-C2+ZxTkM4JIkAgNsq0h2PbqKRjBM9gZ3dJPLy+B4QuY=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "tlsf_cpp";
   version = "0.18.1-1";
-  src = sources.tlsf_cpp;
+  src = sources.tlsf_cpp-875209961463330f80ea29ebf6597e6678135727;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

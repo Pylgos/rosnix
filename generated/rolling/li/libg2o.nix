@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    libg2o = substituteSource {
+    libg2o-c30a14c800c9142b73205fd6c67827fab5295326 = substituteSource {
       src = fetchgit {
-        name = "libg2o-source";
+        name = "libg2o-c30a14c800c9142b73205fd6c67827fab5295326-source";
         url = "https://github.com/ros2-gbp/libg2o-release.git";
         rev = "c30a14c800c9142b73205fd6c67827fab5295326";
         hash = "sha256-2CMfNQ2nQezvsaS7kSEUvwkCtBZcnoOPaqOljhsfHFc=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "libg2o";
   version = "2020.5.29-5";
-  src = sources.libg2o;
+  src = sources.libg2o-c30a14c800c9142b73205fd6c67827fab5295326;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

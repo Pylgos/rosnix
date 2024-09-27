@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    qt_gui_app = substituteSource {
+    qt_gui_app-1a01067cf80037481f6949abe6b5941350867b24 = substituteSource {
       src = fetchgit {
-        name = "qt_gui_app-source";
+        name = "qt_gui_app-1a01067cf80037481f6949abe6b5941350867b24-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
         rev = "1a01067cf80037481f6949abe6b5941350867b24";
         hash = "sha256-Sor72UP2YXAqhkJzqlWRTCiT6J5EtBB7kuWEDWJ6TSw=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "qt_gui_app";
   version = "2.8.2-1";
-  src = sources.qt_gui_app;
+  src = sources.qt_gui_app-1a01067cf80037481f6949abe6b5941350867b24;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

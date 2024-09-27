@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    kdl_parser = substituteSource {
+    kdl_parser-62e426bc35f02277867bdb8204444c055c6d0d85 = substituteSource {
       src = fetchgit {
-        name = "kdl_parser-source";
+        name = "kdl_parser-62e426bc35f02277867bdb8204444c055c6d0d85-source";
         url = "https://github.com/ros2-gbp/kdl_parser-release.git";
         rev = "62e426bc35f02277867bdb8204444c055c6d0d85";
         hash = "sha256-0pqo6+kDyd4jq/rIh9aXBLrvipyDVHZKbj2VAlBvZ/g=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "kdl_parser";
   version = "2.11.0-3";
-  src = sources.kdl_parser;
+  src = sources.kdl_parser-62e426bc35f02277867bdb8204444c055c6d0d85;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

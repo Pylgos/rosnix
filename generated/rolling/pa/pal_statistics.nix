@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    pal_statistics = substituteSource {
+    pal_statistics-0cf36f5bd7c0a3e11b39512bcb76faad192a3583 = substituteSource {
       src = fetchgit {
-        name = "pal_statistics-source";
+        name = "pal_statistics-0cf36f5bd7c0a3e11b39512bcb76faad192a3583-source";
         url = "https://github.com/ros2-gbp/pal_statistics-release.git";
         rev = "0cf36f5bd7c0a3e11b39512bcb76faad192a3583";
         hash = "sha256-iuQqs6XBZ9nDhHWgffrR71peHVJVK9W4VBMRw/c3lm0=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "pal_statistics";
   version = "2.2.4-1";
-  src = sources.pal_statistics;
+  src = sources.pal_statistics-0cf36f5bd7c0a3e11b39512bcb76faad192a3583;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    libpointmatcher = substituteSource {
+    libpointmatcher-42d41781f7dcc4dc8151c3985cb5825bdeaf8978 = substituteSource {
       src = fetchgit {
-        name = "libpointmatcher-source";
+        name = "libpointmatcher-42d41781f7dcc4dc8151c3985cb5825bdeaf8978-source";
         url = "https://github.com/ros2-gbp/libpointmatcher-release.git";
         rev = "42d41781f7dcc4dc8151c3985cb5825bdeaf8978";
         hash = "sha256-Dc7s28fmp2qhKe+0NG+8xjM0KMSvt8o6mGF2liWpEB4=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "libpointmatcher";
   version = "1.4.2-1";
-  src = sources.libpointmatcher;
+  src = sources.libpointmatcher-42d41781f7dcc4dc8151c3985cb5825bdeaf8978;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

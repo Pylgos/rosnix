@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    examples_rclcpp_cbg_executor = substituteSource {
+    examples_rclcpp_cbg_executor-252aa7c2a48ab8e405559450005176eec1c956ff = substituteSource {
       src = fetchgit {
-        name = "examples_rclcpp_cbg_executor-source";
+        name = "examples_rclcpp_cbg_executor-252aa7c2a48ab8e405559450005176eec1c956ff-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "252aa7c2a48ab8e405559450005176eec1c956ff";
         hash = "sha256-7xxfcH0W413tJ4YVsQMejitI/aVXFTAQvwmKkng8v9Y=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "examples_rclcpp_cbg_executor";
   version = "0.20.2-1";
-  src = sources.examples_rclcpp_cbg_executor;
+  src = sources.examples_rclcpp_cbg_executor-252aa7c2a48ab8e405559450005176eec1c956ff;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

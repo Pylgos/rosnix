@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    forward_command_controller = substituteSource {
+    forward_command_controller-9dd395589b1a05a70c7478276c6bc44e3815801a = substituteSource {
       src = fetchgit {
-        name = "forward_command_controller-source";
+        name = "forward_command_controller-9dd395589b1a05a70c7478276c6bc44e3815801a-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "9dd395589b1a05a70c7478276c6bc44e3815801a";
         hash = "sha256-ydESp6NxrrtqpTFMzccCiZ1Yvq98COiGGGqZxTBD7s4=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "forward_command_controller";
   version = "4.14.0-1";
-  src = sources.forward_command_controller;
+  src = sources.forward_command_controller-9dd395589b1a05a70c7478276c6bc44e3815801a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

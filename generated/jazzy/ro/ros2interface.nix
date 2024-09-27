@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    ros2interface = substituteSource {
+    ros2interface-2fc4821d3d5b0e0d1effbb7dd5533b5bde2b33e1 = substituteSource {
       src = fetchgit {
-        name = "ros2interface-source";
+        name = "ros2interface-2fc4821d3d5b0e0d1effbb7dd5533b5bde2b33e1-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "2fc4821d3d5b0e0d1effbb7dd5533b5bde2b33e1";
         hash = "sha256-Amr7KhVrHZ1RxrrcLH3gqZmMqGBE5P+uqTIiAkfOSis=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "ros2interface";
   version = "0.32.1-1";
-  src = sources.ros2interface;
+  src = sources.ros2interface-2fc4821d3d5b0e0d1effbb7dd5533b5bde2b33e1;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_adapter ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

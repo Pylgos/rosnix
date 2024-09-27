@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    ffmpeg_image_transport = substituteSource {
+    ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e = substituteSource {
       src = fetchgit {
-        name = "ffmpeg_image_transport-source";
+        name = "ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e-source";
         url = "https://github.com/ros2-gbp/ffmpeg_image_transport-release.git";
         rev = "a9ce3897ba712754c30d0d8a5da5b90a00b5871e";
         hash = "sha256-NNfHNOjQyl6FVnmws3dcgDvUuE+EkIy2CyhFkCqoDNM=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "ffmpeg_image_transport";
   version = "1.0.1-1";
-  src = sources.ffmpeg_image_transport;
+  src = sources.ffmpeg_image_transport-a9ce3897ba712754c30d0d8a5da5b90a00b5871e;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

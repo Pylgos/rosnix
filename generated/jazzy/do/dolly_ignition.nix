@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    dolly_ignition = substituteSource {
+    dolly_ignition-30e66cc18f165d39df07f385651aa269dd5cb9f3 = substituteSource {
       src = fetchgit {
-        name = "dolly_ignition-source";
+        name = "dolly_ignition-30e66cc18f165d39df07f385651aa269dd5cb9f3-source";
         url = "https://github.com/ros2-gbp/dolly-release.git";
         rev = "30e66cc18f165d39df07f385651aa269dd5cb9f3";
         hash = "sha256-BGdsjbemIWS94BjSHjDClK1ui6sM17J0lJlrhfhj/Vg=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "dolly_ignition";
   version = "0.4.0-6";
-  src = sources.dolly_ignition;
+  src = sources.dolly_ignition-30e66cc18f165d39df07f385651aa269dd5cb9f3;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

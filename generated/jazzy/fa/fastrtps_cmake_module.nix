@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    fastrtps_cmake_module = substituteSource {
+    fastrtps_cmake_module-d3265cdbcaad3096098474edb966fd17eb5a977f = substituteSource {
       src = fetchgit {
-        name = "fastrtps_cmake_module-source";
+        name = "fastrtps_cmake_module-d3265cdbcaad3096098474edb966fd17eb5a977f-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
         rev = "d3265cdbcaad3096098474edb966fd17eb5a977f";
         hash = "sha256-CMvgUlOB5CpgyTkKXPsg5gTBnHHJWz1DLOwjQRe/UDs=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "fastrtps_cmake_module";
   version = "3.6.0-2";
-  src = sources.fastrtps_cmake_module;
+  src = sources.fastrtps_cmake_module-d3265cdbcaad3096098474edb966fd17eb5a977f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

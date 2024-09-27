@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    sdformat_urdf = substituteSource {
+    sdformat_urdf-a7a80ef621442c6ebff6bd182d225e8815a97469 = substituteSource {
       src = fetchgit {
-        name = "sdformat_urdf-source";
+        name = "sdformat_urdf-a7a80ef621442c6ebff6bd182d225e8815a97469-source";
         url = "https://github.com/ros2-gbp/sdformat_urdf-release.git";
         rev = "a7a80ef621442c6ebff6bd182d225e8815a97469";
         hash = "sha256-n5Nrn5TAPvuzJhNsos1w943T3HDWOoaoUuJbyyg1T18=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "sdformat_urdf";
   version = "2.0.1-1";
-  src = sources.sdformat_urdf;
+  src = sources.sdformat_urdf-a7a80ef621442c6ebff6bd182d225e8815a97469;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

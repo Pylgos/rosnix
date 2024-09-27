@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    shape_msgs = substituteSource {
+    shape_msgs-f20ef5cf36184023870a21277e9cb7bd4366edfa = substituteSource {
       src = fetchgit {
-        name = "shape_msgs-source";
+        name = "shape_msgs-f20ef5cf36184023870a21277e9cb7bd4366edfa-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "f20ef5cf36184023870a21277e9cb7bd4366edfa";
         hash = "sha256-Xzlep1d4PPY5cRyWth6pJmiscyubhdvffnfzGAMt9NI=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "shape_msgs";
   version = "5.4.1-1";
-  src = sources.shape_msgs;
+  src = sources.shape_msgs-f20ef5cf36184023870a21277e9cb7bd4366edfa;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

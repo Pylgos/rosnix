@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    ament_lint_auto = substituteSource {
+    ament_lint_auto-9dfbe5dc5dc7367e57c8df22283e0a2d9c674511 = substituteSource {
       src = fetchgit {
-        name = "ament_lint_auto-source";
+        name = "ament_lint_auto-9dfbe5dc5dc7367e57c8df22283e0a2d9c674511-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "9dfbe5dc5dc7367e57c8df22283e0a2d9c674511";
         hash = "sha256-cTEKLki3mpr0mnz11IYBahCl0Pn7oWCg5BfIwzUCvU4=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "ament_lint_auto";
   version = "0.17.1-1";
-  src = sources.ament_lint_auto;
+  src = sources.ament_lint_auto-9dfbe5dc5dc7367e57c8df22283e0a2d9c674511;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core ament_cmake_test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    imu_processors = substituteSource {
+    imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab = substituteSource {
       src = fetchgit {
-        name = "imu_processors-source";
+        name = "imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
         rev = "96e485da4d27f0f792095ad361ce54d8cdc6e6ab";
         hash = "sha256-ShCwGu82++kzA8jDNQZHJIG8R7Av04iVDxp8sMYze2g=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "imu_processors";
   version = "0.5.0-2";
-  src = sources.imu_processors;
+  src = sources.imu_processors-96e485da4d27f0f792095ad361ce54d8cdc6e6ab;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

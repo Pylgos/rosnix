@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    urdf = substituteSource {
+    urdf-36871dcd5a47d953a281ba3d54d41a8d102e1acc = substituteSource {
       src = fetchgit {
-        name = "urdf-source";
+        name = "urdf-36871dcd5a47d953a281ba3d54d41a8d102e1acc-source";
         url = "https://github.com/ros2-gbp/urdf-release.git";
         rev = "36871dcd5a47d953a281ba3d54d41a8d102e1acc";
         hash = "sha256-SvhhpjvdwMyjmAhJdP3SrN72LZ37MKzWvRbd90D4qBI=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "urdf";
   version = "2.12.0-1";
-  src = sources.urdf;
+  src = sources.urdf-36871dcd5a47d953a281ba3d54d41a8d102e1acc;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

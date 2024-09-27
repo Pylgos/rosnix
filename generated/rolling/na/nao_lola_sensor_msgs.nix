@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    nao_lola_sensor_msgs = substituteSource {
+    nao_lola_sensor_msgs-5b22506892455f9a1903d28f19bfc11be1725c68 = substituteSource {
       src = fetchgit {
-        name = "nao_lola_sensor_msgs-source";
+        name = "nao_lola_sensor_msgs-5b22506892455f9a1903d28f19bfc11be1725c68-source";
         url = "https://github.com/ros2-gbp/nao_lola-release.git";
         rev = "5b22506892455f9a1903d28f19bfc11be1725c68";
         hash = "sha256-I+mOw69Qd5OqCcNdvjpOn3LGw/W/7hPl71P0sgF+42k=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "nao_lola_sensor_msgs";
   version = "1.3.0-1";
-  src = sources.nao_lola_sensor_msgs;
+  src = sources.nao_lola_sensor_msgs-5b22506892455f9a1903d28f19bfc11be1725c68;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

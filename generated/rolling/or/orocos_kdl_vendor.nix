@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    orocos_kdl_vendor = substituteSource {
+    orocos_kdl_vendor-cdb25798979b61d7591030abc06923438eaf990c = substituteSource {
       src = fetchgit {
-        name = "orocos_kdl_vendor-source";
+        name = "orocos_kdl_vendor-cdb25798979b61d7591030abc06923438eaf990c-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
         rev = "cdb25798979b61d7591030abc06923438eaf990c";
         hash = "sha256-UMCjg5ol7D43QHfQX9G3elox5GLUsHb5Q93TExrjorc=";
@@ -24,13 +24,13 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/orocos/orocos_kinematics_dynamics.git";
-          to = "VCS_TYPE path VCS_URL ${orocos_kdl_vendor-vendor_source-orocos_kinematics_dynamics-0}";
+          to = "VCS_TYPE path VCS_URL ${orocos_kinematics_dynamics-vendor_source-ce4bcb65a050615b6d7f21bc60fbb2656515791b}";
         }
       ];
     };
-    orocos_kdl_vendor-vendor_source-orocos_kinematics_dynamics-0 = substituteSource {
+    orocos_kinematics_dynamics-vendor_source-ce4bcb65a050615b6d7f21bc60fbb2656515791b = substituteSource {
       src = fetchgit {
-        name = "orocos_kdl_vendor-vendor_source-orocos_kinematics_dynamics-0-source";
+        name = "orocos_kinematics_dynamics-vendor_source-ce4bcb65a050615b6d7f21bc60fbb2656515791b-source";
         url = "https://github.com/orocos/orocos_kinematics_dynamics.git";
         rev = "ce4bcb65a050615b6d7f21bc60fbb2656515791b";
         hash = "sha256-CfmwMQEg/tRVNaGglBZ94pBwva49mJJwkbSjhqzG2Pw=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "orocos_kdl_vendor";
   version = "0.6.1-1";
-  src = sources.orocos_kdl_vendor;
+  src = sources.orocos_kdl_vendor-cdb25798979b61d7591030abc06923438eaf990c;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,9 +11,19 @@
 }:
 let
   sources = rec {
-    rig_reconfigure = substituteSource {
+    imgui-vendor_source-f8704cd085c4347f835c21dc12a3951924143872 = substituteSource {
       src = fetchgit {
-        name = "rig_reconfigure-source";
+        name = "imgui-vendor_source-f8704cd085c4347f835c21dc12a3951924143872-source";
+        url = "https://github.com/ocornut/imgui.git";
+        rev = "f8704cd085c4347f835c21dc12a3951924143872";
+        hash = "sha256-eY8lRsonPfDRTMCPhInT9rQ6lSaJPsXpkh428OKpTnA=";
+      };
+      substitutions = [
+      ];
+    };
+    rig_reconfigure-4283814a77c44e9288104373831efbea6b955446 = substituteSource {
+      src = fetchgit {
+        name = "rig_reconfigure-4283814a77c44e9288104373831efbea6b955446-source";
         url = "https://github.com/ros2-gbp/rig_reconfigure-release.git";
         rev = "4283814a77c44e9288104373831efbea6b955446";
         hash = "sha256-5YdUtLc8CL42MhHlX2/Y0rbBFdE1G5GAIWBqj0NfIRY=";
@@ -22,18 +32,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/ocornut/imgui.git";
-          to = "URL ${rig_reconfigure-vendor_source-imgui-0}";
+          to = "URL ${imgui-vendor_source-f8704cd085c4347f835c21dc12a3951924143872}";
         }
-      ];
-    };
-    rig_reconfigure-vendor_source-imgui-0 = substituteSource {
-      src = fetchgit {
-        name = "rig_reconfigure-vendor_source-imgui-0-source";
-        url = "https://github.com/ocornut/imgui.git";
-        rev = "f8704cd085c4347f835c21dc12a3951924143872";
-        hash = "sha256-eY8lRsonPfDRTMCPhInT9rQ6lSaJPsXpkh428OKpTnA=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "rig_reconfigure";
   version = "1.5.0-1";
-  src = sources.rig_reconfigure;
+  src = sources.rig_reconfigure-4283814a77c44e9288104373831efbea6b955446;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

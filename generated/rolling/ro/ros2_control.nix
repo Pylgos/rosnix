@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    ros2_control = substituteSource {
+    ros2_control-78c179ee2df734283331252a7ab13ec2a51c5560 = substituteSource {
       src = fetchgit {
-        name = "ros2_control-source";
+        name = "ros2_control-78c179ee2df734283331252a7ab13ec2a51c5560-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "78c179ee2df734283331252a7ab13ec2a51c5560";
         hash = "sha256-Ehy5rcDHq2jWCrhCs+8tPY9dKivEIcRZdNl0Q0NoErA=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "ros2_control";
   version = "4.17.0-1";
-  src = sources.ros2_control;
+  src = sources.ros2_control-78c179ee2df734283331252a7ab13ec2a51c5560;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

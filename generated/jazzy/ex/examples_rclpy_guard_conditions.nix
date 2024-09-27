@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    examples_rclpy_guard_conditions = substituteSource {
+    examples_rclpy_guard_conditions-8e9f8d35826ef49362df7a763dd229f27d3b651a = substituteSource {
       src = fetchgit {
-        name = "examples_rclpy_guard_conditions-source";
+        name = "examples_rclpy_guard_conditions-8e9f8d35826ef49362df7a763dd229f27d3b651a-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "8e9f8d35826ef49362df7a763dd229f27d3b651a";
         hash = "sha256-XuoPymroDyoXWYabkwprlEVdOyalu5DjW759xyQjsPs=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "examples_rclpy_guard_conditions";
   version = "0.19.4-1";
-  src = sources.examples_rclpy_guard_conditions;
+  src = sources.examples_rclpy_guard_conditions-8e9f8d35826ef49362df7a763dd229f27d3b651a;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

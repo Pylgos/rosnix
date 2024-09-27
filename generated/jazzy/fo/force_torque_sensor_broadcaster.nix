@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    force_torque_sensor_broadcaster = substituteSource {
+    force_torque_sensor_broadcaster-da59f670274973247ebbde2c1366602152ea9525 = substituteSource {
       src = fetchgit {
-        name = "force_torque_sensor_broadcaster-source";
+        name = "force_torque_sensor_broadcaster-da59f670274973247ebbde2c1366602152ea9525-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "da59f670274973247ebbde2c1366602152ea9525";
         hash = "sha256-OZL9zqsTR2JItITxtzAlE2HA+N9+kZ29VHNiEGy5k7U=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "force_torque_sensor_broadcaster";
   version = "4.14.0-1";
-  src = sources.force_torque_sensor_broadcaster;
+  src = sources.force_torque_sensor_broadcaster-da59f670274973247ebbde2c1366602152ea9525;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

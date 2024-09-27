@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    robot_state_publisher = substituteSource {
+    robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942 = substituteSource {
       src = fetchgit {
-        name = "robot_state_publisher-source";
+        name = "robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942-source";
         url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
         rev = "877b7bc7de42bf1fdb65631902b524a0f70c5942";
         hash = "sha256-5FTqMqeamQAFt8XEpHuYh6JzILoqjaGujXl4Q30xwro=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "robot_state_publisher";
   version = "3.3.3-3";
-  src = sources.robot_state_publisher;
+  src = sources.robot_state_publisher-877b7bc7de42bf1fdb65631902b524a0f70c5942;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

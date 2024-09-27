@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    rqt_image_view = substituteSource {
+    rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127 = substituteSource {
       src = fetchgit {
-        name = "rqt_image_view-source";
+        name = "rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127-source";
         url = "https://github.com/ros2-gbp/rqt_image_view-release.git";
         rev = "04f951986b694c547d718f8ad62b7a6019a8d127";
         hash = "sha256-yg3Ts00hd8hELleYHejS5qrq7xSwPt9WphpSoj5mBTY=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "rqt_image_view";
   version = "1.3.0-1";
-  src = sources.rqt_image_view;
+  src = sources.rqt_image_view-04f951986b694c547d718f8ad62b7a6019a8d127;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

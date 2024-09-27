@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    ros2doctor = substituteSource {
+    ros2doctor-9a4760227b98da3d206e2e0a2dc5585565536bf1 = substituteSource {
       src = fetchgit {
-        name = "ros2doctor-source";
+        name = "ros2doctor-9a4760227b98da3d206e2e0a2dc5585565536bf1-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "9a4760227b98da3d206e2e0a2dc5585565536bf1";
         hash = "sha256-Egl9rcKcli2aH9MwTCpIE61o6vHC0NmdCKSz/qdi8pk=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "ros2doctor";
   version = "0.34.1-1";
-  src = sources.ros2doctor;
+  src = sources.ros2doctor-9a4760227b98da3d206e2e0a2dc5585565536bf1;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-importlib-metadata" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

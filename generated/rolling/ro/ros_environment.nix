@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ros_environment = substituteSource {
+    ros_environment-b475ce549478c96fc257d4e6972ff1dc826cc33b = substituteSource {
       src = fetchgit {
-        name = "ros_environment-source";
+        name = "ros_environment-b475ce549478c96fc257d4e6972ff1dc826cc33b-source";
         url = "https://github.com/ros2-gbp/ros_environment-release.git";
         rev = "b475ce549478c96fc257d4e6972ff1dc826cc33b";
         hash = "sha256-89KnNs/zSjc8CUp8tpoXh/YqEY+4zvPZAC5plw7aGCg=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ros_environment";
   version = "4.3.0-1";
-  src = sources.ros_environment;
+  src = sources.ros_environment-b475ce549478c96fc257d4e6972ff1dc826cc33b;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

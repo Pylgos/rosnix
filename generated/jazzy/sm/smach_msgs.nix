@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    smach_msgs = substituteSource {
+    smach_msgs-e4906ce6c6e13e5c028b738e8f00b7b518a5d76e = substituteSource {
       src = fetchgit {
-        name = "smach_msgs-source";
+        name = "smach_msgs-e4906ce6c6e13e5c028b738e8f00b7b518a5d76e-source";
         url = "https://github.com/ros2-gbp/executive_smach-release.git";
         rev = "e4906ce6c6e13e5c028b738e8f00b7b518a5d76e";
         hash = "sha256-GO/kVPGJMyEujXHxScev2o0WXzzzWX0rZHWTMJTPCwg=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "smach_msgs";
   version = "3.0.3-3";
-  src = sources.smach_msgs;
+  src = sources.smach_msgs-e4906ce6c6e13e5c028b738e8f00b7b518a5d76e;
   nativeBuildInputs = [ ament_cmake ament_cmake_cppcheck ament_cmake_flake8 ament_cmake_pep257 rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

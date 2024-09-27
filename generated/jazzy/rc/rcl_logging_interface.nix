@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rcl_logging_interface = substituteSource {
+    rcl_logging_interface-0f02a66b68786b02e070f4e4a90d73f26f115413 = substituteSource {
       src = fetchgit {
-        name = "rcl_logging_interface-source";
+        name = "rcl_logging_interface-0f02a66b68786b02e070f4e4a90d73f26f115413-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
         rev = "0f02a66b68786b02e070f4e4a90d73f26f115413";
         hash = "sha256-r7WviMcNX31Wz2qwm6JYMErRwdpCCnHYKsXyqBxrTrc=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rcl_logging_interface";
   version = "3.1.0-2";
-  src = sources.rcl_logging_interface;
+  src = sources.rcl_logging_interface-0f02a66b68786b02e070f4e4a90d73f26f115413;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

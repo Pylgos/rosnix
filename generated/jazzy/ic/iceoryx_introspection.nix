@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    iceoryx_introspection = substituteSource {
+    iceoryx_introspection-8fb32f968a3828199e8fbe8086d9eea445d3942a = substituteSource {
       src = fetchgit {
-        name = "iceoryx_introspection-source";
+        name = "iceoryx_introspection-8fb32f968a3828199e8fbe8086d9eea445d3942a-source";
         url = "https://github.com/ros2-gbp/iceoryx-release.git";
         rev = "8fb32f968a3828199e8fbe8086d9eea445d3942a";
         hash = "sha256-CQJ3hBCcrotZK6RXc42VUx+ZWcAJfXVoSQDC3eKzLi4=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "iceoryx_introspection";
   version = "2.0.5-6";
-  src = sources.iceoryx_introspection;
+  src = sources.iceoryx_introspection-8fb32f968a3828199e8fbe8086d9eea445d3942a;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

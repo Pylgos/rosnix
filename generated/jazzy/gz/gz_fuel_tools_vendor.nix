@@ -20,9 +20,19 @@
 }:
 let
   sources = rec {
-    gz_fuel_tools_vendor = substituteSource {
+    gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96 = substituteSource {
       src = fetchgit {
-        name = "gz_fuel_tools_vendor-source";
+        name = "gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96-source";
+        url = "https://github.com/gazebosim/gz-fuel-tools.git";
+        rev = "9726ac5ec3299a7b13dc9d09db0edb1be08f9d96";
+        hash = "sha256-txeIzj2vmvL5NDu6O07c7LwcCWE26OFEzvyc9TBrJAw=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_fuel_tools_vendor-262d813ef8739b0697893e218b661b1d45230ea6 = substituteSource {
+      src = fetchgit {
+        name = "gz_fuel_tools_vendor-262d813ef8739b0697893e218b661b1d45230ea6-source";
         url = "https://github.com/ros2-gbp/gz_fuel_tools_vendor-release.git";
         rev = "262d813ef8739b0697893e218b661b1d45230ea6";
         hash = "sha256-IMzeZsv+ckIsglxPwKG0qv1lO+h6kIErGNWD3Sx3E9c=";
@@ -31,18 +41,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_fuel_tools_vendor-vendor_source-gz-fuel-tools-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-fuel-tools-vendor_source-9726ac5ec3299a7b13dc9d09db0edb1be08f9d96}";
         }
-      ];
-    };
-    gz_fuel_tools_vendor-vendor_source-gz-fuel-tools-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_fuel_tools_vendor-vendor_source-gz-fuel-tools-0-source";
-        url = "https://github.com/gazebosim/gz-fuel-tools.git";
-        rev = "9726ac5ec3299a7b13dc9d09db0edb1be08f9d96";
-        hash = "sha256-txeIzj2vmvL5NDu6O07c7LwcCWE26OFEzvyc9TBrJAw=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -50,7 +50,7 @@ in
 buildRosPackage {
   pname = "gz_fuel_tools_vendor";
   version = "0.0.5-1";
-  src = sources.gz_fuel_tools_vendor;
+  src = sources.gz_fuel_tools_vendor-262d813ef8739b0697893e218b661b1d45230ea6;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

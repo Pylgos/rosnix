@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    laser_proc = substituteSource {
+    laser_proc-089952614224b15fcc4e69539094e10a651c626e = substituteSource {
       src = fetchgit {
-        name = "laser_proc-source";
+        name = "laser_proc-089952614224b15fcc4e69539094e10a651c626e-source";
         url = "https://github.com/ros2-gbp/laser_proc-release.git";
         rev = "089952614224b15fcc4e69539094e10a651c626e";
         hash = "sha256-h2lPjaJimCF/20eVEH3+ZS7CDqoML9voXq2B0x32NSY=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "laser_proc";
   version = "1.0.2-7";
-  src = sources.laser_proc;
+  src = sources.laser_proc-089952614224b15fcc4e69539094e10a651c626e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

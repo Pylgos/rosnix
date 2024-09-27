@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    kobuki_core = substituteSource {
+    kobuki_core-ce29c096e4ed537b5d05fb85ab22a9ad2620cb3e = substituteSource {
       src = fetchgit {
-        name = "kobuki_core-source";
+        name = "kobuki_core-ce29c096e4ed537b5d05fb85ab22a9ad2620cb3e-source";
         url = "https://github.com/ros2-gbp/kobuki_core-release.git";
         rev = "ce29c096e4ed537b5d05fb85ab22a9ad2620cb3e";
         hash = "sha256-Bq/+5lnLAiJ2HQtIr0h6wB08J7OxRxT4YhcLHIrCUwI=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "kobuki_core";
   version = "1.4.0-3";
-  src = sources.kobuki_core;
+  src = sources.kobuki_core-ce29c096e4ed537b5d05fb85ab22a9ad2620cb3e;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

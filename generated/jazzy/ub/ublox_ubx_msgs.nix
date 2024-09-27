@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    ublox_ubx_msgs = substituteSource {
+    ublox_ubx_msgs-ab4207257e0bd9e858866e33b108aa90ba412e5a = substituteSource {
       src = fetchgit {
-        name = "ublox_ubx_msgs-source";
+        name = "ublox_ubx_msgs-ab4207257e0bd9e858866e33b108aa90ba412e5a-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
         rev = "ab4207257e0bd9e858866e33b108aa90ba412e5a";
         hash = "sha256-ERggcaG4kBM5GwH5iM+42CzraKbcqjGc1IMqgeoBtrE=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "ublox_ubx_msgs";
   version = "0.5.3-2";
-  src = sources.ublox_ubx_msgs;
+  src = sources.ublox_ubx_msgs-ab4207257e0bd9e858866e33b108aa90ba412e5a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

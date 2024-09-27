@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    teleop_tools_msgs = substituteSource {
+    teleop_tools_msgs-b32647dbe0823076ef7fe7fcd153ce802691c826 = substituteSource {
       src = fetchgit {
-        name = "teleop_tools_msgs-source";
+        name = "teleop_tools_msgs-b32647dbe0823076ef7fe7fcd153ce802691c826-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "b32647dbe0823076ef7fe7fcd153ce802691c826";
         hash = "sha256-ZP73iRktZ99bhO727JQZry6o10V/7WbbL8u14VQJ9+w=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "teleop_tools_msgs";
   version = "1.5.1-1";
-  src = sources.teleop_tools_msgs;
+  src = sources.teleop_tools_msgs-b32647dbe0823076ef7fe7fcd153ce802691c826;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

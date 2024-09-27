@@ -41,9 +41,9 @@
 }:
 let
   sources = rec {
-    navigation2 = substituteSource {
+    navigation2-1f6fe63357b776fe7d5c62d7d064ae59481e5fb2 = substituteSource {
       src = fetchgit {
-        name = "navigation2-source";
+        name = "navigation2-1f6fe63357b776fe7d5c62d7d064ae59481e5fb2-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "1f6fe63357b776fe7d5c62d7d064ae59481e5fb2";
         hash = "sha256-kamrg4rOT0yj2K3kGV5WyWbQyb3H+NJvAUalMWfGd7Q=";
@@ -56,7 +56,7 @@ in
 buildRosPackage {
   pname = "navigation2";
   version = "1.3.2-1";
-  src = sources.navigation2;
+  src = sources.navigation2-1f6fe63357b776fe7d5c62d7d064ae59481e5fb2;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

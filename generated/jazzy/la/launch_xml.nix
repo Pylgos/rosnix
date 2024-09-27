@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    launch_xml = substituteSource {
+    launch_xml-d38b5e1dff58ba58a94a822846318b0840786023 = substituteSource {
       src = fetchgit {
-        name = "launch_xml-source";
+        name = "launch_xml-d38b5e1dff58ba58a94a822846318b0840786023-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
         rev = "d38b5e1dff58ba58a94a822846318b0840786023";
         hash = "sha256-Qqc/i5ghzglsx794HAP6CBwuymTldnwQzcBT/psyhw0=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "launch_xml";
   version = "3.4.2-2";
-  src = sources.launch_xml;
+  src = sources.launch_xml-d38b5e1dff58ba58a94a822846318b0840786023;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

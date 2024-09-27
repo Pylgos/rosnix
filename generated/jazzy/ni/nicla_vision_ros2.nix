@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    nicla_vision_ros2 = substituteSource {
+    nicla_vision_ros2-b33eddec43e1c091d1fa1ba7e2f472af3c16a049 = substituteSource {
       src = fetchgit {
-        name = "nicla_vision_ros2-source";
+        name = "nicla_vision_ros2-b33eddec43e1c091d1fa1ba7e2f472af3c16a049-source";
         url = "https://github.com/ros2-gbp/nicla_vision_ros2-release.git";
         rev = "b33eddec43e1c091d1fa1ba7e2f472af3c16a049";
         hash = "sha256-kbqf497KvUCBEGGx97IAV0I88+cAqKYb5ADFrvcO9hE=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "nicla_vision_ros2";
   version = "1.1.1-1";
-  src = sources.nicla_vision_ros2;
+  src = sources.nicla_vision_ros2-b33eddec43e1c091d1fa1ba7e2f472af3c16a049;
   nativeBuildInputs = [ ament_cmake ament_cmake_python rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

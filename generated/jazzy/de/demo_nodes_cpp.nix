@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    demo_nodes_cpp = substituteSource {
+    demo_nodes_cpp-8503f7f2390884f988816073ae52c0c14d475e3e = substituteSource {
       src = fetchgit {
-        name = "demo_nodes_cpp-source";
+        name = "demo_nodes_cpp-8503f7f2390884f988816073ae52c0c14d475e3e-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "8503f7f2390884f988816073ae52c0c14d475e3e";
         hash = "sha256-ufUSes0kYlVOPv5P/0roEjhtFlpjkTJatonPPj6g3ow=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "demo_nodes_cpp";
   version = "0.33.5-1";
-  src = sources.demo_nodes_cpp;
+  src = sources.demo_nodes_cpp-8503f7f2390884f988816073ae52c0c14d475e3e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

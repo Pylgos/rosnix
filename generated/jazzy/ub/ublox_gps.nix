@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    ublox_gps = substituteSource {
+    ublox_gps-f5d7776b5a2919a6764491726d07c5370b2488a2 = substituteSource {
       src = fetchgit {
-        name = "ublox_gps-source";
+        name = "ublox_gps-f5d7776b5a2919a6764491726d07c5370b2488a2-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
         rev = "f5d7776b5a2919a6764491726d07c5370b2488a2";
         hash = "sha256-reZXChxPuNCtJNjWaATs7ozW63ldzYenGz4KQv8rJ1M=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "ublox_gps";
   version = "2.3.0-4";
-  src = sources.ublox_gps;
+  src = sources.ublox_gps-f5d7776b5a2919a6764491726d07c5370b2488a2;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

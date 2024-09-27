@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    usb_cam = substituteSource {
+    usb_cam-9d2e5af7197f8021a289b5af78c7362eaf86fcb4 = substituteSource {
       src = fetchgit {
-        name = "usb_cam-source";
+        name = "usb_cam-9d2e5af7197f8021a289b5af78c7362eaf86fcb4-source";
         url = "https://github.com/ros2-gbp/usb_cam-release.git";
         rev = "9d2e5af7197f8021a289b5af78c7362eaf86fcb4";
         hash = "sha256-D4YStPBN+X8H0h6dWlVYgxuLYH5T7XWoyN0zLV5xN2E=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "usb_cam";
   version = "0.8.1-1";
-  src = sources.usb_cam;
+  src = sources.usb_cam-9d2e5af7197f8021a289b5af78c7362eaf86fcb4;
   nativeBuildInputs = [ ament_cmake_auto rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    rmf_api_msgs = substituteSource {
+    rmf_api_msgs-e00c97a9caa5c230e340223351218723451a4785 = substituteSource {
       src = fetchgit {
-        name = "rmf_api_msgs-source";
+        name = "rmf_api_msgs-e00c97a9caa5c230e340223351218723451a4785-source";
         url = "https://github.com/ros2-gbp/rmf_api_msgs-release.git";
         rev = "e00c97a9caa5c230e340223351218723451a4785";
         hash = "sha256-rc8Swg0XQiFJxp4w99aTdLzz96JAXTgDzZEmLi32Uqs=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "rmf_api_msgs";
   version = "0.4.0-1";
-  src = sources.rmf_api_msgs;
+  src = sources.rmf_api_msgs-e00c97a9caa5c230e340223351218723451a4785;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

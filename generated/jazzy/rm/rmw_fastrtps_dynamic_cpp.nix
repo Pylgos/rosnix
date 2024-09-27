@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    rmw_fastrtps_dynamic_cpp = substituteSource {
+    rmw_fastrtps_dynamic_cpp-e707a96d012841d846d5440de99c86887cf7a4a5 = substituteSource {
       src = fetchgit {
-        name = "rmw_fastrtps_dynamic_cpp-source";
+        name = "rmw_fastrtps_dynamic_cpp-e707a96d012841d846d5440de99c86887cf7a4a5-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
         rev = "e707a96d012841d846d5440de99c86887cf7a4a5";
         hash = "sha256-V2828PQAQJIhgnDggB3AHrhDQ4z2qbzacR9XAmvkgwQ=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "rmw_fastrtps_dynamic_cpp";
   version = "8.4.1-1";
-  src = sources.rmw_fastrtps_dynamic_cpp;
+  src = sources.rmw_fastrtps_dynamic_cpp-e707a96d012841d846d5440de99c86887cf7a4a5;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake fastrtps_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

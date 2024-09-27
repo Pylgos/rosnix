@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    libnabo = substituteSource {
+    libnabo-9e3e3ae45e0b4cb8d11edd4beabe849a5cdb393b = substituteSource {
       src = fetchgit {
-        name = "libnabo-source";
+        name = "libnabo-9e3e3ae45e0b4cb8d11edd4beabe849a5cdb393b-source";
         url = "https://github.com/ros2-gbp/libnabo-release.git";
         rev = "9e3e3ae45e0b4cb8d11edd4beabe849a5cdb393b";
         hash = "sha256-N2OmCLgobiplRxZeGlO7vZjCf68vvQms7EMT4yreN2c=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "libnabo";
   version = "1.1.1-1";
-  src = sources.libnabo;
+  src = sources.libnabo-9e3e3ae45e0b4cb8d11edd4beabe849a5cdb393b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

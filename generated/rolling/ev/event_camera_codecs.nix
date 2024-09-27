@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    event_camera_codecs = substituteSource {
+    event_camera_codecs-ef4d15e31247f27136cb0fa31a91be03301cbe31 = substituteSource {
       src = fetchgit {
-        name = "event_camera_codecs-source";
+        name = "event_camera_codecs-ef4d15e31247f27136cb0fa31a91be03301cbe31-source";
         url = "https://github.com/ros2-gbp/event_camera_codecs-release.git";
         rev = "ef4d15e31247f27136cb0fa31a91be03301cbe31";
         hash = "sha256-9Eas9XPxZcx9fbTdybVPyqvyW6KEShMM/xaX0xqv+aw=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "event_camera_codecs";
   version = "1.0.5-1";
-  src = sources.event_camera_codecs;
+  src = sources.event_camera_codecs-ef4d15e31247f27136cb0fa31a91be03301cbe31;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

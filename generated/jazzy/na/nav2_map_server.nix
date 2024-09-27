@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    nav2_map_server = substituteSource {
+    nav2_map_server-2cc46a8da02d1bf47c55e6f879f28f1f83fbab36 = substituteSource {
       src = fetchgit {
-        name = "nav2_map_server-source";
+        name = "nav2_map_server-2cc46a8da02d1bf47c55e6f879f28f1f83fbab36-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "2cc46a8da02d1bf47c55e6f879f28f1f83fbab36";
         hash = "sha256-WRK3aQuENt5qMq+gPo495n3d4g5uXTLEGmk2y1S/OXw=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "nav2_map_server";
   version = "1.3.2-1";
-  src = sources.nav2_map_server;
+  src = sources.nav2_map_server-2cc46a8da02d1bf47c55e6f879f28f1f83fbab36;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

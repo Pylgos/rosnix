@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    parameter_traits = substituteSource {
+    parameter_traits-0577dcddd4cb3493754104e11613a3cbf858f777 = substituteSource {
       src = fetchgit {
-        name = "parameter_traits-source";
+        name = "parameter_traits-0577dcddd4cb3493754104e11613a3cbf858f777-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
         rev = "0577dcddd4cb3493754104e11613a3cbf858f777";
         hash = "sha256-tbkbI2Z5iOPtVMur4gJQVJQ+af59uhEZt7UNahBZ01I=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "parameter_traits";
   version = "0.3.8-4";
-  src = sources.parameter_traits;
+  src = sources.parameter_traits-0577dcddd4cb3493754104e11613a3cbf858f777;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

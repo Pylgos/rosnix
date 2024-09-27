@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    velodyne_simulator = substituteSource {
+    velodyne_simulator-b06e73cc29075cbe9a2823e2a4e66f3f7954e987 = substituteSource {
       src = fetchgit {
-        name = "velodyne_simulator-source";
+        name = "velodyne_simulator-b06e73cc29075cbe9a2823e2a4e66f3f7954e987-source";
         url = "https://github.com/ros2-gbp/velodyne_simulator-release.git";
         rev = "b06e73cc29075cbe9a2823e2a4e66f3f7954e987";
         hash = "sha256-Cu17nhMENoRv3E5+1HvQyw35oWBdZXPr9BQ3APt4Q0c=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "velodyne_simulator";
   version = "2.0.3-4";
-  src = sources.velodyne_simulator;
+  src = sources.velodyne_simulator-b06e73cc29075cbe9a2823e2a4e66f3f7954e987;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

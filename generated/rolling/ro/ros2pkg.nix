@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    ros2pkg = substituteSource {
+    ros2pkg-9e91f8b6683ac216c08a18be3e3142d1aa04f7d9 = substituteSource {
       src = fetchgit {
-        name = "ros2pkg-source";
+        name = "ros2pkg-9e91f8b6683ac216c08a18be3e3142d1aa04f7d9-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
         rev = "9e91f8b6683ac216c08a18be3e3142d1aa04f7d9";
         hash = "sha256-nherNPpJx1pcZEbS3RPwB3rqNKXsjqZw6xdth1sxBmo=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "ros2pkg";
   version = "0.34.1-1";
-  src = sources.ros2pkg;
+  src = sources.ros2pkg-9e91f8b6683ac216c08a18be3e3142d1aa04f7d9;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_copyright ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-empy" "python3-importlib-resources" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

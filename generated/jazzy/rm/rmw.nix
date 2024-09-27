@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rmw = substituteSource {
+    rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3 = substituteSource {
       src = fetchgit {
-        name = "rmw-source";
+        name = "rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3-source";
         url = "https://github.com/ros2-gbp/rmw-release.git";
         rev = "785f02ef6ccd4c863ddb665f39498a854c14d0a3";
         hash = "sha256-ytGuQrW/Nt8ZX9IJPoGLQCbkrs/QPjZxskxKOD2rLtU=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rmw";
   version = "7.3.1-1";
-  src = sources.rmw;
+  src = sources.rmw-785f02ef6ccd4c863ddb665f39498a854c14d0a3;
   nativeBuildInputs = [ ament_cmake_ros ament_cmake_version ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

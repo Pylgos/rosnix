@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    mrpt_libmath = substituteSource {
+    mrpt_libmath-81175f4945be145ba6664a18f2491de316b66282 = substituteSource {
       src = fetchgit {
-        name = "mrpt_libmath-source";
+        name = "mrpt_libmath-81175f4945be145ba6664a18f2491de316b66282-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
         rev = "81175f4945be145ba6664a18f2491de316b66282";
         hash = "sha256-1m8D8/COGUaZQcQGbTGpKb2cJyuQcvU8uTMFCFAeRPY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "mrpt_libmath";
   version = "2.14.1-1";
-  src = sources.mrpt_libmath;
+  src = sources.mrpt_libmath-81175f4945be145ba6664a18f2491de316b66282;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

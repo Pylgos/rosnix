@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    nav2_collision_monitor = substituteSource {
+    nav2_collision_monitor-0f167662f9c507cb0cfd8d1b1be30181ab3a60f5 = substituteSource {
       src = fetchgit {
-        name = "nav2_collision_monitor-source";
+        name = "nav2_collision_monitor-0f167662f9c507cb0cfd8d1b1be30181ab3a60f5-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "0f167662f9c507cb0cfd8d1b1be30181ab3a60f5";
         hash = "sha256-WSNXPiamfmrxFjAyvQOd4d/wqZz7s9RgIQJLACMyB34=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "nav2_collision_monitor";
   version = "1.3.2-1";
-  src = sources.nav2_collision_monitor;
+  src = sources.nav2_collision_monitor-0f167662f9c507cb0cfd8d1b1be30181ab3a60f5;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

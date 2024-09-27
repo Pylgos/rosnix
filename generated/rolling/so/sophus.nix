@@ -8,9 +8,19 @@
 }:
 let
   sources = rec {
-    sophus = substituteSource {
+    pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465 = substituteSource {
       src = fetchgit {
-        name = "sophus-source";
+        name = "pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465-source";
+        url = "https://github.com/pybind/pybind11.git";
+        rev = "7e418f49243bb7d13fa92cf2634af1eeac386465";
+        hash = "sha256-XZIS48ZWNBHBMr+gvxCuimD24jAIU8P/fUoDiBhQzaU=";
+      };
+      substitutions = [
+      ];
+    };
+    sophus-dadc2a318c81321689a7d82279e99fed2a4948bc = substituteSource {
+      src = fetchgit {
+        name = "sophus-dadc2a318c81321689a7d82279e99fed2a4948bc-source";
         url = "https://github.com/ros2-gbp/sophus-release.git";
         rev = "dadc2a318c81321689a7d82279e99fed2a4948bc";
         hash = "sha256-xTS2ysDs9SSKpvKrxnhooJVtfpwRvYCuMpbFc4skbDM=";
@@ -19,18 +29,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/pybind/pybind11.git";
-          to = "URL ${sophus-vendor_source-pybind11-0}";
+          to = "URL ${pybind11-vendor_source-7e418f49243bb7d13fa92cf2634af1eeac386465}";
         }
-      ];
-    };
-    sophus-vendor_source-pybind11-0 = substituteSource {
-      src = fetchgit {
-        name = "sophus-vendor_source-pybind11-0-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "7e418f49243bb7d13fa92cf2634af1eeac386465";
-        hash = "sha256-XZIS48ZWNBHBMr+gvxCuimD24jAIU8P/fUoDiBhQzaU=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "sophus";
   version = "1.22.9102-2";
-  src = sources.sophus;
+  src = sources.sophus-dadc2a318c81321689a7d82279e99fed2a4948bc;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

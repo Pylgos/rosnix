@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    geometry2 = substituteSource {
+    geometry2-84b710261f990955cae9e42f3f8d1b1faa7f93e0 = substituteSource {
       src = fetchgit {
-        name = "geometry2-source";
+        name = "geometry2-84b710261f990955cae9e42f3f8d1b1faa7f93e0-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "84b710261f990955cae9e42f3f8d1b1faa7f93e0";
         hash = "sha256-6s51gmzESDAK4da3TgiWxudQg0zURb6KHC1Qg9BHK1c=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "geometry2";
   version = "0.38.2-1";
-  src = sources.geometry2;
+  src = sources.geometry2-84b710261f990955cae9e42f3f8d1b1faa7f93e0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

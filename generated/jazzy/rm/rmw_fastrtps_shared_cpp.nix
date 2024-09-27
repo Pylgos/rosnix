@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    rmw_fastrtps_shared_cpp = substituteSource {
+    rmw_fastrtps_shared_cpp-0e173ceeb37f9fbb0295b3c8fa95391d18dabb06 = substituteSource {
       src = fetchgit {
-        name = "rmw_fastrtps_shared_cpp-source";
+        name = "rmw_fastrtps_shared_cpp-0e173ceeb37f9fbb0295b3c8fa95391d18dabb06-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
         rev = "0e173ceeb37f9fbb0295b3c8fa95391d18dabb06";
         hash = "sha256-adf+3Se8tqfuijOpOkifvbK+bsVN0Lw1yY1GjLm04fU=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "rmw_fastrtps_shared_cpp";
   version = "8.4.1-1";
-  src = sources.rmw_fastrtps_shared_cpp;
+  src = sources.rmw_fastrtps_shared_cpp-0e173ceeb37f9fbb0295b3c8fa95391d18dabb06;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake fastrtps_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

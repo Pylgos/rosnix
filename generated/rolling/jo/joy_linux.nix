@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    joy_linux = substituteSource {
+    joy_linux-3ba3794b6061c3c7a1ed7904cbc5d337a57c6fec = substituteSource {
       src = fetchgit {
-        name = "joy_linux-source";
+        name = "joy_linux-3ba3794b6061c3c7a1ed7904cbc5d337a57c6fec-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "3ba3794b6061c3c7a1ed7904cbc5d337a57c6fec";
         hash = "sha256-MCxXwhqUhQHqDvJeyzEVpjLjHtbbIKly+aduefEBefM=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "joy_linux";
   version = "3.3.0-2";
-  src = sources.joy_linux;
+  src = sources.joy_linux-3ba3794b6061c3c7a1ed7904cbc5d337a57c6fec;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    quaternion_operation = substituteSource {
+    quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6 = substituteSource {
       src = fetchgit {
-        name = "quaternion_operation-source";
+        name = "quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6-source";
         url = "https://github.com/ros2-gbp/quaternion_operation-release.git";
         rev = "5caa679fcf2a9098a3c9fb91fe47c62b4006baf6";
         hash = "sha256-EOoZrowJNVGtJNutD+5WlSgVWbmOGlzSJyvsALmfji8=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "quaternion_operation";
   version = "0.0.7-5";
-  src = sources.quaternion_operation;
+  src = sources.quaternion_operation-5caa679fcf2a9098a3c9fb91fe47c62b4006baf6;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    vrpn_mocap = substituteSource {
+    vrpn_mocap-ff6e0e030ec5415d376d4e42d65f759e5454bdaf = substituteSource {
       src = fetchgit {
-        name = "vrpn_mocap-source";
+        name = "vrpn_mocap-ff6e0e030ec5415d376d4e42d65f759e5454bdaf-source";
         url = "https://github.com/ros2-gbp/vrpn_mocap-release.git";
         rev = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf";
         hash = "sha256-qTdwB+YAkx59icepyKJgOykWlxF7kMMSSJ/EKm+NVWs=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "vrpn_mocap";
   version = "1.1.0-3";
-  src = sources.vrpn_mocap;
+  src = sources.vrpn_mocap-ff6e0e030ec5415d376d4e42d65f759e5454bdaf;
   nativeBuildInputs = [ ament_cmake eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

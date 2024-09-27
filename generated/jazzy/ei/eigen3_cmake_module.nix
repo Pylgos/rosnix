@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    eigen3_cmake_module = substituteSource {
+    eigen3_cmake_module-558850a9bed7e064e1dd11c03f5c43eaeaa8f656 = substituteSource {
       src = fetchgit {
-        name = "eigen3_cmake_module-source";
+        name = "eigen3_cmake_module-558850a9bed7e064e1dd11c03f5c43eaeaa8f656-source";
         url = "https://github.com/ros2-gbp/eigen3_cmake_module-release.git";
         rev = "558850a9bed7e064e1dd11c03f5c43eaeaa8f656";
         hash = "sha256-k2+KI5dgNItTq+Q9z/ORtjXBmyG29cWrs8Hwqk6lw5k=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "eigen3_cmake_module";
   version = "0.3.0-3";
-  src = sources.eigen3_cmake_module;
+  src = sources.eigen3_cmake_module-558850a9bed7e064e1dd11c03f5c43eaeaa8f656;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    plotjuggler_ros = substituteSource {
+    plotjuggler_ros-3498b0cebc478d3431d3382ac7e75dd3ded8b115 = substituteSource {
       src = fetchgit {
-        name = "plotjuggler_ros-source";
+        name = "plotjuggler_ros-3498b0cebc478d3431d3382ac7e75dd3ded8b115-source";
         url = "https://github.com/ros2-gbp/plotjuggler-ros-plugins-release.git";
         rev = "3498b0cebc478d3431d3382ac7e75dd3ded8b115";
         hash = "sha256-+d7GpqXlKqeQdqb5IGZB2Krc/uFEN9rqGmqn2o/2Bd4=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "plotjuggler_ros";
   version = "2.1.3-1";
-  src = sources.plotjuggler_ros;
+  src = sources.plotjuggler_ros-3498b0cebc478d3431d3382ac7e75dd3ded8b115;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -58,9 +58,9 @@
 }:
 let
   sources = rec {
-    desktop = substituteSource {
+    desktop-d2ceeb23ea147b9e4edc88392520a6e3d2e553e6 = substituteSource {
       src = fetchgit {
-        name = "desktop-source";
+        name = "desktop-d2ceeb23ea147b9e4edc88392520a6e3d2e553e6-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "d2ceeb23ea147b9e4edc88392520a6e3d2e553e6";
         hash = "sha256-SDdRl/0AhXOo1iKjZqc+XABRaWTXxOE0fiLzJVFnvDY=";
@@ -73,7 +73,7 @@ in
 buildRosPackage {
   pname = "desktop";
   version = "0.11.0-1";
-  src = sources.desktop;
+  src = sources.desktop-d2ceeb23ea147b9e4edc88392520a6e3d2e553e6;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

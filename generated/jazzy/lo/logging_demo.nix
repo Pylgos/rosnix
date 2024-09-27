@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    logging_demo = substituteSource {
+    logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54 = substituteSource {
       src = fetchgit {
-        name = "logging_demo-source";
+        name = "logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "0637cc57d07f827c4eb3415d9c1f5a60af3c4d54";
         hash = "sha256-CfJAEKfLBIjGGwjGRHUsmR35+Z2H1I2Gby0C4Hw+zi4=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "logging_demo";
   version = "0.33.5-1";
-  src = sources.logging_demo;
+  src = sources.logging_demo-0637cc57d07f827c4eb3415d9c1f5a60af3c4d54;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

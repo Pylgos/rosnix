@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rmf_visualization_msgs = substituteSource {
+    rmf_visualization_msgs-7b107b018fad7d99d9c691d45415999f9debb04d = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization_msgs-source";
+        name = "rmf_visualization_msgs-7b107b018fad7d99d9c691d45415999f9debb04d-source";
         url = "https://github.com/ros2-gbp/rmf_visualization_msgs-release.git";
         rev = "7b107b018fad7d99d9c691d45415999f9debb04d";
         hash = "sha256-5vCaDnG4VwG8KZl0dVZzN0hUxcShW5mwtlwFt6ktAk4=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rmf_visualization_msgs";
   version = "1.5.0-1";
-  src = sources.rmf_visualization_msgs;
+  src = sources.rmf_visualization_msgs-7b107b018fad7d99d9c691d45415999f9debb04d;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

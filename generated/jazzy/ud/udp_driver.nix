@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    udp_driver = substituteSource {
+    udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a = substituteSource {
       src = fetchgit {
-        name = "udp_driver-source";
+        name = "udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
         rev = "de1037c5bdee946ffc06ca634e2fd26f1333528a";
         hash = "sha256-ufshq3ku5f0OLD1L+CJhsfg8tSqLiOzmXueZGXDO9+4=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "udp_driver";
   version = "1.2.0-4";
-  src = sources.udp_driver;
+  src = sources.udp_driver-de1037c5bdee946ffc06ca634e2fd26f1333528a;
   nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    beluga_ros = substituteSource {
+    beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55 = substituteSource {
       src = fetchgit {
-        name = "beluga_ros-source";
+        name = "beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
         hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "beluga_ros";
   version = "2.0.2-1";
-  src = sources.beluga_ros;
+  src = sources.beluga_ros-2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

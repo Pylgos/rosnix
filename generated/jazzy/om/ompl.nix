@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    ompl = substituteSource {
+    ompl-fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd = substituteSource {
       src = fetchgit {
-        name = "ompl-source";
+        name = "ompl-fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd-source";
         url = "https://github.com/ros2-gbp/ompl-release.git";
         rev = "fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd";
         hash = "sha256-Dst2FtQsK0+EzvSm7GEESWOU8QfMPzhSNNYEIlTNfc0=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "ompl";
   version = "1.6.0-1";
-  src = sources.ompl;
+  src = sources.ompl-fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

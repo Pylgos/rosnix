@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    rpyutils = substituteSource {
+    rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b = substituteSource {
       src = fetchgit {
-        name = "rpyutils-source";
+        name = "rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b-source";
         url = "https://github.com/ros2-gbp/rpyutils-release.git";
         rev = "6695a538e5cba92c66847abb6574eec63aa18c8b";
         hash = "sha256-t72zIwVtVJX3ZymNZ2iOhOwgSN/sycNcRLBiEDjmEag=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "rpyutils";
   version = "0.5.0-1";
-  src = sources.rpyutils;
+  src = sources.rpyutils-6695a538e5cba92c66847abb6574eec63aa18c8b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

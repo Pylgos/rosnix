@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    moveit_visual_tools = substituteSource {
+    moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876 = substituteSource {
       src = fetchgit {
-        name = "moveit_visual_tools-source";
+        name = "moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876-source";
         url = "https://github.com/ros2-gbp/moveit_visual_tools-release.git";
         rev = "15653a26d06fb4725cdd4ec2626caa895586e876";
         hash = "sha256-OsgJs0kV7m3GzRlDL1x8i5hG03piwA+9f+Mbpx+dOmw=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "moveit_visual_tools";
   version = "4.1.0-3";
-  src = sources.moveit_visual_tools;
+  src = sources.moveit_visual_tools-15653a26d06fb4725cdd4ec2626caa895586e876;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

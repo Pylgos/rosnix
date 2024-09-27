@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    canopen_402_driver = substituteSource {
+    canopen_402_driver-101f303cc30684d76e09bbfbfb90a6cdcebc361b = substituteSource {
       src = fetchgit {
-        name = "canopen_402_driver-source";
+        name = "canopen_402_driver-101f303cc30684d76e09bbfbfb90a6cdcebc361b-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "101f303cc30684d76e09bbfbfb90a6cdcebc361b";
         hash = "sha256-jzPNcmFGqFCQ+Iu0skkeiXVNfNC1s6nZO6zBvTw+p7o=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "canopen_402_driver";
   version = "0.2.9-2";
-  src = sources.canopen_402_driver;
+  src = sources.canopen_402_driver-101f303cc30684d76e09bbfbfb90a6cdcebc361b;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

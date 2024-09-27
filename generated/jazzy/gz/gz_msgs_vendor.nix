@@ -17,9 +17,19 @@
 }:
 let
   sources = rec {
-    gz_msgs_vendor = substituteSource {
+    gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4 = substituteSource {
       src = fetchgit {
-        name = "gz_msgs_vendor-source";
+        name = "gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4-source";
+        url = "https://github.com/gazebosim/gz-msgs.git";
+        rev = "0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4";
+        hash = "sha256-PQT8EpTxafldnKG3hDSXw2P22gLRg2EfMllrzaTaDEw=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_msgs_vendor-25905a007be43a355645730c7be99fad30cc7636 = substituteSource {
+      src = fetchgit {
+        name = "gz_msgs_vendor-25905a007be43a355645730c7be99fad30cc7636-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
         rev = "25905a007be43a355645730c7be99fad30cc7636";
         hash = "sha256-0geXZdTt4n0yj0TwzXFxblk35LrxZePiOVTUBPLkwH4=";
@@ -28,18 +38,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_msgs_vendor-vendor_source-gz-msgs-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-msgs-vendor_source-0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4}";
         }
-      ];
-    };
-    gz_msgs_vendor-vendor_source-gz-msgs-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_msgs_vendor-vendor_source-gz-msgs-0-source";
-        url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4";
-        hash = "sha256-PQT8EpTxafldnKG3hDSXw2P22gLRg2EfMllrzaTaDEw=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "gz_msgs_vendor";
   version = "0.0.4-1";
-  src = sources.gz_msgs_vendor;
+  src = sources.gz_msgs_vendor-25905a007be43a355645730c7be99fad30cc7636;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

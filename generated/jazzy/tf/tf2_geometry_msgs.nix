@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    tf2_geometry_msgs = substituteSource {
+    tf2_geometry_msgs-6212e5422373e1c5ec14e74e3ab1786906928261 = substituteSource {
       src = fetchgit {
-        name = "tf2_geometry_msgs-source";
+        name = "tf2_geometry_msgs-6212e5422373e1c5ec14e74e3ab1786906928261-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "6212e5422373e1c5ec14e74e3ab1786906928261";
         hash = "sha256-+QObzKcNZ9ty7dJGQCLRJxrtxlgCbCr52/ETI6K3cQ0=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "tf2_geometry_msgs";
   version = "0.36.4-1";
-  src = sources.tf2_geometry_msgs;
+  src = sources.tf2_geometry_msgs-6212e5422373e1c5ec14e74e3ab1786906928261;
   nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

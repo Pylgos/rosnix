@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    ros_gz_sim = substituteSource {
+    ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b = substituteSource {
       src = fetchgit {
-        name = "ros_gz_sim-source";
+        name = "ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b";
         hash = "sha256-FoRu+Y1cHe74E4jeWffOy6YumycexOfzGyIbn4DEeHM=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "ros_gz_sim";
   version = "1.0.4-1";
-  src = sources.ros_gz_sim;
+  src = sources.ros_gz_sim-8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

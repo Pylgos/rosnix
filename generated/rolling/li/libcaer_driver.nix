@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    libcaer_driver = substituteSource {
+    libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895 = substituteSource {
       src = fetchgit {
-        name = "libcaer_driver-source";
+        name = "libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895-source";
         url = "https://github.com/ros2-gbp/libcaer_driver-release.git";
         rev = "56e4267b26ea29a0cf9724b87f5959723354a895";
         hash = "sha256-RkhPG89kIKkm8AePQkzjAzAZ012RtBVSK2AQZwKYHTQ=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "libcaer_driver";
   version = "1.0.3-1";
-  src = sources.libcaer_driver;
+  src = sources.libcaer_driver-56e4267b26ea29a0cf9724b87f5959723354a895;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ament_cmake_ros ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

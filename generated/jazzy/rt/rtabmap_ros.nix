@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    rtabmap_ros = substituteSource {
+    rtabmap_ros-0657471e1353d3541447a2cc2b00271aaf695972 = substituteSource {
       src = fetchgit {
-        name = "rtabmap_ros-source";
+        name = "rtabmap_ros-0657471e1353d3541447a2cc2b00271aaf695972-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
         rev = "0657471e1353d3541447a2cc2b00271aaf695972";
         hash = "sha256-lfDi9FGpg8jfzKpZviZiOi54jP4uySFHVV8G+LS66U4=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "rtabmap_ros";
   version = "0.21.5-3";
-  src = sources.rtabmap_ros;
+  src = sources.rtabmap_ros-0657471e1353d3541447a2cc2b00271aaf695972;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    mrpt_libhwdrivers = substituteSource {
+    mrpt_libhwdrivers-f41860ae605be728df240bc0a1dd22775f132039 = substituteSource {
       src = fetchgit {
-        name = "mrpt_libhwdrivers-source";
+        name = "mrpt_libhwdrivers-f41860ae605be728df240bc0a1dd22775f132039-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
         rev = "f41860ae605be728df240bc0a1dd22775f132039";
         hash = "sha256-pe3WsOHkli/K1BXDRpGCLzn3X2QqqOU7wAKsW8WadPA=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "mrpt_libhwdrivers";
   version = "2.14.1-1";
-  src = sources.mrpt_libhwdrivers;
+  src = sources.mrpt_libhwdrivers-f41860ae605be728df240bc0a1dd22775f132039;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    automotive_navigation_msgs = substituteSource {
+    automotive_navigation_msgs-a7a4af96be7bcd5fb697f17127c2e7b3364b993b = substituteSource {
       src = fetchgit {
-        name = "automotive_navigation_msgs-source";
+        name = "automotive_navigation_msgs-a7a4af96be7bcd5fb697f17127c2e7b3364b993b-source";
         url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
         rev = "a7a4af96be7bcd5fb697f17127c2e7b3364b993b";
         hash = "sha256-N+QDJUyFWyIto9hqSOYNMPTrVLJR+tIO2J4ExUZ27+0=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "automotive_navigation_msgs";
   version = "3.0.4-6";
-  src = sources.automotive_navigation_msgs;
+  src = sources.automotive_navigation_msgs-a7a4af96be7bcd5fb697f17127c2e7b3364b993b;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    ros_industrial_cmake_boilerplate = substituteSource {
+    ros_industrial_cmake_boilerplate-09c03bebd52e95c6f5f92dc7dbe5071039b220fd = substituteSource {
       src = fetchgit {
-        name = "ros_industrial_cmake_boilerplate-source";
+        name = "ros_industrial_cmake_boilerplate-09c03bebd52e95c6f5f92dc7dbe5071039b220fd-source";
         url = "https://github.com/ros2-gbp/ros_industrial_cmake_boilerplate-release.git";
         rev = "09c03bebd52e95c6f5f92dc7dbe5071039b220fd";
         hash = "sha256-yxsr0rMyvBYeoeMkhnWs1wSUR+qmZ66S/z9WOpMtRwk=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "ros_industrial_cmake_boilerplate";
   version = "0.5.4-3";
-  src = sources.ros_industrial_cmake_boilerplate;
+  src = sources.ros_industrial_cmake_boilerplate-09c03bebd52e95c6f5f92dc7dbe5071039b220fd;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

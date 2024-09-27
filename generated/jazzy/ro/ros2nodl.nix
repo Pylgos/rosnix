@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    ros2nodl = substituteSource {
+    ros2nodl-79e166114dcef2812bc1d7bc0d91b798323565ea = substituteSource {
       src = fetchgit {
-        name = "ros2nodl-source";
+        name = "ros2nodl-79e166114dcef2812bc1d7bc0d91b798323565ea-source";
         url = "https://github.com/ros2-gbp/nodl-release.git";
         rev = "79e166114dcef2812bc1d7bc0d91b798323565ea";
         hash = "sha256-8JQgseO9AxfsDy2YuxQ/dojS/6MOLaCKwBGUX8hIgwk=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "ros2nodl";
   version = "0.3.1-5";
-  src = sources.ros2nodl;
+  src = sources.ros2nodl-79e166114dcef2812bc1d7bc0d91b798323565ea;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

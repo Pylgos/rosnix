@@ -14,9 +14,19 @@
 }:
 let
   sources = rec {
-    gz_cmake_vendor = substituteSource {
+    gz-cmake-vendor_source-6e202b72e56bda3965d1efdf6edf8447cc1299cc = substituteSource {
       src = fetchgit {
-        name = "gz_cmake_vendor-source";
+        name = "gz-cmake-vendor_source-6e202b72e56bda3965d1efdf6edf8447cc1299cc-source";
+        url = "https://github.com/gazebosim/gz-cmake.git";
+        rev = "6e202b72e56bda3965d1efdf6edf8447cc1299cc";
+        hash = "sha256-r1XQqx+JqH+ITZIaixgZjA/9weyPq8+LQ1N2ZsIdOK4=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_cmake_vendor-a0b6c7c350fb2cf13eb81c45bf8d9636e671a5f9 = substituteSource {
+      src = fetchgit {
+        name = "gz_cmake_vendor-a0b6c7c350fb2cf13eb81c45bf8d9636e671a5f9-source";
         url = "https://github.com/ros2-gbp/gz_cmake_vendor-release.git";
         rev = "a0b6c7c350fb2cf13eb81c45bf8d9636e671a5f9";
         hash = "sha256-Du1OPUNOy4/njNpEwsNZoqfkZU80+Y8m4gfx9c5EdpM=";
@@ -25,18 +35,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_cmake_vendor-vendor_source-gz-cmake-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-cmake-vendor_source-6e202b72e56bda3965d1efdf6edf8447cc1299cc}";
         }
-      ];
-    };
-    gz_cmake_vendor-vendor_source-gz-cmake-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_cmake_vendor-vendor_source-gz-cmake-0-source";
-        url = "https://github.com/gazebosim/gz-cmake.git";
-        rev = "6e202b72e56bda3965d1efdf6edf8447cc1299cc";
-        hash = "sha256-r1XQqx+JqH+ITZIaixgZjA/9weyPq8+LQ1N2ZsIdOK4=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -44,7 +44,7 @@ in
 buildRosPackage {
   pname = "gz_cmake_vendor";
   version = "0.2.0-1";
-  src = sources.gz_cmake_vendor;
+  src = sources.gz_cmake_vendor-a0b6c7c350fb2cf13eb81c45bf8d9636e671a5f9;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

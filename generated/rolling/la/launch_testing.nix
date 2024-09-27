@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    launch_testing = substituteSource {
+    launch_testing-4fb8b8b075cfde8ceeefe6d3b9824c958a008a5d = substituteSource {
       src = fetchgit {
-        name = "launch_testing-source";
+        name = "launch_testing-4fb8b8b075cfde8ceeefe6d3b9824c958a008a5d-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
         rev = "4fb8b8b075cfde8ceeefe6d3b9824c958a008a5d";
         hash = "sha256-rm7tikgeZVe6xMX1+PrCXbcZUnxAABhTumfoJY2+7YM=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "launch_testing";
   version = "3.6.1-1";
-  src = sources.launch_testing;
+  src = sources.launch_testing-4fb8b8b075cfde8ceeefe6d3b9824c958a008a5d;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

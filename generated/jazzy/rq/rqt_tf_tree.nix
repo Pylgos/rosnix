@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_tf_tree = substituteSource {
+    rqt_tf_tree-bddd1dc3eb5c80eae48a68e9701110d3e5832e0c = substituteSource {
       src = fetchgit {
-        name = "rqt_tf_tree-source";
+        name = "rqt_tf_tree-bddd1dc3eb5c80eae48a68e9701110d3e5832e0c-source";
         url = "https://github.com/ros2-gbp/rqt_tf_tree-release.git";
         rev = "bddd1dc3eb5c80eae48a68e9701110d3e5832e0c";
         hash = "sha256-waY5Aa3qycV9O2EEFcztdpfuu+CFOxb42p7gI/IuZUU=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_tf_tree";
   version = "1.0.5-1";
-  src = sources.rqt_tf_tree;
+  src = sources.rqt_tf_tree-bddd1dc3eb5c80eae48a68e9701110d3e5832e0c;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

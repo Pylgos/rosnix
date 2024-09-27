@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    dolly_gazebo = substituteSource {
+    dolly_gazebo-30060ffd0d83f819734f575a8fb4939eeb2b2087 = substituteSource {
       src = fetchgit {
-        name = "dolly_gazebo-source";
+        name = "dolly_gazebo-30060ffd0d83f819734f575a8fb4939eeb2b2087-source";
         url = "https://github.com/ros2-gbp/dolly-release.git";
         rev = "30060ffd0d83f819734f575a8fb4939eeb2b2087";
         hash = "sha256-sLCbhJjIRzZvq15SlStZjonIvhpPw57fK5vRlQ3689A=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "dolly_gazebo";
   version = "0.4.0-5";
-  src = sources.dolly_gazebo;
+  src = sources.dolly_gazebo-30060ffd0d83f819734f575a8fb4939eeb2b2087;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

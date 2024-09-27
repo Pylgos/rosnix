@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    rosbag2_test_msgdefs = substituteSource {
+    rosbag2_test_msgdefs-bef282383314aa625d7bddd297c60ec3b32b26dd = substituteSource {
       src = fetchgit {
-        name = "rosbag2_test_msgdefs-source";
+        name = "rosbag2_test_msgdefs-bef282383314aa625d7bddd297c60ec3b32b26dd-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "bef282383314aa625d7bddd297c60ec3b32b26dd";
         hash = "sha256-PareRl1TJAfHsDncY42oznfFxSGe+dqtPVfeK8p/Svg=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "rosbag2_test_msgdefs";
   version = "0.26.5-1";
-  src = sources.rosbag2_test_msgdefs;
+  src = sources.rosbag2_test_msgdefs-bef282383314aa625d7bddd297c60ec3b32b26dd;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

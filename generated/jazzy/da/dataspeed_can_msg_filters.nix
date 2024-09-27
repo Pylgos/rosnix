@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    dataspeed_can_msg_filters = substituteSource {
+    dataspeed_can_msg_filters-71d4b786b6be88a3dadbf1f82472610c1eb7b910 = substituteSource {
       src = fetchgit {
-        name = "dataspeed_can_msg_filters-source";
+        name = "dataspeed_can_msg_filters-71d4b786b6be88a3dadbf1f82472610c1eb7b910-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
         rev = "71d4b786b6be88a3dadbf1f82472610c1eb7b910";
         hash = "sha256-b13Q1VZE/i+3zczFz59cp2UEbtBBLn81/hOsuARwwws=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "dataspeed_can_msg_filters";
   version = "2.0.4-1";
-  src = sources.dataspeed_can_msg_filters;
+  src = sources.dataspeed_can_msg_filters-71d4b786b6be88a3dadbf1f82472610c1eb7b910;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

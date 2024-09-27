@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    mola_metric_maps = substituteSource {
+    mola_metric_maps-cb91103f08874e6538713e9341f32d279decd3f8 = substituteSource {
       src = fetchgit {
-        name = "mola_metric_maps-source";
+        name = "mola_metric_maps-cb91103f08874e6538713e9341f32d279decd3f8-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "cb91103f08874e6538713e9341f32d279decd3f8";
         hash = "sha256-fzdSSmRbXxNjZgSCh3StlfZkLf4KlHp4XmT9dly/9Yw=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "mola_metric_maps";
   version = "1.2.0-1";
-  src = sources.mola_metric_maps;
+  src = sources.mola_metric_maps-cb91103f08874e6538713e9341f32d279decd3f8;
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

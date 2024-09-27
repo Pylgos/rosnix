@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    velodyne_laserscan = substituteSource {
+    velodyne_laserscan-3b9fda8e6bcc2ed0cb44d9f36c75682e7c116716 = substituteSource {
       src = fetchgit {
-        name = "velodyne_laserscan-source";
+        name = "velodyne_laserscan-3b9fda8e6bcc2ed0cb44d9f36c75682e7c116716-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "3b9fda8e6bcc2ed0cb44d9f36c75682e7c116716";
         hash = "sha256-rSKlfJVrsBMOdfguEVxqRmL3bNJiRLJsyy6iTcxdfKY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "velodyne_laserscan";
   version = "2.3.0-3";
-  src = sources.velodyne_laserscan;
+  src = sources.velodyne_laserscan-3b9fda8e6bcc2ed0cb44d9f36c75682e7c116716;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

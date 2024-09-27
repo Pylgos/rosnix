@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    moveit_resources_prbt_ikfast_manipulator_plugin = substituteSource {
+    moveit_resources_prbt_ikfast_manipulator_plugin-98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb = substituteSource {
       src = fetchgit {
-        name = "moveit_resources_prbt_ikfast_manipulator_plugin-source";
+        name = "moveit_resources_prbt_ikfast_manipulator_plugin-98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb";
         hash = "sha256-XrTccUeeXR+i08B4Ai2KfSBj8vR1Rtu7TgrYvm1yIWU=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "moveit_resources_prbt_ikfast_manipulator_plugin";
   version = "2.11.0-1";
-  src = sources.moveit_resources_prbt_ikfast_manipulator_plugin;
+  src = sources.moveit_resources_prbt_ikfast_manipulator_plugin-98d4ba0caa9b752241cc52ae18c4ec5fd200bbfb;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    io_context = substituteSource {
+    io_context-c643b23ddac83542b700173d20e62fde3143ef7b = substituteSource {
       src = fetchgit {
-        name = "io_context-source";
+        name = "io_context-c643b23ddac83542b700173d20e62fde3143ef7b-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
         rev = "c643b23ddac83542b700173d20e62fde3143ef7b";
         hash = "sha256-RINF/bmOZEexBa8eMAkn2J1r1NOrze8SI3fx1t/ywak=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "io_context";
   version = "1.2.0-3";
-  src = sources.io_context;
+  src = sources.io_context-c643b23ddac83542b700173d20e62fde3143ef7b;
   nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    hpp-fcl = substituteSource {
+    hpp-fcl-d9086e0b71e208d4630555b0d0e47cf07a8ddee5 = substituteSource {
       src = fetchgit {
-        name = "hpp-fcl-source";
+        name = "hpp-fcl-d9086e0b71e208d4630555b0d0e47cf07a8ddee5-source";
         url = "https://github.com/ros2-gbp/hpp_fcl-release.git";
         rev = "d9086e0b71e208d4630555b0d0e47cf07a8ddee5";
         hash = "sha256-Cmb37aAo4tu2KLr30sOTgDPNr1Rti7UWPjoMkhRsMKc=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "hpp-fcl";
   version = "2.4.5-1";
-  src = sources.hpp-fcl;
+  src = sources.hpp-fcl-d9086e0b71e208d4630555b0d0e47cf07a8ddee5;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

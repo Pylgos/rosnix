@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    eigen_stl_containers = substituteSource {
+    eigen_stl_containers-e9ab518e7f504037094a576f85e52d674b031009 = substituteSource {
       src = fetchgit {
-        name = "eigen_stl_containers-source";
+        name = "eigen_stl_containers-e9ab518e7f504037094a576f85e52d674b031009-source";
         url = "https://github.com/ros2-gbp/eigen_stl_containers-release.git";
         rev = "e9ab518e7f504037094a576f85e52d674b031009";
         hash = "sha256-Zjjaom5lCGLMKC33kq6er1Ji54XUj/3hkSIWcBnXI+E=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "eigen_stl_containers";
   version = "1.0.0-6";
-  src = sources.eigen_stl_containers;
+  src = sources.eigen_stl_containers-e9ab518e7f504037094a576f85e52d674b031009;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

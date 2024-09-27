@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    point_cloud_transport_tutorial = substituteSource {
+    point_cloud_transport_tutorial-7f7173dd8ea3516976e9a5bf05228b3eb923c523 = substituteSource {
       src = fetchgit {
-        name = "point_cloud_transport_tutorial-source";
+        name = "point_cloud_transport_tutorial-7f7173dd8ea3516976e9a5bf05228b3eb923c523-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_tutorial-release.git";
         rev = "7f7173dd8ea3516976e9a5bf05228b3eb923c523";
         hash = "sha256-buQXTqTqhIZJ68B+sbZ3lVovLVRVKBrL7yCCoQygSc8=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "point_cloud_transport_tutorial";
   version = "0.0.2-1";
-  src = sources.point_cloud_transport_tutorial;
+  src = sources.point_cloud_transport_tutorial-7f7173dd8ea3516976e9a5bf05228b3eb923c523;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

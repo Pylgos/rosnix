@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    nao_lola_client = substituteSource {
+    nao_lola_client-4be01ae3cd50032105f32732f29481e574c9c1ed = substituteSource {
       src = fetchgit {
-        name = "nao_lola_client-source";
+        name = "nao_lola_client-4be01ae3cd50032105f32732f29481e574c9c1ed-source";
         url = "https://github.com/ros2-gbp/nao_lola-release.git";
         rev = "4be01ae3cd50032105f32732f29481e574c9c1ed";
         hash = "sha256-EC4It9qdpgQxnpVxErStgFzOy5Uq4NCqJ4mbwm4CWjk=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "nao_lola_client";
   version = "1.3.0-1";
-  src = sources.nao_lola_client;
+  src = sources.nao_lola_client-4be01ae3cd50032105f32732f29481e574c9c1ed;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

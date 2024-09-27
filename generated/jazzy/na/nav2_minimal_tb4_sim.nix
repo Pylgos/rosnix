@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    nav2_minimal_tb4_sim = substituteSource {
+    nav2_minimal_tb4_sim-8761baaf35829730ab24dbd553f7d437b4a542dc = substituteSource {
       src = fetchgit {
-        name = "nav2_minimal_tb4_sim-source";
+        name = "nav2_minimal_tb4_sim-8761baaf35829730ab24dbd553f7d437b4a542dc-source";
         url = "https://github.com/ros-navigation/nav2_minimal_turtlebot_simulation-release.git";
         rev = "8761baaf35829730ab24dbd553f7d437b4a542dc";
         hash = "sha256-rQfuepSMdQIJmkfUmcjG45kyVyy1F0+Tz8RlKHKTujc=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "nav2_minimal_tb4_sim";
   version = "1.0.1-1";
-  src = sources.nav2_minimal_tb4_sim;
+  src = sources.nav2_minimal_tb4_sim-8761baaf35829730ab24dbd553f7d437b4a542dc;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

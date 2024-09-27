@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    rosbag2_cpp = substituteSource {
+    rosbag2_cpp-09507dc0de06676db0318ad244f43f59b50ad221 = substituteSource {
       src = fetchgit {
-        name = "rosbag2_cpp-source";
+        name = "rosbag2_cpp-09507dc0de06676db0318ad244f43f59b50ad221-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
         rev = "09507dc0de06676db0318ad244f43f59b50ad221";
         hash = "sha256-le/u2gVdo2o4zd9Q0WvbZkPiYwiQYrWY1XMkee7uowI=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "rosbag2_cpp";
   version = "0.26.5-1";
-  src = sources.rosbag2_cpp;
+  src = sources.rosbag2_cpp-09507dc0de06676db0318ad244f43f59b50ad221;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_plot = substituteSource {
+    rqt_plot-52f8e3aba192bc6b53bf11694e14db186806e32a = substituteSource {
       src = fetchgit {
-        name = "rqt_plot-source";
+        name = "rqt_plot-52f8e3aba192bc6b53bf11694e14db186806e32a-source";
         url = "https://github.com/ros2-gbp/rqt_plot-release.git";
         rev = "52f8e3aba192bc6b53bf11694e14db186806e32a";
         hash = "sha256-RSUNEl7XsDbe5ADnnFE4RcoGUzyO/JsEkqMF10Cs94w=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_plot";
   version = "1.5.0-1";
-  src = sources.rqt_plot;
+  src = sources.rqt_plot-52f8e3aba192bc6b53bf11694e14db186806e32a;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    ament_cmake_catch2 = substituteSource {
+    ament_cmake_catch2-99c9bf4fa0edf16c1ea0099598cf03eeb6793d6b = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_catch2-source";
+        name = "ament_cmake_catch2-99c9bf4fa0edf16c1ea0099598cf03eeb6793d6b-source";
         url = "https://github.com/ros2-gbp/ament_cmake_catch2-release.git";
         rev = "99c9bf4fa0edf16c1ea0099598cf03eeb6793d6b";
         hash = "sha256-PFP5trdCmO4MmGg8CFeK0nTgMWRn+XQN2Z92TWyddYk=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "ament_cmake_catch2";
   version = "1.4.1-1";
-  src = sources.ament_cmake_catch2;
+  src = sources.ament_cmake_catch2-99c9bf4fa0edf16c1ea0099598cf03eeb6793d6b;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

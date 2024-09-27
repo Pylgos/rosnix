@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    apriltag_ros = substituteSource {
+    apriltag_ros-1f0ff6ec7df749994976a6c7df51b3bfdf954763 = substituteSource {
       src = fetchgit {
-        name = "apriltag_ros-source";
+        name = "apriltag_ros-1f0ff6ec7df749994976a6c7df51b3bfdf954763-source";
         url = "https://github.com/ros2-gbp/apriltag_ros-release.git";
         rev = "1f0ff6ec7df749994976a6c7df51b3bfdf954763";
         hash = "sha256-1BAPfaLgYZ+JV3LFidzL5IOnM4wd7fvcXNRkAzCyZU4=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "apriltag_ros";
   version = "3.2.2-1";
-  src = sources.apriltag_ros;
+  src = sources.apriltag_ros-1f0ff6ec7df749994976a6c7df51b3bfdf954763;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

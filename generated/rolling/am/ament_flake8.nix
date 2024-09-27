@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ament_flake8 = substituteSource {
+    ament_flake8-3810a74bdf9742742999a3cf7c41858535c59641 = substituteSource {
       src = fetchgit {
-        name = "ament_flake8-source";
+        name = "ament_flake8-3810a74bdf9742742999a3cf7c41858535c59641-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "3810a74bdf9742742999a3cf7c41858535c59641";
         hash = "sha256-+BzTuEDIDPEVwvpwaxXg3hBMvXqYeYdbHR0xfMObWxc=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ament_flake8";
   version = "0.18.1-1";
-  src = sources.ament_flake8;
+  src = sources.ament_flake8-3810a74bdf9742742999a3cf7c41858535c59641;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-flake8" "python3-flake8-builtins" "python3-flake8-comprehensions" "python3-flake8-docstrings" "python3-flake8-import-order" "python3-flake8-quotes" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

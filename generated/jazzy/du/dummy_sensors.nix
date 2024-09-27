@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    dummy_sensors = substituteSource {
+    dummy_sensors-889f41619e9def6175f2a9281850c05867326aab = substituteSource {
       src = fetchgit {
-        name = "dummy_sensors-source";
+        name = "dummy_sensors-889f41619e9def6175f2a9281850c05867326aab-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "889f41619e9def6175f2a9281850c05867326aab";
         hash = "sha256-3UaemJ/hKSVf+gUdLXWjDIcmwQp3iNUt7MrpGq4qCRU=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "dummy_sensors";
   version = "0.33.5-1";
-  src = sources.dummy_sensors;
+  src = sources.dummy_sensors-889f41619e9def6175f2a9281850c05867326aab;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    ament_nodl = substituteSource {
+    ament_nodl-87296f88baceaac5b561ecdd0e95240673ea8044 = substituteSource {
       src = fetchgit {
-        name = "ament_nodl-source";
+        name = "ament_nodl-87296f88baceaac5b561ecdd0e95240673ea8044-source";
         url = "https://github.com/ros2-gbp/ament_nodl-release.git";
         rev = "87296f88baceaac5b561ecdd0e95240673ea8044";
         hash = "sha256-9azhFZrnSaHJiIRFdPiDTiDO3j2v3eKxQBNdAEFwd5A=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "ament_nodl";
   version = "0.1.0-7";
-  src = sources.ament_nodl;
+  src = sources.ament_nodl-87296f88baceaac5b561ecdd0e95240673ea8044;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

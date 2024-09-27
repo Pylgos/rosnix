@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    zstd_point_cloud_transport = substituteSource {
+    zstd_point_cloud_transport-0d35ca2082c89ce87ebeec290ae8223306abc7d0 = substituteSource {
       src = fetchgit {
-        name = "zstd_point_cloud_transport-source";
+        name = "zstd_point_cloud_transport-0d35ca2082c89ce87ebeec290ae8223306abc7d0-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
         rev = "0d35ca2082c89ce87ebeec290ae8223306abc7d0";
         hash = "sha256-RAgGj5fZQ4dleHmWEA4Zomp+z0qKm6tp+8iVV72xlHk=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "zstd_point_cloud_transport";
   version = "4.0.1-1";
-  src = sources.zstd_point_cloud_transport;
+  src = sources.zstd_point_cloud_transport-0d35ca2082c89ce87ebeec290ae8223306abc7d0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

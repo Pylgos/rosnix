@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    dataspeed_can_usb = substituteSource {
+    dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976 = substituteSource {
       src = fetchgit {
-        name = "dataspeed_can_usb-source";
+        name = "dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
         rev = "fd9e730828c76794727d487dcbdf04df6bb1c976";
         hash = "sha256-MEqRh40rqPPZKh38w3FJEACnlHS8d8pk63+Mp5sdWkM=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "dataspeed_can_usb";
   version = "2.0.4-1";
-  src = sources.dataspeed_can_usb;
+  src = sources.dataspeed_can_usb-fd9e730828c76794727d487dcbdf04df6bb1c976;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

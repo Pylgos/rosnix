@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rc_genicam_driver = substituteSource {
+    rc_genicam_driver-54ae34d134aaab76623d61c9728d34503bc68b26 = substituteSource {
       src = fetchgit {
-        name = "rc_genicam_driver-source";
+        name = "rc_genicam_driver-54ae34d134aaab76623d61c9728d34503bc68b26-source";
         url = "https://github.com/ros2-gbp/rc_genicam_driver_ros2-release.git";
         rev = "54ae34d134aaab76623d61c9728d34503bc68b26";
         hash = "sha256-DXGpRFliAauxi+eYKJddSkZfNo9jJ/5UsxBtJEkSdCs=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rc_genicam_driver";
   version = "0.3.1-1";
-  src = sources.rc_genicam_driver;
+  src = sources.rc_genicam_driver-54ae34d134aaab76623d61c9728d34503bc68b26;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

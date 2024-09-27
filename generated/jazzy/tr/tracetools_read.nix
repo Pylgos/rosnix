@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    tracetools_read = substituteSource {
+    tracetools_read-48cb7678e728dc7598fb59557128ca80d06753c3 = substituteSource {
       src = fetchgit {
-        name = "tracetools_read-source";
+        name = "tracetools_read-48cb7678e728dc7598fb59557128ca80d06753c3-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
         rev = "48cb7678e728dc7598fb59557128ca80d06753c3";
         hash = "sha256-ukhc281p7QYYiNjLhf5alREqxspi0wu04fc92FLwz1A=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "tracetools_read";
   version = "8.2.2-1";
-  src = sources.tracetools_read;
+  src = sources.tracetools_read-48cb7678e728dc7598fb59557128ca80d06753c3;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

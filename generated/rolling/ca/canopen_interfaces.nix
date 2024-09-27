@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    canopen_interfaces = substituteSource {
+    canopen_interfaces-babcc793df4cd98b33de0306400c9324ca1b759d = substituteSource {
       src = fetchgit {
-        name = "canopen_interfaces-source";
+        name = "canopen_interfaces-babcc793df4cd98b33de0306400c9324ca1b759d-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "babcc793df4cd98b33de0306400c9324ca1b759d";
         hash = "sha256-40PHfYMqk3Vf1R9VBdJWyTB4pXYbDxHqyNb6PQbe+BY=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "canopen_interfaces";
   version = "0.2.12-2";
-  src = sources.canopen_interfaces;
+  src = sources.canopen_interfaces-babcc793df4cd98b33de0306400c9324ca1b759d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

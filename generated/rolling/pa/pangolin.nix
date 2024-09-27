@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    pangolin = substituteSource {
+    pangolin-04bcab4ca44adc9f6c3bf5e503d3bf84381e771a = substituteSource {
       src = fetchgit {
-        name = "pangolin-source";
+        name = "pangolin-04bcab4ca44adc9f6c3bf5e503d3bf84381e771a-source";
         url = "https://github.com/ros2-gbp/Pangolin-release.git";
         rev = "04bcab4ca44adc9f6c3bf5e503d3bf84381e771a";
         hash = "sha256-VAE6VKDuVagjFsw1q6X/hpGUYbDSIx+Os9F+/76bo08=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "pangolin";
   version = "0.9.1-2";
-  src = sources.pangolin;
+  src = sources.pangolin-04bcab4ca44adc9f6c3bf5e503d3bf84381e771a;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

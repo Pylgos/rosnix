@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    ros_testing = substituteSource {
+    ros_testing-698ef5baf793b32a4d4e3ffcce820c13902e4ef1 = substituteSource {
       src = fetchgit {
-        name = "ros_testing-source";
+        name = "ros_testing-698ef5baf793b32a4d4e3ffcce820c13902e4ef1-source";
         url = "https://github.com/ros2-gbp/ros_testing-release.git";
         rev = "698ef5baf793b32a4d4e3ffcce820c13902e4ef1";
         hash = "sha256-fs+oXGxdtoXxQxvZSsImWJtNFp+X3jdTHN31wD+47Yg=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "ros_testing";
   version = "0.6.0-3";
-  src = sources.ros_testing;
+  src = sources.ros_testing-698ef5baf793b32a4d4e3ffcce820c13902e4ef1;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core ament_cmake_export_dependencies launch_testing_ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

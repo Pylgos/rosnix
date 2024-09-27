@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    zenoh_bridge_dds = substituteSource {
+    zenoh_bridge_dds-ae9f3eba9d4ad512dc69d75605e4e046d0617b92 = substituteSource {
       src = fetchgit {
-        name = "zenoh_bridge_dds-source";
+        name = "zenoh_bridge_dds-ae9f3eba9d4ad512dc69d75605e4e046d0617b92-source";
         url = "https://github.com/ros2-gbp/zenoh_bridge_dds-release.git";
         rev = "ae9f3eba9d4ad512dc69d75605e4e046d0617b92";
         hash = "sha256-f7l+qyV5vSYtTVBV57bVQUV49odL51NPVkvmo00gimY=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "zenoh_bridge_dds";
   version = "0.5.0-4";
-  src = sources.zenoh_bridge_dds;
+  src = sources.zenoh_bridge_dds-ae9f3eba9d4ad512dc69d75605e4e046d0617b92;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

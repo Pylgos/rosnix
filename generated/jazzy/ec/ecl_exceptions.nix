@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    ecl_exceptions = substituteSource {
+    ecl_exceptions-be56e8dab26536c5577b5810ea4272f1a4542070 = substituteSource {
       src = fetchgit {
-        name = "ecl_exceptions-source";
+        name = "ecl_exceptions-be56e8dab26536c5577b5810ea4272f1a4542070-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "be56e8dab26536c5577b5810ea4272f1a4542070";
         hash = "sha256-vSUx0IaohNthgxC/EHPPCyDY6YrVAcZUT4u5L099eA4=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "ecl_exceptions";
   version = "1.2.1-5";
-  src = sources.ecl_exceptions;
+  src = sources.ecl_exceptions-be56e8dab26536c5577b5810ea4272f1a4542070;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

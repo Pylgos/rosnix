@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    turtlesim = substituteSource {
+    turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02 = substituteSource {
       src = fetchgit {
-        name = "turtlesim-source";
+        name = "turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
         rev = "dee596e8c4643aec9e5a6f93098371f93b5c8a02";
         hash = "sha256-+NwG+0EX/wiy8jFqWI7LoLitojrfxvVmRfY4duvQICU=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "turtlesim";
   version = "1.8.3-1";
-  src = sources.turtlesim;
+  src = sources.turtlesim-dee596e8c4643aec9e5a6f93098371f93b5c8a02;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

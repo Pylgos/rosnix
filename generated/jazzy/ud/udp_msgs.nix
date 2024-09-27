@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    udp_msgs = substituteSource {
+    udp_msgs-2b677f6a0a80cdfccf8e993bf33291735a27a16f = substituteSource {
       src = fetchgit {
-        name = "udp_msgs-source";
+        name = "udp_msgs-2b677f6a0a80cdfccf8e993bf33291735a27a16f-source";
         url = "https://github.com/ros2-gbp/udp_msgs-release.git";
         rev = "2b677f6a0a80cdfccf8e993bf33291735a27a16f";
         hash = "sha256-wk0E8P+RhBD3LVdBSrcJHrF2CwKgOXysrKAiCDRiSPI=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "udp_msgs";
   version = "0.0.5-1";
-  src = sources.udp_msgs;
+  src = sources.udp_msgs-2b677f6a0a80cdfccf8e993bf33291735a27a16f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

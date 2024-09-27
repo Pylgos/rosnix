@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    diagnostic_msgs = substituteSource {
+    diagnostic_msgs-7154fea364cabc46edd39c64261c39eeb9807394 = substituteSource {
       src = fetchgit {
-        name = "diagnostic_msgs-source";
+        name = "diagnostic_msgs-7154fea364cabc46edd39c64261c39eeb9807394-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "7154fea364cabc46edd39c64261c39eeb9807394";
         hash = "sha256-o2VBY/NTRC11cnudQYMtrOY6gtYm7OHndBRG+MXBxdk=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "diagnostic_msgs";
   version = "5.4.1-1";
-  src = sources.diagnostic_msgs;
+  src = sources.diagnostic_msgs-7154fea364cabc46edd39c64261c39eeb9807394;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    fuse_publishers = substituteSource {
+    fuse_publishers-e42da48d8d0c58cb5bff839478ed8e423e959f74 = substituteSource {
       src = fetchgit {
-        name = "fuse_publishers-source";
+        name = "fuse_publishers-e42da48d8d0c58cb5bff839478ed8e423e959f74-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "e42da48d8d0c58cb5bff839478ed8e423e959f74";
         hash = "sha256-tI9Xxj7PiAdTcEHsNLiz1j74FStbd7vEnIFopSJRkPU=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "fuse_publishers";
   version = "1.1.1-1";
-  src = sources.fuse_publishers;
+  src = sources.fuse_publishers-e42da48d8d0c58cb5bff839478ed8e423e959f74;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

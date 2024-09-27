@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    bondpy = substituteSource {
+    bondpy-7c82a2866dd3a0416dd370b7163b3384ae48635b = substituteSource {
       src = fetchgit {
-        name = "bondpy-source";
+        name = "bondpy-7c82a2866dd3a0416dd370b7163b3384ae48635b-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "7c82a2866dd3a0416dd370b7163b3384ae48635b";
         hash = "sha256-qBFpCzvtA7/Vghb+QkbCL8TBZoc5Kdhp+q876UZqVhM=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "bondpy";
   version = "4.1.0-1";
-  src = sources.bondpy;
+  src = sources.bondpy-7c82a2866dd3a0416dd370b7163b3384ae48635b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

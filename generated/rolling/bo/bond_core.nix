@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    bond_core = substituteSource {
+    bond_core-c5aaff2d2ac84729162ae00c19b3283953fbc789 = substituteSource {
       src = fetchgit {
-        name = "bond_core-source";
+        name = "bond_core-c5aaff2d2ac84729162ae00c19b3283953fbc789-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "c5aaff2d2ac84729162ae00c19b3283953fbc789";
         hash = "sha256-pieGbpeYdGAOAULspCbQLtOYRAMogAi8zxZoMZkCNJI=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "bond_core";
   version = "4.1.0-1";
-  src = sources.bond_core;
+  src = sources.bond_core-c5aaff2d2ac84729162ae00c19b3283953fbc789;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

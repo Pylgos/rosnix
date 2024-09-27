@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    examples_rclcpp_multithreaded_executor = substituteSource {
+    examples_rclcpp_multithreaded_executor-d79abd1d7a416f47e637d7c7bf8324beb689ed6a = substituteSource {
       src = fetchgit {
-        name = "examples_rclcpp_multithreaded_executor-source";
+        name = "examples_rclcpp_multithreaded_executor-d79abd1d7a416f47e637d7c7bf8324beb689ed6a-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "d79abd1d7a416f47e637d7c7bf8324beb689ed6a";
         hash = "sha256-cZuucFJIqk02QCFcMbblgvLfFua9VihT+lK1qCS6bHw=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "examples_rclcpp_multithreaded_executor";
   version = "0.20.2-1";
-  src = sources.examples_rclcpp_multithreaded_executor;
+  src = sources.examples_rclcpp_multithreaded_executor-d79abd1d7a416f47e637d7c7bf8324beb689ed6a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

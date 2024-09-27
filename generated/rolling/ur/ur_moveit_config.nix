@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    ur_moveit_config = substituteSource {
+    ur_moveit_config-af515f6ffb35935685452ca72d0758b0fbe64a86 = substituteSource {
       src = fetchgit {
-        name = "ur_moveit_config-source";
+        name = "ur_moveit_config-af515f6ffb35935685452ca72d0758b0fbe64a86-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "af515f6ffb35935685452ca72d0758b0fbe64a86";
         hash = "sha256-qvHGwtUJecBk9mV2nEUbnOjBvR0gkyqZSPeJ9LFYVRc=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "ur_moveit_config";
   version = "2.4.10-1";
-  src = sources.ur_moveit_config;
+  src = sources.ur_moveit_config-af515f6ffb35935685452ca72d0758b0fbe64a86;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

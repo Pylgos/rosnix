@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    fastrtps = substituteSource {
+    fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f = substituteSource {
       src = fetchgit {
-        name = "fastrtps-source";
+        name = "fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f-source";
         url = "https://github.com/ros2-gbp/fastrtps-release.git";
         rev = "9d6f48dc2ecfe0bc33d20f96717755d11826616f";
         hash = "sha256-KSSHJqNx1mzl93n+QLasqWT2+NllPGG82pdzSM97uh4=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "fastrtps";
   version = "2.14.3-1";
-  src = sources.fastrtps;
+  src = sources.fastrtps-9d6f48dc2ecfe0bc33d20f96717755d11826616f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -32,9 +32,9 @@
 }:
 let
   sources = rec {
-    moveit_ros_planning_interface = substituteSource {
+    moveit_ros_planning_interface-0a7fd6fe8eb7a4312263d29d37a837ea467416b2 = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_planning_interface-source";
+        name = "moveit_ros_planning_interface-0a7fd6fe8eb7a4312263d29d37a837ea467416b2-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "0a7fd6fe8eb7a4312263d29d37a837ea467416b2";
         hash = "sha256-82oyVxPYQ2OOWfizXutEnEqsYTVteQkhodVk++G325Y=";
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "moveit_ros_planning_interface";
   version = "2.11.0-1";
-  src = sources.moveit_ros_planning_interface;
+  src = sources.moveit_ros_planning_interface-0a7fd6fe8eb7a4312263d29d37a837ea467416b2;
   nativeBuildInputs = [ ament_cmake eigen3_cmake_module wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

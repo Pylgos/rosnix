@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    compressed_depth_image_transport = substituteSource {
+    compressed_depth_image_transport-1363f91661bb5c75a098980c7217e017acc65733 = substituteSource {
       src = fetchgit {
-        name = "compressed_depth_image_transport-source";
+        name = "compressed_depth_image_transport-1363f91661bb5c75a098980c7217e017acc65733-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
         rev = "1363f91661bb5c75a098980c7217e017acc65733";
         hash = "sha256-f7U6pV7YQQOfBlgk355xZziYcWniLxfCpEP13+tYSRY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "compressed_depth_image_transport";
   version = "5.0.0-1";
-  src = sources.compressed_depth_image_transport;
+  src = sources.compressed_depth_image_transport-1363f91661bb5c75a098980c7217e017acc65733;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

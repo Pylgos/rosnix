@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ur_client_library = substituteSource {
+    ur_client_library-bcd805cacc6073aab0d87c5f56f113f3ba8add04 = substituteSource {
       src = fetchgit {
-        name = "ur_client_library-source";
+        name = "ur_client_library-bcd805cacc6073aab0d87c5f56f113f3ba8add04-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git";
         rev = "bcd805cacc6073aab0d87c5f56f113f3ba8add04";
         hash = "sha256-AGri1LrjEomT9pPJAVN53G3Zf0W2GNqlCIgLZt9Odns=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ur_client_library";
   version = "1.4.0-1";
-  src = sources.ur_client_library;
+  src = sources.ur_client_library-bcd805cacc6073aab0d87c5f56f113f3ba8add04;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

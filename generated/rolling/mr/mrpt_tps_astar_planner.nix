@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    mrpt_tps_astar_planner = substituteSource {
+    mrpt_tps_astar_planner-14431e55f4e2e38bb958601accffaedb9f05a7ad = substituteSource {
       src = fetchgit {
-        name = "mrpt_tps_astar_planner-source";
+        name = "mrpt_tps_astar_planner-14431e55f4e2e38bb958601accffaedb9f05a7ad-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "14431e55f4e2e38bb958601accffaedb9f05a7ad";
         hash = "sha256-N6Tml7BQoajjvvJSatRzrlyHNGdAeTRwY06DioxXmF8=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "mrpt_tps_astar_planner";
   version = "2.2.0-1";
-  src = sources.mrpt_tps_astar_planner;
+  src = sources.mrpt_tps_astar_planner-14431e55f4e2e38bb958601accffaedb9f05a7ad;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

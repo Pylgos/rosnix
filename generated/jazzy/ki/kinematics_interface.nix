@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    kinematics_interface = substituteSource {
+    kinematics_interface-abc2ffaf360bde2bca52225ba766fdb598b1af71 = substituteSource {
       src = fetchgit {
-        name = "kinematics_interface-source";
+        name = "kinematics_interface-abc2ffaf360bde2bca52225ba766fdb598b1af71-source";
         url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
         rev = "abc2ffaf360bde2bca52225ba766fdb598b1af71";
         hash = "sha256-NIcnxxLBdixzZQeXN0f2g03lIQQMoKqYrwTiwVagNSE=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "kinematics_interface";
   version = "1.1.0-1";
-  src = sources.kinematics_interface;
+  src = sources.kinematics_interface-abc2ffaf360bde2bca52225ba766fdb598b1af71;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    moveit_simple_controller_manager = substituteSource {
+    moveit_simple_controller_manager-876f7bb5cef97fc88176ae77dd1015afb7a50fdb = substituteSource {
       src = fetchgit {
-        name = "moveit_simple_controller_manager-source";
+        name = "moveit_simple_controller_manager-876f7bb5cef97fc88176ae77dd1015afb7a50fdb-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "876f7bb5cef97fc88176ae77dd1015afb7a50fdb";
         hash = "sha256-phTAY2teeJGDQBTJPZ/T6NS6p89dX8IaJixBCe745ew=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "moveit_simple_controller_manager";
   version = "2.10.0-1";
-  src = sources.moveit_simple_controller_manager;
+  src = sources.moveit_simple_controller_manager-876f7bb5cef97fc88176ae77dd1015afb7a50fdb;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

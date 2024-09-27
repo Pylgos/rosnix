@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    unique_identifier_msgs = substituteSource {
+    unique_identifier_msgs-8f82dd5c724dc222ac795630fcf8e32cc3c203b4 = substituteSource {
       src = fetchgit {
-        name = "unique_identifier_msgs-source";
+        name = "unique_identifier_msgs-8f82dd5c724dc222ac795630fcf8e32cc3c203b4-source";
         url = "https://github.com/ros2-gbp/unique_identifier_msgs-release.git";
         rev = "8f82dd5c724dc222ac795630fcf8e32cc3c203b4";
         hash = "sha256-hqqiauecY9R4fqhisGA7JfZIm7RnqlOnb6/NhY2FsLg=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "unique_identifier_msgs";
   version = "2.5.0-3";
-  src = sources.unique_identifier_msgs;
+  src = sources.unique_identifier_msgs-8f82dd5c724dc222ac795630fcf8e32cc3c203b4;
   nativeBuildInputs = [ ament_cmake rosidl_core_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

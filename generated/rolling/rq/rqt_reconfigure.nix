@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rqt_reconfigure = substituteSource {
+    rqt_reconfigure-6c3295518fa31f3dccc64b4b37bf84e2abb0027a = substituteSource {
       src = fetchgit {
-        name = "rqt_reconfigure-source";
+        name = "rqt_reconfigure-6c3295518fa31f3dccc64b4b37bf84e2abb0027a-source";
         url = "https://github.com/ros2-gbp/rqt_reconfigure-release.git";
         rev = "6c3295518fa31f3dccc64b4b37bf84e2abb0027a";
         hash = "sha256-ThnCAIGGrmrx8NAdfSMTjsXM8l4EPYJfg9bSORYEL2U=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rqt_reconfigure";
   version = "1.7.0-1";
-  src = sources.rqt_reconfigure;
+  src = sources.rqt_reconfigure-6c3295518fa31f3dccc64b4b37bf84e2abb0027a;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

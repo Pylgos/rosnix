@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    mrpt_sensor_gnss_nmea = substituteSource {
+    mrpt_sensor_gnss_nmea-bad2e14e8055bcc1b24cf7af43d984f5e2b75d19 = substituteSource {
       src = fetchgit {
-        name = "mrpt_sensor_gnss_nmea-source";
+        name = "mrpt_sensor_gnss_nmea-bad2e14e8055bcc1b24cf7af43d984f5e2b75d19-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
         rev = "bad2e14e8055bcc1b24cf7af43d984f5e2b75d19";
         hash = "sha256-AZcZeGwHOjz/3QOqQ7+B9U1A1MQLQZJfbvs+EwbBJWw=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "mrpt_sensor_gnss_nmea";
   version = "0.2.3-1";
-  src = sources.mrpt_sensor_gnss_nmea;
+  src = sources.mrpt_sensor_gnss_nmea-bad2e14e8055bcc1b24cf7af43d984f5e2b75d19;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint_auto ament_lint_common ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

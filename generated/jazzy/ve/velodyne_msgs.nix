@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    velodyne_msgs = substituteSource {
+    velodyne_msgs-42dfd152f78b4edca4ed94c689332373b25a75b8 = substituteSource {
       src = fetchgit {
-        name = "velodyne_msgs-source";
+        name = "velodyne_msgs-42dfd152f78b4edca4ed94c689332373b25a75b8-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
         rev = "42dfd152f78b4edca4ed94c689332373b25a75b8";
         hash = "sha256-5Ak6A/tW8O/xY1B8LoKlY6GJfvga1cnajGYEKb7eKFo=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "velodyne_msgs";
   version = "2.3.0-4";
-  src = sources.velodyne_msgs;
+  src = sources.velodyne_msgs-42dfd152f78b4edca4ed94c689332373b25a75b8;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    dynamixel_workbench_msgs = substituteSource {
+    dynamixel_workbench_msgs-653a571fecc97291b062e04ba41ea1a810c3c85e = substituteSource {
       src = fetchgit {
-        name = "dynamixel_workbench_msgs-source";
+        name = "dynamixel_workbench_msgs-653a571fecc97291b062e04ba41ea1a810c3c85e-source";
         url = "https://github.com/ros2-gbp/dynamixel_workbench_msgs-release.git";
         rev = "653a571fecc97291b062e04ba41ea1a810c3c85e";
         hash = "sha256-NMrVMFxbUmSDCdSRTO6gRJtKsmEeqY4Q5FqkBQCeY3I=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "dynamixel_workbench_msgs";
   version = "2.0.3-4";
-  src = sources.dynamixel_workbench_msgs;
+  src = sources.dynamixel_workbench_msgs-653a571fecc97291b062e04ba41ea1a810c3c85e;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

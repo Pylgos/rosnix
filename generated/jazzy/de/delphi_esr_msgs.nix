@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    delphi_esr_msgs = substituteSource {
+    delphi_esr_msgs-1472f4d0624f3eb26fbc4f16588cb8361f059807 = substituteSource {
       src = fetchgit {
-        name = "delphi_esr_msgs-source";
+        name = "delphi_esr_msgs-1472f4d0624f3eb26fbc4f16588cb8361f059807-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
         rev = "1472f4d0624f3eb26fbc4f16588cb8361f059807";
         hash = "sha256-K7D4wHGenbiq35o06s88bjoKOUdZl3oqIoSabiYN24o=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "delphi_esr_msgs";
   version = "4.0.0-4";
-  src = sources.delphi_esr_msgs;
+  src = sources.delphi_esr_msgs-1472f4d0624f3eb26fbc4f16588cb8361f059807;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

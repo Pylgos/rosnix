@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    generate_parameter_library_example = substituteSource {
+    generate_parameter_library_example-521a41bf987af9060c240d049986641cf34bd0a8 = substituteSource {
       src = fetchgit {
-        name = "generate_parameter_library_example-source";
+        name = "generate_parameter_library_example-521a41bf987af9060c240d049986641cf34bd0a8-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
         rev = "521a41bf987af9060c240d049986641cf34bd0a8";
         hash = "sha256-d0nHulgcdsijc/fqux0zSYWVUPWx2mS9mWEa+PpXhtM=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "generate_parameter_library_example";
   version = "0.3.8-3";
-  src = sources.generate_parameter_library_example;
+  src = sources.generate_parameter_library_example-521a41bf987af9060c240d049986641cf34bd0a8;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

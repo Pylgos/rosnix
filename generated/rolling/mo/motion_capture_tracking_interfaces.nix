@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    motion_capture_tracking_interfaces = substituteSource {
+    motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966 = substituteSource {
       src = fetchgit {
-        name = "motion_capture_tracking_interfaces-source";
+        name = "motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966-source";
         url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
         rev = "a9b72a5a549beb50b53da5959a19bc658d535966";
         hash = "sha256-ho+25GyuWOKXqZqIp74ZO8leEndRFRqfn74DBKWKZWk=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "motion_capture_tracking_interfaces";
   version = "1.0.3-2";
-  src = sources.motion_capture_tracking_interfaces;
+  src = sources.motion_capture_tracking_interfaces-a9b72a5a549beb50b53da5959a19bc658d535966;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

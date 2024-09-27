@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    geodesy = substituteSource {
+    geodesy-babebedcfcb762f050b6dc334b93f4c55acb2714 = substituteSource {
       src = fetchgit {
-        name = "geodesy-source";
+        name = "geodesy-babebedcfcb762f050b6dc334b93f4c55acb2714-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
         rev = "babebedcfcb762f050b6dc334b93f4c55acb2714";
         hash = "sha256-+iSI/nF1U9zJNt1tRwph3J72AI6GDwamBRol2QrwTUY=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "geodesy";
   version = "1.0.6-2";
-  src = sources.geodesy;
+  src = sources.geodesy-babebedcfcb762f050b6dc334b93f4c55acb2714;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

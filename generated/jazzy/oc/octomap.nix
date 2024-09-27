@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    octomap = substituteSource {
+    octomap-895657943d1ba59b781d1c1da097dab12568b016 = substituteSource {
       src = fetchgit {
-        name = "octomap-source";
+        name = "octomap-895657943d1ba59b781d1c1da097dab12568b016-source";
         url = "https://github.com/ros2-gbp/octomap-release.git";
         rev = "895657943d1ba59b781d1c1da097dab12568b016";
         hash = "sha256-kIh/20gkpK5nfe4T87wUfoECW0QNMp8f7M73+FJqmUE=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "octomap";
   version = "1.10.0-4";
-  src = sources.octomap;
+  src = sources.octomap-895657943d1ba59b781d1c1da097dab12568b016;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

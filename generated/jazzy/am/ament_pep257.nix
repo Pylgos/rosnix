@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    ament_pep257 = substituteSource {
+    ament_pep257-0bb71d571b221aeb287068c94187568fd9056cda = substituteSource {
       src = fetchgit {
-        name = "ament_pep257-source";
+        name = "ament_pep257-0bb71d571b221aeb287068c94187568fd9056cda-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "0bb71d571b221aeb287068c94187568fd9056cda";
         hash = "sha256-AeV5aRu0D5pK6O5Ywq4FIEho2kkeDb++umzFTgOkrAQ=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "ament_pep257";
   version = "0.17.1-1";
-  src = sources.ament_pep257;
+  src = sources.ament_pep257-0bb71d571b221aeb287068c94187568fd9056cda;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pydocstyle" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

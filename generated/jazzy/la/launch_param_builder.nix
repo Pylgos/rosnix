@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    launch_param_builder = substituteSource {
+    launch_param_builder-2280989be87fab08084bbe03dc0680c190b698d9 = substituteSource {
       src = fetchgit {
-        name = "launch_param_builder-source";
+        name = "launch_param_builder-2280989be87fab08084bbe03dc0680c190b698d9-source";
         url = "https://github.com/ros2-gbp/launch_param_builder-release.git";
         rev = "2280989be87fab08084bbe03dc0680c190b698d9";
         hash = "sha256-5wzPO7Vg6sA7heEmRxiLcDbilS5YyieLi8fBrtcJe/g=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "launch_param_builder";
   version = "0.1.1-4";
-  src = sources.launch_param_builder;
+  src = sources.launch_param_builder-2280989be87fab08084bbe03dc0680c190b698d9;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

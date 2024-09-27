@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    rosidl_dynamic_typesupport = substituteSource {
+    rosidl_dynamic_typesupport-3b1c0a96815326ef61f93a5540755a2045121b12 = substituteSource {
       src = fetchgit {
-        name = "rosidl_dynamic_typesupport-source";
+        name = "rosidl_dynamic_typesupport-3b1c0a96815326ef61f93a5540755a2045121b12-source";
         url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport-release.git";
         rev = "3b1c0a96815326ef61f93a5540755a2045121b12";
         hash = "sha256-cxUaFspLddpCcGHuK1GeiWTVVg8IMknpJ/V5ATpBQgE=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "rosidl_dynamic_typesupport";
   version = "0.2.0-1";
-  src = sources.rosidl_dynamic_typesupport;
+  src = sources.rosidl_dynamic_typesupport-3b1c0a96815326ef61f93a5540755a2045121b12;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

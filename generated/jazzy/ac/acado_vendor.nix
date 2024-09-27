@@ -12,9 +12,19 @@
 }:
 let
   sources = rec {
-    acado_vendor = substituteSource {
+    acado-vendor_source-8366e22cd5d815078e8d24f78dbced28b48d7e32 = substituteSource {
       src = fetchgit {
-        name = "acado_vendor-source";
+        name = "acado-vendor_source-8366e22cd5d815078e8d24f78dbced28b48d7e32-source";
+        url = "https://github.com/cho3/acado.git";
+        rev = "8366e22cd5d815078e8d24f78dbced28b48d7e32";
+        hash = "sha256-ExF4tV7ZpaL6BEwENt3CU+g2I1c2MOt0cs/Q9g/SSlI=";
+      };
+      substitutions = [
+      ];
+    };
+    acado_vendor-d4d640fe222daa32943cda8da9e45e859c98111c = substituteSource {
+      src = fetchgit {
+        name = "acado_vendor-d4d640fe222daa32943cda8da9e45e859c98111c-source";
         url = "https://github.com/ros2-gbp/acado_vendor-release.git";
         rev = "d4d640fe222daa32943cda8da9e45e859c98111c";
         hash = "sha256-8gA7ZwANcFmzyoc3egAGyB3xpAQlHrs4nK6U1/KanwA=";
@@ -23,28 +33,18 @@ let
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/cho3/acado.git";
-          to = "URL ${acado_vendor-vendor_source-acado-0}";
+          to = "URL ${acado-vendor_source-8366e22cd5d815078e8d24f78dbced28b48d7e32}";
         }
         {
           path = "CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/cho3/hpmpc.git";
-          to = "URL ${acado_vendor-vendor_source-hpmpc-1}";
+          to = "URL ${hpmpc-vendor_source-abbcf0806e4c8763ab2129a90efd827d194c1b00}";
         }
       ];
     };
-    acado_vendor-vendor_source-acado-0 = substituteSource {
+    hpmpc-vendor_source-abbcf0806e4c8763ab2129a90efd827d194c1b00 = substituteSource {
       src = fetchgit {
-        name = "acado_vendor-vendor_source-acado-0-source";
-        url = "https://github.com/cho3/acado.git";
-        rev = "8366e22cd5d815078e8d24f78dbced28b48d7e32";
-        hash = "sha256-ExF4tV7ZpaL6BEwENt3CU+g2I1c2MOt0cs/Q9g/SSlI=";
-      };
-      substitutions = [
-      ];
-    };
-    acado_vendor-vendor_source-hpmpc-1 = substituteSource {
-      src = fetchgit {
-        name = "acado_vendor-vendor_source-hpmpc-1-source";
+        name = "hpmpc-vendor_source-abbcf0806e4c8763ab2129a90efd827d194c1b00-source";
         url = "https://github.com/cho3/hpmpc.git";
         rev = "abbcf0806e4c8763ab2129a90efd827d194c1b00";
         hash = "sha256-KGC2+9ce1lyaxrPR5gApoB7Msk3bgTnKJYvBxDrHJDg=";
@@ -57,7 +57,7 @@ in
 buildRosPackage {
   pname = "acado_vendor";
   version = "1.0.0-7";
-  src = sources.acado_vendor;
+  src = sources.acado_vendor-d4d640fe222daa32943cda8da9e45e859c98111c;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

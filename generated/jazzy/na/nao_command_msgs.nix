@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    nao_command_msgs = substituteSource {
+    nao_command_msgs-a36d9eed21ce44896146e9f47d6e14298c4c69a0 = substituteSource {
       src = fetchgit {
-        name = "nao_command_msgs-source";
+        name = "nao_command_msgs-a36d9eed21ce44896146e9f47d6e14298c4c69a0-source";
         url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
         rev = "a36d9eed21ce44896146e9f47d6e14298c4c69a0";
         hash = "sha256-geYK5hMHI66LcCD6GJ3Lr8T0ocK3/ExFHKKq9kBUZRs=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "nao_command_msgs";
   version = "1.0.0-3";
-  src = sources.nao_command_msgs;
+  src = sources.nao_command_msgs-a36d9eed21ce44896146e9f47d6e14298c4c69a0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

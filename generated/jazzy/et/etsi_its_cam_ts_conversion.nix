@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    etsi_its_cam_ts_conversion = substituteSource {
+    etsi_its_cam_ts_conversion-f077c3dd1700aba761bac25ea82ffaa33940d627 = substituteSource {
       src = fetchgit {
-        name = "etsi_its_cam_ts_conversion-source";
+        name = "etsi_its_cam_ts_conversion-f077c3dd1700aba761bac25ea82ffaa33940d627-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "f077c3dd1700aba761bac25ea82ffaa33940d627";
         hash = "sha256-qwuR2yAC0YqNGFmo2DQSsunBWTaRxlPoaz7+lFnkwiQ=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "etsi_its_cam_ts_conversion";
   version = "2.2.0-1";
-  src = sources.etsi_its_cam_ts_conversion;
+  src = sources.etsi_its_cam_ts_conversion-f077c3dd1700aba761bac25ea82ffaa33940d627;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

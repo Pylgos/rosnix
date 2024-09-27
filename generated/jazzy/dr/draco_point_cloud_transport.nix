@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    draco_point_cloud_transport = substituteSource {
+    draco_point_cloud_transport-a82bc7999a6ac97fe76280fede4c4d3e486eaee7 = substituteSource {
       src = fetchgit {
-        name = "draco_point_cloud_transport-source";
+        name = "draco_point_cloud_transport-a82bc7999a6ac97fe76280fede4c4d3e486eaee7-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
         rev = "a82bc7999a6ac97fe76280fede4c4d3e486eaee7";
         hash = "sha256-Pv8YnDdLGd8hGHHgtfiCWcDav6Ig5uyuvdaDZ65Q+kQ=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "draco_point_cloud_transport";
   version = "4.0.1-1";
-  src = sources.draco_point_cloud_transport;
+  src = sources.draco_point_cloud_transport-a82bc7999a6ac97fe76280fede4c4d3e486eaee7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

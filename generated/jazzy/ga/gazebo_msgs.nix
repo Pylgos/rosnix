@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    gazebo_msgs = substituteSource {
+    gazebo_msgs-a376d73c2086fdfe468d6ad4b6a6464797a6588b = substituteSource {
       src = fetchgit {
-        name = "gazebo_msgs-source";
+        name = "gazebo_msgs-a376d73c2086fdfe468d6ad4b6a6464797a6588b-source";
         url = "https://github.com/ros2-gbp/gazebo_ros_pkgs-release.git";
         rev = "a376d73c2086fdfe468d6ad4b6a6464797a6588b";
         hash = "sha256-sTnxrWA90gEXxma5YwKDCuk5gkRgjnFuZK9xRQes9cQ=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "gazebo_msgs";
   version = "3.8.0-1";
-  src = sources.gazebo_msgs;
+  src = sources.gazebo_msgs-a376d73c2086fdfe468d6ad4b6a6464797a6588b;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

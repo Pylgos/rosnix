@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    swri_geometry_util = substituteSource {
+    swri_geometry_util-98ca9fbd95559a36211910c73834bd2ffaeaaaf8 = substituteSource {
       src = fetchgit {
-        name = "swri_geometry_util-source";
+        name = "swri_geometry_util-98ca9fbd95559a36211910c73834bd2ffaeaaaf8-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "98ca9fbd95559a36211910c73834bd2ffaeaaaf8";
         hash = "sha256-OsZ8EfjkJHo5m2JCUHOv48yGcfGZJFPI9tP485dxmTQ=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "swri_geometry_util";
   version = "3.7.3-1";
-  src = sources.swri_geometry_util;
+  src = sources.swri_geometry_util-98ca9fbd95559a36211910c73834bd2ffaeaaaf8;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

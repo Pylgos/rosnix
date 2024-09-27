@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    sros2 = substituteSource {
+    sros2-49754a3069a8259c21c74f7727630590ba10c9d6 = substituteSource {
       src = fetchgit {
-        name = "sros2-source";
+        name = "sros2-49754a3069a8259c21c74f7727630590ba10c9d6-source";
         url = "https://github.com/ros2-gbp/sros2-release.git";
         rev = "49754a3069a8259c21c74f7727630590ba10c9d6";
         hash = "sha256-iJpmSqylzgKZx7KePA6YOgLeKtGvAMFaDWHzyL0YVlc=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "sros2";
   version = "0.15.1-1";
-  src = sources.sros2;
+  src = sources.sros2-49754a3069a8259c21c74f7727630590ba10c9d6;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-resources" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

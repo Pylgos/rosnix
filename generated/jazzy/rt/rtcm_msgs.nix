@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    rtcm_msgs = substituteSource {
+    rtcm_msgs-3e17a8d363a51a20a0d8d6eb0af1879e2adf2fee = substituteSource {
       src = fetchgit {
-        name = "rtcm_msgs-source";
+        name = "rtcm_msgs-3e17a8d363a51a20a0d8d6eb0af1879e2adf2fee-source";
         url = "https://github.com/ros2-gbp/rtcm_msgs-release.git";
         rev = "3e17a8d363a51a20a0d8d6eb0af1879e2adf2fee";
         hash = "sha256-5yTtIdGostlOwChSlKKL4JivCyK284g0KYZxB6GBtBY=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "rtcm_msgs";
   version = "1.1.6-4";
-  src = sources.rtcm_msgs;
+  src = sources.rtcm_msgs-3e17a8d363a51a20a0d8d6eb0af1879e2adf2fee;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    topic_tools_interfaces = substituteSource {
+    topic_tools_interfaces-9447181ac14a55192f1d162c49c0798bfd904237 = substituteSource {
       src = fetchgit {
-        name = "topic_tools_interfaces-source";
+        name = "topic_tools_interfaces-9447181ac14a55192f1d162c49c0798bfd904237-source";
         url = "https://github.com/ros2-gbp/topic_tools-release.git";
         rev = "9447181ac14a55192f1d162c49c0798bfd904237";
         hash = "sha256-5x6LhI6fAyPkc3XkqWV9DjxWKMx85wevw7GVK0R1sxA=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "topic_tools_interfaces";
   version = "1.3.1-1";
-  src = sources.topic_tools_interfaces;
+  src = sources.topic_tools_interfaces-9447181ac14a55192f1d162c49c0798bfd904237;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

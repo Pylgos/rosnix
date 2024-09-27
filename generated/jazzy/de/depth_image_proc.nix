@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    depth_image_proc = substituteSource {
+    depth_image_proc-199ab5962f4bf9363ab0b37820ee5fceb91a0d60 = substituteSource {
       src = fetchgit {
-        name = "depth_image_proc-source";
+        name = "depth_image_proc-199ab5962f4bf9363ab0b37820ee5fceb91a0d60-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "199ab5962f4bf9363ab0b37820ee5fceb91a0d60";
         hash = "sha256-H0Jxs7d2nXmrS94RT2Nz3xfc2OobnX8nCgBnQKQMQR4=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "depth_image_proc";
   version = "5.0.4-1";
-  src = sources.depth_image_proc;
+  src = sources.depth_image_proc-199ab5962f4bf9363ab0b37820ee5fceb91a0d60;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

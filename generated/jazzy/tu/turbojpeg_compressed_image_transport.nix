@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    turbojpeg_compressed_image_transport = substituteSource {
+    turbojpeg_compressed_image_transport-b06c8c2136a8797b7d8136c1e2eada128cb6dc1d = substituteSource {
       src = fetchgit {
-        name = "turbojpeg_compressed_image_transport-source";
+        name = "turbojpeg_compressed_image_transport-b06c8c2136a8797b7d8136c1e2eada128cb6dc1d-source";
         url = "https://github.com/ros2-gbp/turbojpeg_compressed_image_transport-release.git";
         rev = "b06c8c2136a8797b7d8136c1e2eada128cb6dc1d";
         hash = "sha256-290O2WlZeS1IA0hOWZ0GYuYv0yt8SkAIxoz+P3YiVi8=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "turbojpeg_compressed_image_transport";
   version = "0.2.1-5";
-  src = sources.turbojpeg_compressed_image_transport;
+  src = sources.turbojpeg_compressed_image_transport-b06c8c2136a8797b7d8136c1e2eada128cb6dc1d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

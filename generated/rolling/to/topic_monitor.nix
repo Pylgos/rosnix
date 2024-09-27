@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    topic_monitor = substituteSource {
+    topic_monitor-576d1520af7b70aff3ad30e78d323083cb2f5f7e = substituteSource {
       src = fetchgit {
-        name = "topic_monitor-source";
+        name = "topic_monitor-576d1520af7b70aff3ad30e78d323083cb2f5f7e-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "576d1520af7b70aff3ad30e78d323083cb2f5f7e";
         hash = "sha256-tGXgguRxqMKS5aIn3bMykyCWBL0XCW+nh0hFq2WK7So=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "topic_monitor";
   version = "0.34.2-1";
-  src = sources.topic_monitor;
+  src = sources.topic_monitor-576d1520af7b70aff3ad30e78d323083cb2f5f7e;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

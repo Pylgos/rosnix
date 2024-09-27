@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    mapviz = substituteSource {
+    mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5 = substituteSource {
       src = fetchgit {
-        name = "mapviz-source";
+        name = "mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "adaa809f2d4a98bf51fe6f79726a3641267309d5";
         hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "mapviz";
   version = "2.4.3-1";
-  src = sources.mapviz;
+  src = sources.mapviz-adaa809f2d4a98bf51fe6f79726a3641267309d5;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };

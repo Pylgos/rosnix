@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    tracetools_acceleration = substituteSource {
+    tracetools_acceleration-d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2 = substituteSource {
       src = fetchgit {
-        name = "tracetools_acceleration-source";
+        name = "tracetools_acceleration-d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2-source";
         url = "https://github.com/ros2-gbp/tracetools_acceleration-release.git";
         rev = "d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2";
         hash = "sha256-8S7qrZQ1ohJoEVhAiMPHVKAD4lCTHCfRb1CD5hu4VWg=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "tracetools_acceleration";
   version = "0.4.1-3";
-  src = sources.tracetools_acceleration;
+  src = sources.tracetools_acceleration-d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

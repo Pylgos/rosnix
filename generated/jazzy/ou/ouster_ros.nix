@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    ouster_ros = substituteSource {
+    ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0 = substituteSource {
       src = fetchgit {
-        name = "ouster_ros-source";
+        name = "ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
         rev = "3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0";
         hash = "sha256-Opx0mFprXiIgty9hc+lRjuMa4S82Wsjq0scFsO4oWbs=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "ouster_ros";
   version = "0.11.1-6";
-  src = sources.ouster_ros;
+  src = sources.ouster_ros-3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

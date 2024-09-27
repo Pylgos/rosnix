@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    splsm_7_conversion = substituteSource {
+    splsm_7_conversion-dfb857922a764e55bb98304008cfc9066660c501 = substituteSource {
       src = fetchgit {
-        name = "splsm_7_conversion-source";
+        name = "splsm_7_conversion-dfb857922a764e55bb98304008cfc9066660c501-source";
         url = "https://github.com/ros2-gbp/r2r_spl-release.git";
         rev = "dfb857922a764e55bb98304008cfc9066660c501";
         hash = "sha256-hot8TlsdjVjgyVkdoUFaIy47vVP67OUYUwJHsdfSm0M=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "splsm_7_conversion";
   version = "3.0.1-4";
-  src = sources.splsm_7_conversion;
+  src = sources.splsm_7_conversion-dfb857922a764e55bb98304008cfc9066660c501;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

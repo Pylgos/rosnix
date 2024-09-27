@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    libstatistics_collector = substituteSource {
+    libstatistics_collector-19d619f753118a3cae6e41d2f9974d9a37fea539 = substituteSource {
       src = fetchgit {
-        name = "libstatistics_collector-source";
+        name = "libstatistics_collector-19d619f753118a3cae6e41d2f9974d9a37fea539-source";
         url = "https://github.com/ros2-gbp/libstatistics_collector-release.git";
         rev = "19d619f753118a3cae6e41d2f9974d9a37fea539";
         hash = "sha256-cvI6rweNMAPnISrPDjCi0dRMq6O79AA7JWqrBt01vEA=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "libstatistics_collector";
   version = "1.7.3-1";
-  src = sources.libstatistics_collector;
+  src = sources.libstatistics_collector-19d619f753118a3cae6e41d2f9974d9a37fea539;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

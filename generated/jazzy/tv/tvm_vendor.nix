@@ -10,24 +10,19 @@
 }:
 let
   sources = rec {
-    tvm_vendor = substituteSource {
+    macho-dyld-vendor_source-0742b8129de7df1130be355b74faa8c036265bfc = substituteSource {
       src = fetchgit {
-        name = "tvm_vendor-source";
-        url = "https://github.com/ros2-gbp/tvm_vendor-release.git";
-        rev = "a415b453b01fd87caf6873f53e56e002c0354596";
-        hash = "sha256-zx1sU7fTJXQqMOjy+jstX1Wq7B7zPKQCxlfV685GzSA=";
+        name = "macho-dyld-vendor_source-0742b8129de7df1130be355b74faa8c036265bfc-source";
+        url = "https://github.com/octoml/macho-dyld.git";
+        rev = "0742b8129de7df1130be355b74faa8c036265bfc";
+        hash = "sha256-OAa4FiviTL/KoUMLd/vaUFVUBol5C47MXZptb7nL278=";
       };
       substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/apache/tvm";
-          to = "URL ${tvm_vendor-vendor_source-tvm-0}";
-        }
       ];
     };
-    tvm_vendor-vendor_source-tvm-0 = substituteSource {
+    tvm-vendor_source-d361585965b95acfb35563b92a2011fe8059876c = substituteSource {
       src = fetchgit {
-        name = "tvm_vendor-vendor_source-tvm-0-source";
+        name = "tvm-vendor_source-d361585965b95acfb35563b92a2011fe8059876c-source";
         url = "https://github.com/apache/tvm";
         rev = "d361585965b95acfb35563b92a2011fe8059876c";
         hash = "sha256-lzLrd4vNK1c7BwWS0H5x1uDdZ3moUl+zWHb8G6gs8hw=";
@@ -36,18 +31,23 @@ let
         {
           path = "apps/ios_rpc/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/octoml/macho-dyld.git";
-          to = "URL ${tvm_vendor-vendor_source-tvm-0-vendor_source-macho-dyld-0}";
+          to = "URL ${macho-dyld-vendor_source-0742b8129de7df1130be355b74faa8c036265bfc}";
         }
       ];
     };
-    tvm_vendor-vendor_source-tvm-0-vendor_source-macho-dyld-0 = substituteSource {
+    tvm_vendor-a415b453b01fd87caf6873f53e56e002c0354596 = substituteSource {
       src = fetchgit {
-        name = "tvm_vendor-vendor_source-tvm-0-vendor_source-macho-dyld-0-source";
-        url = "https://github.com/octoml/macho-dyld.git";
-        rev = "0742b8129de7df1130be355b74faa8c036265bfc";
-        hash = "sha256-OAa4FiviTL/KoUMLd/vaUFVUBol5C47MXZptb7nL278=";
+        name = "tvm_vendor-a415b453b01fd87caf6873f53e56e002c0354596-source";
+        url = "https://github.com/ros2-gbp/tvm_vendor-release.git";
+        rev = "a415b453b01fd87caf6873f53e56e002c0354596";
+        hash = "sha256-zx1sU7fTJXQqMOjy+jstX1Wq7B7zPKQCxlfV685GzSA=";
       };
       substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/apache/tvm";
+          to = "URL ${tvm-vendor_source-d361585965b95acfb35563b92a2011fe8059876c}";
+        }
       ];
     };
   };
@@ -55,7 +55,7 @@ in
 buildRosPackage {
   pname = "tvm_vendor";
   version = "0.9.1-4";
-  src = sources.tvm_vendor;
+  src = sources.tvm_vendor-a415b453b01fd87caf6873f53e56e002c0354596;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

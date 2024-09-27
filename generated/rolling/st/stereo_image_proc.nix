@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    stereo_image_proc = substituteSource {
+    stereo_image_proc-c65eff3880ee0bb191ebbeb66427058e9528d8f5 = substituteSource {
       src = fetchgit {
-        name = "stereo_image_proc-source";
+        name = "stereo_image_proc-c65eff3880ee0bb191ebbeb66427058e9528d8f5-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "c65eff3880ee0bb191ebbeb66427058e9528d8f5";
         hash = "sha256-aMxF8qlqOGJMZrOJiutDrarigoU/MJKYDlnnYhhve2s=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "stereo_image_proc";
   version = "6.0.3-1";
-  src = sources.stereo_image_proc;
+  src = sources.stereo_image_proc-c65eff3880ee0bb191ebbeb66427058e9528d8f5;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

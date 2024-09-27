@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    image_pipeline = substituteSource {
+    image_pipeline-fed0f986ecf229e5961d95e9be8148741c660fd6 = substituteSource {
       src = fetchgit {
-        name = "image_pipeline-source";
+        name = "image_pipeline-fed0f986ecf229e5961d95e9be8148741c660fd6-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "fed0f986ecf229e5961d95e9be8148741c660fd6";
         hash = "sha256-q7y9egqF5xBObw7jvwqGh35FMQpjwTZtKSwROubyats=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "image_pipeline";
   version = "6.0.3-1";
-  src = sources.image_pipeline;
+  src = sources.image_pipeline-fed0f986ecf229e5961d95e9be8148741c660fd6;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

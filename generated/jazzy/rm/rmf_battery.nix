@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rmf_battery = substituteSource {
+    rmf_battery-12aba542679f2d9abdf111b1162a48d531ad6eae = substituteSource {
       src = fetchgit {
-        name = "rmf_battery-source";
+        name = "rmf_battery-12aba542679f2d9abdf111b1162a48d531ad6eae-source";
         url = "https://github.com/ros2-gbp/rmf_battery-release.git";
         rev = "12aba542679f2d9abdf111b1162a48d531ad6eae";
         hash = "sha256-hxlFgpVq/Yv8gGoDRvDd4tkZQGZokoEQ/8oSL17YTlU=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rmf_battery";
   version = "0.3.1-1";
-  src = sources.rmf_battery;
+  src = sources.rmf_battery-12aba542679f2d9abdf111b1162a48d531ad6eae;
   nativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

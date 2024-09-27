@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    ament_package = substituteSource {
+    ament_package-70ffe60211c4feae5e780e5bc95e169d2f79e7ec = substituteSource {
       src = fetchgit {
-        name = "ament_package-source";
+        name = "ament_package-70ffe60211c4feae5e780e5bc95e169d2f79e7ec-source";
         url = "https://github.com/ros2-gbp/ament_package-release.git";
         rev = "70ffe60211c4feae5e780e5bc95e169d2f79e7ec";
         hash = "sha256-UQTsrOgp2aSxuorO8p8yEInpzIOb5c6+s5Jp1F/FD9c=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "ament_package";
   version = "0.16.3-3";
-  src = sources.ament_package;
+  src = sources.ament_package-70ffe60211c4feae5e780e5bc95e169d2f79e7ec;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-importlib-resources" "python3-setuptools" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

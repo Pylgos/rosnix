@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ament_cmake_gmock = substituteSource {
+    ament_cmake_gmock-56d7c42d30dc1cea2e9d76b058261434bd25e471 = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_gmock-source";
+        name = "ament_cmake_gmock-56d7c42d30dc1cea2e9d76b058261434bd25e471-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
         rev = "56d7c42d30dc1cea2e9d76b058261434bd25e471";
         hash = "sha256-VF2IxTBFW4xIEUlqG1/jH6IdY7a9xtjueNzlC3NqZ7s=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ament_cmake_gmock";
   version = "2.7.0-1";
-  src = sources.ament_cmake_gmock;
+  src = sources.ament_cmake_gmock-56d7c42d30dc1cea2e9d76b058261434bd25e471;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_gtest ament_cmake_test gmock_vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
   buildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

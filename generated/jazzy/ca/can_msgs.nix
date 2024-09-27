@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    can_msgs = substituteSource {
+    can_msgs-68c38f7cdd398daa84e83a808f8a7da772f6d71e = substituteSource {
       src = fetchgit {
-        name = "can_msgs-source";
+        name = "can_msgs-68c38f7cdd398daa84e83a808f8a7da772f6d71e-source";
         url = "https://github.com/ros2-gbp/ros_canopen-release.git";
         rev = "68c38f7cdd398daa84e83a808f8a7da772f6d71e";
         hash = "sha256-9K7mCEEppzWP9ITzFZlJje6JHNIFoBxJ/FXPs+NoX4M=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "can_msgs";
   version = "2.0.0-6";
-  src = sources.can_msgs;
+  src = sources.can_msgs-68c38f7cdd398daa84e83a808f8a7da772f6d71e;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

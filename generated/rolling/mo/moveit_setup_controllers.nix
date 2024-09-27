@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    moveit_setup_controllers = substituteSource {
+    moveit_setup_controllers-b6d0b618518458a6d711112f6ec01bd0c9e640c8 = substituteSource {
       src = fetchgit {
-        name = "moveit_setup_controllers-source";
+        name = "moveit_setup_controllers-b6d0b618518458a6d711112f6ec01bd0c9e640c8-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "b6d0b618518458a6d711112f6ec01bd0c9e640c8";
         hash = "sha256-xHSHodH3QAwtg8BfJ6wvnqQhgk+uN3U3AIGN76yE85k=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "moveit_setup_controllers";
   version = "2.11.0-1";
-  src = sources.moveit_setup_controllers;
+  src = sources.moveit_setup_controllers-b6d0b618518458a6d711112f6ec01bd0c9e640c8;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

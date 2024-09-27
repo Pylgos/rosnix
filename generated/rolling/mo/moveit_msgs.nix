@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    moveit_msgs = substituteSource {
+    moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f = substituteSource {
       src = fetchgit {
-        name = "moveit_msgs-source";
+        name = "moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f-source";
         url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
         rev = "0daba4a04b95f58faeb7fecc078126948195df1f";
         hash = "sha256-eWWWhKKdKRwr1U0N2bGllNmgC2EzT0l5DNKFFjjXAYI=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "moveit_msgs";
   version = "2.6.0-1";
-  src = sources.moveit_msgs;
+  src = sources.moveit_msgs-0daba4a04b95f58faeb7fecc078126948195df1f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

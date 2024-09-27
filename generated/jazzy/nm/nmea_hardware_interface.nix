@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    nmea_hardware_interface = substituteSource {
+    nmea_hardware_interface-f2654a1aa9f22cabae90bb75c31680c3271d3a1d = substituteSource {
       src = fetchgit {
-        name = "nmea_hardware_interface-source";
+        name = "nmea_hardware_interface-f2654a1aa9f22cabae90bb75c31680c3271d3a1d-source";
         url = "https://github.com/ros2-gbp/nmea_hardware_interface-release.git";
         rev = "f2654a1aa9f22cabae90bb75c31680c3271d3a1d";
         hash = "sha256-YibMQpu2E/mEdOx3OB8wbxnUVH/AukvJlND3wu5+oeE=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "nmea_hardware_interface";
   version = "0.0.1-5";
-  src = sources.nmea_hardware_interface;
+  src = sources.nmea_hardware_interface-f2654a1aa9f22cabae90bb75c31680c3271d3a1d;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

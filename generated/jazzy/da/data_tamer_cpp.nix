@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    data_tamer_cpp = substituteSource {
+    data_tamer_cpp-5274316290956c5257fb416f790585cc9aa31cd6 = substituteSource {
       src = fetchgit {
-        name = "data_tamer_cpp-source";
+        name = "data_tamer_cpp-5274316290956c5257fb416f790585cc9aa31cd6-source";
         url = "https://github.com/ros2-gbp/data_tamer-release.git";
         rev = "5274316290956c5257fb416f790585cc9aa31cd6";
         hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "data_tamer_cpp";
   version = "0.9.4-4";
-  src = sources.data_tamer_cpp;
+  src = sources.data_tamer_cpp-5274316290956c5257fb416f790585cc9aa31cd6;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

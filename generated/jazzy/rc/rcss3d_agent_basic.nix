@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rcss3d_agent_basic = substituteSource {
+    rcss3d_agent_basic-eca722d4386f3ff65accb38b49054b6c848b9c53 = substituteSource {
       src = fetchgit {
-        name = "rcss3d_agent_basic-source";
+        name = "rcss3d_agent_basic-eca722d4386f3ff65accb38b49054b6c848b9c53-source";
         url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
         rev = "eca722d4386f3ff65accb38b49054b6c848b9c53";
         hash = "sha256-nDJGmIM8WHHjNPs3KRLNXOf8EM2VIwF9YZX1CVE662Q=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rcss3d_agent_basic";
   version = "0.4.1-4";
-  src = sources.rcss3d_agent_basic;
+  src = sources.rcss3d_agent_basic-eca722d4386f3ff65accb38b49054b6c848b9c53;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

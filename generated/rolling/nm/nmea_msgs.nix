@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    nmea_msgs = substituteSource {
+    nmea_msgs-4b29747f76d0da74da508f79b19ab99bc513fbe0 = substituteSource {
       src = fetchgit {
-        name = "nmea_msgs-source";
+        name = "nmea_msgs-4b29747f76d0da74da508f79b19ab99bc513fbe0-source";
         url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
         rev = "4b29747f76d0da74da508f79b19ab99bc513fbe0";
         hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "nmea_msgs";
   version = "2.1.0-2";
-  src = sources.nmea_msgs;
+  src = sources.nmea_msgs-4b29747f76d0da74da508f79b19ab99bc513fbe0;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

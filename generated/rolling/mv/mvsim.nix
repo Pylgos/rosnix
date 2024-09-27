@@ -31,9 +31,9 @@
 }:
 let
   sources = rec {
-    mvsim = substituteSource {
+    mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5 = substituteSource {
       src = fetchgit {
-        name = "mvsim-source";
+        name = "mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5-source";
         url = "https://github.com/ros2-gbp/mvsim-release.git";
         rev = "3ba55bc51c40f93c428423f7a04d7ead15e0a2e5";
         hash = "sha256-fRwEC+/pNuYDTorLW+TRc1K0o8oRvfTnMXGqtXn2Alc=";
@@ -46,7 +46,7 @@ in
 buildRosPackage {
   pname = "mvsim";
   version = "0.10.0-1";
-  src = sources.mvsim;
+  src = sources.mvsim-3ba55bc51c40f93c428423f7a04d7ead15e0a2e5;
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" "wget" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

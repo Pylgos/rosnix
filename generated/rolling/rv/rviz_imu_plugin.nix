@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    rviz_imu_plugin = substituteSource {
+    rviz_imu_plugin-dd8a1409694c079020a74626ea01d42353ed6a54 = substituteSource {
       src = fetchgit {
-        name = "rviz_imu_plugin-source";
+        name = "rviz_imu_plugin-dd8a1409694c079020a74626ea01d42353ed6a54-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
         rev = "dd8a1409694c079020a74626ea01d42353ed6a54";
         hash = "sha256-Ve4ClRA+kkXcWgIqaDhQOlKTrTYODFV3aGvhCMk/jXM=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "rviz_imu_plugin";
   version = "2.1.4-1";
-  src = sources.rviz_imu_plugin;
+  src = sources.rviz_imu_plugin-dd8a1409694c079020a74626ea01d42353ed6a54;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

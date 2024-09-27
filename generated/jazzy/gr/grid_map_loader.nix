@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    grid_map_loader = substituteSource {
+    grid_map_loader-4501f5bc538250bd4dc4b016ba952b05b243039f = substituteSource {
       src = fetchgit {
-        name = "grid_map_loader-source";
+        name = "grid_map_loader-4501f5bc538250bd4dc4b016ba952b05b243039f-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "4501f5bc538250bd4dc4b016ba952b05b243039f";
         hash = "sha256-Qd1RNyDd206Vr7IV8iIlm6BUxM+U3emoWQlVg2YEPBg=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "grid_map_loader";
   version = "2.2.0-1";
-  src = sources.grid_map_loader;
+  src = sources.grid_map_loader-4501f5bc538250bd4dc4b016ba952b05b243039f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

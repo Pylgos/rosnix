@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    behaviortree_cpp = substituteSource {
+    behaviortree_cpp-12f5df55f5eb54f2893771d9f4e1942ae420768d = substituteSource {
       src = fetchgit {
-        name = "behaviortree_cpp-source";
+        name = "behaviortree_cpp-12f5df55f5eb54f2893771d9f4e1942ae420768d-source";
         url = "https://github.com/ros2-gbp/behaviortree_cpp_v4-release.git";
         rev = "12f5df55f5eb54f2893771d9f4e1942ae420768d";
         hash = "sha256-/wi43gC6qhFEXVP2DkkASIWNXY1t6kLMoiG+KaDm7DY=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "behaviortree_cpp";
   version = "4.6.2-1";
-  src = sources.behaviortree_cpp;
+  src = sources.behaviortree_cpp-12f5df55f5eb54f2893771d9f4e1942ae420768d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

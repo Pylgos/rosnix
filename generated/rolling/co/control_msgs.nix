@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    control_msgs = substituteSource {
+    control_msgs-a1ef9a000135c4eacc1fa0b36b9990ac0f812137 = substituteSource {
       src = fetchgit {
-        name = "control_msgs-source";
+        name = "control_msgs-a1ef9a000135c4eacc1fa0b36b9990ac0f812137-source";
         url = "https://github.com/ros2-gbp/control_msgs-release.git";
         rev = "a1ef9a000135c4eacc1fa0b36b9990ac0f812137";
         hash = "sha256-URQCB0GxwGeBx7qDLvfeBxUHDgifVGWnImV68kDRCws=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "control_msgs";
   version = "5.2.0-1";
-  src = sources.control_msgs;
+  src = sources.control_msgs-a1ef9a000135c4eacc1fa0b36b9990ac0f812137;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    mola_input_mulran_dataset = substituteSource {
+    mola_input_mulran_dataset-54d1ecfb8924086e97ec68a259c4c2edf89bbb91 = substituteSource {
       src = fetchgit {
-        name = "mola_input_mulran_dataset-source";
+        name = "mola_input_mulran_dataset-54d1ecfb8924086e97ec68a259c4c2edf89bbb91-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "54d1ecfb8924086e97ec68a259c4c2edf89bbb91";
         hash = "sha256-5ZZM31stsOUUcsnzLePMsjHS4CDPs5HHvqGEvMA9BZk=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "mola_input_mulran_dataset";
   version = "1.2.0-1";
-  src = sources.mola_input_mulran_dataset;
+  src = sources.mola_input_mulran_dataset-54d1ecfb8924086e97ec68a259c4c2edf89bbb91;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

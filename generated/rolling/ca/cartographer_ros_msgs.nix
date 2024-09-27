@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    cartographer_ros_msgs = substituteSource {
+    cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a = substituteSource {
       src = fetchgit {
-        name = "cartographer_ros_msgs-source";
+        name = "cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
         rev = "0f8c1669775f566ff9272c7115b81e64f8c9695a";
         hash = "sha256-POmR42dN/mrsnISU7egd4dQ/y+W+VWvPUwQK+JlLCeU=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "cartographer_ros_msgs";
   version = "2.0.9003-1";
-  src = sources.cartographer_ros_msgs;
+  src = sources.cartographer_ros_msgs-0f8c1669775f566ff9272c7115b81e64f8c9695a;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

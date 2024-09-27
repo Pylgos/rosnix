@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    pinocchio = substituteSource {
+    pinocchio-03fb86713a9374d25e2a82dd64ac2f7524a52511 = substituteSource {
       src = fetchgit {
-        name = "pinocchio-source";
+        name = "pinocchio-03fb86713a9374d25e2a82dd64ac2f7524a52511-source";
         url = "https://github.com/ros2-gbp/pinocchio-release.git";
         rev = "03fb86713a9374d25e2a82dd64ac2f7524a52511";
         hash = "sha256-KL3fG4wA2xF6e386oy8YpjAOZqwusyFnqG696AMIWWM=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "pinocchio";
   version = "3.2.0-1";
-  src = sources.pinocchio;
+  src = sources.pinocchio-03fb86713a9374d25e2a82dd64ac2f7524a52511;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

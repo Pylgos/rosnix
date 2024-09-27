@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    turtle_tf2_cpp = substituteSource {
+    turtle_tf2_cpp-84ebfba7496c66d357806790f5eacf643aab9d6f = substituteSource {
       src = fetchgit {
-        name = "turtle_tf2_cpp-source";
+        name = "turtle_tf2_cpp-84ebfba7496c66d357806790f5eacf643aab9d6f-source";
         url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
         rev = "84ebfba7496c66d357806790f5eacf643aab9d6f";
         hash = "sha256-BWaLdE7LYUa2RrtHLEw/kNJMeEFAaGhPyKC3i0rULS0=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "turtle_tf2_cpp";
   version = "0.5.0-1";
-  src = sources.turtle_tf2_cpp;
+  src = sources.turtle_tf2_cpp-84ebfba7496c66d357806790f5eacf643aab9d6f;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

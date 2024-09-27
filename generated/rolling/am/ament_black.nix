@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ament_black = substituteSource {
+    ament_black-e327a9bfe96798c1878fd4b0e0d43ee201d73757 = substituteSource {
       src = fetchgit {
-        name = "ament_black-source";
+        name = "ament_black-e327a9bfe96798c1878fd4b0e0d43ee201d73757-source";
         url = "https://github.com/ros2-gbp/ament_black-release.git";
         rev = "e327a9bfe96798c1878fd4b0e0d43ee201d73757";
         hash = "sha256-CVThJWwGw8u3uwsE3Z5CF7BueCI08EkNe+eW6X/copE=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ament_black";
   version = "0.2.6-1";
-  src = sources.ament_black;
+  src = sources.ament_black-e327a9bfe96798c1878fd4b0e0d43ee201d73757;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "black" "python3-unidiff" "python3-uvloop" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

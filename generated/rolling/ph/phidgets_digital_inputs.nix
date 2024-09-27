@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    phidgets_digital_inputs = substituteSource {
+    phidgets_digital_inputs-4e0bff5c3ff7cda09615ff7e1e110b3a5bb52fac = substituteSource {
       src = fetchgit {
-        name = "phidgets_digital_inputs-source";
+        name = "phidgets_digital_inputs-4e0bff5c3ff7cda09615ff7e1e110b3a5bb52fac-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "4e0bff5c3ff7cda09615ff7e1e110b3a5bb52fac";
         hash = "sha256-taMmD3Mb/CxQDtrkT5cyYYpsjvqCfhPtQH88w96/tto=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "phidgets_digital_inputs";
   version = "2.3.3-1";
-  src = sources.phidgets_digital_inputs;
+  src = sources.phidgets_digital_inputs-4e0bff5c3ff7cda09615ff7e1e110b3a5bb52fac;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

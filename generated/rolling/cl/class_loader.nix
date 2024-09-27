@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    class_loader = substituteSource {
+    class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7 = substituteSource {
       src = fetchgit {
-        name = "class_loader-source";
+        name = "class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7-source";
         url = "https://github.com/ros2-gbp/class_loader-release.git";
         rev = "3812dadf48b00ed1b3d9957c50ddb2741bd447b7";
         hash = "sha256-V+6oUSK7M95ihfg1lxWWhZG258UL04cmtUGoh/eQqOI=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "class_loader";
   version = "2.8.0-1";
-  src = sources.class_loader;
+  src = sources.class_loader-3812dadf48b00ed1b3d9957c50ddb2741bd447b7;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    imu_complementary_filter = substituteSource {
+    imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca = substituteSource {
       src = fetchgit {
-        name = "imu_complementary_filter-source";
+        name = "imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
         rev = "16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca";
         hash = "sha256-kPPY/UhAq3XZ1BFaGYMoE8IuKH67Dyuc7Pih7/4eY1Q=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "imu_complementary_filter";
   version = "2.1.4-1";
-  src = sources.imu_complementary_filter;
+  src = sources.imu_complementary_filter-16d545e5fc71b4c1dccd04e4f07ef9c9740b64ca;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    realsense2_camera_msgs = substituteSource {
+    realsense2_camera_msgs-def1802d06398e80848aea8958ce2321d1c439d1 = substituteSource {
       src = fetchgit {
-        name = "realsense2_camera_msgs-source";
+        name = "realsense2_camera_msgs-def1802d06398e80848aea8958ce2321d1c439d1-source";
         url = "https://github.com/IntelRealSense/realsense-ros-release.git";
         rev = "def1802d06398e80848aea8958ce2321d1c439d1";
         hash = "sha256-uL0BZSHsWOr4JF0PxcIJa6XvMAWzM+MVRW7SacxABH4=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "realsense2_camera_msgs";
   version = "4.55.1-3";
-  src = sources.realsense2_camera_msgs;
+  src = sources.realsense2_camera_msgs-def1802d06398e80848aea8958ce2321d1c439d1;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

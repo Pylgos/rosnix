@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    moveit_ros_trajectory_cache = substituteSource {
+    moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4 = substituteSource {
       src = fetchgit {
-        name = "moveit_ros_trajectory_cache-source";
+        name = "moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
         rev = "52dcc3bcb278818529a53271eaf6437f45fa05e4";
         hash = "sha256-uy4MQ2Y9O3j6x0ti5PIxjE09zuvxcGiwPfFCSXT/S3Y=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "moveit_ros_trajectory_cache";
   version = "2.11.0-1";
-  src = sources.moveit_ros_trajectory_cache;
+  src = sources.moveit_ros_trajectory_cache-52dcc3bcb278818529a53271eaf6437f45fa05e4;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    image_geometry = substituteSource {
+    image_geometry-703aa0fc8d80c67f488253b2a4e574bbd93757a2 = substituteSource {
       src = fetchgit {
-        name = "image_geometry-source";
+        name = "image_geometry-703aa0fc8d80c67f488253b2a4e574bbd93757a2-source";
         url = "https://github.com/ros2-gbp/vision_opencv-release.git";
         rev = "703aa0fc8d80c67f488253b2a4e574bbd93757a2";
         hash = "sha256-y4DJ9zOSPtaMJqyHbcxWEc8zhZkKGJwDlT8xyVy114A=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "image_geometry";
   version = "4.1.0-1";
-  src = sources.image_geometry;
+  src = sources.image_geometry-703aa0fc8d80c67f488253b2a4e574bbd93757a2;
   nativeBuildInputs = [ ament_cmake_python ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    event_camera_msgs = substituteSource {
+    event_camera_msgs-91ad63afda709d4e566d992476ed002309af2f20 = substituteSource {
       src = fetchgit {
-        name = "event_camera_msgs-source";
+        name = "event_camera_msgs-91ad63afda709d4e566d992476ed002309af2f20-source";
         url = "https://github.com/ros2-gbp/event_camera_msgs-release.git";
         rev = "91ad63afda709d4e566d992476ed002309af2f20";
         hash = "sha256-1ZtF5SndbEknqRZ9evnMI25GzONA2ezHKphMlwhsk0g=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "event_camera_msgs";
   version = "1.3.6-1";
-  src = sources.event_camera_msgs;
+  src = sources.event_camera_msgs-91ad63afda709d4e566d992476ed002309af2f20;
   nativeBuildInputs = [ ament_cmake ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

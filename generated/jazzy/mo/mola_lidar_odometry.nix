@@ -32,9 +32,9 @@
 }:
 let
   sources = rec {
-    mola_lidar_odometry = substituteSource {
+    mola_lidar_odometry-3b0e15e1fc3c9acfaf0f263a7120d9bf9d1b3203 = substituteSource {
       src = fetchgit {
-        name = "mola_lidar_odometry-source";
+        name = "mola_lidar_odometry-3b0e15e1fc3c9acfaf0f263a7120d9bf9d1b3203-source";
         url = "https://github.com/ros2-gbp/mola_lidar_odometry-release.git";
         rev = "3b0e15e1fc3c9acfaf0f263a7120d9bf9d1b3203";
         hash = "sha256-Kk/DGvTlVBDHrcVpQPS225NY2iZQ1Q/ZRXk+jsWZqrs=";
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "mola_lidar_odometry";
   version = "0.3.3-1";
-  src = sources.mola_lidar_odometry;
+  src = sources.mola_lidar_odometry-3b0e15e1fc3c9acfaf0f263a7120d9bf9d1b3203;
   nativeBuildInputs = [ ament_cmake ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

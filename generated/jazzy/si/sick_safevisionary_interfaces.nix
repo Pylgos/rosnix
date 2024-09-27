@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    sick_safevisionary_interfaces = substituteSource {
+    sick_safevisionary_interfaces-93072eb8bf6cd41df6e4e8a173b0abdc0c400325 = substituteSource {
       src = fetchgit {
-        name = "sick_safevisionary_interfaces-source";
+        name = "sick_safevisionary_interfaces-93072eb8bf6cd41df6e4e8a173b0abdc0c400325-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
         rev = "93072eb8bf6cd41df6e4e8a173b0abdc0c400325";
         hash = "sha256-7qiJXkBhZMJSxhYrVSgDCUBskK0DEX4aQAixkvpRaP4=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "sick_safevisionary_interfaces";
   version = "1.0.3-3";
-  src = sources.sick_safevisionary_interfaces;
+  src = sources.sick_safevisionary_interfaces-93072eb8bf6cd41df6e4e8a173b0abdc0c400325;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

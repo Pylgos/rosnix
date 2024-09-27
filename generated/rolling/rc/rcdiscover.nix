@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    rcdiscover = substituteSource {
+    rcdiscover-b4819be9a016b59e1db3d1fc1b74627285674c08 = substituteSource {
       src = fetchgit {
-        name = "rcdiscover-source";
+        name = "rcdiscover-b4819be9a016b59e1db3d1fc1b74627285674c08-source";
         url = "https://github.com/ros2-gbp/rcdiscover-release.git";
         rev = "b4819be9a016b59e1db3d1fc1b74627285674c08";
         hash = "sha256-Xw4108ob5fIs8/BbNRMVm3xOzC6l8ZHRs7e3XZ3834M=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "rcdiscover";
   version = "1.1.7-1";
-  src = sources.rcdiscover;
+  src = sources.rcdiscover-b4819be9a016b59e1db3d1fc1b74627285674c08;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    test_interface_files = substituteSource {
+    test_interface_files-3192114c9aa0f21b6753e6de98990d2fc3942601 = substituteSource {
       src = fetchgit {
-        name = "test_interface_files-source";
+        name = "test_interface_files-3192114c9aa0f21b6753e6de98990d2fc3942601-source";
         url = "https://github.com/ros2-gbp/test_interface_files-release.git";
         rev = "3192114c9aa0f21b6753e6de98990d2fc3942601";
         hash = "sha256-+JVChj8V5o/ami/f0h5aFvmiBgphRScf8UBOKJt5FWg=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "test_interface_files";
   version = "0.12.0-1";
-  src = sources.test_interface_files;
+  src = sources.test_interface_files-3192114c9aa0f21b6753e6de98990d2fc3942601;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

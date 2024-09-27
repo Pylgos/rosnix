@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    mola_navstate_fg = substituteSource {
+    mola_navstate_fg-706010b8f68c58da55e60bf7f4bc895b3acbf1be = substituteSource {
       src = fetchgit {
-        name = "mola_navstate_fg-source";
+        name = "mola_navstate_fg-706010b8f68c58da55e60bf7f4bc895b3acbf1be-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "706010b8f68c58da55e60bf7f4bc895b3acbf1be";
         hash = "sha256-ueZBXbUfcBoe9eqLISnU1KMJrMxvgUWdJCwPtI5HCQg=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "mola_navstate_fg";
   version = "1.2.0-1";
-  src = sources.mola_navstate_fg;
+  src = sources.mola_navstate_fg-706010b8f68c58da55e60bf7f4bc895b3acbf1be;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

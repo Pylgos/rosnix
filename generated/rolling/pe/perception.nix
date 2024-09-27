@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    perception = substituteSource {
+    perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1 = substituteSource {
       src = fetchgit {
-        name = "perception-source";
+        name = "perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
         rev = "28fb3d7d11f2167ea52c6968256958a2eb45d0d1";
         hash = "sha256-dm1psyuV0pFw4lLrVBcz/ElZ/T+49Lqaf1kDqahOvLs=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "perception";
   version = "0.11.0-1";
-  src = sources.perception;
+  src = sources.perception-28fb3d7d11f2167ea52c6968256958a2eb45d0d1;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

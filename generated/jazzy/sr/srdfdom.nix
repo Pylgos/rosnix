@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    srdfdom = substituteSource {
+    srdfdom-6817f4b07d5c39f06de2a713efb0b3264e8cb10c = substituteSource {
       src = fetchgit {
-        name = "srdfdom-source";
+        name = "srdfdom-6817f4b07d5c39f06de2a713efb0b3264e8cb10c-source";
         url = "https://github.com/ros2-gbp/srdfdom-release.git";
         rev = "6817f4b07d5c39f06de2a713efb0b3264e8cb10c";
         hash = "sha256-4SrjgL5tauV2LvLisilSnXwyD2qTdhVdYDtH8D/69yg=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "srdfdom";
   version = "2.0.4-4";
-  src = sources.srdfdom;
+  src = sources.srdfdom-6817f4b07d5c39f06de2a713efb0b3264e8cb10c;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    libcamera = substituteSource {
+    libcamera-5fb6283871df8fd6bbd838e3d4c0c29c409989db = substituteSource {
       src = fetchgit {
-        name = "libcamera-source";
+        name = "libcamera-5fb6283871df8fd6bbd838e3d4c0c29c409989db-source";
         url = "https://github.com/ros2-gbp/libcamera-release.git";
         rev = "5fb6283871df8fd6bbd838e3d4c0c29c409989db";
         hash = "sha256-n9KoBuogQR8eKpZN89hIiJv2ODG6tBQ5RdvmNzNi/4o=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "libcamera";
   version = "0.3.2-1";
-  src = sources.libcamera;
+  src = sources.libcamera-5fb6283871df8fd6bbd838e3d4c0c29c409989db;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "meson" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "python3-jinja2" "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

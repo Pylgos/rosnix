@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    grid_map_rviz_plugin = substituteSource {
+    grid_map_rviz_plugin-b347fa11e021fd9fc2e74c93f3e58ef9080afc72 = substituteSource {
       src = fetchgit {
-        name = "grid_map_rviz_plugin-source";
+        name = "grid_map_rviz_plugin-b347fa11e021fd9fc2e74c93f3e58ef9080afc72-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
         rev = "b347fa11e021fd9fc2e74c93f3e58ef9080afc72";
         hash = "sha256-DAioUw7W4LJs4Pt/ZYANnFiCDBerU3Rbnk7Ql3LEq7w=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "grid_map_rviz_plugin";
   version = "2.2.0-1";
-  src = sources.grid_map_rviz_plugin;
+  src = sources.grid_map_rviz_plugin-b347fa11e021fd9fc2e74c93f3e58ef9080afc72;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

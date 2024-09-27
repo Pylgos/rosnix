@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ifm3d_core = substituteSource {
+    ifm3d_core-a24997b1557ad4919fe504bf6ac3580cac5f6e46 = substituteSource {
       src = fetchgit {
-        name = "ifm3d_core-source";
+        name = "ifm3d_core-a24997b1557ad4919fe504bf6ac3580cac5f6e46-source";
         url = "https://github.com/ros2-gbp/ifm3d-release.git";
         rev = "a24997b1557ad4919fe504bf6ac3580cac5f6e46";
         hash = "sha256-uR93fGa2he8/x1p8bZM2xobrFhbm7cnUGAw341qYlOE=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ifm3d_core";
   version = "0.18.0-10";
-  src = sources.ifm3d_core;
+  src = sources.ifm3d_core-a24997b1557ad4919fe504bf6ac3580cac5f6e46;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

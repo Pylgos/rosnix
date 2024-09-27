@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    dynamixel_sdk_custom_interfaces = substituteSource {
+    dynamixel_sdk_custom_interfaces-85f07909dd34b31e3e7f105b1ae99b47c3e8810b = substituteSource {
       src = fetchgit {
-        name = "dynamixel_sdk_custom_interfaces-source";
+        name = "dynamixel_sdk_custom_interfaces-85f07909dd34b31e3e7f105b1ae99b47c3e8810b-source";
         url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
         rev = "85f07909dd34b31e3e7f105b1ae99b47c3e8810b";
         hash = "sha256-pWGzlnONW1lXGAui57EHtKsqI3VguxYMeL+ytq6dgec=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "dynamixel_sdk_custom_interfaces";
   version = "3.7.40-6";
-  src = sources.dynamixel_sdk_custom_interfaces;
+  src = sources.dynamixel_sdk_custom_interfaces-85f07909dd34b31e3e7f105b1ae99b47c3e8810b;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

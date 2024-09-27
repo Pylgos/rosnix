@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    turtlebot3_gazebo = substituteSource {
+    turtlebot3_gazebo-2052448a92e43ce2ed8565594d944ba638f78bd9 = substituteSource {
       src = fetchgit {
-        name = "turtlebot3_gazebo-source";
+        name = "turtlebot3_gazebo-2052448a92e43ce2ed8565594d944ba638f78bd9-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
         rev = "2052448a92e43ce2ed8565594d944ba638f78bd9";
         hash = "sha256-v6xnRm6M8asU/HVNlinmuyhrm7cTaIuA3aSHJzPeX6c=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "turtlebot3_gazebo";
   version = "2.2.5-5";
-  src = sources.turtlebot3_gazebo;
+  src = sources.turtlebot3_gazebo-2052448a92e43ce2ed8565594d944ba638f78bd9;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

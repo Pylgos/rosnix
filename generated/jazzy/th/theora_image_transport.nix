@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    theora_image_transport = substituteSource {
+    theora_image_transport-15dad3242bced4bb1c9045ce507ace092bf2b10b = substituteSource {
       src = fetchgit {
-        name = "theora_image_transport-source";
+        name = "theora_image_transport-15dad3242bced4bb1c9045ce507ace092bf2b10b-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
         rev = "15dad3242bced4bb1c9045ce507ace092bf2b10b";
         hash = "sha256-uLQriOe67EH5xOn08ciMFc/MsoPGdo+MmShfutqfgrI=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "theora_image_transport";
   version = "4.0.2-1";
-  src = sources.theora_image_transport;
+  src = sources.theora_image_transport-15dad3242bced4bb1c9045ce507ace092bf2b10b;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

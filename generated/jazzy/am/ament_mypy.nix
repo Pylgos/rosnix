@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ament_mypy = substituteSource {
+    ament_mypy-ee3cc105753726632d19cc5772a9ad3ca859010b = substituteSource {
       src = fetchgit {
-        name = "ament_mypy-source";
+        name = "ament_mypy-ee3cc105753726632d19cc5772a9ad3ca859010b-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "ee3cc105753726632d19cc5772a9ad3ca859010b";
         hash = "sha256-hM3pes968NZW++cG6X/0jH3kUejkInacRxaXCI3p994=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ament_mypy";
   version = "0.17.1-1";
-  src = sources.ament_mypy;
+  src = sources.ament_mypy-ee3cc105753726632d19cc5772a9ad3ca859010b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-mypy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -34,9 +34,9 @@
 }:
 let
   sources = rec {
-    rcl = substituteSource {
+    rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960 = substituteSource {
       src = fetchgit {
-        name = "rcl-source";
+        name = "rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
         rev = "835ad62c4d7e2a7b90e9b4d6155d52a60ce68960";
         hash = "sha256-uqrAQ9kh2zscOf18YSX9OgaRhlrfcAlRuagZfVIIRdg=";
@@ -49,7 +49,7 @@ in
 buildRosPackage {
   pname = "rcl";
   version = "9.4.1-1";
-  src = sources.rcl;
+  src = sources.rcl-835ad62c4d7e2a7b90e9b4d6155d52a60ce68960;
   nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

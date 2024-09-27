@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    keyboard_handler = substituteSource {
+    keyboard_handler-69c6f6299fa48d6a45e44fbdb040e4dc0fae1423 = substituteSource {
       src = fetchgit {
-        name = "keyboard_handler-source";
+        name = "keyboard_handler-69c6f6299fa48d6a45e44fbdb040e4dc0fae1423-source";
         url = "https://github.com/ros2-gbp/keyboard_handler-release.git";
         rev = "69c6f6299fa48d6a45e44fbdb040e4dc0fae1423";
         hash = "sha256-MrlcTu+x6mBfTXFBvem82OYZkmwmdCO51eLno3SvoY8=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "keyboard_handler";
   version = "0.3.1-2";
-  src = sources.keyboard_handler;
+  src = sources.keyboard_handler-69c6f6299fa48d6a45e44fbdb040e4dc0fae1423;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

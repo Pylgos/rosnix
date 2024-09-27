@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    wiimote = substituteSource {
+    wiimote-511ae4275bf3980a65c8af0f85f1e07748487b7e = substituteSource {
       src = fetchgit {
-        name = "wiimote-source";
+        name = "wiimote-511ae4275bf3980a65c8af0f85f1e07748487b7e-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
         rev = "511ae4275bf3980a65c8af0f85f1e07748487b7e";
         hash = "sha256-WghWanmw0GXmNOdR/EHg1/ytIXNtIKstCe5hSIgpQ/s=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "wiimote";
   version = "3.3.0-3";
-  src = sources.wiimote;
+  src = sources.wiimote-511ae4275bf3980a65c8af0f85f1e07748487b7e;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

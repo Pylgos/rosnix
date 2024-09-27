@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    rtabmap_odom = substituteSource {
+    rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627 = substituteSource {
       src = fetchgit {
-        name = "rtabmap_odom-source";
+        name = "rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
         rev = "8228b4545c1f1bd89b35e75b76bd67e652811627";
         hash = "sha256-0owvQSXMQlE+Y8M0UBrrHLvgxACHLwndNVXcFYqLy+Q=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "rtabmap_odom";
   version = "0.21.5-3";
-  src = sources.rtabmap_odom;
+  src = sources.rtabmap_odom-8228b4545c1f1bd89b35e75b76bd67e652811627;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rcss3d_agent_msgs_to_soccer_interfaces = substituteSource {
+    rcss3d_agent_msgs_to_soccer_interfaces-b3ef5116e011b8d30aec1b1bf373e08bb5fbcb0e = substituteSource {
       src = fetchgit {
-        name = "rcss3d_agent_msgs_to_soccer_interfaces-source";
+        name = "rcss3d_agent_msgs_to_soccer_interfaces-b3ef5116e011b8d30aec1b1bf373e08bb5fbcb0e-source";
         url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
         rev = "b3ef5116e011b8d30aec1b1bf373e08bb5fbcb0e";
         hash = "sha256-2bEjbfPy02UiTflYzF8AZb2bjZB/Xg1iHUC0deLs7UQ=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rcss3d_agent_msgs_to_soccer_interfaces";
   version = "0.4.1-3";
-  src = sources.rcss3d_agent_msgs_to_soccer_interfaces;
+  src = sources.rcss3d_agent_msgs_to_soccer_interfaces-b3ef5116e011b8d30aec1b1bf373e08bb5fbcb0e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

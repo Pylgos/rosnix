@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    position_controllers = substituteSource {
+    position_controllers-a95b211afeefe9226c8de77a5a6f0ac5850aa54a = substituteSource {
       src = fetchgit {
-        name = "position_controllers-source";
+        name = "position_controllers-a95b211afeefe9226c8de77a5a6f0ac5850aa54a-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "a95b211afeefe9226c8de77a5a6f0ac5850aa54a";
         hash = "sha256-4xB6xG5AyPElwPUSIYyL96i8cDxFNYF94xC3aDrZojY=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "position_controllers";
   version = "4.14.0-1";
-  src = sources.position_controllers;
+  src = sources.position_controllers-a95b211afeefe9226c8de77a5a6f0ac5850aa54a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

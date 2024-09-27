@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    nav2_behavior_tree = substituteSource {
+    nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd = substituteSource {
       src = fetchgit {
-        name = "nav2_behavior_tree-source";
+        name = "nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "514435645fd784662bd5646e4452560408cd9ccd";
         hash = "sha256-n8/qWnKTojyTZFNfXLMQRMV9FDbcmLweC+AgTJAwNPI=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "nav2_behavior_tree";
   version = "1.3.2-1";
-  src = sources.nav2_behavior_tree;
+  src = sources.nav2_behavior_tree-514435645fd784662bd5646e4452560408cd9ccd;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

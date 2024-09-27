@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    backward_ros = substituteSource {
+    backward_ros-5a2e2816c743af43c84af47fbb3062add53e9a38 = substituteSource {
       src = fetchgit {
-        name = "backward_ros-source";
+        name = "backward_ros-5a2e2816c743af43c84af47fbb3062add53e9a38-source";
         url = "https://github.com/ros2-gbp/backward_ros-release.git";
         rev = "5a2e2816c743af43c84af47fbb3062add53e9a38";
         hash = "sha256-bWsmqFK/qWWpbhuWLQpYSQyNWcbHbMKq/ACVsHa/Vf0=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "backward_ros";
   version = "1.0.5-1";
-  src = sources.backward_ros;
+  src = sources.backward_ros-5a2e2816c743af43c84af47fbb3062add53e9a38;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

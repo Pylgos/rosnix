@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    rclc_parameter = substituteSource {
+    rclc_parameter-6cd4f9aa9c5f72bc49d72fa8159ac31fff78c076 = substituteSource {
       src = fetchgit {
-        name = "rclc_parameter-source";
+        name = "rclc_parameter-6cd4f9aa9c5f72bc49d72fa8159ac31fff78c076-source";
         url = "https://github.com/ros2-gbp/rclc-release.git";
         rev = "6cd4f9aa9c5f72bc49d72fa8159ac31fff78c076";
         hash = "sha256-A93x6TfzcxJIYgtjzdk6WxPcZgdk96frAyeKMnqXQKQ=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "rclc_parameter";
   version = "6.1.0-2";
-  src = sources.rclc_parameter;
+  src = sources.rclc_parameter-6cd4f9aa9c5f72bc49d72fa8159ac31fff78c076;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

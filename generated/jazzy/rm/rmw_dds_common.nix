@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    rmw_dds_common = substituteSource {
+    rmw_dds_common-8d736a951300b342b1d672e7923ad9c50f04f726 = substituteSource {
       src = fetchgit {
-        name = "rmw_dds_common-source";
+        name = "rmw_dds_common-8d736a951300b342b1d672e7923ad9c50f04f726-source";
         url = "https://github.com/ros2-gbp/rmw_dds_common-release.git";
         rev = "8d736a951300b342b1d672e7923ad9c50f04f726";
         hash = "sha256-wc3HbuwzxNPLut+Q0TPcQI5xPIZd1euV/y2t3Acat8k=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "rmw_dds_common";
   version = "3.1.0-2";
-  src = sources.rmw_dds_common;
+  src = sources.rmw_dds_common-8d736a951300b342b1d672e7923ad9c50f04f726;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

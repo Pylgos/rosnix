@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    ecl_license = substituteSource {
+    ecl_license-6cac334990aa3f48432e60c033a56aa590a79261 = substituteSource {
       src = fetchgit {
-        name = "ecl_license-source";
+        name = "ecl_license-6cac334990aa3f48432e60c033a56aa590a79261-source";
         url = "https://github.com/ros2-gbp/ecl_tools-release.git";
         rev = "6cac334990aa3f48432e60c033a56aa590a79261";
         hash = "sha256-7IkZyQJw9go1s2je+YLPGemSTMtC8PNA66qCC6akU6w=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "ecl_license";
   version = "1.0.3-5";
-  src = sources.ecl_license;
+  src = sources.ecl_license-6cac334990aa3f48432e60c033a56aa590a79261;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

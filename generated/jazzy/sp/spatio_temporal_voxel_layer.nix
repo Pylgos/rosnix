@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    spatio_temporal_voxel_layer = substituteSource {
+    spatio_temporal_voxel_layer-b90240ec24e8493687336fa512d84fded305a7d8 = substituteSource {
       src = fetchgit {
-        name = "spatio_temporal_voxel_layer-source";
+        name = "spatio_temporal_voxel_layer-b90240ec24e8493687336fa512d84fded305a7d8-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
         rev = "b90240ec24e8493687336fa512d84fded305a7d8";
         hash = "sha256-TI+acykuLfFK0oE0y9ADZZKcvn02EJ4JPHkP88+jaz4=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "spatio_temporal_voxel_layer";
   version = "2.5.2-1";
-  src = sources.spatio_temporal_voxel_layer;
+  src = sources.spatio_temporal_voxel_layer-b90240ec24e8493687336fa512d84fded305a7d8;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

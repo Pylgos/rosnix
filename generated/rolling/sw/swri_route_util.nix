@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    swri_route_util = substituteSource {
+    swri_route_util-eacb8ff673c5a1ab57ec2ce18e4ef50d7fe3694d = substituteSource {
       src = fetchgit {
-        name = "swri_route_util-source";
+        name = "swri_route_util-eacb8ff673c5a1ab57ec2ce18e4ef50d7fe3694d-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "eacb8ff673c5a1ab57ec2ce18e4ef50d7fe3694d";
         hash = "sha256-YxAqGUa1ocmwiqAltTWqsseGPMp3R2hdRa+sIpB6zC0=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "swri_route_util";
   version = "3.7.3-1";
-  src = sources.swri_route_util;
+  src = sources.swri_route_util-eacb8ff673c5a1ab57ec2ce18e4ef50d7fe3694d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

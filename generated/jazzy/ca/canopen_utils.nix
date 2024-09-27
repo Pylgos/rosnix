@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    canopen_utils = substituteSource {
+    canopen_utils-181beef157c2ca0a620517759160ed38a96b752b = substituteSource {
       src = fetchgit {
-        name = "canopen_utils-source";
+        name = "canopen_utils-181beef157c2ca0a620517759160ed38a96b752b-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
         rev = "181beef157c2ca0a620517759160ed38a96b752b";
         hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "canopen_utils";
   version = "0.2.9-2";
-  src = sources.canopen_utils;
+  src = sources.canopen_utils-181beef157c2ca0a620517759160ed38a96b752b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

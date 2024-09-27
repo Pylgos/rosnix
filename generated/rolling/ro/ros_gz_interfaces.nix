@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    ros_gz_interfaces = substituteSource {
+    ros_gz_interfaces-386200bc4fb6c9685047c44678798438c04cbd9a = substituteSource {
       src = fetchgit {
-        name = "ros_gz_interfaces-source";
+        name = "ros_gz_interfaces-386200bc4fb6c9685047c44678798438c04cbd9a-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "386200bc4fb6c9685047c44678798438c04cbd9a";
         hash = "sha256-1Ppfwm3EzH21g4N+3nlQurHRpkDFnq7mO11x2fYgBKs=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "ros_gz_interfaces";
   version = "2.1.0-1";
-  src = sources.ros_gz_interfaces;
+  src = sources.ros_gz_interfaces-386200bc4fb6c9685047c44678798438c04cbd9a;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

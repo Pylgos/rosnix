@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    qt_dotgraph = substituteSource {
+    qt_dotgraph-f4dc66c120b1196c813ea3c91f55e17c7565ff86 = substituteSource {
       src = fetchgit {
-        name = "qt_dotgraph-source";
+        name = "qt_dotgraph-f4dc66c120b1196c813ea3c91f55e17c7565ff86-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
         rev = "f4dc66c120b1196c813ea3c91f55e17c7565ff86";
         hash = "sha256-neIiFXuQRDJ4lsjRo1j9tUX/QwS8Qsz2SSvk8AaL3yE=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "qt_dotgraph";
   version = "2.7.4-2";
-  src = sources.qt_dotgraph;
+  src = sources.qt_dotgraph-f4dc66c120b1196c813ea3c91f55e17c7565ff86;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

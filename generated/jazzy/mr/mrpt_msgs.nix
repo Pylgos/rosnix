@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    mrpt_msgs = substituteSource {
+    mrpt_msgs-58cee178b86be2e6a62b1c4895603c4d10a3939a = substituteSource {
       src = fetchgit {
-        name = "mrpt_msgs-source";
+        name = "mrpt_msgs-58cee178b86be2e6a62b1c4895603c4d10a3939a-source";
         url = "https://github.com/ros2-gbp/mrpt_msgs-release.git";
         rev = "58cee178b86be2e6a62b1c4895603c4d10a3939a";
         hash = "sha256-aWWfgmGZaX5Hai0iTV9oUl1V2Gz9/csFD9tIVQdlPRE=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "mrpt_msgs";
   version = "0.4.7-3";
-  src = sources.mrpt_msgs;
+  src = sources.mrpt_msgs-58cee178b86be2e6a62b1c4895603c4d10a3939a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

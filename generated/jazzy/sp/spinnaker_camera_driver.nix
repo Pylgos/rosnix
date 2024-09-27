@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    spinnaker_camera_driver = substituteSource {
+    spinnaker_camera_driver-7c6a3104f5cc1e7f807d2533cda87da5bf75e416 = substituteSource {
       src = fetchgit {
-        name = "spinnaker_camera_driver-source";
+        name = "spinnaker_camera_driver-7c6a3104f5cc1e7f807d2533cda87da5bf75e416-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
         rev = "7c6a3104f5cc1e7f807d2533cda87da5bf75e416";
         hash = "sha256-MTLkSEO/NkdU6Fa/1zhCvcWbcyRFQ58qqX66+pGBmdk=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "spinnaker_camera_driver";
   version = "2.0.20-1";
-  src = sources.spinnaker_camera_driver;
+  src = sources.spinnaker_camera_driver-7c6a3104f5cc1e7f807d2533cda87da5bf75e416;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

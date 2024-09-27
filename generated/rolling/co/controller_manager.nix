@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    controller_manager = substituteSource {
+    controller_manager-da12274863104e6525fdf4a9f9ba7b9617ed47c4 = substituteSource {
       src = fetchgit {
-        name = "controller_manager-source";
+        name = "controller_manager-da12274863104e6525fdf4a9f9ba7b9617ed47c4-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
         rev = "da12274863104e6525fdf4a9f9ba7b9617ed47c4";
         hash = "sha256-AURhVjjIW1iQszNXkH6YWyBbn+/6a3A8KUNIVE8fiDA=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "controller_manager";
   version = "4.17.0-1";
-  src = sources.controller_manager;
+  src = sources.controller_manager-da12274863104e6525fdf4a9f9ba7b9617ed47c4;
   nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

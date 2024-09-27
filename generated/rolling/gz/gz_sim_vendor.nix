@@ -29,9 +29,19 @@
 }:
 let
   sources = rec {
-    gz_sim_vendor = substituteSource {
+    gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501 = substituteSource {
       src = fetchgit {
-        name = "gz_sim_vendor-source";
+        name = "gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501-source";
+        url = "https://github.com/gazebosim/gz-sim.git";
+        rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
+        hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_sim_vendor-b976178a7665e19abeb4fff7863f546ec1bf154c = substituteSource {
+      src = fetchgit {
+        name = "gz_sim_vendor-b976178a7665e19abeb4fff7863f546ec1bf154c-source";
         url = "https://github.com/ros2-gbp/gz_sim_vendor-release.git";
         rev = "b976178a7665e19abeb4fff7863f546ec1bf154c";
         hash = "sha256-PSUWqi5eGOz+xT6Mg3tSx1Fk+IRDJaBkRKyeLmuZRZA=";
@@ -40,18 +50,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_sim_vendor-vendor_source-gz-sim-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-sim-vendor_source-4226d04fa3e51c6d4cf5970a2915d5891af37501}";
         }
-      ];
-    };
-    gz_sim_vendor-vendor_source-gz-sim-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_sim_vendor-vendor_source-gz-sim-0-source";
-        url = "https://github.com/gazebosim/gz-sim.git";
-        rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
-        hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -59,7 +59,7 @@ in
 buildRosPackage {
   pname = "gz_sim_vendor";
   version = "0.1.2-1";
-  src = sources.gz_sim_vendor;
+  src = sources.gz_sim_vendor-b976178a7665e19abeb4fff7863f546ec1bf154c;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

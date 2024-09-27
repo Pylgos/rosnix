@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    ecl_threads = substituteSource {
+    ecl_threads-4da175b67d7b1ac5e59479d8bddaa960c0ed25be = substituteSource {
       src = fetchgit {
-        name = "ecl_threads-source";
+        name = "ecl_threads-4da175b67d7b1ac5e59479d8bddaa960c0ed25be-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "4da175b67d7b1ac5e59479d8bddaa960c0ed25be";
         hash = "sha256-4lhOg9DicobrUw8Xel3vSP7jrgFI9obXn6dYbQEyFHA=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "ecl_threads";
   version = "1.2.1-4";
-  src = sources.ecl_threads;
+  src = sources.ecl_threads-4da175b67d7b1ac5e59479d8bddaa960c0ed25be;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

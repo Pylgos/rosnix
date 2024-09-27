@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    cascade_lifecycle_msgs = substituteSource {
+    cascade_lifecycle_msgs-7ad0edb701febd76972bf734e2a8c57c66391308 = substituteSource {
       src = fetchgit {
-        name = "cascade_lifecycle_msgs-source";
+        name = "cascade_lifecycle_msgs-7ad0edb701febd76972bf734e2a8c57c66391308-source";
         url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
         rev = "7ad0edb701febd76972bf734e2a8c57c66391308";
         hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "cascade_lifecycle_msgs";
   version = "2.0.0-1";
-  src = sources.cascade_lifecycle_msgs;
+  src = sources.cascade_lifecycle_msgs-7ad0edb701febd76972bf734e2a8c57c66391308;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

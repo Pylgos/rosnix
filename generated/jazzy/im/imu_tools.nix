@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    imu_tools = substituteSource {
+    imu_tools-df19112520926bebd06030f598ac67b9e1c7b9fb = substituteSource {
       src = fetchgit {
-        name = "imu_tools-source";
+        name = "imu_tools-df19112520926bebd06030f598ac67b9e1c7b9fb-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
         rev = "df19112520926bebd06030f598ac67b9e1c7b9fb";
         hash = "sha256-+i6Cvdit5GQDlcCdOUAFdg6ESROTgWjJQ1IqxGC94Ug=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "imu_tools";
   version = "2.1.3-4";
-  src = sources.imu_tools;
+  src = sources.imu_tools-df19112520926bebd06030f598ac67b9e1c7b9fb;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

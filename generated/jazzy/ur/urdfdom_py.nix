@@ -9,9 +9,9 @@
 }:
 let
   sources = rec {
-    urdfdom_py = substituteSource {
+    urdfdom_py-691b53d7cea6d00fed623d8273f8914d94de760c = substituteSource {
       src = fetchgit {
-        name = "urdfdom_py-source";
+        name = "urdfdom_py-691b53d7cea6d00fed623d8273f8914d94de760c-source";
         url = "https://github.com/ros2-gbp/urdfdom_py-release.git";
         rev = "691b53d7cea6d00fed623d8273f8914d94de760c";
         hash = "sha256-XIQzb/e4G8nvo/oqr/BKyEWW1LAFi2kvQhIdXhJHG+Q=";
@@ -24,7 +24,7 @@ in
 buildRosPackage {
   pname = "urdfdom_py";
   version = "1.2.1-3";
-  src = sources.urdfdom_py;
+  src = sources.urdfdom_py-691b53d7cea6d00fed623d8273f8914d94de760c;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

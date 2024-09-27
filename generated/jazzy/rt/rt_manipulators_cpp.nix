@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    rt_manipulators_cpp = substituteSource {
+    rt_manipulators_cpp-1f5ee7c892f026a96f5cab09961b0622ef6f5f4c = substituteSource {
       src = fetchgit {
-        name = "rt_manipulators_cpp-source";
+        name = "rt_manipulators_cpp-1f5ee7c892f026a96f5cab09961b0622ef6f5f4c-source";
         url = "https://github.com/ros2-gbp/rt_manipulators_cpp-release.git";
         rev = "1f5ee7c892f026a96f5cab09961b0622ef6f5f4c";
         hash = "sha256-TATkY16Ygvjapj2LsTtV0TxnVp37lOfJddAYTTuaCqE=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "rt_manipulators_cpp";
   version = "1.1.0-1";
-  src = sources.rt_manipulators_cpp;
+  src = sources.rt_manipulators_cpp-1f5ee7c892f026a96f5cab09961b0622ef6f5f4c;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    nav2_constrained_smoother = substituteSource {
+    nav2_constrained_smoother-52a83dce9691003caf0a377ec9a8eaf6429b3956 = substituteSource {
       src = fetchgit {
-        name = "nav2_constrained_smoother-source";
+        name = "nav2_constrained_smoother-52a83dce9691003caf0a377ec9a8eaf6429b3956-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "52a83dce9691003caf0a377ec9a8eaf6429b3956";
         hash = "sha256-i6JL0yHKXGGnfgQ/RN9Y7TM/e+mqg/UACteF6y6TZxg=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "nav2_constrained_smoother";
   version = "1.3.2-1";
-  src = sources.nav2_constrained_smoother;
+  src = sources.nav2_constrained_smoother-52a83dce9691003caf0a377ec9a8eaf6429b3956;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

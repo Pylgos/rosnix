@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    geometric_shapes = substituteSource {
+    geometric_shapes-64d51b830c30086c0e79af229e2394fbb13fbb8b = substituteSource {
       src = fetchgit {
-        name = "geometric_shapes-source";
+        name = "geometric_shapes-64d51b830c30086c0e79af229e2394fbb13fbb8b-source";
         url = "https://github.com/ros2-gbp/geometric_shapes-release.git";
         rev = "64d51b830c30086c0e79af229e2394fbb13fbb8b";
         hash = "sha256-o2Eck5v0SgZlsbOmbpf5qikEjkjDqv/wJ2kTdTiq2RQ=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "geometric_shapes";
   version = "2.2.1-1";
-  src = sources.geometric_shapes;
+  src = sources.geometric_shapes-64d51b830c30086c0e79af229e2394fbb13fbb8b;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

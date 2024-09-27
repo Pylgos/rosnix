@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    aruco = substituteSource {
+    aruco-9ef32a20402915da4a3febabef80d97c3a59a46f = substituteSource {
       src = fetchgit {
-        name = "aruco-source";
+        name = "aruco-9ef32a20402915da4a3febabef80d97c3a59a46f-source";
         url = "https://github.com/pal-gbp/aruco_ros-release.git";
         rev = "9ef32a20402915da4a3febabef80d97c3a59a46f";
         hash = "sha256-3Foblmp2VasqOKhDmgA7heDxnleqT6Pqnk7dXajdiE4=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "aruco";
   version = "5.0.5-1";
-  src = sources.aruco;
+  src = sources.aruco-9ef32a20402915da4a3febabef80d97c3a59a46f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

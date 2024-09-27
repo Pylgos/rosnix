@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    phidgets_magnetometer = substituteSource {
+    phidgets_magnetometer-8e83bb7b78c9b6b9125857a2d323bfa178ac0c4e = substituteSource {
       src = fetchgit {
-        name = "phidgets_magnetometer-source";
+        name = "phidgets_magnetometer-8e83bb7b78c9b6b9125857a2d323bfa178ac0c4e-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
         rev = "8e83bb7b78c9b6b9125857a2d323bfa178ac0c4e";
         hash = "sha256-3Ggm9kmzc70h+9ehA3T5rBXPWdUFeWN5ptgZJMeh+sk=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "phidgets_magnetometer";
   version = "2.3.3-1";
-  src = sources.phidgets_magnetometer;
+  src = sources.phidgets_magnetometer-8e83bb7b78c9b6b9125857a2d323bfa178ac0c4e;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

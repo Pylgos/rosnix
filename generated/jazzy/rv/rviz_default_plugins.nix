@@ -40,9 +40,9 @@
 }:
 let
   sources = rec {
-    rviz_default_plugins = substituteSource {
+    rviz_default_plugins-4bc5c17478b525f50d179cdf7234eb81eab419eb = substituteSource {
       src = fetchgit {
-        name = "rviz_default_plugins-source";
+        name = "rviz_default_plugins-4bc5c17478b525f50d179cdf7234eb81eab419eb-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
         rev = "4bc5c17478b525f50d179cdf7234eb81eab419eb";
         hash = "sha256-6kgrLp+VYgqdRHFaiwjVMQqNC5P5Pxowv1ep152UMow=";
@@ -55,7 +55,7 @@ in
 buildRosPackage {
   pname = "rviz_default_plugins";
   version = "14.1.5-1";
-  src = sources.rviz_default_plugins;
+  src = sources.rviz_default_plugins-4bc5c17478b525f50d179cdf7234eb81eab419eb;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

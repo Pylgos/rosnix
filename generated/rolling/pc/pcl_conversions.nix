@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    pcl_conversions = substituteSource {
+    pcl_conversions-99e9bfbb54bf30172e549adc7c50fd584dd21ece = substituteSource {
       src = fetchgit {
-        name = "pcl_conversions-source";
+        name = "pcl_conversions-99e9bfbb54bf30172e549adc7c50fd584dd21ece-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
         rev = "99e9bfbb54bf30172e549adc7c50fd584dd21ece";
         hash = "sha256-JMlxHj6XMHqOVfS/n5Ir4meRb4o0pK3VoeE0GYS69FI=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "pcl_conversions";
   version = "2.6.1-3";
-  src = sources.pcl_conversions;
+  src = sources.pcl_conversions-99e9bfbb54bf30172e549adc7c50fd584dd21ece;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

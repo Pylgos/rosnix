@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    fuse_msgs = substituteSource {
+    fuse_msgs-9abf81408525991f00ffa99f9b9d52f2143819ef = substituteSource {
       src = fetchgit {
-        name = "fuse_msgs-source";
+        name = "fuse_msgs-9abf81408525991f00ffa99f9b9d52f2143819ef-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "9abf81408525991f00ffa99f9b9d52f2143819ef";
         hash = "sha256-K5wgOTOOHaXlC+cqCiC5b5HYQcs38mxUs99d3/wYe44=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "fuse_msgs";
   version = "1.1.1-1";
-  src = sources.fuse_msgs;
+  src = sources.fuse_msgs-9abf81408525991f00ffa99f9b9d52f2143819ef;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

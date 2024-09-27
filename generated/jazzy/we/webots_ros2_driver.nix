@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    webots_ros2_driver = substituteSource {
+    webots_ros2_driver-e4b5418d661d13d7841e889fe614d4f7c8cfe06e = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_driver-source";
+        name = "webots_ros2_driver-e4b5418d661d13d7841e889fe614d4f7c8cfe06e-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "e4b5418d661d13d7841e889fe614d4f7c8cfe06e";
         hash = "sha256-G6weVTbEsygOn7dKbZRH3n+HRo2Yz1i2JeACgKMjWwk=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "webots_ros2_driver";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_driver;
+  src = sources.webots_ros2_driver-e4b5418d661d13d7841e889fe614d4f7c8cfe06e;
   nativeBuildInputs = [ ament_cmake ament_cmake_python python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    camera_aravis2 = substituteSource {
+    camera_aravis2-5f3e3d8ced22c864b03026f8804b1a5b45aa0648 = substituteSource {
       src = fetchgit {
-        name = "camera_aravis2-source";
+        name = "camera_aravis2-5f3e3d8ced22c864b03026f8804b1a5b45aa0648-source";
         url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
         rev = "5f3e3d8ced22c864b03026f8804b1a5b45aa0648";
         hash = "sha256-5Ah7DOmJ1tb7bQ9XttTlDnsH6igmEM8S5i3sZm4pWZc=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "camera_aravis2";
   version = "1.0.0-1";
-  src = sources.camera_aravis2;
+  src = sources.camera_aravis2-5f3e3d8ced22c864b03026f8804b1a5b45aa0648;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

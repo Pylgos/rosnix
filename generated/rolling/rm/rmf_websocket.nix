@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    rmf_websocket = substituteSource {
+    rmf_websocket-8471b200555cffa3b38720294c78fed379cd1412 = substituteSource {
       src = fetchgit {
-        name = "rmf_websocket-source";
+        name = "rmf_websocket-8471b200555cffa3b38720294c78fed379cd1412-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "8471b200555cffa3b38720294c78fed379cd1412";
         hash = "sha256-QjcXatjvB2NeZj4Y24OY3ZWxdCEkjPsx4IjIWiHa7LQ=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "rmf_websocket";
   version = "2.7.1-1";
-  src = sources.rmf_websocket;
+  src = sources.rmf_websocket-8471b200555cffa3b38720294c78fed379cd1412;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

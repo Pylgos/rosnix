@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rqt_gui_cpp = substituteSource {
+    rqt_gui_cpp-0ff9411e1fae5cdb1942231565a13b10a85d001b = substituteSource {
       src = fetchgit {
-        name = "rqt_gui_cpp-source";
+        name = "rqt_gui_cpp-0ff9411e1fae5cdb1942231565a13b10a85d001b-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
         rev = "0ff9411e1fae5cdb1942231565a13b10a85d001b";
         hash = "sha256-JJ48LH0MfEaVb8AgbGKYBZ2v/ihBf0A2MZ267/+zhDY=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rqt_gui_cpp";
   version = "1.6.0-2";
-  src = sources.rqt_gui_cpp;
+  src = sources.rqt_gui_cpp-0ff9411e1fae5cdb1942231565a13b10a85d001b;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

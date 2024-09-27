@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    rosidl_typesupport_fastrtps_c = substituteSource {
+    rosidl_typesupport_fastrtps_c-2ad5c9226082ce008ed8c458d042938bd7e385d3 = substituteSource {
       src = fetchgit {
-        name = "rosidl_typesupport_fastrtps_c-source";
+        name = "rosidl_typesupport_fastrtps_c-2ad5c9226082ce008ed8c458d042938bd7e385d3-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
         rev = "2ad5c9226082ce008ed8c458d042938bd7e385d3";
         hash = "sha256-o79GDWXlyo1dcv4SCHGBhnrLqmIFsWFDgRsB5wJhbi0=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "rosidl_typesupport_fastrtps_c";
   version = "3.7.0-1";
-  src = sources.rosidl_typesupport_fastrtps_c;
+  src = sources.rosidl_typesupport_fastrtps_c-2ad5c9226082ce008ed8c458d042938bd7e385d3;
   nativeBuildInputs = [ ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_ros fastrtps_cmake_module rosidl_cli rosidl_generator_c rosidl_pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

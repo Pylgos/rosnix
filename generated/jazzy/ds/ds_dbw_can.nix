@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    ds_dbw_can = substituteSource {
+    ds_dbw_can-491aaf1b09695f08790ecab8d0d1f046532df2f8 = substituteSource {
       src = fetchgit {
-        name = "ds_dbw_can-source";
+        name = "ds_dbw_can-491aaf1b09695f08790ecab8d0d1f046532df2f8-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
         rev = "491aaf1b09695f08790ecab8d0d1f046532df2f8";
         hash = "sha256-5tNo8sZUZ4s4XPOC7pA9BwYdAYWNVkQu5x62aM1DeD0=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "ds_dbw_can";
   version = "2.2.0-1";
-  src = sources.ds_dbw_can;
+  src = sources.ds_dbw_can-491aaf1b09695f08790ecab8d0d1f046532df2f8;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

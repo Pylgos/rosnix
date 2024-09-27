@@ -28,9 +28,9 @@
 }:
 let
   sources = rec {
-    octomap_server = substituteSource {
+    octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a = substituteSource {
       src = fetchgit {
-        name = "octomap_server-source";
+        name = "octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a-source";
         url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
         rev = "d50f0f59e12b7ed1dd6a733a170fb1e5f494891a";
         hash = "sha256-qokWpx6Dn8+CCs6PtkaIlxri9WRcZqpqj34kbhZR1Cc=";
@@ -43,7 +43,7 @@ in
 buildRosPackage {
   pname = "octomap_server";
   version = "2.3.0-1";
-  src = sources.octomap_server;
+  src = sources.octomap_server-d50f0f59e12b7ed1dd6a733a170fb1e5f494891a;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

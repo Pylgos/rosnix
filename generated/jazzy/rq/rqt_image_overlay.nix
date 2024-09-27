@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    rqt_image_overlay = substituteSource {
+    rqt_image_overlay-3b47252303977088f137c8bc94c0b375f98e4bf5 = substituteSource {
       src = fetchgit {
-        name = "rqt_image_overlay-source";
+        name = "rqt_image_overlay-3b47252303977088f137c8bc94c0b375f98e4bf5-source";
         url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
         rev = "3b47252303977088f137c8bc94c0b375f98e4bf5";
         hash = "sha256-rjv8Zxu7V4qDtMRcwMdiYByPpFiYIRJL8N+KK/Gte+E=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "rqt_image_overlay";
   version = "0.3.1-4";
-  src = sources.rqt_image_overlay;
+  src = sources.rqt_image_overlay-3b47252303977088f137c8bc94c0b375f98e4bf5;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

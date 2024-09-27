@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    ur_calibration = substituteSource {
+    ur_calibration-a23d84713f106d68070df1ab8147d83bc4e52773 = substituteSource {
       src = fetchgit {
-        name = "ur_calibration-source";
+        name = "ur_calibration-a23d84713f106d68070df1ab8147d83bc4e52773-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
         rev = "a23d84713f106d68070df1ab8147d83bc4e52773";
         hash = "sha256-d2ek8nVlx5QQoQ0uMymAT3D8QaFaqGsEgzv7G4iXBWw=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "ur_calibration";
   version = "2.4.10-1";
-  src = sources.ur_calibration;
+  src = sources.ur_calibration-a23d84713f106d68070df1ab8147d83bc4e52773;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

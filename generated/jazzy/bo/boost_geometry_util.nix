@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    boost_geometry_util = substituteSource {
+    boost_geometry_util-e62a890a7f907b19266df8846abc46b3e92e291f = substituteSource {
       src = fetchgit {
-        name = "boost_geometry_util-source";
+        name = "boost_geometry_util-e62a890a7f907b19266df8846abc46b3e92e291f-source";
         url = "https://github.com/ros2-gbp/boost_geometry_util-release.git";
         rev = "e62a890a7f907b19266df8846abc46b3e92e291f";
         hash = "sha256-5P2YMX4buwUYt7NAF7FiWJguryH/I8GC2y+vIK5KI0w=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "boost_geometry_util";
   version = "0.0.1-5";
-  src = sources.boost_geometry_util;
+  src = sources.boost_geometry_util-e62a890a7f907b19266df8846abc46b3e92e291f;
   nativeBuildInputs = [ ament_cmake ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

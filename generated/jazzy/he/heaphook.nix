@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    heaphook = substituteSource {
+    heaphook-3b17a1da870178e805963b7092d2cdad36d6e4be = substituteSource {
       src = fetchgit {
-        name = "heaphook-source";
+        name = "heaphook-3b17a1da870178e805963b7092d2cdad36d6e4be-source";
         url = "https://github.com/ros2-gbp/heaphook-release.git";
         rev = "3b17a1da870178e805963b7092d2cdad36d6e4be";
         hash = "sha256-muNY40LV1Jqtg043Lo1oCWIqz93a3zVaQ23jgFaEOPE=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "heaphook";
   version = "0.1.1-3";
-  src = sources.heaphook;
+  src = sources.heaphook-3b17a1da870178e805963b7092d2cdad36d6e4be;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

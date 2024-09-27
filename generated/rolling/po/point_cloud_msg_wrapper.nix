@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    point_cloud_msg_wrapper = substituteSource {
+    point_cloud_msg_wrapper-0d85557d2e774b246906e7f020d65bf0b4720655 = substituteSource {
       src = fetchgit {
-        name = "point_cloud_msg_wrapper-source";
+        name = "point_cloud_msg_wrapper-0d85557d2e774b246906e7f020d65bf0b4720655-source";
         url = "https://github.com/ros2-gbp/point_cloud_msg_wrapper-release.git";
         rev = "0d85557d2e774b246906e7f020d65bf0b4720655";
         hash = "sha256-LiHXg+Jj7fMDItxqFAz8F5On1mitqVf18p4luIzXtWk=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "point_cloud_msg_wrapper";
   version = "1.0.7-4";
-  src = sources.point_cloud_msg_wrapper;
+  src = sources.point_cloud_msg_wrapper-0d85557d2e774b246906e7f020d65bf0b4720655;
   nativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    ecl_math = substituteSource {
+    ecl_math-8c03abd2b51a5c4517c465743b82c07def3571a2 = substituteSource {
       src = fetchgit {
-        name = "ecl_math-source";
+        name = "ecl_math-8c03abd2b51a5c4517c465743b82c07def3571a2-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
         rev = "8c03abd2b51a5c4517c465743b82c07def3571a2";
         hash = "sha256-FJevrMf2MxF+heenjke0paV5yAvePcxmHcEW7Is+Pmc=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "ecl_math";
   version = "1.2.1-5";
-  src = sources.ecl_math;
+  src = sources.ecl_math-8c03abd2b51a5c4517c465743b82c07def3571a2;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

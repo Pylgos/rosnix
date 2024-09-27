@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    kinova_gen3_7dof_robotiq_2f_85_moveit_config = substituteSource {
+    kinova_gen3_7dof_robotiq_2f_85_moveit_config-8afdd055442af8a24ef81523213282e3e2b8dbff = substituteSource {
       src = fetchgit {
-        name = "kinova_gen3_7dof_robotiq_2f_85_moveit_config-source";
+        name = "kinova_gen3_7dof_robotiq_2f_85_moveit_config-8afdd055442af8a24ef81523213282e3e2b8dbff-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "8afdd055442af8a24ef81523213282e3e2b8dbff";
         hash = "sha256-/NaCg83rG2s+hq+mRhy/8nEZv10V548lKYoEUVBCEc8=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "kinova_gen3_7dof_robotiq_2f_85_moveit_config";
   version = "0.2.2-2";
-  src = sources.kinova_gen3_7dof_robotiq_2f_85_moveit_config;
+  src = sources.kinova_gen3_7dof_robotiq_2f_85_moveit_config-8afdd055442af8a24ef81523213282e3e2b8dbff;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

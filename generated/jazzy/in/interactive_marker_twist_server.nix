@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    interactive_marker_twist_server = substituteSource {
+    interactive_marker_twist_server-ebbcfde78840e10069a8c7d8c7c8255dcd8668a7 = substituteSource {
       src = fetchgit {
-        name = "interactive_marker_twist_server-source";
+        name = "interactive_marker_twist_server-ebbcfde78840e10069a8c7d8c7c8255dcd8668a7-source";
         url = "https://github.com/ros2-gbp/interactive_marker_twist_server-release.git";
         rev = "ebbcfde78840e10069a8c7d8c7c8255dcd8668a7";
         hash = "sha256-FvPQhN5z6jkYZtScraxOUe3bjI3cA495ni/sp/Hh7uk=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "interactive_marker_twist_server";
   version = "2.1.0-3";
-  src = sources.interactive_marker_twist_server;
+  src = sources.interactive_marker_twist_server-ebbcfde78840e10069a8c7d8c7c8255dcd8668a7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

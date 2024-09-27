@@ -55,9 +55,9 @@
 }:
 let
   sources = rec {
-    rmf_dev = substituteSource {
+    rmf_dev-844b092fe10885f11327c84f9f7c1fd7ffdcee12 = substituteSource {
       src = fetchgit {
-        name = "rmf_dev-source";
+        name = "rmf_dev-844b092fe10885f11327c84f9f7c1fd7ffdcee12-source";
         url = "https://github.com/ros2-gbp/rmf_variants-release.git";
         rev = "844b092fe10885f11327c84f9f7c1fd7ffdcee12";
         hash = "sha256-XThgYJiLzrj6OBp7jqdHvFPpT5xTuTKIEv2Yz2DoDIU=";
@@ -70,7 +70,7 @@ in
 buildRosPackage {
   pname = "rmf_dev";
   version = "0.1.0-1";
-  src = sources.rmf_dev;
+  src = sources.rmf_dev-844b092fe10885f11327c84f9f7c1fd7ffdcee12;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

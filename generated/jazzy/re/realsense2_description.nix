@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    realsense2_description = substituteSource {
+    realsense2_description-dbdca2538210cac2b854291ba47f099df80224d9 = substituteSource {
       src = fetchgit {
-        name = "realsense2_description-source";
+        name = "realsense2_description-dbdca2538210cac2b854291ba47f099df80224d9-source";
         url = "https://github.com/IntelRealSense/realsense-ros-release.git";
         rev = "dbdca2538210cac2b854291ba47f099df80224d9";
         hash = "sha256-Er8wmje8+L8O8X37B/c7pa22cwsjuK21LnWLzY2bo0c=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "realsense2_description";
   version = "4.55.1-3";
-  src = sources.realsense2_description;
+  src = sources.realsense2_description-dbdca2538210cac2b854291ba47f099df80224d9;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

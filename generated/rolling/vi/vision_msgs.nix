@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    vision_msgs = substituteSource {
+    vision_msgs-0afbc89dd0eb932de46a55382645cf331ff7acd5 = substituteSource {
       src = fetchgit {
-        name = "vision_msgs-source";
+        name = "vision_msgs-0afbc89dd0eb932de46a55382645cf331ff7acd5-source";
         url = "https://github.com/ros2-gbp/vision_msgs-release.git";
         rev = "0afbc89dd0eb932de46a55382645cf331ff7acd5";
         hash = "sha256-3eI3eKu1pjYzfsXNxO7zGJoJNG6s9QU4SjIzqZvSNEI=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "vision_msgs";
   version = "4.1.1-2";
-  src = sources.vision_msgs;
+  src = sources.vision_msgs-0afbc89dd0eb932de46a55382645cf331ff7acd5;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

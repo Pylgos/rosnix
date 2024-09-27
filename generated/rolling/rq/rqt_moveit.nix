@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    rqt_moveit = substituteSource {
+    rqt_moveit-77d26a0f8c1dbfb5f7e482933936a95ff0173b5d = substituteSource {
       src = fetchgit {
-        name = "rqt_moveit-source";
+        name = "rqt_moveit-77d26a0f8c1dbfb5f7e482933936a95ff0173b5d-source";
         url = "https://github.com/ros2-gbp/rqt_moveit-release.git";
         rev = "77d26a0f8c1dbfb5f7e482933936a95ff0173b5d";
         hash = "sha256-A4bGoHfpokKaYjSrBzvtYgzyf6sJGECfPJCIM0iZgYU=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "rqt_moveit";
   version = "1.0.1-4";
-  src = sources.rqt_moveit;
+  src = sources.rqt_moveit-77d26a0f8c1dbfb5f7e482933936a95ff0173b5d;
   nativeBuildInputs = [ rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

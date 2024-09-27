@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    kortex_description = substituteSource {
+    kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6 = substituteSource {
       src = fetchgit {
-        name = "kortex_description-source";
+        name = "kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
         rev = "819182cb6c4933cae39cd85e078838b614ec5ea6";
         hash = "sha256-eH7UKiSAo+QFISA/cyGSkHrLrr4LNrQRNQJoNIQrK8M=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "kortex_description";
   version = "0.2.2-2";
-  src = sources.kortex_description;
+  src = sources.kortex_description-819182cb6c4933cae39cd85e078838b614ec5ea6;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

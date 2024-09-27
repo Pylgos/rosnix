@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    nav2_regulated_pure_pursuit_controller = substituteSource {
+    nav2_regulated_pure_pursuit_controller-63fee1a413678f3e3486048d458c959fe254f822 = substituteSource {
       src = fetchgit {
-        name = "nav2_regulated_pure_pursuit_controller-source";
+        name = "nav2_regulated_pure_pursuit_controller-63fee1a413678f3e3486048d458c959fe254f822-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "63fee1a413678f3e3486048d458c959fe254f822";
         hash = "sha256-h95hho/UqqE9r5MxhSzR2GQ/PLLzTmJTMO60j+wdzwA=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "nav2_regulated_pure_pursuit_controller";
   version = "1.3.2-1";
-  src = sources.nav2_regulated_pure_pursuit_controller;
+  src = sources.nav2_regulated_pure_pursuit_controller-63fee1a413678f3e3486048d458c959fe254f822;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    pluginlib = substituteSource {
+    pluginlib-55497a0f479607be3195b6883a6107a38f2f8dfd = substituteSource {
       src = fetchgit {
-        name = "pluginlib-source";
+        name = "pluginlib-55497a0f479607be3195b6883a6107a38f2f8dfd-source";
         url = "https://github.com/ros2-gbp/pluginlib-release.git";
         rev = "55497a0f479607be3195b6883a6107a38f2f8dfd";
         hash = "sha256-JB5F/PRTfU9jNzXznaDg8QBlh9q79Rg5RISPTHuPTZA=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "pluginlib";
   version = "5.5.1-1";
-  src = sources.pluginlib;
+  src = sources.pluginlib-55497a0f479607be3195b6883a6107a38f2f8dfd;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

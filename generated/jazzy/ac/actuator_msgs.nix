@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    actuator_msgs = substituteSource {
+    actuator_msgs-5b3260652e5c325a328b021361985c4ef8b508f8 = substituteSource {
       src = fetchgit {
-        name = "actuator_msgs-source";
+        name = "actuator_msgs-5b3260652e5c325a328b021361985c4ef8b508f8-source";
         url = "https://github.com/ros2-gbp/actuator_msgs-release.git";
         rev = "5b3260652e5c325a328b021361985c4ef8b508f8";
         hash = "sha256-euXTvPVaV7xPFXP/lH9jg2S87V9DyFmp1EwJVlF7AVs=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "actuator_msgs";
   version = "0.0.1-4";
-  src = sources.actuator_msgs;
+  src = sources.actuator_msgs-5b3260652e5c325a328b021361985c4ef8b508f8;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

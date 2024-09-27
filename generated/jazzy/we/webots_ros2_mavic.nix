@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    webots_ros2_mavic = substituteSource {
+    webots_ros2_mavic-4a53c806416c2dd8001e9c06550455c6a350256f = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_mavic-source";
+        name = "webots_ros2_mavic-4a53c806416c2dd8001e9c06550455c6a350256f-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "4a53c806416c2dd8001e9c06550455c6a350256f";
         hash = "sha256-fFjl+kzo8dFp4pJE8dNCeIPEPsjKsD/fBvf49R8oMzQ=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "webots_ros2_mavic";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_mavic;
+  src = sources.webots_ros2_mavic-4a53c806416c2dd8001e9c06550455c6a350256f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

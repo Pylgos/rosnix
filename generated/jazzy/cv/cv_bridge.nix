@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    cv_bridge = substituteSource {
+    cv_bridge-d30ec40f8ebf943aaa16b860166e53a49a6f6174 = substituteSource {
       src = fetchgit {
-        name = "cv_bridge-source";
+        name = "cv_bridge-d30ec40f8ebf943aaa16b860166e53a49a6f6174-source";
         url = "https://github.com/ros2-gbp/vision_opencv-release.git";
         rev = "d30ec40f8ebf943aaa16b860166e53a49a6f6174";
         hash = "sha256-2p4HVqVl4NRdIrRsJnGkfOapNAmOhKZN1R2KMmpxG/w=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "cv_bridge";
   version = "4.1.0-1";
-  src = sources.cv_bridge;
+  src = sources.cv_bridge-d30ec40f8ebf943aaa16b860166e53a49a6f6174;
   nativeBuildInputs = [ ament_cmake_ros python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    flexbe_testing = substituteSource {
+    flexbe_testing-f133f26b3bfba21d43e842e30be708a566ed1355 = substituteSource {
       src = fetchgit {
-        name = "flexbe_testing-source";
+        name = "flexbe_testing-f133f26b3bfba21d43e842e30be708a566ed1355-source";
         url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
         rev = "f133f26b3bfba21d43e842e30be708a566ed1355";
         hash = "sha256-Z8v7JR6IuSmak5toK1AzflLXgHOoa40m9WxX883LZ7w=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "flexbe_testing";
   version = "3.0.3-1";
-  src = sources.flexbe_testing;
+  src = sources.flexbe_testing-f133f26b3bfba21d43e842e30be708a566ed1355;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

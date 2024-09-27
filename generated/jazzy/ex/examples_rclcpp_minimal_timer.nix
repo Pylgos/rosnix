@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    examples_rclcpp_minimal_timer = substituteSource {
+    examples_rclcpp_minimal_timer-8ccfde6efcf379fe568a24dfd552ad2eef07003f = substituteSource {
       src = fetchgit {
-        name = "examples_rclcpp_minimal_timer-source";
+        name = "examples_rclcpp_minimal_timer-8ccfde6efcf379fe568a24dfd552ad2eef07003f-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
         rev = "8ccfde6efcf379fe568a24dfd552ad2eef07003f";
         hash = "sha256-uXaIMpc0z/lqqhOahATIjbp47EVX2QjQNIJPYEDWCuA=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "examples_rclcpp_minimal_timer";
   version = "0.19.4-1";
-  src = sources.examples_rclcpp_minimal_timer;
+  src = sources.examples_rclcpp_minimal_timer-8ccfde6efcf379fe568a24dfd552ad2eef07003f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

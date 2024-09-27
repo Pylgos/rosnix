@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    trac_ik_lib = substituteSource {
+    trac_ik_lib-7caceeb979beee59aa99202a48575b16fc72918c = substituteSource {
       src = fetchgit {
-        name = "trac_ik_lib-source";
+        name = "trac_ik_lib-7caceeb979beee59aa99202a48575b16fc72918c-source";
         url = "https://github.com/ros2-gbp/trac_ik-release.git";
         rev = "7caceeb979beee59aa99202a48575b16fc72918c";
         hash = "sha256-RHtJG5zWq6hgg1ylgO5tkkidAlHTg7G+wMzeoB8s6p8=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "trac_ik_lib";
   version = "2.0.1-1";
-  src = sources.trac_ik_lib;
+  src = sources.trac_ik_lib-7caceeb979beee59aa99202a48575b16fc72918c;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

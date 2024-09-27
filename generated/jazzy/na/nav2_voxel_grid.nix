@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    nav2_voxel_grid = substituteSource {
+    nav2_voxel_grid-e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c = substituteSource {
       src = fetchgit {
-        name = "nav2_voxel_grid-source";
+        name = "nav2_voxel_grid-e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c";
         hash = "sha256-3w89YjGD049Hpv4TT3LxnPtulNZJCchHqIRiD3uWUUQ=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "nav2_voxel_grid";
   version = "1.3.2-1";
-  src = sources.nav2_voxel_grid;
+  src = sources.nav2_voxel_grid-e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

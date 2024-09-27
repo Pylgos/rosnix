@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    turtlebot4_viz = substituteSource {
+    turtlebot4_viz-3c98949db94bbc3bd79210b1ff0d34845105f51d = substituteSource {
       src = fetchgit {
-        name = "turtlebot4_viz-source";
+        name = "turtlebot4_viz-3c98949db94bbc3bd79210b1ff0d34845105f51d-source";
         url = "https://github.com/ros2-gbp/turtlebot4_desktop-release.git";
         rev = "3c98949db94bbc3bd79210b1ff0d34845105f51d";
         hash = "sha256-2MtFFww8BkKfo7uBYUobASOrm84SlmO1+cfjaghHGVs=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "turtlebot4_viz";
   version = "2.0.1-1";
-  src = sources.turtlebot4_viz;
+  src = sources.turtlebot4_viz-3c98949db94bbc3bd79210b1ff0d34845105f51d;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

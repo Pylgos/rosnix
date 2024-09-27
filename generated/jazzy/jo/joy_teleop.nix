@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    joy_teleop = substituteSource {
+    joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a = substituteSource {
       src = fetchgit {
-        name = "joy_teleop-source";
+        name = "joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
         rev = "e949663f15f31403152dd8617d3cea16d9b4a00a";
         hash = "sha256-upObp0jfQf198ZPg1eoz2Yg0HPhYRD2GGmIAowZS+ow=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "joy_teleop";
   version = "1.5.1-1";
-  src = sources.joy_teleop;
+  src = sources.joy_teleop-e949663f15f31403152dd8617d3cea16d9b4a00a;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

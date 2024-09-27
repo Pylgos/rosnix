@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    action_tutorials_cpp = substituteSource {
+    action_tutorials_cpp-dc37f60c65a8d10c4d2d2dd9a282992b869aaac7 = substituteSource {
       src = fetchgit {
-        name = "action_tutorials_cpp-source";
+        name = "action_tutorials_cpp-dc37f60c65a8d10c4d2d2dd9a282992b869aaac7-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "dc37f60c65a8d10c4d2d2dd9a282992b869aaac7";
         hash = "sha256-9VAANthOqS9L0NhIj7lnnkQumALA0KN2GOjMTOehAHw=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "action_tutorials_cpp";
   version = "0.34.2-1";
-  src = sources.action_tutorials_cpp;
+  src = sources.action_tutorials_cpp-dc37f60c65a8d10c4d2d2dd9a282992b869aaac7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

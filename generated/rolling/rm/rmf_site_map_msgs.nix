@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    rmf_site_map_msgs = substituteSource {
+    rmf_site_map_msgs-6db55c74a7c03eed6bf8cae513bc4c0e8007c002 = substituteSource {
       src = fetchgit {
-        name = "rmf_site_map_msgs-source";
+        name = "rmf_site_map_msgs-6db55c74a7c03eed6bf8cae513bc4c0e8007c002-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
         rev = "6db55c74a7c03eed6bf8cae513bc4c0e8007c002";
         hash = "sha256-KVcKEc01jogqXrkv3cukme5YfJTwONshCKGHiuqXluI=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "rmf_site_map_msgs";
   version = "3.4.0-1";
-  src = sources.rmf_site_map_msgs;
+  src = sources.rmf_site_map_msgs-6db55c74a7c03eed6bf8cae513bc4c0e8007c002;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

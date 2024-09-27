@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    ros2launch_security_examples = substituteSource {
+    ros2launch_security_examples-a4328b2660c6e5e1b84a5d097a89d4e9b17d9a52 = substituteSource {
       src = fetchgit {
-        name = "ros2launch_security_examples-source";
+        name = "ros2launch_security_examples-a4328b2660c6e5e1b84a5d097a89d4e9b17d9a52-source";
         url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
         rev = "a4328b2660c6e5e1b84a5d097a89d4e9b17d9a52";
         hash = "sha256-NWaQ/UIv5e//ahvk4u8zBHDsw6po6o9VLTnHTmXsQR8=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "ros2launch_security_examples";
   version = "1.0.0-4";
-  src = sources.ros2launch_security_examples;
+  src = sources.ros2launch_security_examples-a4328b2660c6e5e1b84a5d097a89d4e9b17d9a52;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

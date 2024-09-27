@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    rcl_interfaces = substituteSource {
+    rcl_interfaces-e0b26d848e6c01ef9da18034a07afe8053aedd4b = substituteSource {
       src = fetchgit {
-        name = "rcl_interfaces-source";
+        name = "rcl_interfaces-e0b26d848e6c01ef9da18034a07afe8053aedd4b-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
         rev = "e0b26d848e6c01ef9da18034a07afe8053aedd4b";
         hash = "sha256-3gKhh4yvrtEOlm1SS67JYGCOs3dbTv2K/VtSHlCKVf4=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "rcl_interfaces";
   version = "2.2.0-1";
-  src = sources.rcl_interfaces;
+  src = sources.rcl_interfaces-e0b26d848e6c01ef9da18034a07afe8053aedd4b;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

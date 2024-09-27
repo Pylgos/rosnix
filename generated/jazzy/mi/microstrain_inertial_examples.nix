@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    microstrain_inertial_examples = substituteSource {
+    microstrain_inertial_examples-d8617764987772ebacb842e6ce10374da496b547 = substituteSource {
       src = fetchgit {
-        name = "microstrain_inertial_examples-source";
+        name = "microstrain_inertial_examples-d8617764987772ebacb842e6ce10374da496b547-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
         rev = "d8617764987772ebacb842e6ce10374da496b547";
         hash = "sha256-6qnRt0tiuZyHBlqC5NktccOcL7n5foFcwVNFivIhINg=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "microstrain_inertial_examples";
   version = "4.3.0-1";
-  src = sources.microstrain_inertial_examples;
+  src = sources.microstrain_inertial_examples-d8617764987772ebacb842e6ce10374da496b547;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

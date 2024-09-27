@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    twist_stamper = substituteSource {
+    twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37 = substituteSource {
       src = fetchgit {
-        name = "twist_stamper-source";
+        name = "twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37-source";
         url = "https://github.com/ros2-gbp/twist_stamper-release.git";
         rev = "32213e5bb95ab8a6d3d5202f84bbad81ca359d37";
         hash = "sha256-AE3PKMNhcFfc7nbMllXSYBoKhQmRVHLCirRpDAEknEQ=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "twist_stamper";
   version = "0.0.3-4";
-  src = sources.twist_stamper;
+  src = sources.twist_stamper-32213e5bb95ab8a6d3d5202f84bbad81ca359d37;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

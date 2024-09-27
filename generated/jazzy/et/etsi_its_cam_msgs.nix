@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    etsi_its_cam_msgs = substituteSource {
+    etsi_its_cam_msgs-1a9abcfd91b21441b1873c0c6bef0303f3135efe = substituteSource {
       src = fetchgit {
-        name = "etsi_its_cam_msgs-source";
+        name = "etsi_its_cam_msgs-1a9abcfd91b21441b1873c0c6bef0303f3135efe-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
         rev = "1a9abcfd91b21441b1873c0c6bef0303f3135efe";
         hash = "sha256-zkiUTEJ/tmPAlUKx1CJD4yluVwkDm44D5uHtfZWveAE=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "etsi_its_cam_msgs";
   version = "2.2.0-1";
-  src = sources.etsi_its_cam_msgs;
+  src = sources.etsi_its_cam_msgs-1a9abcfd91b21441b1873c0c6bef0303f3135efe;
   nativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

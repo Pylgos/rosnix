@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    python_qt_binding = substituteSource {
+    python_qt_binding-68ffe1fac31519713735be637c6c3280455dbc2a = substituteSource {
       src = fetchgit {
-        name = "python_qt_binding-source";
+        name = "python_qt_binding-68ffe1fac31519713735be637c6c3280455dbc2a-source";
         url = "https://github.com/ros2-gbp/python_qt_binding-release.git";
         rev = "68ffe1fac31519713735be637c6c3280455dbc2a";
         hash = "sha256-6O8drSOVJ+eJfYkt/pqnGBJYqAulmgEjbElU4k8h68M=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "python_qt_binding";
   version = "2.2.1-1";
-  src = sources.python_qt_binding;
+  src = sources.python_qt_binding-68ffe1fac31519713735be637c6c3280455dbc2a;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

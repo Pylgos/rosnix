@@ -26,9 +26,9 @@
 }:
 let
   sources = rec {
-    joint_state_broadcaster = substituteSource {
+    joint_state_broadcaster-5a445dcad3edb786cd64ca4353b87c866d80036d = substituteSource {
       src = fetchgit {
-        name = "joint_state_broadcaster-source";
+        name = "joint_state_broadcaster-5a445dcad3edb786cd64ca4353b87c866d80036d-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "5a445dcad3edb786cd64ca4353b87c866d80036d";
         hash = "sha256-e84+qPInnPPJrtZyiSu3yPDH3aLbkwBLjx8wFTNAt1A=";
@@ -41,7 +41,7 @@ in
 buildRosPackage {
   pname = "joint_state_broadcaster";
   version = "4.14.0-1";
-  src = sources.joint_state_broadcaster;
+  src = sources.joint_state_broadcaster-5a445dcad3edb786cd64ca4353b87c866d80036d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -30,9 +30,9 @@
 }:
 let
   sources = rec {
-    domain_bridge = substituteSource {
+    domain_bridge-23216d613ab4e031c139bbcf42e6306f907b0d13 = substituteSource {
       src = fetchgit {
-        name = "domain_bridge-source";
+        name = "domain_bridge-23216d613ab4e031c139bbcf42e6306f907b0d13-source";
         url = "https://github.com/ros2-gbp/domain_bridge-release.git";
         rev = "23216d613ab4e031c139bbcf42e6306f907b0d13";
         hash = "sha256-eajUFSE7L+45VSlUvbXcvd6RjjdERKimvpFjuXVbCO8=";
@@ -45,7 +45,7 @@ in
 buildRosPackage {
   pname = "domain_bridge";
   version = "0.5.0-5";
-  src = sources.domain_bridge;
+  src = sources.domain_bridge-23216d613ab4e031c139bbcf42e6306f907b0d13;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

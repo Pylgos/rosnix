@@ -36,9 +36,9 @@
 }:
 let
   sources = rec {
-    rclpy = substituteSource {
+    rclpy-4c7e307c198bd2307ded4fe07831f9d36e27e687 = substituteSource {
       src = fetchgit {
-        name = "rclpy-source";
+        name = "rclpy-4c7e307c198bd2307ded4fe07831f9d36e27e687-source";
         url = "https://github.com/ros2-gbp/rclpy-release.git";
         rev = "4c7e307c198bd2307ded4fe07831f9d36e27e687";
         hash = "sha256-EsSy0IECOgkELbzSS6vYlTqBQeEBZdH2bdUujpF834I=";
@@ -51,7 +51,7 @@ in
 buildRosPackage {
   pname = "rclpy";
   version = "7.5.0-1";
-  src = sources.rclpy;
+  src = sources.rclpy-4c7e307c198bd2307ded4fe07831f9d36e27e687;
   nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw_implementation_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

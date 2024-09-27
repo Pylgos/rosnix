@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    autoware_cmake = substituteSource {
+    autoware_cmake-a5b2d0fd0287fd4074a390357cb8408ca535fe4f = substituteSource {
       src = fetchgit {
-        name = "autoware_cmake-source";
+        name = "autoware_cmake-a5b2d0fd0287fd4074a390357cb8408ca535fe4f-source";
         url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
         rev = "a5b2d0fd0287fd4074a390357cb8408ca535fe4f";
         hash = "sha256-uNWJEFHdKrWaAM3S5MTv2SI5xia8uBU4BdoPu0+jjpc=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "autoware_cmake";
   version = "1.0.0-1";
-  src = sources.autoware_cmake;
+  src = sources.autoware_cmake-a5b2d0fd0287fd4074a390357cb8408ca535fe4f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_auto ament_lint_auto ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

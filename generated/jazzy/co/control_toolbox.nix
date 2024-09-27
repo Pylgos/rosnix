@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    control_toolbox = substituteSource {
+    control_toolbox-a7a4962446f6437bd7342af6510361947f880ef3 = substituteSource {
       src = fetchgit {
-        name = "control_toolbox-source";
+        name = "control_toolbox-a7a4962446f6437bd7342af6510361947f880ef3-source";
         url = "https://github.com/ros2-gbp/control_toolbox-release.git";
         rev = "a7a4962446f6437bd7342af6510361947f880ef3";
         hash = "sha256-8k2Jlg4wFOuHFj1R/mlh8NMvgEGijDRy6kme0opUgm4=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "control_toolbox";
   version = "3.2.0-3";
-  src = sources.control_toolbox;
+  src = sources.control_toolbox-a7a4962446f6437bd7342af6510361947f880ef3;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

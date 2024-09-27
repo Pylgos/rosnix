@@ -12,9 +12,19 @@
 }:
 let
   sources = rec {
-    tinyspline_vendor = substituteSource {
+    tinyspline-vendor_source-5f0e8fad34e86771cfae3dac4beef5f1858d5610 = substituteSource {
       src = fetchgit {
-        name = "tinyspline_vendor-source";
+        name = "tinyspline-vendor_source-5f0e8fad34e86771cfae3dac4beef5f1858d5610-source";
+        url = "https://github.com/msteinbeck/tinyspline.git";
+        rev = "5f0e8fad34e86771cfae3dac4beef5f1858d5610";
+        hash = "sha256-cvnnVT04R2QnFKsf/lxzkDmxgalAPFw8hGC33HyNsIQ=";
+      };
+      substitutions = [
+      ];
+    };
+    tinyspline_vendor-7111e62de13b24ad4ce963d3ad82031459ec9a02 = substituteSource {
+      src = fetchgit {
+        name = "tinyspline_vendor-7111e62de13b24ad4ce963d3ad82031459ec9a02-source";
         url = "https://github.com/ros2-gbp/tinyspline_vendor-release.git";
         rev = "7111e62de13b24ad4ce963d3ad82031459ec9a02";
         hash = "sha256-mQi06924EtNw7quRVGSQDJ2EFYqUCOsq37JO/eH/gJE=";
@@ -28,18 +38,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/msteinbeck/tinyspline.git";
-          to = "VCS_TYPE path VCS_URL ${tinyspline_vendor-vendor_source-tinyspline-0}";
+          to = "VCS_TYPE path VCS_URL ${tinyspline-vendor_source-5f0e8fad34e86771cfae3dac4beef5f1858d5610}";
         }
-      ];
-    };
-    tinyspline_vendor-vendor_source-tinyspline-0 = substituteSource {
-      src = fetchgit {
-        name = "tinyspline_vendor-vendor_source-tinyspline-0-source";
-        url = "https://github.com/msteinbeck/tinyspline.git";
-        rev = "5f0e8fad34e86771cfae3dac4beef5f1858d5610";
-        hash = "sha256-cvnnVT04R2QnFKsf/lxzkDmxgalAPFw8hGC33HyNsIQ=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "tinyspline_vendor";
   version = "0.6.1-1";
-  src = sources.tinyspline_vendor;
+  src = sources.tinyspline_vendor-7111e62de13b24ad4ce963d3ad82031459ec9a02;
   nativeBuildInputs = [ ament_cmake ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

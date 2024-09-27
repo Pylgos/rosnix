@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    dynamixel_hardware = substituteSource {
+    dynamixel_hardware-920e17e4d38efca9a8fbc4952b855329b5c7dc90 = substituteSource {
       src = fetchgit {
-        name = "dynamixel_hardware-source";
+        name = "dynamixel_hardware-920e17e4d38efca9a8fbc4952b855329b5c7dc90-source";
         url = "https://github.com/ros2-gbp/dynamixel_hardware-release.git";
         rev = "920e17e4d38efca9a8fbc4952b855329b5c7dc90";
         hash = "sha256-CEnfVPi1CXKkJd41iBsJmHPwREpT0tSHXFUPerJIH2Q=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "dynamixel_hardware";
   version = "0.6.0-1";
-  src = sources.dynamixel_hardware;
+  src = sources.dynamixel_hardware-920e17e4d38efca9a8fbc4952b855329b5c7dc90;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

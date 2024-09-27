@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    webots_ros2_tiago = substituteSource {
+    webots_ros2_tiago-c9c5e69b41e510454ba3badcc6839baa7ac6090d = substituteSource {
       src = fetchgit {
-        name = "webots_ros2_tiago-source";
+        name = "webots_ros2_tiago-c9c5e69b41e510454ba3badcc6839baa7ac6090d-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
         rev = "c9c5e69b41e510454ba3badcc6839baa7ac6090d";
         hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "webots_ros2_tiago";
   version = "2023.1.3-1";
-  src = sources.webots_ros2_tiago;
+  src = sources.webots_ros2_tiago-c9c5e69b41e510454ba3badcc6839baa7ac6090d;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

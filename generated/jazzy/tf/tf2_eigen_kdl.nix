@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    tf2_eigen_kdl = substituteSource {
+    tf2_eigen_kdl-4e1452d3f3c580368b58bf60d5ca18eb6582245e = substituteSource {
       src = fetchgit {
-        name = "tf2_eigen_kdl-source";
+        name = "tf2_eigen_kdl-4e1452d3f3c580368b58bf60d5ca18eb6582245e-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "4e1452d3f3c580368b58bf60d5ca18eb6582245e";
         hash = "sha256-stCQiwa7ek5lXkoU9tbHpzGhQN2wglHvNDDTozRzUa0=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "tf2_eigen_kdl";
   version = "0.36.4-1";
-  src = sources.tf2_eigen_kdl;
+  src = sources.tf2_eigen_kdl-4e1452d3f3c580368b58bf60d5ca18eb6582245e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

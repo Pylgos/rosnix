@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    rmf_demos_bridges = substituteSource {
+    rmf_demos_bridges-978b6c6be51afc57a366eb9f9d928c2855588e2f = substituteSource {
       src = fetchgit {
-        name = "rmf_demos_bridges-source";
+        name = "rmf_demos_bridges-978b6c6be51afc57a366eb9f9d928c2855588e2f-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
         rev = "978b6c6be51afc57a366eb9f9d928c2855588e2f";
         hash = "sha256-0nscD2U92Qris4yYxOJ0bnuSQzxmbhLUYTq7lKEOkSw=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "rmf_demos_bridges";
   version = "2.4.0-1";
-  src = sources.rmf_demos_bridges;
+  src = sources.rmf_demos_bridges-978b6c6be51afc57a366eb9f9d928c2855588e2f;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

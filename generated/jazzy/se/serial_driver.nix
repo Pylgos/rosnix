@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    serial_driver = substituteSource {
+    serial_driver-cf792907df67d7d479e8c5bd069e0a148657da03 = substituteSource {
       src = fetchgit {
-        name = "serial_driver-source";
+        name = "serial_driver-cf792907df67d7d479e8c5bd069e0a148657da03-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
         rev = "cf792907df67d7d479e8c5bd069e0a148657da03";
         hash = "sha256-1Oc6jtsGEX0Jaxqs7jdlxu/nZJxZPxvagRST+L9bdwI=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "serial_driver";
   version = "1.2.0-4";
-  src = sources.serial_driver;
+  src = sources.serial_driver-cf792907df67d7d479e8c5bd069e0a148657da03;
   nativeBuildInputs = [ ament_cmake_auto asio_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

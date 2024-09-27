@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    tf2_sensor_msgs = substituteSource {
+    tf2_sensor_msgs-1ab7128d051887663cf363c6c4c72ae8ce2feb14 = substituteSource {
       src = fetchgit {
-        name = "tf2_sensor_msgs-source";
+        name = "tf2_sensor_msgs-1ab7128d051887663cf363c6c4c72ae8ce2feb14-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
         rev = "1ab7128d051887663cf363c6c4c72ae8ce2feb14";
         hash = "sha256-5Tzg7LDYc2p/MY2jUUNXphcoUddtSYTQcj4pWt7m6G4=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "tf2_sensor_msgs";
   version = "0.36.4-1";
-  src = sources.tf2_sensor_msgs;
+  src = sources.tf2_sensor_msgs-1ab7128d051887663cf363c6c4c72ae8ce2feb14;
   nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

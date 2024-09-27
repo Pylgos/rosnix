@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    fuse_constraints = substituteSource {
+    fuse_constraints-1200006240989303f086811f226ab7a841a124d6 = substituteSource {
       src = fetchgit {
-        name = "fuse_constraints-source";
+        name = "fuse_constraints-1200006240989303f086811f226ab7a841a124d6-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
         rev = "1200006240989303f086811f226ab7a841a124d6";
         hash = "sha256-c62NE6NrO6Amg2XxYP/AdRC42P1WIxHe7O6ypp7gOvE=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "fuse_constraints";
   version = "1.1.1-1";
-  src = sources.fuse_constraints;
+  src = sources.fuse_constraints-1200006240989303f086811f226ab7a841a124d6;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

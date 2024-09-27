@@ -21,9 +21,9 @@
 }:
 let
   sources = rec {
-    rmf_robot_sim_gz_plugins = substituteSource {
+    rmf_robot_sim_gz_plugins-49b2478e35f7ed08b8ba41285f6698c708b3f3b2 = substituteSource {
       src = fetchgit {
-        name = "rmf_robot_sim_gz_plugins-source";
+        name = "rmf_robot_sim_gz_plugins-49b2478e35f7ed08b8ba41285f6698c708b3f3b2-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
         rev = "49b2478e35f7ed08b8ba41285f6698c708b3f3b2";
         hash = "sha256-43Z/qobZT7vEhNNDK55q0pLbla9DCcNNEJYVq3d6Hm0=";
@@ -36,7 +36,7 @@ in
 buildRosPackage {
   pname = "rmf_robot_sim_gz_plugins";
   version = "2.3.2-1";
-  src = sources.rmf_robot_sim_gz_plugins;
+  src = sources.rmf_robot_sim_gz_plugins-49b2478e35f7ed08b8ba41285f6698c708b3f3b2;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

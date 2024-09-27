@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    rcl_logging_spdlog = substituteSource {
+    rcl_logging_spdlog-4f719b39b3a71e82677f4a3937be8516957d3d3a = substituteSource {
       src = fetchgit {
-        name = "rcl_logging_spdlog-source";
+        name = "rcl_logging_spdlog-4f719b39b3a71e82677f4a3937be8516957d3d3a-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
         rev = "4f719b39b3a71e82677f4a3937be8516957d3d3a";
         hash = "sha256-dOCG1y9kG6RADBDWbKM889bAxOsFn9NVhrhyYcUZ+xI=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "rcl_logging_spdlog";
   version = "3.2.1-1";
-  src = sources.rcl_logging_spdlog;
+  src = sources.rcl_logging_spdlog-4f719b39b3a71e82677f4a3937be8516957d3d3a;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

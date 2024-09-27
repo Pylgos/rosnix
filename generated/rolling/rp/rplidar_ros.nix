@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    rplidar_ros = substituteSource {
+    rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6 = substituteSource {
       src = fetchgit {
-        name = "rplidar_ros-source";
+        name = "rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6-source";
         url = "https://github.com/ros2-gbp/rplidar_ros-release.git";
         rev = "025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6";
         hash = "sha256-lOiYrTggsDiQb9sCYtWAup4+kVoMnpSYqKqWGtnb2AU=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "rplidar_ros";
   version = "2.1.0-3";
-  src = sources.rplidar_ros;
+  src = sources.rplidar_ros-025ef3ae6b66638b31975b9eafce4f3cfbfa6dd6;
   nativeBuildInputs = [ ament_cmake_auto ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

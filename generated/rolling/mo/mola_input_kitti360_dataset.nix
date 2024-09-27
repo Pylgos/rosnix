@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    mola_input_kitti360_dataset = substituteSource {
+    mola_input_kitti360_dataset-a791052a949277ef562b17c5c74ed4d2bbc4b631 = substituteSource {
       src = fetchgit {
-        name = "mola_input_kitti360_dataset-source";
+        name = "mola_input_kitti360_dataset-a791052a949277ef562b17c5c74ed4d2bbc4b631-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "a791052a949277ef562b17c5c74ed4d2bbc4b631";
         hash = "sha256-lAkKH7r/lQuGL5Uq/t4jVuRKBAbEu0LBIgOmM7k/VT0=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "mola_input_kitti360_dataset";
   version = "1.2.0-1";
-  src = sources.mola_input_kitti360_dataset;
+  src = sources.mola_input_kitti360_dataset-a791052a949277ef562b17c5c74ed4d2bbc4b631;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

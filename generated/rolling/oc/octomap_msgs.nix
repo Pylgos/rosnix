@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    octomap_msgs = substituteSource {
+    octomap_msgs-e7f6f4c35b2233c5591d0daee0976eb5b6957f4b = substituteSource {
       src = fetchgit {
-        name = "octomap_msgs-source";
+        name = "octomap_msgs-e7f6f4c35b2233c5591d0daee0976eb5b6957f4b-source";
         url = "https://github.com/ros2-gbp/octomap_msgs-release.git";
         rev = "e7f6f4c35b2233c5591d0daee0976eb5b6957f4b";
         hash = "sha256-97tbZTVcZMc2CB2JAW6gn0/ABahvBbfiC3jpHDIJJ6I=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "octomap_msgs";
   version = "2.0.0-4";
-  src = sources.octomap_msgs;
+  src = sources.octomap_msgs-e7f6f4c35b2233c5591d0daee0976eb5b6957f4b;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

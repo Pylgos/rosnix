@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    dynamixel_sdk_examples = substituteSource {
+    dynamixel_sdk_examples-35ae7e09eb0d2d3a39c518764c296ea3d1aef187 = substituteSource {
       src = fetchgit {
-        name = "dynamixel_sdk_examples-source";
+        name = "dynamixel_sdk_examples-35ae7e09eb0d2d3a39c518764c296ea3d1aef187-source";
         url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
         rev = "35ae7e09eb0d2d3a39c518764c296ea3d1aef187";
         hash = "sha256-TRPWVWEEJtx/attfpSr6SATpy7YhzqP9x8ef/IVsULA=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "dynamixel_sdk_examples";
   version = "3.7.40-6";
-  src = sources.dynamixel_sdk_examples;
+  src = sources.dynamixel_sdk_examples-35ae7e09eb0d2d3a39c518764c296ea3d1aef187;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

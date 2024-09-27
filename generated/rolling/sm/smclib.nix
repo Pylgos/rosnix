@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    smclib = substituteSource {
+    smclib-8623a74afcd34db200176962b2d57582002da0f8 = substituteSource {
       src = fetchgit {
-        name = "smclib-source";
+        name = "smclib-8623a74afcd34db200176962b2d57582002da0f8-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
         rev = "8623a74afcd34db200176962b2d57582002da0f8";
         hash = "sha256-0GdXtzthCDeBP6DCt4Gd6e86nzEmrdCJNLuxyDTGGK4=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "smclib";
   version = "4.1.0-1";
-  src = sources.smclib;
+  src = sources.smclib-8623a74afcd34db200176962b2d57582002da0f8;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

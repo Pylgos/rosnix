@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ublox = substituteSource {
+    ublox-4de0d3af5abd05e2823b6947261f9c0fa83e6bfa = substituteSource {
       src = fetchgit {
-        name = "ublox-source";
+        name = "ublox-4de0d3af5abd05e2823b6947261f9c0fa83e6bfa-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
         rev = "4de0d3af5abd05e2823b6947261f9c0fa83e6bfa";
         hash = "sha256-tCPY6Wu0TQ0Auvkx3xW6yyreMV7K0GruiyS4AZ29LtI=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ublox";
   version = "2.3.0-4";
-  src = sources.ublox;
+  src = sources.ublox-4de0d3af5abd05e2823b6947261f9c0fa83e6bfa;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

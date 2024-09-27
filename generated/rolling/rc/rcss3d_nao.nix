@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rcss3d_nao = substituteSource {
+    rcss3d_nao-eca4398e014f5149e7dfddd70953dc5e0a3b260f = substituteSource {
       src = fetchgit {
-        name = "rcss3d_nao-source";
+        name = "rcss3d_nao-eca4398e014f5149e7dfddd70953dc5e0a3b260f-source";
         url = "https://github.com/ros2-gbp/rcss3d_nao-release.git";
         rev = "eca4398e014f5149e7dfddd70953dc5e0a3b260f";
         hash = "sha256-gDCJv4U5VGvPzE6+9SysE6xYUMNx7KGRawSEwZp7sVM=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rcss3d_nao";
   version = "1.2.0-2";
-  src = sources.rcss3d_nao;
+  src = sources.rcss3d_nao-eca4398e014f5149e7dfddd70953dc5e0a3b260f;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

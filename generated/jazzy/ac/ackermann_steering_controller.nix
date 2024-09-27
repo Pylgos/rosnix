@@ -23,9 +23,9 @@
 }:
 let
   sources = rec {
-    ackermann_steering_controller = substituteSource {
+    ackermann_steering_controller-19ad47bef147aa06a241b0f6e7a51e89beda8157 = substituteSource {
       src = fetchgit {
-        name = "ackermann_steering_controller-source";
+        name = "ackermann_steering_controller-19ad47bef147aa06a241b0f6e7a51e89beda8157-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "19ad47bef147aa06a241b0f6e7a51e89beda8157";
         hash = "sha256-MmGggsYiIo7GwQEDqlyKEGIyj4mirs2v9RguRzVDyNI=";
@@ -38,7 +38,7 @@ in
 buildRosPackage {
   pname = "ackermann_steering_controller";
   version = "4.14.0-1";
-  src = sources.ackermann_steering_controller;
+  src = sources.ackermann_steering_controller-19ad47bef147aa06a241b0f6e7a51e89beda8157;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -21,9 +21,19 @@
 }:
 let
   sources = rec {
-    gz_physics_vendor = substituteSource {
+    gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f = substituteSource {
       src = fetchgit {
-        name = "gz_physics_vendor-source";
+        name = "gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f-source";
+        url = "https://github.com/gazebosim/gz-physics.git";
+        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
+        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_physics_vendor-ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9 = substituteSource {
+      src = fetchgit {
+        name = "gz_physics_vendor-ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9-source";
         url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
         rev = "ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9";
         hash = "sha256-UBvXwdHVvlQTBd/sRNkkyz79U6wFP+0eaCVpR5CgGg4=";
@@ -32,18 +42,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_physics_vendor-vendor_source-gz-physics-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-physics-vendor_source-f54d4ded615626d3cff34a5dcfa0cedfe8bd903f}";
         }
-      ];
-    };
-    gz_physics_vendor-vendor_source-gz-physics-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_physics_vendor-vendor_source-gz-physics-0-source";
-        url = "https://github.com/gazebosim/gz-physics.git";
-        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
-        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -51,7 +51,7 @@ in
 buildRosPackage {
   pname = "gz_physics_vendor";
   version = "0.1.1-1";
-  src = sources.gz_physics_vendor;
+  src = sources.gz_physics_vendor-ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

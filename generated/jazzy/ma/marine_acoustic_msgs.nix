@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    marine_acoustic_msgs = substituteSource {
+    marine_acoustic_msgs-2accedcdf1b48bdcbf7a91bf9e33f19a9deebd79 = substituteSource {
       src = fetchgit {
-        name = "marine_acoustic_msgs-source";
+        name = "marine_acoustic_msgs-2accedcdf1b48bdcbf7a91bf9e33f19a9deebd79-source";
         url = "https://github.com/ros2-gbp/marine_msgs-release.git";
         rev = "2accedcdf1b48bdcbf7a91bf9e33f19a9deebd79";
         hash = "sha256-ALbjKiPGNTichMtqbwwJIA4Y52MYdCELmDl3tLU3dC4=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "marine_acoustic_msgs";
   version = "2.1.0-2";
-  src = sources.marine_acoustic_msgs;
+  src = sources.marine_acoustic_msgs-2accedcdf1b48bdcbf7a91bf9e33f19a9deebd79;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

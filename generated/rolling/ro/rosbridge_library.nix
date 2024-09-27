@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    rosbridge_library = substituteSource {
+    rosbridge_library-bd531295b9d1aef7e65db6c72bae7c185d99a66a = substituteSource {
       src = fetchgit {
-        name = "rosbridge_library-source";
+        name = "rosbridge_library-bd531295b9d1aef7e65db6c72bae7c185d99a66a-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
         rev = "bd531295b9d1aef7e65db6c72bae7c185d99a66a";
         hash = "sha256-Xk40YYsXUGj/59ea63e2ppoCwrhXp7wDqiWhM84sIR8=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "rosbridge_library";
   version = "1.3.2-2";
-  src = sources.rosbridge_library;
+  src = sources.rosbridge_library-bd531295b9d1aef7e65db6c72bae7c185d99a66a;
   nativeBuildInputs = [ ament_cmake ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

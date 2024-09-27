@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    imu_sensor_broadcaster = substituteSource {
+    imu_sensor_broadcaster-4420ab8041bbe2a25175c480460d2dc546a3033e = substituteSource {
       src = fetchgit {
-        name = "imu_sensor_broadcaster-source";
+        name = "imu_sensor_broadcaster-4420ab8041bbe2a25175c480460d2dc546a3033e-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
         rev = "4420ab8041bbe2a25175c480460d2dc546a3033e";
         hash = "sha256-l9zm09ylmMhq2gLGo4xxyWYoFSBk4U70YIRelmSep0A=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "imu_sensor_broadcaster";
   version = "4.14.0-1";
-  src = sources.imu_sensor_broadcaster;
+  src = sources.imu_sensor_broadcaster-4420ab8041bbe2a25175c480460d2dc546a3033e;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

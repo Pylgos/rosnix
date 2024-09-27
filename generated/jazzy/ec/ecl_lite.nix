@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    ecl_lite = substituteSource {
+    ecl_lite-b21a43e7be198acd2a02ba5e51ee340d19675952 = substituteSource {
       src = fetchgit {
-        name = "ecl_lite-source";
+        name = "ecl_lite-b21a43e7be198acd2a02ba5e51ee340d19675952-source";
         url = "https://github.com/ros2-gbp/ecl_lite-release.git";
         rev = "b21a43e7be198acd2a02ba5e51ee340d19675952";
         hash = "sha256-pfGGGa3tTMW+9VEsHT0ofv7mnz478eGmJA10PjrEvJI=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "ecl_lite";
   version = "1.2.0-5";
-  src = sources.ecl_lite;
+  src = sources.ecl_lite-b21a43e7be198acd2a02ba5e51ee340d19675952;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

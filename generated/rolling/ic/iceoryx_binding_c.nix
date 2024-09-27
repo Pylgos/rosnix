@@ -10,9 +10,9 @@
 }:
 let
   sources = rec {
-    iceoryx_binding_c = substituteSource {
+    iceoryx_binding_c-b786ef1c655328235deb93898624923fd00444f9 = substituteSource {
       src = fetchgit {
-        name = "iceoryx_binding_c-source";
+        name = "iceoryx_binding_c-b786ef1c655328235deb93898624923fd00444f9-source";
         url = "https://github.com/ros2-gbp/iceoryx-release.git";
         rev = "b786ef1c655328235deb93898624923fd00444f9";
         hash = "sha256-MK/r8dSrJHO5SjuOTcRVaAOT5E8CXs0vOCivgRvoAbA=";
@@ -25,7 +25,7 @@ in
 buildRosPackage {
   pname = "iceoryx_binding_c";
   version = "2.0.5-5";
-  src = sources.iceoryx_binding_c;
+  src = sources.iceoryx_binding_c-b786ef1c655328235deb93898624923fd00444f9;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

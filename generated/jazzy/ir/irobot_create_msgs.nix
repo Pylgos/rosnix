@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    irobot_create_msgs = substituteSource {
+    irobot_create_msgs-d6ad51b50f113a00229ac22ef07831ed3d086002 = substituteSource {
       src = fetchgit {
-        name = "irobot_create_msgs-source";
+        name = "irobot_create_msgs-d6ad51b50f113a00229ac22ef07831ed3d086002-source";
         url = "https://github.com/ros2-gbp/irobot_create_msgs-release.git";
         rev = "d6ad51b50f113a00229ac22ef07831ed3d086002";
         hash = "sha256-N1qIlklUPDvElU+dpUZJGeSzsiBeFmgh0kyqT+KM2fs=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "irobot_create_msgs";
   version = "3.0.0-2";
-  src = sources.irobot_create_msgs;
+  src = sources.irobot_create_msgs-d6ad51b50f113a00229ac22ef07831ed3d086002;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

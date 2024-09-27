@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    action_tutorials_py = substituteSource {
+    action_tutorials_py-f99ed6007497efa72297e0fe3c73f9977b960921 = substituteSource {
       src = fetchgit {
-        name = "action_tutorials_py-source";
+        name = "action_tutorials_py-f99ed6007497efa72297e0fe3c73f9977b960921-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "f99ed6007497efa72297e0fe3c73f9977b960921";
         hash = "sha256-zhXHMPPYCn8uNithB7nsjnfp6VSyKyrCqqRB/7JgXS0=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "action_tutorials_py";
   version = "0.33.5-1";
-  src = sources.action_tutorials_py;
+  src = sources.action_tutorials_py-f99ed6007497efa72297e0fe3c73f9977b960921;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

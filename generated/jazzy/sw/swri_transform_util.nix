@@ -32,9 +32,9 @@
 }:
 let
   sources = rec {
-    swri_transform_util = substituteSource {
+    swri_transform_util-a948d8c6d376c2bf85bed01b1e8c809116fec056 = substituteSource {
       src = fetchgit {
-        name = "swri_transform_util-source";
+        name = "swri_transform_util-a948d8c6d376c2bf85bed01b1e8c809116fec056-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
         rev = "a948d8c6d376c2bf85bed01b1e8c809116fec056";
         hash = "sha256-NbABucV7KKYYHI02DVMc9siAlEpqGZuYUkZfd+oI9jk=";
@@ -47,7 +47,7 @@ in
 buildRosPackage {
   pname = "swri_transform_util";
   version = "3.7.3-1";
-  src = sources.swri_transform_util;
+  src = sources.swri_transform_util-a948d8c6d376c2bf85bed01b1e8c809116fec056;
   nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

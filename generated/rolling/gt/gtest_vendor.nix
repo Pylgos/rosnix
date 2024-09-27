@@ -8,9 +8,9 @@
 }:
 let
   sources = rec {
-    gtest_vendor = substituteSource {
+    gtest_vendor-76baff7823620c1c36ed5464b28bfd8c9b52d081 = substituteSource {
       src = fetchgit {
-        name = "gtest_vendor-source";
+        name = "gtest_vendor-76baff7823620c1c36ed5464b28bfd8c9b52d081-source";
         url = "https://github.com/ros2-gbp/googletest-release.git";
         rev = "76baff7823620c1c36ed5464b28bfd8c9b52d081";
         hash = "sha256-Zg30M2S4KqWNrzQZyuVcTjvY7oCPPsWbnfMQ+fvV768=";
@@ -23,7 +23,7 @@ in
 buildRosPackage {
   pname = "gtest_vendor";
   version = "1.15.0-1";
-  src = sources.gtest_vendor;
+  src = sources.gtest_vendor-76baff7823620c1c36ed5464b28bfd8c9b52d081;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };

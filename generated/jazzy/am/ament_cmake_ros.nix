@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    ament_cmake_ros = substituteSource {
+    ament_cmake_ros-3e2e92d82c1ae9b9a284684ae48601bfa3ca32fe = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_ros-source";
+        name = "ament_cmake_ros-3e2e92d82c1ae9b9a284684ae48601bfa3ca32fe-source";
         url = "https://github.com/ros2-gbp/ament_cmake_ros-release.git";
         rev = "3e2e92d82c1ae9b9a284684ae48601bfa3ca32fe";
         hash = "sha256-tT6X6MXP8iTsdlyNk33jdPbZZT+sWXvuIn8cTnvTYyw=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "ament_cmake_ros";
   version = "0.12.0-3";
-  src = sources.ament_cmake_ros;
+  src = sources.ament_cmake_ros-3e2e92d82c1ae9b9a284684ae48601bfa3ca32fe;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest domain_coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

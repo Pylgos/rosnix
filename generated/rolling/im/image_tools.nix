@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    image_tools = substituteSource {
+    image_tools-7a461988e06e8ac01725ac1523ac107c2285708a = substituteSource {
       src = fetchgit {
-        name = "image_tools-source";
+        name = "image_tools-7a461988e06e8ac01725ac1523ac107c2285708a-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
         rev = "7a461988e06e8ac01725ac1523ac107c2285708a";
         hash = "sha256-Wx1h2ZpUb6m1aDvHk2zXs0DQNyZa74RlZBeOlL/Mz80=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "image_tools";
   version = "0.34.2-1";
-  src = sources.image_tools;
+  src = sources.image_tools-7a461988e06e8ac01725ac1523ac107c2285708a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

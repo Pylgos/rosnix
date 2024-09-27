@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    dwb_core = substituteSource {
+    dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a = substituteSource {
       src = fetchgit {
-        name = "dwb_core-source";
+        name = "dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "d601c7ec253305ccf6fef058cd1aaf913bfa9c1a";
         hash = "sha256-CxMMRdvdGeXbpXUmbJZ4RD5D+N8vMBzpzTF5GWasHLI=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "dwb_core";
   version = "1.3.2-1";
-  src = sources.dwb_core;
+  src = sources.dwb_core-d601c7ec253305ccf6fef058cd1aaf913bfa9c1a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

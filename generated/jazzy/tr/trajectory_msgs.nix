@@ -15,9 +15,9 @@
 }:
 let
   sources = rec {
-    trajectory_msgs = substituteSource {
+    trajectory_msgs-c19aea6c1d72c99aa397289cfcd19213576948ea = substituteSource {
       src = fetchgit {
-        name = "trajectory_msgs-source";
+        name = "trajectory_msgs-c19aea6c1d72c99aa397289cfcd19213576948ea-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
         rev = "c19aea6c1d72c99aa397289cfcd19213576948ea";
         hash = "sha256-7CDVCo1MH2SjEg2UKfl2N4aU4ygYOLtn8EhASs6E/pE=";
@@ -30,7 +30,7 @@ in
 buildRosPackage {
   pname = "trajectory_msgs";
   version = "5.3.5-1";
-  src = sources.trajectory_msgs;
+  src = sources.trajectory_msgs-c19aea6c1d72c99aa397289cfcd19213576948ea;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

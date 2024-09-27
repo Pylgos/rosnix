@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rosidl_core_runtime = substituteSource {
+    rosidl_core_runtime-783f3dbf2742ae24cbd2c2a47f305b78eb88a409 = substituteSource {
       src = fetchgit {
-        name = "rosidl_core_runtime-source";
+        name = "rosidl_core_runtime-783f3dbf2742ae24cbd2c2a47f305b78eb88a409-source";
         url = "https://github.com/ros2-gbp/rosidl_core-release.git";
         rev = "783f3dbf2742ae24cbd2c2a47f305b78eb88a409";
         hash = "sha256-uvmER7BYf4yfHzyfJmwH4OShIzuoeJtaWnFZDsvzePE=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rosidl_core_runtime";
   version = "0.3.1-1";
-  src = sources.rosidl_core_runtime;
+  src = sources.rosidl_core_runtime-783f3dbf2742ae24cbd2c2a47f305b78eb88a409;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

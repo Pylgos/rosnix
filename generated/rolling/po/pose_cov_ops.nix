@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    pose_cov_ops = substituteSource {
+    pose_cov_ops-db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3 = substituteSource {
       src = fetchgit {
-        name = "pose_cov_ops-source";
+        name = "pose_cov_ops-db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3-source";
         url = "https://github.com/ros2-gbp/pose_cov_ops-release.git";
         rev = "db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3";
         hash = "sha256-ftJdad3w9XrnAQn/DRLfldWx8OMRbiX22JrSv1wmA3I=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "pose_cov_ops";
   version = "0.3.12-1";
-  src = sources.pose_cov_ops;
+  src = sources.pose_cov_ops-db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3;
   nativeBuildInputs = [ ament_cmake ament_cmake_gmock ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_xmllint ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -24,9 +24,19 @@
 }:
 let
   sources = rec {
-    gz_launch_vendor = substituteSource {
+    gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132 = substituteSource {
       src = fetchgit {
-        name = "gz_launch_vendor-source";
+        name = "gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132-source";
+        url = "https://github.com/gazebosim/gz-launch.git";
+        rev = "1317511d365d1b2c312c86f9062b8a4b7bfdc132";
+        hash = "sha256-En3V8i/Ie8+KnSHGlm9Bap7REdLhYBaVHVbOM+/Pzno=";
+      };
+      substitutions = [
+      ];
+    };
+    gz_launch_vendor-1d308be03d2a82a9b13d8a3fddab7e9a1227b191 = substituteSource {
+      src = fetchgit {
+        name = "gz_launch_vendor-1d308be03d2a82a9b13d8a3fddab7e9a1227b191-source";
         url = "https://github.com/ros2-gbp/gz_launch_vendor-release.git";
         rev = "1d308be03d2a82a9b13d8a3fddab7e9a1227b191";
         hash = "sha256-9f0sc+SmvhZ7MhWCH3w3BzOG+vt525fP77Mspn7XoPQ=";
@@ -35,18 +45,8 @@ let
         {
           path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/gazebosim/\${GITHUB_NAME}.git";
-          to = "VCS_TYPE path VCS_URL ${gz_launch_vendor-vendor_source-gz-launch-0}";
+          to = "VCS_TYPE path VCS_URL ${gz-launch-vendor_source-1317511d365d1b2c312c86f9062b8a4b7bfdc132}";
         }
-      ];
-    };
-    gz_launch_vendor-vendor_source-gz-launch-0 = substituteSource {
-      src = fetchgit {
-        name = "gz_launch_vendor-vendor_source-gz-launch-0-source";
-        url = "https://github.com/gazebosim/gz-launch.git";
-        rev = "1317511d365d1b2c312c86f9062b8a4b7bfdc132";
-        hash = "sha256-En3V8i/Ie8+KnSHGlm9Bap7REdLhYBaVHVbOM+/Pzno=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -54,7 +54,7 @@ in
 buildRosPackage {
   pname = "gz_launch_vendor";
   version = "0.1.1-1";
-  src = sources.gz_launch_vendor;
+  src = sources.gz_launch_vendor-1d308be03d2a82a9b13d8a3fddab7e9a1227b191;
   nativeBuildInputs = [ ament_cmake_core ament_cmake_test ament_cmake_vendor_package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

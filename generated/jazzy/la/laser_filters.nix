@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    laser_filters = substituteSource {
+    laser_filters-4171b198fc1a21628180da5964eb289b35a3d934 = substituteSource {
       src = fetchgit {
-        name = "laser_filters-source";
+        name = "laser_filters-4171b198fc1a21628180da5964eb289b35a3d934-source";
         url = "https://github.com/ros2-gbp/laser_filters-release.git";
         rev = "4171b198fc1a21628180da5964eb289b35a3d934";
         hash = "sha256-ruSsWz10XSElakzxzN1wQp+rS0CVAcaNHQpoVnP0f3k=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "laser_filters";
   version = "2.0.7-3";
-  src = sources.laser_filters;
+  src = sources.laser_filters-4171b198fc1a21628180da5964eb289b35a3d934;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

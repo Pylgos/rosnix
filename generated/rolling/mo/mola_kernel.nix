@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    mola_kernel = substituteSource {
+    mola_kernel-006fd7512426ebbde555b6d1e73c0d8be5ef132b = substituteSource {
       src = fetchgit {
-        name = "mola_kernel-source";
+        name = "mola_kernel-006fd7512426ebbde555b6d1e73c0d8be5ef132b-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
         rev = "006fd7512426ebbde555b6d1e73c0d8be5ef132b";
         hash = "sha256-EwNZImxor7hUEfUTSXe6V2ay8MrqEwiKRdvpsW9KwJI=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "mola_kernel";
   version = "1.2.0-1";
-  src = sources.mola_kernel;
+  src = sources.mola_kernel-006fd7512426ebbde555b6d1e73c0d8be5ef132b;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

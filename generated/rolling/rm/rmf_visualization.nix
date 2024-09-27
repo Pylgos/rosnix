@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    rmf_visualization = substituteSource {
+    rmf_visualization-cc28d9e8d0e9f0ccf102603351fb4713a642fd1c = substituteSource {
       src = fetchgit {
-        name = "rmf_visualization-source";
+        name = "rmf_visualization-cc28d9e8d0e9f0ccf102603351fb4713a642fd1c-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
         rev = "cc28d9e8d0e9f0ccf102603351fb4713a642fd1c";
         hash = "sha256-MCeRrB8BvUy3X+TuoVbb27JAYaZvwXhm1Zi7Ylk4PkQ=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "rmf_visualization";
   version = "2.4.0-1";
-  src = sources.rmf_visualization;
+  src = sources.rmf_visualization-cc28d9e8d0e9f0ccf102603351fb4713a642fd1c;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

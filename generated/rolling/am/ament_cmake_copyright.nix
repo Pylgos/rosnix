@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ament_cmake_copyright = substituteSource {
+    ament_cmake_copyright-3eee9f480599ef84f04598846f8a30bbf085ab8c = substituteSource {
       src = fetchgit {
-        name = "ament_cmake_copyright-source";
+        name = "ament_cmake_copyright-3eee9f480599ef84f04598846f8a30bbf085ab8c-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
         rev = "3eee9f480599ef84f04598846f8a30bbf085ab8c";
         hash = "sha256-zZUUCpwdbCBzUP/WpoLngFdUgSf9Heu4m6ICWhy+HJI=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ament_cmake_copyright";
   version = "0.18.1-1";
-  src = sources.ament_cmake_copyright;
+  src = sources.ament_cmake_copyright-3eee9f480599ef84f04598846f8a30bbf085ab8c;
   nativeBuildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament_cmake_test ament_copyright ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament_cmake_core ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

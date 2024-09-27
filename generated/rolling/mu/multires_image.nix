@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    multires_image = substituteSource {
+    multires_image-e0614f4cde3b32425acd04442cafd0cd09e13e14 = substituteSource {
       src = fetchgit {
-        name = "multires_image-source";
+        name = "multires_image-e0614f4cde3b32425acd04442cafd0cd09e13e14-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
         rev = "e0614f4cde3b32425acd04442cafd0cd09e13e14";
         hash = "sha256-9pk2CCnuJ9zrlzTV6VbLsfXzML4EBn2WCg0/cW1me58=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "multires_image";
   version = "2.4.3-1";
-  src = sources.multires_image;
+  src = sources.multires_image-e0614f4cde3b32425acd04442cafd0cd09e13e14;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };

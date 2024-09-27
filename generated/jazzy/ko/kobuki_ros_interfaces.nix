@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    kobuki_ros_interfaces = substituteSource {
+    kobuki_ros_interfaces-205640a951da2a7d5fa47e3518b32d6df046829d = substituteSource {
       src = fetchgit {
-        name = "kobuki_ros_interfaces-source";
+        name = "kobuki_ros_interfaces-205640a951da2a7d5fa47e3518b32d6df046829d-source";
         url = "https://github.com/ros2-gbp/kobuki_ros_interfaces-release.git";
         rev = "205640a951da2a7d5fa47e3518b32d6df046829d";
         hash = "sha256-svbQG6e1o4u1HncdcNcx55XoYK99I02G7CxL2jvBZhs=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "kobuki_ros_interfaces";
   version = "1.0.0-5";
-  src = sources.kobuki_ros_interfaces;
+  src = sources.kobuki_ros_interfaces-205640a951da2a7d5fa47e3518b32d6df046829d;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -19,9 +19,19 @@
 }:
 let
   sources = rec {
-    pick_ik = substituteSource {
+    Catch2-vendor_source-7818e2666d5cc7bb1d912acb22b68f6669b74520 = substituteSource {
       src = fetchgit {
-        name = "pick_ik-source";
+        name = "Catch2-vendor_source-7818e2666d5cc7bb1d912acb22b68f6669b74520-source";
+        url = "https://github.com/catchorg/Catch2.git";
+        rev = "7818e2666d5cc7bb1d912acb22b68f6669b74520";
+        hash = "sha256-IqTzKPR/RA1uphsr4n5/LfxJNS37I8IFRmMMF/DfBH0=";
+      };
+      substitutions = [
+      ];
+    };
+    pick_ik-0f84171a76bb1da5eb047dfef7bcaf7c27b87cdd = substituteSource {
+      src = fetchgit {
+        name = "pick_ik-0f84171a76bb1da5eb047dfef7bcaf7c27b87cdd-source";
         url = "https://github.com/ros2-gbp/pick_ik-release.git";
         rev = "0f84171a76bb1da5eb047dfef7bcaf7c27b87cdd";
         hash = "sha256-TKEKv9lclKHQqUyAVLAw2f8hI+p0lV4m8xLdNCeqBYA=";
@@ -30,18 +40,8 @@ let
         {
           path = "cmake/FindCatch2.cmake";
           from = "GIT_REPOSITORY https://github.com/catchorg/Catch2.git";
-          to = "URL ${pick_ik-vendor_source-Catch2-0}";
+          to = "URL ${Catch2-vendor_source-7818e2666d5cc7bb1d912acb22b68f6669b74520}";
         }
-      ];
-    };
-    pick_ik-vendor_source-Catch2-0 = substituteSource {
-      src = fetchgit {
-        name = "pick_ik-vendor_source-Catch2-0-source";
-        url = "https://github.com/catchorg/Catch2.git";
-        rev = "7818e2666d5cc7bb1d912acb22b68f6669b74520";
-        hash = "sha256-IqTzKPR/RA1uphsr4n5/LfxJNS37I8IFRmMMF/DfBH0=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -49,7 +49,7 @@ in
 buildRosPackage {
   pname = "pick_ik";
   version = "1.1.0-3";
-  src = sources.pick_ik;
+  src = sources.pick_ik-0f84171a76bb1da5eb047dfef7bcaf7c27b87cdd;
   nativeBuildInputs = [ ament_cmake_ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

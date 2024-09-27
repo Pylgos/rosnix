@@ -15,9 +15,18 @@
 }:
 let
   sources = rec {
-    rosx_introspection = substituteSource {
+    CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv = substituteSource {
+      src = fetchurl {
+        name = "CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv-source";
+        url = "https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.0/CPM.cmake";
+        hash = "sha256-ezVPOll2xGJsh2hQyTlE5SyD7FmhWa5d5b55g/Dheio=";
+      };
+      substitutions = [
+      ];
+    };
+    rosx_introspection-fff7bdfa85870357de451d78417f9502ac96f413 = substituteSource {
       src = fetchgit {
-        name = "rosx_introspection-source";
+        name = "rosx_introspection-fff7bdfa85870357de451d78417f9502ac96f413-source";
         url = "https://github.com/ros2-gbp/rosx_introspection-release.git";
         rev = "fff7bdfa85870357de451d78417f9502ac96f413";
         hash = "sha256-PxUiV3BPyRmYvvYjQmfa7BTP7kFxgfyXAC44akRvT08=";
@@ -26,17 +35,8 @@ let
         {
           path = "cmake/CPM.cmake";
           from = "DOWNLOAD\n     https://github.com/cpm-cmake/CPM.cmake/releases/download/v\${CPM_DOWNLOAD_VERSION}/CPM.cmake";
-          to = "DOWNLOAD file://${rosx_introspection-vendor_source-CPM-0}";
+          to = "DOWNLOAD file://${CPM-vendor_source-0aksw7q86ydywmfswnd1b7n86b758hwwjl38hxn65i3nb4x4ydbv}";
         }
-      ];
-    };
-    rosx_introspection-vendor_source-CPM-0 = substituteSource {
-      src = fetchurl {
-        name = "rosx_introspection-vendor_source-CPM-0-source";
-        url = "https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.0/CPM.cmake";
-        hash = "sha256-ezVPOll2xGJsh2hQyTlE5SyD7FmhWa5d5b55g/Dheio=";
-      };
-      substitutions = [
       ];
     };
   };
@@ -44,7 +44,7 @@ in
 buildRosPackage {
   pname = "rosx_introspection";
   version = "1.0.2-1";
-  src = sources.rosx_introspection;
+  src = sources.rosx_introspection-fff7bdfa85870357de451d78417f9502ac96f413;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

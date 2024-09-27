@@ -19,9 +19,9 @@
 }:
 let
   sources = rec {
-    beluga_amcl = substituteSource {
+    beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1 = substituteSource {
       src = fetchgit {
-        name = "beluga_amcl-source";
+        name = "beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
         rev = "0a28678898be6587e8ef29c6a5d96109761837b1";
         hash = "sha256-o5w8tS4fYcmaf9rRYPabtPGEs27Xf50+6nRPhhPN7B8=";
@@ -34,7 +34,7 @@ in
 buildRosPackage {
   pname = "beluga_amcl";
   version = "2.0.2-1";
-  src = sources.beluga_amcl;
+  src = sources.beluga_amcl-0a28678898be6587e8ef29c6a5d96109761837b1;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

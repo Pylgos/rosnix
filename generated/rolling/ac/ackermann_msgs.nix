@@ -13,9 +13,9 @@
 }:
 let
   sources = rec {
-    ackermann_msgs = substituteSource {
+    ackermann_msgs-c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e = substituteSource {
       src = fetchgit {
-        name = "ackermann_msgs-source";
+        name = "ackermann_msgs-c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e-source";
         url = "https://github.com/ros2-gbp/ackermann_msgs-release.git";
         rev = "c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e";
         hash = "sha256-zn0jbHQ6PrAlpzAwpr3Tu01dOE8TVcs0XYlTXL0x8wg=";
@@ -28,7 +28,7 @@ in
 buildRosPackage {
   pname = "ackermann_msgs";
   version = "2.0.2-5";
-  src = sources.ackermann_msgs;
+  src = sources.ackermann_msgs-c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e;
   nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

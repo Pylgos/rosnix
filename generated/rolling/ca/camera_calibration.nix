@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    camera_calibration = substituteSource {
+    camera_calibration-4540d864121d29e03cb2144643d6d9a001191216 = substituteSource {
       src = fetchgit {
-        name = "camera_calibration-source";
+        name = "camera_calibration-4540d864121d29e03cb2144643d6d9a001191216-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
         rev = "4540d864121d29e03cb2144643d6d9a001191216";
         hash = "sha256-MTFMO5104XrBkDXWhorawdO0E2H/F8xqMCoDhTuITvo=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "camera_calibration";
   version = "6.0.3-1";
-  src = sources.camera_calibration;
+  src = sources.camera_calibration-4540d864121d29e03cb2144643d6d9a001191216;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

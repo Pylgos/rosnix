@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    depthimage_to_laserscan = substituteSource {
+    depthimage_to_laserscan-519824930e5f9133698b8b7f683157a064c30d14 = substituteSource {
       src = fetchgit {
-        name = "depthimage_to_laserscan-source";
+        name = "depthimage_to_laserscan-519824930e5f9133698b8b7f683157a064c30d14-source";
         url = "https://github.com/ros2-gbp/depthimage_to_laserscan-release.git";
         rev = "519824930e5f9133698b8b7f683157a064c30d14";
         hash = "sha256-QU8tJNEPEB6X439eDP+kDXczR29OQNtKRX1uXKDqgDo=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "depthimage_to_laserscan";
   version = "2.5.1-3";
-  src = sources.depthimage_to_laserscan;
+  src = sources.depthimage_to_laserscan-519824930e5f9133698b8b7f683157a064c30d14;
   nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

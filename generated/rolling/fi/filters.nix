@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    filters = substituteSource {
+    filters-3faf06b85a865df2e87bbe24556e4e7faecdbd33 = substituteSource {
       src = fetchgit {
-        name = "filters-source";
+        name = "filters-3faf06b85a865df2e87bbe24556e4e7faecdbd33-source";
         url = "https://github.com/ros2-gbp/filters-release.git";
         rev = "3faf06b85a865df2e87bbe24556e4e7faecdbd33";
         hash = "sha256-hz/dFfNO4Dl2v0luZbIJQrfAimC4iBuF7HtT0XInGgk=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "filters";
   version = "2.1.2-1";
-  src = sources.filters;
+  src = sources.filters-3faf06b85a865df2e87bbe24556e4e7faecdbd33;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

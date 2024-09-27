@@ -18,9 +18,9 @@
 }:
 let
   sources = rec {
-    warehouse_ros = substituteSource {
+    warehouse_ros-bf9c959640a5ea9429eb8373608127fcf8c63981 = substituteSource {
       src = fetchgit {
-        name = "warehouse_ros-source";
+        name = "warehouse_ros-bf9c959640a5ea9429eb8373608127fcf8c63981-source";
         url = "https://github.com/ros2-gbp/warehouse_ros-release.git";
         rev = "bf9c959640a5ea9429eb8373608127fcf8c63981";
         hash = "sha256-X45/qATzogkTqKBnEvt1wH7hKl9/qSTTVboEsAuL/Es=";
@@ -33,7 +33,7 @@ in
 buildRosPackage {
   pname = "warehouse_ros";
   version = "2.0.5-1";
-  src = sources.warehouse_ros;
+  src = sources.warehouse_ros-bf9c959640a5ea9429eb8373608127fcf8c63981;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

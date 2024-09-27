@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    test_ros_gz_bridge = substituteSource {
+    test_ros_gz_bridge-8ea248087f4a29322fbab7fb044976dbc0be538a = substituteSource {
       src = fetchgit {
-        name = "test_ros_gz_bridge-source";
+        name = "test_ros_gz_bridge-8ea248087f4a29322fbab7fb044976dbc0be538a-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
         rev = "8ea248087f4a29322fbab7fb044976dbc0be538a";
         hash = "sha256-WTgJ7ji7/HbR3JoPDdYmW9rNjgF21ByVJc2Y9UBZ16k=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "test_ros_gz_bridge";
   version = "2.1.0-1";
-  src = sources.test_ros_gz_bridge;
+  src = sources.test_ros_gz_bridge-8ea248087f4a29322fbab7fb044976dbc0be538a;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

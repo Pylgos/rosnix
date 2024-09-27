@@ -25,9 +25,9 @@
 }:
 let
   sources = rec {
-    nav2_lifecycle_manager = substituteSource {
+    nav2_lifecycle_manager-b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07 = substituteSource {
       src = fetchgit {
-        name = "nav2_lifecycle_manager-source";
+        name = "nav2_lifecycle_manager-b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
         rev = "b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07";
         hash = "sha256-bSmjWv5KmPZCdLOYkhg8JPjLBV9yE663Pk9+8bjD5L8=";
@@ -40,7 +40,7 @@ in
 buildRosPackage {
   pname = "nav2_lifecycle_manager";
   version = "1.3.2-1";
-  src = sources.nav2_lifecycle_manager;
+  src = sources.nav2_lifecycle_manager-b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

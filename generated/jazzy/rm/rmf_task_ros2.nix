@@ -20,9 +20,9 @@
 }:
 let
   sources = rec {
-    rmf_task_ros2 = substituteSource {
+    rmf_task_ros2-21db0de84f77d1e6e627636c77600231c582df64 = substituteSource {
       src = fetchgit {
-        name = "rmf_task_ros2-source";
+        name = "rmf_task_ros2-21db0de84f77d1e6e627636c77600231c582df64-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
         rev = "21db0de84f77d1e6e627636c77600231c582df64";
         hash = "sha256-g2F060KdE6F9gJut0a9HaEVWpiXe0Qe1ao27SICYYkw=";
@@ -35,7 +35,7 @@ in
 buildRosPackage {
   pname = "rmf_task_ros2";
   version = "2.7.2-1";
-  src = sources.rmf_task_ros2;
+  src = sources.rmf_task_ros2-21db0de84f77d1e6e627636c77600231c582df64;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -22,9 +22,9 @@
 }:
 let
   sources = rec {
-    laser_geometry = substituteSource {
+    laser_geometry-004f7d0e382692374c1c5eef8e0dcda2e1a7c93c = substituteSource {
       src = fetchgit {
-        name = "laser_geometry-source";
+        name = "laser_geometry-004f7d0e382692374c1c5eef8e0dcda2e1a7c93c-source";
         url = "https://github.com/ros2-gbp/laser_geometry-release.git";
         rev = "004f7d0e382692374c1c5eef8e0dcda2e1a7c93c";
         hash = "sha256-L14Scv0jSh8t5x8vxSwxFJR6fIc45Ze2YKXzMc/Wp/I=";
@@ -37,7 +37,7 @@ in
 buildRosPackage {
   pname = "laser_geometry";
   version = "2.8.0-1";
-  src = sources.laser_geometry;
+  src = sources.laser_geometry-004f7d0e382692374c1c5eef8e0dcda2e1a7c93c;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

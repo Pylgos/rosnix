@@ -24,9 +24,9 @@
 }:
 let
   sources = rec {
-    fmi_adapter = substituteSource {
+    fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7 = substituteSource {
       src = fetchgit {
-        name = "fmi_adapter-source";
+        name = "fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7-source";
         url = "https://github.com/ros2-gbp/fmi_adapter-release.git";
         rev = "7cd1b63789fc2756d115d493ec4d79add7e8edc7";
         hash = "sha256-bdDksqaZAqG/5URM3Ifb8DOvHvjwqqadN4eguWTN3Vk=";
@@ -39,7 +39,7 @@ in
 buildRosPackage {
   pname = "fmi_adapter";
   version = "2.1.2-1";
-  src = sources.fmi_adapter;
+  src = sources.fmi_adapter-7cd1b63789fc2756d115d493ec4d79add7e8edc7;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

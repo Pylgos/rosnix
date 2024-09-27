@@ -16,9 +16,9 @@
 }:
 let
   sources = rec {
-    dual_arm_panda_moveit_config = substituteSource {
+    dual_arm_panda_moveit_config-cb78588b1f49c9d1c78a0b791bd6a92735cbafff = substituteSource {
       src = fetchgit {
-        name = "dual_arm_panda_moveit_config-source";
+        name = "dual_arm_panda_moveit_config-cb78588b1f49c9d1c78a0b791bd6a92735cbafff-source";
         url = "https://github.com/ros2-gbp/moveit_resources-release.git";
         rev = "cb78588b1f49c9d1c78a0b791bd6a92735cbafff";
         hash = "sha256-V71OPHp++p3BjHIOsZaorfCVHJWME4JIA7kB869Ruk0=";
@@ -31,7 +31,7 @@ in
 buildRosPackage {
   pname = "dual_arm_panda_moveit_config";
   version = "3.0.0-2";
-  src = sources.dual_arm_panda_moveit_config;
+  src = sources.dual_arm_panda_moveit_config-cb78588b1f49c9d1c78a0b791bd6a92735cbafff;
   nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

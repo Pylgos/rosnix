@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    ntrip_client = substituteSource {
+    ntrip_client-8b043737e69f30b6c448fc926d7d5192521f2eb1 = substituteSource {
       src = fetchgit {
-        name = "ntrip_client-source";
+        name = "ntrip_client-8b043737e69f30b6c448fc926d7d5192521f2eb1-source";
         url = "https://github.com/ros2-gbp/ntrip_client-release.git";
         rev = "8b043737e69f30b6c448fc926d7d5192521f2eb1";
         hash = "sha256-mjgvoEVgfLQBBMLRNOu0vuIREhBqOf96dPTY2PVPqV0=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "ntrip_client";
   version = "1.3.0-3";
-  src = sources.ntrip_client;
+  src = sources.ntrip_client-8b043737e69f30b6c448fc926d7d5192521f2eb1;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

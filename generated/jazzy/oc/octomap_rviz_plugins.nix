@@ -17,9 +17,9 @@
 }:
 let
   sources = rec {
-    octomap_rviz_plugins = substituteSource {
+    octomap_rviz_plugins-8dadcae1b5f69dd2291df40df5f949fb0a62b3b0 = substituteSource {
       src = fetchgit {
-        name = "octomap_rviz_plugins-source";
+        name = "octomap_rviz_plugins-8dadcae1b5f69dd2291df40df5f949fb0a62b3b0-source";
         url = "https://github.com/ros2-gbp/octomap_rviz_plugins-release.git";
         rev = "8dadcae1b5f69dd2291df40df5f949fb0a62b3b0";
         hash = "sha256-jYZZwVA/LByiBlY+KXs0ETYwsDlvq8yjFj31QoHrvM0=";
@@ -32,7 +32,7 @@ in
 buildRosPackage {
   pname = "octomap_rviz_plugins";
   version = "2.1.0-1";
-  src = sources.octomap_rviz_plugins;
+  src = sources.octomap_rviz_plugins-8dadcae1b5f69dd2291df40df5f949fb0a62b3b0;
   nativeBuildInputs = [ ament_cmake_auto wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

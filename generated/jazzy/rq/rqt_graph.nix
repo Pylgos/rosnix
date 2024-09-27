@@ -14,9 +14,9 @@
 }:
 let
   sources = rec {
-    rqt_graph = substituteSource {
+    rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595 = substituteSource {
       src = fetchgit {
-        name = "rqt_graph-source";
+        name = "rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595-source";
         url = "https://github.com/ros2-gbp/rqt_graph-release.git";
         rev = "6771816961fa978fc42be3f8b5bf6b241052d595";
         hash = "sha256-Y3VJbiQ/I3s1fFoCRZ+OkJiLE/9+pabzSDJ0ja/xuJo=";
@@ -29,7 +29,7 @@ in
 buildRosPackage {
   pname = "rqt_graph";
   version = "1.5.4-1";
-  src = sources.rqt_graph;
+  src = sources.rqt_graph-6771816961fa978fc42be3f8b5bf6b241052d595;
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

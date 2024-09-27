@@ -12,9 +12,9 @@
 }:
 let
   sources = rec {
-    rosidl_typesupport_interface = substituteSource {
+    rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582 = substituteSource {
       src = fetchgit {
-        name = "rosidl_typesupport_interface-source";
+        name = "rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
         rev = "5bf5a0d16d6cf1a47dc5f952a2f62854e8195582";
         hash = "sha256-kQxdJ7mirw4WofaEfh4lS6avIwbWrWHSd4YUk3DxWOo=";
@@ -27,7 +27,7 @@ in
 buildRosPackage {
   pname = "rosidl_typesupport_interface";
   version = "4.6.4-1";
-  src = sources.rosidl_typesupport_interface;
+  src = sources.rosidl_typesupport_interface-5bf5a0d16d6cf1a47dc5f952a2f62854e8195582;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

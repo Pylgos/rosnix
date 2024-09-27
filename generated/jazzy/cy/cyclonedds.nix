@@ -11,9 +11,9 @@
 }:
 let
   sources = rec {
-    cyclonedds = substituteSource {
+    cyclonedds-73713526652778f6d7b1cea5a4aa9e27c52f8fb3 = substituteSource {
       src = fetchgit {
-        name = "cyclonedds-source";
+        name = "cyclonedds-73713526652778f6d7b1cea5a4aa9e27c52f8fb3-source";
         url = "https://github.com/ros2-gbp/cyclonedds-release.git";
         rev = "73713526652778f6d7b1cea5a4aa9e27c52f8fb3";
         hash = "sha256-JFn8HlIahFX99o5SBpVkhfap+EIKfLy3mZICNlZNh0o=";
@@ -26,7 +26,7 @@ in
 buildRosPackage {
   pname = "cyclonedds";
   version = "0.10.5-1";
-  src = sources.cyclonedds;
+  src = sources.cyclonedds-73713526652778f6d7b1cea5a4aa9e27c52f8fb3;
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

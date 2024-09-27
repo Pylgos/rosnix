@@ -27,9 +27,9 @@
 }:
 let
   sources = rec {
-    mrpt_pf_localization = substituteSource {
+    mrpt_pf_localization-052f34b7b3f9b24bfd84535992ba7e46bb3d4137 = substituteSource {
       src = fetchgit {
-        name = "mrpt_pf_localization-source";
+        name = "mrpt_pf_localization-052f34b7b3f9b24bfd84535992ba7e46bb3d4137-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
         rev = "052f34b7b3f9b24bfd84535992ba7e46bb3d4137";
         hash = "sha256-KX4tawDnw4Ohj6w3xPjeSiUumHXhlS2UVornxxtuwXk=";
@@ -42,7 +42,7 @@ in
 buildRosPackage {
   pname = "mrpt_pf_localization";
   version = "2.2.0-1";
-  src = sources.mrpt_pf_localization;
+  src = sources.mrpt_pf_localization-052f34b7b3f9b24bfd84535992ba7e46bb3d4137;
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament_cmake_lint_cmake ament_cmake_xmllint ament_lint_auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
