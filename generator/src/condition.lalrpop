@@ -1,0 +1,56 @@
+use std::collections::BTreeMap;
+use super::unquote;
+use lalrpop_util::ParseError;
+use anyhow::Error;
+use tracing::warn;
+
+grammar(env: &BTreeMap<String, String>);
+
+extern {
+    type Error = Error;
+}
+
+
+pub Condition: bool = {
+    #[precedence(level="0")]
+    "(" <Condition> ")" => <>,
+    #[precedence(level="1")]
+    <a:Value> "<" <b:Value> => a < b,
+    #[precedence(level="1")]
+    <a:Value> "<=" <b:Value> => a <= b,
+    #[precedence(level="1")]
+    <a:Value> ">" <b:Value> => a > b,
+    #[precedence(level="1")]
+    <a:Value> ">=" <b:Value> => a >= b,
+    #[precedence(level="1")] #[assoc(side="left")]
+    <a:Value> "==" <b:Value> => a == b,
+    #[precedence(level="1")] #[assoc(side="left")]
+    <a:Value> "!=" <b:Value> => a != b,
+    #[precedence(level="2")] #[assoc(side="left")]
+    <a:Condition> "and" <b:Condition> => a && b,
+    #[precedence(level="3")] #[assoc(side="left")]
+    <a:Condition> "or" <b:Condition> => a || b,
+}
+
+Value: String = {
+    Literal,
+    Subst,
+}
+
+Literal: String = {
+    <r#"[a-zA-Z0-9_\-]+"#> => <>.to_string(),
+    <r#"'(\\.|[^'\\])*'"#> =>? unquote(<>).map_err(|e| ParseError::User { error: e }),
+    <r#""(\\.|[^'\\])*""#> =>? unquote(<>).map_err(|e| ParseError::User { error: e }),
+}
+
+Subst: String = {
+    <r#"\$[a-zA-Z0-9_\-]+"#> => {
+        let key = &<>.to_string()[1..];
+        if let Some(val) = env.get(key) {
+            val.to_string()
+        } else {
+            warn!("undefined variable: {}", key);
+            "".to_string()
+        }
+    },
+}
