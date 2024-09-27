@@ -41,7 +41,7 @@ let
     distro:
     final.makeScopeWithSplicing' {
       otherSplices = final.generateSplicesForMkScope "rosPackages";
-      extra = (spliced: { substituteSource = final.callPackage ./lib/substitute-source.nix { }; });
+      extra = (spliced: { substituteSource = final.callPackage ../lib/substitute-source.nix { }; });
       f =
         self:
         {

@@ -86,7 +86,7 @@
               text = ''
                 set -eu
                 DONT_COMMIT=''${DONT_COMMIT:-}
-                pushd poetry
+                pushd system-packages/poetry
                 poetry update --lock
                 if [[ -z $DONT_COMMIT ]]; then
                   git add ./poetry.lock
@@ -97,8 +97,8 @@
                 popd
                 rosnix-generator --config-file ./rosnix.toml generate --report-file /tmp/report.md
                 if [[ -z $DONT_COMMIT ]]; then
-                  git add ./generated
-                  if ! git diff --quiet --cached ./generated; then
+                  git add ./ros-packages/generated
+                  if ! git diff --quiet --cached ./ros-packages/generated; then
                     git commit -m "Regenerate distro files" -m "$(cat /tmp/report.md)"
                   fi
                 fi
@@ -161,7 +161,9 @@
     // {
       lib = {
         distributions = map ({ name, value }: name) (
-          lib.attrsToList (if lib.pathExists ./generated then lib.readDir ./generated else { })
+          lib.attrsToList (
+            if lib.pathExists ./ros-packages/generated then lib.readDir ./ros-packages/generated else { }
+          )
         );
         configs =
           (lib.listToAttrs (

@@ -18,7 +18,7 @@ in
       let
         pkgList =
           (final.poetry2nix.mkPoetryPackages {
-            projectDir = ../poetry;
+            projectDir = ./poetry;
             python = pyForRos;
             overrides = final.poetry2nix.overrides.withDefaults (
               final: prev: {

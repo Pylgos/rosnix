@@ -1,5 +1,5 @@
 distributions = ["jazzy", "rolling"]
-out_dir = "generated"
+out_dir = "ros-packages/generated"
 max_concurrent_downloads = 16
 buildtool_packages = ["ament_lint_common"]
 runtime_packages = [
