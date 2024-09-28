@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "robot_calibration-source";
         url = "https://github.com/ros2-gbp/robot_calibration-release.git";
-        rev = "a623362c1fe628a1da9a38abe7969055e49dec8b";
-        hash = "sha256-R/RGa0/pVTyj3BGOHgYuQMwXXdm3/WMRrE7OsQ1WEGI=";
+        rev = "739632d141c42b7e2b5827568eee1351270bd89f";
+        hash = "sha256-fzPPa6NBKrV3U/XQPpUYuVK+ZY5efMVqnexTp429bBQ=";
       };
       substitutions = [
       ];
@@ -47,7 +47,7 @@ let
 in
 buildRosPackage {
   pname = "robot_calibration";
-  version = "0.9.0-1";
+  version = "0.9.1-1";
   src = sources."robot_calibration";
   nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
