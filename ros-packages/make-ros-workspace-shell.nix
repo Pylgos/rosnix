@@ -12,6 +12,7 @@
   nativeBuildInputs ? [ ],
   propagatedBuildInputs ? [ ],
   propagatedNativeBuildInputs ? [ ],
+  shellHook ? "",
   ...
 }@attrs:
 let
@@ -47,7 +48,17 @@ buildRosPackage (
     propagatedNativeBuildInputs = mergeInputs "propagatedNativeBuildInputs";
 
     shellHook = lib.concatStringsSep "\n" (
-      lib.catAttrs "shellHook" (lib.reverseList inputsFrom ++ [ attrs ])
+      (lib.catAttrs "shellHook" (lib.reverseList inputsFrom ++ [ attrs ]))
+      ++ [
+        ''
+          if type register-python-argcomplete > /dev/null 2>&1; then
+            if type colcon > /dev/null 2>&1; then
+              eval "$(register-python-argcomplete colcon)"
+            fi
+          fi
+        ''
+        shellHook
+      ]
     );
 
     phases = [ "buildPhase" ];
