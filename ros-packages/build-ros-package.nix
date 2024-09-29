@@ -3,7 +3,7 @@
   stdenv,
   buildPackages,
   rosSetupHook,
-  mkShell,
+  mkRosWorkspaceShell,
 }:
 let
   mkOverlayBuilder =
@@ -116,13 +116,9 @@ mkOverlayBuilder stdenv.mkDerivation (
       + shellHook;
 
     passthru = {
-      shell = mkShell {
-        name = "${finalAttrs.pname or "ros"}-workspace";
-        nativeBuildInputs = [ rosSetupHook ];
+      shell = mkRosWorkspaceShell {
+        name = "${finalAttrs.pname or "ros"}-workspace-shell";
         buildInputs = [ finalDrv ];
-        shellHook = ''
-          ROSNIX_SETUP_DEVEL_ENV=1 _rosnixSetupHook_postHook 2> /dev/null
-        '';
       };
     } // passthru;
   }

@@ -53,6 +53,7 @@ let
           wrapRosQtAppsHook = self.callPackage ./hooks/wrap-ros-qt-apps-hook.nix { };
           rosSetupHook = self.callPackage ./hooks/ros-setup-hook.nix { };
           buildRosPackage = self.callPackage ./build-ros-package.nix { };
+          mkRosWorkspaceShell = self.callPackage ./make-ros-workspace-shell.nix { };
         }
         // (importPackagesFrom ./generated/${distro} self.callPackage);
     };
