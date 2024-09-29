@@ -425,6 +425,7 @@ in
     libopenal-dev = [ final.openal ];
     libopenblas-dev = [ final.openblas ];
     libopencv-dev = [ final.opencv ];
+    libopencv-imgproc-dev = [ final.opencv ];
     libopenexr-dev = [ final.openexr ];
     libopenscenegraph = [ final.openscenegraph ];
     libopenvdb = [ final.openvdb ];
