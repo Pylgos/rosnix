@@ -5,12 +5,18 @@
 }:
 
 let
-  systemPackagesOverlay = import ./system-packages/overlay.nix { inherit lib config; };
-  rosPackagesOverlay = import ./ros-packages/overlay.nix { inherit lib config; };
-  overrides = import ./ros-packages/overrides { inherit lib config; };
+  configOverlay = final: prev: {
+    rosConfig = lib.makeExtensibleWithCustomName "override" (
+      finalConfig: { distro = "jazzy"; } // config
+    );
+  };
+  systemPackagesOverlay = import ./system-packages/overlay.nix { inherit lib; };
+  rosPackagesOverlay = import ./ros-packages/overlay.nix { inherit lib; };
+  overrides = import ./ros-packages/overrides { inherit lib; };
 in
 lib.composeManyExtensions [
   poetry2nix.overlays.default
+  configOverlay
   systemPackagesOverlay
   rosPackagesOverlay
   overrides

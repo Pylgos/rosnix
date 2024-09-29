@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib }:
 final: prev:
 let
   pyForRos =
@@ -8,7 +8,7 @@ let
       humble = final.python39;
       rolling = final.python311;
     }
-    .${config.distro};
+    .${final.rosConfig.distro};
 
 in
 {

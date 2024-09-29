@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib }:
 
 final: prev: {
   rosPackages = prev.rosPackages.overrideScope (

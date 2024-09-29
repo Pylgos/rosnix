@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib }:
 final: prev:
 
 let
@@ -59,5 +59,5 @@ let
     };
 in
 {
-  rosPackages = makeDistroScope config.distro;
+  rosPackages = makeDistroScope final.rosConfig.distro;
 }

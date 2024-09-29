@@ -177,14 +177,8 @@
           // {
             default = self.lib.configs.jazzy;
           };
-        mkOverlay = (
-          { config }:
-          import ./overlay.nix {
-            inherit lib poetry2nix;
-            config = self.lib.configs.default // config;
-          }
-        );
+        mkOverlay = config: import ./overlay.nix { inherit lib poetry2nix config; };
       };
-      overlays = lib.mapAttrs (name: config: self.lib.mkOverlay { inherit config; }) self.lib.configs;
+      overlays = lib.mapAttrs (name: config: self.lib.mkOverlay config) self.lib.configs;
     };
 }
