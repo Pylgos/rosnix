@@ -66,7 +66,7 @@
                 rosPkgs.cartographer
                 (rosPkgs.slam_toolbox or null)
                 rosPkgs.navigation2
-                rosPkgs.gz_sim_vendor
+                rosPkgs.ros_gz
                 rosPkgs.librealsense2
               ];
               phases = [ "installPhase" ];
