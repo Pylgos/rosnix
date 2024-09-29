@@ -1,7 +1,9 @@
+# For rosnix-generator
 /cache
 /result
 
-/gc-roots
-/results
-
+# For some rust packages
 target
+
+# Do not commit flake.lock in examples
+/examples/**/flake.lock
