@@ -1,7 +1,7 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
-  cv_bridge,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,10 +27,10 @@ buildRosPackage {
   pname = "aruco";
   version = "5.0.5-1";
   src = sources."aruco";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ cv_bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -1,19 +1,19 @@
 {
-  ament_cmake_gmock,
-  ament_cmake_ros,
-  ament_cmake_version,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake-gmock,
+  ament-cmake-ros,
+  ament-cmake-version,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  osrf_testing_tools_cpp,
+  osrf-testing-tools-cpp,
   rcutils,
   rosSystemPackages,
-  rosidl_dynamic_typesupport,
-  rosidl_runtime_c,
+  rosidl-dynamic-typesupport,
+  rosidl-runtime-c,
   substituteSource,
 }:
 let
@@ -34,13 +34,13 @@ buildRosPackage {
   pname = "rmw";
   version = "7.4.3-1";
   src = sources."rmw";
-  nativeBuildInputs = [ ament_cmake_ros ament_cmake_version ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-ros ament-cmake-version ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rcutils rosidl_dynamic_typesupport rosidl_runtime_c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcutils rosidl-dynamic-typesupport rosidl-runtime-c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gmock ament_lint_auto ament_lint_common osrf_testing_tools_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common osrf-testing-tools-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Contains the ROS middleware API.";
   };

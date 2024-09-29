@@ -1,16 +1,16 @@
 {
-  ament_cmake,
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  pybind11_vendor,
-  python_cmake_module,
+  pybind11-vendor,
+  python-cmake-module,
   rosSystemPackages,
   rpyutils,
   substituteSource,
@@ -33,13 +33,13 @@ buildRosPackage {
   pname = "lttngpy";
   version = "8.3.0-1";
   src = sources."lttngpy";
-  nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ pybind11_vendor rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" ]; };
+  propagatedBuildInputs = [ pybind11-vendor rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "liblttng-ctl Python bindings";
   };

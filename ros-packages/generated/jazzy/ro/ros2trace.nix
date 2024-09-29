@@ -1,9 +1,9 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_mypy,
-  ament_pep257,
-  ament_xmllint,
+  ament-copyright,
+  ament-flake8,
+  ament-mypy,
+  ament-pep257,
+  ament-xmllint,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -12,7 +12,7 @@
   ros2cli,
   rosSystemPackages,
   substituteSource,
-  tracetools_trace,
+  tracetools-trace,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -35,10 +35,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ros2cli tracetools_trace ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ros2cli tracetools-trace ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_mypy ament_pep257 ament_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The trace command for ROS 2 command line tools.";
   };

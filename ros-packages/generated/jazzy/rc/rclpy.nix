@@ -1,39 +1,39 @@
 {
-  action_msgs,
-  ament_cmake,
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_index_python,
-  ament_lint_auto,
-  ament_lint_common,
+  action-msgs,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-index-python,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  builtin_interfaces,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
-  lifecycle_msgs,
+  lifecycle-msgs,
   mkSourceSet,
-  pybind11_vendor,
-  python_cmake_module,
+  pybind11-vendor,
+  python-cmake-module,
   rcl,
-  rcl_action,
-  rcl_interfaces,
-  rcl_lifecycle,
-  rcl_logging_interface,
-  rcl_yaml_param_parser,
+  rcl-action,
+  rcl-interfaces,
+  rcl-lifecycle,
+  rcl-logging-interface,
+  rcl-yaml-param-parser,
   rcpputils,
   rcutils,
   rmw,
-  rmw_implementation,
-  rmw_implementation_cmake,
+  rmw-implementation,
+  rmw-implementation-cmake,
   rosSystemPackages,
-  rosgraph_msgs,
-  rosidl_generator_py,
-  rosidl_runtime_c,
+  rosgraph-msgs,
+  rosidl-generator-py,
+  rosidl-runtime-c,
   rpyutils,
   substituteSource,
-  test_msgs,
-  unique_identifier_msgs,
+  test-msgs,
+  unique-identifier-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -53,13 +53,13 @@ buildRosPackage {
   pname = "rclpy";
   version = "7.1.2-1";
   src = sources."rclpy";
-  nativeBuildInputs = [ ament_cmake python_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rmw_implementation_cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action_msgs ament_index_python builtin_interfaces lifecycle_msgs pybind11_vendor rcl rcl_action rcl_interfaces rcl_lifecycle rcl_logging_interface rcl_yaml_param_parser rcpputils rcutils rmw rmw_implementation rosgraph_msgs rosidl_runtime_c unique_identifier_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs pybind11-vendor rcl rcl-action rcl-interfaces rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rmw-implementation rosgraph-msgs rosidl-runtime-c unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common rosidl_generator_py test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rosidl-generator-py test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Package containing the Python client.";
   };

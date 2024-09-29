@@ -1,28 +1,28 @@
 {
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_cmake_ros,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-cmake-ros,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  example_interfaces,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
-  launch_testing,
+  launch-testing,
   mkSourceSet,
-  osrf_testing_tools_cpp,
+  osrf-testing-tools-cpp,
   rcl,
-  rcl_action,
+  rcl-action,
   rclcpp,
-  rclcpp_action,
+  rclcpp-action,
   rcutils,
   rosSystemPackages,
-  rosidl_generator_c,
-  rosidl_typesupport_c,
-  std_msgs,
+  rosidl-generator-c,
+  rosidl-typesupport-c,
+  std-msgs,
   substituteSource,
-  test_msgs,
+  test-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -42,13 +42,13 @@ buildRosPackage {
   pname = "rclc";
   version = "6.1.0-3";
   src = sources."rclc";
-  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl_generator_c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl-generator-c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rcl rcl_action rcutils rosidl_typesupport_c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl rcl-action rcutils rosidl-typesupport-c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common example_interfaces launch_testing osrf_testing_tools_cpp rclcpp rclcpp_action std_msgs test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces launch-testing osrf-testing-tools-cpp rclcpp rclcpp-action std-msgs test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ROS client library in C.";
   };

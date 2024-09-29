@@ -1,9 +1,9 @@
 {
-  ament_cmake,
-  ament_cmake_gtest,
-  ament_index_cpp,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-index-cpp,
   buildRosPackage,
-  class_loader,
+  class-loader,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,7 +12,7 @@
   rcutils,
   rosSystemPackages,
   substituteSource,
-  tinyxml2_vendor,
+  tinyxml2-vendor,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -32,13 +32,13 @@ buildRosPackage {
   pname = "pluginlib";
   version = "5.4.2-2";
   src = sources."pluginlib";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_cpp class_loader rcpputils rcutils tinyxml2_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-cpp class-loader rcpputils rcutils tinyxml2-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The pluginlib package provides tools for writing and dynamically loading plugins using the ROS build infrastructure. To work, these tools require plugin providers to register their plugins in the package.xml of their package.";
   };

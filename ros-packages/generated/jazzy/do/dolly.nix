@@ -1,11 +1,11 @@
 {
-  ament_cmake,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  dolly_follow,
-  dolly_gazebo,
-  dolly_ignition,
+  dolly-follow,
+  dolly-gazebo,
+  dolly-ignition,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,13 +32,13 @@ buildRosPackage {
   pname = "dolly";
   version = "0.4.0-6";
   src = sources."dolly";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ dolly_follow dolly_gazebo dolly_ignition ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ dolly-follow dolly-gazebo dolly-ignition ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Meta-package for Dolly, the robot sheep.";
   };

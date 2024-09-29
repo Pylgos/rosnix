@@ -1,5 +1,5 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ buildRosPackage {
   pname = "lusb";
   version = "2.0.2-1";
   src = sources."lusb";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" ]; };

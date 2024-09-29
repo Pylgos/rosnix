@@ -1,7 +1,7 @@
 {
-  ament_cmake,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -9,11 +9,11 @@
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  ur_calibration,
-  ur_controllers,
-  ur_dashboard_msgs,
-  ur_moveit_config,
-  ur_robot_driver,
+  ur-calibration,
+  ur-controllers,
+  ur-dashboard-msgs,
+  ur-moveit-config,
+  ur-robot-driver,
   wrapRosQtAppsHook,
 }:
 let
@@ -34,13 +34,13 @@ buildRosPackage {
   pname = "ur";
   version = "2.4.10-1";
   src = sources."ur";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ur_calibration ur_controllers ur_dashboard_msgs ur_moveit_config ur_robot_driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ur-calibration ur-controllers ur-dashboard-msgs ur-moveit-config ur-robot-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Metapackage for universal robots";
   };

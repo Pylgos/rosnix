@@ -1,16 +1,16 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_index_python,
-  ament_pep257,
+  ament-copyright,
+  ament-flake8,
+  ament-index-python,
+  ament-pep257,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_ros,
-  launch_xml,
-  launch_yaml,
+  launch-ros,
+  launch-xml,
+  launch-yaml,
   mkSourceSet,
   ros2cli,
   ros2pkg,
@@ -38,10 +38,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_python launch launch_ros launch_xml launch_yaml ros2cli ros2pkg ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-python launch launch-ros launch-xml launch-yaml ros2cli ros2pkg ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The launch command for ROS 2 command line tools.";
   };

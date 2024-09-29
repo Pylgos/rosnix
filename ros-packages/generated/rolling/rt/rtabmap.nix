@@ -1,6 +1,6 @@
 {
   buildRosPackage,
-  cv_bridge,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ cv_bridge gtsam libg2o libpointmatcher ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "qtbase5-dev" "tbb" "zlib" ]; };
+  propagatedBuildInputs = [ cv-bridge gtsam libg2o libpointmatcher ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "qtbase5-dev" "tbb" "zlib" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

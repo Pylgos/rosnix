@@ -1,21 +1,21 @@
 {
-  ament_cmake_gmock,
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_cmake_ros,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake-gmock,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-cmake-ros,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_testing,
-  launch_testing_ament_cmake,
-  mimick_vendor,
+  launch-testing,
+  launch-testing-ament-cmake,
+  mimick-vendor,
   mkSourceSet,
-  osrf_testing_tools_cpp,
-  performance_test_fixture,
+  osrf-testing-tools-cpp,
+  performance-test-fixture,
   rosSystemPackages,
   substituteSource,
 }:
@@ -37,13 +37,13 @@ buildRosPackage {
   pname = "rcutils";
   version = "6.7.2-1";
   src = sources."rcutils";
-  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
+  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libatomic" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common launch launch_testing launch_testing_ament_cmake mimick_vendor osrf_testing_tools_cpp performance_test_fixture ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp performance-test-fixture ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package containing various utility types and functions for C";
   };

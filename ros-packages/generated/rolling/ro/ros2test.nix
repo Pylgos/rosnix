@@ -1,16 +1,16 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_pep257,
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
   buildRosPackage,
-  domain_coordinator,
+  domain-coordinator,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_ros,
-  launch_testing,
-  launch_testing_ros,
+  launch-ros,
+  launch-testing,
+  launch-testing-ros,
   mkSourceSet,
   ros2cli,
   rosSystemPackages,
@@ -35,12 +35,12 @@ buildRosPackage {
   version = "0.7.0-1";
   src = sources."ros2test";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ domain_coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ domain-coordinator ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ launch launch_ros launch_testing launch_testing_ros ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ launch launch-ros launch-testing launch-testing-ros ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "The test command for ROS 2 launch tests.";
   };

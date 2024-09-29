@@ -1,7 +1,7 @@
 {
-  ament_cmake,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-lint-auto,
+  ament-lint-common,
   bond,
   buildRosPackage,
   fetchgit,
@@ -9,7 +9,7 @@
   fetchzip,
   mkSourceSet,
   rclcpp,
-  rclcpp_lifecycle,
+  rclcpp-lifecycle,
   rosSystemPackages,
   smclib,
   substituteSource,
@@ -32,13 +32,13 @@ buildRosPackage {
   pname = "bondcpp";
   version = "4.1.0-1";
   src = sources."bondcpp";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ bond rclcpp rclcpp_lifecycle smclib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "uuid" ]; };
+  propagatedBuildInputs = [ bond rclcpp rclcpp-lifecycle smclib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "uuid" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "C++ implementation of bond, a mechanism for checking when another process has terminated.";
   };

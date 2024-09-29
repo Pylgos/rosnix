@@ -1,15 +1,15 @@
 {
-  ament_flake8,
-  ament_index_python,
-  ament_lint_auto,
-  ament_lint_common,
-  ament_mypy,
+  ament-flake8,
+  ament-index-python,
+  ament-lint-auto,
+  ament-lint-common,
+  ament-mypy,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  nodl_python,
+  nodl-python,
   ros2cli,
   ros2pkg,
   ros2run,
@@ -37,10 +37,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_python nodl_python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_flake8 ament_lint_auto ament_lint_common ament_mypy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
+  checkInputs = [ ament-flake8 ament-lint-auto ament-lint-common ament-mypy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
   meta = {
     description = "CLI tools for NoDL files.";
   };

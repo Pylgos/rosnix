@@ -20,7 +20,7 @@
         devShells.default = rosPackages.mkRosWorkspaceShell {
           buildInputs = [
             rosPackages.desktop
-            rosPackages.gz_sim_vendor
+            rosPackages.gz-sim-vendor
           ];
         };
       }

@@ -1,20 +1,20 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_index_python,
-  ament_mypy,
-  ament_pep257,
+  ament-copyright,
+  ament-flake8,
+  ament-index-python,
+  ament-mypy,
+  ament-pep257,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rclpy,
+  ros-testing,
   ros2cli,
   rosSystemPackages,
-  ros_testing,
   substituteSource,
-  test_msgs,
+  test-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -37,10 +37,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-resources" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-cryptography" "python3-lxml" ]; };
+  propagatedBuildInputs = [ ament-index-python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-cryptography" "python3-lxml" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_mypy ament_pep257 ros_testing test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ros-testing test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Command line tools for managing SROS2 keys";
   };

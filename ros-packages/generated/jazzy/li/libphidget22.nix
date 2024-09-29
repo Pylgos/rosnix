@@ -1,5 +1,5 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -40,7 +40,7 @@ buildRosPackage {
   pname = "libphidget22";
   version = "2.3.3-2";
   src = sources."libphidget22";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0" "libusb-1.0-dev" ]; };

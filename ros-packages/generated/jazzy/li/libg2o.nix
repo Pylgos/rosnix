@@ -1,5 +1,5 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ buildRosPackage {
   pname = "libg2o";
   version = "2020.5.29-6";
   src = sources."libg2o";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };

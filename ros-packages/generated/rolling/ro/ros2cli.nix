@@ -1,8 +1,8 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_pep257,
-  ament_xmllint,
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
+  ament-xmllint,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -11,7 +11,7 @@
   rclpy,
   rosSystemPackages,
   substituteSource,
-  test_msgs,
+  test-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -37,7 +37,7 @@ buildRosPackage {
   propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-packaging" "python3-pkg-resources" "python3-psutil" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   meta = {
     description = "Framework for ROS 2 command line tools.";
   };

@@ -1,21 +1,21 @@
 {
-  ament_cmake,
-  ament_index_cpp,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-index-cpp,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry_msgs,
+  geometry-msgs,
   mkSourceSet,
   rclcpp,
-  rclcpp_action,
+  rclcpp-action,
   rosSystemPackages,
-  std_msgs,
-  std_srvs,
+  std-msgs,
+  std-srvs,
   substituteSource,
-  turtlesim_msgs,
+  turtlesim-msgs,
   wrapRosQtAppsHook,
 }:
 let
@@ -36,13 +36,13 @@ buildRosPackage {
   pname = "turtlesim";
   version = "1.9.2-1";
   src = sources."turtlesim";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_cpp geometry_msgs rclcpp rclcpp_action std_msgs std_srvs turtlesim_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "turtlesim is a tool made for teaching ROS and ROS packages.";
   };

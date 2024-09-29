@@ -1,23 +1,23 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_pep257,
-  ament_xmllint,
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
+  ament-xmllint,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_ros,
-  launch_testing,
-  launch_testing_ros,
+  launch-ros,
+  launch-testing,
+  launch-testing-ros,
   mkSourceSet,
   rclpy,
   ros2cli,
   rosSystemPackages,
-  rosidl_runtime_py,
+  rosidl-runtime-py,
   substituteSource,
-  test_msgs,
+  test-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -40,10 +40,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rclpy ros2cli rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclpy ros2cli rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint launch launch_ros launch_testing launch_testing_ros test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   meta = {
     description = "The service command for ROS 2 command line tools.";
   };

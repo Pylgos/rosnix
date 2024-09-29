@@ -1,15 +1,15 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  moveit_core,
-  moveit_planners,
-  moveit_plugins,
-  moveit_ros,
-  moveit_setup_assistant,
+  moveit-core,
+  moveit-planners,
+  moveit-plugins,
+  moveit-ros,
+  moveit-setup-assistant,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
@@ -32,10 +32,10 @@ buildRosPackage {
   pname = "moveit";
   version = "2.11.0-1";
   src = sources."moveit";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ moveit_core moveit_planners moveit_plugins moveit_ros moveit_setup_assistant ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ moveit-core moveit-planners moveit-plugins moveit-ros moveit-setup-assistant ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

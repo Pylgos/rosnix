@@ -1,42 +1,42 @@
 {
-  ament_cmake,
-  ament_cmake_gmock,
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_cmake_python,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-cmake-gmock,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-cmake-python,
+  ament-lint-auto,
+  ament-lint-common,
   angles,
   buildRosPackage,
-  diagnostic_msgs,
-  diagnostic_updater,
-  eigen3_cmake_module,
-  eigen_stl_containers,
+  diagnostic-msgs,
+  diagnostic-updater,
+  eigen-stl-containers,
+  eigen3-cmake-module,
   fetchgit,
   fetchurl,
   fetchzip,
-  geographic_msgs,
-  geometry_msgs,
+  geographic-msgs,
+  geometry-msgs,
   libmavconn,
   mavlink,
-  mavros_msgs,
-  message_filters,
+  mavros-msgs,
+  message-filters,
   mkSourceSet,
-  nav_msgs,
+  nav-msgs,
   pluginlib,
   rclcpp,
-  rclcpp_components,
+  rclcpp-components,
   rclpy,
   rcpputils,
   rosSystemPackages,
-  rosidl_default_runtime,
-  sensor_msgs,
-  std_msgs,
-  std_srvs,
+  rosidl-default-runtime,
+  sensor-msgs,
+  std-msgs,
+  std-srvs,
   substituteSource,
-  tf2_eigen,
-  tf2_ros,
-  trajectory_msgs,
+  tf2-eigen,
+  tf2-ros,
+  trajectory-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -56,13 +56,13 @@ buildRosPackage {
   pname = "mavros";
   version = "2.8.0-1";
   src = sources."mavros";
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ eigen3_cmake_module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ angles diagnostic_msgs diagnostic_updater eigen_stl_containers geographic_msgs geometry_msgs libmavconn mavlink mavros_msgs message_filters nav_msgs pluginlib rclcpp rclcpp_components rclpy rcpputils rosidl_default_runtime sensor_msgs std_msgs std_srvs tf2_eigen tf2_ros trajectory_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "geographiclib-tools" "libconsole-bridge-dev" "python3-click" ]; };
+  propagatedBuildInputs = [ angles diagnostic-msgs diagnostic-updater eigen-stl-containers geographic-msgs geometry-msgs libmavconn mavlink mavros-msgs message-filters nav-msgs pluginlib rclcpp rclcpp-components rclpy rcpputils rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "geographiclib-tools" "libconsole-bridge-dev" "python3-click" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gmock ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "google-mock" "gtest" ]; };
+  checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "google-mock" "gtest" ]; };
   meta = {
     description = "MAVROS -- MAVLink extendable communication node for ROS with proxy for Ground Control Station.";
   };

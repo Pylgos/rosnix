@@ -1,8 +1,8 @@
 {
-  ament_cmake_google_benchmark,
-  ament_cmake_ros,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake-google-benchmark,
+  ament-cmake-ros,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -11,10 +11,10 @@
   pluginlib,
   rosSystemPackages,
   substituteSource,
-  tinyxml2_vendor,
-  urdf_parser_plugin,
+  tinyxml2-vendor,
+  urdf-parser-plugin,
   urdfdom,
-  urdfdom_headers,
+  urdfdom-headers,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -34,13 +34,13 @@ buildRosPackage {
   pname = "urdf";
   version = "2.10.0-3";
   src = sources."urdf";
-  nativeBuildInputs = [ ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ pluginlib tinyxml2_vendor urdf_parser_plugin urdfdom urdfdom_headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ pluginlib tinyxml2-vendor urdf-parser-plugin urdfdom urdfdom-headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_google_benchmark ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-google-benchmark ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "This package contains a C++ parser for the Unified Robot Description Format (URDF), which is an XML format for representing a robot model. The code API of the parser has been through our review process and will remain backwards compatible in future releases.";
   };

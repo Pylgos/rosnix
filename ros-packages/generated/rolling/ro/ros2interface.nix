@@ -1,24 +1,24 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_index_python,
-  ament_pep257,
-  ament_xmllint,
+  ament-copyright,
+  ament-flake8,
+  ament-index-python,
+  ament-pep257,
+  ament-xmllint,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_testing,
-  launch_testing_ros,
+  launch-testing,
+  launch-testing-ros,
   mkSourceSet,
   ros2cli,
-  ros2cli_test_interfaces,
+  ros2cli-test-interfaces,
   rosSystemPackages,
-  rosidl_adapter,
-  rosidl_runtime_py,
+  rosidl-adapter,
+  rosidl-runtime-py,
   substituteSource,
-  test_msgs,
+  test-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -39,12 +39,12 @@ buildRosPackage {
   version = "0.34.1-1";
   src = sources."ros2interface";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl_adapter ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ rosidl-adapter ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_python ros2cli rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-python ros2cli rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ament_xmllint launch launch_testing launch_testing_ros ros2cli_test_interfaces test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-testing launch-testing-ros ros2cli-test-interfaces test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   meta = {
     description = "The interface command for ROS 2 command line tools";
   };

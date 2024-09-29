@@ -1,13 +1,13 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   depthai,
-  depthai_bridge,
-  depthai_descriptions,
-  depthai_examples,
-  depthai_filters,
-  depthai_ros_driver,
-  depthai_ros_msgs,
+  depthai-bridge,
+  depthai-descriptions,
+  depthai-examples,
+  depthai-filters,
+  depthai-ros-driver,
+  depthai-ros-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,10 +34,10 @@ buildRosPackage {
   pname = "depthai-ros";
   version = "2.10.1-1";
   src = sources."depthai-ros";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ depthai depthai_bridge depthai_descriptions depthai_examples depthai_filters depthai_ros_driver depthai_ros_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

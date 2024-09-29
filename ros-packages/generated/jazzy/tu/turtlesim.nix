@@ -1,22 +1,22 @@
 {
-  ament_cmake,
-  ament_index_cpp,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-index-cpp,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry_msgs,
+  geometry-msgs,
   mkSourceSet,
-  rcl_interfaces,
+  rcl-interfaces,
   rclcpp,
-  rclcpp_action,
+  rclcpp-action,
   rosSystemPackages,
-  rosidl_default_generators,
-  rosidl_default_runtime,
-  std_msgs,
-  std_srvs,
+  rosidl-default-generators,
+  rosidl-default-runtime,
+  std-msgs,
+  std-srvs,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -38,13 +38,13 @@ buildRosPackage {
   pname = "turtlesim";
   version = "1.8.3-1";
   src = sources."turtlesim";
-  nativeBuildInputs = [ ament_cmake rosidl_default_generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_cpp geometry_msgs rcl_interfaces rclcpp rclcpp_action rosidl_default_runtime std_msgs std_srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rcl-interfaces rclcpp rclcpp-action rosidl-default-runtime std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "turtlesim is a tool made for teaching ROS and ROS packages.";
   };

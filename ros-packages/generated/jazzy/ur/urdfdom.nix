@@ -1,14 +1,14 @@
 {
   buildRosPackage,
-  console_bridge_vendor,
+  console-bridge-vendor,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  tinyxml2_vendor,
-  urdfdom_headers,
+  tinyxml2-vendor,
+  urdfdom-headers,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -31,7 +31,7 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ console_bridge_vendor tinyxml2_vendor urdfdom_headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" "tinyxml2" ]; };
+  propagatedBuildInputs = [ console-bridge-vendor tinyxml2-vendor urdfdom-headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" "tinyxml2" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };

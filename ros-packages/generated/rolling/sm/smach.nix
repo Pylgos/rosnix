@@ -1,6 +1,6 @@
 {
-  ament_cmake,
-  ament_cmake_python,
+  ament-cmake,
+  ament-cmake-python,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ buildRosPackage {
   pname = "smach";
   version = "3.0.3-2";
   src = sources."smach";
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

@@ -4,7 +4,7 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ortools_vendor,
+  ortools-vendor,
   rosSystemPackages,
   substituteSource,
 }:
@@ -455,7 +455,7 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-dev" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ortools_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
+  propagatedBuildInputs = [ ortools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" "lcov" ]; };

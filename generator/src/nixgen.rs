@@ -58,6 +58,14 @@ fn quote(s: &str) -> String {
     format!("\"{}\"", s)
 }
 
+fn mangle_name(name: &str) -> String {
+    name.replace('_', "-")
+}
+
+fn demangle_name(name: &str) -> String {
+    name.replace('-', "_")
+}
+
 fn generate_parameters(
     ctx: &Ctx,
     mut dst: impl Write,
@@ -69,20 +77,30 @@ fn generate_parameters(
         .iter()
         .filter(|dep| !dep.system_package)
         .map(|dep| match spliced_set_name(dep.kind) {
-            Some(set_name) if dep.name.contains('.') => set_name,
-            _ => dep.name.split('.').next().unwrap(),
+            Some(set_name) if dep.name.contains('.') => set_name.to_string(),
+            _ => {
+                if dep.name.contains('.') {
+                    dep.name.split('.').next().unwrap().to_string()
+                } else {
+                    mangle_name(&dep.name)
+                }
+            }
         })
-        .chain(extra_packages.iter().map(|s| s.as_str()))
+        .chain(extra_packages.clone())
         .collect();
-    params.extend([
-        "buildRosPackage",
-        "fetchgit",
-        "fetchurl",
-        "fetchzip",
-        "mkSourceSet",
-        "rosSystemPackages",
-        "substituteSource",
-    ]);
+    params.extend(
+        [
+            "buildRosPackage",
+            "fetchgit",
+            "fetchurl",
+            "fetchzip",
+            "mkSourceSet",
+            "rosSystemPackages",
+            "substituteSource",
+        ]
+        .into_iter()
+        .map(|s| s.to_string()),
+    );
     writeln!(dst, "{{")?;
     for param in params {
         writeln!(dst, "  {param},")?;
@@ -92,7 +110,7 @@ fn generate_parameters(
 }
 
 fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManifest) -> Result<()> {
-    writeln!(dst, "pname = {};", escape(&manifest.name))?;
+    writeln!(dst, "pname = {};", escape(&mangle_name(&manifest.name)))?;
     writeln!(dst, "version = {};", escape(&manifest.release_version))?;
     writeln!(
         dst,
@@ -106,14 +124,7 @@ fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManif
             .iter()
             .filter(|dep| dep.kind == kind && dep.propagated == propagated)
             .filter(|dep| !dep.system_package)
-            .map(|dep: &NixDependency| -> String {
-                match spliced_set_name(dep.kind) {
-                    Some(set_name) if dep.name.contains('.') => {
-                        format!("{set_name}.{}", dep.name)
-                    }
-                    _ => dep.name.clone(),
-                }
-            })
+            .map(|dep: &NixDependency| mangle_name(&dep.name))
             .collect::<Vec<_>>()
             .join(" ");
         let system_pkgs_str = deps
@@ -326,10 +337,11 @@ fn generate_distro(ctx: &Ctx) -> Result<()> {
     }
 
     for (pkg_name, manifest) in ctx.package_index.manifests.iter() {
-        let dir_name = &pkg_name[..2.min(pkg_name.len())];
+        let mangled_name = mangle_name(pkg_name);
+        let dir_name = &mangled_name[..2.min(mangled_name.len())];
         let pkg_dir_path = ctx.distro_dir.join(dir_name);
         fs::create_dir_all(&pkg_dir_path)?;
-        let pkg_file_path = pkg_dir_path.join(format!("{pkg_name}.nix"));
+        let pkg_file_path = pkg_dir_path.join(format!("{}.nix", mangled_name));
         generate_package(ctx, &pkg_file_path, manifest)?;
     }
     Ok(())
@@ -389,10 +401,9 @@ pub fn prev_versions(cfg: &ConfigRef, distro_name: &str) -> Result<BTreeMap<Stri
                 warn!("failed to read version from {}", path.display());
                 continue;
             };
-            versions.insert(
-                path.file_stem().unwrap().to_str().unwrap().to_string(),
-                caps[1].to_string(),
-            );
+            let mangled_name = path.file_stem().unwrap().to_str().unwrap();
+            let name = demangle_name(mangled_name);
+            versions.insert(name, caps[1].to_string());
         }
     }
     Ok(versions)

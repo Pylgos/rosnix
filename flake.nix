@@ -64,9 +64,9 @@
               deps = [
                 rosPkgs.desktop
                 rosPkgs.cartographer
-                (rosPkgs.slam_toolbox or null)
+                (rosPkgs.slam-toolbox or null)
                 rosPkgs.navigation2
-                rosPkgs.ros_gz
+                rosPkgs.ros-gz
                 rosPkgs.librealsense2
               ];
               phases = [ "installPhase" ];

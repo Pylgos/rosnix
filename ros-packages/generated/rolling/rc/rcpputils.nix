@@ -1,16 +1,16 @@
 {
-  ament_cmake,
-  ament_cmake_copyright,
-  ament_cmake_cppcheck,
-  ament_cmake_cpplint,
-  ament_cmake_flake8,
-  ament_cmake_gen_version_h,
-  ament_cmake_gtest,
-  ament_cmake_lint_cmake,
-  ament_cmake_pep257,
-  ament_cmake_ros,
-  ament_cmake_uncrustify,
-  ament_cmake_xmllint,
+  ament-cmake,
+  ament-cmake-copyright,
+  ament-cmake-cppcheck,
+  ament-cmake-cpplint,
+  ament-cmake-flake8,
+  ament-cmake-gen-version-h,
+  ament-cmake-gtest,
+  ament-cmake-lint-cmake,
+  ament-cmake-pep257,
+  ament-cmake-ros,
+  ament-cmake-uncrustify,
+  ament-cmake-xmllint,
   buildRosPackage,
   fetchgit,
   fetchurl,
@@ -38,13 +38,13 @@ buildRosPackage {
   pname = "rcpputils";
   version = "2.13.1-1";
   src = sources."rcpputils";
-  nativeBuildInputs = [ ament_cmake ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ rcutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_copyright ament_cmake_cppcheck ament_cmake_cpplint ament_cmake_flake8 ament_cmake_gtest ament_cmake_lint_cmake ament_cmake_pep257 ament_cmake_uncrustify ament_cmake_xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Package containing utility code for C++.";
   };

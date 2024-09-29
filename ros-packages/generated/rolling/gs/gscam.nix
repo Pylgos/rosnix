@@ -1,22 +1,22 @@
 {
-  ament_cmake,
-  ament_cmake_gtest,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  camera_calibration_parsers,
-  camera_info_manager,
-  class_loader,
-  cv_bridge,
+  camera-calibration-parsers,
+  camera-info-manager,
+  class-loader,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  image_transport,
+  image-transport,
   mkSourceSet,
   rclcpp,
-  rclcpp_components,
+  rclcpp-components,
   rosSystemPackages,
-  sensor_msgs,
+  sensor-msgs,
   substituteSource,
 }:
 let
@@ -37,13 +37,13 @@ buildRosPackage {
   pname = "gscam";
   version = "2.0.2-4";
   src = sources."gscam";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ camera_calibration_parsers camera_info_manager class_loader cv_bridge image_transport rclcpp rclcpp_components sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgstreamer-plugins-base1.0-dev" "libgstreamer1.0-dev" ]; };
+  propagatedBuildInputs = [ camera-calibration-parsers camera-info-manager class-loader cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgstreamer-plugins-base1.0-dev" "libgstreamer1.0-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A ROS camera driver that uses gstreamer to connect to devices such as webcams.";
   };

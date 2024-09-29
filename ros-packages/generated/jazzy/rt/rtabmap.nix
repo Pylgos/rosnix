@@ -1,6 +1,6 @@
 {
   buildRosPackage,
-  cv_bridge,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -8,7 +8,7 @@
   libg2o,
   libpointmatcher,
   mkSourceSet,
-  qt_gui_cpp,
+  qt-gui-cpp,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
@@ -34,7 +34,7 @@ buildRosPackage {
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ cv_bridge gtsam libg2o libpointmatcher qt_gui_cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "tbb" "zlib" ]; };
+  propagatedBuildInputs = [ cv-bridge gtsam libg2o libpointmatcher qt-gui-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "tbb" "zlib" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

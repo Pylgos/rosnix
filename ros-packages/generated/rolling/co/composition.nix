@@ -1,25 +1,25 @@
 {
-  ament_cmake,
-  ament_cmake_pytest,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-cmake-pytest,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  example_interfaces,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
   launch,
-  launch_ros,
-  launch_testing,
-  launch_testing_ament_cmake,
-  launch_testing_ros,
+  launch-ros,
+  launch-testing,
+  launch-testing-ament-cmake,
+  launch-testing-ros,
   mkSourceSet,
   rclcpp,
-  rclcpp_components,
+  rclcpp-components,
   rcutils,
-  rmw_implementation_cmake,
+  rmw-implementation-cmake,
   rosSystemPackages,
-  std_msgs,
+  std-msgs,
   substituteSource,
 }:
 let
@@ -40,13 +40,13 @@ buildRosPackage {
   pname = "composition";
   version = "0.34.2-1";
   src = sources."composition";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ example_interfaces launch_ros rclcpp rclcpp_components rcutils std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_pytest ament_lint_auto ament_lint_common launch launch_testing launch_testing_ament_cmake launch_testing_ros rmw_implementation_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Examples for composing multiple nodes in a single process.";
   };

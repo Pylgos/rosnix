@@ -1,16 +1,16 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_pep257,
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
   buildRosPackage,
-  example_interfaces,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rclpy,
   rosSystemPackages,
-  std_msgs,
+  std-msgs,
   substituteSource,
 }:
 let
@@ -34,10 +34,10 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ example_interfaces rclpy std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" "python3-smbus" ]; };
+  propagatedBuildInputs = [ example-interfaces rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" "python3-smbus" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Bosch BNO055 IMU driver for ROS2";
   };

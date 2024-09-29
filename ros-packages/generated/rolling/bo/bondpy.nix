@@ -1,7 +1,7 @@
 {
-  ament_copyright,
-  ament_flake8,
-  ament_pep257,
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
   bond,
   buildRosPackage,
   fetchgit,
@@ -37,7 +37,7 @@ buildRosPackage {
   propagatedBuildInputs = [ bond rclpy smclib ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_copyright ament_flake8 ament_pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   meta = {
     description = "Python implementation of bond, a mechanism for checking when another process has terminated.";
   };

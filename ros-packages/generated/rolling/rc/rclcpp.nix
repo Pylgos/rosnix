@@ -1,40 +1,40 @@
 {
-  ament_cmake_gen_version_h,
-  ament_cmake_gmock,
-  ament_cmake_google_benchmark,
-  ament_cmake_gtest,
-  ament_cmake_ros,
-  ament_index_cpp,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake-gen-version-h,
+  ament-cmake-gmock,
+  ament-cmake-google-benchmark,
+  ament-cmake-gtest,
+  ament-cmake-ros,
+  ament-index-cpp,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  builtin_interfaces,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
-  libstatistics_collector,
-  mimick_vendor,
+  libstatistics-collector,
+  mimick-vendor,
   mkSourceSet,
-  performance_test_fixture,
+  performance-test-fixture,
   rcl,
-  rcl_interfaces,
-  rcl_logging_interface,
-  rcl_yaml_param_parser,
+  rcl-interfaces,
+  rcl-logging-interface,
+  rcl-yaml-param-parser,
   rcpputils,
   rcutils,
   rmw,
-  rmw_implementation_cmake,
+  rmw-implementation-cmake,
   rosSystemPackages,
-  rosgraph_msgs,
-  rosidl_default_generators,
-  rosidl_dynamic_typesupport,
-  rosidl_runtime_c,
-  rosidl_runtime_cpp,
-  rosidl_typesupport_c,
-  rosidl_typesupport_cpp,
-  statistics_msgs,
+  rosgraph-msgs,
+  rosidl-default-generators,
+  rosidl-dynamic-typesupport,
+  rosidl-runtime-c,
+  rosidl-runtime-cpp,
+  rosidl-typesupport-c,
+  rosidl-typesupport-cpp,
+  statistics-msgs,
   substituteSource,
-  test_msgs,
+  test-msgs,
   tracetools,
 }:
 let
@@ -55,13 +55,13 @@ buildRosPackage {
   pname = "rclcpp";
   version = "28.3.3-1";
   src = sources."rclcpp";
-  nativeBuildInputs = [ ament_cmake_gen_version_h ament_cmake_ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament_index_cpp builtin_interfaces libstatistics_collector rcl rcl_interfaces rcl_logging_interface rcl_yaml_param_parser rcpputils rcutils rmw rosgraph_msgs rosidl_dynamic_typesupport rosidl_runtime_c rosidl_runtime_cpp rosidl_typesupport_c rosidl_typesupport_cpp statistics_msgs tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gmock ament_cmake_google_benchmark ament_cmake_gtest ament_lint_auto ament_lint_common mimick_vendor performance_test_fixture rmw rmw_implementation_cmake rosidl_default_generators test_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "The ROS client library in C++.";
   };

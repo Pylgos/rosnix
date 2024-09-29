@@ -1,34 +1,34 @@
 {
-  ament_cmake,
-  ament_cmake_xmllint,
-  ament_lint_auto,
-  ament_lint_cmake,
+  ament-cmake,
+  ament-cmake-xmllint,
+  ament-lint-auto,
+  ament-lint-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  kitti_metrics_eval,
+  kitti-metrics-eval,
   mkSourceSet,
-  mola_bridge_ros2,
-  mola_demos,
-  mola_imu_preintegration,
-  mola_input_euroc_dataset,
-  mola_input_kitti360_dataset,
-  mola_input_kitti_dataset,
-  mola_input_mulran_dataset,
-  mola_input_paris_luco_dataset,
-  mola_input_rawlog,
-  mola_input_rosbag2,
-  mola_kernel,
-  mola_launcher,
-  mola_metric_maps,
-  mola_navstate_fg,
-  mola_navstate_fuse,
-  mola_pose_list,
-  mola_relocalization,
-  mola_traj_tools,
-  mola_viz,
-  mola_yaml,
+  mola-bridge-ros2,
+  mola-demos,
+  mola-imu-preintegration,
+  mola-input-euroc-dataset,
+  mola-input-kitti-dataset,
+  mola-input-kitti360-dataset,
+  mola-input-mulran-dataset,
+  mola-input-paris-luco-dataset,
+  mola-input-rawlog,
+  mola-input-rosbag2,
+  mola-kernel,
+  mola-launcher,
+  mola-metric-maps,
+  mola-navstate-fg,
+  mola-navstate-fuse,
+  mola-pose-list,
+  mola-relocalization,
+  mola-traj-tools,
+  mola-viz,
+  mola-yaml,
   rosSystemPackages,
   substituteSource,
 }:
@@ -50,13 +50,13 @@ buildRosPackage {
   pname = "mola";
   version = "1.2.0-1";
   src = sources."mola";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ kitti_metrics_eval mola_bridge_ros2 mola_demos mola_imu_preintegration mola_input_euroc_dataset mola_input_kitti360_dataset mola_input_kitti_dataset mola_input_mulran_dataset mola_input_paris_luco_dataset mola_input_rawlog mola_input_rosbag2 mola_kernel mola_launcher mola_metric_maps mola_navstate_fg mola_navstate_fuse mola_pose_list mola_relocalization mola_traj_tools mola_viz mola_yaml ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-imu-preintegration mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-metric-maps mola-navstate-fg mola-navstate-fuse mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_xmllint ament_lint_auto ament_lint_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Metapackage with all core open-sourced MOLA packages.";
   };

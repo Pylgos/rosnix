@@ -1,15 +1,15 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
-  diagnostic_aggregator,
-  diagnostic_common_diagnostics,
-  diagnostic_updater,
+  diagnostic-aggregator,
+  diagnostic-common-diagnostics,
+  diagnostic-updater,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rosSystemPackages,
-  self_test,
+  self-test,
   substituteSource,
 }:
 let
@@ -30,10 +30,10 @@ buildRosPackage {
   pname = "diagnostics";
   version = "4.2.1-1";
   src = sources."diagnostics";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ diagnostic_aggregator diagnostic_common_diagnostics diagnostic_updater self_test ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ diagnostic-aggregator diagnostic-common-diagnostics diagnostic-updater self-test ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

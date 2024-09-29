@@ -1,22 +1,22 @@
 {
-  ament_cmake,
-  ament_cmake_gtest,
-  ament_cmake_pytest,
-  ament_cmake_python,
-  ament_lint_auto,
-  ament_lint_cmake,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-cmake-pytest,
+  ament-cmake-python,
+  ament-lint-auto,
+  ament-lint-cmake,
   buildRosPackage,
-  console_bridge_vendor,
+  console-bridge-vendor,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  tinyxml2_vendor,
+  tinyxml2-vendor,
   urdf,
-  urdfdom_headers,
-  urdfdom_py,
+  urdfdom-headers,
+  urdfdom-py,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -36,13 +36,13 @@ buildRosPackage {
   pname = "srdfdom";
   version = "2.0.4-4";
   src = sources."srdfdom";
-  nativeBuildInputs = [ ament_cmake ament_cmake_python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ console_bridge_vendor tinyxml2_vendor urdf urdfdom_headers urdfdom_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libconsole-bridge-dev" ]; };
+  propagatedBuildInputs = [ console-bridge-vendor tinyxml2-vendor urdf urdfdom-headers urdfdom-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libconsole-bridge-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_gtest ament_cmake_pytest ament_lint_auto ament_lint_cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "Parser for Semantic Robot Description Format (SRDF).";
   };

@@ -1,16 +1,16 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
+  ros-base,
+  ros-gz-bridge,
+  ros-gz-image,
+  ros-gz-interfaces,
+  ros-gz-sim,
   rosSystemPackages,
-  ros_base,
-  ros_gz_bridge,
-  ros_gz_image,
-  ros_gz_interfaces,
-  ros_gz_sim,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -32,10 +32,10 @@ buildRosPackage {
   pname = "simulation";
   version = "0.11.0-1";
   src = sources."simulation";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ros_base ros_gz_bridge ros_gz_image ros_gz_interfaces ros_gz_sim ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ros-base ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

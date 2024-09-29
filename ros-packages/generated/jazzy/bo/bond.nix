@@ -1,17 +1,17 @@
 {
-  ament_cmake,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
-  builtin_interfaces,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   rosSystemPackages,
-  rosidl_default_generators,
-  rosidl_default_runtime,
-  std_msgs,
+  rosidl-default-generators,
+  rosidl-default-runtime,
+  std-msgs,
   substituteSource,
 }:
 let
@@ -32,13 +32,13 @@ buildRosPackage {
   pname = "bond";
   version = "4.1.0-1";
   src = sources."bond";
-  nativeBuildInputs = [ ament_cmake rosidl_default_generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin_interfaces rosidl_default_runtime std_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_lint_auto ament_lint_common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
     description = "A bond allows two processes, A and B, to know when the other has terminated, either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.";
   };

@@ -1,17 +1,17 @@
 {
-  ament_cmake,
+  ament-cmake,
   angles,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  geographic_msgs,
-  geometry_msgs,
+  geographic-msgs,
+  geometry-msgs,
   mkSourceSet,
   rosSystemPackages,
-  sensor_msgs,
+  sensor-msgs,
   substituteSource,
-  unique_identifier_msgs,
+  unique-identifier-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -31,10 +31,10 @@ buildRosPackage {
   pname = "geodesy";
   version = "1.0.6-1";
   src = sources."geodesy";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ angles geographic_msgs geometry_msgs sensor_msgs unique_identifier_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-catkin-pkg" "python3-pyproj" ]; };
+  propagatedBuildInputs = [ angles geographic-msgs geometry-msgs sensor-msgs unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-catkin-pkg" "python3-pyproj" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

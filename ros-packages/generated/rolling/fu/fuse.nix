@@ -1,19 +1,19 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  fuse_constraints,
-  fuse_core,
-  fuse_doc,
-  fuse_graphs,
-  fuse_models,
-  fuse_msgs,
-  fuse_optimizers,
-  fuse_publishers,
-  fuse_variables,
-  fuse_viz,
+  fuse-constraints,
+  fuse-core,
+  fuse-doc,
+  fuse-graphs,
+  fuse-models,
+  fuse-msgs,
+  fuse-optimizers,
+  fuse-publishers,
+  fuse-variables,
+  fuse-viz,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
@@ -37,10 +37,10 @@ buildRosPackage {
   pname = "fuse";
   version = "1.2.1-1";
   src = sources."fuse";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ fuse_constraints fuse_core fuse_doc fuse_graphs fuse_models fuse_msgs fuse_optimizers fuse_publishers fuse_variables fuse_viz ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ fuse-constraints fuse-core fuse-doc fuse-graphs fuse-models fuse-msgs fuse-optimizers fuse-publishers fuse-variables fuse-viz ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

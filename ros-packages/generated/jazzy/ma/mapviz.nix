@@ -1,28 +1,28 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
-  cv_bridge,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry_msgs,
-  image_transport,
-  mapviz_interfaces,
-  marti_common_msgs,
+  geometry-msgs,
+  image-transport,
+  mapviz-interfaces,
+  marti-common-msgs,
   mkSourceSet,
   pluginlib,
   rclcpp,
+  ros-environment,
   rosSystemPackages,
-  ros_environment,
-  rqt_gui,
-  rqt_gui_cpp,
-  std_srvs,
+  rqt-gui,
+  rqt-gui-cpp,
+  std-srvs,
   substituteSource,
-  swri_math_util,
-  swri_transform_util,
+  swri-math-util,
+  swri-transform-util,
   tf2,
-  tf2_geometry_msgs,
-  tf2_ros,
+  tf2-geometry-msgs,
+  tf2-ros,
   wrapRosQtAppsHook,
 }:
 let
@@ -43,10 +43,10 @@ buildRosPackage {
   pname = "mapviz";
   version = "2.4.3-1";
   src = sources."mapviz";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
-  propagatedBuildInputs = [ cv_bridge geometry_msgs image_transport mapviz_interfaces marti_common_msgs pluginlib rclcpp rqt_gui rqt_gui_cpp std_srvs swri_math_util swri_transform_util tf2 tf2_geometry_msgs tf2_ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
+  propagatedBuildInputs = [ cv-bridge geometry-msgs image-transport mapviz-interfaces marti-common-msgs pluginlib rclcpp rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

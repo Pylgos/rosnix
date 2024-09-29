@@ -1,22 +1,22 @@
 {
-  ament_cmake_core,
+  ament-cmake-core,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  lanelet2_core,
-  lanelet2_examples,
-  lanelet2_io,
-  lanelet2_maps,
-  lanelet2_matching,
-  lanelet2_projection,
-  lanelet2_python,
-  lanelet2_routing,
-  lanelet2_traffic_rules,
-  lanelet2_validation,
+  lanelet2-core,
+  lanelet2-examples,
+  lanelet2-io,
+  lanelet2-maps,
+  lanelet2-matching,
+  lanelet2-projection,
+  lanelet2-python,
+  lanelet2-routing,
+  lanelet2-traffic-rules,
+  lanelet2-validation,
   mkSourceSet,
+  ros-environment,
   rosSystemPackages,
-  ros_environment,
   substituteSource,
 }:
 let
@@ -37,10 +37,10 @@ buildRosPackage {
   pname = "lanelet2";
   version = "1.2.1-1";
   src = sources."lanelet2";
-  nativeBuildInputs = [ ament_cmake_core ros_environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-core ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ lanelet2_core lanelet2_examples lanelet2_io lanelet2_maps lanelet2_matching lanelet2_projection lanelet2_python lanelet2_routing lanelet2_traffic_rules lanelet2_validation ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ lanelet2-core lanelet2-examples lanelet2-io lanelet2-maps lanelet2-matching lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules lanelet2-validation ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

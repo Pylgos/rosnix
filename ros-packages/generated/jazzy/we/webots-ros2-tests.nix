@@ -1,0 +1,59 @@
+{
+  ament-copyright,
+  buildRosPackage,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  geometry-msgs,
+  launch,
+  launch-testing,
+  launch-testing-ament-cmake,
+  launch-testing-ros,
+  mkSourceSet,
+  rclpy,
+  ros2bag,
+  rosSystemPackages,
+  rosbag2-storage-default-plugins,
+  sensor-msgs,
+  std-msgs,
+  std-srvs,
+  substituteSource,
+  tf2-ros,
+  webots-ros2-driver,
+  webots-ros2-epuck,
+  webots-ros2-mavic,
+  webots-ros2-tesla,
+  webots-ros2-tiago,
+  webots-ros2-turtlebot,
+  webots-ros2-universal-robot,
+  wrapRosQtAppsHook,
+}:
+let
+  sources = mkSourceSet (sources: {
+    "webots_ros2_tests" = substituteSource {
+      src = fetchgit {
+        name = "webots_ros2_tests-source";
+        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        rev = "7dd82e2dfaacfad344fc789180dba99e27ab3c4a";
+        hash = "sha256-+wUzk/GLCWgQFUMICjLZSMB88GdfByKNut+61rY2A/Y=";
+      };
+      substitutions = [
+      ];
+    };
+  });
+in
+buildRosPackage {
+  pname = "webots-ros2-tests";
+  version = "2023.1.3-1";
+  src = sources."webots_ros2_tests";
+  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclpy ros2bag rosbag2-storage-default-plugins webots-ros2-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [ ament-copyright geometry-msgs launch launch-testing launch-testing-ament-cmake launch-testing-ros sensor-msgs std-msgs std-srvs tf2-ros webots-ros2-epuck webots-ros2-mavic webots-ros2-tesla webots-ros2-tiago webots-ros2-turtlebot webots-ros2-universal-robot ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  meta = {
+    description = "System tests for `webots_ros2` packages.";
+  };
+}

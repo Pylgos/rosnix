@@ -1,20 +1,20 @@
 {
-  ament_cmake,
+  ament-cmake,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  image_common,
-  image_pipeline,
-  image_transport_plugins,
-  laser_filters,
-  laser_geometry,
+  image-common,
+  image-pipeline,
+  image-transport-plugins,
+  laser-filters,
+  laser-geometry,
   mkSourceSet,
-  perception_pcl,
+  perception-pcl,
+  ros-base,
   rosSystemPackages,
-  ros_base,
   substituteSource,
-  vision_opencv,
+  vision-opencv,
 }:
 let
   sources = mkSourceSet (sources: {
@@ -34,10 +34,10 @@ buildRosPackage {
   pname = "perception";
   version = "0.11.0-1";
   src = sources."perception";
-  nativeBuildInputs = [ ament_cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ image_common image_pipeline image_transport_plugins laser_filters laser_geometry perception_pcl ros_base vision_opencv ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ image-common image-pipeline image-transport-plugins laser-filters laser-geometry perception-pcl ros-base vision-opencv ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

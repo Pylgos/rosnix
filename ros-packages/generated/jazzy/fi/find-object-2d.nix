@@ -1,0 +1,54 @@
+{
+  ament-cmake,
+  buildRosPackage,
+  builtin-interfaces,
+  cv-bridge,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  geometry-msgs,
+  image-transport,
+  message-filters,
+  mkSourceSet,
+  rclcpp,
+  ros-environment,
+  rosSystemPackages,
+  rosidl-default-generators,
+  rosidl-default-runtime,
+  sensor-msgs,
+  std-msgs,
+  std-srvs,
+  substituteSource,
+  tf2,
+  tf2-geometry-msgs,
+  tf2-ros,
+}:
+let
+  sources = mkSourceSet (sources: {
+    "find_object_2d" = substituteSource {
+      src = fetchgit {
+        name = "find_object_2d-source";
+        url = "https://github.com/ros2-gbp/find_object_2d-release.git";
+        rev = "553813fa3500a31f95f437e0767c7a30b927630e";
+        hash = "sha256-njkQr+O+9huFcwwGGOLQgumrN8K4RuGpTCjeMdVtuhA=";
+      };
+      substitutions = [
+      ];
+    };
+  });
+in
+buildRosPackage {
+  pname = "find-object-2d";
+  version = "0.7.1-2";
+  src = sources."find_object_2d";
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ builtin-interfaces cv-bridge geometry-msgs image-transport message-filters rclcpp rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" "zlib" ]; };
+  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  meta = {
+    description = "The find_object_2d package";
+  };
+}

@@ -4,7 +4,7 @@ final: prev: {
   rosPackages = prev.rosPackages.overrideScope (
     rosFinal: rosPrev:
     (lib.filterAttrs (name: pkg: lib.hasAttr name prev.rosPackages) {
-      ament_cmake_vendor_package = rosPrev.ament_cmake_vendor_package.overrideAttrs (
+      ament-cmake-vendor-package = rosPrev.ament-cmake-vendor-package.overrideAttrs (
         {
           patches ? [ ],
           propagatedBuildInputs ? [ ],
@@ -12,10 +12,10 @@ final: prev: {
         }:
         {
           propagatedBuildInputs = propagatedBuildInputs ++ [ final.git ];
-          patches = patches ++ [ ./ament_cmake_vendor_package.patch ];
+          patches = patches ++ [ ./ament-cmake-vendor-package.patch ];
         }
       );
-      rosidl_generator_py = rosPrev.rosidl_generator_py.overrideAttrs (
+      rosidl-generator-py = rosPrev.rosidl-generator-py.overrideAttrs (
         {
           depsTargetTargetPropagated ? [ ],
           ...
@@ -24,7 +24,7 @@ final: prev: {
           depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.python3 ];
         }
       );
-      libcurl_vendor = rosPrev.libcurl_vendor.overrideAttrs (
+      libcurl-vendor = rosPrev.libcurl-vendor.overrideAttrs (
         {
           propagatedBuildInputs ? [ ],
           ...
@@ -36,16 +36,16 @@ final: prev: {
           propagatedBuildInputs = propagatedBuildInputs ++ [ final.openssl ];
         }
       );
-      python_qt_binding = rosPrev.python_qt_binding.overrideAttrs (
+      python-qt-binding = rosPrev.python-qt-binding.overrideAttrs (
         {
           patches ? [ ],
           ...
         }:
         {
-          patches = patches ++ [ ./python_qt_binding.patch ];
+          patches = patches ++ [ ./python-qt-binding.patch ];
         }
       );
-      behaviortree_cpp = rosPrev.behaviortree_cpp.overrideAttrs (
+      behaviortree-cpp = rosPrev.behaviortree-cpp.overrideAttrs (
         {
           rosCmakeArgs ? [ ],
           doCheck ? false,
@@ -55,7 +55,7 @@ final: prev: {
           rosCmakeArgs = rosCmakeArgs ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
         }
       );
-      gz_gui_vendor = rosPrev.gz_gui_vendor.overrideAttrs (
+      gz-gui-vendor = rosPrev.gz-gui-vendor.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
           postInstall ? "",
@@ -71,7 +71,7 @@ final: prev: {
             '';
         }
       );
-      gz_tools_vendor = rosPrev.gz_tools_vendor.overrideAttrs (
+      gz-tools-vendor = rosPrev.gz-tools-vendor.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
           ...

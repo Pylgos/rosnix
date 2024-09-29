@@ -1,18 +1,18 @@
 {
   buildRosPackage,
-  controller_manager,
-  controller_manager_msgs,
+  controller-manager,
+  controller-manager-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  rcl_interfaces,
+  rcl-interfaces,
   rclpy,
   ros2cli,
   ros2node,
   ros2param,
   rosSystemPackages,
-  rosidl_runtime_py,
+  rosidl-runtime-py,
   substituteSource,
 }:
 let
@@ -36,7 +36,7 @@ buildRosPackage {
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ controller_manager controller_manager_msgs rcl_interfaces rclpy ros2cli ros2node ros2param rosidl_runtime_py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
+  propagatedBuildInputs = [ controller-manager controller-manager-msgs rcl-interfaces rclpy ros2cli ros2node ros2param rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

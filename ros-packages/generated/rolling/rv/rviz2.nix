@@ -1,21 +1,21 @@
 {
-  ament_cmake,
-  ament_cmake_lint_cmake,
-  ament_cmake_pytest,
-  ament_lint_auto,
-  ament_lint_common,
+  ament-cmake,
+  ament-cmake-lint-cmake,
+  ament-cmake-pytest,
+  ament-lint-auto,
+  ament-lint-common,
   buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry_msgs,
+  geometry-msgs,
   mkSourceSet,
   rclcpp,
   rosSystemPackages,
-  rviz_common,
-  rviz_default_plugins,
-  rviz_ogre_vendor,
-  sensor_msgs,
+  rviz-common,
+  rviz-default-plugins,
+  rviz-ogre-vendor,
+  sensor-msgs,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -37,13 +37,13 @@ buildRosPackage {
   pname = "rviz2";
   version = "14.2.6-1";
   src = sources."rviz2";
-  nativeBuildInputs = [ ament_cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rviz_common rviz_default_plugins rviz_ogre_vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ rviz-common rviz-default-plugins rviz-ogre-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament_cmake_lint_cmake ament_cmake_pytest ament_lint_auto ament_lint_common geometry_msgs rclcpp sensor_msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
+  checkInputs = [ ament-cmake-lint-cmake ament-cmake-pytest ament-lint-auto ament-lint-common geometry-msgs rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   meta = {
     description = "3D visualization tool for ROS.";
   };
