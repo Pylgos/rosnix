@@ -348,6 +348,8 @@ fn generate_setup_script(
         writeln!(dst, "source {}", escape(path.to_str().unwrap()))?;
     }
 
+    writeln!(dst, "unset COLCON_CURRENT_PREFIX")?;
+
     Ok(())
 }
 
