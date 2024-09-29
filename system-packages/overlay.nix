@@ -918,8 +918,8 @@ in
       final.xorg.fontbitstream75dpi
     ];
     xsimd = [ final.xsimd ];
-    xtensor = [ final.xtensor ];
     xsltproc = [ final.libxslt ];
+    xtensor = [ final.xtensor ];
     xterm = [ final.xterm ];
     xvfb = [ final.xorg.xorgserver ];
     yaml = [ final.libyaml ];
