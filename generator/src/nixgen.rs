@@ -58,12 +58,8 @@ fn quote(s: &str) -> String {
     format!("\"{}\"", s)
 }
 
-fn mangle_name(name: &str) -> String {
+fn normalize_attr_name(name: &str) -> String {
     name.replace('_', "-")
-}
-
-fn demangle_name(name: &str) -> String {
-    name.replace('-', "_")
 }
 
 fn generate_parameters(
@@ -82,7 +78,7 @@ fn generate_parameters(
                 if dep.name.contains('.') {
                     dep.name.split('.').next().unwrap().to_string()
                 } else {
-                    mangle_name(&dep.name)
+                    normalize_attr_name(&dep.name)
                 }
             }
         })
@@ -110,7 +106,7 @@ fn generate_parameters(
 }
 
 fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManifest) -> Result<()> {
-    writeln!(dst, "pname = {};", escape(&mangle_name(&manifest.name)))?;
+    writeln!(dst, "pname = {};", escape(&manifest.name))?;
     writeln!(dst, "version = {};", escape(&manifest.release_version))?;
     writeln!(
         dst,
@@ -124,7 +120,7 @@ fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManif
             .iter()
             .filter(|dep| dep.kind == kind && dep.propagated == propagated)
             .filter(|dep| !dep.system_package)
-            .map(|dep: &NixDependency| mangle_name(&dep.name))
+            .map(|dep: &NixDependency| normalize_attr_name(&dep.name))
             .collect::<Vec<_>>()
             .join(" ");
         let system_pkgs_str = deps
@@ -337,7 +333,7 @@ fn generate_distro(ctx: &Ctx) -> Result<()> {
     }
 
     for (pkg_name, manifest) in ctx.package_index.manifests.iter() {
-        let mangled_name = mangle_name(pkg_name);
+        let mangled_name = normalize_attr_name(pkg_name);
         let dir_name = &mangled_name[..2.min(mangled_name.len())];
         let pkg_dir_path = ctx.distro_dir.join(dir_name);
         fs::create_dir_all(&pkg_dir_path)?;
@@ -380,6 +376,7 @@ pub fn prev_versions(cfg: &ConfigRef, distro_name: &str) -> Result<BTreeMap<Stri
         return Ok(BTreeMap::new());
     }
     let mut versions = BTreeMap::new();
+    let pname_re = Regex::new(r#"pname\s*=\s*"([^"]*)";"#).unwrap();
     let version_re = Regex::new(r#"version\s*=\s*"([^"]*)";"#).unwrap();
     for entry in fs::read_dir(&distro_dir)? {
         let entry = entry?;
@@ -397,13 +394,15 @@ pub fn prev_versions(cfg: &ConfigRef, distro_name: &str) -> Result<BTreeMap<Stri
                 continue;
             }
             let content = fs::read_to_string(&path)?;
-            let Some(caps) = version_re.captures(&content) else {
+            let Some(pname_caps) = pname_re.captures(&content) else {
+                warn!("failed to read pname from {}", path.display());
+                continue;
+            };
+            let Some(version_caps) = version_re.captures(&content) else {
                 warn!("failed to read version from {}", path.display());
                 continue;
             };
-            let mangled_name = path.file_stem().unwrap().to_str().unwrap();
-            let name = demangle_name(mangled_name);
-            versions.insert(name, caps[1].to_string());
+            versions.insert(pname_caps[1].to_string(), version_caps[1].to_string());
         }
     }
     Ok(versions)
