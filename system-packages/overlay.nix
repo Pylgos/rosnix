@@ -1,15 +1,7 @@
 { lib }:
 final: prev:
 let
-  pyForRos =
-    {
-      jazzy = final.python311; # python3.12 breaks sip4 and pyside2
-      iron = final.python310;
-      humble = final.python39;
-      rolling = final.python311;
-    }
-    .${final.rosConfig.distro};
-
+  pyForRos = final.rosConfig.pythonForRos;
 in
 {
   pythonForRos = pyForRos // {

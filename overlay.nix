@@ -7,7 +7,17 @@
 let
   configOverlay = final: prev: {
     rosConfig = lib.makeExtensibleWithCustomName "override" (
-      finalConfig: { distro = "jazzy"; } // config
+      finalConfig:
+      {
+        distro = "jazzy";
+        pythonForRos =
+          {
+            jazzy = final.python311; # python3.12 breaks sip4 and pyside2
+            rolling = final.python311;
+          }
+          .${finalConfig.distro};
+      }
+      // config
     );
   };
   systemPackagesOverlay = import ./system-packages/overlay.nix { inherit lib; };
