@@ -1,4 +1,9 @@
 {
+  nixConfig = {
+    extra-substituters = [ "https://rosnix.cachix.org" ];
+    extra-trusted-public-keys = [ "rosnix.cachix.org-1:FiqDDVzOzRB9i2Ai/sHxXkhRr71LRF/3i8QEjju70o8=" ];
+  };
+
   inputs = {
     crane.url = "github:ipetkov/crane";
     flake-utils.url = "github:numtide/flake-utils";
