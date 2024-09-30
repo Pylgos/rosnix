@@ -23,11 +23,6 @@ let
       substitutions = [
         {
           path = "CMakeLists.txt";
-          from = "VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git";
-          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype2"}";
-        }
-        {
-          path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/OGRECave/ogre.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/ogre"}";
         }
@@ -36,16 +31,6 @@ let
           from = "VCS_URL https://github.com/madler/zlib.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
-      ];
-    };
-    "rviz_ogre_vendor/freetype2" = substituteSource {
-      src = fetchgit {
-        name = "freetype2-source";
-        url = "https://git.savannah.gnu.org/git/freetype/freetype2.git";
-        rev = "920c5502cc3ddda88f6c7d85ee834ac611bb11cc";
-        hash = "sha256-yylSmVM3D5xnbFx9qEEHFIP/K0x/WDXZr0MA4C7ng7k=";
-      };
-      substitutions = [
       ];
     };
     "rviz_ogre_vendor/ogre" = substituteSource {
