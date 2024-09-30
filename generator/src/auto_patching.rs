@@ -143,22 +143,34 @@ fn get_vendor_source_name(url: &str) -> String {
     guess_name_from_url(url).unwrap_or("unknown".to_string())
 }
 
+fn replace_url(cfg: &ConfigRef, url: &str) -> String {
+    let mut url = url.to_string();
+    for replace in cfg.auto_patching.replace_urls.iter() {
+        url = replace
+            .from
+            .replace_all(&url, replace.to.as_str())
+            .to_string();
+    }
+    url
+}
+
 async fn fetch_url(
     cfg: &ConfigRef,
     fetcher: &Arc<Fetcher>,
     url: &str,
     unpack: bool,
 ) -> Result<Source> {
+    let url = replace_url(cfg, url);
     if cfg
         .auto_patching
         .ignore_urls
         .iter()
-        .any(|re| re.is_match(url))
+        .any(|re| re.is_match(&url))
     {
         bail!("ignored url {url}");
     }
     fetcher
-        .fetch_url(&get_vendor_source_name(url), url, unpack)
+        .fetch_url(&get_vendor_source_name(&url), &url, unpack)
         .await
 }
 
@@ -168,16 +180,17 @@ async fn fetch_git(
     url: &str,
     tag: &str,
 ) -> Result<Source> {
+    let url = replace_url(cfg, url);
     if cfg
         .auto_patching
         .ignore_urls
         .iter()
-        .any(|re| re.is_match(url))
+        .any(|re| re.is_match(&url))
     {
         bail!("ignored url {url}");
     }
     fetcher
-        .fetch_git(&get_vendor_source_name(url), url, tag)
+        .fetch_git(&get_vendor_source_name(&url), &url, tag)
         .await
 }
 

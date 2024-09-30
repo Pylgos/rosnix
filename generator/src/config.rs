@@ -46,12 +46,20 @@ fn default_max_concurrent_downloads() -> usize {
     32
 }
 
+#[derive(Debug, Deserialize)]
+pub struct UrlReplace {
+    #[serde(with = "serde_regex")]
+    pub from: Regex,
+    pub to: String,
+}
+
 #[derive(Debug, Default, Deserialize)]
 pub struct AutoPatchingConfig {
     #[serde(default, with = "serde_regex")]
     pub ignore_files: Vec<Regex>,
     #[serde(default, with = "serde_regex")]
     pub ignore_urls: Vec<Regex>,
+    pub replace_urls: Vec<UrlReplace>,
 }
 
 pub type ConfigRef = std::sync::Arc<Config>;
