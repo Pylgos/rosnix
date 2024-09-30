@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "launch-pytest";
+  pname = "launch_pytest";
   version = "3.4.2-2";
   src = sources."launch_pytest";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

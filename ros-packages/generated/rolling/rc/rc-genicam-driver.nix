@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rc-genicam-driver";
+  pname = "rc_genicam_driver";
   version = "0.3.1-1";
   src = sources."rc_genicam_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

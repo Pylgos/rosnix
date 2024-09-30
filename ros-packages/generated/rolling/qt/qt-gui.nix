@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "qt-gui";
+  pname = "qt_gui";
   version = "2.8.2-1";
   src = sources."qt_gui";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

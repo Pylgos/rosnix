@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-viz";
+  pname = "fuse_viz";
   version = "1.1.1-1";
   src = sources."fuse_viz";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

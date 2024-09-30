@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "bag2-to-image";
+  pname = "bag2_to_image";
   version = "0.1.0-5";
   src = sources."bag2_to_image";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pick-ik";
+  pname = "pick_ik";
   version = "1.1.0-3";
   src = sources."pick_ik";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

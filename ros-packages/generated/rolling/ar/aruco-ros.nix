@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "aruco-ros";
+  pname = "aruco_ros";
   version = "5.0.5-1";
   src = sources."aruco_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

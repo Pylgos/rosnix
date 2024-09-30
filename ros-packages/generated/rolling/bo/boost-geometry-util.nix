@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "boost-geometry-util";
+  pname = "boost_geometry_util";
   version = "0.0.1-4";
   src = sources."boost_geometry_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

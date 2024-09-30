@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-reactivenav2d";
+  pname = "mrpt_reactivenav2d";
   version = "2.2.0-1";
   src = sources."mrpt_reactivenav2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

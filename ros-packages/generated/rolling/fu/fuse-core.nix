@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-core";
+  pname = "fuse_core";
   version = "1.2.1-1";
   src = sources."fuse_core";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

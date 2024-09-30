@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-charging-schedule";
+  pname = "rmf_charging_schedule";
   version = "2.7.1-1";
   src = sources."rmf_charging_schedule";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

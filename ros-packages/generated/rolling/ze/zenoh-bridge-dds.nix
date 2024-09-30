@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zenoh-bridge-dds";
+  pname = "zenoh_bridge_dds";
   version = "0.5.0-4";
   src = sources."zenoh_bridge_dds";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

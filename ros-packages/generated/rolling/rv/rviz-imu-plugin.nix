@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-imu-plugin";
+  pname = "rviz_imu_plugin";
   version = "2.1.4-1";
   src = sources."rviz_imu_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

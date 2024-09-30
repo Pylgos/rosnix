@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "test-interface-files";
+  pname = "test_interface_files";
   version = "0.11.0-3";
   src = sources."test_interface_files";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

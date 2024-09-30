@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-regulated-pure-pursuit-controller";
+  pname = "nav2_regulated_pure_pursuit_controller";
   version = "1.3.2-1";
   src = sources."nav2_regulated_pure_pursuit_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

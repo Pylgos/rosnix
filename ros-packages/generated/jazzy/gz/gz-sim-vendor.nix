@@ -58,7 +58,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-sim-vendor";
+  pname = "gz_sim_vendor";
   version = "0.0.5-1";
   src = sources."gz_sim_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-gz-gui-plugins";
+  pname = "turtlebot4_gz_gui_plugins";
   version = "2.0.1-1";
   src = sources."turtlebot4_gz_gui_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "octomap-ros";
+  pname = "octomap_ros";
   version = "0.4.4-1";
   src = sources."octomap_ros";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

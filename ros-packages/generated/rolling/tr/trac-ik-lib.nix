@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "trac-ik-lib";
+  pname = "trac_ik_lib";
   version = "2.0.1-1";
   src = sources."trac_ik_lib";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

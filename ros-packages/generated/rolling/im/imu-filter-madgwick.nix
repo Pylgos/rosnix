@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-filter-madgwick";
+  pname = "imu_filter_madgwick";
   version = "2.1.4-1";
   src = sources."imu_filter_madgwick";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

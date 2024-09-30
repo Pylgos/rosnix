@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-pycodestyle";
+  pname = "ament_cmake_pycodestyle";
   version = "0.17.1-1";
   src = sources."ament_cmake_pycodestyle";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

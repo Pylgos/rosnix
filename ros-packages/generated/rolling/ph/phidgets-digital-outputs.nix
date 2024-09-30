@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-digital-outputs";
+  pname = "phidgets_digital_outputs";
   version = "2.3.3-1";
   src = sources."phidgets_digital_outputs";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

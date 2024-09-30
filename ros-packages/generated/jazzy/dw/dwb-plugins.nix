@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dwb-plugins";
+  pname = "dwb_plugins";
   version = "1.3.2-1";
   src = sources."dwb_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

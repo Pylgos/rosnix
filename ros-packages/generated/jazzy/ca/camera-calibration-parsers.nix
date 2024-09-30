@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "camera-calibration-parsers";
+  pname = "camera_calibration_parsers";
   version = "5.1.4-1";
   src = sources."camera_calibration_parsers";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

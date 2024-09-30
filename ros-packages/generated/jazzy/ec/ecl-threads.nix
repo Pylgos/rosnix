@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-threads";
+  pname = "ecl_threads";
   version = "1.2.1-5";
   src = sources."ecl_threads";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

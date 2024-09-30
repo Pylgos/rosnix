@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-tools";
+  pname = "ecl_tools";
   version = "1.0.3-5";
   src = sources."ecl_tools";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

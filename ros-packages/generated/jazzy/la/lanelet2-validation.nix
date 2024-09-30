@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lanelet2-validation";
+  pname = "lanelet2_validation";
   version = "1.2.1-1";
   src = sources."lanelet2_validation";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

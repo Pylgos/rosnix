@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pid-controller";
+  pname = "pid_controller";
   version = "4.14.0-1";
   src = sources."pid_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

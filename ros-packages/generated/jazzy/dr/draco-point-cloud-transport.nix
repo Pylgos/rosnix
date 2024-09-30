@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "draco-point-cloud-transport";
+  pname = "draco_point_cloud_transport";
   version = "4.0.1-1";
   src = sources."draco_point_cloud_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

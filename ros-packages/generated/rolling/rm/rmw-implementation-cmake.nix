@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-implementation-cmake";
+  pname = "rmw_implementation_cmake";
   version = "7.4.3-1";
   src = sources."rmw_implementation_cmake";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-pointcloud-publisher";
+  pname = "examples_rclpy_pointcloud_publisher";
   version = "0.20.2-1";
   src = sources."examples_rclpy_pointcloud_publisher";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

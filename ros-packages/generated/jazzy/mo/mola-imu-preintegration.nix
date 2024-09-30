@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-imu-preintegration";
+  pname = "mola_imu_preintegration";
   version = "1.2.0-1";
   src = sources."mola_imu_preintegration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

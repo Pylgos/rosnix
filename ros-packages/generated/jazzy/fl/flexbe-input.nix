@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-input";
+  pname = "flexbe_input";
   version = "3.0.3-1";
   src = sources."flexbe_input";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ouxt-lint-common";
+  pname = "ouxt_lint_common";
   version = "0.0.8-4";
   src = sources."ouxt_lint_common";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

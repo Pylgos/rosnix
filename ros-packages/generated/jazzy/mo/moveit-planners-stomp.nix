@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-planners-stomp";
+  pname = "moveit_planners_stomp";
   version = "2.10.0-1";
   src = sources."moveit_planners_stomp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

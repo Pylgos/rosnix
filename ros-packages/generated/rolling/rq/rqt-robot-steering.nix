@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-robot-steering";
+  pname = "rqt_robot_steering";
   version = "1.0.0-5";
   src = sources."rqt_robot_steering";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

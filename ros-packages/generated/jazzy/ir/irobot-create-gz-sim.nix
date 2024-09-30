@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-gz-sim";
+  pname = "irobot_create_gz_sim";
   version = "3.0.2-2";
   src = sources."irobot_create_gz_sim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

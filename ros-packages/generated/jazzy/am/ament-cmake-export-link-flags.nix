@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-export-link-flags";
+  pname = "ament_cmake_export_link_flags";
   version = "2.5.2-1";
   src = sources."ament_cmake_export_link_flags";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

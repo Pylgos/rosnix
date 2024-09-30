@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-examples";
+  pname = "rmf_traffic_examples";
   version = "3.3.3-1";
   src = sources."rmf_traffic_examples";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

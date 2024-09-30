@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zstd-vendor";
+  pname = "zstd_vendor";
   version = "0.26.5-1";
   src = sources."zstd_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

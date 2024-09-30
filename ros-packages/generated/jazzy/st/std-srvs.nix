@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "std-srvs";
+  pname = "std_srvs";
   version = "5.3.5-1";
   src = sources."std_srvs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

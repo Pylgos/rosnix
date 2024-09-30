@@ -54,7 +54,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tvm-vendor";
+  pname = "tvm_vendor";
   version = "0.9.1-3";
   src = sources."tvm_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

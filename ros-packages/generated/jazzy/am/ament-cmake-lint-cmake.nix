@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-lint-cmake";
+  pname = "ament_cmake_lint_cmake";
   version = "0.17.1-1";
   src = sources."ament_cmake_lint_cmake";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-parser";
+  pname = "rosidl_parser";
   version = "4.8.1-1";
   src = sources."rosidl_parser";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

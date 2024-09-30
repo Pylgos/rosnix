@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-gyroscope";
+  pname = "phidgets_gyroscope";
   version = "2.3.3-2";
   src = sources."phidgets_gyroscope";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

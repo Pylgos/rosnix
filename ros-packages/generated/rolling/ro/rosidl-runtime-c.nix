@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-runtime-c";
+  pname = "rosidl_runtime_c";
   version = "4.8.1-1";
   src = sources."rosidl_runtime_c";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

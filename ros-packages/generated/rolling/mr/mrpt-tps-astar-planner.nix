@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-tps-astar-planner";
+  pname = "mrpt_tps_astar_planner";
   version = "2.2.0-1";
   src = sources."mrpt_tps_astar_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

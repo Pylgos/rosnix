@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kobuki-ros-interfaces";
+  pname = "kobuki_ros_interfaces";
   version = "1.0.0-5";
   src = sources."kobuki_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

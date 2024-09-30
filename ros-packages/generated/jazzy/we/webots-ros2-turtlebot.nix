@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-turtlebot";
+  pname = "webots_ros2_turtlebot";
   version = "2023.1.3-1";
   src = sources."webots_ros2_turtlebot";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

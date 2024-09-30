@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "chomp-motion-planner";
+  pname = "chomp_motion_planner";
   version = "2.11.0-1";
   src = sources."chomp_motion_planner";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

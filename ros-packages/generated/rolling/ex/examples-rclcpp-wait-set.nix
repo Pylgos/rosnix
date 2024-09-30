@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-wait-set";
+  pname = "examples_rclcpp_wait_set";
   version = "0.20.2-1";
   src = sources."examples_rclcpp_wait_set";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

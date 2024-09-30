@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-srv";
+  pname = "rqt_srv";
   version = "1.3.0-1";
   src = sources."rqt_srv";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

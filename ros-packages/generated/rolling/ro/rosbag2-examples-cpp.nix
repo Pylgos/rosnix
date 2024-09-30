@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-examples-cpp";
+  pname = "rosbag2_examples_cpp";
   version = "0.29.0-1";
   src = sources."rosbag2_examples_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

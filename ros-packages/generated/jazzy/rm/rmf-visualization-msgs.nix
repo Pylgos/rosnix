@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-msgs";
+  pname = "rmf_visualization_msgs";
   version = "1.4.1-1";
   src = sources."rmf_visualization_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

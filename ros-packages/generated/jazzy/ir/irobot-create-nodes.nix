@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-nodes";
+  pname = "irobot_create_nodes";
   version = "3.0.2-2";
   src = sources."irobot_create_nodes";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

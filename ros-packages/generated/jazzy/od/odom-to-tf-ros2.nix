@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "odom-to-tf-ros2";
+  pname = "odom_to_tf_ros2";
   version = "1.0.2-4";
   src = sources."odom_to_tf_ros2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

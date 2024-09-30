@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-exceptions";
+  pname = "ecl_exceptions";
   version = "1.2.1-4";
   src = sources."ecl_exceptions";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

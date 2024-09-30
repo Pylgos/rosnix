@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-fastrtps-shared-cpp";
+  pname = "rmw_fastrtps_shared_cpp";
   version = "8.4.1-1";
   src = sources."rmw_fastrtps_shared_cpp";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lanelet2-io";
+  pname = "lanelet2_io";
   version = "1.2.1-1";
   src = sources."lanelet2_io";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

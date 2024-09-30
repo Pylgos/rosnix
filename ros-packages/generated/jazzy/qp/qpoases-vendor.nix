@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "qpoases-vendor";
+  pname = "qpoases_vendor";
   version = "3.2.3-5";
   src = sources."qpoases_vendor";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

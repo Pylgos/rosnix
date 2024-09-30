@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "geometry-msgs";
+  pname = "geometry_msgs";
   version = "5.3.5-1";
   src = sources."geometry_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

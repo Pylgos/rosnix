@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2-controllers-test-nodes";
+  pname = "ros2_controllers_test_nodes";
   version = "4.14.0-1";
   src = sources."ros2_controllers_test_nodes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-google-benchmark";
+  pname = "ament_cmake_google_benchmark";
   version = "2.5.2-1";
   src = sources."ament_cmake_google_benchmark";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -59,7 +59,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "openvdb-vendor";
+  pname = "openvdb_vendor";
   version = "2.5.2-1";
   src = sources."openvdb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-building-map-tools";
+  pname = "rmf_building_map_tools";
   version = "1.9.1-1";
   src = sources."rmf_building_map_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-waypoint-follower";
+  pname = "nav2_waypoint_follower";
   version = "1.3.2-1";
   src = sources."nav2_waypoint_follower";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -51,7 +51,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pilz-industrial-motion-planner";
+  pname = "pilz_industrial_motion_planner";
   version = "2.10.0-1";
   src = sources."pilz_industrial_motion_planner";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

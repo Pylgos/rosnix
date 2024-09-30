@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "polygon-rviz-plugins";
+  pname = "polygon_rviz_plugins";
   version = "1.1.0-1";
   src = sources."polygon_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

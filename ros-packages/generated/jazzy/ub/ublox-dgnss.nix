@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-dgnss";
+  pname = "ublox_dgnss";
   version = "0.5.3-2";
   src = sources."ublox_dgnss";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

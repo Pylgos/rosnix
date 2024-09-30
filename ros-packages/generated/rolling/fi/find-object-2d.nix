@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "find-object-2d";
+  pname = "find_object_2d";
   version = "0.7.1-1";
   src = sources."find_object_2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

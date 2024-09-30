@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-octomap";
+  pname = "grid_map_octomap";
   version = "2.2.0-1";
   src = sources."grid_map_octomap";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

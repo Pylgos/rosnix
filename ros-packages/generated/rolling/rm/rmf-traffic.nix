@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic";
+  pname = "rmf_traffic";
   version = "3.4.0-1";
   src = sources."rmf_traffic";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

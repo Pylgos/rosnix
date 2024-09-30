@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-common-plugins";
+  pname = "rqt_common_plugins";
   version = "1.2.0-4";
   src = sources."rqt_common_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

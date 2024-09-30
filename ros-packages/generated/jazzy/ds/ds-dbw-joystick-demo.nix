@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ds-dbw-joystick-demo";
+  pname = "ds_dbw_joystick_demo";
   version = "2.2.0-1";
   src = sources."ds_dbw_joystick_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

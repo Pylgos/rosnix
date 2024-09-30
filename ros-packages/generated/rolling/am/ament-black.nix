@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-black";
+  pname = "ament_black";
   version = "0.2.6-1";
   src = sources."ament_black";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

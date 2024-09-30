@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zstd-image-transport";
+  pname = "zstd_image_transport";
   version = "5.0.0-1";
   src = sources."zstd_image_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

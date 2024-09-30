@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lifecycle-py";
+  pname = "lifecycle_py";
   version = "0.33.5-1";
   src = sources."lifecycle_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

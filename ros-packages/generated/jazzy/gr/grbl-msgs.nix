@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grbl-msgs";
+  pname = "grbl_msgs";
   version = "0.0.2-9";
   src = sources."grbl_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

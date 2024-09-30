@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libros-bridge";
+  pname = "mrpt_libros_bridge";
   version = "2.14.1-1";
   src = sources."mrpt_libros_bridge";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

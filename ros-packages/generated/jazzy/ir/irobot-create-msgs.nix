@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-msgs";
+  pname = "irobot_create_msgs";
   version = "3.0.0-2";
   src = sources."irobot_create_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

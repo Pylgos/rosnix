@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-clang-tidy";
+  pname = "ament_clang_tidy";
   version = "0.17.1-1";
   src = sources."ament_clang_tidy";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

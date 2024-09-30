@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-smoother";
+  pname = "nav2_smoother";
   version = "1.3.2-1";
   src = sources."nav2_smoother";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

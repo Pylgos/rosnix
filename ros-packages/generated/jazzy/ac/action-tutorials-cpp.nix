@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "action-tutorials-cpp";
+  pname = "action_tutorials_cpp";
   version = "0.33.5-1";
   src = sources."action_tutorials_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

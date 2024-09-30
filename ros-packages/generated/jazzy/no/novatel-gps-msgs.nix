@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "novatel-gps-msgs";
+  pname = "novatel_gps_msgs";
   version = "4.1.2-5";
   src = sources."novatel_gps_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

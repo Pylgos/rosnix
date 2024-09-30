@@ -51,7 +51,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-sensors-vendor";
+  pname = "gz_sensors_vendor";
   version = "0.1.2-3";
   src = sources."gz_sensors_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

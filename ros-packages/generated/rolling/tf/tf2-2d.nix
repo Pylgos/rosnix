@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-2d";
+  pname = "tf2_2d";
   version = "1.0.1-3";
   src = sources."tf2_2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

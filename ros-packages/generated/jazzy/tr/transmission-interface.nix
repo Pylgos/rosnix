@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "transmission-interface";
+  pname = "transmission_interface";
   version = "4.17.0-1";
   src = sources."transmission_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

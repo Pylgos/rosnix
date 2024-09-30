@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tinyxml-vendor";
+  pname = "tinyxml_vendor";
   version = "0.10.0-3";
   src = sources."tinyxml_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

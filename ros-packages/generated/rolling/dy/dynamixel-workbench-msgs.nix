@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamixel-workbench-msgs";
+  pname = "dynamixel_workbench_msgs";
   version = "2.0.3-4";
   src = sources."dynamixel_workbench_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

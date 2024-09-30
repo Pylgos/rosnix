@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safevisionary-base";
+  pname = "sick_safevisionary_base";
   version = "1.0.1-2";
   src = sources."sick_safevisionary_base";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

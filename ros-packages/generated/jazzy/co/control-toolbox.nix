@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "control-toolbox";
+  pname = "control_toolbox";
   version = "3.2.0-3";
   src = sources."control_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rc-genicam-api";
+  pname = "rc_genicam_api";
   version = "2.6.5-2";
   src = sources."rc_genicam_api";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

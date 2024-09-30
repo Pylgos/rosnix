@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "action-tutorials-interfaces";
+  pname = "action_tutorials_interfaces";
   version = "0.34.2-1";
   src = sources."action_tutorials_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

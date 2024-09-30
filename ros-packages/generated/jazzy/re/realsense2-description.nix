@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "realsense2-description";
+  pname = "realsense2_description";
   version = "4.55.1-3";
   src = sources."realsense2_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

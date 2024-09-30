@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "v4l2-camera";
+  pname = "v4l2_camera";
   version = "0.7.1-1";
   src = sources."v4l2_camera";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-robot-dashboard";
+  pname = "rqt_robot_dashboard";
   version = "0.6.1-5";
   src = sources."rqt_robot_dashboard";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };

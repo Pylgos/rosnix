@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "picknik-ament-copyright";
+  pname = "picknik_ament_copyright";
   version = "0.0.2-5";
   src = sources."picknik_ament_copyright";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

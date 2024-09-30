@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "controller-interface";
+  pname = "controller_interface";
   version = "4.17.0-1";
   src = sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

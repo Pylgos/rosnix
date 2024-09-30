@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "system-modes";
+  pname = "system_modes";
   version = "0.9.0-6";
   src = sources."system_modes";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

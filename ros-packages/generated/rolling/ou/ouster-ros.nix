@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ouster-ros";
+  pname = "ouster_ros";
   version = "0.11.1-5";
   src = sources."ouster_ros";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

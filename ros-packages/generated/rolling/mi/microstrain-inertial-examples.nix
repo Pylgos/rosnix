@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "microstrain-inertial-examples";
+  pname = "microstrain_inertial_examples";
   version = "4.3.0-1";
   src = sources."microstrain_inertial_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

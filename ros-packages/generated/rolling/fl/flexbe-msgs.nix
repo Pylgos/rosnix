@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-msgs";
+  pname = "flexbe_msgs";
   version = "3.0.3-1";
   src = sources."flexbe_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

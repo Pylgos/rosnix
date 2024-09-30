@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-cmake-helpers";
+  pname = "grid_map_cmake_helpers";
   version = "2.2.0-1";
   src = sources."grid_map_cmake_helpers";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

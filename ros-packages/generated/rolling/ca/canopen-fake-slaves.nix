@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-fake-slaves";
+  pname = "canopen_fake_slaves";
   version = "0.2.12-2";
   src = sources."canopen_fake_slaves";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

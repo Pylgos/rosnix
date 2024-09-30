@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2-socketcan-msgs";
+  pname = "ros2_socketcan_msgs";
   version = "1.3.0-1";
   src = sources."ros2_socketcan_msgs";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

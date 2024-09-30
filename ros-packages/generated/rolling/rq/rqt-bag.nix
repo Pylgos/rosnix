@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-bag";
+  pname = "rqt_bag";
   version = "2.0.1-1";
   src = sources."rqt_bag";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

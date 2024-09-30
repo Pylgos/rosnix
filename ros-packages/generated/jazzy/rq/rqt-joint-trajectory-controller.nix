@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-joint-trajectory-controller";
+  pname = "rqt_joint_trajectory_controller";
   version = "4.14.0-1";
   src = sources."rqt_joint_trajectory_controller";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

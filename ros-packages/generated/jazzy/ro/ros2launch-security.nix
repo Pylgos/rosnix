@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2launch-security";
+  pname = "ros2launch_security";
   version = "1.0.0-5";
   src = sources."ros2launch_security";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

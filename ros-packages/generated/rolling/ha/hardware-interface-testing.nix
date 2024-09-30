@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "hardware-interface-testing";
+  pname = "hardware_interface_testing";
   version = "4.17.0-1";
   src = sources."hardware_interface_testing";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

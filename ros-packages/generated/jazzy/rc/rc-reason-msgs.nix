@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rc-reason-msgs";
+  pname = "rc_reason_msgs";
   version = "0.3.1-3";
   src = sources."rc_reason_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

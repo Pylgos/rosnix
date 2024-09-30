@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-control-msgs";
+  pname = "autoware_control_msgs";
   version = "1.1.0-1";
   src = sources."autoware_control_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

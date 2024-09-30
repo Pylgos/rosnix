@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-core";
+  pname = "canopen_core";
   version = "0.2.9-2";
   src = sources."canopen_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

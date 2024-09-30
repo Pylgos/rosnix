@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-roscpp";
+  pname = "swri_roscpp";
   version = "3.7.3-1";
   src = sources."swri_roscpp";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

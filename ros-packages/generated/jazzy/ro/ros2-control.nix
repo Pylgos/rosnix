@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2-control";
+  pname = "ros2_control";
   version = "4.17.0-1";
   src = sources."ros2_control";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pendulum-control";
+  pname = "pendulum_control";
   version = "0.34.2-1";
   src = sources."pendulum_control";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

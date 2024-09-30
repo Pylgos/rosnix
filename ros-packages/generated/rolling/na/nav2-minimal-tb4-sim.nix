@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-minimal-tb4-sim";
+  pname = "nav2_minimal_tb4_sim";
   version = "1.0.1-1";
   src = sources."nav2_minimal_tb4_sim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

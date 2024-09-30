@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "warehouse-ros-sqlite";
+  pname = "warehouse_ros_sqlite";
   version = "1.0.5-1";
   src = sources."warehouse_ros_sqlite";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

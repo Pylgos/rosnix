@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-msgs";
+  pname = "moveit_msgs";
   version = "2.6.0-1";
   src = sources."moveit_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-sync";
+  pname = "rtabmap_sync";
   version = "0.21.5-3";
   src = sources."rtabmap_sync";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

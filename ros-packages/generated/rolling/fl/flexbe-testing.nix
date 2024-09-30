@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-testing";
+  pname = "flexbe_testing";
   version = "3.0.3-1";
   src = sources."flexbe_testing";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

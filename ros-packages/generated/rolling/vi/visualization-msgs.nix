@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "visualization-msgs";
+  pname = "visualization_msgs";
   version = "5.4.1-1";
   src = sources."visualization_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

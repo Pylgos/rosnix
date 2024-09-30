@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "r2r-spl-7";
+  pname = "r2r_spl_7";
   version = "3.0.1-3";
   src = sources."r2r_spl_7";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

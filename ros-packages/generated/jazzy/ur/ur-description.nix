@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-description";
+  pname = "ur_description";
   version = "2.4.3-1";
   src = sources."ur_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

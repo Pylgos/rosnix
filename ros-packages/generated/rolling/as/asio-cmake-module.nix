@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "asio-cmake-module";
+  pname = "asio_cmake_module";
   version = "1.2.0-3";
   src = sources."asio_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

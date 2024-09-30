@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cascade-lifecycle-msgs";
+  pname = "cascade_lifecycle_msgs";
   version = "2.0.0-1";
   src = sources."cascade_lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

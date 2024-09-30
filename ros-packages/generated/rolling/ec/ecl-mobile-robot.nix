@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-mobile-robot";
+  pname = "ecl_mobile_robot";
   version = "1.2.1-4";
   src = sources."ecl_mobile_robot";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

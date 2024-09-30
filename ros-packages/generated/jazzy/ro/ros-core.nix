@@ -54,7 +54,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-core";
+  pname = "ros_core";
   version = "0.11.0-1";
   src = sources."ros_core";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

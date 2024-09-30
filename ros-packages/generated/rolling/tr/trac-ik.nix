@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "trac-ik";
+  pname = "trac_ik";
   version = "2.0.1-1";
   src = sources."trac_ik";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

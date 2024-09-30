@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "domain-bridge";
+  pname = "domain_bridge";
   version = "0.5.0-5";
   src = sources."domain_bridge";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

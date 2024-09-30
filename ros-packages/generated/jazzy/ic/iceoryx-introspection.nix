@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "iceoryx-introspection";
+  pname = "iceoryx_introspection";
   version = "2.0.5-6";
   src = sources."iceoryx_introspection";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

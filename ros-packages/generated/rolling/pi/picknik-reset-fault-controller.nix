@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "picknik-reset-fault-controller";
+  pname = "picknik_reset_fault_controller";
   version = "0.0.3-2";
   src = sources."picknik_reset_fault_controller";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

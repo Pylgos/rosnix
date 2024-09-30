@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-mavic";
+  pname = "webots_ros2_mavic";
   version = "2023.1.3-1";
   src = sources."webots_ros2_mavic";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

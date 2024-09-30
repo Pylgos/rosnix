@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rc-reason-clients";
+  pname = "rc_reason_clients";
   version = "0.3.1-2";
   src = sources."rc_reason_clients";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-service-caller";
+  pname = "rqt_service_caller";
   version = "1.2.1-3";
   src = sources."rqt_service_caller";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

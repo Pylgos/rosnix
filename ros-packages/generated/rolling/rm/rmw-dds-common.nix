@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-dds-common";
+  pname = "rmw_dds_common";
   version = "3.2.0-1";
   src = sources."rmw_dds_common";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

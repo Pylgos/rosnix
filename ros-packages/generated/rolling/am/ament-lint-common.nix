@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-lint-common";
+  pname = "ament_lint_common";
   version = "0.18.1-1";
   src = sources."ament_lint_common";
   nativeBuildInputs = [ ament-cmake-export-dependencies ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

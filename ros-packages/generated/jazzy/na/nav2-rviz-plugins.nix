@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-rviz-plugins";
+  pname = "nav2_rviz_plugins";
   version = "1.3.2-1";
   src = sources."nav2_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

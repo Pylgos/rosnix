@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urdf-tutorial";
+  pname = "urdf_tutorial";
   version = "1.1.0-2";
   src = sources."urdf_tutorial";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

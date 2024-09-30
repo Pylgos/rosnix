@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-minimal-action-server";
+  pname = "examples_rclpy_minimal_action_server";
   version = "0.20.2-1";
   src = sources."examples_rclpy_minimal_action_server";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fmilibrary-vendor";
+  pname = "fmilibrary_vendor";
   version = "1.0.1-1";
   src = sources."fmilibrary_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

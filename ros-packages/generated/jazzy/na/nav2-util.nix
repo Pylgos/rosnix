@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-util";
+  pname = "nav2_util";
   version = "1.3.2-1";
   src = sources."nav2_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

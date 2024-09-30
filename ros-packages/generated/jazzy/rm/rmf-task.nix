@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-task";
+  pname = "rmf_task";
   version = "2.5.1-1";
   src = sources."rmf_task";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

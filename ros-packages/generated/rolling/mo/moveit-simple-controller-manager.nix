@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-simple-controller-manager";
+  pname = "moveit_simple_controller_manager";
   version = "2.11.0-1";
   src = sources."moveit_simple_controller_manager";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

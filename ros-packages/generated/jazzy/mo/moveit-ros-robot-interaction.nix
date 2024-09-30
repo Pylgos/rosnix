@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-robot-interaction";
+  pname = "moveit_ros_robot_interaction";
   version = "2.10.0-1";
   src = sources."moveit_ros_robot_interaction";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

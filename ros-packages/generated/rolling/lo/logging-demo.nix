@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "logging-demo";
+  pname = "logging_demo";
   version = "0.34.2-1";
   src = sources."logging_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

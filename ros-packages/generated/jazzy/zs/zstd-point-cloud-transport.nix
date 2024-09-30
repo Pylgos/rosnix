@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zstd-point-cloud-transport";
+  pname = "zstd_point_cloud_transport";
   version = "4.0.1-1";
   src = sources."zstd_point_cloud_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

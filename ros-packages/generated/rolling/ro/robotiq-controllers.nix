@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robotiq-controllers";
+  pname = "robotiq_controllers";
   version = "0.0.1-2";
   src = sources."robotiq_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

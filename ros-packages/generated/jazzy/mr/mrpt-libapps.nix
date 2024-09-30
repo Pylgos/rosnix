@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libapps";
+  pname = "mrpt_libapps";
   version = "2.14.1-1";
   src = sources."mrpt_libapps";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

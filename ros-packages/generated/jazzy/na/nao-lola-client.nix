@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nao-lola-client";
+  pname = "nao_lola_client";
   version = "1.3.0-2";
   src = sources."nao_lola_client";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

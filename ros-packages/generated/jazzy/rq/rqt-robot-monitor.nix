@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-robot-monitor";
+  pname = "rqt_robot_monitor";
   version = "1.0.6-1";
   src = sources."rqt_robot_monitor";
   nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "osrf-testing-tools-cpp";
+  pname = "osrf_testing_tools_cpp";
   version = "2.2.0-1";
   src = sources."osrf_testing_tools_cpp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

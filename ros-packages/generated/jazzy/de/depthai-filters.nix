@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-filters";
+  pname = "depthai_filters";
   version = "2.10.1-1";
   src = sources."depthai_filters";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

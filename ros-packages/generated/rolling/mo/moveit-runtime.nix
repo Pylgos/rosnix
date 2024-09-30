@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-runtime";
+  pname = "moveit_runtime";
   version = "2.11.0-1";
   src = sources."moveit_runtime";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

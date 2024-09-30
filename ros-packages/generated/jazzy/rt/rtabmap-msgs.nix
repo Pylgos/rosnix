@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-msgs";
+  pname = "rtabmap_msgs";
   version = "0.21.5-3";
   src = sources."rtabmap_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "microstrain-inertial-description";
+  pname = "microstrain_inertial_description";
   version = "4.3.0-1";
   src = sources."microstrain_inertial_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-interfaces";
+  pname = "rcl_interfaces";
   version = "2.2.0-1";
   src = sources."rcl_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

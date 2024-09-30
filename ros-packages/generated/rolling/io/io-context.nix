@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "io-context";
+  pname = "io_context";
   version = "1.2.0-3";
   src = sources."io_context";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

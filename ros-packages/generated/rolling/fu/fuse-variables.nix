@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-variables";
+  pname = "fuse_variables";
   version = "1.2.1-1";
   src = sources."fuse_variables";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

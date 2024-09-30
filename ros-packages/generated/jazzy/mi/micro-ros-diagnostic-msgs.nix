@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "micro-ros-diagnostic-msgs";
+  pname = "micro_ros_diagnostic_msgs";
   version = "0.3.0-6";
   src = sources."micro_ros_diagnostic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sdl2-vendor";
+  pname = "sdl2_vendor";
   version = "3.3.0-2";
   src = sources."sdl2_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

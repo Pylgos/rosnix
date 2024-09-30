@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-uncrustify";
+  pname = "ament_uncrustify";
   version = "0.18.1-1";
   src = sources."ament_uncrustify";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sensor-msgs-py";
+  pname = "sensor_msgs_py";
   version = "5.3.5-1";
   src = sources."sensor_msgs_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

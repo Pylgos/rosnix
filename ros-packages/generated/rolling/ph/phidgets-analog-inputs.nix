@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-analog-inputs";
+  pname = "phidgets_analog_inputs";
   version = "2.3.3-1";
   src = sources."phidgets_analog_inputs";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

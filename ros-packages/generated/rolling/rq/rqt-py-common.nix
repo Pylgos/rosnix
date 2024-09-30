@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-py-common";
+  pname = "rqt_py_common";
   version = "1.7.2-1";
   src = sources."rqt_py_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

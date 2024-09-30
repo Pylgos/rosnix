@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-navigation";
+  pname = "mrpt_navigation";
   version = "2.2.0-1";
   src = sources."mrpt_navigation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

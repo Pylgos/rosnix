@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "python-qt-binding";
+  pname = "python_qt_binding";
   version = "2.3.1-1";
   src = sources."python_qt_binding";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

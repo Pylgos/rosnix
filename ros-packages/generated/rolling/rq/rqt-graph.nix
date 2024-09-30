@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-graph";
+  pname = "rqt_graph";
   version = "1.6.1-1";
   src = sources."rqt_graph";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

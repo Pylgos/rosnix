@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-lift-msgs";
+  pname = "rmf_lift_msgs";
   version = "3.4.0-1";
   src = sources."rmf_lift_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-dartsim-vendor";
+  pname = "gz_dartsim_vendor";
   version = "0.1.1-1";
   src = sources."gz_dartsim_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

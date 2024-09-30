@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-complementary-filter";
+  pname = "imu_complementary_filter";
   version = "2.1.4-1";
   src = sources."imu_complementary_filter";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2launch-security-examples";
+  pname = "ros2launch_security_examples";
   version = "1.0.0-5";
   src = sources."ros2launch_security_examples";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

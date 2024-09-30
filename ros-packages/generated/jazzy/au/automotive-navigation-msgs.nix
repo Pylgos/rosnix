@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "automotive-navigation-msgs";
+  pname = "automotive_navigation_msgs";
   version = "3.0.4-6";
   src = sources."automotive_navigation_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

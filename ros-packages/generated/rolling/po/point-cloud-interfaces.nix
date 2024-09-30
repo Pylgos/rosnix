@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "point-cloud-interfaces";
+  pname = "point_cloud_interfaces";
   version = "5.0.1-1";
   src = sources."point_cloud_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

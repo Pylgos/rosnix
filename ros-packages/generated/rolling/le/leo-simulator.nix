@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-simulator";
+  pname = "leo_simulator";
   version = "2.0.0-1";
   src = sources."leo_simulator";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-constraints";
+  pname = "fuse_constraints";
   version = "1.1.1-1";
   src = sources."fuse_constraints";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

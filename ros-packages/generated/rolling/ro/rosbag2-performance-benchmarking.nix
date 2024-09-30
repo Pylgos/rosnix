@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-performance-benchmarking";
+  pname = "rosbag2_performance_benchmarking";
   version = "0.29.0-1";
   src = sources."rosbag2_performance_benchmarking";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

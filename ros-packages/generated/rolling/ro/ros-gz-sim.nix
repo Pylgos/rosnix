@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-gz-sim";
+  pname = "ros_gz_sim";
   version = "2.1.0-1";
   src = sources."ros_gz_sim";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-prbt-ikfast-manipulator-plugin";
+  pname = "moveit_resources_prbt_ikfast_manipulator_plugin";
   version = "2.10.0-1";
   src = sources."moveit_resources_prbt_ikfast_manipulator_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-pointcloud-pipeline";
+  pname = "mrpt_pointcloud_pipeline";
   version = "2.2.0-1";
   src = sources."mrpt_pointcloud_pipeline";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

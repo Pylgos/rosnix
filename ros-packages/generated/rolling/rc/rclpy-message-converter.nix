@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rclpy-message-converter";
+  pname = "rclpy_message_converter";
   version = "2.0.2-1";
   src = sources."rclpy_message_converter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

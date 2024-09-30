@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-prbt-moveit-config";
+  pname = "moveit_resources_prbt_moveit_config";
   version = "2.11.0-1";
   src = sources."moveit_resources_prbt_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

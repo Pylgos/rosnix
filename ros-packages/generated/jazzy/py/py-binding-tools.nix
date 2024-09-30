@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "py-binding-tools";
+  pname = "py_binding_tools";
   version = "2.0.1-1";
   src = sources."py_binding_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

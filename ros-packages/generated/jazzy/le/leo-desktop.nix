@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-desktop";
+  pname = "leo_desktop";
   version = "3.0.0-3";
   src = sources."leo_desktop";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

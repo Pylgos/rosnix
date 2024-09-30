@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "twist-mux-msgs";
+  pname = "twist_mux_msgs";
   version = "3.0.1-2";
   src = sources."twist_mux_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

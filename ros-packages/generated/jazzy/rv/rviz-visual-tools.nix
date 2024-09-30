@@ -50,7 +50,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-visual-tools";
+  pname = "rviz_visual_tools";
   version = "4.1.4-4";
   src = sources."rviz_visual_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

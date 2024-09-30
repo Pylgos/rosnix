@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-gazebo-plugins";
+  pname = "velodyne_gazebo_plugins";
   version = "2.0.3-4";
   src = sources."velodyne_gazebo_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "object-recognition-msgs";
+  pname = "object_recognition_msgs";
   version = "2.0.0-4";
   src = sources."object_recognition_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

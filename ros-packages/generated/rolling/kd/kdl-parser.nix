@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kdl-parser";
+  pname = "kdl_parser";
   version = "2.12.1-1";
   src = sources."kdl_parser";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

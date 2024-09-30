@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-msgs-bridge";
+  pname = "mrpt_msgs_bridge";
   version = "2.2.0-1";
   src = sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

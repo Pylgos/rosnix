@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safevisionary-interfaces";
+  pname = "sick_safevisionary_interfaces";
   version = "1.0.3-3";
   src = sources."sick_safevisionary_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

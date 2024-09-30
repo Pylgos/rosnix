@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ntrip-client-node";
+  pname = "ntrip_client_node";
   version = "0.5.3-2";
   src = sources."ntrip_client_node";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

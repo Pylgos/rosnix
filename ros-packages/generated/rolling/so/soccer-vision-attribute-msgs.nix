@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-vision-attribute-msgs";
+  pname = "soccer_vision_attribute_msgs";
   version = "1.0.0-1";
   src = sources."soccer_vision_attribute_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

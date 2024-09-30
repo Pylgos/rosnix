@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-action";
+  pname = "rqt_action";
   version = "2.3.0-1";
   src = sources."rqt_action";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

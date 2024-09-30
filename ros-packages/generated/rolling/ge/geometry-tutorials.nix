@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "geometry-tutorials";
+  pname = "geometry_tutorials";
   version = "0.6.2-1";
   src = sources."geometry_tutorials";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

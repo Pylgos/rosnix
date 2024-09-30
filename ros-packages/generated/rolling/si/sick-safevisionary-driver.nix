@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safevisionary-driver";
+  pname = "sick_safevisionary_driver";
   version = "1.0.3-2";
   src = sources."sick_safevisionary_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

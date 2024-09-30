@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-setup-srdf-plugins";
+  pname = "moveit_setup_srdf_plugins";
   version = "2.11.0-1";
   src = sources."moveit_setup_srdf_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

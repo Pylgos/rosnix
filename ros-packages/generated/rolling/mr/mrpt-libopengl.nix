@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libopengl";
+  pname = "mrpt_libopengl";
   version = "2.14.1-1";
   src = sources."mrpt_libopengl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

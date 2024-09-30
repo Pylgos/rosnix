@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "py-trees-ros-interfaces";
+  pname = "py_trees_ros_interfaces";
   version = "2.1.0-4";
   src = sources."py_trees_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

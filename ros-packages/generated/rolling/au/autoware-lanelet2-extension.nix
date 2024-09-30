@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-lanelet2-extension";
+  pname = "autoware_lanelet2_extension";
   version = "0.6.0-1";
   src = sources."autoware_lanelet2_extension";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

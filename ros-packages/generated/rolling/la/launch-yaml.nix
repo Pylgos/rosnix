@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "launch-yaml";
+  pname = "launch_yaml";
   version = "3.6.1-1";
   src = sources."launch_yaml";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

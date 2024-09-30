@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-obstacle-msgs";
+  pname = "rmf_obstacle_msgs";
   version = "3.4.0-1";
   src = sources."rmf_obstacle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-serialization";
+  pname = "ublox_serialization";
   version = "2.3.0-4";
   src = sources."ublox_serialization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

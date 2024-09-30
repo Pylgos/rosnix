@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-yaml";
+  pname = "mola_yaml";
   version = "1.2.0-1";
   src = sources."mola_yaml";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

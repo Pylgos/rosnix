@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-ros2";
+  pname = "rmf_traffic_ros2";
   version = "2.7.1-1";
   src = sources."rmf_traffic_ros2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

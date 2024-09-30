@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-fleet-states";
+  pname = "rmf_visualization_fleet_states";
   version = "2.3.2-1";
   src = sources."rmf_visualization_fleet_states";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

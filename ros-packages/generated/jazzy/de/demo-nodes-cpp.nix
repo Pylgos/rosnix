@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "demo-nodes-cpp";
+  pname = "demo_nodes_cpp";
   version = "0.33.5-1";
   src = sources."demo_nodes_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

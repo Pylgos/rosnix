@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dataspeed-can-usb";
+  pname = "dataspeed_can_usb";
   version = "2.0.4-1";
   src = sources."dataspeed_can_usb";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

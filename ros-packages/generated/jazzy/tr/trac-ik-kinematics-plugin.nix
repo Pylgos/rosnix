@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "trac-ik-kinematics-plugin";
+  pname = "trac_ik_kinematics_plugin";
   version = "2.0.1-1";
   src = sources."trac_ik_kinematics_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

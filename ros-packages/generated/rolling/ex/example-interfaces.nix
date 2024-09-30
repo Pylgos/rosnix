@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "example-interfaces";
+  pname = "example_interfaces";
   version = "0.13.0-1";
   src = sources."example_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

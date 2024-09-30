@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gps-umd";
+  pname = "gps_umd";
   version = "2.0.4-1";
   src = sources."gps_umd";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

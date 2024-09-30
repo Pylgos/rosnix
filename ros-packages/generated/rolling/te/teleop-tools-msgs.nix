@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "teleop-tools-msgs";
+  pname = "teleop_tools_msgs";
   version = "1.5.1-1";
   src = sources."teleop_tools_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

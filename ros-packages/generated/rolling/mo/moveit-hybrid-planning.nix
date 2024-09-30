@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-hybrid-planning";
+  pname = "moveit_hybrid_planning";
   version = "2.11.0-1";
   src = sources."moveit_hybrid_planning";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

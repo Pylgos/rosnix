@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-sensor-broadcaster";
+  pname = "imu_sensor_broadcaster";
   version = "4.14.0-1";
   src = sources."imu_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-navgraphs";
+  pname = "rmf_visualization_navgraphs";
   version = "2.3.2-1";
   src = sources."rmf_visualization_navgraphs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

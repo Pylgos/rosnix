@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-fleet-msgs";
+  pname = "rmf_fleet_msgs";
   version = "3.3.1-1";
   src = sources."rmf_fleet_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

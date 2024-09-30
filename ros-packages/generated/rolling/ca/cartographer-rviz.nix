@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cartographer-rviz";
+  pname = "cartographer_rviz";
   version = "2.0.9003-1";
   src = sources."cartographer_rviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

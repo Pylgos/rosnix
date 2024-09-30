@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-behavior-tree";
+  pname = "nav2_behavior_tree";
   version = "1.3.2-1";
   src = sources."nav2_behavior_tree";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

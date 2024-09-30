@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-flake8";
+  pname = "ament_flake8";
   version = "0.18.1-1";
   src = sources."ament_flake8";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

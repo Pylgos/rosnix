@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zmqpp-vendor";
+  pname = "zmqpp_vendor";
   version = "0.0.2-3";
   src = sources."zmqpp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2-control-test-assets";
+  pname = "ros2_control_test_assets";
   version = "4.17.0-1";
   src = sources."ros2_control_test_assets";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-index-python";
+  pname = "ament_index_python";
   version = "1.9.0-1";
   src = sources."ament_index_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

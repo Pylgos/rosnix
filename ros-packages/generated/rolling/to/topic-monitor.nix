@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "topic-monitor";
+  pname = "topic_monitor";
   version = "0.34.2-1";
   src = sources."topic_monitor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

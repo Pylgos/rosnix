@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-gz-bringup";
+  pname = "irobot_create_gz_bringup";
   version = "3.0.2-2";
   src = sources."irobot_create_gz_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

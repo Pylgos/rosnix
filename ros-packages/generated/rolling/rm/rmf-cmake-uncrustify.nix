@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-cmake-uncrustify";
+  pname = "rmf_cmake_uncrustify";
   version = "1.2.0-5";
   src = sources."rmf_cmake_uncrustify";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-geometry-util";
+  pname = "swri_geometry_util";
   version = "3.7.3-1";
   src = sources."swri_geometry_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

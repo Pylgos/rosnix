@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robotiq-description";
+  pname = "robotiq_description";
   version = "0.0.1-3";
   src = sources."robotiq_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

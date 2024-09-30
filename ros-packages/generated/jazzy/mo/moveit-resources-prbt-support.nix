@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-prbt-support";
+  pname = "moveit_resources_prbt_support";
   version = "2.10.0-1";
   src = sources."moveit_resources_prbt_support";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

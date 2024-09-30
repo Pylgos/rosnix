@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "smach-ros";
+  pname = "smach_ros";
   version = "3.0.3-2";
   src = sources."smach_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

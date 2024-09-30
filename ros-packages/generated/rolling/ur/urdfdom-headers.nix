@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urdfdom-headers";
+  pname = "urdfdom_headers";
   version = "1.1.1-2";
   src = sources."urdfdom_headers";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

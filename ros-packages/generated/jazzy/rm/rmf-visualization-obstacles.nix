@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-obstacles";
+  pname = "rmf_visualization_obstacles";
   version = "2.3.2-1";
   src = sources."rmf_visualization_obstacles";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

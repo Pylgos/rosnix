@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urdf-launch";
+  pname = "urdf_launch";
   version = "0.1.1-3";
   src = sources."urdf_launch";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

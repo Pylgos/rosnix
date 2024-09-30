@@ -395,7 +395,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ortools-vendor";
+  pname = "ortools_vendor";
   version = "9.9.0-9";
   src = sources."ortools_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "data-tamer-msgs";
+  pname = "data_tamer_msgs";
   version = "0.9.4-3";
   src = sources."data_tamer_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

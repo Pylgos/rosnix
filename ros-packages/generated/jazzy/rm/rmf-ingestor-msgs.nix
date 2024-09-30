@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-ingestor-msgs";
+  pname = "rmf_ingestor_msgs";
   version = "3.3.1-1";
   src = sources."rmf_ingestor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

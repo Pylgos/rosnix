@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-command-line";
+  pname = "ecl_command_line";
   version = "1.2.1-5";
   src = sources."ecl_command_line";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

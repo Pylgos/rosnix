@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-eigen";
+  pname = "ecl_eigen";
   version = "1.2.1-5";
   src = sources."ecl_eigen";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

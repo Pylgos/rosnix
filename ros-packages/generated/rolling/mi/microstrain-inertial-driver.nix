@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "microstrain-inertial-driver";
+  pname = "microstrain_inertial_driver";
   version = "4.3.0-1";
   src = sources."microstrain_inertial_driver";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

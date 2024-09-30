@@ -84,7 +84,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-examples";
+  pname = "depthai_examples";
   version = "2.10.1-1";
   src = sources."depthai_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

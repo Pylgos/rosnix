@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-cppcheck";
+  pname = "ament_cmake_cppcheck";
   version = "0.18.1-1";
   src = sources."ament_cmake_cppcheck";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

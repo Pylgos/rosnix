@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-lifecycle";
+  pname = "rcl_lifecycle";
   version = "9.2.4-1";
   src = sources."rcl_lifecycle";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

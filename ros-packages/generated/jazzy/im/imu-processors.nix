@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-processors";
+  pname = "imu_processors";
   version = "0.5.0-3";
   src = sources."imu_processors";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

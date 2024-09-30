@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-transport-plugins";
+  pname = "image_transport_plugins";
   version = "4.0.2-1";
   src = sources."image_transport_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

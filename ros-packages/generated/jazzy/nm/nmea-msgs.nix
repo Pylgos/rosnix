@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nmea-msgs";
+  pname = "nmea_msgs";
   version = "2.1.0-3";
   src = sources."nmea_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

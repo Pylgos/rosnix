@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tile-map";
+  pname = "tile_map";
   version = "2.4.3-1";
   src = sources."tile_map";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-minimal-timer";
+  pname = "examples_rclcpp_minimal_timer";
   version = "0.20.2-1";
   src = sources."examples_rclcpp_minimal_timer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

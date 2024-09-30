@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "quaternion-operation";
+  pname = "quaternion_operation";
   version = "0.0.7-4";
   src = sources."quaternion_operation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

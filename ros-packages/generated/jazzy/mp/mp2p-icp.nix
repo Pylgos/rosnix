@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mp2p-icp";
+  pname = "mp2p_icp";
   version = "1.6.2-1";
   src = sources."mp2p_icp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

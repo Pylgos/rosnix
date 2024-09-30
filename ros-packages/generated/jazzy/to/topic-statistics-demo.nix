@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "topic-statistics-demo";
+  pname = "topic_statistics_demo";
   version = "0.33.5-1";
   src = sources."topic_statistics_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

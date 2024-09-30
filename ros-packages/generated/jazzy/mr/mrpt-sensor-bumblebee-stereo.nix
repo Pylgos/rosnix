@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-sensor-bumblebee-stereo";
+  pname = "mrpt_sensor_bumblebee_stereo";
   version = "0.2.3-1";
   src = sources."mrpt_sensor_bumblebee_stereo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

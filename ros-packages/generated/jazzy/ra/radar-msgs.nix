@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "radar-msgs";
+  pname = "radar_msgs";
   version = "0.2.2-4";
   src = sources."radar_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

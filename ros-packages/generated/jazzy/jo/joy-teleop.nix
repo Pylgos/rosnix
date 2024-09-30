@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joy-teleop";
+  pname = "joy_teleop";
   version = "1.5.1-1";
   src = sources."joy_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

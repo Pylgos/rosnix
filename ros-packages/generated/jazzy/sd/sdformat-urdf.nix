@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sdformat-urdf";
+  pname = "sdformat_urdf";
   version = "1.0.2-1";
   src = sources."sdformat_urdf";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

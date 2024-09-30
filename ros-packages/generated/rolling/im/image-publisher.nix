@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-publisher";
+  pname = "image_publisher";
   version = "6.0.3-1";
   src = sources."image_publisher";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

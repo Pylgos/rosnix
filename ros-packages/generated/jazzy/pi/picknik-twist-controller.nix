@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "picknik-twist-controller";
+  pname = "picknik_twist_controller";
   version = "0.0.3-3";
   src = sources."picknik_twist_controller";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

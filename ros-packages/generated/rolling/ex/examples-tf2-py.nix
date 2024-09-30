@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-tf2-py";
+  pname = "examples_tf2_py";
   version = "0.38.2-1";
   src = sources."examples_tf2_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-ros-msgs";
+  pname = "depthai_ros_msgs";
   version = "2.10.1-1";
   src = sources."depthai_ros_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

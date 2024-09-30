@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-cbg-executor";
+  pname = "examples_rclcpp_cbg_executor";
   version = "0.19.4-1";
   src = sources."examples_rclcpp_cbg_executor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "class-loader";
+  pname = "class_loader";
   version = "2.8.0-1";
   src = sources."class_loader";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

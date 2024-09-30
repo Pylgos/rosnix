@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "aruco-opencv-msgs";
+  pname = "aruco_opencv_msgs";
   version = "6.0.1-1";
   src = sources."aruco_opencv_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "color-util";
+  pname = "color_util";
   version = "1.0.0-3";
   src = sources."color_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

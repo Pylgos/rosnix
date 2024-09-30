@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-compression-zstd";
+  pname = "rosbag2_compression_zstd";
   version = "0.29.0-1";
   src = sources."rosbag2_compression_zstd";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

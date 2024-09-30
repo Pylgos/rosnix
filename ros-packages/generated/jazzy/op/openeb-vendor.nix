@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "openeb-vendor";
+  pname = "openeb_vendor";
   version = "2.0.0-1";
   src = sources."openeb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "curl" "git" "hdf5-tools" "pkg-config" "unzip" "wget" ]; };

@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-containers";
+  pname = "ecl_containers";
   version = "1.2.1-4";
   src = sources."ecl_containers";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

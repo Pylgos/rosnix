@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fmi-adapter";
+  pname = "fmi_adapter";
   version = "2.1.2-2";
   src = sources."fmi_adapter";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

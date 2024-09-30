@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "battery-state-broadcaster";
+  pname = "battery_state_broadcaster";
   version = "1.0.0-1";
   src = sources."battery_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

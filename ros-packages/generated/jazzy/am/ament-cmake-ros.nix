@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-ros";
+  pname = "ament_cmake_ros";
   version = "0.12.0-3";
   src = sources."ament_cmake_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

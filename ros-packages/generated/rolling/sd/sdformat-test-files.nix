@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sdformat-test-files";
+  pname = "sdformat_test_files";
   version = "2.0.1-1";
   src = sources."sdformat_test_files";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

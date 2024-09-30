@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "battery-state-rviz-overlay";
+  pname = "battery_state_rviz_overlay";
   version = "1.0.0-1";
   src = sources."battery_state_rviz_overlay";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

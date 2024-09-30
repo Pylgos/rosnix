@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-client-library";
+  pname = "ur_client_library";
   version = "1.4.0-1";
   src = sources."ur_client_library";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

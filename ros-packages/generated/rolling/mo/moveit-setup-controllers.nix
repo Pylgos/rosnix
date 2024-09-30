@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-setup-controllers";
+  pname = "moveit_setup_controllers";
   version = "2.11.0-1";
   src = sources."moveit_setup_controllers";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

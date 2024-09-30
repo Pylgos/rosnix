@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-converters-lite";
+  pname = "ecl_converters_lite";
   version = "1.2.0-5";
   src = sources."ecl_converters_lite";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-include-directories";
+  pname = "ament_cmake_include_directories";
   version = "2.7.0-1";
   src = sources."ament_cmake_include_directories";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

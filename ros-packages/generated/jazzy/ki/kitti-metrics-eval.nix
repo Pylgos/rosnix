@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kitti-metrics-eval";
+  pname = "kitti_metrics_eval";
   version = "1.2.0-1";
   src = sources."kitti_metrics_eval";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

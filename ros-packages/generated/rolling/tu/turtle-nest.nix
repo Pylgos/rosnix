@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtle-nest";
+  pname = "turtle_nest";
   version = "1.0.2-1";
   src = sources."turtle_nest";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

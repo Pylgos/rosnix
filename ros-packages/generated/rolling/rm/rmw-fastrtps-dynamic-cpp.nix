@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-fastrtps-dynamic-cpp";
+  pname = "rmw_fastrtps_dynamic_cpp";
   version = "9.0.1-1";
   src = sources."rmw_fastrtps_dynamic_cpp";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

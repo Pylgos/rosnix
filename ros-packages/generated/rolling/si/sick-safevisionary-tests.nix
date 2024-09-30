@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safevisionary-tests";
+  pname = "sick_safevisionary_tests";
   version = "1.0.3-2";
   src = sources."sick_safevisionary_tests";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

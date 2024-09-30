@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-satellite";
+  pname = "rviz_satellite";
   version = "4.1.0-1";
   src = sources."rviz_satellite";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

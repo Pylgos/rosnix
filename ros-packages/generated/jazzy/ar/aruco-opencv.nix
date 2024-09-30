@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "aruco-opencv";
+  pname = "aruco_opencv";
   version = "6.0.1-1";
   src = sources."aruco_opencv";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

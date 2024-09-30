@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "polygon-utils";
+  pname = "polygon_utils";
   version = "1.1.0-1";
   src = sources."polygon_utils";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

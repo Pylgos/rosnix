@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "geographic-msgs";
+  pname = "geographic_msgs";
   version = "1.0.6-1";
   src = sources."geographic_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

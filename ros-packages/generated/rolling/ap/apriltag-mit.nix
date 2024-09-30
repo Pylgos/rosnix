@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-mit";
+  pname = "apriltag_mit";
   version = "1.0.3-1";
   src = sources."apriltag_mit";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

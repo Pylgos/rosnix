@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kortex-bringup";
+  pname = "kortex_bringup";
   version = "0.2.2-2";
   src = sources."kortex_bringup";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

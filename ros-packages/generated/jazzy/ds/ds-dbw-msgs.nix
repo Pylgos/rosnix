@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ds-dbw-msgs";
+  pname = "ds_dbw_msgs";
   version = "2.2.0-1";
   src = sources."ds_dbw_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

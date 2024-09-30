@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-storage-mcap";
+  pname = "rosbag2_storage_mcap";
   version = "0.26.5-1";
   src = sources."rosbag2_storage_mcap";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

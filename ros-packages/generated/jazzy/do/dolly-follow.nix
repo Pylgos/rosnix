@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dolly-follow";
+  pname = "dolly_follow";
   version = "0.4.0-6";
   src = sources."dolly_follow";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

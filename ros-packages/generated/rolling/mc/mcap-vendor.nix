@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mcap-vendor";
+  pname = "mcap_vendor";
   version = "0.29.0-1";
   src = sources."mcap_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

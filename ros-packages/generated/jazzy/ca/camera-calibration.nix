@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "camera-calibration";
+  pname = "camera_calibration";
   version = "5.0.4-1";
   src = sources."camera_calibration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-pointcloud";
+  pname = "velodyne_pointcloud";
   version = "2.3.0-4";
   src = sources."velodyne_pointcloud";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "python-orocos-kdl-vendor";
+  pname = "python_orocos_kdl_vendor";
   version = "0.5.1-2";
   src = sources."python_orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-scan-xd";
+  pname = "sick_scan_xd";
   version = "3.5.0-1";
   src = sources."sick_scan_xd";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

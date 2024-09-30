@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-visualization";
+  pname = "moveit_ros_visualization";
   version = "2.10.0-1";
   src = sources."moveit_ros_visualization";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

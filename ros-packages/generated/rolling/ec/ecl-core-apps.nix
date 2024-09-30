@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-core-apps";
+  pname = "ecl_core_apps";
   version = "1.2.1-4";
   src = sources."ecl_core_apps";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

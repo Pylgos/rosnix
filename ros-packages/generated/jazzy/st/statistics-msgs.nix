@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "statistics-msgs";
+  pname = "statistics_msgs";
   version = "2.0.2-2";
   src = sources."statistics_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

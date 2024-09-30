@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-yaml-param-parser";
+  pname = "rcl_yaml_param_parser";
   version = "9.2.4-1";
   src = sources."rcl_yaml_param_parser";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

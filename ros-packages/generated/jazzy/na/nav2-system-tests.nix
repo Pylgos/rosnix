@@ -51,7 +51,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-system-tests";
+  pname = "nav2_system_tests";
   version = "1.3.2-1";
   src = sources."nav2_system_tests";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "stereo-msgs";
+  pname = "stereo_msgs";
   version = "5.4.1-1";
   src = sources."stereo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

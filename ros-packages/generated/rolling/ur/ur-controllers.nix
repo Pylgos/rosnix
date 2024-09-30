@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-controllers";
+  pname = "ur_controllers";
   version = "2.4.10-1";
   src = sources."ur_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

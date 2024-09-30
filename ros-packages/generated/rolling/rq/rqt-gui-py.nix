@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-gui-py";
+  pname = "rqt_gui_py";
   version = "1.7.2-1";
   src = sources."rqt_gui_py";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

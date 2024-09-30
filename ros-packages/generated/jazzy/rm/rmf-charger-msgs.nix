@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-charger-msgs";
+  pname = "rmf_charger_msgs";
   version = "3.3.1-1";
   src = sources."rmf_charger_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

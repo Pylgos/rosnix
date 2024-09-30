@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-costmap-2d";
+  pname = "grid_map_costmap_2d";
   version = "2.2.0-1";
   src = sources."grid_map_costmap_2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

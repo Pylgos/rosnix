@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "realsense2-camera-msgs";
+  pname = "realsense2_camera_msgs";
   version = "4.55.1-3";
   src = sources."realsense2_camera_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

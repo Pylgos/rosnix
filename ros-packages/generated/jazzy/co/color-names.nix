@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "color-names";
+  pname = "color_names";
   version = "0.0.3-6";
   src = sources."color_names";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "udp-driver";
+  pname = "udp_driver";
   version = "1.2.0-3";
   src = sources."udp_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

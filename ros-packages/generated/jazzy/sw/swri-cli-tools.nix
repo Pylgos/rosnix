@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-cli-tools";
+  pname = "swri_cli_tools";
   version = "3.7.3-1";
   src = sources."swri_cli_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

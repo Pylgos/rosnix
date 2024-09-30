@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-storage-sqlite3";
+  pname = "rosbag2_storage_sqlite3";
   version = "0.26.5-1";
   src = sources."rosbag2_storage_sqlite3";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

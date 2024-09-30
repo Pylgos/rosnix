@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-pose-list";
+  pname = "mola_pose_list";
   version = "1.2.0-1";
   src = sources."mola_pose_list";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

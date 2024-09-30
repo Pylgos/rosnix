@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamixel-sdk-examples";
+  pname = "dynamixel_sdk_examples";
   version = "3.7.40-6";
   src = sources."dynamixel_sdk_examples";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

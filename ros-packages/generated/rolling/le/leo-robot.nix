@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-robot";
+  pname = "leo_robot";
   version = "1.4.0-2";
   src = sources."leo_robot";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "usb-cam";
+  pname = "usb_cam";
   version = "0.8.1-1";
   src = sources."usb_cam";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

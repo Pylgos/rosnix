@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-serial-util";
+  pname = "swri_serial_util";
   version = "3.7.3-1";
   src = sources."swri_serial_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

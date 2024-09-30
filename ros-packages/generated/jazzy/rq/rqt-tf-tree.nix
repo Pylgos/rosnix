@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-tf-tree";
+  pname = "rqt_tf_tree";
   version = "1.0.5-1";
   src = sources."rqt_tf_tree";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

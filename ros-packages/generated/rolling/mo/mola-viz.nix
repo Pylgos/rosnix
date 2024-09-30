@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-viz";
+  pname = "mola_viz";
   version = "1.2.0-1";
   src = sources."mola_viz";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

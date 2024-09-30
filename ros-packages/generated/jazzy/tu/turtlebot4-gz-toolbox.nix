@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-gz-toolbox";
+  pname = "turtlebot4_gz_toolbox";
   version = "2.0.1-1";
   src = sources."turtlebot4_gz_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

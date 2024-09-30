@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "intra-process-demo";
+  pname = "intra_process_demo";
   version = "0.34.2-1";
   src = sources."intra_process_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

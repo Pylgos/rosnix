@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-copyright";
+  pname = "ament_copyright";
   version = "0.18.1-1";
   src = sources."ament_copyright";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

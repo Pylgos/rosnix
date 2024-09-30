@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joy-linux";
+  pname = "joy_linux";
   version = "3.3.0-2";
   src = sources."joy_linux";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

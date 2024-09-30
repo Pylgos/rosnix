@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "septentrio-gnss-driver";
+  pname = "septentrio_gnss_driver";
   version = "1.4.1-1";
   src = sources."septentrio_gnss_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

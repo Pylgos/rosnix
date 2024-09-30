@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rot-conv";
+  pname = "rot_conv";
   version = "1.1.0-3";
   src = sources."rot_conv";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

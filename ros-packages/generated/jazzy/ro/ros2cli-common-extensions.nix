@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2cli-common-extensions";
+  pname = "ros2cli_common_extensions";
   version = "0.3.0-3";
   src = sources."ros2cli_common_extensions";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

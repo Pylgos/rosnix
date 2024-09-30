@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-plot";
+  pname = "rqt_plot";
   version = "1.4.0-2";
   src = sources."rqt_plot";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

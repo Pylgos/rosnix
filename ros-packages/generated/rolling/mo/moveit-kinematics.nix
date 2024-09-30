@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-kinematics";
+  pname = "moveit_kinematics";
   version = "2.11.0-1";
   src = sources."moveit_kinematics";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

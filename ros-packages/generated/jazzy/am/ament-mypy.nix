@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-mypy";
+  pname = "ament_mypy";
   version = "0.17.1-1";
   src = sources."ament_mypy";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

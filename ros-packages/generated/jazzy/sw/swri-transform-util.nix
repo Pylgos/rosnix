@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-transform-util";
+  pname = "swri_transform_util";
   version = "3.7.3-1";
   src = sources."swri_transform_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

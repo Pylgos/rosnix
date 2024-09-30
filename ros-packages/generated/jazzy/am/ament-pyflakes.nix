@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-pyflakes";
+  pname = "ament_pyflakes";
   version = "0.17.1-1";
   src = sources."ament_pyflakes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

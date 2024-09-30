@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urdf-parser-plugin";
+  pname = "urdf_parser_plugin";
   version = "2.10.0-3";
   src = sources."urdf_parser_plugin";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

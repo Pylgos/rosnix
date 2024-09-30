@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-export-interfaces";
+  pname = "ament_cmake_export_interfaces";
   version = "2.7.0-1";
   src = sources."ament_cmake_export_interfaces";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

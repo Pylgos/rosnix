@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "magic-enum";
+  pname = "magic_enum";
   version = "0.9.6-1";
   src = sources."magic_enum";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

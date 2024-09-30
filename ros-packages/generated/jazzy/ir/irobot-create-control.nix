@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-control";
+  pname = "irobot_create_control";
   version = "3.0.2-2";
   src = sources."irobot_create_control";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

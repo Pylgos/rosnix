@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-pr2-description";
+  pname = "moveit_resources_pr2_description";
   version = "3.0.0-2";
   src = sources."moveit_resources_pr2_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

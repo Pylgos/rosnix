@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mqtt-client-interfaces";
+  pname = "mqtt_client_interfaces";
   version = "2.3.0-1";
   src = sources."mqtt_client_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

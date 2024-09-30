@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-gz-image";
+  pname = "ros_gz_image";
   version = "2.1.0-1";
   src = sources."ros_gz_image";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

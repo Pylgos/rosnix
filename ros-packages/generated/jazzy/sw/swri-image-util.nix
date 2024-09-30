@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-image-util";
+  pname = "swri_image_util";
   version = "3.7.3-1";
   src = sources."swri_image_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

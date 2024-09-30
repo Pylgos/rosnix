@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "demo-nodes-py";
+  pname = "demo_nodes_py";
   version = "0.33.5-1";
   src = sources."demo_nodes_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

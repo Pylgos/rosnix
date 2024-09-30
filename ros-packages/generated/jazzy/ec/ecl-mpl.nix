@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-mpl";
+  pname = "ecl_mpl";
   version = "1.2.1-5";
   src = sources."ecl_mpl";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

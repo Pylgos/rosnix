@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-image-overlay";
+  pname = "rqt_image_overlay";
   version = "0.3.1-4";
   src = sources."rqt_image_overlay";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

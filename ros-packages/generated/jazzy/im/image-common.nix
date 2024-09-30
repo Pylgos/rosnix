@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-common";
+  pname = "image_common";
   version = "5.1.4-1";
   src = sources."image_common";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

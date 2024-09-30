@@ -51,7 +51,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-costmap-2d";
+  pname = "nav2_costmap_2d";
   version = "1.3.2-1";
   src = sources."nav2_costmap_2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

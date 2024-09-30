@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vision-msgs-layers";
+  pname = "vision_msgs_layers";
   version = "0.2.0-3";
   src = sources."vision_msgs_layers";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

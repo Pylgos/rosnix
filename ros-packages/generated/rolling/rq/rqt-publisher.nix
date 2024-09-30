@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-publisher";
+  pname = "rqt_publisher";
   version = "1.8.0-1";
   src = sources."rqt_publisher";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -67,7 +67,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "control-box-rst";
+  pname = "control_box_rst";
   version = "0.0.7-5";
   src = sources."control_box_rst";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

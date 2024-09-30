@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-pycommon";
+  pname = "rosidl_pycommon";
   version = "4.8.1-1";
   src = sources."rosidl_pycommon";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

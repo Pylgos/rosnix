@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-examples-py";
+  pname = "rosbag2_examples_py";
   version = "0.26.5-1";
   src = sources."rosbag2_examples_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

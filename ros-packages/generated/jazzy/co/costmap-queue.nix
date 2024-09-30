@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "costmap-queue";
+  pname = "costmap_queue";
   version = "1.3.2-1";
   src = sources."costmap_queue";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

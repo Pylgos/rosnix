@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "camera-aravis2";
+  pname = "camera_aravis2";
   version = "1.0.0-1";
   src = sources."camera_aravis2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

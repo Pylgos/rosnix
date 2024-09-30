@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "spatio-temporal-voxel-layer";
+  pname = "spatio_temporal_voxel_layer";
   version = "2.5.2-1";
   src = sources."spatio_temporal_voxel_layer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

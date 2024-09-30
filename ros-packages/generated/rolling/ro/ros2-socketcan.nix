@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2-socketcan";
+  pname = "ros2_socketcan";
   version = "1.3.0-1";
   src = sources."ros2_socketcan";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

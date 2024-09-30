@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-motors";
+  pname = "phidgets_motors";
   version = "2.3.3-1";
   src = sources."phidgets_motors";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

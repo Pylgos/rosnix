@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-time-lite";
+  pname = "ecl_time_lite";
   version = "1.2.0-5";
   src = sources."ecl_time_lite";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-loader";
+  pname = "grid_map_loader";
   version = "2.2.0-1";
   src = sources."grid_map_loader";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

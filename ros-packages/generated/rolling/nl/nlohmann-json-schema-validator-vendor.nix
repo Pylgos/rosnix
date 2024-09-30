@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nlohmann-json-schema-validator-vendor";
+  pname = "nlohmann_json_schema_validator_vendor";
   version = "0.5.0-1";
   src = sources."nlohmann_json_schema_validator_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

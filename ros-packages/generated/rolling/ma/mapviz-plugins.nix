@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mapviz-plugins";
+  pname = "mapviz_plugins";
   version = "2.4.3-1";
   src = sources."mapviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

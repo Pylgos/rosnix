@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-prbt-pg70-support";
+  pname = "moveit_resources_prbt_pg70_support";
   version = "2.10.0-1";
   src = sources."moveit_resources_prbt_pg70_support";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

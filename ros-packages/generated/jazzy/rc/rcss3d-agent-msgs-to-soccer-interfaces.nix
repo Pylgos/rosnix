@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcss3d-agent-msgs-to-soccer-interfaces";
+  pname = "rcss3d_agent_msgs_to_soccer_interfaces";
   version = "0.4.1-4";
   src = sources."rcss3d_agent_msgs_to_soccer_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

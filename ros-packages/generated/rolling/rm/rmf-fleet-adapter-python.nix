@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-fleet-adapter-python";
+  pname = "rmf_fleet_adapter_python";
   version = "2.7.1-1";
   src = sources."rmf_fleet_adapter_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

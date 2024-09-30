@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "generate-parameter-library";
+  pname = "generate_parameter_library";
   version = "0.3.8-4";
   src = sources."generate_parameter_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

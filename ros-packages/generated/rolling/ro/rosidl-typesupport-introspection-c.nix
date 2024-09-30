@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-typesupport-introspection-c";
+  pname = "rosidl_typesupport_introspection_c";
   version = "4.8.1-1";
   src = sources."rosidl_typesupport_introspection_c";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

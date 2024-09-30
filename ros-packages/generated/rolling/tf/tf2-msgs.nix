@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-msgs";
+  pname = "tf2_msgs";
   version = "0.38.2-1";
   src = sources."tf2_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

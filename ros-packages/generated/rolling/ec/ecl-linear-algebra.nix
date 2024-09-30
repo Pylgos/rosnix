@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-linear-algebra";
+  pname = "ecl_linear_algebra";
   version = "1.2.1-4";
   src = sources."ecl_linear_algebra";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

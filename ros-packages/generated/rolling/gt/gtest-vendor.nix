@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gtest-vendor";
+  pname = "gtest_vendor";
   version = "1.15.0-1";
   src = sources."gtest_vendor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

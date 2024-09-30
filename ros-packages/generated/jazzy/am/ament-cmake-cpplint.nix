@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-cpplint";
+  pname = "ament_cmake_cpplint";
   version = "0.17.1-1";
   src = sources."ament_cmake_cpplint";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

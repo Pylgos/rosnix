@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-bt-navigator";
+  pname = "nav2_bt_navigator";
   version = "1.3.2-1";
   src = sources."nav2_bt_navigator";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

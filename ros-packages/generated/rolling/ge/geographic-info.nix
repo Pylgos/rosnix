@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "geographic-info";
+  pname = "geographic_info";
   version = "1.0.6-1";
   src = sources."geographic_info";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

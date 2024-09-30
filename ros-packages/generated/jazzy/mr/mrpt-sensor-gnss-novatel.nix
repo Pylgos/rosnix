@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-sensor-gnss-novatel";
+  pname = "mrpt_sensor_gnss_novatel";
   version = "0.2.3-1";
   src = sources."mrpt_sensor_gnss_novatel";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

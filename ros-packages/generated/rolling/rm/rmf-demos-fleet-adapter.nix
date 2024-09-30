@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-fleet-adapter";
+  pname = "rmf_demos_fleet_adapter";
   version = "2.4.0-1";
   src = sources."rmf_demos_fleet_adapter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

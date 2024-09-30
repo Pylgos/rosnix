@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "google-benchmark-vendor";
+  pname = "google_benchmark_vendor";
   version = "0.5.0-2";
   src = sources."google_benchmark_vendor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };

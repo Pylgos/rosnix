@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "random-numbers";
+  pname = "random_numbers";
   version = "2.0.1-5";
   src = sources."random_numbers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

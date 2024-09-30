@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-license";
+  pname = "ecl_license";
   version = "1.0.3-5";
   src = sources."ecl_license";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

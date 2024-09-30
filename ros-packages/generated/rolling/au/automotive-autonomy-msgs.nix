@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "automotive-autonomy-msgs";
+  pname = "automotive_autonomy_msgs";
   version = "3.0.4-5";
   src = sources."automotive_autonomy_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

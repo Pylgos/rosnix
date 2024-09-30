@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-runtime-monitor";
+  pname = "rqt_runtime_monitor";
   version = "1.0.0-4";
   src = sources."rqt_runtime_monitor";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

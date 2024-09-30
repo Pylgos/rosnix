@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-msgs";
+  pname = "leo_msgs";
   version = "3.0.3-1";
   src = sources."leo_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

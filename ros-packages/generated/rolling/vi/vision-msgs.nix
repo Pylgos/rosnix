@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vision-msgs";
+  pname = "vision_msgs";
   version = "4.1.1-2";
   src = sources."vision_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

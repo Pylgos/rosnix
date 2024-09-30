@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-ros";
+  pname = "apriltag_ros";
   version = "3.2.2-1";
   src = sources."apriltag_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

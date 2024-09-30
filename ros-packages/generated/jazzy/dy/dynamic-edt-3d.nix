@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamic-edt-3d";
+  pname = "dynamic_edt_3d";
   version = "1.10.0-4";
   src = sources."dynamic_edt_3d";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-msgs";
+  pname = "mrpt_msgs";
   version = "0.4.7-2";
   src = sources."mrpt_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

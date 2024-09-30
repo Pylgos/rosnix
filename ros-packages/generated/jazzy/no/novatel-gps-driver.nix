@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "novatel-gps-driver";
+  pname = "novatel_gps_driver";
   version = "4.1.2-5";
   src = sources."novatel_gps_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

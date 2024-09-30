@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-descriptions";
+  pname = "depthai_descriptions";
   version = "2.10.1-1";
   src = sources."depthai_descriptions";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

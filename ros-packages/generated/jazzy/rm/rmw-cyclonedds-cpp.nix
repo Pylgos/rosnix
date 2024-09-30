@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-cyclonedds-cpp";
+  pname = "rmw_cyclonedds_cpp";
   version = "2.2.2-1";
   src = sources."rmw_cyclonedds_cpp";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

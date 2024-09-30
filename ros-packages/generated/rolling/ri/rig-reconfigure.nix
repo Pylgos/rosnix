@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rig-reconfigure";
+  pname = "rig_reconfigure";
   version = "1.5.0-1";
   src = sources."rig_reconfigure";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

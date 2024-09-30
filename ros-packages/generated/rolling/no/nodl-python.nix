@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nodl-python";
+  pname = "nodl_python";
   version = "0.3.1-4";
   src = sources."nodl_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

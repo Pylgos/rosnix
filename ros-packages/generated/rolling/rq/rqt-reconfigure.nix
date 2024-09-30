@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-reconfigure";
+  pname = "rqt_reconfigure";
   version = "1.7.0-1";
   src = sources."rqt_reconfigure";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

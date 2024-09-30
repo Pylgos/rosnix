@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "simple-term-menu-vendor";
+  pname = "simple_term_menu_vendor";
   version = "1.5.7-1";
   src = sources."simple_term_menu_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

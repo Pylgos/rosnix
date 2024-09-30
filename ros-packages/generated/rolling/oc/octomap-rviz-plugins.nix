@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "octomap-rviz-plugins";
+  pname = "octomap_rviz_plugins";
   version = "2.1.0-1";
   src = sources."octomap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

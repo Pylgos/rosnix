@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-lidar-odometry";
+  pname = "mola_lidar_odometry";
   version = "0.3.3-1";
   src = sources."mola_lidar_odometry";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

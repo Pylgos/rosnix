@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-laserscan";
+  pname = "velodyne_laserscan";
   version = "2.3.0-3";
   src = sources."velodyne_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-core";
+  pname = "flexbe_core";
   version = "3.0.3-1";
   src = sources."flexbe_core";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

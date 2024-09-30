@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libposes";
+  pname = "mrpt_libposes";
   version = "2.14.1-1";
   src = sources."mrpt_libposes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

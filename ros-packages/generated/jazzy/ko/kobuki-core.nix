@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kobuki-core";
+  pname = "kobuki_core";
   version = "1.4.0-4";
   src = sources."kobuki_core";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

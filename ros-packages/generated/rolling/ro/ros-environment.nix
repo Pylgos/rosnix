@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-environment";
+  pname = "ros_environment";
   version = "4.3.0-1";
   src = sources."ros_environment";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

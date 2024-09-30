@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-visual-testing-framework";
+  pname = "rviz_visual_testing_framework";
   version = "14.2.6-1";
   src = sources."rviz_visual_testing_framework";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

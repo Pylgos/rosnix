@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "simple-launch";
+  pname = "simple_launch";
   version = "1.10.1-1";
   src = sources."simple_launch";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

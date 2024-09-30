@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-input-kitti360-dataset";
+  pname = "mola_input_kitti360_dataset";
   version = "1.2.0-1";
   src = sources."mola_input_kitti360_dataset";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

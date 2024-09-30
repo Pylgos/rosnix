@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-ipc";
+  pname = "ecl_ipc";
   version = "1.2.1-5";
   src = sources."ecl_ipc";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

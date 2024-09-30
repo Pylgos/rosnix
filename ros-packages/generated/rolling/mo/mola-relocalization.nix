@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-relocalization";
+  pname = "mola_relocalization";
   version = "1.2.0-1";
   src = sources."mola_relocalization";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

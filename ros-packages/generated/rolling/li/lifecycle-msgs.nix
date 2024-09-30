@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lifecycle-msgs";
+  pname = "lifecycle_msgs";
   version = "2.2.0-1";
   src = sources."lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

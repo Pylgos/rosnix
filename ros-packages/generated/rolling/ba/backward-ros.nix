@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "backward-ros";
+  pname = "backward_ros";
   version = "1.0.5-1";
   src = sources."backward_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

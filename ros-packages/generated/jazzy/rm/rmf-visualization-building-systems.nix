@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-building-systems";
+  pname = "rmf_visualization_building_systems";
   version = "2.3.2-1";
   src = sources."rmf_visualization_building_systems";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

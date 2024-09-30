@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-states";
+  pname = "flexbe_states";
   version = "3.0.3-1";
   src = sources."flexbe_states";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

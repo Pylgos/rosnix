@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-pcl";
+  pname = "grid_map_pcl";
   version = "2.2.0-1";
   src = sources."grid_map_pcl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

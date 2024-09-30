@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-bullet";
+  pname = "tf2_bullet";
   version = "0.36.4-1";
   src = sources."tf2_bullet";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

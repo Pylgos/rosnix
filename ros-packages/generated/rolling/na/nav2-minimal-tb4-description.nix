@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-minimal-tb4-description";
+  pname = "nav2_minimal_tb4_description";
   version = "1.0.1-1";
   src = sources."nav2_minimal_tb4_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

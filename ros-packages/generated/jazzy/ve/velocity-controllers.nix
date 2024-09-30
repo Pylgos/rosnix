@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velocity-controllers";
+  pname = "velocity_controllers";
   version = "4.14.0-1";
   src = sources."velocity_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

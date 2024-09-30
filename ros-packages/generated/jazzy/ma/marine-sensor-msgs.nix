@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marine-sensor-msgs";
+  pname = "marine_sensor_msgs";
   version = "2.1.0-2";
   src = sources."marine_sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

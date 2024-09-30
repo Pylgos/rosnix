@@ -23,6 +23,11 @@ let
       substitutions = [
         {
           path = "CMakeLists.txt";
+          from = "VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype"}";
+        }
+        {
+          path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/OGRECave/ogre.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/ogre"}";
         }
@@ -31,6 +36,16 @@ let
           from = "VCS_URL https://github.com/madler/zlib.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
+      ];
+    };
+    "rviz_ogre_vendor/freetype" = substituteSource {
+      src = fetchgit {
+        name = "freetype-source";
+        url = "https://gitlab.freedesktop.org/freetype/freetype.git";
+        rev = "3f83daeecb1a78d851b660eed025eeba362c0e4a";
+        hash = "sha256-UEn5Renp7EK9hTNRLiV7sec70zvY8mrLRwJoZ6aUJEE=";
+      };
+      substitutions = [
       ];
     };
     "rviz_ogre_vendor/ogre" = substituteSource {
@@ -140,7 +155,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-ogre-vendor";
+  pname = "rviz_ogre_vendor";
   version = "14.1.5-1";
   src = sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

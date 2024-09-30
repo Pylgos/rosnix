@@ -50,7 +50,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-physics-vendor";
+  pname = "gz_physics_vendor";
   version = "0.0.4-1";
   src = sources."gz_physics_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

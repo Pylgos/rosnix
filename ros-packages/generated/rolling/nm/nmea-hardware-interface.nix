@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nmea-hardware-interface";
+  pname = "nmea_hardware_interface";
   version = "0.0.1-4";
   src = sources."nmea_hardware_interface";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

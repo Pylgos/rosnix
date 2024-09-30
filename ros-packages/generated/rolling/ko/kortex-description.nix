@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kortex-description";
+  pname = "kortex_description";
   version = "0.2.2-2";
   src = sources."kortex_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

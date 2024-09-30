@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-behavior-engine";
+  pname = "flexbe_behavior_engine";
   version = "3.0.3-1";
   src = sources."flexbe_behavior_engine";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

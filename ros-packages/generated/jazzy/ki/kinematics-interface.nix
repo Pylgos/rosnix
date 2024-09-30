@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kinematics-interface";
+  pname = "kinematics_interface";
   version = "1.1.0-1";
   src = sources."kinematics_interface";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

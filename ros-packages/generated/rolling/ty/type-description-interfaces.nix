@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "type-description-interfaces";
+  pname = "type_description_interfaces";
   version = "2.2.0-1";
   src = sources."type_description_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

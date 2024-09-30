@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbridge-test-msgs";
+  pname = "rosbridge_test_msgs";
   version = "1.3.2-3";
   src = sources."rosbridge_test_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

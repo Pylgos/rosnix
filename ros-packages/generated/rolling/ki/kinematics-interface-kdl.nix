@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kinematics-interface-kdl";
+  pname = "kinematics_interface_kdl";
   version = "1.1.0-1";
   src = sources."kinematics_interface_kdl";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

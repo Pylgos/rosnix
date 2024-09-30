@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "keyboard-handler";
+  pname = "keyboard_handler";
   version = "0.3.1-2";
   src = sources."keyboard_handler";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

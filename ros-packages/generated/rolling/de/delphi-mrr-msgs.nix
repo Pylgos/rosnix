@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "delphi-mrr-msgs";
+  pname = "delphi_mrr_msgs";
   version = "4.0.0-3";
   src = sources."delphi_mrr_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

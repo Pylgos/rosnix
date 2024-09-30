@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "polygon-demos";
+  pname = "polygon_demos";
   version = "1.1.0-1";
   src = sources."polygon_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-rotation-shim-controller";
+  pname = "nav2_rotation_shim_controller";
   version = "1.3.2-1";
   src = sources."nav2_rotation_shim_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

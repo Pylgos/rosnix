@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-control-interface";
+  pname = "moveit_ros_control_interface";
   version = "2.11.0-1";
   src = sources."moveit_ros_control_interface";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

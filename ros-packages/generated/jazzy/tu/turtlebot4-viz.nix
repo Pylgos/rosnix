@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-viz";
+  pname = "turtlebot4_viz";
   version = "2.0.1-1";
   src = sources."turtlebot4_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fastrtps-cmake-module";
+  pname = "fastrtps_cmake_module";
   version = "3.7.0-1";
   src = sources."fastrtps_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

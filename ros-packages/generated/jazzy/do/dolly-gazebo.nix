@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dolly-gazebo";
+  pname = "dolly_gazebo";
   version = "0.4.0-6";
   src = sources."dolly_gazebo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

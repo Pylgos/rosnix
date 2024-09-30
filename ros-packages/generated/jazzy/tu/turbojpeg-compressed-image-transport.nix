@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turbojpeg-compressed-image-transport";
+  pname = "turbojpeg_compressed_image_transport";
   version = "0.2.1-5";
   src = sources."turbojpeg_compressed_image_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

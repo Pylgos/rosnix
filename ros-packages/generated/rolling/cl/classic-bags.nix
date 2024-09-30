@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "classic-bags";
+  pname = "classic_bags";
   version = "0.4.0-1";
   src = sources."classic_bags";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

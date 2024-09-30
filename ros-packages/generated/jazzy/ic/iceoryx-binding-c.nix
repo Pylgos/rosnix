@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "iceoryx-binding-c";
+  pname = "iceoryx_binding_c";
   version = "2.0.5-6";
   src = sources."iceoryx_binding_c";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "event-camera-codecs";
+  pname = "event_camera_codecs";
   version = "1.3.5-1";
   src = sources."event_camera_codecs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

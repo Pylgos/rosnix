@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gmock-vendor";
+  pname = "gmock_vendor";
   version = "1.14.9000-2";
   src = sources."gmock_vendor";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

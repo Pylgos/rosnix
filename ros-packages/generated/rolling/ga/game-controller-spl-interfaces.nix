@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "game-controller-spl-interfaces";
+  pname = "game_controller_spl_interfaces";
   version = "4.0.1-1";
   src = sources."game_controller_spl_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

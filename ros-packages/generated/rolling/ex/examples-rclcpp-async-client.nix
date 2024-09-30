@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-async-client";
+  pname = "examples_rclcpp_async_client";
   version = "0.20.2-1";
   src = sources."examples_rclcpp_async_client";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

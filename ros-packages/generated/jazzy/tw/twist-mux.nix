@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "twist-mux";
+  pname = "twist_mux";
   version = "4.3.0-3";
   src = sources."twist_mux";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

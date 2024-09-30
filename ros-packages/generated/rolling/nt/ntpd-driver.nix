@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ntpd-driver";
+  pname = "ntpd_driver";
   version = "2.2.0-3";
   src = sources."ntpd_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-typesupport-fastrtps-cpp";
+  pname = "rosidl_typesupport_fastrtps_cpp";
   version = "3.7.0-1";
   src = sources."rosidl_typesupport_fastrtps_cpp";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

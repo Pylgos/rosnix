@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depth-image-proc";
+  pname = "depth_image_proc";
   version = "6.0.3-1";
   src = sources."depth_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

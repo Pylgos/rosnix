@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-storage";
+  pname = "rosbag2_storage";
   version = "0.26.5-1";
   src = sources."rosbag2_storage";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

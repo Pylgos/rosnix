@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-visual-tools";
+  pname = "moveit_visual_tools";
   version = "4.1.0-3";
   src = sources."moveit_visual_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

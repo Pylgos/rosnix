@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-viz";
+  pname = "leo_viz";
   version = "3.0.0-3";
   src = sources."leo_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

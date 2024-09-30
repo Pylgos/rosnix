@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "etsi-its-coding";
+  pname = "etsi_its_coding";
   version = "2.2.0-1";
   src = sources."etsi_its_coding";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

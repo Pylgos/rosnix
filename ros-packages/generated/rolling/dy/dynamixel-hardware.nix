@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamixel-hardware";
+  pname = "dynamixel_hardware";
   version = "0.6.0-1";
   src = sources."dynamixel_hardware";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

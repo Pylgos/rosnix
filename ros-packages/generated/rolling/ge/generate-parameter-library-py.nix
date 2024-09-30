@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "generate-parameter-library-py";
+  pname = "generate_parameter_library_py";
   version = "0.3.8-3";
   src = sources."generate_parameter_library_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

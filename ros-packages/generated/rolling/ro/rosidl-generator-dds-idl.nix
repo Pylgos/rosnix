@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-generator-dds-idl";
+  pname = "rosidl_generator_dds_idl";
   version = "0.12.0-1";
   src = sources."rosidl_generator_dds_idl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

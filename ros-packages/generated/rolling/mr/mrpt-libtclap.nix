@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libtclap";
+  pname = "mrpt_libtclap";
   version = "2.14.1-1";
   src = sources."mrpt_libtclap";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tensorrt-cmake-module";
+  pname = "tensorrt_cmake_module";
   version = "0.0.3-4";
   src = sources."tensorrt_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

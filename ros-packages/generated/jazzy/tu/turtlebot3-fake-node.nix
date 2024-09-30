@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot3-fake-node";
+  pname = "turtlebot3_fake_node";
   version = "2.2.5-5";
   src = sources."turtlebot3_fake_node";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "realsense2-camera";
+  pname = "realsense2_camera";
   version = "4.55.1-3";
   src = sources."realsense2_camera";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

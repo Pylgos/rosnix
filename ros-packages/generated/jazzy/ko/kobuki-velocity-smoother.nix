@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kobuki-velocity-smoother";
+  pname = "kobuki_velocity_smoother";
   version = "0.15.0-4";
   src = sources."kobuki_velocity_smoother";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

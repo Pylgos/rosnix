@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-transport";
+  pname = "rosbag2_transport";
   version = "0.29.0-1";
   src = sources."rosbag2_transport";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

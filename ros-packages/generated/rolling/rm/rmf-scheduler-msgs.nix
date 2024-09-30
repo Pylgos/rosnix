@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-scheduler-msgs";
+  pname = "rmf_scheduler_msgs";
   version = "3.4.0-1";
   src = sources."rmf_scheduler_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-pclint";
+  pname = "ament_pclint";
   version = "0.18.1-1";
   src = sources."ament_pclint";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-bridges";
+  pname = "rmf_demos_bridges";
   version = "2.4.0-1";
   src = sources."rmf_demos_bridges";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

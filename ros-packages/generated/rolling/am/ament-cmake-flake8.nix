@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-flake8";
+  pname = "ament_cmake_flake8";
   version = "0.18.1-1";
   src = sources."ament_cmake_flake8";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

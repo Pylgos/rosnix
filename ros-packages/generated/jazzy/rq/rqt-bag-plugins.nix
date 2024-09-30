@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-bag-plugins";
+  pname = "rqt_bag_plugins";
   version = "1.5.4-1";
   src = sources."rqt_bag_plugins";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

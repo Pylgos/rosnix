@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "etsi-its-primitives-conversion";
+  pname = "etsi_its_primitives_conversion";
   version = "2.2.0-1";
   src = sources."etsi_its_primitives_conversion";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

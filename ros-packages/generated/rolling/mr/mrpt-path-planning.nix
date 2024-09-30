@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-path-planning";
+  pname = "mrpt_path_planning";
   version = "0.1.5-1";
   src = sources."mrpt_path_planning";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

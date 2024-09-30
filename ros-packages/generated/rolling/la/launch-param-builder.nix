@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "launch-param-builder";
+  pname = "launch_param_builder";
   version = "0.1.1-3";
   src = sources."launch_param_builder";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

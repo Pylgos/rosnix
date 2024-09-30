@@ -45,7 +45,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-math-vendor";
+  pname = "gz_math_vendor";
   version = "0.0.6-1";
   src = sources."gz_math_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

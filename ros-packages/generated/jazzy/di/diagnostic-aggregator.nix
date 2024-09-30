@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "diagnostic-aggregator";
+  pname = "diagnostic_aggregator";
   version = "4.2.1-1";
   src = sources."diagnostic_aggregator";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

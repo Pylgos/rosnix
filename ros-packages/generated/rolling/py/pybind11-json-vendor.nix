@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pybind11-json-vendor";
+  pname = "pybind11_json_vendor";
   version = "0.5.0-1";
   src = sources."pybind11_json_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

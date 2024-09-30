@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "geometric-shapes";
+  pname = "geometric_shapes";
   version = "2.2.1-1";
   src = sources."geometric_shapes";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

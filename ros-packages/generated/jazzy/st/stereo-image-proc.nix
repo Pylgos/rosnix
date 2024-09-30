@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "stereo-image-proc";
+  pname = "stereo_image_proc";
   version = "5.0.4-1";
   src = sources."stereo_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

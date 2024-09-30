@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ntrip-client";
+  pname = "ntrip_client";
   version = "1.3.0-2";
   src = sources."ntrip_client";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

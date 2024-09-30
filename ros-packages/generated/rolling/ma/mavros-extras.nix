@@ -55,7 +55,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mavros-extras";
+  pname = "mavros_extras";
   version = "2.8.0-1";
   src = sources."mavros_extras";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

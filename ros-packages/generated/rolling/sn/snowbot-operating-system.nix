@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "snowbot-operating-system";
+  pname = "snowbot_operating_system";
   version = "0.1.2-4";
   src = sources."snowbot_operating_system";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

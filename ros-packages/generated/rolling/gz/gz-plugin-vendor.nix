@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-plugin-vendor";
+  pname = "gz_plugin_vendor";
   version = "0.1.0-1";
   src = sources."gz_plugin_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

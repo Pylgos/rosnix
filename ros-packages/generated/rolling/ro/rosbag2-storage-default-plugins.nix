@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-storage-default-plugins";
+  pname = "rosbag2_storage_default_plugins";
   version = "0.29.0-1";
   src = sources."rosbag2_storage_default_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

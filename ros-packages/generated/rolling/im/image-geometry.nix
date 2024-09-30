@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-geometry";
+  pname = "image_geometry";
   version = "4.1.0-1";
   src = sources."image_geometry";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

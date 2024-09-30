@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-calibration";
+  pname = "ur_calibration";
   version = "2.4.10-1";
   src = sources."ur_calibration";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dummy-robot-bringup";
+  pname = "dummy_robot_bringup";
   version = "0.33.5-1";
   src = sources."dummy_robot_bringup";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

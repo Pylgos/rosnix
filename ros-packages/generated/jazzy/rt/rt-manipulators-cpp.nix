@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rt-manipulators-cpp";
+  pname = "rt_manipulators_cpp";
   version = "1.1.0-1";
   src = sources."rt_manipulators_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

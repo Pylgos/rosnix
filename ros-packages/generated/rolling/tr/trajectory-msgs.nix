@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "trajectory-msgs";
+  pname = "trajectory_msgs";
   version = "5.4.1-1";
   src = sources."trajectory_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

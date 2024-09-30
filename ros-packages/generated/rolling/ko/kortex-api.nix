@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kortex-api";
+  pname = "kortex_api";
   version = "0.2.2-2";
   src = sources."kortex_api";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

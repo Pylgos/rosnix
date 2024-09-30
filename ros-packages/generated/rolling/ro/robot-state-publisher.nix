@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robot-state-publisher";
+  pname = "robot_state_publisher";
   version = "3.4.1-1";
   src = sources."robot_state_publisher";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

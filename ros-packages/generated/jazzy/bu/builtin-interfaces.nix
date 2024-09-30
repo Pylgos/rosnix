@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "builtin-interfaces";
+  pname = "builtin_interfaces";
   version = "2.0.2-2";
   src = sources."builtin_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

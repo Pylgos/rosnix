@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-pytest";
+  pname = "ament_cmake_pytest";
   version = "2.5.2-1";
   src = sources."ament_cmake_pytest";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

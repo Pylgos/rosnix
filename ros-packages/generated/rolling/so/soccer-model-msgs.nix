@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-model-msgs";
+  pname = "soccer_model_msgs";
   version = "1.0.0-1";
   src = sources."soccer_model_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

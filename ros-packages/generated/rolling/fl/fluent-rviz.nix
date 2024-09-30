@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fluent-rviz";
+  pname = "fluent_rviz";
   version = "0.0.3-4";
   src = sources."fluent_rviz";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

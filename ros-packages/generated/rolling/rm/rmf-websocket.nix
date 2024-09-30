@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-websocket";
+  pname = "rmf_websocket";
   version = "2.7.1-1";
   src = sources."rmf_websocket";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

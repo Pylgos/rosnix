@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-simple-commander";
+  pname = "nav2_simple_commander";
   version = "1.3.2-1";
   src = sources."nav2_simple_commander";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

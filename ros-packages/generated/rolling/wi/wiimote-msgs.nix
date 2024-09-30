@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "wiimote-msgs";
+  pname = "wiimote_msgs";
   version = "3.3.0-2";
   src = sources."wiimote_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

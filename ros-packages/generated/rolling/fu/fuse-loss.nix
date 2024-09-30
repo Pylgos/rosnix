@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-loss";
+  pname = "fuse_loss";
   version = "1.2.1-1";
   src = sources."fuse_loss";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

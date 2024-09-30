@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robot-calibration-msgs";
+  pname = "robot_calibration_msgs";
   version = "0.9.1-1";
   src = sources."robot_calibration_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

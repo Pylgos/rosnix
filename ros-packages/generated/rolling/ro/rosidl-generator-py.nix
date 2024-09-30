@@ -47,7 +47,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-generator-py";
+  pname = "rosidl_generator_py";
   version = "0.23.1-1";
   src = sources."rosidl_generator_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

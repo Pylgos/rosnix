@@ -91,7 +91,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "performance-test";
+  pname = "performance_test";
   version = "2.3.0-1";
   src = sources."performance_test";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

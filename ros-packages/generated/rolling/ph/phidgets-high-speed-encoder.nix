@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-high-speed-encoder";
+  pname = "phidgets_high_speed_encoder";
   version = "2.3.3-1";
   src = sources."phidgets_high_speed_encoder";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

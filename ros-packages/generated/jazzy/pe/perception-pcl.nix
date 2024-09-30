@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "perception-pcl";
+  pname = "perception_pcl";
   version = "2.6.1-4";
   src = sources."perception_pcl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

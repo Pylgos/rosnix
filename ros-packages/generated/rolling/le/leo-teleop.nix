@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-teleop";
+  pname = "leo_teleop";
   version = "3.0.3-1";
   src = sources."leo_teleop";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

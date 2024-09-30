@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lanelet2-traffic-rules";
+  pname = "lanelet2_traffic_rules";
   version = "1.2.1-1";
   src = sources."lanelet2_traffic_rules";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "laser-filters";
+  pname = "laser_filters";
   version = "2.0.7-3";
   src = sources."laser_filters";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

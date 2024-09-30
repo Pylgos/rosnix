@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "qt-gui-py-common";
+  pname = "qt_gui_py_common";
   version = "2.7.4-2";
   src = sources."qt_gui_py_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

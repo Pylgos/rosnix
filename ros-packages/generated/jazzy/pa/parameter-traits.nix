@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "parameter-traits";
+  pname = "parameter_traits";
   version = "0.3.8-4";
   src = sources."parameter_traits";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

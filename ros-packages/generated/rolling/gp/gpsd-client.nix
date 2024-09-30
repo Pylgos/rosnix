@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gpsd-client";
+  pname = "gpsd_client";
   version = "2.0.4-1";
   src = sources."gpsd_client";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

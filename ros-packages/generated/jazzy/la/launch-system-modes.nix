@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "launch-system-modes";
+  pname = "launch_system_modes";
   version = "0.9.0-6";
   src = sources."launch_system_modes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

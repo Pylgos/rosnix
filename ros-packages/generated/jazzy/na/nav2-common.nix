@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-common";
+  pname = "nav2_common";
   version = "1.3.2-1";
   src = sources."nav2_common";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

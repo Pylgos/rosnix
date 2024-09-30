@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-ogre-next-vendor";
+  pname = "gz_ogre_next_vendor";
   version = "0.0.5-1";
   src = sources."gz_ogre_next_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

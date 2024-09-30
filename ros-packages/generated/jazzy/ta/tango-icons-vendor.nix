@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tango-icons-vendor";
+  pname = "tango_icons_vendor";
   version = "0.3.0-3";
   src = sources."tango_icons_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

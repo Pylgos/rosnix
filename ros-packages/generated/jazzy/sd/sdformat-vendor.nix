@@ -47,7 +47,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sdformat-vendor";
+  pname = "sdformat_vendor";
   version = "0.0.6-1";
   src = sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

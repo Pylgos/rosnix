@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-temperature";
+  pname = "phidgets_temperature";
   version = "2.3.3-2";
   src = sources."phidgets_temperature";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

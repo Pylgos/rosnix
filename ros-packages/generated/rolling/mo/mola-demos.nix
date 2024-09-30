@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-demos";
+  pname = "mola_demos";
   version = "1.2.0-1";
   src = sources."mola_demos";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

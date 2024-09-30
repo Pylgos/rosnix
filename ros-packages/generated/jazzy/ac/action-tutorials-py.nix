@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "action-tutorials-py";
+  pname = "action_tutorials_py";
   version = "0.33.5-1";
   src = sources."action_tutorials_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

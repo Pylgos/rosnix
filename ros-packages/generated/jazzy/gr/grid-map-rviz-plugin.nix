@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-rviz-plugin";
+  pname = "grid_map_rviz_plugin";
   version = "2.2.0-1";
   src = sources."grid_map_rviz_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

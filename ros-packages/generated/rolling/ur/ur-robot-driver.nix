@@ -56,7 +56,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-robot-driver";
+  pname = "ur_robot_driver";
   version = "2.4.10-1";
   src = sources."ur_robot_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

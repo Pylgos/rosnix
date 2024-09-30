@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joint-state-publisher";
+  pname = "joint_state_publisher";
   version = "2.4.0-3";
   src = sources."joint_state_publisher";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

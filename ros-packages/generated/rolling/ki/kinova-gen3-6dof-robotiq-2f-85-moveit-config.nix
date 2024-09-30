@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kinova-gen3-6dof-robotiq-2f-85-moveit-config";
+  pname = "kinova_gen3_6dof_robotiq_2f_85_moveit_config";
   version = "0.2.2-2";
   src = sources."kinova_gen3_6dof_robotiq_2f_85_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

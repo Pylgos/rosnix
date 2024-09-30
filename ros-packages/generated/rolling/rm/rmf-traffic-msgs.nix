@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-msgs";
+  pname = "rmf_traffic_msgs";
   version = "3.4.0-1";
   src = sources."rmf_traffic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

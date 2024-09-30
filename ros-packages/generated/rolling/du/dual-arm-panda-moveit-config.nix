@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dual-arm-panda-moveit-config";
+  pname = "dual_arm_panda_moveit_config";
   version = "3.0.0-2";
   src = sources."dual_arm_panda_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

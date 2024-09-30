@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-image-view";
+  pname = "rqt_image_view";
   version = "1.3.0-1";
   src = sources."rqt_image_view";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

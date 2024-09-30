@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "camera-info-manager";
+  pname = "camera_info_manager";
   version = "5.3.2-1";
   src = sources."camera_info_manager";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

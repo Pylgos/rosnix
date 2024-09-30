@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-description";
+  pname = "irobot_create_description";
   version = "3.0.2-2";
   src = sources."irobot_create_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

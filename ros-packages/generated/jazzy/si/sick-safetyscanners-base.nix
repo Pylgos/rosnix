@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safetyscanners-base";
+  pname = "sick_safetyscanners_base";
   version = "1.0.3-1";
   src = sources."sick_safetyscanners_base";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

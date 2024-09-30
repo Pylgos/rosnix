@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-eigen-kdl";
+  pname = "tf2_eigen_kdl";
   version = "0.36.4-1";
   src = sources."tf2_eigen_kdl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

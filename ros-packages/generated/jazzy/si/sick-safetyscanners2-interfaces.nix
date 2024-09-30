@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safetyscanners2-interfaces";
+  pname = "sick_safetyscanners2_interfaces";
   version = "1.0.0-1";
   src = sources."sick_safetyscanners2_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

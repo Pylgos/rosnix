@@ -54,7 +54,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "slam-toolbox";
+  pname = "slam_toolbox";
   version = "2.8.1-2";
   src = sources."slam_toolbox";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

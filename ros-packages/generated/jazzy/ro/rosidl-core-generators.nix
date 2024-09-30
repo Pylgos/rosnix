@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-core-generators";
+  pname = "rosidl_core_generators";
   version = "0.2.0-3";
   src = sources."rosidl_core_generators";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

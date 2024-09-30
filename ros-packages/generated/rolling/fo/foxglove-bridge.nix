@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "foxglove-bridge";
+  pname = "foxglove_bridge";
   version = "0.8.0-1";
   src = sources."foxglove_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

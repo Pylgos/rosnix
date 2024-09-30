@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-sensor-gnss-nmea";
+  pname = "mrpt_sensor_gnss_nmea";
   version = "0.2.3-1";
   src = sources."mrpt_sensor_gnss_nmea";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "system-fingerprint";
+  pname = "system_fingerprint";
   version = "0.7.0-3";
   src = sources."system_fingerprint";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

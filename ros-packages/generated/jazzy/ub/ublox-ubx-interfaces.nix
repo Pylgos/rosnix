@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-ubx-interfaces";
+  pname = "ublox_ubx_interfaces";
   version = "0.5.3-2";
   src = sources."ublox_ubx_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

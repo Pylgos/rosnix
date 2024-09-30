@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marti-perception-msgs";
+  pname = "marti_perception_msgs";
   version = "1.6.1-1";
   src = sources."marti_perception_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

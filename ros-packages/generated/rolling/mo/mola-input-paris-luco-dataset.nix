@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-input-paris-luco-dataset";
+  pname = "mola_input_paris_luco_dataset";
   version = "1.2.0-1";
   src = sources."mola_input_paris_luco_dataset";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

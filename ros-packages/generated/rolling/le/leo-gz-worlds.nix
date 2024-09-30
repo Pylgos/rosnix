@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-gz-worlds";
+  pname = "leo_gz_worlds";
   version = "2.0.0-1";
   src = sources."leo_gz_worlds";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

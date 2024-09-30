@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "teleop-tools";
+  pname = "teleop_tools";
   version = "1.5.1-1";
   src = sources."teleop_tools";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

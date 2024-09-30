@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "teleop-twist-joy";
+  pname = "teleop_twist_joy";
   version = "2.6.2-1";
   src = sources."teleop_twist_joy";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

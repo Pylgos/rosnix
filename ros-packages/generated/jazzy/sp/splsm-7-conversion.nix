@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "splsm-7-conversion";
+  pname = "splsm_7_conversion";
   version = "3.0.1-4";
   src = sources."splsm_7_conversion";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

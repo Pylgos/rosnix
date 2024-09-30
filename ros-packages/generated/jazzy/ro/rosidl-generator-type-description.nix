@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-generator-type-description";
+  pname = "rosidl_generator_type_description";
   version = "4.6.4-1";
   src = sources."rosidl_generator_type_description";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

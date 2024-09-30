@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-acceleration";
+  pname = "ament_acceleration";
   version = "0.2.0-4";
   src = sources."ament_acceleration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

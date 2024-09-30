@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dummy-map-server";
+  pname = "dummy_map_server";
   version = "0.33.5-1";
   src = sources."dummy_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

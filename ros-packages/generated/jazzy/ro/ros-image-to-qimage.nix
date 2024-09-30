@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-image-to-qimage";
+  pname = "ros_image_to_qimage";
   version = "0.4.1-4";
   src = sources."ros_image_to_qimage";
   nativeBuildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

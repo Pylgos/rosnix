@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-tasks";
+  pname = "rmf_demos_tasks";
   version = "2.4.0-1";
   src = sources."rmf_demos_tasks";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

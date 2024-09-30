@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tricycle-steering-controller";
+  pname = "tricycle_steering_controller";
   version = "4.14.0-1";
   src = sources."tricycle_steering_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

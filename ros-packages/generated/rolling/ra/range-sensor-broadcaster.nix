@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "range-sensor-broadcaster";
+  pname = "range_sensor_broadcaster";
   version = "4.14.0-1";
   src = sources."range_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

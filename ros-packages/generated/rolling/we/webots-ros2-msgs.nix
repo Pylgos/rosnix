@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-msgs";
+  pname = "webots_ros2_msgs";
   version = "2023.1.3-1";
   src = sources."webots_ros2_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

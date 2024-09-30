@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grbl-ros";
+  pname = "grbl_ros";
   version = "0.0.16-6";
   src = sources."grbl_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

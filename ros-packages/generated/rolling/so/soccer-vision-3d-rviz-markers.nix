@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-vision-3d-rviz-markers";
+  pname = "soccer_vision_3d_rviz_markers";
   version = "1.0.0-1";
   src = sources."soccer_vision_3d_rviz_markers";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

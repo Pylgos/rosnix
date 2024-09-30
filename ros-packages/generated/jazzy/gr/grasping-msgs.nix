@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grasping-msgs";
+  pname = "grasping_msgs";
   version = "0.5.0-1";
   src = sources."grasping_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-navstate-fg";
+  pname = "mola_navstate_fg";
   version = "1.2.0-1";
   src = sources."mola_navstate_fg";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

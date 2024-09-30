@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ouster-sensor-msgs";
+  pname = "ouster_sensor_msgs";
   version = "0.11.1-6";
   src = sources."ouster_sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

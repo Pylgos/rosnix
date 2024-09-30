@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "shared-queues-vendor";
+  pname = "shared_queues_vendor";
   version = "0.26.5-1";
   src = sources."shared_queues_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

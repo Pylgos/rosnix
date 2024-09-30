@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-control";
+  pname = "webots_ros2_control";
   version = "2023.1.3-1";
   src = sources."webots_ros2_control";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

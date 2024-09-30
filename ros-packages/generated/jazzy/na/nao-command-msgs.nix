@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nao-command-msgs";
+  pname = "nao_command_msgs";
   version = "1.0.0-3";
   src = sources."nao_command_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

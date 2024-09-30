@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joint-state-broadcaster";
+  pname = "joint_state_broadcaster";
   version = "4.14.0-1";
   src = sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

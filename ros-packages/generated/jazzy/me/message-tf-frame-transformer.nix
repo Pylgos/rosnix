@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "message-tf-frame-transformer";
+  pname = "message_tf_frame_transformer";
   version = "1.1.2-1";
   src = sources."message_tf_frame_transformer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

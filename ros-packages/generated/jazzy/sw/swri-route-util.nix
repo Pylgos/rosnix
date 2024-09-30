@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-route-util";
+  pname = "swri_route_util";
   version = "3.7.3-1";
   src = sources."swri_route_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flex-sync";
+  pname = "flex_sync";
   version = "2.0.0-1";
   src = sources."flex_sync";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

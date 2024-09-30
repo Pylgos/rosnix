@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlesim-msgs";
+  pname = "turtlesim_msgs";
   version = "1.9.2-1";
   src = sources."turtlesim_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

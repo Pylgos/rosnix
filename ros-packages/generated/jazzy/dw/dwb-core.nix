@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dwb-core";
+  pname = "dwb_core";
   version = "1.3.2-1";
   src = sources."dwb_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

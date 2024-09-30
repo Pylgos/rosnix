@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rti-connext-dds-cmake-module";
+  pname = "rti_connext_dds_cmake_module";
   version = "0.22.0-2";
   src = sources."rti_connext_dds_cmake_module";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

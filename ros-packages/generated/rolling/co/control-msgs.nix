@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "control-msgs";
+  pname = "control_msgs";
   version = "5.2.0-1";
   src = sources."control_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

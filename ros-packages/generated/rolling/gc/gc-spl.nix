@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gc-spl";
+  pname = "gc_spl";
   version = "4.0.1-1";
   src = sources."gc_spl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

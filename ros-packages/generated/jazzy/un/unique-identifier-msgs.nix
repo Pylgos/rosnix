@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "unique-identifier-msgs";
+  pname = "unique_identifier_msgs";
   version = "2.5.0-3";
   src = sources."unique_identifier_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

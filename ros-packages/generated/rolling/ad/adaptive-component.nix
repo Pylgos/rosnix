@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "adaptive-component";
+  pname = "adaptive_component";
   version = "0.2.1-4";
   src = sources."adaptive_component";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

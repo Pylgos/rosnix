@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-maps";
+  pname = "rmf_demos_maps";
   version = "2.4.0-1";
   src = sources."rmf_demos_maps";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

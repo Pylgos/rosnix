@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "multires-image";
+  pname = "multires_image";
   version = "2.4.3-1";
   src = sources."multires_image";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

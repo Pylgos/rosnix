@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "derived-object-msgs";
+  pname = "derived_object_msgs";
   version = "4.0.0-3";
   src = sources."derived_object_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

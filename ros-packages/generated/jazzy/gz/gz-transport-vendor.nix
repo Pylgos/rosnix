@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-transport-vendor";
+  pname = "gz_transport_vendor";
   version = "0.0.5-1";
   src = sources."gz_transport_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

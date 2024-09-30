@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamixel-workbench-toolbox";
+  pname = "dynamixel_workbench_toolbox";
   version = "2.2.3-4";
   src = sources."dynamixel_workbench_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-lint-common";
+  pname = "autoware_lint_common";
   version = "1.0.0-1";
   src = sources."autoware_lint_common";
   nativeBuildInputs = [ ament-cmake-export-dependencies ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

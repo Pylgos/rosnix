@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-performance-benchmarking-msgs";
+  pname = "rosbag2_performance_benchmarking_msgs";
   version = "0.29.0-1";
   src = sources."rosbag2_performance_benchmarking_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

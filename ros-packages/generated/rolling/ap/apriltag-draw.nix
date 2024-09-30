@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-draw";
+  pname = "apriltag_draw";
   version = "2.0.0-1";
   src = sources."apriltag_draw";
   nativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

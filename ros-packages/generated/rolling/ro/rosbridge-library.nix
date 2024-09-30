@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbridge-library";
+  pname = "rosbridge_library";
   version = "1.3.2-2";
   src = sources."rosbridge_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apex-test-tools";
+  pname = "apex_test_tools";
   version = "0.0.2-9";
   src = sources."apex_test_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

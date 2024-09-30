@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nao-lola";
+  pname = "nao_lola";
   version = "1.3.0-1";
   src = sources."nao_lola";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

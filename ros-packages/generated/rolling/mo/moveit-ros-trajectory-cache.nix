@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-trajectory-cache";
+  pname = "moveit_ros_trajectory_cache";
   version = "2.11.0-1";
   src = sources."moveit_ros_trajectory_cache";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

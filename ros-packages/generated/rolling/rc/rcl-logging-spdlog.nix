@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-logging-spdlog";
+  pname = "rcl_logging_spdlog";
   version = "3.2.1-1";
   src = sources."rcl_logging_spdlog";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

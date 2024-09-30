@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-time";
+  pname = "ecl_time";
   version = "1.2.1-5";
   src = sources."ecl_time";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-py-console";
+  pname = "rqt_py_console";
   version = "1.3.0-1";
   src = sources."rqt_py_console";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-description";
+  pname = "leo_description";
   version = "3.0.3-1";
   src = sources."leo_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

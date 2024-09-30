@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-vision-3d-msgs";
+  pname = "soccer_vision_3d_msgs";
   version = "1.0.0-1";
   src = sources."soccer_vision_3d_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

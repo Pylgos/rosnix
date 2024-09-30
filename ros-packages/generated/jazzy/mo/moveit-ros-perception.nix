@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-perception";
+  pname = "moveit_ros_perception";
   version = "2.10.0-1";
   src = sources."moveit_ros_perception";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

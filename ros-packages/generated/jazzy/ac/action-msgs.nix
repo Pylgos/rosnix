@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "action-msgs";
+  pname = "action_msgs";
   version = "2.0.2-2";
   src = sources."action_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

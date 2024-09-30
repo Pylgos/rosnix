@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pcl-conversions";
+  pname = "pcl_conversions";
   version = "2.6.1-3";
   src = sources."pcl_conversions";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

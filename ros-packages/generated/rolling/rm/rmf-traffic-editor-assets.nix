@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-editor-assets";
+  pname = "rmf_traffic_editor_assets";
   version = "1.10.0-1";
   src = sources."rmf_traffic_editor_assets";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

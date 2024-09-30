@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "console-bridge-vendor";
+  pname = "console_bridge_vendor";
   version = "1.7.1-3";
   src = sources."console_bridge_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

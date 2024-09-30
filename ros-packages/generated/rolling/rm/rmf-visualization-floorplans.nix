@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-floorplans";
+  pname = "rmf_visualization_floorplans";
   version = "2.4.0-1";
   src = sources."rmf_visualization_floorplans";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

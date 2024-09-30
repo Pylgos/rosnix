@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-common-vendor";
+  pname = "gz_common_vendor";
   version = "0.0.5-1";
   src = sources."gz_common_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

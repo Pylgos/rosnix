@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-rviz2-plugins";
+  pname = "rmf_visualization_rviz2_plugins";
   version = "2.3.2-1";
   src = sources."rmf_visualization_rviz2_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-fw";
+  pname = "leo_fw";
   version = "1.4.0-3";
   src = sources."leo_fw";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

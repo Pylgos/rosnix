@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-slam";
+  pname = "rtabmap_slam";
   version = "0.21.5-3";
   src = sources."rtabmap_slam";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

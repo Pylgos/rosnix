@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "parallel-gripper-controller";
+  pname = "parallel_gripper_controller";
   version = "4.14.0-1";
   src = sources."parallel_gripper_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-cpp";
+  pname = "rosbag2_cpp";
   version = "0.29.0-1";
   src = sources."rosbag2_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

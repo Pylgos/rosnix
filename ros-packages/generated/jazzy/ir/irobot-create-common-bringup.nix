@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-common-bringup";
+  pname = "irobot_create_common_bringup";
   version = "3.0.2-2";
   src = sources."irobot_create_common_bringup";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

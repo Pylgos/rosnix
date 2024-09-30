@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-nav-interfaces";
+  pname = "mrpt_nav_interfaces";
   version = "2.2.0-1";
   src = sources."mrpt_nav_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-visualization-schedule";
+  pname = "rmf_visualization_schedule";
   version = "2.4.0-1";
   src = sources."rmf_visualization_schedule";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

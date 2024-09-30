@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sick-safetyscanners2";
+  pname = "sick_safetyscanners2";
   version = "1.0.4-1";
   src = sources."sick_safetyscanners2";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

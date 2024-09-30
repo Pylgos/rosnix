@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-tutorials";
+  pname = "fuse_tutorials";
   version = "1.1.1-1";
   src = sources."fuse_tutorials";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

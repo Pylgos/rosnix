@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-kdl";
+  pname = "tf2_kdl";
   version = "0.36.4-1";
   src = sources."tf2_kdl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

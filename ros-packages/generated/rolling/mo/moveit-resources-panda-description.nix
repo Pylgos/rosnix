@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-panda-description";
+  pname = "moveit_resources_panda_description";
   version = "3.0.0-2";
   src = sources."moveit_resources_panda_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

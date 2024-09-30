@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "actuator-msgs";
+  pname = "actuator_msgs";
   version = "0.0.1-3";
   src = sources."actuator_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

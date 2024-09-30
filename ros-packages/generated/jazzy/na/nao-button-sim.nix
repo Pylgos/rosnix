@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nao-button-sim";
+  pname = "nao_button_sim";
   version = "1.0.1-1";
   src = sources."nao_button_sim";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

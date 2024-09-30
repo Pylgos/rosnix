@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-logging-interface";
+  pname = "rcl_logging_interface";
   version = "3.2.1-1";
   src = sources."rcl_logging_interface";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

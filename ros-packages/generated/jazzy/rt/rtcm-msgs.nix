@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtcm-msgs";
+  pname = "rtcm_msgs";
   version = "1.1.6-4";
   src = sources."rtcm_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

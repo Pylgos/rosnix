@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-implementation";
+  pname = "rmw_implementation";
   version = "3.0.1-1";
   src = sources."rmw_implementation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "self-test";
+  pname = "self_test";
   version = "4.2.1-1";
   src = sources."self_test";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

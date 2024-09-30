@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-dbw-interface";
+  pname = "swri_dbw_interface";
   version = "3.7.3-1";
   src = sources."swri_dbw_interface";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

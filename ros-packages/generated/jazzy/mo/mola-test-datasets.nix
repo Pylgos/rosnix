@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-test-datasets";
+  pname = "mola_test_datasets";
   version = "0.3.4-1";
   src = sources."mola_test_datasets";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

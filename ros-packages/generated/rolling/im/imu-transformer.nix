@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-transformer";
+  pname = "imu_transformer";
   version = "0.5.0-2";
   src = sources."imu_transformer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

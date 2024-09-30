@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "spinnaker-camera-driver";
+  pname = "spinnaker_camera_driver";
   version = "2.0.20-1";
   src = sources."spinnaker_camera_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

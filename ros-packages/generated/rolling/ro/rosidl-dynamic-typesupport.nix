@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-dynamic-typesupport";
+  pname = "rosidl_dynamic_typesupport";
   version = "0.2.0-1";
   src = sources."rosidl_dynamic_typesupport";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-epuck";
+  pname = "webots_ros2_epuck";
   version = "2023.1.3-1";
   src = sources."webots_ros2_epuck";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lanelet2-python";
+  pname = "lanelet2_python";
   version = "1.2.1-6";
   src = sources."lanelet2_python";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

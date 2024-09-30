@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nao-sensor-msgs";
+  pname = "nao_sensor_msgs";
   version = "1.0.0-2";
   src = sources."nao_sensor_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

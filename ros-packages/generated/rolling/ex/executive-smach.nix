@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "executive-smach";
+  pname = "executive_smach";
   version = "3.0.3-2";
   src = sources."executive_smach";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

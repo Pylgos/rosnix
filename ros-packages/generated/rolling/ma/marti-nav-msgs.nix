@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marti-nav-msgs";
+  pname = "marti_nav_msgs";
   version = "1.6.1-1";
   src = sources."marti_nav_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

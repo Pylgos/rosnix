@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joint-trajectory-controller";
+  pname = "joint_trajectory_controller";
   version = "4.14.0-1";
   src = sources."joint_trajectory_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

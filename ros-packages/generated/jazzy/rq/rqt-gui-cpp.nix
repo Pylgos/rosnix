@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-gui-cpp";
+  pname = "rqt_gui_cpp";
   version = "1.6.0-2";
   src = sources."rqt_gui_cpp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-accelerometer";
+  pname = "phidgets_accelerometer";
   version = "2.3.3-2";
   src = sources."phidgets_accelerometer";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

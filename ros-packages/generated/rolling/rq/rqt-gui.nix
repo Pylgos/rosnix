@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-gui";
+  pname = "rqt_gui";
   version = "1.7.2-1";
   src = sources."rqt_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

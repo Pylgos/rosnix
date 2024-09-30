@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "steering-controllers-library";
+  pname = "steering_controllers_library";
   version = "4.14.0-1";
   src = sources."steering_controllers_library";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

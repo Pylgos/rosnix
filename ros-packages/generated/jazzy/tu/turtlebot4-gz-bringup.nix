@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-gz-bringup";
+  pname = "turtlebot4_gz_bringup";
   version = "2.0.1-1";
   src = sources."turtlebot4_gz_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

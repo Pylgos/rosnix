@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "performance-test-fixture";
+  pname = "performance_test_fixture";
   version = "0.3.1-1";
   src = sources."performance_test_fixture";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-export-targets ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

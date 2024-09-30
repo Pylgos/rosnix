@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "motion-capture-tracking";
+  pname = "motion_capture_tracking";
   version = "1.0.3-3";
   src = sources."motion_capture_tracking";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

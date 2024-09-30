@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-sensors";
+  pname = "mrpt_sensors";
   version = "0.2.3-1";
   src = sources."mrpt_sensors";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

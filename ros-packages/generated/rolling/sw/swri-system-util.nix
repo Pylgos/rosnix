@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-system-util";
+  pname = "swri_system_util";
   version = "3.7.3-1";
   src = sources."swri_system_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

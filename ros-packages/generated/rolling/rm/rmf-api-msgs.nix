@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-api-msgs";
+  pname = "rmf_api_msgs";
   version = "0.4.0-1";
   src = sources."rmf_api_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

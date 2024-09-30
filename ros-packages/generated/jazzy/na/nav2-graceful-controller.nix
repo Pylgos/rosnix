@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-graceful-controller";
+  pname = "nav2_graceful_controller";
   version = "1.3.2-1";
   src = sources."nav2_graceful_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

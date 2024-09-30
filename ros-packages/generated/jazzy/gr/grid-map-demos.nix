@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-demos";
+  pname = "grid_map_demos";
   version = "2.2.0-1";
   src = sources."grid_map_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-workspace";
+  pname = "ros_workspace";
   version = "1.0.3-5";
   src = sources."ros_workspace";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

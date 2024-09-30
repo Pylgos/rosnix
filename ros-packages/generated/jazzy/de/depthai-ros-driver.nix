@@ -45,7 +45,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-ros-driver";
+  pname = "depthai_ros_driver";
   version = "2.10.1-1";
   src = sources."depthai_ros_driver";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

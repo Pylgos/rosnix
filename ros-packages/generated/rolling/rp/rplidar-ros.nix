@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rplidar-ros";
+  pname = "rplidar_ros";
   version = "2.1.0-3";
   src = sources."rplidar_ros";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

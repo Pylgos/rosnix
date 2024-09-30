@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2lifecycle-test-fixtures";
+  pname = "ros2lifecycle_test_fixtures";
   version = "0.32.1-1";
   src = sources."ros2lifecycle_test_fixtures";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

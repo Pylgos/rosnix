@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "microstrain-inertial-rqt";
+  pname = "microstrain_inertial_rqt";
   version = "4.3.0-1";
   src = sources."microstrain_inertial_rqt";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

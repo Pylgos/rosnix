@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "domain-coordinator";
+  pname = "domain_coordinator";
   version = "0.12.0-3";
   src = sources."domain_coordinator";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

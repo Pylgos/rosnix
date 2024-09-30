@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-lanelet2-extension-python";
+  pname = "autoware_lanelet2_extension_python";
   version = "0.6.0-1";
   src = sources."autoware_lanelet2_extension_python";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

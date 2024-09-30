@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-2d-overlay-msgs";
+  pname = "rviz_2d_overlay_msgs";
   version = "1.3.0-2";
   src = sources."rviz_2d_overlay_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

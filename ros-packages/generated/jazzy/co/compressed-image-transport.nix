@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "compressed-image-transport";
+  pname = "compressed_image_transport";
   version = "4.0.2-1";
   src = sources."compressed_image_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "aruco-msgs";
+  pname = "aruco_msgs";
   version = "5.0.5-1";
   src = sources."aruco_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

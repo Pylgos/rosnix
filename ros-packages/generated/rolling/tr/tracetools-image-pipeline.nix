@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tracetools-image-pipeline";
+  pname = "tracetools_image_pipeline";
   version = "6.0.3-1";
   src = sources."tracetools_image_pipeline";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

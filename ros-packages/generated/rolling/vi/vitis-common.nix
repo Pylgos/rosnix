@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vitis-common";
+  pname = "vitis_common";
   version = "0.4.2-3";
   src = sources."vitis_common";
   nativeBuildInputs = [ ament-cmake ament-vitis ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

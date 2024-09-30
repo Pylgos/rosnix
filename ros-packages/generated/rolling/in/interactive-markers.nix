@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "interactive-markers";
+  pname = "interactive_markers";
   version = "2.6.1-1";
   src = sources."interactive_markers";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

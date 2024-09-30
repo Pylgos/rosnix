@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-perception-msgs";
+  pname = "autoware_perception_msgs";
   version = "1.1.0-1";
   src = sources."autoware_perception_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

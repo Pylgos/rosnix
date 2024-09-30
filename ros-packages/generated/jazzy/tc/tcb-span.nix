@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tcb-span";
+  pname = "tcb_span";
   version = "1.0.2-5";
   src = sources."tcb_span";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

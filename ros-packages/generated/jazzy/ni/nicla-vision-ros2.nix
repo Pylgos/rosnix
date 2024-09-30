@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nicla-vision-ros2";
+  pname = "nicla_vision_ros2";
   version = "1.1.1-1";
   src = sources."nicla_vision_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

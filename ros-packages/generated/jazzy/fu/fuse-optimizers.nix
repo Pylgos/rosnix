@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-optimizers";
+  pname = "fuse_optimizers";
   version = "1.1.1-1";
   src = sources."fuse_optimizers";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "openni2-camera";
+  pname = "openni2_camera";
   version = "2.2.1-1";
   src = sources."openni2_camera";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

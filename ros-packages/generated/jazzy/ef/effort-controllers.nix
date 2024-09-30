@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "effort-controllers";
+  pname = "effort_controllers";
   version = "4.14.0-1";
   src = sources."effort_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libmath";
+  pname = "mrpt_libmath";
   version = "2.14.1-1";
   src = sources."mrpt_libmath";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

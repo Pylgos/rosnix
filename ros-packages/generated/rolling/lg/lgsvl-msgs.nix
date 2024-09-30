@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lgsvl-msgs";
+  pname = "lgsvl_msgs";
   version = "0.0.4-4";
   src = sources."lgsvl_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

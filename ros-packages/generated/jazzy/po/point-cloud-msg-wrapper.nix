@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "point-cloud-msg-wrapper";
+  pname = "point_cloud_msg_wrapper";
   version = "1.0.7-5";
   src = sources."point_cloud_msg_wrapper";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

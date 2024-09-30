@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "py-trees-js";
+  pname = "py_trees_js";
   version = "0.6.4-1";
   src = sources."py_trees_js";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

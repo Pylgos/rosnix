@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-editor";
+  pname = "rmf_traffic_editor";
   version = "1.10.0-1";
   src = sources."rmf_traffic_editor";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

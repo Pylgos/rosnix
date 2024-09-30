@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ffmpeg-image-transport-tools";
+  pname = "ffmpeg_image_transport_tools";
   version = "1.0.1-2";
   src = sources."ffmpeg_image_transport_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

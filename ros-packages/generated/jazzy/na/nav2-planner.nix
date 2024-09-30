@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-planner";
+  pname = "nav2_planner";
   version = "1.3.2-1";
   src = sources."nav2_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-executors";
+  pname = "examples_rclpy_executors";
   version = "0.20.2-1";
   src = sources."examples_rclpy_executors";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

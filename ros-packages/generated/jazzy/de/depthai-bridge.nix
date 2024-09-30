@@ -42,7 +42,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthai-bridge";
+  pname = "depthai_bridge";
   version = "2.10.1-1";
   src = sources."depthai_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

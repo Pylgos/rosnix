@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-runtime-cpp";
+  pname = "rosidl_runtime_cpp";
   version = "4.8.1-1";
   src = sources."rosidl_runtime_cpp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

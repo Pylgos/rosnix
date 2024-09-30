@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "event-camera-msgs";
+  pname = "event_camera_msgs";
   version = "1.0.6-1";
   src = sources."event_camera_msgs";
   nativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

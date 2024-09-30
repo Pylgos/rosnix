@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-typesupport-interface";
+  pname = "rosidl_typesupport_interface";
   version = "4.6.4-1";
   src = sources."rosidl_typesupport_interface";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

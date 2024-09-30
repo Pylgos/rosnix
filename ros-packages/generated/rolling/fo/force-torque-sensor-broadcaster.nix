@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "force-torque-sensor-broadcaster";
+  pname = "force_torque_sensor_broadcaster";
   version = "4.14.0-1";
   src = sources."force_torque_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

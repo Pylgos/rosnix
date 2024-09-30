@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "message-filters";
+  pname = "message_filters";
   version = "6.0.4-1";
   src = sources."message_filters";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

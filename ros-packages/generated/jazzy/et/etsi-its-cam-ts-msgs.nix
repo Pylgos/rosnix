@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "etsi-its-cam-ts-msgs";
+  pname = "etsi_its_cam_ts_msgs";
   version = "2.2.0-1";
   src = sources."etsi_its_cam_ts_msgs";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

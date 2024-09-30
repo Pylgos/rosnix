@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "forward-command-controller";
+  pname = "forward_command_controller";
   version = "4.14.0-1";
   src = sources."forward_command_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

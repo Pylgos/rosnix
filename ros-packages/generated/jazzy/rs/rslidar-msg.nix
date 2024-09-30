@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rslidar-msg";
+  pname = "rslidar_msg";
   version = "0.0.0-1";
   src = sources."rslidar_msg";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

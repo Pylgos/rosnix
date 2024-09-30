@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "octomap-mapping";
+  pname = "octomap_mapping";
   version = "2.3.0-1";
   src = sources."octomap_mapping";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

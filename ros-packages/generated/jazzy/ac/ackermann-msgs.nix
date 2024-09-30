@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ackermann-msgs";
+  pname = "ackermann_msgs";
   version = "2.0.2-6";
   src = sources."ackermann_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

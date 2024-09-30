@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-driver";
+  pname = "velodyne_driver";
   version = "2.3.0-4";
   src = sources."velodyne_driver";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "automotive-platform-msgs";
+  pname = "automotive_platform_msgs";
   version = "3.0.4-6";
   src = sources."automotive_platform_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

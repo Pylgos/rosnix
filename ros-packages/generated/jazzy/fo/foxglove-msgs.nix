@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "foxglove-msgs";
+  pname = "foxglove_msgs";
   version = "3.0.0-3";
   src = sources."foxglove_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

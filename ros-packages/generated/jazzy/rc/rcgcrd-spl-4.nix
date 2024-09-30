@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcgcrd-spl-4";
+  pname = "rcgcrd_spl_4";
   version = "4.0.1-1";
   src = sources."rcgcrd_spl_4";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

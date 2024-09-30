@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gripper-controllers";
+  pname = "gripper_controllers";
   version = "4.14.0-1";
   src = sources."gripper_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

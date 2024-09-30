@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-action";
+  pname = "rcl_action";
   version = "9.2.4-1";
   src = sources."rcl_action";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

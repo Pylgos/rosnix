@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mobileye-560-660-msgs";
+  pname = "mobileye_560_660_msgs";
   version = "4.0.0-4";
   src = sources."mobileye_560_660_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

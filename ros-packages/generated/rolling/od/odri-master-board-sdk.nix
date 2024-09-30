@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "odri-master-board-sdk";
+  pname = "odri_master_board_sdk";
   version = "1.0.7-1";
   src = sources."odri_master_board_sdk";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

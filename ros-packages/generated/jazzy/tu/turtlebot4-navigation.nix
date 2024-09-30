@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-navigation";
+  pname = "turtlebot4_navigation";
   version = "2.0.1-1";
   src = sources."turtlebot4_navigation";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

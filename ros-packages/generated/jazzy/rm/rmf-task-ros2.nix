@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-task-ros2";
+  pname = "rmf_task_ros2";
   version = "2.7.2-1";
   src = sources."rmf_task_ros2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

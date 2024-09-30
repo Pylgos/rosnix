@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "twist-stamper";
+  pname = "twist_stamper";
   version = "0.0.3-3";
   src = sources."twist_stamper";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "behaviortree-cpp";
+  pname = "behaviortree_cpp";
   version = "4.6.2-1";
   src = sources."behaviortree_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

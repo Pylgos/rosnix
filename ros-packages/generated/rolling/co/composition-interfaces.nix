@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "composition-interfaces";
+  pname = "composition_interfaces";
   version = "2.2.0-1";
   src = sources."composition_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

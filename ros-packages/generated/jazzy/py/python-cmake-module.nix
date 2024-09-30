@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "python-cmake-module";
+  pname = "python_cmake_module";
   version = "0.11.1-2";
   src = sources."python_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

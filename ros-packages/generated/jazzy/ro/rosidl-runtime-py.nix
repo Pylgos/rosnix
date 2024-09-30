@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-runtime-py";
+  pname = "rosidl_runtime_py";
   version = "0.13.1-2";
   src = sources."rosidl_runtime_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

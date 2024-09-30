@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-cmake";
+  pname = "autoware_cmake";
   version = "1.0.0-1";
   src = sources."autoware_cmake";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

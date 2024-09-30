@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-setup-app-plugins";
+  pname = "moveit_setup_app_plugins";
   version = "2.11.0-1";
   src = sources."moveit_setup_app_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

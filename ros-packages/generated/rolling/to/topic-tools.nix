@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "topic-tools";
+  pname = "topic_tools";
   version = "1.4.0-1";
   src = sources."topic_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

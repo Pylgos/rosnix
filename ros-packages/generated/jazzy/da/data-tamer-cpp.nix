@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "data-tamer-cpp";
+  pname = "data_tamer_cpp";
   version = "0.9.4-4";
   src = sources."data_tamer_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

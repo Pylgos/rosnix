@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rc-dynamics-api";
+  pname = "rc_dynamics_api";
   version = "0.10.5-2";
   src = sources."rc_dynamics_api";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

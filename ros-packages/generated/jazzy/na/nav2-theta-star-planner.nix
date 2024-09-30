@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-theta-star-planner";
+  pname = "nav2_theta_star_planner";
   version = "1.3.2-1";
   src = sources."nav2_theta_star_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

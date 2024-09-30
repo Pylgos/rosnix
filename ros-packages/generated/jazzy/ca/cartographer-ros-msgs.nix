@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cartographer-ros-msgs";
+  pname = "cartographer_ros_msgs";
   version = "2.0.9003-2";
   src = sources."cartographer_ros_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-console";
+  pname = "swri_console";
   version = "2.0.5-1";
   src = sources."swri_console";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

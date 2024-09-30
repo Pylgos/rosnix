@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joint-limits";
+  pname = "joint_limits";
   version = "4.17.0-1";
   src = sources."joint_limits";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "libstatistics-collector";
+  pname = "libstatistics_collector";
   version = "2.0.0-1";
   src = sources."libstatistics_collector";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

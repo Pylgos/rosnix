@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mavros-msgs";
+  pname = "mavros_msgs";
   version = "2.8.0-1";
   src = sources."mavros_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "compressed-depth-image-transport";
+  pname = "compressed_depth_image_transport";
   version = "4.0.2-1";
   src = sources."compressed_depth_image_transport";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

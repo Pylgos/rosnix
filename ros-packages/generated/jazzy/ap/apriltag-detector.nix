@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-detector";
+  pname = "apriltag_detector";
   version = "1.0.0-3";
   src = sources."apriltag_detector";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marine-acoustic-msgs";
+  pname = "marine_acoustic_msgs";
   version = "2.1.0-1";
   src = sources."marine_acoustic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

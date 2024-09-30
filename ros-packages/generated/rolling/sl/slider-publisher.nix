@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "slider-publisher";
+  pname = "slider_publisher";
   version = "2.3.1-2";
   src = sources."slider_publisher";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

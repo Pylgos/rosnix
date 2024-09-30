@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-minimal-action-server";
+  pname = "examples_rclcpp_minimal_action_server";
   version = "0.19.4-1";
   src = sources."examples_rclcpp_minimal_action_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

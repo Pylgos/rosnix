@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "linux-isolate-process";
+  pname = "linux_isolate_process";
   version = "0.0.2-2";
   src = sources."linux_isolate_process";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

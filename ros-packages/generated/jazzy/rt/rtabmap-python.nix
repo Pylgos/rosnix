@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-python";
+  pname = "rtabmap_python";
   version = "0.21.5-3";
   src = sources."rtabmap_python";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

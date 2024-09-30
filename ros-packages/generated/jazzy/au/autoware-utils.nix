@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-utils";
+  pname = "autoware_utils";
   version = "1.0.0-1";
   src = sources."autoware_utils";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

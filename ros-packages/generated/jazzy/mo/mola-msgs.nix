@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-msgs";
+  pname = "mola_msgs";
   version = "1.2.0-1";
   src = sources."mola_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

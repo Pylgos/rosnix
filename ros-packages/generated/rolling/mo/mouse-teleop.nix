@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mouse-teleop";
+  pname = "mouse_teleop";
   version = "1.5.1-1";
   src = sources."mouse_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

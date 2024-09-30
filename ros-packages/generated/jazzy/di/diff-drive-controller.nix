@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "diff-drive-controller";
+  pname = "diff_drive_controller";
   version = "4.14.0-1";
   src = sources."diff_drive_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

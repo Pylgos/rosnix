@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-proc";
+  pname = "image_proc";
   version = "5.0.4-1";
   src = sources."image_proc";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

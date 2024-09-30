@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-geometry-msgs";
+  pname = "soccer_geometry_msgs";
   version = "1.0.0-2";
   src = sources."soccer_geometry_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

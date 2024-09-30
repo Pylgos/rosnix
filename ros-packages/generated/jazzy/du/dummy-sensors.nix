@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dummy-sensors";
+  pname = "dummy_sensors";
   version = "0.33.5-1";
   src = sources."dummy_sensors";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

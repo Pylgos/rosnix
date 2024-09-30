@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "test-msgs";
+  pname = "test_msgs";
   version = "2.0.2-2";
   src = sources."test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

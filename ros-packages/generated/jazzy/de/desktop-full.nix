@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "desktop-full";
+  pname = "desktop_full";
   version = "0.11.0-1";
   src = sources."desktop_full";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

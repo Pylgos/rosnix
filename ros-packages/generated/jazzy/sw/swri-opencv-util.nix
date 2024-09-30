@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-opencv-util";
+  pname = "swri_opencv_util";
   version = "3.7.3-1";
   src = sources."swri_opencv_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

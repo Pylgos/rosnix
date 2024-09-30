@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rclpy-message-converter-msgs";
+  pname = "rclpy_message_converter_msgs";
   version = "2.0.1-4";
   src = sources."rclpy_message_converter_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

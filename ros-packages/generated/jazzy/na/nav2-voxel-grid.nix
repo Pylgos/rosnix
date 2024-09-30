@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-voxel-grid";
+  pname = "nav2_voxel_grid";
   version = "1.3.2-1";
   src = sources."nav2_voxel_grid";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

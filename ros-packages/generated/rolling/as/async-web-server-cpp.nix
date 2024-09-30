@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "async-web-server-cpp";
+  pname = "async_web_server_cpp";
   version = "2.0.0-5";
   src = sources."async_web_server_cpp";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

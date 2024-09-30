@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "osrf-pycommon";
+  pname = "osrf_pycommon";
   version = "2.1.4-3";
   src = sources."osrf_pycommon";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-configs-utils";
+  pname = "moveit_configs_utils";
   version = "2.11.0-1";
   src = sources."moveit_configs_utils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

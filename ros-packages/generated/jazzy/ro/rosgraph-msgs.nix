@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosgraph-msgs";
+  pname = "rosgraph_msgs";
   version = "2.0.2-2";
   src = sources."rosgraph_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

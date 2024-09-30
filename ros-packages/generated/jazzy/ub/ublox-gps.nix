@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-gps";
+  pname = "ublox_gps";
   version = "2.3.0-4";
   src = sources."ublox_gps";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

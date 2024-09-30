@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-console";
+  pname = "rqt_console";
   version = "2.3.0-1";
   src = sources."rqt_console";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

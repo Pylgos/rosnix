@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav-msgs";
+  pname = "nav_msgs";
   version = "5.4.1-1";
   src = sources."nav_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

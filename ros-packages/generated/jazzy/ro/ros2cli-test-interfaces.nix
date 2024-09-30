@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2cli-test-interfaces";
+  pname = "ros2cli_test_interfaces";
   version = "0.32.1-1";
   src = sources."ros2cli_test_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

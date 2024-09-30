@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-driver";
+  pname = "webots_ros2_driver";
   version = "2023.1.3-1";
   src = sources."webots_ros2_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rclc-lifecycle";
+  pname = "rclc_lifecycle";
   version = "6.1.0-3";
   src = sources."rclc_lifecycle";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

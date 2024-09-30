@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pcl-msgs";
+  pname = "pcl_msgs";
   version = "1.0.0-8";
   src = sources."pcl_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

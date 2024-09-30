@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-gz";
+  pname = "rmf_demos_gz";
   version = "2.4.0-1";
   src = sources."rmf_demos_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

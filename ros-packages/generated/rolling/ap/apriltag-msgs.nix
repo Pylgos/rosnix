@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-msgs";
+  pname = "apriltag_msgs";
   version = "2.0.1-4";
   src = sources."apriltag_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

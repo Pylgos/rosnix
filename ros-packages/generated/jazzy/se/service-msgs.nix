@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "service-msgs";
+  pname = "service_msgs";
   version = "2.0.2-2";
   src = sources."service_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

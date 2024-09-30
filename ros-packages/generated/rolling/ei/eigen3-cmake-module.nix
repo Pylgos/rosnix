@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "eigen3-cmake-module";
+  pname = "eigen3_cmake_module";
   version = "0.4.0-1";
   src = sources."eigen3_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

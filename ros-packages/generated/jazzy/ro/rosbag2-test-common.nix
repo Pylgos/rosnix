@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-test-common";
+  pname = "rosbag2_test_common";
   version = "0.26.5-1";
   src = sources."rosbag2_test_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

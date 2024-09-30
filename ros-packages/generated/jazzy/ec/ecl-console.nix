@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-console";
+  pname = "ecl_console";
   version = "1.2.0-5";
   src = sources."ecl_console";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

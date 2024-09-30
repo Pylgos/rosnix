@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "polygon-msgs";
+  pname = "polygon_msgs";
   version = "1.1.0-1";
   src = sources."polygon_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

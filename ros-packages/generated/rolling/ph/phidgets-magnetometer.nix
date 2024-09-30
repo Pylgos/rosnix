@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-magnetometer";
+  pname = "phidgets_magnetometer";
   version = "2.3.3-1";
   src = sources."phidgets_magnetometer";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

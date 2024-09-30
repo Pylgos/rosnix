@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-msgs";
+  pname = "ublox_msgs";
   version = "2.3.0-4";
   src = sources."ublox_msgs";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

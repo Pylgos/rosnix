@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-gz-bringup";
+  pname = "leo_gz_bringup";
   version = "2.0.0-1";
   src = sources."leo_gz_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

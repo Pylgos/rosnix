@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "libcurl-vendor";
+  pname = "libcurl_vendor";
   version = "3.4.3-1";
   src = sources."libcurl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-base-driver";
+  pname = "canopen_base_driver";
   version = "0.2.12-2";
   src = sources."canopen_base_driver";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

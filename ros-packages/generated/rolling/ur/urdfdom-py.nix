@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urdfdom-py";
+  pname = "urdfdom_py";
   version = "1.2.1-2";
   src = sources."urdfdom_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

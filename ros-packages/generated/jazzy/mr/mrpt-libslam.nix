@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libslam";
+  pname = "mrpt_libslam";
   version = "2.14.1-1";
   src = sources."mrpt_libslam";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

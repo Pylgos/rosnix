@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcss3d-nao";
+  pname = "rcss3d_nao";
   version = "1.2.0-3";
   src = sources."rcss3d_nao";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

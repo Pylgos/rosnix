@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-demos-assets";
+  pname = "rmf_demos_assets";
   version = "2.4.0-1";
   src = sources."rmf_demos_assets";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

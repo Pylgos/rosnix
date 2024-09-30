@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "system-modes-msgs";
+  pname = "system_modes_msgs";
   version = "0.9.0-6";
   src = sources."system_modes_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-manipulators";
+  pname = "ecl_manipulators";
   version = "1.2.1-4";
   src = sources."ecl_manipulators";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

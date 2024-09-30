@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-pipeline";
+  pname = "image_pipeline";
   version = "6.0.3-1";
   src = sources."image_pipeline";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

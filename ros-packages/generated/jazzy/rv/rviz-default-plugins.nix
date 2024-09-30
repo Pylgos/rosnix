@@ -54,7 +54,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-default-plugins";
+  pname = "rviz_default_plugins";
   version = "14.1.5-1";
   src = sources."rviz_default_plugins";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

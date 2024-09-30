@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kartech-linear-actuator-msgs";
+  pname = "kartech_linear_actuator_msgs";
   version = "4.0.0-3";
   src = sources."kartech_linear_actuator_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

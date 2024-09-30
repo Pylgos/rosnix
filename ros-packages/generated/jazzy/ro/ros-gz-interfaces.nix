@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-gz-interfaces";
+  pname = "ros_gz_interfaces";
   version = "1.0.4-1";
   src = sources."ros_gz_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

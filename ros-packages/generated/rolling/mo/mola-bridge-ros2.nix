@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-bridge-ros2";
+  pname = "mola_bridge_ros2";
   version = "1.2.0-1";
   src = sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

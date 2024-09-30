@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "event-camera-py";
+  pname = "event_camera_py";
   version = "1.0.6-1";
   src = sources."event_camera_py";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

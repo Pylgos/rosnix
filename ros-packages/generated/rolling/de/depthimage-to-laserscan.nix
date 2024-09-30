@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "depthimage-to-laserscan";
+  pname = "depthimage_to_laserscan";
   version = "2.5.1-2";
   src = sources."depthimage_to_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

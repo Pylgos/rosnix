@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "qt-dotgraph";
+  pname = "qt_dotgraph";
   version = "2.8.2-1";
   src = sources."qt_dotgraph";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

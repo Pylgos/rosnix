@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcl-logging-noop";
+  pname = "rcl_logging_noop";
   version = "3.2.1-1";
   src = sources."rcl_logging_noop";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };

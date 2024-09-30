@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "qml-ros2-plugin";
+  pname = "qml_ros2_plugin";
   version = "1.0.1-1";
   src = sources."qml_ros2_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

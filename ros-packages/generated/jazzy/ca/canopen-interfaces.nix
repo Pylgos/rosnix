@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-interfaces";
+  pname = "canopen_interfaces";
   version = "0.2.9-2";
   src = sources."canopen_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

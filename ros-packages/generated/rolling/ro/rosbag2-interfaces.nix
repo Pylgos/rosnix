@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-interfaces";
+  pname = "rosbag2_interfaces";
   version = "0.29.0-1";
   src = sources."rosbag2_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "foxglove-compressed-video-transport";
+  pname = "foxglove_compressed_video_transport";
   version = "1.0.0-1";
   src = sources."foxglove_compressed_video_transport";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

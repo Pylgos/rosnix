@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "point-cloud-transport-py";
+  pname = "point_cloud_transport_py";
   version = "4.0.2-1";
   src = sources."point_cloud_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

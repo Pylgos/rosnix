@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-sensor-imu-taobotics";
+  pname = "mrpt_sensor_imu_taobotics";
   version = "0.2.3-1";
   src = sources."mrpt_sensor_imu_taobotics";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

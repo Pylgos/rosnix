@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-sdf";
+  pname = "grid_map_sdf";
   version = "2.2.0-1";
   src = sources."grid_map_sdf";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

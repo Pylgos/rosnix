@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-minimal-composition";
+  pname = "examples_rclcpp_minimal_composition";
   version = "0.20.2-1";
   src = sources."examples_rclcpp_minimal_composition";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

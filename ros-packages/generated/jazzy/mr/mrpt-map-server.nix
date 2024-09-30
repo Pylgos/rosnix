@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-map-server";
+  pname = "mrpt_map_server";
   version = "2.2.0-1";
   src = sources."mrpt_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-minimal-publisher";
+  pname = "examples_rclpy_minimal_publisher";
   version = "0.20.2-1";
   src = sources."examples_rclpy_minimal_publisher";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

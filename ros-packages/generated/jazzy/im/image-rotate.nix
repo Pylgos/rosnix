@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-rotate";
+  pname = "image_rotate";
   version = "5.0.4-1";
   src = sources."image_rotate";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

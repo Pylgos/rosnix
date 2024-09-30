@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sol-vendor";
+  pname = "sol_vendor";
   version = "0.0.3-5";
   src = sources."sol_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

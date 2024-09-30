@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-bringup";
+  pname = "nav2_bringup";
   version = "1.3.2-1";
   src = sources."nav2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

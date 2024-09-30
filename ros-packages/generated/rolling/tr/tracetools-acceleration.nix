@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tracetools-acceleration";
+  pname = "tracetools_acceleration";
   version = "0.4.1-3";
   src = sources."tracetools_acceleration";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

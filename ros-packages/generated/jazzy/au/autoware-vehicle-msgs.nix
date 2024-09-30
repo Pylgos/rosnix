@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-vehicle-msgs";
+  pname = "autoware_vehicle_msgs";
   version = "1.1.0-1";
   src = sources."autoware_vehicle_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

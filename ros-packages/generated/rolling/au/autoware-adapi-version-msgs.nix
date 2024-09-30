@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-adapi-version-msgs";
+  pname = "autoware_adapi_version_msgs";
   version = "1.3.0-1";
   src = sources."autoware_adapi_version_msgs";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

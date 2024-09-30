@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flir-camera-description";
+  pname = "flir_camera_description";
   version = "2.0.20-1";
   src = sources."flir_camera_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "launch-ros";
+  pname = "launch_ros";
   version = "0.26.5-2";
   src = sources."launch_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

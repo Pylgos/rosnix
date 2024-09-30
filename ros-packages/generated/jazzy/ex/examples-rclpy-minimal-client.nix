@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-minimal-client";
+  pname = "examples_rclpy_minimal_client";
   version = "0.19.4-1";
   src = sources."examples_rclpy_minimal_client";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

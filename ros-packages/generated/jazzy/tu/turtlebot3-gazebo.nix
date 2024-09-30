@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot3-gazebo";
+  pname = "turtlebot3_gazebo";
   version = "2.2.5-5";
   src = sources."turtlebot3_gazebo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

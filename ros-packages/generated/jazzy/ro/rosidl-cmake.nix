@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-cmake";
+  pname = "rosidl_cmake";
   version = "4.6.4-1";
   src = sources."rosidl_cmake";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

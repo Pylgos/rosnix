@@ -49,7 +49,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gz-fuel-tools-vendor";
+  pname = "gz_fuel_tools_vendor";
   version = "0.0.5-1";
   src = sources."gz_fuel_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

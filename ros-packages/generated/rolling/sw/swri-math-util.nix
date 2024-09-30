@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "swri-math-util";
+  pname = "swri_math_util";
   version = "3.7.3-1";
   src = sources."swri_math_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

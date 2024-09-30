@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-formatters";
+  pname = "ecl_formatters";
   version = "1.2.1-4";
   src = sources."ecl_formatters";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

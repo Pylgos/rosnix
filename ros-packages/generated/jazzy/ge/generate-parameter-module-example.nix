@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "generate-parameter-module-example";
+  pname = "generate_parameter_module_example";
   version = "0.3.8-4";
   src = sources."generate_parameter_module_example";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

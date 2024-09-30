@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-msgs";
+  pname = "velodyne_msgs";
   version = "2.3.0-4";
   src = sources."velodyne_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "hash-library-vendor";
+  pname = "hash_library_vendor";
   version = "0.1.1-6";
   src = sources."hash_library_vendor";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

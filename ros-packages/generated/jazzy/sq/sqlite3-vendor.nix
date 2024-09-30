@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sqlite3-vendor";
+  pname = "sqlite3_vendor";
   version = "0.26.5-1";
   src = sources."sqlite3_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

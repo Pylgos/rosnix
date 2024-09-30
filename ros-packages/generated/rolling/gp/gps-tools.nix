@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gps-tools";
+  pname = "gps_tools";
   version = "2.0.4-1";
   src = sources."gps_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

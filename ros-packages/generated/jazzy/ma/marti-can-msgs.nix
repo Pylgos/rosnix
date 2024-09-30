@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marti-can-msgs";
+  pname = "marti_can_msgs";
   version = "1.6.1-1";
   src = sources."marti_can_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

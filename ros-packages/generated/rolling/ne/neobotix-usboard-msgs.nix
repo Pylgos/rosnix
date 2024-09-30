@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "neobotix-usboard-msgs";
+  pname = "neobotix_usboard_msgs";
   version = "4.0.0-3";
   src = sources."neobotix_usboard_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

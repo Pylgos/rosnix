@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pose-cov-ops";
+  pname = "pose_cov_ops";
   version = "0.3.12-1";
   src = sources."pose_cov_ops";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

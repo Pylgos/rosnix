@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-robot-sim-gz-plugins";
+  pname = "rmf_robot_sim_gz_plugins";
   version = "2.3.2-1";
   src = sources."rmf_robot_sim_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

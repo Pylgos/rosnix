@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtle-tf2-cpp";
+  pname = "turtle_tf2_cpp";
   version = "0.6.2-1";
   src = sources."turtle_tf2_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

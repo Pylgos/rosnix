@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-typesupport-cpp";
+  pname = "rosidl_typesupport_cpp";
   version = "3.2.2-1";
   src = sources."rosidl_typesupport_cpp";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

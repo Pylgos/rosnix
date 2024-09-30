@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gc-spl-interfaces";
+  pname = "gc_spl_interfaces";
   version = "4.0.1-1";
   src = sources."gc_spl_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

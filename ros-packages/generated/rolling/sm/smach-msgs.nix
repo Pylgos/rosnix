@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "smach-msgs";
+  pname = "smach_msgs";
   version = "3.0.3-2";
   src = sources."smach_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-flake8 ament-cmake-pep257 rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

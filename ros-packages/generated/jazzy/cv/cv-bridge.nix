@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cv-bridge";
+  pname = "cv_bridge";
   version = "4.1.0-1";
   src = sources."cv_bridge";
   nativeBuildInputs = [ ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

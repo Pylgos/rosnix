@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "marti-visualization-msgs";
+  pname = "marti_visualization_msgs";
   version = "1.6.1-1";
   src = sources."marti_visualization_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

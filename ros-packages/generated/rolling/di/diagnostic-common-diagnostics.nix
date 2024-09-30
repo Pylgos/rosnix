@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "diagnostic-common-diagnostics";
+  pname = "diagnostic_common_diagnostics";
   version = "4.3.1-1";
   src = sources."diagnostic_common_diagnostics";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

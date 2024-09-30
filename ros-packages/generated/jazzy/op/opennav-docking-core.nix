@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "opennav-docking-core";
+  pname = "opennav_docking_core";
   version = "1.3.2-1";
   src = sources."opennav_docking_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

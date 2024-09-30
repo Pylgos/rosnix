@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-pipeline";
+  pname = "imu_pipeline";
   version = "0.5.0-2";
   src = sources."imu_pipeline";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

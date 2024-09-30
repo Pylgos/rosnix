@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-task-msgs";
+  pname = "rmf_task_msgs";
   version = "3.3.1-1";
   src = sources."rmf_task_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "resource-retriever";
+  pname = "resource_retriever";
   version = "3.5.1-1";
   src = sources."resource_retriever";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

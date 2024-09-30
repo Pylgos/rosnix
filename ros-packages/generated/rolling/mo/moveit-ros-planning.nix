@@ -50,7 +50,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-planning";
+  pname = "moveit_ros_planning";
   version = "2.11.0-1";
   src = sources."moveit_ros_planning";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-core";
+  pname = "grid_map_core";
   version = "2.2.0-1";
   src = sources."grid_map_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

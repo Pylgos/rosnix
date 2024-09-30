@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joint-state-publisher-gui";
+  pname = "joint_state_publisher_gui";
   version = "2.4.0-2";
   src = sources."joint_state_publisher_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

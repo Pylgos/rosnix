@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-loopback-sim";
+  pname = "nav2_loopback_sim";
   version = "1.3.2-1";
   src = sources."nav2_loopback_sim";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

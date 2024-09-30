@@ -56,7 +56,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "acado-vendor";
+  pname = "acado_vendor";
   version = "1.0.0-7";
   src = sources."acado_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

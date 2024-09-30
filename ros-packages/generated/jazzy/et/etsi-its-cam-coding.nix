@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "etsi-its-cam-coding";
+  pname = "etsi_its_cam_coding";
   version = "2.2.0-1";
   src = sources."etsi_its_cam_coding";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

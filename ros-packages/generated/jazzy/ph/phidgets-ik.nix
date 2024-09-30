@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-ik";
+  pname = "phidgets_ik";
   version = "2.3.3-2";
   src = sources."phidgets_ik";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

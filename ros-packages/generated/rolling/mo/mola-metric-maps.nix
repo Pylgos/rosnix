@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-metric-maps";
+  pname = "mola_metric_maps";
   version = "1.2.0-1";
   src = sources."mola_metric_maps";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

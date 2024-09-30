@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-input-rosbag2";
+  pname = "mola_input_rosbag2";
   version = "1.2.0-1";
   src = sources."mola_input_rosbag2";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

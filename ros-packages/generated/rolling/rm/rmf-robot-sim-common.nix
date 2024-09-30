@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-robot-sim-common";
+  pname = "rmf_robot_sim_common";
   version = "2.4.0-1";
   src = sources."rmf_robot_sim_common";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

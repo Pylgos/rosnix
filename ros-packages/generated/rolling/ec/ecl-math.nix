@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-math";
+  pname = "ecl_math";
   version = "1.2.1-4";
   src = sources."ecl_math";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

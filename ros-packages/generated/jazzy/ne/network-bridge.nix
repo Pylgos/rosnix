@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "network-bridge";
+  pname = "network_bridge";
   version = "1.0.2-1";
   src = sources."network_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "diagnostic-msgs";
+  pname = "diagnostic_msgs";
   version = "5.3.5-1";
   src = sources."diagnostic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

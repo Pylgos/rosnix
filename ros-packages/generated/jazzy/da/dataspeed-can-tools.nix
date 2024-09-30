@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dataspeed-can-tools";
+  pname = "dataspeed_can_tools";
   version = "2.0.4-1";
   src = sources."dataspeed_can_tools";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

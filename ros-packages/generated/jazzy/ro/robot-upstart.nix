@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robot-upstart";
+  pname = "robot_upstart";
   version = "1.0.4-1";
   src = sources."robot_upstart";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

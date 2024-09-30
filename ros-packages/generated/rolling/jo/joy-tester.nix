@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "joy-tester";
+  pname = "joy_tester";
   version = "0.0.2-3";
   src = sources."joy_tester";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

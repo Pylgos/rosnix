@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cartographer-ros";
+  pname = "cartographer_ros";
   version = "2.0.9003-1";
   src = sources."cartographer_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

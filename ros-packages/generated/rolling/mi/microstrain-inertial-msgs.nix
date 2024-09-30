@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "microstrain-inertial-msgs";
+  pname = "microstrain_inertial_msgs";
   version = "4.3.0-1";
   src = sources."microstrain_inertial_msgs";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pointcloud-to-laserscan";
+  pname = "pointcloud_to_laserscan";
   version = "2.0.2-2";
   src = sources."pointcloud_to_laserscan";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

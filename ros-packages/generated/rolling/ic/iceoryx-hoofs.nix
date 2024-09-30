@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "iceoryx-hoofs";
+  pname = "iceoryx_hoofs";
   version = "2.0.5-5";
   src = sources."iceoryx_hoofs";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

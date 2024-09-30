@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dolly-ignition";
+  pname = "dolly_ignition";
   version = "0.4.0-6";
   src = sources."dolly_ignition";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

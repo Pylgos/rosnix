@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flir-camera-msgs";
+  pname = "flir_camera_msgs";
   version = "2.0.20-1";
   src = sources."flir_camera_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

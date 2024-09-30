@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ds-dbw-can";
+  pname = "ds_dbw_can";
   version = "2.2.0-1";
   src = sources."ds_dbw_can";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

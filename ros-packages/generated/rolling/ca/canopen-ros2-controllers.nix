@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-ros2-controllers";
+  pname = "canopen_ros2_controllers";
   version = "0.2.12-2";
   src = sources."canopen_ros2_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

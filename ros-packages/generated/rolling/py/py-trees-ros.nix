@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "py-trees-ros";
+  pname = "py_trees_ros";
   version = "2.2.2-3";
   src = sources."py_trees_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

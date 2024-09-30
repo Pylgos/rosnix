@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosapi-msgs";
+  pname = "rosapi_msgs";
   version = "1.3.2-3";
   src = sources."rosapi_msgs";
   nativeBuildInputs = [ ament-cmake-ros rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

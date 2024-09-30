@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "admittance-controller";
+  pname = "admittance_controller";
   version = "4.14.0-1";
   src = sources."admittance_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "yaml-cpp-vendor";
+  pname = "yaml_cpp_vendor";
   version = "9.1.0-1";
   src = sources."yaml_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

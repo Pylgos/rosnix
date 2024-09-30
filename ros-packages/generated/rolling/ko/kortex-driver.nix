@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "kortex-driver";
+  pname = "kortex_driver";
   version = "0.2.2-2";
   src = sources."kortex_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

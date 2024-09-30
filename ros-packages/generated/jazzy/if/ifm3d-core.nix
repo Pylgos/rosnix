@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ifm3d-core";
+  pname = "ifm3d_core";
   version = "0.18.0-10";
   src = sources."ifm3d_core";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

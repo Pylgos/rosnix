@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-common";
+  pname = "rviz_common";
   version = "14.2.6-1";
   src = sources."rviz_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

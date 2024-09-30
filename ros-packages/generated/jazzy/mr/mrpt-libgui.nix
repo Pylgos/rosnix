@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libgui";
+  pname = "mrpt_libgui";
   version = "2.14.1-1";
   src = sources."mrpt_libgui";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

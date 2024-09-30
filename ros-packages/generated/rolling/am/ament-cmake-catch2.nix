@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-catch2";
+  pname = "ament_cmake_catch2";
   version = "1.5.0-1";
   src = sources."ament_cmake_catch2";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

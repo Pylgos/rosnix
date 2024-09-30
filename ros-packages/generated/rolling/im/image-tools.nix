@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "image-tools";
+  pname = "image_tools";
   version = "0.34.2-1";
   src = sources."image_tools";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

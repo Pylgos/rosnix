@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ibeo-msgs";
+  pname = "ibeo_msgs";
   version = "4.0.0-4";
   src = sources."ibeo_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

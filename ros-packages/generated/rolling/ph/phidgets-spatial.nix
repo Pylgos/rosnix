@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-spatial";
+  pname = "phidgets_spatial";
   version = "2.3.3-1";
   src = sources."phidgets_spatial";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

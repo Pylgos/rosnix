@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tl-expected";
+  pname = "tl_expected";
   version = "1.0.2-4";
   src = sources."tl_expected";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

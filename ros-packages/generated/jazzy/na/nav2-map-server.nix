@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-map-server";
+  pname = "nav2_map_server";
   version = "1.3.2-1";
   src = sources."nav2_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

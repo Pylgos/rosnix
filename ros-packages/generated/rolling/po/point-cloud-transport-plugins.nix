@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "point-cloud-transport-plugins";
+  pname = "point_cloud_transport_plugins";
   version = "5.0.1-1";
   src = sources."point_cloud_transport_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

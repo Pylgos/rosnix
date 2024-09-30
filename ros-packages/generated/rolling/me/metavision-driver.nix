@@ -53,7 +53,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "metavision-driver";
+  pname = "metavision_driver";
   version = "2.0.0-1";
   src = sources."metavision_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

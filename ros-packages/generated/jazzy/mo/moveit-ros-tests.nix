@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-tests";
+  pname = "moveit_ros_tests";
   version = "2.10.0-1";
   src = sources."moveit_ros_tests";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

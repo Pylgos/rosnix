@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cmake-generate-parameter-module-example";
+  pname = "cmake_generate_parameter_module_example";
   version = "0.3.8-4";
   src = sources."cmake_generate_parameter_module_example";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

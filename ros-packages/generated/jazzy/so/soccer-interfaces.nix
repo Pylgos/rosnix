@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "soccer-interfaces";
+  pname = "soccer_interfaces";
   version = "1.0.0-2";
   src = sources."soccer_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -48,7 +48,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "robot-localization";
+  pname = "robot_localization";
   version = "3.8.1-1";
   src = sources."robot_localization";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

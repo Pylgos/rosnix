@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pal-statistics-msgs";
+  pname = "pal_statistics_msgs";
   version = "2.2.4-1";
   src = sources."pal_statistics_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

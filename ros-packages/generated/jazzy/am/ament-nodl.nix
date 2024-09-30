@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-nodl";
+  pname = "ament_nodl";
   version = "0.1.0-7";
   src = sources."ament_nodl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

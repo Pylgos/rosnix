@@ -56,7 +56,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "spdlog-vendor";
+  pname = "spdlog_vendor";
   version = "1.7.0-1";
   src = sources."spdlog_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

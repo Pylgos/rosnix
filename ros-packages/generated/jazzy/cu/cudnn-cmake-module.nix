@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "cudnn-cmake-module";
+  pname = "cudnn_cmake_module";
   version = "0.0.1-6";
   src = sources."cudnn_cmake_module";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "graph-msgs";
+  pname = "graph_msgs";
   version = "0.2.0-5";
   src = sources."graph_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

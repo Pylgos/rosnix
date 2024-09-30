@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "quality-of-service-demo-py";
+  pname = "quality_of_service_demo_py";
   version = "0.34.2-1";
   src = sources."quality_of_service_demo_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

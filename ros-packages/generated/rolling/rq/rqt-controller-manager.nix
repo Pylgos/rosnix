@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-controller-manager";
+  pname = "rqt_controller_manager";
   version = "4.17.0-1";
   src = sources."rqt_controller_manager";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

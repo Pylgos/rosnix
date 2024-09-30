@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "apriltag-detector-mit";
+  pname = "apriltag_detector_mit";
   version = "2.0.0-1";
   src = sources."apriltag_detector_mit";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

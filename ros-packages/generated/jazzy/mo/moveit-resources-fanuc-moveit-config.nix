@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-fanuc-moveit-config";
+  pname = "moveit_resources_fanuc_moveit_config";
   version = "3.0.0-3";
   src = sources."moveit_resources_fanuc_moveit_config";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "shape-msgs";
+  pname = "shape_msgs";
   version = "5.4.1-1";
   src = sources."shape_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

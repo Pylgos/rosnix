@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav-2d-msgs";
+  pname = "nav_2d_msgs";
   version = "1.3.2-1";
   src = sources."nav_2d_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "simple-actions";
+  pname = "simple_actions";
   version = "0.4.0-1";
   src = sources."simple_actions";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-tutorials";
+  pname = "mrpt_tutorials";
   version = "2.2.0-1";
   src = sources."mrpt_tutorials";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

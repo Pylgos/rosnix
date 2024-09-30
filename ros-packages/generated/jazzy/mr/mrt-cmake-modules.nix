@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrt-cmake-modules";
+  pname = "mrt_cmake_modules";
   version = "1.0.11-2";
   src = sources."mrt_cmake_modules";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

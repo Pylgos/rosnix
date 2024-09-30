@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "azure-iot-sdk-c";
+  pname = "azure_iot_sdk_c";
   version = "1.14.0-1";
   src = sources."azure_iot_sdk_c";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

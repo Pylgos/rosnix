@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ublox-nav-sat-fix-hp-node";
+  pname = "ublox_nav_sat_fix_hp_node";
   version = "0.5.3-2";
   src = sources."ublox_nav_sat_fix_hp_node";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

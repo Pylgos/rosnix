@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "interactive-marker-twist-server";
+  pname = "interactive_marker_twist_server";
   version = "2.1.0-3";
   src = sources."interactive_marker_twist_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

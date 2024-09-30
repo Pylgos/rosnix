@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-geometry-msgs";
+  pname = "tf2_geometry_msgs";
   version = "0.38.2-1";
   src = sources."tf2_geometry_msgs";
   nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

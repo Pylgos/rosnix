@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-utils";
+  pname = "rmf_utils";
   version = "1.6.2-1";
   src = sources."rmf_utils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

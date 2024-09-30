@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-workcell-msgs";
+  pname = "rmf_workcell_msgs";
   version = "3.4.0-1";
   src = sources."rmf_workcell_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "controller-manager";
+  pname = "controller_manager";
   version = "4.17.0-1";
   src = sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

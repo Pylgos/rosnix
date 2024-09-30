@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-export-dependencies";
+  pname = "ament_cmake_export_dependencies";
   version = "2.7.0-1";
   src = sources."ament_cmake_export_dependencies";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

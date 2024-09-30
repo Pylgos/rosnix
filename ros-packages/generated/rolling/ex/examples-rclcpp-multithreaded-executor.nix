@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclcpp-multithreaded-executor";
+  pname = "examples_rclcpp_multithreaded_executor";
   version = "0.20.2-1";
   src = sources."examples_rclcpp_multithreaded_executor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ffmpeg-image-transport-msgs";
+  pname = "ffmpeg_image_transport_msgs";
   version = "1.0.2-2";
   src = sources."ffmpeg_image_transport_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

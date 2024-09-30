@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf-transformations";
+  pname = "tf_transformations";
   version = "1.1.0-1";
   src = sources."tf_transformations";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sensor-msgs";
+  pname = "sensor_msgs";
   version = "5.4.1-1";
   src = sources."sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

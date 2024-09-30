@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "beluga-amcl";
+  pname = "beluga_amcl";
   version = "2.0.2-1";
   src = sources."beluga_amcl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

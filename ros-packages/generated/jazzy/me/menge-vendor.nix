@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "menge-vendor";
+  pname = "menge_vendor";
   version = "1.2.1-1";
   src = sources."menge_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

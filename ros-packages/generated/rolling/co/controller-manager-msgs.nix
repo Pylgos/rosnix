@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "controller-manager-msgs";
+  pname = "controller_manager_msgs";
   version = "4.17.0-1";
   src = sources."controller_manager_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -40,7 +40,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-amcl";
+  pname = "nav2_amcl";
   version = "1.3.2-1";
   src = sources."nav2_amcl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

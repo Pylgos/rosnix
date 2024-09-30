@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-collision-monitor";
+  pname = "nav2_collision_monitor";
   version = "1.3.2-1";
   src = sources."nav2_collision_monitor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

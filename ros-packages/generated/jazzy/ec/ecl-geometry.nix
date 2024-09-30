@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-geometry";
+  pname = "ecl_geometry";
   version = "1.2.1-5";
   src = sources."ecl_geometry";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

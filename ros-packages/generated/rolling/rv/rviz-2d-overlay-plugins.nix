@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-2d-overlay-plugins";
+  pname = "rviz_2d_overlay_plugins";
   version = "1.3.0-2";
   src = sources."rviz_2d_overlay_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

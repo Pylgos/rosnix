@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros2trace-analysis";
+  pname = "ros2trace_analysis";
   version = "3.0.0-6";
   src = sources."ros2trace_analysis";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

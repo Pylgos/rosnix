@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tinyspline-vendor";
+  pname = "tinyspline_vendor";
   version = "0.6.1-1";
   src = sources."tinyspline_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

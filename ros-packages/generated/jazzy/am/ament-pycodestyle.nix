@@ -22,7 +22,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-pycodestyle";
+  pname = "ament_pycodestyle";
   version = "0.17.1-1";
   src = sources."ament_pycodestyle";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

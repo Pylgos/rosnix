@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmw-connextdds-common";
+  pname = "rmw_connextdds_common";
   version = "0.24.1-1";
   src = sources."rmw_connextdds_common";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

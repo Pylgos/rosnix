@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "hls-lfcd-lds-driver";
+  pname = "hls_lfcd_lds_driver";
   version = "2.0.4-5";
   src = sources."hls_lfcd_lds_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

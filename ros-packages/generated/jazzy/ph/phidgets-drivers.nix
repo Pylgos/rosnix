@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "phidgets-drivers";
+  pname = "phidgets_drivers";
   version = "2.3.3-2";
   src = sources."phidgets_drivers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

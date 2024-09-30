@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-traj-tools";
+  pname = "mola_traj_tools";
   version = "1.2.0-1";
   src = sources."mola_traj_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "neo-simulation2";
+  pname = "neo_simulation2";
   version = "1.0.0-5";
   src = sources."neo_simulation2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

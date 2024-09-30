@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-filters";
+  pname = "grid_map_filters";
   version = "2.2.0-1";
   src = sources."grid_map_filters";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

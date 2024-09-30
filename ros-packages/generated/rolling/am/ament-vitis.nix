@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-vitis";
+  pname = "ament_vitis";
   version = "0.10.1-4";
   src = sources."ament_vitis";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

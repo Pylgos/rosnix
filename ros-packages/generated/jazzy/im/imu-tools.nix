@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "imu-tools";
+  pname = "imu_tools";
   version = "2.1.3-4";
   src = sources."imu_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

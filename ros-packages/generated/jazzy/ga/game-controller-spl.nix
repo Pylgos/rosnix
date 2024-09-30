@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "game-controller-spl";
+  pname = "game_controller_spl";
   version = "4.0.1-1";
   src = sources."game_controller_spl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

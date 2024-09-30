@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-filesystem";
+  pname = "ecl_filesystem";
   version = "1.2.1-4";
   src = sources."ecl_filesystem";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

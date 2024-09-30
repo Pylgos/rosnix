@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-universal-robot";
+  pname = "webots_ros2_universal_robot";
   version = "2023.1.3-1";
   src = sources."webots_ros2_universal_robot";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

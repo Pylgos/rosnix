@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-odom";
+  pname = "rtabmap_odom";
   version = "0.21.5-3";
   src = sources."rtabmap_odom";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

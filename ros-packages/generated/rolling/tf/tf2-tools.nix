@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-tools";
+  pname = "tf2_tools";
   version = "0.38.2-1";
   src = sources."tf2_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "serial-driver";
+  pname = "serial_driver";
   version = "1.2.0-4";
   src = sources."serial_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

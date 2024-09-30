@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "theora-image-transport";
+  pname = "theora_image_transport";
   version = "4.0.2-1";
   src = sources."theora_image_transport";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

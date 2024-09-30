@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ur-dashboard-msgs";
+  pname = "ur_dashboard_msgs";
   version = "2.4.10-1";
   src = sources."ur_dashboard_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

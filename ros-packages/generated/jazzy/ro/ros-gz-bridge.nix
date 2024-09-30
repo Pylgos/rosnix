@@ -46,7 +46,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-gz-bridge";
+  pname = "ros_gz_bridge";
   version = "1.0.4-1";
   src = sources."ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake rosidl-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

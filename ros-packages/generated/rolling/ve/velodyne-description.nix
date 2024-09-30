@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "velodyne-description";
+  pname = "velodyne_description";
   version = "2.0.3-3";
   src = sources."velodyne_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

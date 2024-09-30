@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "grid-map-visualization";
+  pname = "grid_map_visualization";
   version = "2.2.0-1";
   src = sources."grid_map_visualization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

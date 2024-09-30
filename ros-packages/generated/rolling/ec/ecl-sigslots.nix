@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ecl-sigslots";
+  pname = "ecl_sigslots";
   version = "1.2.1-4";
   src = sources."ecl_sigslots";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

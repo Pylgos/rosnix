@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nmea-navsat-driver";
+  pname = "nmea_navsat_driver";
   version = "2.0.1-3";
   src = sources."nmea_navsat_driver";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

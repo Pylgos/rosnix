@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rqt-msg";
+  pname = "rqt_msg";
   version = "1.5.1-3";
   src = sources."rqt_msg";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

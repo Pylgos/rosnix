@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-eigen";
+  pname = "tf2_eigen";
   version = "0.38.2-1";
   src = sources."tf2_eigen";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "libcaer-driver";
+  pname = "libcaer_driver";
   version = "1.3.3-1";
   src = sources."libcaer_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

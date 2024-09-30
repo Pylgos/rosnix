@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-launcher";
+  pname = "mola_launcher";
   version = "1.2.0-1";
   src = sources."mola_launcher";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

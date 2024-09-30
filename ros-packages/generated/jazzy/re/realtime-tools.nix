@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "realtime-tools";
+  pname = "realtime_tools";
   version = "2.6.0-1";
   src = sources."realtime_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

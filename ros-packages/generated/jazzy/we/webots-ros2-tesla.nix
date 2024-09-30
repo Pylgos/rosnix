@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-tesla";
+  pname = "webots_ros2_tesla";
   version = "2023.1.3-1";
   src = sources."webots_ros2_tesla";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

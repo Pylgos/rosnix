@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "eigen-stl-containers";
+  pname = "eigen_stl_containers";
   version = "1.0.0-7";
   src = sources."eigen_stl_containers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

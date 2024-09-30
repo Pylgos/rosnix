@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "position-controllers";
+  pname = "position_controllers";
   version = "4.14.0-1";
   src = sources."position_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

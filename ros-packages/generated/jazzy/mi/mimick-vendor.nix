@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mimick-vendor";
+  pname = "mimick_vendor";
   version = "0.6.2-1";
   src = sources."mimick_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

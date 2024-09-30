@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-rawlog";
+  pname = "mrpt_rawlog";
   version = "2.2.0-1";
   src = sources."mrpt_rawlog";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "lanelet2-maps";
+  pname = "lanelet2_maps";
   version = "1.2.1-1";
   src = sources."lanelet2_maps";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "splsm-7";
+  pname = "splsm_7";
   version = "3.0.1-4";
   src = sources."splsm_7";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

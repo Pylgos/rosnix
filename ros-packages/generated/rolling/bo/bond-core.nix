@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "bond-core";
+  pname = "bond_core";
   version = "4.1.0-1";
   src = sources."bond_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

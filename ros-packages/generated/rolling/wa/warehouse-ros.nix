@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "warehouse-ros";
+  pname = "warehouse_ros";
   version = "2.0.5-1";
   src = sources."warehouse_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

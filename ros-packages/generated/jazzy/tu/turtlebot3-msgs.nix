@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot3-msgs";
+  pname = "turtlebot3_msgs";
   version = "2.2.1-5";
   src = sources."turtlebot3_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

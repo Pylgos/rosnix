@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "plotjuggler-msgs";
+  pname = "plotjuggler_msgs";
   version = "0.2.3-4";
   src = sources."plotjuggler_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "irobot-create-toolbox";
+  pname = "irobot_create_toolbox";
   version = "3.0.2-2";
   src = sources."irobot_create_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "plotjuggler-ros";
+  pname = "plotjuggler_ros";
   version = "2.1.2-2";
   src = sources."plotjuggler_ros";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

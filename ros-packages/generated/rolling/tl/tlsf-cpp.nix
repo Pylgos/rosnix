@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tlsf-cpp";
+  pname = "tlsf_cpp";
   version = "0.18.1-1";
   src = sources."tlsf_cpp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

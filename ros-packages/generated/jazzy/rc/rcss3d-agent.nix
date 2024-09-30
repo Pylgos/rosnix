@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcss3d-agent";
+  pname = "rcss3d_agent";
   version = "0.4.1-4";
   src = sources."rcss3d_agent";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

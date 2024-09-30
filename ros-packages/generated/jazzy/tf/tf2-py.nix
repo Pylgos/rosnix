@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tf2-py";
+  pname = "tf2_py";
   version = "0.36.4-1";
   src = sources."tf2_py";
   nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

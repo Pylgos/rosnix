@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vision-msgs-rviz-plugins";
+  pname = "vision_msgs_rviz_plugins";
   version = "4.1.1-3";
   src = sources."vision_msgs_rviz_plugins";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

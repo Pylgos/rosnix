@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rtabmap-rviz-plugins";
+  pname = "rtabmap_rviz_plugins";
   version = "0.21.5-3";
   src = sources."rtabmap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

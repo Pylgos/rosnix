@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "micro-ros-diagnostic-bridge";
+  pname = "micro_ros_diagnostic_bridge";
   version = "0.3.0-5";
   src = sources."micro_ros_diagnostic_bridge";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

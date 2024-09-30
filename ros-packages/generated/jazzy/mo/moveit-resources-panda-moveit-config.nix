@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-resources-panda-moveit-config";
+  pname = "moveit_resources_panda_moveit_config";
   version = "3.0.0-3";
   src = sources."moveit_resources_panda_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

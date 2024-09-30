@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-common";
+  pname = "moveit_common";
   version = "2.10.0-1";
   src = sources."moveit_common";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "fuse-graphs";
+  pname = "fuse_graphs";
   version = "1.2.1-1";
   src = sources."fuse_graphs";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "iceoryx-posh";
+  pname = "iceoryx_posh";
   version = "2.0.5-5";
   src = sources."iceoryx_posh";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };

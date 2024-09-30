@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "examples-rclpy-guard-conditions";
+  pname = "examples_rclpy_guard_conditions";
   version = "0.19.4-1";
   src = sources."examples_rclpy_guard_conditions";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

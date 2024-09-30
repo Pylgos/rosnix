@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-bringup";
+  pname = "leo_bringup";
   version = "1.4.0-3";
   src = sources."leo_bringup";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

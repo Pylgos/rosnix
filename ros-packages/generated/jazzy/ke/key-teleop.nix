@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "key-teleop";
+  pname = "key_teleop";
   version = "1.5.1-1";
   src = sources."key_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

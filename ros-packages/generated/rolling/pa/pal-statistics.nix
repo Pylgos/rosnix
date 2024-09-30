@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pal-statistics";
+  pname = "pal_statistics";
   version = "2.2.4-1";
   src = sources."pal_statistics";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

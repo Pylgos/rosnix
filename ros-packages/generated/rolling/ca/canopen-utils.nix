@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-utils";
+  pname = "canopen_utils";
   version = "0.2.12-2";
   src = sources."canopen_utils";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

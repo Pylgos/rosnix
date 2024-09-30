@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-benchmarks";
+  pname = "moveit_ros_benchmarks";
   version = "2.10.0-1";
   src = sources."moveit_ros_benchmarks";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

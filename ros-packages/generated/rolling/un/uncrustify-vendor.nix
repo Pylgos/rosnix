@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "uncrustify-vendor";
+  pname = "uncrustify_vendor";
   version = "3.1.0-1";
   src = sources."uncrustify_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

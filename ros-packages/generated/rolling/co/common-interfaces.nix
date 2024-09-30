@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "common-interfaces";
+  pname = "common_interfaces";
   version = "5.4.1-1";
   src = sources."common_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

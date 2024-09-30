@@ -44,7 +44,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nav2-smac-planner";
+  pname = "nav2_smac_planner";
   version = "1.3.2-1";
   src = sources."nav2_smac_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

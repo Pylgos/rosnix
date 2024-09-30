@@ -37,7 +37,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ackermann-steering-controller";
+  pname = "ackermann_steering_controller";
   version = "4.14.0-1";
   src = sources."ackermann_steering_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

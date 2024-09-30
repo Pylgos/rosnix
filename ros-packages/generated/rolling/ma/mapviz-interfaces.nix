@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mapviz-interfaces";
+  pname = "mapviz_interfaces";
   version = "2.4.3-1";
   src = sources."mapviz_interfaces";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

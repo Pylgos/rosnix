@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "leo-gz-plugins";
+  pname = "leo_gz_plugins";
   version = "2.0.0-1";
   src = sources."leo_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

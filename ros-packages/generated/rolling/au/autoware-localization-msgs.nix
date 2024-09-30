@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-localization-msgs";
+  pname = "autoware_localization_msgs";
   version = "1.1.0-1";
   src = sources."autoware_localization_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

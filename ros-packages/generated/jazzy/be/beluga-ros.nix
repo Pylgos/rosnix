@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "beluga-ros";
+  pname = "beluga_ros";
   version = "2.0.2-1";
   src = sources."beluga_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

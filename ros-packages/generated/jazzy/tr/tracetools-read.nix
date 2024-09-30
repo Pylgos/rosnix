@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tracetools-read";
+  pname = "tracetools_read";
   version = "8.2.2-1";
   src = sources."tracetools_read";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

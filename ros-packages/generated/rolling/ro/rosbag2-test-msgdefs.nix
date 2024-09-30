@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbag2-test-msgdefs";
+  pname = "rosbag2_test_msgdefs";
   version = "0.29.0-1";
   src = sources."rosbag2_test_msgdefs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

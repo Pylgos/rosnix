@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosx-introspection";
+  pname = "rosx_introspection";
   version = "1.0.2-1";
   src = sources."rosx_introspection";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-babel-fish-test-msgs";
+  pname = "ros_babel_fish_test_msgs";
   version = "0.9.3-1";
   src = sources."ros_babel_fish_test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

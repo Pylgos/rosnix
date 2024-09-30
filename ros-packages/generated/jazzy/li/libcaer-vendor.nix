@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "libcaer-vendor";
+  pname = "libcaer_vendor";
   version = "1.3.0-1";
   src = sources."libcaer_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

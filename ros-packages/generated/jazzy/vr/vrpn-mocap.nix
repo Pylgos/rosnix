@@ -31,7 +31,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vrpn-mocap";
+  pname = "vrpn_mocap";
   version = "1.1.0-4";
   src = sources."vrpn_mocap";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

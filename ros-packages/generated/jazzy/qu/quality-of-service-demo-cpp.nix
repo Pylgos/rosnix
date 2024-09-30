@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "quality-of-service-demo-cpp";
+  pname = "quality_of_service_demo_cpp";
   version = "0.33.5-1";
   src = sources."quality_of_service_demo_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

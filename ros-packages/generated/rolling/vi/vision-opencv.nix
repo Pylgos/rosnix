@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "vision-opencv";
+  pname = "vision_opencv";
   version = "4.1.0-1";
   src = sources."vision_opencv";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

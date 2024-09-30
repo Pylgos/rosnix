@@ -39,7 +39,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-babel-fish";
+  pname = "ros_babel_fish";
   version = "0.9.3-1";
   src = sources."ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

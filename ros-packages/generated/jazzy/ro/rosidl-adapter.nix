@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-adapter";
+  pname = "rosidl_adapter";
   version = "4.6.4-1";
   src = sources."rosidl_adapter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

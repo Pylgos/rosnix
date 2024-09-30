@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-building-map-msgs";
+  pname = "rmf_building_map_msgs";
   version = "1.5.0-1";
   src = sources."rmf_building_map_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

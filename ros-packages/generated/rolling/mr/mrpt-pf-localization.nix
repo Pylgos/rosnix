@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-pf-localization";
+  pname = "mrpt_pf_localization";
   version = "2.2.0-1";
   src = sources."mrpt_pf_localization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

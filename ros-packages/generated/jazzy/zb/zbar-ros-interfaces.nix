@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zbar-ros-interfaces";
+  pname = "zbar_ros_interfaces";
   version = "0.6.0-1";
   src = sources."zbar_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

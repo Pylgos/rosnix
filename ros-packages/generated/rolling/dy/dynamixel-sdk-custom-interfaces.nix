@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "dynamixel-sdk-custom-interfaces";
+  pname = "dynamixel_sdk_custom_interfaces";
   version = "3.7.40-5";
   src = sources."dynamixel_sdk_custom_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

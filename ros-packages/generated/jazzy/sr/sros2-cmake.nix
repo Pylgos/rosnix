@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "sros2-cmake";
+  pname = "sros2_cmake";
   version = "0.13.2-1";
   src = sources."sros2_cmake";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "udp-msgs";
+  pname = "udp_msgs";
   version = "0.0.5-1";
   src = sources."udp_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "actionlib-msgs";
+  pname = "actionlib_msgs";
   version = "5.4.1-1";
   src = sources."actionlib_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtle-tf2-py";
+  pname = "turtle_tf2_py";
   version = "0.5.0-1";
   src = sources."turtle_tf2_py";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

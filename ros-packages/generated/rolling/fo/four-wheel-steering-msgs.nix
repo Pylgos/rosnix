@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "four-wheel-steering-msgs";
+  pname = "four_wheel_steering_msgs";
   version = "2.0.1-5";
   src = sources."four_wheel_steering_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

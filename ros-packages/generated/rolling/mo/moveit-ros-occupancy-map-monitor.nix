@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-ros-occupancy-map-monitor";
+  pname = "moveit_ros_occupancy_map_monitor";
   version = "2.11.0-1";
   src = sources."moveit_ros_occupancy_map_monitor";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

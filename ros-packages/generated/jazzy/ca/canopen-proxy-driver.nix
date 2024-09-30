@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "canopen-proxy-driver";
+  pname = "canopen_proxy_driver";
   version = "0.2.9-2";
   src = sources."canopen_proxy_driver";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

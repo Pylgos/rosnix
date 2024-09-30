@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "laser-proc";
+  pname = "laser_proc";
   version = "1.0.2-6";
   src = sources."laser_proc";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

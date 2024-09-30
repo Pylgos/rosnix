@@ -34,7 +34,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "avt-vimba-camera";
+  pname = "avt_vimba_camera";
   version = "2001.1.0-6";
   src = sources."avt_vimba_camera";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

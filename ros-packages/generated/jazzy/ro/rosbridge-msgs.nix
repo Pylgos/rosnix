@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosbridge-msgs";
+  pname = "rosbridge_msgs";
   version = "1.3.2-3";
   src = sources."rosbridge_msgs";
   nativeBuildInputs = [ ament-cmake-ros rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

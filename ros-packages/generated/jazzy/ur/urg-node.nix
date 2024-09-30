@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "urg-node";
+  pname = "urg_node";
   version = "1.1.1-4";
   src = sources."urg_node";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

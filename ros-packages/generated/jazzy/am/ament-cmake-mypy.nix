@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-mypy";
+  pname = "ament_cmake_mypy";
   version = "0.17.1-1";
   src = sources."ament_cmake_mypy";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

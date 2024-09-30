@@ -35,7 +35,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "nodl-to-policy";
+  pname = "nodl_to_policy";
   version = "1.0.0-4";
   src = sources."nodl_to_policy";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "test-ros-gz-bridge";
+  pname = "test_ros_gz_bridge";
   version = "2.1.0-1";
   src = sources."test_ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

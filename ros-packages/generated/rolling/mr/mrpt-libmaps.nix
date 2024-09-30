@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mrpt-libmaps";
+  pname = "mrpt_libmaps";
   version = "2.14.1-1";
   src = sources."mrpt_libmaps";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

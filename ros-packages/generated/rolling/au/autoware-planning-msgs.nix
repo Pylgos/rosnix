@@ -32,7 +32,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "autoware-planning-msgs";
+  pname = "autoware_planning_msgs";
   version = "1.1.0-1";
   src = sources."autoware_planning_msgs";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

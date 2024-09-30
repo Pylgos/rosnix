@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "zbar-ros";
+  pname = "zbar_ros";
   version = "0.7.0-1";
   src = sources."zbar_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

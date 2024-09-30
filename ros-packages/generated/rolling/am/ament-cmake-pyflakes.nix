@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-pyflakes";
+  pname = "ament_cmake_pyflakes";
   version = "0.18.1-1";
   src = sources."ament_cmake_pyflakes";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

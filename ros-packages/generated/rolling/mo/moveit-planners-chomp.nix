@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "moveit-planners-chomp";
+  pname = "moveit_planners_chomp";
   version = "2.11.0-1";
   src = sources."moveit_planners_chomp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

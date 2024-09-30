@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rosidl-dynamic-typesupport-fastrtps";
+  pname = "rosidl_dynamic_typesupport_fastrtps";
   version = "0.2.0-1";
   src = sources."rosidl_dynamic_typesupport_fastrtps";
   nativeBuildInputs = [ ament-cmake-ros fastrtps-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

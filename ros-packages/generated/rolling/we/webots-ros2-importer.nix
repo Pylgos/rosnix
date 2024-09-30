@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "webots-ros2-importer";
+  pname = "webots_ros2_importer";
   version = "2023.1.3-1";
   src = sources."webots_ros2_importer";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -38,7 +38,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "etsi-its-rviz-plugins";
+  pname = "etsi_its_rviz_plugins";
   version = "2.2.0-1";
   src = sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "teleop-twist-keyboard";
+  pname = "teleop_twist_keyboard";
   version = "2.4.0-1";
   src = sources."teleop_twist_keyboard";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

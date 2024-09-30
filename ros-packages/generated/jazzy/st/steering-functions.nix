@@ -23,7 +23,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "steering-functions";
+  pname = "steering_functions";
   version = "0.3.0-1";
   src = sources."steering_functions";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "flexbe-mirror";
+  pname = "flexbe_mirror";
   version = "3.0.3-1";
   src = sources."flexbe_mirror";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

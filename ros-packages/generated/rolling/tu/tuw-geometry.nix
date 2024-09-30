@@ -29,7 +29,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "tuw-geometry";
+  pname = "tuw_geometry";
   version = "0.0.7-3";
   src = sources."tuw_geometry";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

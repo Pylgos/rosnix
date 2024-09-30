@@ -28,7 +28,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "topic-tools-interfaces";
+  pname = "topic_tools_interfaces";
   version = "1.4.0-1";
   src = sources."topic_tools_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

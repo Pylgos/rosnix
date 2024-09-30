@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "gazebo-msgs";
+  pname = "gazebo_msgs";
   version = "3.8.0-1";
   src = sources."gazebo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

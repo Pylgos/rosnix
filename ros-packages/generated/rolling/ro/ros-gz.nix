@@ -30,7 +30,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ros-gz";
+  pname = "ros_gz";
   version = "2.1.0-1";
   src = sources."ros_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

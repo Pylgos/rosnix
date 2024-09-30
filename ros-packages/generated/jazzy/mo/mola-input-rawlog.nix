@@ -24,7 +24,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "mola-input-rawlog";
+  pname = "mola_input_rawlog";
   version = "1.2.0-1";
   src = sources."mola_input_rawlog";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };

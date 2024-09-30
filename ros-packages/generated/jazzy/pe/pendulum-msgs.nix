@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "pendulum-msgs";
+  pname = "pendulum_msgs";
   version = "0.33.5-1";
   src = sources."pendulum_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

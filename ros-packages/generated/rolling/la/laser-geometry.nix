@@ -36,7 +36,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "laser-geometry";
+  pname = "laser_geometry";
   version = "2.8.0-1";
   src = sources."laser_geometry";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -43,7 +43,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "libyaml-vendor";
+  pname = "libyaml_vendor";
   version = "1.7.0-1";
   src = sources."libyaml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

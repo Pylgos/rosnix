@@ -26,7 +26,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rcgcrd-spl-4-conversion";
+  pname = "rcgcrd_spl_4_conversion";
   version = "4.0.1-1";
   src = sources."rcgcrd_spl_4_conversion";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

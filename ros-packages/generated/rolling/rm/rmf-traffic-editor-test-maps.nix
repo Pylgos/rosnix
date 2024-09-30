@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rmf-traffic-editor-test-maps";
+  pname = "rmf_traffic_editor_test_maps";
   version = "1.10.0-1";
   src = sources."rmf_traffic_editor_test_maps";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

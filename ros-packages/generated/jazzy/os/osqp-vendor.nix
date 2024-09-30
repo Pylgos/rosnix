@@ -41,7 +41,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "osqp-vendor";
+  pname = "osqp_vendor";
   version = "0.2.0-4";
   src = sources."osqp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };

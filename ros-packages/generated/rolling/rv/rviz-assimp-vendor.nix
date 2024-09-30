@@ -229,7 +229,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "rviz-assimp-vendor";
+  pname = "rviz_assimp_vendor";
   version = "14.2.6-1";
   src = sources."rviz_assimp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

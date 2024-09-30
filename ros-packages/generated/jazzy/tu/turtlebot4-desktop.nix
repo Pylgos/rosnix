@@ -25,7 +25,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "turtlebot4-desktop";
+  pname = "turtlebot4_desktop";
   version = "2.0.1-1";
   src = sources."turtlebot4_desktop";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -33,7 +33,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ffmpeg-encoder-decoder";
+  pname = "ffmpeg_encoder_decoder";
   version = "1.0.1-1";
   src = sources."ffmpeg_encoder_decoder";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

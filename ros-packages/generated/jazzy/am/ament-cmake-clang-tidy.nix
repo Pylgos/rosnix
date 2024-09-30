@@ -27,7 +27,7 @@ let
   });
 in
 buildRosPackage {
-  pname = "ament-cmake-clang-tidy";
+  pname = "ament_cmake_clang_tidy";
   version = "0.17.1-1";
   src = sources."ament_cmake_clang_tidy";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
