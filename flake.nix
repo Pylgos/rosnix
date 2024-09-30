@@ -99,7 +99,7 @@
                 if [[ -z $DONT_COMMIT ]]; then
                   git add ./ros-packages/generated
                   if ! git diff --quiet --cached ./ros-packages/generated; then
-                    git commit -m "Regenerate distro files" -m "$(cat /tmp/report.md)"
+                    git commit -m "Update ROS packages" -m "$(cat /tmp/report.md)"
                   fi
                 fi
               '';
