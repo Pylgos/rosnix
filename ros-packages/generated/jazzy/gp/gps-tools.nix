@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "gps_tools-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
-        rev = "04f6468301ac6916a9c164f10dfc565e495cb679";
-        hash = "sha256-QlW/IzkRFxYsEks3A9lEuQANpxUCf0RKCDA/PSsqzyg=";
+        rev = "5228a585b349d3bb513b58609d67142a2fd4c3b6";
+        hash = "sha256-+bW839E0UolKzA4D0kkBoqHgk4d/WmPJZLONWM/hGV0=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "gps_tools";
-  version = "2.0.3-2";
+  version = "2.0.4-1";
   src = sources."gps_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

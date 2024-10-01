@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "gps_msgs-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
-        rev = "f572d023b466c3b5960fd5629951424b5344b677";
-        hash = "sha256-1RkI1XM2+N+2B6AXCDVx6WfEhwXaU/PIHvKOB0B9q1Y=";
+        rev = "b3db243818b4f01dd1e50d83c43220da781722e2";
+        hash = "sha256-+QdXAKoETYEVPixEE9cGbmi8yFtZl1SItOQI9/n3qFI=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "gps_msgs";
-  version = "2.0.3-2";
+  version = "2.0.4-1";
   src = sources."gps_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

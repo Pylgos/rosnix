@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mola_yaml-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "6bdf5aac5a78176e6c72c5f614a9b16f27287a82";
-        hash = "sha256-p3YPEEi9G6SpJsAtrNR4xqytZdUkO/MfRR/cPkQdoFk=";
+        rev = "ff1b7d40f439bf7385cda39e1dcb997f61b7a15e";
+        hash = "sha256-xzH/z3miq+AGVO/XLoeR4kMa11daIlf0CYHkQGcxQXc=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage {
   pname = "mola_yaml";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_yaml";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "irobot_create_gz_plugins-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
-        rev = "7c8996dfb742fd0c0abca43f5a3676b6e9b8482d";
-        hash = "sha256-/XHjWowA0gP5cmUkNAlTU9fqAU+5QfiJvT+IDY+I7o8=";
+        rev = "f9bbd3646b138106e0ab2cae623fe87d6e35a22c";
+        hash = "sha256-9K7OGvwBvi/5V5TORIrO8ewJQHDvM/sneSUnW9aGg9A=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "irobot_create_gz_plugins";
-  version = "3.0.2-2";
+  version = "3.0.3-1";
   src = sources."irobot_create_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

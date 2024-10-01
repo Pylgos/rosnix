@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "gpsd_client-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
-        rev = "16e02a0573ebaf6c2fe0b131285c43ccccfb49d4";
-        hash = "sha256-5UEXqwcIMfl3tStPrZyLbVOdaoRcW2YuUtkSzCQZhmo=";
+        rev = "5cdf73c6736f8ef1dcc64f93648f2c6a8101c854";
+        hash = "sha256-Ssq5pihtdqJuy//6IfxXwaJCV1EC4X7urzYBOcONtjQ=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "gpsd_client";
-  version = "2.0.3-2";
+  version = "2.0.4-1";
   src = sources."gpsd_client";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "66777666192d9b2510648971c8ac5265155dc55c";
-        hash = "sha256-ULBVt/bMvtpdMO0lt7ER9jz+C2W3n5Fn9jpmnt/S2fU=";
+        rev = "036c062bd5b602f238bd47670fd4f693f323ba78";
+        hash = "sha256-fgD1bPviykqltyhv/xq87yRlBiOTV02fhKB0O0f6E1s=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage {
   pname = "mola_bridge_ros2";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

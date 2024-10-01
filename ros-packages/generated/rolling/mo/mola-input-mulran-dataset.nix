@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "mola_input_mulran_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "28debe37d5a96a78bf3fada2cc0d4b85eb0f9c01";
-        hash = "sha256-5ZZM31stsOUUcsnzLePMsjHS4CDPs5HHvqGEvMA9BZk=";
+        rev = "b2eda936fc65425818d74ee53e59dbbba4d9451a";
+        hash = "sha256-2ABFUsj9nI+pSKPvGHcXQe5ITdJMT4fB0xHsLFVbA5I=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "mola_input_mulran_dataset";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_input_mulran_dataset";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

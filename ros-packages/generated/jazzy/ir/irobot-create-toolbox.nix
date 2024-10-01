@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "irobot_create_toolbox-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
-        rev = "7c9283a95e70e97fe434f2738523500d3bfde64a";
-        hash = "sha256-1Xz8PBcCKddOydL4GpJyR/Ojnok3SvV4iMNh68o8a2g=";
+        rev = "39a23e493fb885afb10248f8abf23cc90e3916b5";
+        hash = "sha256-Kl6c5Cng8dqaC4deKdBJ165BBcxj6G6Gnqv27mx1wgU=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "irobot_create_toolbox";
-  version = "3.0.2-2";
+  version = "3.0.3-1";
   src = sources."irobot_create_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

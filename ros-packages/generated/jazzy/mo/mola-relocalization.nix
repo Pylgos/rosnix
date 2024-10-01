@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mola_relocalization-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "6302471a696325251d61a7d89e0829b892e652eb";
-        hash = "sha256-xXFtgqQRz4RRcwaWzI0psVvvIlKDid5pKueu2z6lXoo=";
+        rev = "b15855be487a1dca7a900412f41a6b95fc386da7";
+        hash = "sha256-fbPyWW6k874EYfr6gWdwf6D0CZP6VOq/rWAWL2Y3Muc=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "mola_relocalization";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_relocalization";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

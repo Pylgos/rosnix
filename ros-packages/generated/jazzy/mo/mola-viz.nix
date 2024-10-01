@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "mola_viz-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "b43e97c269d5c6c81151b54e5480694ed7286b22";
-        hash = "sha256-Vr0gl/J/Sk30LMusvG3latH8D4wQrrbgSh3hrDE1GWM=";
+        rev = "f24be7976094b7ffb5e50abbcd3d284248fc02b1";
+        hash = "sha256-Vvc/mm8v5KmuOMLYuncby8q1x9SP50dbWSxZp4sf3c0=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "mola_viz";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_viz";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

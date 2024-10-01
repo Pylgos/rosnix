@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "mola_metric_maps-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "cb91103f08874e6538713e9341f32d279decd3f8";
-        hash = "sha256-fzdSSmRbXxNjZgSCh3StlfZkLf4KlHp4XmT9dly/9Yw=";
+        rev = "e7f4d3ec1844ac777a517f7ad4c73e50ded25be5";
+        hash = "sha256-yTUZQYGfq8tIqMShFhB75l54AjpGqaSxqYdofgXxUX0=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "mola_metric_maps";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_metric_maps";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

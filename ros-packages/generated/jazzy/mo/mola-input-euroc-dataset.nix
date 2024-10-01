@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "mola_input_euroc_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "1db16527e3859b9297f56f7990e8b38e83716c8f";
-        hash = "sha256-GXNSYASRlkoaQ75ahKzXusE47N5LLNdG4jvBwbeELFI=";
+        rev = "51019f6ead0f55bf1a2e9e4ec9024d7daf13dda4";
+        hash = "sha256-TfYp/nZfnTmXEVnYK9GTU2psK5vgbo360aKPfSi1vvk=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "mola_input_euroc_dataset";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_input_euroc_dataset";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

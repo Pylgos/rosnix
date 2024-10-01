@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "mola_input_paris_luco_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "f33135c3d5eac48bd2b00966a0806dd8c3f259af";
-        hash = "sha256-D7wGGKbgSY+ViPgwJcdvFFuPoulp9Go53BhnqMR7p+w=";
+        rev = "d8e21dda0e628cf91edc842251b9c1f0bc3de785";
+        hash = "sha256-0WxaPrua1NnqakiPgFwKyZ5+zHKvYSE1lFTj7iTz23A=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "mola_input_paris_luco_dataset";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = sources."mola_input_paris_luco_dataset";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
