@@ -67,7 +67,7 @@ final: prev: {
           postInstall =
             postInstall
             + ''
-              patchelf $out/opt/gz_gui_vendor/lib64/gz-gui-8/plugins/libGrid3D.so --set-rpath ""
+              patchelf $out/opt/gz_gui_vendor/lib64/gz-gui-*/plugins/libGrid3D.so --set-rpath ""
             '';
         }
       );
