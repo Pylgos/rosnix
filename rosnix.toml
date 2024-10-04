@@ -1,7 +1,7 @@
 distributions = ["jazzy", "rolling"]
 out_dir = "ros-packages/generated"
 max_concurrent_downloads = 16
-buildtool_packages = ["ament_lint_common"]
+buildtool_packages = ["ament_lint_common", "gz_cmake_vendor"]
 runtime_packages = [
   "rmw",
   "ros2test",
