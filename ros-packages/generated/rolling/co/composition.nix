@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "composition-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "f2a76a348f58e59065c8b2106fb2dbb4ec0f9467";
-        hash = "sha256-Ld/hGyzQUc279KalrI4VrlNrdSt03Jv4Oizphd82JsU=";
+        rev = "b3bcdbd09d895885dbb3abf0ac2a7ee98d356dbf";
+        hash = "sha256-L4WVPQDkF+v6+hMjWUHq9uRt9bZqiQzf/rubsBt8fec=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "composition";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."composition";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

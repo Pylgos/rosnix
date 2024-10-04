@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "image_common-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "737ceda740fe52fa79afaf8a811baa920bb26b89";
-        hash = "sha256-m769Wq7qhVC/KiCtOC9vt+5MAIDP45myrL8oz+oCF/E=";
+        rev = "e6dab9ef2caacca800b8ac428a829461791ecaa4";
+        hash = "sha256-w+Be0aYPXwWRyNsmdnmgOXud/vAhQtgSqwq/e4WgIWU=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "image_common";
-  version = "5.3.2-1";
+  version = "6.0.0-1";
   src = sources."image_common";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

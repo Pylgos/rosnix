@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "gz_plugin_vendor-source";
         url = "https://github.com/ros2-gbp/gz_plugin_vendor-release.git";
-        rev = "528f60f197909a91bd48d948a650bd87ae2c9f8e";
-        hash = "sha256-6aCXYWo3MSsOxDB4pyhRCK1ID8tyHwnsI1tCnj2aYqU=";
+        rev = "183bc4d418ef0c2b0cecaa888ce7fadf40a5533a";
+        hash = "sha256-prFCEjcqpFU4tJKND9ce4tM+ZSGHBZwryNtIMUxhNCo=";
       };
       substitutions = [
         {
@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "gz-plugin-source";
         url = "https://github.com/gazebosim/gz-plugin.git";
-        rev = "23c28a25aa0c52c87378a28543723b73d475c417";
-        hash = "sha256-9t6vcnBbfRWu6ptmqYAhmWKDoKAaK631JD9u1C0G0mY=";
+        rev = "faaf65e805cca46b4539e1941266189beb6b0bae";
+        hash = "sha256-h2Dx0KcFmJlS67q0v1zbd9nQkTCKgHkxt5KKTT5v+fw=";
       };
       substitutions = [
       ];
@@ -47,16 +47,16 @@ let
 in
 buildRosPackage {
   pname = "gz_plugin_vendor";
-  version = "0.1.0-1";
+  version = "0.2.0-1";
   src = sources."gz_plugin_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-plugin2" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-plugin3" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
-    description = "Vendor package for: gz-plugin2 2.0.3 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.";
+    description = "Vendor package for: gz-plugin3 3.0.0 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.";
   };
 }

@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rosidl_cli-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "53b8898b7e5cfc687fa82dfb2f0d3e89d39340da";
-        hash = "sha256-X30BhGckqwyC/VfTB6oQWmvIeO8tCq8D0gioJNc8EnM=";
+        rev = "0540be816a05d229af1c11012ef1852e0186626c";
+        hash = "sha256-rH862nWgHUyFO7nsarOSNQ80t9z1jkDadFVJtL68080=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_cli";
-  version = "4.8.1-1";
+  version = "4.9.0-1";
   src = sources."rosidl_cli";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };

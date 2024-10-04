@@ -1,6 +1,5 @@
 {
   action-msgs,
-  action-tutorials-interfaces,
   ament-cmake,
   ament-cmake-python,
   buildRosPackage,
@@ -38,7 +37,7 @@ buildRosPackage {
   propagatedBuildInputs = [ action-msgs rclcpp rclcpp-action rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ action-tutorials-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "action_tutorials_interfaces" ]; };
   meta = {
     description = "Simple library for using the `rclpy/rclcpp` action libraries";
   };

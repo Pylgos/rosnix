@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "demo_nodes_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "72b86114e5ca265990a17f1a1fba4dcceac9d388";
-        hash = "sha256-ErrxjB7aVw1B7BTi7x6/mF08N4ylWUIzyt6fkId8BvI=";
+        rev = "906e51a213903b20e4eb87a6f3fbded1e1d06804";
+        hash = "sha256-yBPv9Y1IXDAnxxb3aXbV/V9af5UEbmCgoz0Rf2mkLmk=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "demo_nodes_py";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."demo_nodes_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

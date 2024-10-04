@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "rviz_imu_plugin-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "dd8a1409694c079020a74626ea01d42353ed6a54";
-        hash = "sha256-Ve4ClRA+kkXcWgIqaDhQOlKTrTYODFV3aGvhCMk/jXM=";
+        rev = "3e794a6d7032dececcb967a07ada122a419ef1fa";
+        hash = "sha256-jgqkllFUnDOJLcLNYTyjZ+2O1Gx3niGzPvTlTyeo6sk=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "rviz_imu_plugin";
-  version = "2.1.4-1";
+  version = "2.2.0-1";
   src = sources."rviz_imu_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

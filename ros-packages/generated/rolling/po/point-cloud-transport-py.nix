@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "point_cloud_transport_py-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
-        rev = "49c807df7d677b7a6e2b27c339065743a10ea3d0";
-        hash = "sha256-v+zx6s3LYmv2cZe4MlRIr+g6FhyaieqasQcsiBygONg=";
+        rev = "7da6f3c00e4f6269c260730d596b3a6bea79a00d";
+        hash = "sha256-PzDdGYin6FqLps+VbfUEQxDsH/cmoWWgk/s1JxBK29A=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage {
   pname = "point_cloud_transport_py";
-  version = "5.0.3-1";
+  version = "5.0.4-1";
   src = sources."point_cloud_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

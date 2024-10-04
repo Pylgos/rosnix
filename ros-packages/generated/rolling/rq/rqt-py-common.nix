@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "rqt_py_common-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
-        rev = "e0a36bfb9e414974c9b8d96873b03355c306a6a7";
-        hash = "sha256-mMelbqXlcWi70Y6hRbxH682BUSN5AOmWZk2/FtaUqYY=";
+        rev = "69ed7988d5acdeb62152a6f9eb211d942c627d1c";
+        hash = "sha256-s04opJbNUbhVVMZMfjQbUNPTu4bqn79mTo2al4m6tzo=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildRosPackage {
   pname = "rqt_py_common";
-  version = "1.7.2-1";
+  version = "1.7.3-1";
   src = sources."rqt_py_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

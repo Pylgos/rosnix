@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "camera_calibration_parsers-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "e0b1a2d83fa424fb9901db29b1878552cd7f58e1";
-        hash = "sha256-2wHvrXRKoktOhSDRtVLJjakxQeMcNKi1cW1vEzdTh1M=";
+        rev = "2f06aebd96f0b787d8d5d231cc43d2c8c55eefeb";
+        hash = "sha256-0I6OsO2FsVtJr4JYav0UwN2yF6gpkP3kWn5pMAmHBww=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "camera_calibration_parsers";
-  version = "5.3.2-1";
+  version = "6.0.0-1";
   src = sources."camera_calibration_parsers";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

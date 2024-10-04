@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "tf2_tools-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "aef821033946b1d2c3b0adda75b07e2a358a2909";
-        hash = "sha256-Ol4zYsUAmSY3Vc7eCx9VcCyKSi+hiOC/FOTFijHZQ2k=";
+        rev = "932ea4a03a26df5c6b63d23f301c6499186294ee";
+        hash = "sha256-geR5YDvqObUltT+6QPNi/KrSWXG62Bqx7nFqDlqyi/I=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "tf2_tools";
-  version = "0.38.2-1";
+  version = "0.39.0-1";
   src = sources."tf2_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };

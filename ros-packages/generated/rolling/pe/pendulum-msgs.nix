@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "pendulum_msgs-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "91b12807120ab8de6c0d05950e34f2c4a06deb99";
-        hash = "sha256-NFG6kVGH2H4vvpAx8RitTa4EbTDg6/iPGJNwV2RdozE=";
+        rev = "2735298241493727448dceec1793d9f3345e08f5";
+        hash = "sha256-gUIfQ5YqbHQCOn24xbi3t/ko4rAu/STgQUe89rLHCRo=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "pendulum_msgs";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."pendulum_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

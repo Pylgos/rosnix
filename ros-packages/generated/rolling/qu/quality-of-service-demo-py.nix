@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "quality_of_service_demo_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "2d19048e7fea01533502a448e12b2801ec2031ac";
-        hash = "sha256-/ILPhIdb/aWGo8jVJt5opa0uwVBQJv6Rp0YRE8RtkaA=";
+        rev = "a7378715d6660886517abcf2df332e3c5f7fcbba";
+        hash = "sha256-X1gzuA9bW1rn77dcoyz1tb14RmhJ2EfeAVc0HGewf2w=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "quality_of_service_demo_py";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."quality_of_service_demo_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

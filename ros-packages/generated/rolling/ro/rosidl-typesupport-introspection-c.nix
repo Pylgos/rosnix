@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "rosidl_typesupport_introspection_c-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "f4c50f2ec2ac6aeb4f249de1fa95c378ab478c83";
-        hash = "sha256-TU24Z3OHBbJXc827I5tBTw7n9wCgZmmriv/ESFTRJns=";
+        rev = "1a940b3fd445c96b215a3ca9559f447ef7a64d78";
+        hash = "sha256-thKmRMRyhUXPisVFtoIBEeFa0xDgPCpIDe0ScMxs2y4=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "rosidl_typesupport_introspection_c";
-  version = "4.8.1-1";
+  version = "4.9.0-1";
   src = sources."rosidl_typesupport_introspection_c";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake rosidl-cli rosidl-cmake rosidl-generator-c rosidl-parser rosidl-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };

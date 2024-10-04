@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "tf2_eigen-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "e882a6a5c9f3eea2b5c38a6cb6412a1b7e549186";
-        hash = "sha256-l/M1K4PXTFHNzXwQBC19eRLgt3HkSSGcnhcuWIySiFQ=";
+        rev = "3e193d4a0f6eb43b02585a474dad0b6d2ed86278";
+        hash = "sha256-eH0XLZ7gyVhlSG9I7xvtXqA0+EMt25yEoQzKLC4Nl3I=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "tf2_eigen";
-  version = "0.38.2-1";
+  version = "0.39.0-1";
   src = sources."tf2_eigen";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

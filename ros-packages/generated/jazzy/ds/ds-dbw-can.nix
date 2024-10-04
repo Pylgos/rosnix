@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "ds_dbw_can-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
-        rev = "491aaf1b09695f08790ecab8d0d1f046532df2f8";
-        hash = "sha256-5tNo8sZUZ4s4XPOC7pA9BwYdAYWNVkQu5x62aM1DeD0=";
+        rev = "8dbac0fe66e0fb36fb371a71403ae2a4d9d4c7bc";
+        hash = "sha256-wxww4gfOlgUsk3t7nn4CM75T1YgPrWyi4x6SIYsQ/dk=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "ds_dbw_can";
-  version = "2.2.0-1";
+  version = "2.2.3-1";
   src = sources."ds_dbw_can";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

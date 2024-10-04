@@ -1,8 +1,9 @@
 {
+  action-msgs,
   ament-cmake,
-  ament-lint-auto,
   ament-lint-common,
   buildRosPackage,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,12 +15,12 @@
 }:
 let
   sources = mkSourceSet (sources: {
-    "action_tutorials_interfaces" = substituteSource {
+    "create3_examples_msgs" = substituteSource {
       src = fetchgit {
-        name = "action_tutorials_interfaces-source";
-        url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "25227594693d77125d2e2207ea800f83da8f4eaa";
-        hash = "sha256-Tfs+V9ElJv4cFgbwFdK4ZN+tNwIuGANzjPjFjfXNjqQ=";
+        name = "create3_examples_msgs-source";
+        url = "https://github.com/ros2-gbp/create3_examples-release.git";
+        rev = "343985ffea7221e8595e54dc0606c050ab40f856";
+        hash = "sha256-ndDXU8l0nR534hkAQXnYooU2if1jaAC2/7yEotF5CiQ=";
       };
       substitutions = [
       ];
@@ -27,17 +28,17 @@ let
   });
 in
 buildRosPackage {
-  pname = "action_tutorials_interfaces";
-  version = "0.34.2-1";
-  src = sources."action_tutorials_interfaces";
+  pname = "create3_examples_msgs";
+  version = "1.0.0-1";
+  src = sources."create3_examples_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
-    description = "Action tutorials action";
+    description = "Package containing action, message and service definitions used by the iRobot(R) Create(R) 3 examples";
   };
 }

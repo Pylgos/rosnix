@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
-        rev = "5768843bb89234881a8537281b65932c8aba8615";
-        hash = "sha256-RaJ9JMYxNIoqeaQAJpp9o31d9tLV3aU3MQtWLMyZ4RI=";
+        rev = "0a7aa6f0180faf2085ec09242f1a2744c3a36466";
+        hash = "sha256-MnJNDnXxJtrUNrDUoJ0w17pAyQj4NZ4L1n31BEMzq+A=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "point_cloud_transport";
-  version = "5.0.3-1";
+  version = "5.0.4-1";
   src = sources."point_cloud_transport";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

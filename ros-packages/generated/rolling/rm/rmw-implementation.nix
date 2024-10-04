@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "rmw_implementation-source";
         url = "https://github.com/ros2-gbp/rmw_implementation-release.git";
-        rev = "c9b3ae435a66cdc82274f006fa7dd23ca0eca4c4";
-        hash = "sha256-cFnGp39n/off+EM9MnLOoNqSCyWxMwwQkOZbigCn7IA=";
+        rev = "f1530024dde5d95977f7d0041b313aaa6867ca9c";
+        hash = "sha256-9oAkiRRoOm4OcdJ/DHGXfUxLnS3pFfp8PtQTa+l5Nuo=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "rmw_implementation";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = sources."rmw_implementation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

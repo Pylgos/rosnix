@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "teleop_tools_msgs-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "b32647dbe0823076ef7fe7fcd153ce802691c826";
-        hash = "sha256-ZP73iRktZ99bhO727JQZry6o10V/7WbbL8u14VQJ9+w=";
+        rev = "0e133ce033db7ded31fa991b043c9eae5f95a5e0";
+        hash = "sha256-l0DHabNIU9rFtLtnS8lgMoWF9NgmB1/3IjwaNVavI9c=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "teleop_tools_msgs";
-  version = "1.5.1-1";
+  version = "1.6.0-1";
   src = sources."teleop_tools_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

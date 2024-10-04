@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "imu_filter_madgwick-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "7ee0d1935761f893a2886fa63bab087357798c86";
-        hash = "sha256-9xtHq3mg21RtWQYIhMsY0cbBWAiBh4WzSO3jZvFDaJc=";
+        rev = "8d763b507d1901d9f53291b55a04cca13f524005";
+        hash = "sha256-YSXJ7aA3PANeWPFZ04R8uKg9jsHM3RPHLTMSE/ZRSRk=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildRosPackage {
   pname = "imu_filter_madgwick";
-  version = "2.1.4-1";
+  version = "2.2.0-1";
   src = sources."imu_filter_madgwick";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

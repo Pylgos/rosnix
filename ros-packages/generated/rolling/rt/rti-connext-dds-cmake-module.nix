@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "rti_connext_dds_cmake_module-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "2ef5476e929c1ce5f1f4b0f6ffab576fad18af4d";
-        hash = "sha256-G4Jg0f5c/S87/zsn3lssXeLFNlBkBTwfsbqoV5Q2CfE=";
+        rev = "da51be6d797c26d608187498ccca6c3bc9f162cd";
+        hash = "sha256-xcSDCMgjyhEVbhA0FVBlBLEEgYcwPUeTFF1/sRFEUG4=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildRosPackage {
   pname = "rti_connext_dds_cmake_module";
-  version = "0.24.1-1";
+  version = "0.24.2-1";
   src = sources."rti_connext_dds_cmake_module";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

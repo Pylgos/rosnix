@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_google_benchmark-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "d84d060f506dd904139e9450eacad833d4259a22";
-        hash = "sha256-FxtmiXzHSrK7/E2i6xZY/5TEvSrr23CPQerWTCBLmAw=";
+        rev = "61fe0c8762dc9e0dc2f22ca8cbd325c82fed7185";
+        hash = "sha256-qUi9eiebFAwbHqxNrn1aWPhJnKCEGRnaC/PkxxloInU=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "ament_cmake_google_benchmark";
-  version = "2.7.0-1";
+  version = "2.7.1-1";
   src = sources."ament_cmake_google_benchmark";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test google-benchmark-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

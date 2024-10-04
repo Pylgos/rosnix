@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "ros2cli_test_interfaces-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "a21b85fd8193ca03447240ac91078819382f0f41";
-        hash = "sha256-neG9c/Kc/qHjuxKsN7QCm3oyUYAcRfQNB93VdjOwf40=";
+        rev = "d31b237a63d80969d7f11eaa435cf503e225eeaf";
+        hash = "sha256-RWHi1Mc0GNhzGvH7GOunZs8PsCGN9oLbm4FjJ9uNWlg=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage {
   pname = "ros2cli_test_interfaces";
-  version = "0.34.1-1";
+  version = "0.35.0-1";
   src = sources."ros2cli_test_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

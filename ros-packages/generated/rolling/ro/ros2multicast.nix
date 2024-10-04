@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ros2multicast-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "da4325e20b63abe10d31a680bf13d280ec0d60f6";
-        hash = "sha256-lrxK02JQAQ38K8axouT1Ux88D2edBaNj4Lu0aTrqNio=";
+        rev = "286b188e11a57f69a1d058ead70077235e7da209";
+        hash = "sha256-iUZjnRaS7I81muFEs6+DkjrAArypLT5j6EfkRUGJ530=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "ros2multicast";
-  version = "0.34.1-1";
+  version = "0.35.0-1";
   src = sources."ros2multicast";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

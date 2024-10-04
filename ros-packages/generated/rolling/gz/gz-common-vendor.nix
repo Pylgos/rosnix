@@ -14,6 +14,7 @@
   gz-utils-vendor,
   mkSourceSet,
   rosSystemPackages,
+  spdlog-vendor,
   substituteSource,
 }:
 let
@@ -22,8 +23,8 @@ let
       src = fetchgit {
         name = "gz_common_vendor-source";
         url = "https://github.com/ros2-gbp/gz_common_vendor-release.git";
-        rev = "970deddec0bbd88044a66465fb257c09ad4514c9";
-        hash = "sha256-hqPxk89gKCD5uqvkLp0SW97jwF9vui4nu8obPM/AtWA=";
+        rev = "c1436d1a84bd06b019153b55f19338ca6734e9b7";
+        hash = "sha256-XYGIppOtHfOwdKJuUZFRGj4YGZ8L0uE16TrpQu96Maw=";
       };
       substitutions = [
         {
@@ -37,8 +38,8 @@ let
       src = fetchgit {
         name = "gz-common-source";
         url = "https://github.com/gazebosim/gz-common.git";
-        rev = "84df3704bfcffb85fa476c29e6181fba55c904dd";
-        hash = "sha256-vM+/V2F+Nr/LReqcMAmAbgAyaph/vMZVb0BO0MAUp6I=";
+        rev = "e2bd46c4739478a3f87f9eb0b55964ce3d0e0815";
+        hash = "sha256-Oo4dGN2vsVaElKf/KYjjJq6tlYLRPr0/uh6urGxvDdc=";
       };
       substitutions = [
       ];
@@ -47,16 +48,16 @@ let
 in
 buildRosPackage {
   pname = "gz_common_vendor";
-  version = "0.1.1-1";
+  version = "0.2.0-1";
   src = sources."gz_common_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common5" "libfreeimage-dev" "libgdal-dev" "libgts" "tinyxml2" "uuid" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-utils-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common6" "libfreeimage-dev" "libgdal-dev" "tinyxml2" "uuid" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
-    description = "Vendor package for: gz-common5 5.6.0 Gazebo Common : AV, Graphics, Events, and much more.";
+    description = "Vendor package for: gz-common6 6.0.0 Gazebo Common : AV, Graphics, Events, and much more.";
   };
 }

@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rmw_connextdds-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "0df16e1089d13ff22ef9d8048f3d81abbdf9ef84";
-        hash = "sha256-yP2MzcNcR8q/RckoH93GlvMs8YXyv7jBnlizE9o0mDs=";
+        rev = "b514e05528db34aefeab94a06206909f0c35ba2d";
+        hash = "sha256-RonsufmhaFyS97FFx1Jmv4cdVyS1X4V6JV87dD4iSbY=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage {
   pname = "rmw_connextdds";
-  version = "0.24.1-1";
+  version = "0.24.2-1";
   src = sources."rmw_connextdds";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

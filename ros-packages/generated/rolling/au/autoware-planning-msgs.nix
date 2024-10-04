@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "autoware_planning_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "eb99e473620f479a307c633624ee01a7705a7390";
-        hash = "sha256-BrRhj72+4kvRvHLaCv9roAUChrtG4jbulSwy8eF02VY=";
+        rev = "f4b4678558c4847c87a9571becb76561071820f9";
+        hash = "sha256-b5dcWwQ5EYTKIPNbkzJamH/g7exRWH93Yd6P3jU6jvU=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "autoware_planning_msgs";
-  version = "1.1.0-1";
+  version = "1.2.0-1";
   src = sources."autoware_planning_msgs";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

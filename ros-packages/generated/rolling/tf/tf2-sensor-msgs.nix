@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "tf2_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "e6adcf246f752a6f60a136d44250e14a385c3414";
-        hash = "sha256-5XPGyzDdC32g214iADAejuOE9Ocu3TW7tjmoRfDcbFo=";
+        rev = "9c88a9a14f4ccd8fbfcefac9b65c0c4ce6f3a84c";
+        hash = "sha256-+lnKI1+XLbMaUoFi7N0q2/U5jritwSZAtTOy5UEg3VA=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildRosPackage {
   pname = "tf2_sensor_msgs";
-  version = "0.38.2-1";
+  version = "0.39.0-1";
   src = sources."tf2_sensor_msgs";
   nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

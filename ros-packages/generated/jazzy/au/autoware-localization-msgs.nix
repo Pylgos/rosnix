@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "autoware_localization_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "ce12d777a3fad93b30d1504a2bdc5bdbd0f65da0";
-        hash = "sha256-pQqQiBLgVz+rPRabcqtXKDN+BhpqNvBvlqLiSM4bv+w=";
+        rev = "1c2b25572240768d58ab4e5b007129ecf66dd874";
+        hash = "sha256-8G0y6BrS1JgpA2HgD1fs968EVIcGKIuBWYkKCi8pg3g=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage {
   pname = "autoware_localization_msgs";
-  version = "1.1.0-1";
+  version = "1.2.0-1";
   src = sources."autoware_localization_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

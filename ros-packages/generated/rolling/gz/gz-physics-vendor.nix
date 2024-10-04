@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "gz_physics_vendor-source";
         url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
-        rev = "ce8d83b9f90bea0e2d3cc9fbb4211377f4e374f9";
-        hash = "sha256-UBvXwdHVvlQTBd/sRNkkyz79U6wFP+0eaCVpR5CgGg4=";
+        rev = "c052bcadb8932264d6f1e88fa9909c1d00cc27ca";
+        hash = "sha256-+OcIBBYxCZ1NdSdfNEM+rcX2mG1yQnVNbCLKfCA5DyQ=";
       };
       substitutions = [
         {
@@ -41,8 +41,8 @@ let
       src = fetchgit {
         name = "gz-physics-source";
         url = "https://github.com/gazebosim/gz-physics.git";
-        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
-        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
+        rev = "8e28e941d71c9214c89d14658cbf219ef324e0a7";
+        hash = "sha256-PjwrJG3xvRYrkHDTaBUgoaW8NglEYDPuJrk4QjJjTHU=";
       };
       substitutions = [
       ];
@@ -51,16 +51,16 @@ let
 in
 buildRosPackage {
   pname = "gz_physics_vendor";
-  version = "0.1.1-1";
+  version = "0.2.0-1";
   src = sources."gz_physics_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-dartsim-vendor gz-math-vendor gz-plugin-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bullet" "eigen" "gz-physics7" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-dartsim-vendor gz-math-vendor gz-plugin-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bullet" "eigen" "gz-physics8" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   meta = {
-    description = "Vendor package for: gz-physics7 7.3.0 Gazebo Physics : Physics classes and functions for robot applications";
+    description = "Vendor package for: gz-physics8 8.0.0 Gazebo Physics : Physics classes and functions for robot applications";
   };
 }

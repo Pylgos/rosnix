@@ -1,9 +1,9 @@
 {
-  action-tutorials-interfaces,
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
   buildRosPackage,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "action_tutorials_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "dc37f60c65a8d10c4d2d2dd9a282992b869aaac7";
-        hash = "sha256-9VAANthOqS9L0NhIj7lnnkQumALA0KN2GOjMTOehAHw=";
+        rev = "5120938390bd96dceb174beb939a7b009cd7fc4f";
+        hash = "sha256-6ByKaIxl+EG0djgtJbCd/h3hXZ7hcrQ0I9p3vg8W3U4=";
       };
       substitutions = [
       ];
@@ -30,12 +30,12 @@ let
 in
 buildRosPackage {
   pname = "action_tutorials_cpp";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."action_tutorials_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action-tutorials-interfaces rclcpp rclcpp-action rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-action rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

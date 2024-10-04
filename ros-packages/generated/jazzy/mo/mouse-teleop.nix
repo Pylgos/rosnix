@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mouse_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "91d160af34687e043719ef2eea68a49278c7fda2";
-        hash = "sha256-Zu3CcQYsLdjXYxZcH87gLEUAF1rL6+Rvl7mR6dHH/mA=";
+        rev = "d2ad73c7cbd917db010fd4ee1b0c6d84282a75f7";
+        hash = "sha256-485g/769r6HN7tldkE+3oc0YcEDu1lMiX+vvdOQ3aCo=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "mouse_teleop";
-  version = "1.5.1-1";
+  version = "1.6.0-1";
   src = sources."mouse_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };

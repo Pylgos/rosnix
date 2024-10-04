@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "rcl_logging_noop-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
-        rev = "c5b1b8992fa5846b0716e38d06a336636c6c57cd";
-        hash = "sha256-7R7qMZbB/S8j8K8OZWBnbarTGZ6LrA/i66EoGJ8Nbq8=";
+        rev = "31c929d69f73eacc3310ff50b7de3da2da0eeb6b";
+        hash = "sha256-2pJ/id1j4yATVc02tUOuKww3hq/Gv4gXAk69FNrc6iA=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage {
   pname = "rcl_logging_noop";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = sources."rcl_logging_noop";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

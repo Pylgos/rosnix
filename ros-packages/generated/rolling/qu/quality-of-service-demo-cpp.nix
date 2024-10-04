@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "quality_of_service_demo_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "4a43a53418c304b8340f7e9854df7c7b8cf9f73e";
-        hash = "sha256-xZw+YrqZKW3zb2/D4WbBch4QPBxasrn+fpB8XZM/V5E=";
+        rev = "a08727168c664532b7679bb0474fbf1e222df6c3";
+        hash = "sha256-lelr9FOF+WZIb9u44U7Khuq/A/6cu13N7/Hrw4wL6as=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "quality_of_service_demo_cpp";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."quality_of_service_demo_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

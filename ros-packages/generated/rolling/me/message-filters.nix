@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "message_filters-source";
         url = "https://github.com/ros2-gbp/ros2_message_filters-release.git";
-        rev = "10082a67ff9fdf6a00613f42926d53e85df86f64";
-        hash = "sha256-EtQ9VQLDeOEXfXhscM0sgx9VuDCLkrtoTSues3tnavY=";
+        rev = "fd410348c057bb9fbce661dbabf854a81baa5093";
+        hash = "sha256-s++LSF1gfnzLtSyDy3Om1+3tnuMfcqyOIszTHC+VfRc=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage {
   pname = "message_filters";
-  version = "6.0.4-1";
+  version = "6.0.5-1";
   src = sources."message_filters";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

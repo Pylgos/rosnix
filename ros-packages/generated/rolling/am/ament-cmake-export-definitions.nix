@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "ament_cmake_export_definitions-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "920c0cd6cf6bb8f09d09c51c0e6a60aaacb50360";
-        hash = "sha256-nd7MaMtVnya1Vo6MPk/u4jSSowFlYrG9GaQhDHJuY/k=";
+        rev = "919fdc2faf536946b90b88b063f6119c8adc064f";
+        hash = "sha256-T+zPk27k90/g4X1qNI8mC9005un+oPWopCVeFPoU28c=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage {
   pname = "ament_cmake_export_definitions";
-  version = "2.7.0-1";
+  version = "2.7.1-1";
   src = sources."ament_cmake_export_definitions";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

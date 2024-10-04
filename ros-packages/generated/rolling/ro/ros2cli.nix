@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "ros2cli-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "5f49b9bd64a196b06308e40dd03f9eef5d8fea2d";
-        hash = "sha256-fExhS6BstXKAqzw7LLMPjtoPXEYaeRXIFSwBImhI9fI=";
+        rev = "d3823a4e584e94a38380da18be25dbc44934357d";
+        hash = "sha256-9O8ByG3hhqsOUlTODExNjgvRiy0sIFvdd4Qyuk1cpRI=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage {
   pname = "ros2cli";
-  version = "0.34.1-1";
+  version = "0.35.0-1";
   src = sources."ros2cli";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };

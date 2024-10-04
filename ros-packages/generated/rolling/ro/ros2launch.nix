@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "ros2launch-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "372b2ba78d3f9f05464d0eae44947450b4d134ff";
-        hash = "sha256-XmVTFLkZLH/YYcUJVrJB5EKTSzKxyqPw3n+VOakTBH0=";
+        rev = "cb00244a1f8c1c8f8aee22f4b98f0b8b67bd7b80";
+        hash = "sha256-1Ya9Ql2Lop2GN8nkJrQSE8xopqpcSDfU36Yf0++bODk=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage {
   pname = "ros2launch";
-  version = "0.27.2-1";
+  version = "0.27.3-1";
   src = sources."ros2launch";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

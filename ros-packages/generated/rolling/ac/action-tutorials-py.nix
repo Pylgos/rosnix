@@ -1,9 +1,9 @@
 {
-  action-tutorials-interfaces,
   ament-copyright,
   ament-flake8,
   ament-pep257,
   buildRosPackage,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "action_tutorials_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "15f85bf596bda0208cae4d105c9a6687772388e3";
-        hash = "sha256-QCJ+bVolzqaS/rLdXkmJ5m6BFU5WsXrnVXH2i9nYgIM=";
+        rev = "863716915e2cdfad83ade78bc05dd82625830951";
+        hash = "sha256-ID9CNxt77F9g/H3HMbH8HeuWiZVJq2+BO4hK7X4Z+zE=";
       };
       substitutions = [
       ];
@@ -28,12 +28,12 @@ let
 in
 buildRosPackage {
   pname = "action_tutorials_py";
-  version = "0.34.2-1";
+  version = "0.35.0-1";
   src = sources."action_tutorials_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action-tutorials-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ example-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
