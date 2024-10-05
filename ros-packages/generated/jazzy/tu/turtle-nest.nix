@@ -25,10 +25,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "turtle_nest";
   version = "1.0.2-1";
-  src = sources."turtle_nest";
+  src = finalAttrs.passthru.sources."turtle_nest";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -36,7 +36,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "ROS 2 Package Creator";
   };
-}
+})

@@ -36,10 +36,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "rmf_visualization_schedule";
   version = "2.4.0-1";
-  src = sources."rmf_visualization_schedule";
+  src = finalAttrs.passthru.sources."rmf_visualization_schedule";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -47,7 +47,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-uncrustify ament-lint-auto ament-lint-common rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "A visualizer for trajectories in rmf schedule";
   };
-}
+})

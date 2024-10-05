@@ -29,10 +29,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "depthimage_to_laserscan";
   version = "2.5.1-3";
-  src = sources."depthimage_to_laserscan";
+  src = finalAttrs.passthru.sources."depthimage_to_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -40,7 +40,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "depthimage_to_laserscan";
   };
-}
+})

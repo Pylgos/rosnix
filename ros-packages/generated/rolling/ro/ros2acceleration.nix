@@ -29,10 +29,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "ros2acceleration";
   version = "0.5.1-3";
-  src = sources."ros2acceleration";
+  src = finalAttrs.passthru.sources."ros2acceleration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -40,7 +40,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "The acceleration command for ROS 2 command line tools.";
   };
-}
+})

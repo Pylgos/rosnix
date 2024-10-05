@@ -38,10 +38,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "rmw_connextdds_common";
   version = "0.22.0-2";
-  src = sources."rmw_connextdds_common";
+  src = finalAttrs.passthru.sources."rmw_connextdds_common";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -49,7 +49,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "Common source for RMW implementations built with RTI Connext DDS Professional and RTI Connext DDS Micro.";
   };
-}
+})

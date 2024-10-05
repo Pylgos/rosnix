@@ -23,10 +23,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "ament_cmake_test";
   version = "2.7.1-1";
-  src = sources."ament_cmake_test";
+  src = finalAttrs.passthru.sources."ament_cmake_test";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -34,7 +34,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "The ability to add tests in the ament buildsystem in CMake.";
   };
-}
+})

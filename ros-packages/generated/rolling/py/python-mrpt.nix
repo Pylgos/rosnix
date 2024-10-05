@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "mrpt-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "05fb1ae77d2f03253b6d75a498234e3e92a6f88c";
-        hash = "sha256-YWcx4u4aLaS09WGz4T5iRUP/fK0ZU5rkjubgTwEPlnU=";
+        rev = "229073f86c015160157004fa571e83abc5af1913";
+        hash = "sha256-MoFK/Hw6yK289doKNTZqtwJL1QStEwBAaiweTpm85Eo=";
       };
       substitutions = [
         {
@@ -330,10 +330,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "python_mrpt";
   version = "2.14.1-1";
-  src = sources."python_mrpt";
+  src = finalAttrs.passthru.sources."python_mrpt";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -341,7 +341,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "Python wrapper for Mobile Robot Programming Toolkit (MRPT) libraries";
   };
-}
+})

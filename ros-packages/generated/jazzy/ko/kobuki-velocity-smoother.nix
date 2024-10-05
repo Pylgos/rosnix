@@ -40,10 +40,10 @@ let
     };
   });
 in
-buildRosPackage {
+buildRosPackage (finalAttrs: {
   pname = "kobuki_velocity_smoother";
   version = "0.15.0-4";
-  src = sources."kobuki_velocity_smoother";
+  src = finalAttrs.passthru.sources."kobuki_velocity_smoother";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -51,7 +51,10 @@ buildRosPackage {
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto launch-testing launch-testing-ament-cmake launch-testing-ros ros2test ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-matplotlib" ]; };
+  passthru = {
+    inherit sources;
+  };
   meta = {
     description = "Bound incoming velocity messages according to robot velocity and acceleration limits.";
   };
-}
+})

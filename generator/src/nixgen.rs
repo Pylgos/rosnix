@@ -110,7 +110,7 @@ fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManif
     writeln!(dst, "version = {};", escape(&manifest.release_version))?;
     writeln!(
         dst,
-        "src = sources.{};",
+        "src = finalAttrs.passthru.sources.{};",
         escape(ctx.sources[&manifest.name].local_name())
     )?;
     let deps = &ctx.deps[&manifest.name];
@@ -174,6 +174,9 @@ fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManif
         "checkInputs = {};",
         get_dep_string(NixDependencyKind::Check, false)
     )?;
+    writeln!(dst, "passthru = {{")?;
+    writeln!(dst, "  inherit sources;")?;
+    writeln!(dst, "}};")?;
     writeln!(dst, "meta = {{")?;
     writeln!(dst, "  description = {};", escape(&manifest.description))?;
     writeln!(dst, "}};")?;
@@ -198,9 +201,9 @@ fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> R
     )?;
     writeln!(dst, "  }});")?;
     writeln!(dst, "in")?;
-    writeln!(dst, "buildRosPackage {{")?;
+    writeln!(dst, "buildRosPackage (finalAttrs: {{")?;
     generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest)?;
-    writeln!(dst, "}}")?;
+    writeln!(dst, "}})")?;
     let mut file = std::fs::File::create(dst_path)?;
     file.write_all(dst.as_bytes())?;
     Ok(())

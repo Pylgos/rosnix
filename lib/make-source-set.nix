@@ -1,1 +1,1 @@
-{ lib }: f: lib.makeExtensibleWithCustomName "override" f
+{ lib }: f: lib.makeExtensible f

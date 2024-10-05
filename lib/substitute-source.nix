@@ -18,7 +18,7 @@ let
           "patchPhase"
           "installPhase"
         ];
-        patchPhase =
+        postPatch =
           let
             genLine =
               subst:
