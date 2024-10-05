@@ -6,7 +6,7 @@
 
 let
   configOverlay = final: prev: {
-    rosConfig = lib.makeExtensibleWithCustomName "override" (
+    rosConfig = lib.makeExtensible (
       finalConfig:
       {
         distro = "jazzy";
