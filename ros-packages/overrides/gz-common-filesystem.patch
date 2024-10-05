@@ -1,0 +1,15 @@
+diff --git a/src/Filesystem.cc b/src/Filesystem.cc
+index b0a4d5f..7bb8989 100644
+--- a/src/Filesystem.cc
++++ b/src/Filesystem.cc
+@@ -243,6 +243,10 @@ bool common::copyFile(
+   const auto copyOptions = fs::copy_options::overwrite_existing;
+   std::error_code ec;
+   auto ret = fs::copy_file(_existingFilename, _newFilename, copyOptions, ec);
++  if (ret) {
++    auto oldPerms = fs::status(_existingFilename).permissions();
++    fs::permissions(_newFilename, oldPerms | fs::perms::owner_write);
++  }
+   return ret && fsWarn("copyFile", ec, _warningOp);
+ }
+ 

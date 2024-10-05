@@ -112,6 +112,26 @@ final: prev: {
           '';
         }
       );
+      gz-common-vendor = rosPrev.gz-common-vendor.overrideAttrs (
+        { passthru, ... }:
+        {
+          passthru = passthru // {
+            sources = passthru.sources.extend (
+              finalSources: prevSources: {
+                "gz_common_vendor/gz-common" = prevSources."gz_common_vendor/gz-common".override (
+                  {
+                    patches ? [ ],
+                    ...
+                  }:
+                  {
+                    patches = patches ++ [ ./gz-common-filesystem.patch ];
+                  }
+                );
+              }
+            );
+          };
+        }
+      );
       librealsense2 = rosPrev.librealsense2.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
