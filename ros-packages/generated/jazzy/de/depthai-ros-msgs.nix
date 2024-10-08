@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "depthai_ros_msgs-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "43af8436e28e4ea676f64b5a5863781a52a89f2b";
-        hash = "sha256-5A0/Z/vwU/rVDNWrOasNe5R5gXfbD/OihxBIewlekOg=";
+        rev = "ca83fa94dd62b9c0a292aa093a506f4c2d821404";
+        hash = "sha256-6YWaBNVVFbKgt6rWH8AuuHHizvh13/tZQlkyWbxBNAA=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "depthai_ros_msgs";
-  version = "2.10.1-1";
+  version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_ros_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

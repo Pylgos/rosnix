@@ -17,7 +17,7 @@ let
       src = fetchgit {
         name = "scenario_execution_control-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "c1c92f046037f4583dd06f938fc7ebc7e7eee537";
+        rev = "1ae5f6db08a07d7adc84de8e8e004e9760ee0489";
         hash = "sha256-A0qHxQ1DtXni2V1fMbzTeEDvRIV0WVE3hq8TiZ0Upd4=";
       };
       substitutions = [
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "scenario_execution_control";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."scenario_execution_control";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

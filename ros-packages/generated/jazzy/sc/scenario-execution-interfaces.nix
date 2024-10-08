@@ -20,7 +20,7 @@ let
       src = fetchgit {
         name = "scenario_execution_interfaces-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "6464607acf53a593792d93a1e958087e355e0efc";
+        rev = "1d0d22f55920d965b442eca873026d1e33d979ce";
         hash = "sha256-nKQT3rPBMOSVVolAZEBNP1ZPUFSkckOXIvxMb9Ak74I=";
       };
       substitutions = [
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "scenario_execution_interfaces";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."scenario_execution_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

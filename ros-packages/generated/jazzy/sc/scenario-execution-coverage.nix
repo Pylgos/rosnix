@@ -13,12 +13,12 @@
 }:
 let
   sources = mkSourceSet (sources: {
-    "scenario_coverage" = substituteSource {
+    "scenario_execution_coverage" = substituteSource {
       src = fetchgit {
-        name = "scenario_coverage-source";
+        name = "scenario_execution_coverage-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "fd39971a8feb29dee29176a444872ccc2aa31d71";
-        hash = "sha256-NfIBq3Wa5KdiE/G8XnYU2sqCkXfSqtpnJhbWwX46wa0=";
+        rev = "0ed39b14124936ff3a1abf9359139d1dc233448f";
+        hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
       };
       substitutions = [
       ];
@@ -26,9 +26,9 @@ let
   });
 in
 buildRosPackage (finalAttrs: {
-  pname = "scenario_coverage";
-  version = "1.2.0-3";
-  src = finalAttrs.passthru.sources."scenario_coverage";
+  pname = "scenario_execution_coverage";
+  version = "1.2.0-4";
+  src = finalAttrs.passthru.sources."scenario_execution_coverage";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

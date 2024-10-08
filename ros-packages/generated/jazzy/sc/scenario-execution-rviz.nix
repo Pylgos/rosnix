@@ -12,6 +12,7 @@
   rosSystemPackages,
   rviz-common,
   scenario-execution-interfaces,
+  std-srvs,
   substituteSource,
   wrapRosQtAppsHook,
 }:
@@ -21,8 +22,8 @@ let
       src = fetchgit {
         name = "scenario_execution_rviz-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "0e4b0d318216ff156ba7623ea333bc1a1d691996";
-        hash = "sha256-nW1sOXS3Na8v/jqbZ6fa22xVFEZu/nuErEByIkni0vE=";
+        rev = "7aa8ca774d0607811ee07d47e16b223d833ba5ee";
+        hash = "sha256-p27uZ5eR/tar0rcEeDdT7Pvfm3ELidJuZwuzWfXOQzQ=";
       };
       substitutions = [
       ];
@@ -31,12 +32,12 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "scenario_execution_rviz";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."scenario_execution_rviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs nav-msgs py-trees-ros-interfaces rclcpp rviz-common scenario-execution-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ geometry-msgs nav-msgs py-trees-ros-interfaces rclcpp rviz-common scenario-execution-interfaces std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

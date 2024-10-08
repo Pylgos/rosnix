@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "depthai_filters-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "b7f494bc702d23e8f84c1773d504a6a2d73e742b";
-        hash = "sha256-fObI+H8TFdmOepC0b3MqAl3IOtB8NScNGeZPY+aZapk=";
+        rev = "1f30831142dea45f67737019cc65c7e3539ce5e7";
+        hash = "sha256-cs+nk+EAalodMAYIMUN6vVk2P0a92wkC6FhUGJ/aOJo=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "depthai_filters";
-  version = "2.10.1-1";
+  version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_filters";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -14,7 +14,7 @@ let
       src = fetchgit {
         name = "scenario_execution_py_trees_ros-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "b2dd979a53dd3230fc129759303ba5f39a1c7d89";
+        rev = "8daacc00cfecd5ea70ebb8f47dc8ebfc1a4d3d41";
         hash = "sha256-Rv5V2I6jT4HlCQ/6JSUAKQ8b1RSlmXGYA1ie+y+I4M8=";
       };
       substitutions = [
@@ -24,7 +24,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "scenario_execution_py_trees_ros";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."scenario_execution_py_trees_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
