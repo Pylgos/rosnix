@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "transmission_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "ad86ec1894c41a3d013d5d00890a58947707dddd";
-        hash = "sha256-FiySKPHoELD1rFJrA5iYI75YFVo4RDcPiFxZO7oQIVY=";
+        rev = "f8ccdcdf8fde01457f5a69513c5f69c441bf99c7";
+        hash = "sha256-EbAKLaZBGF0Op1sTNdaOpU8QS6JECA+bhONZQ30zXqM=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "transmission_interface";
-  version = "4.17.0-1";
+  version = "4.18.0-1";
   src = finalAttrs.passthru.sources."transmission_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

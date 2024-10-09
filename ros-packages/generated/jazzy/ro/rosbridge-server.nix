@@ -2,6 +2,7 @@
   ament-cmake,
   ament-cmake-ros,
   buildRosPackage,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,8 +26,8 @@ let
       src = fetchgit {
         name = "rosbridge_server-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "84c89ddabc1e1b553a8f6116390450a08c8077da";
-        hash = "sha256-t1Tj/Y8NdOi7Yunvx/UfIz5LF9ZGXrf9BSc9bUPdaT8=";
+        rev = "10dddddeab9244d5a874859ff9937d6f0074e92e";
+        hash = "sha256-sjN0O5RAilkta8bynRYxr1j78/KV8aa/2b5yXXZZ2tk=";
       };
       substitutions = [
       ];
@@ -35,7 +36,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosbridge_server";
-  version = "1.3.2-3";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_server";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -43,7 +44,7 @@ buildRosPackage (finalAttrs: {
   propagatedBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tornado" "python3-twisted" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" ]; };
+  checkInputs = [ example-interfaces launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" ]; };
   passthru = {
     inherit sources;
   };

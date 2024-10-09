@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rosapi_msgs-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "697cc305441c19d030d17c756d093c4d11af6195";
-        hash = "sha256-mS6s9obrtPJQkYEJluig+KM2GqAKwG2QSBz9iGCJMtc=";
+        rev = "50ed6f5ad6cae607842825562d83c3c77f23d83a";
+        hash = "sha256-3d3HJrzVrI52IhHt3S5hRgjvZj5oPWLS834RxpVQOxw=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosapi_msgs";
-  version = "1.3.2-3";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosapi_msgs";
   nativeBuildInputs = [ ament-cmake-ros rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

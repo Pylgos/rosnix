@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "parallel_gripper_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "5888ed8b0f5dab1a3e4a8b52ae67673a51df4a66";
-        hash = "sha256-EDvM4qiyO5pkqdi1E8pUDdrcV9kVtii4LrBUrpPxsSg=";
+        rev = "8b4941e643a19ee60efc2df15640c7a28ebefd4c";
+        hash = "sha256-XWYt5rpoTQRCU95UoDvQTh+ju3YvtY/6NAvWuVL/e8w=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "parallel_gripper_controller";
-  version = "4.14.0-1";
+  version = "4.15.0-1";
   src = finalAttrs.passthru.sources."parallel_gripper_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

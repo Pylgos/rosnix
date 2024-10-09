@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "ur_msgs-source";
         url = "https://github.com/ros2-gbp/ur_msgs-release.git";
-        rev = "b8efa2c50cdaac03d89de517c575de9982bda0a0";
-        hash = "sha256-JsglE/PolObyk2tuC9viw8JYmRlBJ8Ym7pjb5k+2EyQ=";
+        rev = "7655b3e20ab49231a19371f020b85b6151772018";
+        hash = "sha256-APoTEfEsmzNBQr7HiUBJcSoQLDL+nXRwY5l+meYTlwk=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "ur_msgs";
-  version = "2.0.0-3";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."ur_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

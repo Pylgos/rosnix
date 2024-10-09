@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_libopengl-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "59a67aa5fcab29facc7089e720998a9e8b0b965a";
-        hash = "sha256-m6LNlFqXX+zF9sblmnAFJS6tlZOBzPm4za7vETXRjU8=";
+        rev = "1600e122b0d2aa2a48c3c80ad9507433fc94ff51";
+        hash = "sha256-3mZj9qHTcLl0Dx5D+uLH2QcrJmE9+DhB7557pfDSQXM=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "mrpt_libopengl";
-  version = "2.14.1-1";
+  version = "2.14.2-1";
   src = finalAttrs.passthru.sources."mrpt_libopengl";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

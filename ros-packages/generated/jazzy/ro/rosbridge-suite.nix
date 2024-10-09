@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rosbridge_suite-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "7259f925429829be861d8d96d1946e6923e61f80";
-        hash = "sha256-MWpailueIvylSaPCRcXsKgmzpatxkZq+HsJMGXnMUPs=";
+        rev = "2ffc2f639485bc8bc45d3d262b1330507faf2df5";
+        hash = "sha256-bXWK/Y2PN+OB52A6bgOiWh6mKi+JtNpCG9rLNYzGYg8=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosbridge_suite";
-  version = "1.3.2-3";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_suite";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

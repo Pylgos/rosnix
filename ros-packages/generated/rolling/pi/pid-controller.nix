@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "pid_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "19410186f81d87f1b797949f61b21e692009bf4e";
-        hash = "sha256-Z29YqPUQRvie95gO84fkVUaUmk5AzKMFhJuIsGHICtA=";
+        rev = "5ed273af8e440e872adca75c2715c0a862162f9b";
+        hash = "sha256-Zmo4CT99EGwZBSmGPDpWm3X0pGf0G+32Y3BVn5W+UPY=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "pid_controller";
-  version = "4.14.0-1";
+  version = "4.15.0-1";
   src = finalAttrs.passthru.sources."pid_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

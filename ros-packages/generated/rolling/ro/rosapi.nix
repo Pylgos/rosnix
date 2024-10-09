@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "rosapi-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "f9dab22e6c80a763cb45b888ff0a491b285837f1";
-        hash = "sha256-5gDyqSXHMOUheu+7fjleKwHApIpOlhVvL9dpEujRBA4=";
+        rev = "f30925009a43107c51ab6c068bfa44e01c57b1e0";
+        hash = "sha256-MdizJo6Z9eAshzwDPfTu5T2l2lsIAO7jgboOubOcGk4=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosapi";
-  version = "1.3.2-2";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosapi";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

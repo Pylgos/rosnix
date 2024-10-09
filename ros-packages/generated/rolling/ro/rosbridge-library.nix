@@ -1,10 +1,11 @@
 {
-  actionlib-msgs,
+  action-msgs,
   ament-cmake,
   ament-cmake-pytest,
   ament-cmake-ros,
   buildRosPackage,
   builtin-interfaces,
+  control-msgs,
   diagnostic-msgs,
   example-interfaces,
   fetchgit,
@@ -32,8 +33,8 @@ let
       src = fetchgit {
         name = "rosbridge_library-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "bd531295b9d1aef7e65db6c72bae7c185d99a66a";
-        hash = "sha256-Xk40YYsXUGj/59ea63e2ppoCwrhXp7wDqiWhM84sIR8=";
+        rev = "dc7b11927fb6824744ea4cf8b2be8541fea1ee1a";
+        hash = "sha256-+pOcP2d8XFjvRpJbVfA1m9s80GnHHqz/rlEs55oQoPM=";
       };
       substitutions = [
       ];
@@ -42,7 +43,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosbridge_library";
-  version = "1.3.2-2";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -50,7 +51,7 @@ buildRosPackage (finalAttrs: {
   propagatedBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-pil" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ actionlib-msgs ament-cmake-pytest builtin-interfaces diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ action-msgs ament-cmake-pytest builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

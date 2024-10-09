@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "mrpt_path_planning-source";
         url = "https://github.com/ros2-gbp/mrpt_path_planning-release.git";
-        rev = "9ab3670407780881e9cd1390f1a6e97f7056692f";
-        hash = "sha256-yUu8T9hQg1I4KA1Iib5j8dS92U9Vn8goPDJii8QVp0c=";
+        rev = "f257d1d30afc15e74c7cfe084de5230c0ab1fe14";
+        hash = "sha256-FlOhFXHvw1JJZLyS7KoGAIf72QbrIwOTpGf47kL6vIM=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "mrpt_path_planning";
-  version = "0.1.5-1";
+  version = "0.2.0-1";
   src = finalAttrs.passthru.sources."mrpt_path_planning";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

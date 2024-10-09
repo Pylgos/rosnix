@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "effort_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "3c5b6884ed74d4e314ad046821558050c54144df";
-        hash = "sha256-pCxBjbRTUphp1LsQePLlukEF+8bNUxLq93XugUd/ZuI=";
+        rev = "c95c261a23fa74c773a6cfe675213581399c6827";
+        hash = "sha256-9YTQ5aVpN0mWgaPt1+MltPD1Ax3eiN1rFXibTZx5nkc=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "effort_controllers";
-  version = "4.14.0-1";
+  version = "4.15.0-1";
   src = finalAttrs.passthru.sources."effort_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

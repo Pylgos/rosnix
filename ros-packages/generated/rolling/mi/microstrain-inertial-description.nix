@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "microstrain_inertial_description-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "b9ca3aa67ec99327754a8eacf7401c07d193f423";
-        hash = "sha256-lOHPxY9ciFC3/2X7J0UY5DTOJATWSsB7GRP81vSSZRU=";
+        rev = "872a6ec93d23a1df64741068b7f0e0e1eb93b7d8";
+        hash = "sha256-JoJmA6Hgdlv+t+8+Lp5/6x6Pb8STS25abugASDkVv8I=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "microstrain_inertial_description";
-  version = "4.3.0-1";
+  version = "4.4.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

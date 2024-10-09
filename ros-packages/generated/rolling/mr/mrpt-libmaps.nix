@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mrpt_libmaps-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "2e91af5e9ba70647931c79db2b5414093c080707";
-        hash = "sha256-bciij/pvT+O6/81KOJkdnBjzPakKvWtevtysx4A6VNQ=";
+        rev = "1148763483533c51b83298e95ea0d3ca15c3913d";
+        hash = "sha256-rJNTKycM9q1g28FKQG1VNg1slC4Bm//XYIP79AmsSDQ=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "mrpt_libmaps";
-  version = "2.14.1-1";
+  version = "2.14.2-1";
   src = finalAttrs.passthru.sources."mrpt_libmaps";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

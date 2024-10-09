@@ -1,5 +1,5 @@
 {
-  actionlib-msgs,
+  action-msgs,
   ament-cmake,
   ament-cmake-pytest,
   buildRosPackage,
@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "rosbridge_test_msgs-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "fd996cb68650164c34169addc8fb596dc279b917";
-        hash = "sha256-ZgToC3Qm971d8Pn8MxepqwV+Qby1hi//qfK1idwJSIc=";
+        rev = "e9c6ddd6adcdd60dce7d378e3f0906e040f988cf";
+        hash = "sha256-oy5Ym9Cqjxvje6sN1vCG18Bo3eYlZM8DyZuJKqLXfY0=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "rosbridge_test_msgs";
-  version = "1.3.2-2";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_test_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -49,7 +49,7 @@ buildRosPackage (finalAttrs: {
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rosidl-default-runtime std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ actionlib-msgs ament-cmake-pytest builtin-interfaces diagnostic-msgs example-interfaces geometry-msgs nav-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ action-msgs ament-cmake-pytest builtin-interfaces diagnostic-msgs example-interfaces geometry-msgs nav-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };
