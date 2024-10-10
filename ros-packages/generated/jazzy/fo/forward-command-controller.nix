@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   controller-manager,
   fetchgit,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "forward_command_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."forward_command_controller";

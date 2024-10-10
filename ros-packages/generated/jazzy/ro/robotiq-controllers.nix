@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "robotiq_controllers";
   version = "0.0.1-3";
   src = finalAttrs.passthru.sources."robotiq_controllers";

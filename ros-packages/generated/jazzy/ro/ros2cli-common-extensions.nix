@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros2cli_common_extensions";
   version = "0.3.0-3";
   src = finalAttrs.passthru.sources."ros2cli_common_extensions";

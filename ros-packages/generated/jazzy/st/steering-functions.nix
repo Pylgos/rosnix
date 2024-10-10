@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "steering_functions";
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."steering_functions";

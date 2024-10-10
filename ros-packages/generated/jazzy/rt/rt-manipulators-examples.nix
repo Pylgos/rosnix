@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rt_manipulators_examples";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."rt_manipulators_examples";

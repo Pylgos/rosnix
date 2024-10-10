@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tinyxml_vendor";
   version = "0.10.0-3";
   src = finalAttrs.passthru.sources."tinyxml_vendor";

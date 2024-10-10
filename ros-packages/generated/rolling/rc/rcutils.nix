@@ -5,7 +5,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rcutils";
   version = "6.9.3-1";
   src = finalAttrs.passthru.sources."rcutils";

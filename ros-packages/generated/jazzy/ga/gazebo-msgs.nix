@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gazebo_msgs";
   version = "3.8.0-1";
   src = finalAttrs.passthru.sources."gazebo_msgs";

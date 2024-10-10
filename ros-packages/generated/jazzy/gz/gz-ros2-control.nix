@@ -3,7 +3,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-manager,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control";
   version = "1.2.7-1";
   src = finalAttrs.passthru.sources."gz_ros2_control";

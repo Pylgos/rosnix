@@ -4,7 +4,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_msg_wrapper";
   version = "1.0.7-4";
   src = finalAttrs.passthru.sources."point_cloud_msg_wrapper";

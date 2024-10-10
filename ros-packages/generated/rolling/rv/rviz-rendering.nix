@@ -5,7 +5,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_rendering";
   version = "14.3.0-1";
   src = finalAttrs.passthru.sources."rviz_rendering";

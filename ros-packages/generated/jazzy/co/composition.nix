@@ -3,7 +3,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "composition";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."composition";

@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "ur_client_library";
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."ur_client_library";

@@ -5,7 +5,7 @@
   ament-cmake-uncrustify,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ntrip_client_node";
   version = "0.5.3-2";
   src = finalAttrs.passthru.sources."ntrip_client_node";

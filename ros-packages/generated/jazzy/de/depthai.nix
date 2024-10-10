@@ -1,7 +1,7 @@
 {
   ament-cmake,
+  buildAmentCmakePackage,
   buildPackages,
-  buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -828,7 +828,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
   version = "2.28.0-1";
   src = finalAttrs.passthru.sources."depthai";

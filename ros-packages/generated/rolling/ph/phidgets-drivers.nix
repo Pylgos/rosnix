@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_drivers";
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."phidgets_drivers";

@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-config,
   ecl-converters,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_formatters";
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_formatters";

@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_high_speed_encoder";
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."phidgets_high_speed_encoder";

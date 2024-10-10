@@ -45,17 +45,31 @@ let
         spliced: {
           substituteSource = final.callPackage ../lib/substitute-source.nix { };
           mkSourceSet = final.callPackage ../lib/make-source-set.nix { };
+          mkRecursiveBuilder = final.callPackage ../lib/make-recursive-builder.nix { };
+          concatToPolyfillHook = final.callPackage ./hooks/concat-to-polyfill.nix { };
         }
       );
       f =
         self:
-        {
+        (importPackagesFrom ./generated/${distro} self.callPackage)
+        // {
+          # Setup hooks
           wrapRosQtAppsHook = self.callPackage ./hooks/wrap-ros-qt-apps-hook.nix { };
           rosSetupHook = self.callPackage ./hooks/ros-setup-hook.nix { };
-          buildRosPackage = self.callPackage ./build-ros-package.nix { };
-          mkRosWorkspaceShell = self.callPackage ./make-ros-workspace-shell.nix { };
-        }
-        // (importPackagesFrom ./generated/${distro} self.callPackage);
+
+          # Builders
+          buildColconPackage = self.callPackage ./builders/build-colcon-package.nix { };
+          buildCmakePackage = self.callPackage ./builders/build-ament-cmake-package.nix { };
+          buildAmentCmakePackage = self.callPackage ./builders/build-ament-cmake-package.nix { };
+          buildAmentPythonPackage = self.callPackage ./builders/build-ament-python-package.nix { };
+
+          # Stub builders
+          buildMesonPackage = self.callPackage ./builders/build-colcon-package.nix { };
+          buildCatkinPackage = self.callPackage ./builders/build-colcon-package.nix { };
+
+          # Shell builders
+          mkRosWorkspaceShell = self.callPackage ./builders/make-ros-workspace-shell.nix { };
+        };
     };
 in
 {

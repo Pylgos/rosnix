@@ -3,7 +3,7 @@
   ament-flake8,
   ament-mypy,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ament_index_python";
   version = "1.10.0-1";
   src = finalAttrs.passthru.sources."ament_index_python";

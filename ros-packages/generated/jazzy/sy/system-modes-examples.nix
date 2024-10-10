@@ -8,7 +8,7 @@
   ament-cmake-pep257,
   ament-cmake-uncrustify,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "system_modes_examples";
   version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes_examples";

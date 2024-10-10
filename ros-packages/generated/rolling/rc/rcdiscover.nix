@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "rcdiscover";
   version = "1.1.7-1";
   src = finalAttrs.passthru.sources."rcdiscover";

@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -54,7 +54,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "navigation2";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."navigation2";

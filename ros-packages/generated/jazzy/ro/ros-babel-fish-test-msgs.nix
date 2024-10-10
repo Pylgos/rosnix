@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish_test_msgs";
   version = "0.9.3-1";
   src = finalAttrs.passthru.sources."ros_babel_fish_test_msgs";

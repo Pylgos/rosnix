@@ -1,7 +1,7 @@
 {
   ament-cmake-core,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_common";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."nav2_common";

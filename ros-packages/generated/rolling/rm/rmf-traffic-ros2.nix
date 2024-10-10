@@ -3,7 +3,7 @@
   ament-cmake-catch2,
   ament-cmake-uncrustify,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_ros2";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."rmf_traffic_ros2";

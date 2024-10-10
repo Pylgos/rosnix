@@ -4,7 +4,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "py_binding_tools";
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."py_binding_tools";

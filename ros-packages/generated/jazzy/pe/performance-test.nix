@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -90,7 +90,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "performance_test";
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."performance_test";

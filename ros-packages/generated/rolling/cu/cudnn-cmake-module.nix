@@ -3,7 +3,7 @@
   ament-cmake-copyright,
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "cudnn_cmake_module";
   version = "0.0.1-5";
   src = finalAttrs.passthru.sources."cudnn_cmake_module";

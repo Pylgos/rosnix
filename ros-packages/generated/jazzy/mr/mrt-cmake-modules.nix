@@ -1,6 +1,6 @@
 {
   ament-cmake-core,
-  buildRosPackage,
+  buildCatkinPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCatkinPackage (finalAttrs: {
   pname = "mrt_cmake_modules";
   version = "1.0.11-2";
   src = finalAttrs.passthru.sources."mrt_cmake_modules";

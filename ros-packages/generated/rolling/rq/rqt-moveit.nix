@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_moveit";
   version = "1.0.1-4";
   src = finalAttrs.passthru.sources."rqt_moveit";

@@ -1,6 +1,6 @@
 {
   ament-cmake-core,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "test_interface_files";
   version = "0.11.0-3";
   src = finalAttrs.passthru.sources."test_interface_files";

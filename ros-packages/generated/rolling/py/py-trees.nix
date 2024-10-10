@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees";
   version = "2.2.1-3";
   src = finalAttrs.passthru.sources."py_trees";

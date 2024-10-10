@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "cascade_lifecycle_msgs";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."cascade_lifecycle_msgs";

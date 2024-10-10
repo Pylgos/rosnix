@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_minimal_action_client";
   version = "0.20.2-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_action_client";

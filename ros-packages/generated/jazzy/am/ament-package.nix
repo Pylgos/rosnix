@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ament_package";
   version = "0.16.3-3";
   src = finalAttrs.passthru.sources."ament_package";

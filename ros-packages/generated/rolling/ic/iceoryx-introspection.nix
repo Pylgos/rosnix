@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "iceoryx_introspection";
   version = "2.0.5-5";
   src = finalAttrs.passthru.sources."iceoryx_introspection";

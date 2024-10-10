@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-updater,
   fetchgit,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "urg_node";
   version = "1.1.1-3";
   src = finalAttrs.passthru.sources."urg_node";

@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   etsi-its-cam-coding,
   etsi-its-cam-ts-coding,
   etsi-its-cpm-ts-coding,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_coding";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_coding";

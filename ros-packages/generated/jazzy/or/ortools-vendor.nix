@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -380,7 +380,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ortools_vendor";
   version = "9.9.0-6";
   src = finalAttrs.passthru.sources."ortools_vendor";

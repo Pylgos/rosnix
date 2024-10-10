@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "color_util";
   version = "1.0.0-4";
   src = finalAttrs.passthru.sources."color_util";

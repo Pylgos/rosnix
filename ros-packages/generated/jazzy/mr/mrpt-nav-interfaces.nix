@@ -1,7 +1,7 @@
 {
   action-msgs,
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_nav_interfaces";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."mrpt_nav_interfaces";

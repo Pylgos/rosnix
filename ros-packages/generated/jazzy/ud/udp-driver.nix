@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   asio-cmake-module,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "udp_driver";
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."udp_driver";

@@ -8,7 +8,7 @@
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_visual_testing_framework";
   version = "14.1.5-1";
   src = finalAttrs.passthru.sources."rviz_visual_testing_framework";

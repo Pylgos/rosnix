@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "gtest_vendor";
   version = "1.15.0-1";
   src = finalAttrs.passthru.sources."gtest_vendor";

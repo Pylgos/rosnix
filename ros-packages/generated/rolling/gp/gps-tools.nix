@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gps_tools";
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."gps_tools";

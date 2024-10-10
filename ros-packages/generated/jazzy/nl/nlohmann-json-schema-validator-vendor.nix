@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nlohmann_json_schema_validator_vendor";
   version = "0.4.1-1";
   src = finalAttrs.passthru.sources."nlohmann_json_schema_validator_vendor";

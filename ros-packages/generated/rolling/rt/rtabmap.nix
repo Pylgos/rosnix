@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "rtabmap";
   version = "0.21.6-1";
   src = finalAttrs.passthru.sources."rtabmap";

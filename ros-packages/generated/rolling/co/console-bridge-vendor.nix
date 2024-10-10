@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "console_bridge_vendor";
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."console_bridge_vendor";

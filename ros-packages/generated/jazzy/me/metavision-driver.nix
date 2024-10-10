@@ -9,7 +9,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-ros,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   event-camera-msgs,
   fetchgit,
   fetchurl,
@@ -52,7 +52,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "metavision_driver";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."metavision_driver";

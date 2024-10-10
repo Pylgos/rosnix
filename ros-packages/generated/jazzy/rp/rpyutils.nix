@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rpyutils";
   version = "0.4.1-3";
   src = finalAttrs.passthru.sources."rpyutils";

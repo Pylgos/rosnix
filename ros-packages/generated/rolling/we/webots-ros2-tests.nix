@@ -1,6 +1,6 @@
 {
   ament-copyright,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tests";
   version = "2023.1.3-1";
   src = finalAttrs.passthru.sources."webots_ros2_tests";

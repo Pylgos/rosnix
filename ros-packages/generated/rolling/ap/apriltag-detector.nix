@@ -6,7 +6,7 @@
   ament-lint-auto,
   ament-lint-common,
   apriltag-msgs,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_detector";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."apriltag_detector";

@@ -4,7 +4,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_implementation";
   version = "2.15.3-1";
   src = finalAttrs.passthru.sources."rmw_implementation";

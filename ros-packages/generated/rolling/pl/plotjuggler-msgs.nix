@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler_msgs";
   version = "0.2.3-4";
   src = finalAttrs.passthru.sources."plotjuggler_msgs";

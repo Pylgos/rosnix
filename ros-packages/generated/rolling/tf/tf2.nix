@@ -9,7 +9,7 @@
   ament-cmake-ros,
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tf2";
   version = "0.39.0-1";
   src = finalAttrs.passthru.sources."tf2";

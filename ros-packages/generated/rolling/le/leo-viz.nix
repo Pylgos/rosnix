@@ -3,7 +3,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "leo_viz";
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."leo_viz";

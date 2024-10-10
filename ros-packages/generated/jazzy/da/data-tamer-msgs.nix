@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_msgs";
   version = "0.9.4-4";
   src = finalAttrs.passthru.sources."data_tamer_msgs";

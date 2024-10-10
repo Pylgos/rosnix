@@ -1,6 +1,6 @@
 {
   ament-copyright,
-  buildRosPackage,
+  buildAmentPythonPackage,
   builtin-interfaces,
   control-msgs,
   controller-manager,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_universal_robot";
   version = "2023.1.3-1";
   src = finalAttrs.passthru.sources."webots_ros2_universal_robot";

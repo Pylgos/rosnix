@@ -3,7 +3,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nicla_vision_ros2";
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."nicla_vision_ros2";

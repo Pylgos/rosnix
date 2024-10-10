@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "std_srvs";
   version = "5.4.1-1";
   src = finalAttrs.passthru.sources."std_srvs";

@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_satellite";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."rviz_satellite";

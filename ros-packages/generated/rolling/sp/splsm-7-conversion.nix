@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "splsm_7_conversion";
   version = "3.0.1-3";
   src = finalAttrs.passthru.sources."splsm_7_conversion";

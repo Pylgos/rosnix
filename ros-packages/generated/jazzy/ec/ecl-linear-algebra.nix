@@ -3,7 +3,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-converters,
   ecl-eigen,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_linear_algebra";
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_linear_algebra";

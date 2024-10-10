@@ -4,7 +4,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ffmpeg_image_transport";
   version = "1.0.1-2";
   src = finalAttrs.passthru.sources."ffmpeg_image_transport";

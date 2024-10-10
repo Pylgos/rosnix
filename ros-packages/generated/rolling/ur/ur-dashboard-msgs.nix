@@ -1,7 +1,7 @@
 {
   action-msgs,
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ur_dashboard_msgs";
   version = "2.4.10-1";
   src = finalAttrs.passthru.sources."ur_dashboard_msgs";

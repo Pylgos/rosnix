@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "nao_button_sim";
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."nao_button_sim";

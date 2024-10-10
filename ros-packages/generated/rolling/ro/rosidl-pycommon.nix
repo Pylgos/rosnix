@@ -3,7 +3,7 @@
   ament-flake8,
   ament-mypy,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rosidl_pycommon";
   version = "4.9.0-1";
   src = finalAttrs.passthru.sources."rosidl_pycommon";

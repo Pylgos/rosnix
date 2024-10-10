@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-msgs,
   fetchgit,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "camera_aravis2_msgs";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."camera_aravis2_msgs";

@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   costmap-queue,
   dwb-core,
   fetchgit,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_critics";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."dwb_critics";

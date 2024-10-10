@@ -1,14 +1,15 @@
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::{BTreeMap, BTreeSet, HashSet},
     fmt::{Debug, Display},
     fs::File,
     io::{Read, Write},
 };
 
-use anyhow::{Context, Result};
+use anyhow::{anyhow, bail, Context, Result};
 use reqwest::{IntoUrl, Url};
+use serde::Deserialize;
 use serde_roxmltree::Options;
-use tracing::{debug, info, info_span};
+use tracing::{debug, info, info_span, warn};
 use yaml_rust2::YamlLoader;
 
 use crate::{condition::eval_condition, config::ConfigRef};
@@ -56,6 +57,16 @@ pub struct PackageManifest {
     pub tag: String,
     pub dependencies: RosDependencies,
     pub member_of_group: BTreeSet<String>,
+    pub build_type: BuildType,
+}
+
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
+pub enum BuildType {
+    Catkin,
+    Cmake,
+    Meson,
+    AmentCmake,
+    AmentPython,
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -243,13 +254,13 @@ fn parse_distro_packages(
                 .collect()
         };
         for package_name in repo_packages.into_iter() {
-            let span = tracing::debug_span!("parse package", package_name);
+            let span = tracing::info_span!("parse package", package_name);
             let _enter = span.enter();
             let tag = tag_template
                 .replace("{version}", version)
                 .replace("{package}", package_name);
             let package_xml_str = doc["release_package_xmls"][package_name].as_str().unwrap();
-            let (description, member_of_group, dependencies) =
+            let (description, member_of_group, dependencies, build_type) =
                 parse_package_xml(cfg, package_xml_str, env)
                     .context(format!("failed to parse package.xml of {package_name}"))?;
             let manifest = PackageManifest {
@@ -260,6 +271,7 @@ fn parse_distro_packages(
                 tag,
                 dependencies,
                 member_of_group,
+                build_type,
             };
             packages.insert(package_name.to_string(), manifest);
         }
@@ -271,44 +283,56 @@ fn parse_package_xml(
     _cfg: &ConfigRef,
     xml_str: &str,
     env: &BTreeMap<String, String>,
-) -> Result<(String, BTreeSet<String>, RosDependencies)> {
-    #[derive(Debug, serde::Deserialize)]
+) -> Result<(String, BTreeSet<String>, RosDependencies, BuildType)> {
+    #[derive(Debug, Deserialize)]
     struct Doc {
         #[serde(default)]
         description: String,
         #[serde(default)]
-        build_depend: Vec<Dep>,
+        build_depend: Vec<CondText>,
         #[serde(default)]
-        build_export_depend: Vec<Dep>,
+        build_export_depend: Vec<CondText>,
         #[serde(default)]
-        buildtool_depend: Vec<Dep>,
+        buildtool_depend: Vec<CondText>,
         #[serde(default)]
-        buildtool_export_depend: Vec<Dep>,
+        buildtool_export_depend: Vec<CondText>,
         #[serde(default)]
-        exec_depend: Vec<Dep>,
+        exec_depend: Vec<CondText>,
         #[serde(default)]
-        test_depend: Vec<Dep>,
+        test_depend: Vec<CondText>,
         #[serde(default)]
-        depend: Vec<Dep>,
+        depend: Vec<CondText>,
         #[serde(default)]
-        group_depend: Vec<Dep>,
+        group_depend: Vec<CondText>,
         #[serde(default)]
         member_of_group: Vec<String>,
+        #[serde(default)]
+        export: Option<Export>,
     }
 
-    #[derive(Debug, serde::Deserialize)]
-    struct Dep {
+    #[derive(Debug, Deserialize)]
+    struct Export {
+        #[serde(default)]
+        build_type: Vec<CondText>,
+    }
+
+    #[derive(Debug, Deserialize)]
+    struct CondText {
         #[serde(rename = "@condition")]
         condition: Option<String>,
         #[serde(rename = "$text")]
-        name: String,
+        text: String,
     }
 
-    let check_condition = |dep: &Dep| -> bool {
-        if let Some(cond) = &dep.condition {
-            eval_condition(cond, env).unwrap()
+    let check_condition = |cond_text: &CondText| -> Option<String> {
+        if let Some(cond) = &cond_text.condition {
+            if eval_condition(cond, env).unwrap() {
+                Some(cond_text.text.clone())
+            } else {
+                None
+            }
         } else {
-            true
+            Some(cond_text.text.clone())
         }
     };
 
@@ -334,26 +358,51 @@ fn parse_package_xml(
     .into_iter()
     .flat_map(|(kind, deps)| {
         deps.iter()
-            .filter(|dep| check_condition(dep))
-            .map(move |dep| RosDependency {
-                name: dep.name.clone(),
-                kind,
-            })
+            .filter_map(check_condition)
+            .map(move |text| RosDependency { name: text, kind })
     })
     .collect();
 
     let group_deps = doc
         .group_depend
         .iter()
-        .filter(|dep| check_condition(dep))
-        .map(|d| d.name.clone())
+        .filter_map(check_condition)
         .collect();
+
     let ros_deps = RosDependencies { deps, group_deps };
+
+    let build_types: HashSet<String> = doc
+        .export
+        .map(|e| e.build_type)
+        .iter()
+        .flatten()
+        .filter_map(check_condition)
+        .collect();
+    let build_type_map = [
+        ("ament_cmake", BuildType::AmentCmake),
+        ("ament_python", BuildType::AmentPython),
+        ("cmake", BuildType::Cmake),
+        ("meson", BuildType::Meson),
+    ];
+    let build_type = build_type_map
+        .into_iter()
+        .filter(|(name, _)| build_types.contains(*name))
+        .map(|(_, build_type)| build_type)
+        .next()
+        .map(Ok)
+        .unwrap_or_else(|| {
+            if build_types.is_empty() {
+                Ok(BuildType::Catkin)
+            } else {
+                bail!("unknown build type {:?}", build_types);
+            }
+        })?;
 
     Ok((
         doc.description,
         doc.member_of_group.into_iter().collect(),
         ros_deps,
+        build_type,
     ))
 }
 

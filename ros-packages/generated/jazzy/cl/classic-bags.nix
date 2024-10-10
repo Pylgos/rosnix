@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-pytest,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "classic_bags";
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."classic_bags";

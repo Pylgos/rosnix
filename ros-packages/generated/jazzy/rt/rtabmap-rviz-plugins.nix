@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_rviz_plugins";
   version = "0.21.5-3";
   src = finalAttrs.passthru.sources."rtabmap_rviz_plugins";

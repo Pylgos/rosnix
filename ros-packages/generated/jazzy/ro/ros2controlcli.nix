@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   controller-manager,
   controller-manager-msgs,
   fetchgit,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ros2controlcli";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."ros2controlcli";

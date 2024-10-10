@@ -4,7 +4,7 @@
   ament-cmake-python,
   ament-cmake-ros,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "message_filters";
   version = "4.11.2-1";
   src = finalAttrs.passthru.sources."message_filters";

@@ -2,7 +2,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_viz";
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."fuse_viz";

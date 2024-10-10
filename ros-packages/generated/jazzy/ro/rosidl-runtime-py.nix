@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rosidl_runtime_py";
   version = "0.13.1-2";
   src = finalAttrs.passthru.sources."rosidl_runtime_py";

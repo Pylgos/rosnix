@@ -4,7 +4,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-test,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_xmllint";
   version = "0.17.1-1";
   src = finalAttrs.passthru.sources."ament_cmake_xmllint";

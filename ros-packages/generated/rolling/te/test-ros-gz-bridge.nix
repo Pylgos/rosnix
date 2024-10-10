@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "test_ros_gz_bridge";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."test_ros_gz_bridge";

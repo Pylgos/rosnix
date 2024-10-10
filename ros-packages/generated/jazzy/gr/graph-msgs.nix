@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "graph_msgs";
   version = "0.2.0-6";
   src = finalAttrs.passthru.sources."graph_msgs";

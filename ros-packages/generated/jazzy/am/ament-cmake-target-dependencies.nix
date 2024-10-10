@@ -2,7 +2,7 @@
   ament-cmake-core,
   ament-cmake-include-directories,
   ament-cmake-libraries,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_target_dependencies";
   version = "2.5.2-1";
   src = finalAttrs.passthru.sources."ament_cmake_target_dependencies";

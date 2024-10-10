@@ -2,7 +2,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "urdf_parser_plugin";
   version = "2.10.0-3";
   src = finalAttrs.passthru.sources."urdf_parser_plugin";

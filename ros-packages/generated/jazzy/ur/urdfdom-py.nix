@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "urdfdom_py";
   version = "1.2.1-3";
   src = finalAttrs.passthru.sources."urdfdom_py";

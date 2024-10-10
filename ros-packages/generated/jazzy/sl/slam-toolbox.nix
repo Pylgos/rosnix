@@ -7,7 +7,7 @@
   ament-lint-auto,
   bond,
   bondcpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -53,7 +53,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "slam_toolbox";
   version = "2.8.1-2";
   src = finalAttrs.passthru.sources."slam_toolbox";

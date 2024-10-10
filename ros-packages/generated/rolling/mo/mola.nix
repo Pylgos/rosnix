@@ -3,7 +3,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -46,7 +46,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mola";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."mola";

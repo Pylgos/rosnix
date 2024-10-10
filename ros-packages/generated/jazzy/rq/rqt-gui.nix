@@ -2,7 +2,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_gui";
   version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rqt_gui";

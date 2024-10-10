@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   camera-info-manager,
   depth-image-proc,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "openni2_camera";
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."openni2_camera";

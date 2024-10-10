@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   demo-nodes-cpp,
   fetchgit,
   fetchurl,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_examples";
   version = "0.20.2-1";
   src = finalAttrs.passthru.sources."launch_testing_examples";

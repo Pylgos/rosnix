@@ -6,7 +6,7 @@
   ament-cmake-python,
   ament-index-cpp,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   controller-manager-msgs,
   diagnostic-updater,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."controller_manager";

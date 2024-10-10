@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration,
   cv-bridge,
   depthai,
@@ -44,7 +44,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_ros_driver";
   version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_ros_driver";

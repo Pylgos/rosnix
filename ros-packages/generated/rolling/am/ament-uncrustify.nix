@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   ament-pycodestyle,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ament_uncrustify";
   version = "0.18.1-1";
   src = finalAttrs.passthru.sources."ament_uncrustify";

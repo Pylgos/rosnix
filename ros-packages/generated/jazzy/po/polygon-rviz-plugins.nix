@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   color-util,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_rviz_plugins";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."polygon_rviz_plugins";

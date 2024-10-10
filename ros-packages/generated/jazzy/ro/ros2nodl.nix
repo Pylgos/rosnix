@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   ament-mypy,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ros2nodl";
   version = "0.3.1-5";
   src = finalAttrs.passthru.sources."ros2nodl";

@@ -4,7 +4,7 @@
   ament-cmake-copyright,
   ament-cmake-pep257,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ouxt_lint_common";
   version = "0.0.8-5";
   src = finalAttrs.passthru.sources."ouxt_lint_common";

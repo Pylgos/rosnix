@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildMesonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildMesonPackage (finalAttrs: {
   pname = "libcamera";
   version = "0.3.2-1";
   src = finalAttrs.passthru.sources."libcamera";

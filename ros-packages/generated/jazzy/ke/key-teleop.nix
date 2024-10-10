@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "key_teleop";
   version = "1.6.0-1";
   src = finalAttrs.passthru.sources."key_teleop";

@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "mrpt_libgui";
   version = "2.14.2-1";
   src = finalAttrs.passthru.sources."mrpt_libgui";

@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-config,
   ecl-license,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_console";
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."ecl_console";

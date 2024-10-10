@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-vendor-package,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "uncrustify_vendor";
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."uncrustify_vendor";

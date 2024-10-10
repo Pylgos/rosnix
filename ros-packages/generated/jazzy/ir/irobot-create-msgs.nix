@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "irobot_create_msgs";
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."irobot_create_msgs";

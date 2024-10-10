@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rclc_examples";
   version = "6.1.0-3";
   src = finalAttrs.passthru.sources."rclc_examples";

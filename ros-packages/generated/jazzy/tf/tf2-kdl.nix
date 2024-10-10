@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_kdl";
   version = "0.36.4-1";
   src = finalAttrs.passthru.sources."tf2_kdl";

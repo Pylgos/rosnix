@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   cv-bridge,
   fetchgit,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "find_object_2d";
   version = "0.7.1-1";
   src = finalAttrs.passthru.sources."find_object_2d";

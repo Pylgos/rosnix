@@ -6,7 +6,7 @@
   ament-cmake-pep257,
   ament-cmake-uncrustify,
   ament-lint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "smach_msgs";
   version = "3.0.3-2";
   src = finalAttrs.passthru.sources."smach_msgs";

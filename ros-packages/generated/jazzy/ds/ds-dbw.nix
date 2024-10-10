@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ds-dbw-can,
   ds-dbw-joystick-demo,
   ds-dbw-msgs,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ds_dbw";
   version = "2.2.3-1";
   src = finalAttrs.passthru.sources."ds_dbw";

@@ -3,7 +3,7 @@
   ament-cmake-clang-format,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "bag2_to_image";
   version = "0.1.0-4";
   src = finalAttrs.passthru.sources."bag2_to_image";

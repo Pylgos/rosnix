@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-manager,
   fetchgit,
   fetchurl,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "kinova_gen3_6dof_robotiq_2f_85_moveit_config";
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kinova_gen3_6dof_robotiq_2f_85_moveit_config";

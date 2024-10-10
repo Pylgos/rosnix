@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration-parsers,
   camera-info-manager,
   fetchgit,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "image_common";
   version = "6.0.0-1";
   src = finalAttrs.passthru.sources."image_common";

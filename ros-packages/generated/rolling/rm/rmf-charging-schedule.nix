@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_charging_schedule";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."rmf_charging_schedule";

@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   control-msgs,
   example-interfaces,
   fetchgit,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "joy_teleop";
   version = "1.6.0-1";
   src = finalAttrs.passthru.sources."joy_teleop";

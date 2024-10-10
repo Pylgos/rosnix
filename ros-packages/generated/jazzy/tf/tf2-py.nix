@@ -3,7 +3,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_py";
   version = "0.36.4-1";
   src = finalAttrs.passthru.sources."tf2_py";

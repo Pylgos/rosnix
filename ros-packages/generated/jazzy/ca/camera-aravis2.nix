@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-aravis2-msgs,
   camera-info-manager,
   cv-bridge,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "camera_aravis2";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."camera_aravis2";

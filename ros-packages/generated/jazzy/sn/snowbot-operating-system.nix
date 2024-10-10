@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-clang-format,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "snowbot_operating_system";
   version = "0.1.2-5";
   src = finalAttrs.passthru.sources."snowbot_operating_system";

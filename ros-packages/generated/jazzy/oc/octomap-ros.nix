@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_ros";
   version = "0.4.4-1";
   src = finalAttrs.passthru.sources."octomap_ros";

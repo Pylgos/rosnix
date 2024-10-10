@@ -3,7 +3,7 @@
   ament-flake8,
   ament-index-python,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   composition-interfaces,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "launch_ros";
   version = "0.27.3-1";
   src = finalAttrs.passthru.sources."launch_ros";

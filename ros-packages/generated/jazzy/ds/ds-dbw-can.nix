@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   can-msgs,
   dataspeed-can-msg-filters,
   dataspeed-can-usb,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ds_dbw_can";
   version = "2.2.3-1";
   src = finalAttrs.passthru.sources."ds_dbw_can";

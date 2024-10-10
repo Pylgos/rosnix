@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-command-line,
   ecl-concepts,
   ecl-containers,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_core";
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_core";

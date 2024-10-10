@@ -8,7 +8,7 @@
   apriltag,
   apriltag-detector,
   apriltag-msgs,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_detector_umich";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."apriltag_detector_umich";

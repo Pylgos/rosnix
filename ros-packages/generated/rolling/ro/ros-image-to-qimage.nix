@@ -5,7 +5,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros_image_to_qimage";
   version = "0.4.1-3";
   src = finalAttrs.passthru.sources."ros_image_to_qimage";

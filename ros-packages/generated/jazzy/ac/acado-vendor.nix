@@ -3,7 +3,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -55,7 +55,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "acado_vendor";
   version = "1.0.0-7";
   src = finalAttrs.passthru.sources."acado_vendor";

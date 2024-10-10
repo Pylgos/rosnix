@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_move_group";
   version = "2.11.0-1";
   src = finalAttrs.passthru.sources."moveit_ros_move_group";

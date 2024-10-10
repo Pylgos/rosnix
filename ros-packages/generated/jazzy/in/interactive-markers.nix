@@ -4,7 +4,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "interactive_markers";
   version = "2.5.4-2";
   src = finalAttrs.passthru.sources."interactive_markers";

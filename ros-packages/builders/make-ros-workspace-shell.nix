@@ -1,4 +1,8 @@
-{ lib, buildRosPackage }:
+{
+  lib,
+  buildColconPackage,
+  buildPackages,
+}:
 
 # A special kind of derivation that is only meant to be consumed by the
 # nix-shell.
@@ -38,12 +42,14 @@ let
   ];
 in
 
-buildRosPackage (
+buildColconPackage (
   {
     inherit name;
 
     buildInputs = mergeInputs "buildInputs";
-    nativeBuildInputs = packages ++ (mergeInputs "nativeBuildInputs");
+    nativeBuildInputs = [
+      buildPackages.pythonForRosPackages.colcon-common-extensions
+    ] ++ packages ++ (mergeInputs "nativeBuildInputs");
     propagatedBuildInputs = mergeInputs "propagatedBuildInputs";
     propagatedNativeBuildInputs = mergeInputs "propagatedNativeBuildInputs";
 

@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "ifm3d_core";
   version = "0.18.0-9";
   src = finalAttrs.passthru.sources."ifm3d_core";

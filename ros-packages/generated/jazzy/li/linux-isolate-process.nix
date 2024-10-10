@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "linux_isolate_process";
   version = "0.0.2-3";
   src = finalAttrs.passthru.sources."linux_isolate_process";

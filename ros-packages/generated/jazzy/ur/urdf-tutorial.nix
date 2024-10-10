@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "urdf_tutorial";
   version = "1.1.0-3";
   src = finalAttrs.passthru.sources."urdf_tutorial";

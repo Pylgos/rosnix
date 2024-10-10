@@ -4,7 +4,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-test,
   ament-uncrustify,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_cmake_uncrustify";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."rmf_cmake_uncrustify";

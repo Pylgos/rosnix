@@ -4,7 +4,7 @@
   ament-mypy,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "tracetools_trace";
   version = "8.2.2-1";
   src = finalAttrs.passthru.sources."tracetools_trace";

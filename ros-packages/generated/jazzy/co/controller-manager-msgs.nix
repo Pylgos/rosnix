@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager_msgs";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."controller_manager_msgs";

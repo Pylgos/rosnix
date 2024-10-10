@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-index-cpp,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   diagnostic-updater,
   fetchgit,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "novatel_gps_driver";
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."novatel_gps_driver";

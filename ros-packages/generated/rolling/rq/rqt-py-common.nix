@@ -3,7 +3,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_py_common";
   version = "1.7.3-1";
   src = finalAttrs.passthru.sources."rqt_py_common";

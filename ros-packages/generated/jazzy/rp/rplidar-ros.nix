@@ -1,7 +1,7 @@
 {
   ament-cmake-auto,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rplidar_ros";
   version = "2.1.0-4";
   src = finalAttrs.passthru.sources."rplidar_ros";

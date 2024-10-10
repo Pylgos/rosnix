@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-index-cpp,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_bridge";
   version = "0.8.0-1";
   src = finalAttrs.passthru.sources."foxglove_bridge";

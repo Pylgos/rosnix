@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   etsi-its-coding,
   etsi-its-conversion,
   etsi-its-msgs,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_messages";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_messages";

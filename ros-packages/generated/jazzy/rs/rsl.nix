@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCatkinPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCatkinPackage (finalAttrs: {
   pname = "rsl";
   version = "1.1.0-3";
   src = finalAttrs.passthru.sources."rsl";

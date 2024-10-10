@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-cpplint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "imu_processors";
   version = "0.5.0-2";
   src = finalAttrs.passthru.sources."imu_processors";

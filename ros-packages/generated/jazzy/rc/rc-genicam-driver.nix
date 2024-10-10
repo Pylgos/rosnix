@@ -3,7 +3,7 @@
   ament-cmake-cppcheck,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-updater,
   fetchgit,
   fetchurl,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rc_genicam_driver";
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rc_genicam_driver";

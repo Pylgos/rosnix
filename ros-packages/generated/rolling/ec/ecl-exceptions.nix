@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-config,
   ecl-errors,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_exceptions";
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_exceptions";

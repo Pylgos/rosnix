@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-pytest,
   ament-cmake-uncrustify,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_trajectory_cache";
   version = "2.11.0-1";
   src = finalAttrs.passthru.sources."moveit_ros_trajectory_cache";

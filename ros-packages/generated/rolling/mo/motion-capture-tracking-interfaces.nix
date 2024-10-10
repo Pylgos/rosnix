@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "motion_capture_tracking_interfaces";
   version = "1.0.3-2";
   src = finalAttrs.passthru.sources."motion_capture_tracking_interfaces";

@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-pytest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_py_common";
   version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rqt_py_common";

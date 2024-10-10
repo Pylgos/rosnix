@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   depthai,
   depthai-bridge,
   depthai-descriptions,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai-ros";
   version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai-ros";

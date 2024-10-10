@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "mavlink";
   version = "2024.6.6-1";
   src = finalAttrs.passthru.sources."mavlink";

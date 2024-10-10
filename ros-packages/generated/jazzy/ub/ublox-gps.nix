@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   diagnostic-updater,
   fetchgit,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_gps";
   version = "2.3.0-4";
   src = finalAttrs.passthru.sources."ublox_gps";

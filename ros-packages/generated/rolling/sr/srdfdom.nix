@@ -5,7 +5,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   console-bridge-vendor,
   fetchgit,
   fetchurl,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "srdfdom";
   version = "2.0.5-1";
   src = finalAttrs.passthru.sources."srdfdom";

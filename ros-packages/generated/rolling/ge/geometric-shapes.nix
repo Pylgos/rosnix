@@ -4,7 +4,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   console-bridge-vendor,
   eigen-stl-containers,
   eigen3-cmake-module,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "geometric_shapes";
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."geometric_shapes";

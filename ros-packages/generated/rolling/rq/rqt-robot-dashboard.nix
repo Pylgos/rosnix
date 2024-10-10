@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   diagnostic-msgs,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_robot_dashboard";
   version = "0.6.1-4";
   src = finalAttrs.passthru.sources."rqt_robot_dashboard";

@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mimick_vendor";
   version = "0.8.1-1";
   src = finalAttrs.passthru.sources."mimick_vendor";

@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "spatio_temporal_voxel_layer";
   version = "2.5.2-1";
   src = finalAttrs.passthru.sources."spatio_temporal_voxel_layer";

@@ -1,6 +1,6 @@
 {
   ament-cmake-flake8,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "create3_teleop";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_teleop";

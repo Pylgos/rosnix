@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_occupancy_map_monitor";
   version = "2.11.0-1";
   src = finalAttrs.passthru.sources."moveit_ros_occupancy_map_monitor";

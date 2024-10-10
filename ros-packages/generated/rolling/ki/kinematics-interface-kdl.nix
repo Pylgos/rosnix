@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "kinematics_interface_kdl";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface_kdl";

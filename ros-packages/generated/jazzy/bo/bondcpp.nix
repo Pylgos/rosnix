@@ -3,7 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   bond,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "bondcpp";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."bondcpp";

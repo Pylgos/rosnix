@@ -4,7 +4,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pcl_ros";
   version = "2.6.1-3";
   src = finalAttrs.passthru.sources."pcl_ros";

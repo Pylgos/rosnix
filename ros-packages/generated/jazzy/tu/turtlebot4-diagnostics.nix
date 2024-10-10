@@ -2,7 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   diagnostic-aggregator,
   diagnostic-msgs,
   diagnostic-updater,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot4_diagnostics";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."turtlebot4_diagnostics";

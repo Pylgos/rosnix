@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "swri_geometry_util";
   version = "3.7.3-1";
   src = finalAttrs.passthru.sources."swri_geometry_util";

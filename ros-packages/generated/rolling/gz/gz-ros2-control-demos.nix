@@ -5,7 +5,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   diff-drive-controller,
   effort-controllers,
@@ -50,7 +50,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control_demos";
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."gz_ros2_control_demos";

@@ -3,7 +3,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pointcloud_pipeline";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."mrpt_pointcloud_pipeline";

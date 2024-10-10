@@ -2,7 +2,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cyclonedds,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_cyclonedds_cpp";
   version = "3.0.2-1";
   src = finalAttrs.passthru.sources."rmw_cyclonedds_cpp";

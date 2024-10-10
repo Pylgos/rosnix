@@ -3,7 +3,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "wiimote_msgs";
   version = "3.3.0-2";
   src = finalAttrs.passthru.sources."wiimote_msgs";

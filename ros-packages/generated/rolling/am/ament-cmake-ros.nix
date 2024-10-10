@@ -5,7 +5,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   domain-coordinator,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_ros";
   version = "0.13.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_ros";

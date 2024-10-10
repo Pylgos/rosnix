@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dolly-follow,
   dolly-gazebo,
   dolly-ignition,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dolly";
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly";

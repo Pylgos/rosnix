@@ -3,7 +3,7 @@
   ament-cmake-gmock,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "domain_bridge";
   version = "0.5.0-5";
   src = finalAttrs.passthru.sources."domain_bridge";

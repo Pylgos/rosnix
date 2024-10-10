@@ -5,7 +5,7 @@
   ament-cmake-gtest,
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "filters";
   version = "2.1.2-2";
   src = finalAttrs.passthru.sources."filters";

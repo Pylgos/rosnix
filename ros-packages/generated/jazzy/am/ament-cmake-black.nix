@@ -5,7 +5,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-test,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_black";
   version = "0.2.6-1";
   src = finalAttrs.passthru.sources."ament_cmake_black";

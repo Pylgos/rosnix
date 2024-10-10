@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-index-cpp,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "qml_ros2_plugin";
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."qml_ros2_plugin";

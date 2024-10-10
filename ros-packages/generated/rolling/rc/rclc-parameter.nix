@@ -4,7 +4,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   example-interfaces,
   fetchgit,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rclc_parameter";
   version = "6.1.0-2";
   src = finalAttrs.passthru.sources."rclc_parameter";

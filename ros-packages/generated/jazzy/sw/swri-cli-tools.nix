@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "swri_cli_tools";
   version = "3.7.3-1";
   src = finalAttrs.passthru.sources."swri_cli_tools";

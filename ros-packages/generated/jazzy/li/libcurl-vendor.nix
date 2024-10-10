@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-vendor-package,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "libcurl_vendor";
   version = "3.4.3-1";
   src = finalAttrs.passthru.sources."libcurl_vendor";

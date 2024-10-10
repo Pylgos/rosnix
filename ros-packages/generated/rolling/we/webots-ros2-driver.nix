@@ -3,7 +3,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "webots_ros2_driver";
   version = "2023.1.3-1";
   src = finalAttrs.passthru.sources."webots_ros2_driver";

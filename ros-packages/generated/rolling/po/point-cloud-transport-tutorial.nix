@@ -6,7 +6,7 @@
   ament-cmake-ros,
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_tutorial";
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_tutorial";

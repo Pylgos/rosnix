@@ -3,7 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   autoware-planning-msgs,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_vehicle_msgs";
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."autoware_vehicle_msgs";

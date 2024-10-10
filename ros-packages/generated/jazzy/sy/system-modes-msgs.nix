@@ -4,7 +4,7 @@
   ament-cmake-cpplint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "system_modes_msgs";
   version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes_msgs";

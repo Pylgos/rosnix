@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "py_trees_ros_interfaces";
   version = "2.1.0-4";
   src = finalAttrs.passthru.sources."py_trees_ros_interfaces";

@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-cmake-pytest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-msgs,
   example-interfaces,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_test_msgs";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_test_msgs";

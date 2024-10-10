@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-vendor-package,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "zstd_vendor";
   version = "0.26.5-1";
   src = finalAttrs.passthru.sources."zstd_vendor";

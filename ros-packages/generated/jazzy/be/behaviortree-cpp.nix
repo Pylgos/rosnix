@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "behaviortree_cpp";
   version = "4.6.2-1";
   src = finalAttrs.passthru.sources."behaviortree_cpp";

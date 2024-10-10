@@ -2,7 +2,7 @@
   ament-cmake,
   automotive-navigation-msgs,
   automotive-platform-msgs,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "automotive_autonomy_msgs";
   version = "3.0.4-6";
   src = finalAttrs.passthru.sources."automotive_autonomy_msgs";

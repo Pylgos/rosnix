@@ -3,7 +3,7 @@
   ament-flake8,
   ament-pep257,
   bond,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "bondpy";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."bondpy";

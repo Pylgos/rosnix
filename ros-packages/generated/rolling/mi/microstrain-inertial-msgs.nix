@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_msgs";
   version = "4.4.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_msgs";

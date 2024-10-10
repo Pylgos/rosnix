@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   asio-cmake-module,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "io_context";
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."io_context";

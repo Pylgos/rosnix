@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   diagnostic-updater,
   fetchgit,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "sick_scan_xd";
   version = "3.5.0-1";
   src = finalAttrs.passthru.sources."sick_scan_xd";

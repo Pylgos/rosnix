@@ -1,7 +1,7 @@
 {
   action-msgs,
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mola_msgs";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."mola_msgs";

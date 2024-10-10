@@ -6,7 +6,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fastrtps-cmake-module,
   fetchgit,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_typesupport_fastrtps_cpp";
   version = "3.6.0-2";
   src = finalAttrs.passthru.sources."rosidl_typesupport_fastrtps_cpp";

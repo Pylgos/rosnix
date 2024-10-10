@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   controller-interface,
   controller-manager,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "bicycle_steering_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."bicycle_steering_controller";

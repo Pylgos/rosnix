@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -55,7 +55,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "spdlog_vendor";
   version = "1.6.1-1";
   src = finalAttrs.passthru.sources."spdlog_vendor";

@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   console-bridge-vendor,
   fetchgit,
   fetchurl,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "urdfdom";
   version = "4.0.0-2";
   src = finalAttrs.passthru.sources."urdfdom";

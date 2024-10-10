@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   canopen-interfaces,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_core";
   version = "0.2.12-2";
   src = finalAttrs.passthru.sources."canopen_core";

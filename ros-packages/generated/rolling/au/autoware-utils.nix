@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-cmake-ros,
   autoware-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."autoware_utils";

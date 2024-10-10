@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-pytest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ur_description";
   version = "2.4.3-1";
   src = finalAttrs.passthru.sources."ur_description";

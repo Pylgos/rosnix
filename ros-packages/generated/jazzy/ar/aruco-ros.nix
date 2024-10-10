@@ -4,7 +4,7 @@
   ament-lint-common,
   aruco,
   aruco-msgs,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_ros";
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco_ros";

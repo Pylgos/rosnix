@@ -4,7 +4,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dummy-map-server,
   dummy-sensors,
   fetchgit,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";

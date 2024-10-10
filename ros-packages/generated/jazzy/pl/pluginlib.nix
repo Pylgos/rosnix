@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pluginlib";
   version = "5.4.2-2";
   src = finalAttrs.passthru.sources."pluginlib";

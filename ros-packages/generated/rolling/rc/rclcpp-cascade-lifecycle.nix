@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cascade-lifecycle-msgs,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_cascade_lifecycle";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."rclcpp_cascade_lifecycle";

@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   canopen-402-driver,
   canopen-interfaces,
   canopen-proxy-driver,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_ros2_controllers";
   version = "0.2.12-2";
   src = finalAttrs.passthru.sources."canopen_ros2_controllers";

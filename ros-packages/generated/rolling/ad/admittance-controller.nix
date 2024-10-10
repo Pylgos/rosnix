@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   control-toolbox,
   controller-interface,
@@ -47,7 +47,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "admittance_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."admittance_controller";

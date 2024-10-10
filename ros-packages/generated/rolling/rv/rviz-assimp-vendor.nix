@@ -4,7 +4,7 @@
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -228,7 +228,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_assimp_vendor";
   version = "14.3.0-1";
   src = finalAttrs.passthru.sources."rviz_assimp_vendor";

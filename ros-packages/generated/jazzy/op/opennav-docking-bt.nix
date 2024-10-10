@@ -3,7 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   behaviortree-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "opennav_docking_bt";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."opennav_docking_bt";

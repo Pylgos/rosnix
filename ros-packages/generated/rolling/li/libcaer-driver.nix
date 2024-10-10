@@ -9,7 +9,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-ros,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-info-manager,
   event-camera-msgs,
   fetchgit,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "libcaer_driver";
   version = "1.0.3-1";
   src = finalAttrs.passthru.sources."libcaer_driver";

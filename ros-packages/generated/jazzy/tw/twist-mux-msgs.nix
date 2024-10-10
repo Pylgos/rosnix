@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "twist_mux_msgs";
   version = "3.0.1-3";
   src = finalAttrs.passthru.sources."twist_mux_msgs";

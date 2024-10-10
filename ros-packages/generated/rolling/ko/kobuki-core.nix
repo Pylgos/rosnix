@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-command-line,
   ecl-config,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "kobuki_core";
   version = "1.4.0-3";
   src = finalAttrs.passthru.sources."kobuki_core";

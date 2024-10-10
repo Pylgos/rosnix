@@ -2,7 +2,7 @@
   ament-acceleration,
   ament-cmake-core,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_vitis";
   version = "0.10.1-5";
   src = finalAttrs.passthru.sources."ament_vitis";

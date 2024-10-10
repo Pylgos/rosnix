@@ -5,7 +5,7 @@
   ament-cmake-uncrustify,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_nav_sat_fix_hp_node";
   version = "0.5.3-2";
   src = finalAttrs.passthru.sources."ublox_nav_sat_fix_hp_node";

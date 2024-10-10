@@ -1,6 +1,6 @@
 {
   ament-copyright,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "generate_parameter_library_py";
   version = "0.3.8-3";
   src = finalAttrs.passthru.sources."generate_parameter_library_py";

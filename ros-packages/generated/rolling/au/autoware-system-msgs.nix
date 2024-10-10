@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-msgs,
   fetchgit,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_system_msgs";
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."autoware_system_msgs";

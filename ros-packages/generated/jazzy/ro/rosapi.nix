@@ -1,7 +1,7 @@
 {
   ament-cmake-pytest,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosapi";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosapi";

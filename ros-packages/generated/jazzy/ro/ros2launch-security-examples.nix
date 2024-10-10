@@ -3,7 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   ament-nodl,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros2launch_security_examples";
   version = "1.0.0-5";
   src = finalAttrs.passthru.sources."ros2launch_security_examples";

@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_regulated_pure_pursuit_controller";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."nav2_regulated_pure_pursuit_controller";

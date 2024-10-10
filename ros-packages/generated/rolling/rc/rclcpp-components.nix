@@ -5,7 +5,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   composition-interfaces,
   fetchgit,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_components";
   version = "29.0.0-1";
   src = finalAttrs.passthru.sources."rclcpp_components";

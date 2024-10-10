@@ -6,7 +6,7 @@
   ament-cmake-gtest,
   ament-index-cpp,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish";
   version = "0.9.3-1";
   src = finalAttrs.passthru.sources."ros_babel_fish";

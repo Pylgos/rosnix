@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-cmake-pytest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   cv-bridge,
   diagnostic-updater,
@@ -45,7 +45,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "realsense2_camera";
   version = "4.55.1-3";
   src = finalAttrs.passthru.sources."realsense2_camera";

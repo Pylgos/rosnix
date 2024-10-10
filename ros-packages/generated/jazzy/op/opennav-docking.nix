@@ -5,7 +5,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "opennav_docking";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."opennav_docking";

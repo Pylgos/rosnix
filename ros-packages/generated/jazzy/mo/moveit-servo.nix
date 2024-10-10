@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   controller-manager,
   fetchgit,
@@ -50,7 +50,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_servo";
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."moveit_servo";

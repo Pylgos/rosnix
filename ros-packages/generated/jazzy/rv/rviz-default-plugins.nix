@@ -9,7 +9,7 @@
   ament-cmake-xmllint,
   ament-index-cpp,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -53,7 +53,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_default_plugins";
   version = "14.1.5-1";
   src = finalAttrs.passthru.sources."rviz_default_plugins";

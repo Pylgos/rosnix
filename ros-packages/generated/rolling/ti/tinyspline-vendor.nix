@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -45,7 +45,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tinyspline_vendor";
   version = "0.6.1-1";
   src = finalAttrs.passthru.sources."tinyspline_vendor";

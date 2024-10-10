@@ -3,7 +3,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   ecl-config,
   ecl-errors,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_time";
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_time";

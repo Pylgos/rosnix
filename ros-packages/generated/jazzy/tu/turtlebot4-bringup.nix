@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   create3-republisher,
   depthai-bridge,
   depthai-examples,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_bringup";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."turtlebot4_bringup";

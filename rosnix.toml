@@ -58,6 +58,7 @@ ignore_urls = [
   '^https://github\.com/.*?/.*?/archive/refs/heads/.*$',
   '^https://raw\.githubusercontent\.com/.*?/.*?/(master|main)/.*$',
   '^https://librealsense\.intel\.com/Releases/connectivity_check$',
+  '^http://downloads\.tuxfamily\.org/eigen/lapack_addons_3\.4\.1\.tgz$',
 ]
 replace_urls = [
   { from = "^https://git.savannah.gnu.org/git/freetype/freetype2.git$", to = "https://gitlab.freedesktop.org/freetype/freetype.git" },

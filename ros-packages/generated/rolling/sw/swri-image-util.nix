@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration-parsers,
   cv-bridge,
   fetchgit,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "swri_image_util";
   version = "3.7.3-1";
   src = finalAttrs.passthru.sources."swri_image_util";

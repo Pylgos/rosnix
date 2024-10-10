@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "osrf_testing_tools_cpp";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."osrf_testing_tools_cpp";

@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-auto,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "quaternion_operation";
   version = "0.0.7-4";
   src = finalAttrs.passthru.sources."quaternion_operation";

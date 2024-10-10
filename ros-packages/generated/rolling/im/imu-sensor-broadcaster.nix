@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   controller-manager,
   fetchgit,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "imu_sensor_broadcaster";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."imu_sensor_broadcaster";

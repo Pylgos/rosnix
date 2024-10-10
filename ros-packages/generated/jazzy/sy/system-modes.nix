@@ -9,7 +9,7 @@
   ament-cmake-uncrustify,
   ament-index-python,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "system_modes";
   version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes";

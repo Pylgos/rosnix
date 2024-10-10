@@ -1,6 +1,6 @@
 {
   ament-cmake-core,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros_environment";
   version = "4.2.1-1";
   src = finalAttrs.passthru.sources."ros_environment";

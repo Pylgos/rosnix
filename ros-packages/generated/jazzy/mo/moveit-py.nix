@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-pytest,
   ament-index-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_py";
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."moveit_py";

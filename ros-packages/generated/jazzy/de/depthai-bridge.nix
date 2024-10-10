@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-info-manager,
   composition-interfaces,
   cv-bridge,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_bridge";
   version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_bridge";

@@ -1,6 +1,6 @@
 {
   ament-index-python,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_publisher";
   version = "1.7.2-2";
   src = finalAttrs.passthru.sources."rqt_publisher";

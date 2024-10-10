@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-info-manager,
   cv-bridge,
   depth-image-proc,
@@ -83,7 +83,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_examples";
   version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_examples";

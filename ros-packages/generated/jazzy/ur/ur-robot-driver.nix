@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-python,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-manager,
   controller-manager-msgs,
   fetchgit,
@@ -55,7 +55,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ur_robot_driver";
   version = "2.4.10-1";
   src = finalAttrs.passthru.sources."ur_robot_driver";

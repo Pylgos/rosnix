@@ -21,7 +21,7 @@ in
               }
             );
           }).poetryPackages;
-        pkgsByNames = lib.listToAttrs (
+        pkgsByName = lib.listToAttrs (
           map (drv: {
             name = drv.pname;
             value = drv;
@@ -29,12 +29,17 @@ in
         );
       in
       {
-        inherit (pkgsByNames)
+        inherit (pkgsByName)
           rosdistro
           catkin-pkg
           flake8-quotes
           flake8-comprehensions
           flake8-builtins
+          colcon-core
+          colcon-bash
+          colcon-ros
+          colcon-library-path
+          colcon-cmake
           colcon-common-extensions
           empy
           ;

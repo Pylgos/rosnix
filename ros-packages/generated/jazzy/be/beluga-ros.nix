@@ -4,7 +4,7 @@
   ament-cmake-gtest,
   ament-cmake-python,
   beluga,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "beluga_ros";
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."beluga_ros";

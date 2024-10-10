@@ -3,7 +3,7 @@
   ament-cmake-core,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_core_generators";
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rosidl_core_generators";

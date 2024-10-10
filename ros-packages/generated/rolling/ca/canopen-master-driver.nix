@@ -2,7 +2,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   canopen-core,
   canopen-interfaces,
   fetchgit,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_master_driver";
   version = "0.2.12-2";
   src = finalAttrs.passthru.sources."canopen_master_driver";

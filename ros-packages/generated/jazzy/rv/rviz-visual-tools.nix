@@ -4,7 +4,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen-stl-containers,
   eigen3-cmake-module,
   fetchgit,
@@ -49,7 +49,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_visual_tools";
   version = "4.1.4-4";
   src = finalAttrs.passthru.sources."rviz_visual_tools";

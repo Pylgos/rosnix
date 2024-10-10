@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   draco-point-cloud-transport,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_plugins";
   version = "5.0.1-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_plugins";

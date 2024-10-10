@@ -8,7 +8,7 @@
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pointcloud_to_laserscan";
   version = "2.0.2-3";
   src = finalAttrs.passthru.sources."pointcloud_to_laserscan";

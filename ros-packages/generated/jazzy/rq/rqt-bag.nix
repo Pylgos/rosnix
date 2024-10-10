@@ -1,6 +1,6 @@
 {
   ament-copyright,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_bag";
   version = "1.5.4-1";
   src = finalAttrs.passthru.sources."rqt_bag";

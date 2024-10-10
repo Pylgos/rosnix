@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_dartsim_vendor";
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."gz_dartsim_vendor";

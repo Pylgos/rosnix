@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_msgs";
   version = "2.2.1-4";
   src = finalAttrs.passthru.sources."turtlebot3_msgs";

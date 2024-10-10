@@ -1,6 +1,6 @@
 {
   ament-index-python,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_graph";
   version = "1.5.4-1";
   src = finalAttrs.passthru.sources."rqt_graph";

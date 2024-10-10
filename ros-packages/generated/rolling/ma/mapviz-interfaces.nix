@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz_interfaces";
   version = "2.4.3-1";
   src = finalAttrs.passthru.sources."mapviz_interfaces";

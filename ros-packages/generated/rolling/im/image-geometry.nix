@@ -3,7 +3,7 @@
   ament-cmake-pytest,
   ament-cmake-python,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "image_geometry";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."image_geometry";

@@ -3,7 +3,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-msgs,
   fetchgit,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "common_interfaces";
   version = "5.3.5-1";
   src = finalAttrs.passthru.sources."common_interfaces";

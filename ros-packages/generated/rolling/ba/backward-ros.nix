@@ -1,7 +1,7 @@
 {
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "backward_ros";
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."backward_ros";

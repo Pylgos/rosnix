@@ -3,7 +3,7 @@
   ament-cmake-ros,
   autoware-cmake,
   autoware-lanelet2-extension,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_lanelet2_extension_python";
   version = "0.6.0-1";
   src = finalAttrs.passthru.sources."autoware_lanelet2_extension_python";

@@ -5,7 +5,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -44,7 +44,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mvsim";
   version = "0.10.0-1";
   src = finalAttrs.passthru.sources."mvsim";

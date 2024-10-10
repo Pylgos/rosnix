@@ -1,6 +1,6 @@
 {
   ament-copyright,
-  buildRosPackage,
+  buildAmentPythonPackage,
   builtin-interfaces,
   controller-manager,
   diff-drive-controller,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_turtlebot";
   version = "2023.1.3-1";
   src = finalAttrs.passthru.sources."webots_ros2_turtlebot";

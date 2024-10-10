@@ -3,7 +3,7 @@
   ament-flake8,
   ament-index-python,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "demo_nodes_py";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."demo_nodes_py";

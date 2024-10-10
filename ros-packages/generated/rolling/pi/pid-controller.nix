@@ -3,7 +3,7 @@
   ament-cmake-gmock,
   angles,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   control-toolbox,
   controller-interface,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pid_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."pid_controller";

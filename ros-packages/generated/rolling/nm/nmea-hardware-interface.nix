@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   fetchgit,
   fetchurl,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nmea_hardware_interface";
   version = "0.0.1-4";
   src = finalAttrs.passthru.sources."nmea_hardware_interface";

@@ -1,6 +1,6 @@
 {
   ament-cmake-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-info-manager,
   diagnostic-msgs,
   diagnostic-updater,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "avt_vimba_camera";
   version = "2001.1.0-6";
   src = finalAttrs.passthru.sources."avt_vimba_camera";

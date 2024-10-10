@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dynamixel-sdk,
   dynamixel-sdk-custom-interfaces,
   fetchgit,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_sdk_examples";
   version = "3.7.40-5";
   src = finalAttrs.passthru.sources."dynamixel_sdk_examples";

@@ -1,6 +1,6 @@
 {
   ament-cmake-core,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "lanelet2_io";
   version = "1.2.1-6";
   src = finalAttrs.passthru.sources."lanelet2_io";

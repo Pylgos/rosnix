@@ -4,7 +4,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mola_test_datasets";
   version = "0.3.4-1";
   src = finalAttrs.passthru.sources."mola_test_datasets";

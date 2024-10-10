@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   asio-cmake-module,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "serial_driver";
   version = "1.2.0-3";
   src = finalAttrs.passthru.sources."serial_driver";

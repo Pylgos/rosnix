@@ -1,7 +1,7 @@
 {
   ament-cmake-python,
   ament-index-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "simple_launch";
   version = "1.10.1-1";
   src = finalAttrs.passthru.sources."simple_launch";

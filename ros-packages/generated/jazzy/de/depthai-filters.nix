@@ -1,6 +1,6 @@
 {
   ament-cmake-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   depthai-ros-msgs,
   fetchgit,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_filters";
   version = "2.10.2-1";
   src = finalAttrs.passthru.sources."depthai_filters";

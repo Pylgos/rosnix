@@ -10,6 +10,7 @@ use tracing::warn;
 
 use crate::auto_patching::{PatchedSource, Replacement};
 use crate::deps::{NixDependency, NixDependencyKind};
+use crate::rosindex::BuildType;
 use crate::source::SourceKind;
 use crate::{
     config::ConfigRef,
@@ -62,6 +63,16 @@ fn normalize_attr_name(name: &str) -> String {
     name.replace('_', "-")
 }
 
+fn builder_fn(build_type: BuildType) -> &'static str {
+    match build_type {
+        BuildType::Catkin => "buildCatkinPackage",
+        BuildType::Cmake => "buildCmakePackage",
+        BuildType::AmentCmake => "buildAmentCmakePackage",
+        BuildType::AmentPython => "buildAmentPythonPackage",
+        BuildType::Meson => "buildMesonPackage",
+    }
+}
+
 fn generate_parameters(
     ctx: &Ctx,
     mut dst: impl Write,
@@ -84,9 +95,10 @@ fn generate_parameters(
         })
         .chain(extra_packages.clone())
         .collect();
+    let build_fn = builder_fn(manifest.build_type);
     params.extend(
         [
-            "buildRosPackage",
+            build_fn,
             "fetchgit",
             "fetchurl",
             "fetchzip",
@@ -201,7 +213,8 @@ fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> R
     )?;
     writeln!(dst, "  }});")?;
     writeln!(dst, "in")?;
-    writeln!(dst, "buildRosPackage (finalAttrs: {{")?;
+    let builder_fn = builder_fn(manifest.build_type);
+    writeln!(dst, "{builder_fn} (finalAttrs: {{")?;
     generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest)?;
     writeln!(dst, "}})")?;
     let mut file = std::fs::File::create(dst_path)?;

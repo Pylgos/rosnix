@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   example-interfaces,
   fetchgit,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "picknik_twist_controller";
   version = "0.0.3-3";
   src = finalAttrs.passthru.sources."picknik_twist_controller";

@@ -5,7 +5,7 @@
   ament-cmake-pclint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "apex_test_tools";
   version = "0.0.2-8";
   src = finalAttrs.passthru.sources."apex_test_tools";

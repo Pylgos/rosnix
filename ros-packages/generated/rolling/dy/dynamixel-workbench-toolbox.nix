@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dynamixel-sdk,
   fetchgit,
   fetchurl,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_workbench_toolbox";
   version = "2.2.3-4";
   src = finalAttrs.passthru.sources."dynamixel_workbench_toolbox";

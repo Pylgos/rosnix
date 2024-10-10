@@ -3,7 +3,7 @@
   admittance-controller,
   ament-cmake,
   bicycle-steering-controller,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diff-drive-controller,
   effort-controllers,
   fetchgit,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_controllers";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."ros2_controllers";

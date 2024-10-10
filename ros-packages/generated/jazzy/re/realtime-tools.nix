@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "realtime_tools";
   version = "2.6.0-1";
   src = finalAttrs.passthru.sources."realtime_tools";

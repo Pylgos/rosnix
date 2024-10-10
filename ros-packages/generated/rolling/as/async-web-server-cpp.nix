@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildCatkinPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCatkinPackage (finalAttrs: {
   pname = "async_web_server_cpp";
   version = "2.0.0-5";
   src = finalAttrs.passthru.sources."async_web_server_cpp";

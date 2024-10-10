@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-pytest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_cpp";
   version = "2.7.4-2";
   src = finalAttrs.passthru.sources."qt_gui_cpp";

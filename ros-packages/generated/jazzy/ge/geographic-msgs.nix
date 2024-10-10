@@ -7,7 +7,7 @@
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "geographic_msgs";
   version = "1.0.6-2";
   src = finalAttrs.passthru.sources."geographic_msgs";

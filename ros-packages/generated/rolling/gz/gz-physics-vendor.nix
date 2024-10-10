@@ -5,7 +5,7 @@
   ament-cmake-test,
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -49,7 +49,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_physics_vendor";
   version = "0.2.0-1";
   src = finalAttrs.passthru.sources."gz_physics_vendor";

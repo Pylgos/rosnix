@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gen-version-h,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."controller_interface";

@@ -2,7 +2,7 @@
   action-msgs,
   ament-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "flexbe_msgs";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_msgs";

@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   eigenpy,
   fetchgit,
   fetchurl,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "pinocchio";
   version = "2.6.21-3";
   src = finalAttrs.passthru.sources."pinocchio";

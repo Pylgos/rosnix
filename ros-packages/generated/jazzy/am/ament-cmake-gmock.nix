@@ -2,7 +2,7 @@
   ament-cmake-core,
   ament-cmake-gtest,
   ament-cmake-test,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_gmock";
   version = "2.5.2-1";
   src = finalAttrs.passthru.sources."ament_cmake_gmock";

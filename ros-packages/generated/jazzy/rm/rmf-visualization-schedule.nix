@@ -3,7 +3,7 @@
   ament-cmake-uncrustify,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_schedule";
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_schedule";

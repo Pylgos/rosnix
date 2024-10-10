@@ -6,7 +6,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   diagnostic-updater,
   eigen-stl-containers,
@@ -54,7 +54,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mavros_extras";
   version = "2.8.0-1";
   src = finalAttrs.passthru.sources."mavros_extras";

@@ -3,8 +3,8 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
+  buildAmentCmakePackage,
   buildPackages,
-  buildRosPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -90,7 +90,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "aws_sdk_cpp_vendor";
   version = "0.2.1-2";
   src = finalAttrs.passthru.sources."aws_sdk_cpp_vendor";

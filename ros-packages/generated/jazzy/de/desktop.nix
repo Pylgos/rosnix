@@ -4,7 +4,7 @@
   action-tutorials-py,
   ament-cmake,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   composition,
   demo-nodes-cpp,
   demo-nodes-cpp-native,
@@ -71,7 +71,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "desktop";
   version = "0.11.0-1";
   src = finalAttrs.passthru.sources."desktop";

@@ -5,7 +5,7 @@
   ament-cmake-uncrustify,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_dgnss_node";
   version = "0.5.3-1";
   src = finalAttrs.passthru.sources."ublox_dgnss_node";

@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-cmake-gtest,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "laser_filters";
   version = "2.0.7-3";
   src = finalAttrs.passthru.sources."laser_filters";

@@ -3,7 +3,7 @@
   ament-cmake-copyright,
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tensorrt_cmake_module";
   version = "0.0.3-3";
   src = finalAttrs.passthru.sources."tensorrt_cmake_module";

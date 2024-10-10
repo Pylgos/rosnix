@@ -13,7 +13,7 @@
   ament-cmake-target-dependencies,
   ament-cmake-test,
   ament-cmake-version,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."ament_cmake";

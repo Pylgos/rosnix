@@ -3,7 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   ament-vitis,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "vitis_common";
   version = "0.4.2-3";
   src = finalAttrs.passthru.sources."vitis_common";

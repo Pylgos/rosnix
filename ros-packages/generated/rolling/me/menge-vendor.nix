@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCatkinPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCatkinPackage (finalAttrs: {
   pname = "menge_vendor";
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."menge_vendor";

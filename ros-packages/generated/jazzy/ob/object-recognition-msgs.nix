@@ -1,7 +1,7 @@
 {
   action-msgs,
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "object_recognition_msgs";
   version = "2.0.0-5";
   src = finalAttrs.passthru.sources."object_recognition_msgs";

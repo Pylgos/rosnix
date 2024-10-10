@@ -4,7 +4,7 @@
   ament-index-python,
   ament-pep257,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ros2doctor";
   version = "0.35.0-1";
   src = finalAttrs.passthru.sources."ros2doctor";

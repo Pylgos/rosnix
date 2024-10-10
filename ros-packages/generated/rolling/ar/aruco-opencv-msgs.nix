@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-lint-cmake,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_opencv_msgs";
   version = "6.0.1-1";
   src = finalAttrs.passthru.sources."aruco_opencv_msgs";

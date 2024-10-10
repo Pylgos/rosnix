@@ -3,7 +3,7 @@
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-updater,
   fetchgit,
   fetchurl,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safetyscanners2";
   version = "1.0.4-1";
   src = finalAttrs.passthru.sources."sick_safetyscanners2";

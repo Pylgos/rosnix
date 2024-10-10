@@ -6,7 +6,7 @@
   ament-cmake-test,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "performance_test_fixture";
   version = "0.2.1-2";
   src = finalAttrs.passthru.sources."performance_test_fixture";

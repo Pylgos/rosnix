@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler";
   version = "3.9.2-1";
   src = finalAttrs.passthru.sources."plotjuggler";

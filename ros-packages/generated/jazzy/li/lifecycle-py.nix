@@ -1,7 +1,7 @@
 {
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "lifecycle_py";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."lifecycle_py";

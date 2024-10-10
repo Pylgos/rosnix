@@ -3,7 +3,7 @@
   ament-cmake-gmock,
   angles,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   control-toolbox,
   controller-interface,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "joint_trajectory_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."joint_trajectory_controller";

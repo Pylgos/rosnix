@@ -3,7 +3,7 @@
   ament-flake8,
   ament-index-python,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   diagnostic-msgs,
   fetchgit,
   fetchurl,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_runtime_monitor";
   version = "1.0.0-4";
   src = finalAttrs.passthru.sources."rqt_runtime_monitor";

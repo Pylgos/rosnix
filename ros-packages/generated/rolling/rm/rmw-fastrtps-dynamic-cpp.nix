@@ -4,7 +4,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fastrtps,
   fastrtps-cmake-module,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_dynamic_cpp";
   version = "9.0.2-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_dynamic_cpp";

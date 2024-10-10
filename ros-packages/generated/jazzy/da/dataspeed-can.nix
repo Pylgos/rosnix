@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dataspeed-can-msg-filters,
   dataspeed-can-msgs,
   dataspeed-can-tools,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dataspeed_can";
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."dataspeed_can";

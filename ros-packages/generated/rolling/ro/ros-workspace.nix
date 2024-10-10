@@ -1,7 +1,7 @@
 {
   ament-cmake-core,
   ament-package,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "ros_workspace";
   version = "1.0.3-5";
   src = finalAttrs.passthru.sources."ros_workspace";

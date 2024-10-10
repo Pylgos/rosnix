@@ -3,7 +3,7 @@
   action-tutorials-interfaces,
   ament-cmake,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "simple_actions";
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."simple_actions";

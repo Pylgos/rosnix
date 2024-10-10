@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-copyright,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "warehouse_ros";
   version = "2.0.5-1";
   src = finalAttrs.passthru.sources."warehouse_ros";

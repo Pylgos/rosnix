@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fetchgit,
   fetchurl,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosx_introspection";
   version = "1.0.2-1";
   src = finalAttrs.passthru.sources."rosx_introspection";

@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ogre_next_vendor";
   version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_ogre_next_vendor";

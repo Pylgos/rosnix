@@ -1,7 +1,7 @@
 {
   ament-cmake-python,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_py";
   version = "4.0.2-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_py";

@@ -8,7 +8,7 @@
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-build,
   fetchgit,
   fetchurl,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "kobuki_velocity_smoother";
   version = "0.15.0-3";
   src = finalAttrs.passthru.sources."kobuki_velocity_smoother";

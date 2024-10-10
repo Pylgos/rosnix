@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   controller-manager,
   controller-manager-msgs,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_control";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."ros2_control";

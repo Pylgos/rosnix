@@ -1,6 +1,6 @@
 {
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentPythonPackage,
   canopen-interfaces,
   fetchgit,
   fetchurl,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "canopen_utils";
   version = "0.2.9-2";
   src = finalAttrs.passthru.sources."canopen_utils";

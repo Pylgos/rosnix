@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "vrpn";
   version = "7.35.0-20";
   src = finalAttrs.passthru.sources."vrpn";

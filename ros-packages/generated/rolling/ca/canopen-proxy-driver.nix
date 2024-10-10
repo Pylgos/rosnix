@@ -1,7 +1,7 @@
 {
   ament-cmake-ros,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   canopen-base-driver,
   canopen-core,
   canopen-interfaces,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_proxy_driver";
   version = "0.2.12-2";
   src = finalAttrs.passthru.sources."canopen_proxy_driver";

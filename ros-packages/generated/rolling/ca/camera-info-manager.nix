@@ -4,7 +4,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration-parsers,
   fetchgit,
   fetchurl,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "camera_info_manager";
   version = "6.0.0-1";
   src = finalAttrs.passthru.sources."camera_info_manager";

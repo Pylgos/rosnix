@@ -3,7 +3,7 @@
   ament-flake8,
   ament-index-python,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "launch_system_modes";
   version = "0.9.0-5";
   src = finalAttrs.passthru.sources."launch_system_modes";

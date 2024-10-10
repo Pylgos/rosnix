@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   can-msgs,
   fetchgit,
   fetchurl,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "dataspeed_can_msg_filters";
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."dataspeed_can_msg_filters";

@@ -1,7 +1,7 @@
 {
   ament-cmake,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ur_controllers";
   version = "2.4.10-1";
   src = finalAttrs.passthru.sources."ur_controllers";

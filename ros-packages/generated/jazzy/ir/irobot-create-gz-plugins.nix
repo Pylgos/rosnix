@@ -7,7 +7,7 @@
   ament-cmake-pep257,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "irobot_create_gz_plugins";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."irobot_create_gz_plugins";

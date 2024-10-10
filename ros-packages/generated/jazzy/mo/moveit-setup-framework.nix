@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_setup_framework";
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."moveit_setup_framework";

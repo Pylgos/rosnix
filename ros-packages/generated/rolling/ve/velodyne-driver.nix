@@ -3,7 +3,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   diagnostic-updater,
   fetchgit,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_driver";
   version = "2.3.0-3";
   src = finalAttrs.passthru.sources."velodyne_driver";

@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-uncrustify,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_editor";
   version = "1.10.0-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor";

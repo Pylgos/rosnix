@@ -4,7 +4,7 @@
   ament-cmake-python,
   ament-index-python,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "xacro";
   version = "2.0.11-1";
   src = finalAttrs.passthru.sources."xacro";

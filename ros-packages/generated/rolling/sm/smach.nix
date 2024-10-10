@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "smach";
   version = "3.0.3-2";
   src = finalAttrs.passthru.sources."smach";

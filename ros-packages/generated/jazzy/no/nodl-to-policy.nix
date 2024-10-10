@@ -5,7 +5,7 @@
   ament-mypy,
   ament-pep257,
   ament-pycodestyle,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "nodl_to_policy";
   version = "1.0.0-5";
   src = finalAttrs.passthru.sources."nodl_to_policy";

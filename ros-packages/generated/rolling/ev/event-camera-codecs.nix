@@ -6,7 +6,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   event-camera-msgs,
   fetchgit,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "event_camera_codecs";
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."event_camera_codecs";

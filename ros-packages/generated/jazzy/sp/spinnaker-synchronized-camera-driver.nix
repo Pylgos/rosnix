@@ -4,7 +4,7 @@
   ament-cmake-clang-format,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_synchronized_camera_driver";
   version = "2.0.20-1";
   src = finalAttrs.passthru.sources."spinnaker_synchronized_camera_driver";

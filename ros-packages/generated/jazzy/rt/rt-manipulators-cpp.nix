@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   dynamixel-sdk,
   eigen3-cmake-module,
   fetchgit,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rt_manipulators_cpp";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."rt_manipulators_cpp";

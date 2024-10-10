@@ -1,7 +1,7 @@
 {
   ament-cmake,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   color-util,
   fetchgit,
   fetchurl,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_demos";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."polygon_demos";

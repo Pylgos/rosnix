@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   etsi-its-denm-coding,
   etsi-its-denm-msgs,
   etsi-its-primitives-conversion,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_denm_conversion";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_denm_conversion";

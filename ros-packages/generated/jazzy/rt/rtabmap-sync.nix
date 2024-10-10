@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   diagnostic-updater,
   fetchgit,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_sync";
   version = "0.21.5-3";
   src = finalAttrs.passthru.sources."rtabmap_sync";

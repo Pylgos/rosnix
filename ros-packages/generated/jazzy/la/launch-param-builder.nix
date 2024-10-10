@@ -1,7 +1,7 @@
 {
   ament-copyright,
   ament-index-python,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "launch_param_builder";
   version = "0.1.1-4";
   src = finalAttrs.passthru.sources."launch_param_builder";

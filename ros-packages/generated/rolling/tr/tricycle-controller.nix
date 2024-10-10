@@ -3,7 +3,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   controller-interface,
   controller-manager,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."tricycle_controller";

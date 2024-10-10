@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-license,
   fetchgit,
   fetchurl,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_build";
   version = "1.0.3-4";
   src = finalAttrs.passthru.sources."ecl_build";

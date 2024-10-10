@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -21,7 +21,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "ros_industrial_cmake_boilerplate";
   version = "0.5.4-1";
   src = finalAttrs.passthru.sources."ros_industrial_cmake_boilerplate";

@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-copyright,
   ament-cmake-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "eigen3_cmake_module";
   version = "0.3.0-3";
   src = finalAttrs.passthru.sources."eigen3_cmake_module";

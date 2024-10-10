@@ -5,7 +5,7 @@
   ament-lint-auto,
   ament-lint-cmake,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_msgs";
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."mrpt_msgs";

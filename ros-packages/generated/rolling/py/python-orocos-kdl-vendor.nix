@@ -3,7 +3,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "python_orocos_kdl_vendor";
   version = "0.6.1-1";
   src = finalAttrs.passthru.sources."python_orocos_kdl_vendor";

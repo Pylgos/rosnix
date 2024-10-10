@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-aggregator,
   diagnostic-common-diagnostics,
   diagnostic-updater,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostics";
   version = "4.3.1-1";
   src = finalAttrs.passthru.sources."diagnostics";

@@ -1,7 +1,7 @@
 {
   ament-flake8,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -23,7 +23,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "tf_transformations";
   version = "1.0.1-4";
   src = finalAttrs.passthru.sources."tf_transformations";

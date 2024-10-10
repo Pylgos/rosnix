@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   control-msgs,
   controller-interface,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_broadcaster";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."joint_state_broadcaster";

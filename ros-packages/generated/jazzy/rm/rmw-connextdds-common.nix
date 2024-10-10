@@ -3,7 +3,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fetchgit,
   fetchurl,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_connextdds_common";
   version = "0.22.0-2";
   src = finalAttrs.passthru.sources."rmw_connextdds_common";

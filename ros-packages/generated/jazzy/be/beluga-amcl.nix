@@ -5,7 +5,7 @@
   beluga,
   beluga-ros,
   bondcpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "beluga_amcl";
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."beluga_amcl";

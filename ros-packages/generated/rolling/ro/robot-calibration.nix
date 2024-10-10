@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration-parsers,
   control-msgs,
   cv-bridge,
@@ -45,7 +45,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration";
   version = "0.9.1-1";
   src = finalAttrs.passthru.sources."robot_calibration";

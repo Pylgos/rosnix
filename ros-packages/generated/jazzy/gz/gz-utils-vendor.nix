@@ -5,7 +5,7 @@
   ament-cmake-test,
   ament-cmake-vendor-package,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "gz_utils_vendor";
   version = "0.0.4-1";
   src = finalAttrs.passthru.sources."gz_utils_vendor";

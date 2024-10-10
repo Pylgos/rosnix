@@ -5,7 +5,7 @@
   ament-cmake-python,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-updater,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_common_diagnostics";
   version = "4.2.1-1";
   src = finalAttrs.passthru.sources."diagnostic_common_diagnostics";

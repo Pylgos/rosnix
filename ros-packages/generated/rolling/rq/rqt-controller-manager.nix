@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   controller-manager,
   controller-manager-msgs,
   fetchgit,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_controller_manager";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."rqt_controller_manager";

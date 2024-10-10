@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-interface,
   controller-manager,
   fetchgit,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "range_sensor_broadcaster";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."range_sensor_broadcaster";

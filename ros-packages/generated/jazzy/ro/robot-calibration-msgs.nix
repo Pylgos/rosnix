@@ -1,7 +1,7 @@
 {
   action-msgs,
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration_msgs";
   version = "0.9.1-1";
   src = finalAttrs.passthru.sources."robot_calibration_msgs";

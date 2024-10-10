@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   autoware-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_cmake";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."autoware_cmake";

@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildAmentPythonPackage,
   control-msgs,
   controller-manager-msgs,
   fetchgit,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_joint_trajectory_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."rqt_joint_trajectory_controller";

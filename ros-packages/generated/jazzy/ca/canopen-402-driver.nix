@@ -1,7 +1,7 @@
 {
   ament-cmake-ros,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   canopen-base-driver,
   canopen-core,
   canopen-interfaces,
@@ -32,7 +32,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_402_driver";
   version = "0.2.9-2";
   src = finalAttrs.passthru.sources."canopen_402_driver";

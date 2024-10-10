@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-auto,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "boost_geometry_util";
   version = "0.0.1-4";
   src = finalAttrs.passthru.sources."boost_geometry_util";

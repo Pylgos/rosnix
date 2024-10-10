@@ -3,7 +3,7 @@
   ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "vision_msgs_rviz_plugins";
   version = "4.1.1-2";
   src = finalAttrs.passthru.sources."vision_msgs_rviz_plugins";

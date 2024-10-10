@@ -3,7 +3,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_msgs";
   version = "2.6.0-1";
   src = finalAttrs.passthru.sources."moveit_msgs";

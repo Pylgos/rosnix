@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   control-toolbox,
   controller-interface,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "parallel_gripper_controller";
   version = "4.15.0-1";
   src = finalAttrs.passthru.sources."parallel_gripper_controller";

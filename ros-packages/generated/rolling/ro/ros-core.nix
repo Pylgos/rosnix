@@ -9,7 +9,7 @@
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   common-interfaces,
   fetchgit,
@@ -53,7 +53,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ros_core";
   version = "0.12.0-1";
   src = finalAttrs.passthru.sources."ros_core";

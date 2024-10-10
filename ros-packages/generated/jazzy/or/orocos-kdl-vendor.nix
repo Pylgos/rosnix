@@ -3,7 +3,7 @@
   ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "orocos_kdl_vendor";
   version = "0.5.1-2";
   src = finalAttrs.passthru.sources."orocos_kdl_vendor";

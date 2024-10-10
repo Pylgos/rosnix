@@ -1,6 +1,6 @@
 {
   ament-package,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_core";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."ament_cmake_core";

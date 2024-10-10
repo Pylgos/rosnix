@@ -11,7 +11,7 @@
   ament-cmake-ros,
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rcpputils";
   version = "2.13.1-1";
   src = finalAttrs.passthru.sources."rcpputils";

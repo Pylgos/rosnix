@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   diagnostic-msgs,
   diagnostic-updater,
@@ -46,7 +46,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "robot_localization";
   version = "3.9.1-1";
   src = finalAttrs.passthru.sources."robot_localization";

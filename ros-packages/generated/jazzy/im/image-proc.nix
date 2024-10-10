@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-calibration-parsers,
   cv-bridge,
   fetchgit,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "image_proc";
   version = "5.0.4-1";
   src = finalAttrs.passthru.sources."image_proc";

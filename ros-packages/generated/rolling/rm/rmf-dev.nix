@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-catch2,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -68,7 +68,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_dev";
   version = "0.2.0-1";
   src = finalAttrs.passthru.sources."rmf_dev";

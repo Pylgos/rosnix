@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "swri_system_util";
   version = "3.7.3-1";
   src = finalAttrs.passthru.sources."swri_system_util";

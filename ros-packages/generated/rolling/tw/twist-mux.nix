@@ -3,7 +3,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-updater,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "twist_mux";
   version = "4.4.0-1";
   src = finalAttrs.passthru.sources."twist_mux";

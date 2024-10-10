@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "mola_input_kitti360_dataset";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."mola_input_kitti360_dataset";

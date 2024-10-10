@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -50,7 +50,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pilz_industrial_motion_planner";
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."pilz_industrial_motion_planner";

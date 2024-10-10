@@ -2,7 +2,7 @@
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   camera-info-manager,
   cv-bridge,
   fetchgit,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "v4l2_camera";
   version = "0.7.1-1";
   src = finalAttrs.passthru.sources."v4l2_camera";

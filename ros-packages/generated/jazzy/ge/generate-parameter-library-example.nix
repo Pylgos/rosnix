@@ -3,7 +3,7 @@
   ament-cmake-core,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "generate_parameter_library_example";
   version = "0.3.8-4";
   src = finalAttrs.passthru.sources."generate_parameter_library_example";

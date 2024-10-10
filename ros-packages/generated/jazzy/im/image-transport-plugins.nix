@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   compressed-depth-image-transport,
   compressed-image-transport,
   fetchgit,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport_plugins";
   version = "4.0.2-1";
   src = finalAttrs.passthru.sources."image_transport_plugins";

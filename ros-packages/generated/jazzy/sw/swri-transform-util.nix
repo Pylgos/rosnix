@@ -3,7 +3,7 @@
   ament-cmake-gtest,
   ament-cmake-python,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   diagnostic-msgs,
   diagnostic-updater,
@@ -45,7 +45,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "swri_transform_util";
   version = "3.7.3-1";
   src = finalAttrs.passthru.sources."swri_transform_util";

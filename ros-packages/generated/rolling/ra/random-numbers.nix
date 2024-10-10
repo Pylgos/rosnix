@@ -2,7 +2,7 @@
   ament-cmake,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -24,7 +24,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "random_numbers";
   version = "2.0.1-4";
   src = finalAttrs.passthru.sources."random_numbers";

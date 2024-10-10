@@ -1,6 +1,6 @@
 {
   ament-cmake-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "qpoases_vendor";
   version = "3.2.3-5";
   src = finalAttrs.passthru.sources."qpoases_vendor";

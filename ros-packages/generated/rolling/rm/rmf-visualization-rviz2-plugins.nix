@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-uncrustify,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_rviz2_plugins";
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."rmf_visualization_rviz2_plugins";

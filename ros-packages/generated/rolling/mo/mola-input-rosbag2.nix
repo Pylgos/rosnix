@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "mola_input_rosbag2";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."mola_input_rosbag2";

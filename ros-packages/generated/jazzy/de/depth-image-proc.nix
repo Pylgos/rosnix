@@ -2,7 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   cv-bridge,
   fetchgit,
@@ -37,7 +37,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "depth_image_proc";
   version = "5.0.4-1";
   src = finalAttrs.passthru.sources."depth_image_proc";

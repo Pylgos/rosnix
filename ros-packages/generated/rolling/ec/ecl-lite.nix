@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   ecl-config,
   ecl-converters-lite,
   ecl-errors,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_lite";
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."ecl_lite";

@@ -4,7 +4,7 @@
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   class-loader,
   fetchgit,
   fetchurl,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "warehouse_ros_sqlite";
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."warehouse_ros_sqlite";

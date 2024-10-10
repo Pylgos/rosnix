@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   ament-cmake-gtest,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   fetchgit,
   fetchurl,
@@ -33,7 +33,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "control_toolbox";
   version = "3.2.0-3";
   src = finalAttrs.passthru.sources."control_toolbox";

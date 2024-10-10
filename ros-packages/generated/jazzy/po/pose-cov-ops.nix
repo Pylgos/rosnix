@@ -5,7 +5,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "pose_cov_ops";
   version = "0.3.12-1";
   src = finalAttrs.passthru.sources."pose_cov_ops";

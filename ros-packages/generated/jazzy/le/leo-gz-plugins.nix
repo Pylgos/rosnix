@@ -6,7 +6,7 @@
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -31,7 +31,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "leo_gz_plugins";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."leo_gz_plugins";

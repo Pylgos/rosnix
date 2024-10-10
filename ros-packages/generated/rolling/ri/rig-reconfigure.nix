@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -39,7 +39,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rig_reconfigure";
   version = "1.5.0-1";
   src = finalAttrs.passthru.sources."rig_reconfigure";

@@ -6,7 +6,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-pytest,
   ament-cmake-uncrustify,
-  buildRosPackage,
+  buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "laser_geometry";
   version = "2.7.0-3";
   src = finalAttrs.passthru.sources."laser_geometry";

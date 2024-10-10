@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   cartographer,
   cartographer-ros-msgs,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "cartographer_ros";
   version = "2.0.9003-2";
   src = finalAttrs.passthru.sources."cartographer_ros";

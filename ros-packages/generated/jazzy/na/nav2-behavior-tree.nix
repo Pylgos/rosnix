@@ -4,7 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   behaviortree-cpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_behavior_tree";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."nav2_behavior_tree";

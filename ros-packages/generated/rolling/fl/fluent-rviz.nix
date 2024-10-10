@@ -1,7 +1,7 @@
 {
   ament-cmake-auto,
   ament-lint-auto,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -28,7 +28,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "fluent_rviz";
   version = "0.0.3-4";
   src = finalAttrs.passthru.sources."fluent_rviz";

@@ -3,7 +3,7 @@
   ament-cmake-export-dependencies,
   ament-cmake-python,
   ament-cmake-test,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_google_benchmark";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."ament_cmake_google_benchmark";

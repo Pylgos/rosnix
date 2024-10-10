@@ -4,7 +4,7 @@
   ament-cmake-xmllint,
   ament-lint-auto,
   ament-lint-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -45,7 +45,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mola_lidar_odometry";
   version = "0.3.3-1";
   src = finalAttrs.passthru.sources."mola_lidar_odometry";

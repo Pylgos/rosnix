@@ -1,5 +1,5 @@
 {
-  buildRosPackage,
+  buildCmakePackage,
   eigenpy,
   fetchgit,
   fetchurl,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "hpp-fcl";
   version = "2.4.5-1";
   src = finalAttrs.passthru.sources."hpp-fcl";

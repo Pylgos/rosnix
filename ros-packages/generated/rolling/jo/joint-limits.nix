@@ -4,7 +4,7 @@
   ament-cmake-gmock,
   ament-cmake-gtest,
   backward-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -35,7 +35,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "joint_limits";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."joint_limits";

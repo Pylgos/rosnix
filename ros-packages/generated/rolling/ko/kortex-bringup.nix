@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-python,
-  buildRosPackage,
+  buildAmentCmakePackage,
   controller-manager,
   fetchgit,
   fetchurl,
@@ -38,7 +38,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "kortex_bringup";
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kortex_bringup";

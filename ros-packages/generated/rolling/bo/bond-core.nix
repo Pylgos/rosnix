@@ -2,7 +2,7 @@
   ament-cmake,
   bond,
   bondcpp,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,7 +25,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "bond_core";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."bond_core";

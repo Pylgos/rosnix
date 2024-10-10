@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
   fetchurl,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_server";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_server";

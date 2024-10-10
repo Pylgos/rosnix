@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   diagnostic-msgs,
   fetchgit,
   fetchurl,
@@ -36,7 +36,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "septentrio_gnss_driver";
   version = "1.4.1-1";
   src = finalAttrs.passthru.sources."septentrio_gnss_driver";

@@ -1,6 +1,6 @@
 {
   ament-lint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -22,7 +22,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "ament_flake8";
   version = "0.18.1-1";
   src = finalAttrs.passthru.sources."ament_flake8";

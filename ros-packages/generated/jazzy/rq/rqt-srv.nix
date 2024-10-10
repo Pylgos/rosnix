@@ -1,7 +1,7 @@
 {
   ament-flake8,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_srv";
   version = "1.2.2-3";
   src = finalAttrs.passthru.sources."rqt_srv";

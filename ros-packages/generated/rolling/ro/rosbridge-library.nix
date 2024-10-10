@@ -3,7 +3,7 @@
   ament-cmake,
   ament-cmake-pytest,
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   control-msgs,
   diagnostic-msgs,
@@ -41,7 +41,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_library";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."rosbridge_library";

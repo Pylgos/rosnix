@@ -1,7 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  buildRosPackage,
+  buildAmentCmakePackage,
   control-msgs,
   fetchgit,
   fetchurl,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "hardware_interface_testing";
   version = "4.18.0-1";
   src = finalAttrs.passthru.sources."hardware_interface_testing";

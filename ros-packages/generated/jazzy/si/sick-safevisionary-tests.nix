@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildCatkinPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,7 +26,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCatkinPackage (finalAttrs: {
   pname = "sick_safevisionary_tests";
   version = "1.0.3-3";
   src = finalAttrs.passthru.sources."sick_safevisionary_tests";

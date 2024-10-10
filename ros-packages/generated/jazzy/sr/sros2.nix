@@ -4,7 +4,7 @@
   ament-index-python,
   ament-mypy,
   ament-pep257,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "sros2";
   version = "0.13.2-1";
   src = finalAttrs.passthru.sources."sros2";

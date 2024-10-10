@@ -2,7 +2,7 @@
   ament-cmake,
   ament-cmake-catch2,
   ament-cmake-uncrustify,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_websocket";
   version = "2.7.1-1";
   src = finalAttrs.passthru.sources."rmf_websocket";

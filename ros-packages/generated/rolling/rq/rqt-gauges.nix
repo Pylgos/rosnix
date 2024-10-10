@@ -2,7 +2,7 @@
   ament-flake8,
   ament-index-python,
   ament-xmllint,
-  buildRosPackage,
+  buildAmentPythonPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,7 +30,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_gauges";
   version = "0.0.3-1";
   src = finalAttrs.passthru.sources."rqt_gauges";

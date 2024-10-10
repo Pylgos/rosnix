@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildRosPackage,
+  buildAmentCmakePackage,
   costmap-queue,
   dwb-core,
   dwb-critics,
@@ -29,7 +29,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_dwb_controller";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."nav2_dwb_controller";

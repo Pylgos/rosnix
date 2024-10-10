@@ -3,7 +3,7 @@
   ament-cmake-gmock,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -34,7 +34,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_dds_common";
   version = "3.2.0-1";
   src = finalAttrs.passthru.sources."rmw_dds_common";

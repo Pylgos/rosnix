@@ -5,7 +5,7 @@
   ament-lint-auto,
   ament-lint-common,
   angles,
-  buildRosPackage,
+  buildAmentCmakePackage,
   builtin-interfaces,
   eigen3-cmake-module,
   fetchgit,
@@ -43,7 +43,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smac_planner";
   version = "1.3.2-1";
   src = finalAttrs.passthru.sources."nav2_smac_planner";

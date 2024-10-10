@@ -4,7 +4,7 @@
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
-  buildRosPackage,
+  buildAmentCmakePackage,
   composition-interfaces,
   fetchgit,
   fetchurl,
@@ -42,7 +42,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_transport";
   version = "0.26.5-1";
   src = finalAttrs.passthru.sources."rosbag2_transport";

@@ -3,7 +3,7 @@
   ament-cmake-lint-cmake,
   ament-cmake-test,
   ament-cmake-xmllint,
-  buildRosPackage,
+  buildCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -40,7 +40,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildCmakePackage (finalAttrs: {
   pname = "foonathan_memory_vendor";
   version = "1.3.1-2";
   src = finalAttrs.passthru.sources."foonathan_memory_vendor";

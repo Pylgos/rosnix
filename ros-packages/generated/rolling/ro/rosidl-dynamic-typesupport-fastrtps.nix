@@ -1,6 +1,6 @@
 {
   ament-cmake-ros,
-  buildRosPackage,
+  buildAmentCmakePackage,
   fastcdr,
   fastrtps,
   fastrtps-cmake-module,
@@ -27,7 +27,7 @@ let
     };
   });
 in
-buildRosPackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_dynamic_typesupport_fastrtps";
   version = "0.2.0-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
