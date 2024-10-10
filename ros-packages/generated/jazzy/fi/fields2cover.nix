@@ -303,20 +303,6 @@ let
         hash = "sha256-1/4xMetKMDOgZgzz3WMxfHUEpmdAm52RqZvz6i0mLEw=";
       };
       substitutions = [
-        {
-          path = "lapack/CMakeLists.txt";
-          from = "DOWNLOAD \"http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz\"";
-          to = "DOWNLOAD file://${sources."fields2cover/or-tools/eigen/lapack_addons_3"}";
-        }
-      ];
-    };
-    "fields2cover/or-tools/eigen/lapack_addons_3" = substituteSource {
-      src = fetchurl {
-        name = "lapack_addons_3-source";
-        url = "http://downloads.tuxfamily.org/eigen/lapack_addons_3.4.1.tgz";
-        hash = "sha256-vZntt9xHKapjGQQapStG2/erraGkP3oj/iYm2yTFJDw=";
-      };
-      substitutions = [
       ];
     };
     "fields2cover/or-tools/googletest" = substituteSource {

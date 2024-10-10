@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "simulation-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "0cd1c0427876f68c227a63f8e2051185965da6ac";
-        hash = "sha256-F5Xdwf30yp+svq3b6jwcfeMbm+oLQKi9hw3ZkozBy68=";
+        rev = "1250b86e502207a660526b2486d0be164d190303";
+        hash = "sha256-KS/aXv6kMfo/fvDYJQ15Nft8oENttFGM3IjW+CwNA00=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "simulation";
-  version = "0.11.0-1";
+  version = "0.12.0-1";
   src = finalAttrs.passthru.sources."simulation";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

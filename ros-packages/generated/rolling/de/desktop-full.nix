@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "desktop_full-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "9a6d066f38436dbf567d27520fa647e366169c31";
-        hash = "sha256-Ym/P4L92jCLQbe2hhq+3I5CLtJE59ya1csIFnutZlBE=";
+        rev = "094b48143f90959a5f19560e2256a99ad140bd07";
+        hash = "sha256-+s6z0+4bXLNuEWFO5S3mDwdyz4GTUmJrRTxOwTLQqqI=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "desktop_full";
-  version = "0.11.0-1";
+  version = "0.12.0-1";
   src = finalAttrs.passthru.sources."desktop_full";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

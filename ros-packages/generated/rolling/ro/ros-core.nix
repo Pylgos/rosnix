@@ -45,8 +45,8 @@ let
       src = fetchgit {
         name = "ros_core-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "07e04aebe2d9c503354451e157fcf0d653629b79";
-        hash = "sha256-kDPxLgU8jx1J5KfLiQqBhPR9zuKlluBb1whA8WDCOjA=";
+        rev = "06022325c594d9472bd1d4bd83742196a17adea8";
+        hash = "sha256-ZOcPTzdD7/hBxgEOUbw34ZSp6EkK7F1B/cAEaT4lbK8=";
       };
       substitutions = [
       ];
@@ -55,7 +55,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "ros_core";
-  version = "0.11.0-1";
+  version = "0.12.0-1";
   src = finalAttrs.passthru.sources."ros_core";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros ament-lint-auto ament-lint-common launch-testing-ament-cmake ros-environment rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

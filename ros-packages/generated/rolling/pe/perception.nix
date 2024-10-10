@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "perception-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "28fb3d7d11f2167ea52c6968256958a2eb45d0d1";
-        hash = "sha256-dm1psyuV0pFw4lLrVBcz/ElZ/T+49Lqaf1kDqahOvLs=";
+        rev = "39e208b10f4f79977c590de394f89d0a250e7b93";
+        hash = "sha256-fzQKQQPxgGVXz2DC/x6GwXS/92T14febq0DyVaD90uo=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildRosPackage (finalAttrs: {
   pname = "perception";
-  version = "0.11.0-1";
+  version = "0.12.0-1";
   src = finalAttrs.passthru.sources."perception";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
