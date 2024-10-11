@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "mavros_msgs-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "a6a97a2e4aa44b927dc948f352e90d9ab2657c6e";
-        hash = "sha256-AWdktlWefd9i32GeYclFTFzF6N2LKeGhVQgrtV9GIvs=";
+        rev = "3cc36a7da8c128a24e9e0f244eeb883235731aa0";
+        hash = "sha256-DBxmQ17R3pTJMm9DMr+Ibgs65fMTcEZjahp4JPIhTCY=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mavros_msgs";
-  version = "2.8.0-1";
+  version = "2.9.0-1";
   src = finalAttrs.passthru.sources."mavros_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

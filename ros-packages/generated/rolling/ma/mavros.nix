@@ -44,8 +44,8 @@ let
       src = fetchgit {
         name = "mavros-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "4f9e1008e8d0b613f49c0a83781d31a9255aaa8b";
-        hash = "sha256-45ZIQJFqpxq+2FRWIxmsJn9gNb+VUMlu7A951/VcfjE=";
+        rev = "c6ecb5e6a5492d148e2fc5bc641d748aeef31e27";
+        hash = "sha256-XUyfVLBaGJ1TzSBTKVS2jkfH/FiNVYvIzwhgG47Fh+8=";
       };
       substitutions = [
       ];
@@ -54,7 +54,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mavros";
-  version = "2.8.0-1";
+  version = "2.9.0-1";
   src = finalAttrs.passthru.sources."mavros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

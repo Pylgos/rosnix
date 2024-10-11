@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "openeb_vendor-source";
         url = "https://github.com/ros2-gbp/openeb_vendor-release.git";
-        rev = "4177e27b5c6f57f87689da879aafae15f05028ad";
-        hash = "sha256-L3/O55ZRFe3I/pKMTbfJspHt1rNfrJnDD25x1g839lA=";
+        rev = "9ccc33b5521ec93e88dc6d5895061c067d71982b";
+        hash = "sha256-MXdaBPIgCPVvdqSnCICqt7HjzyFe9RjZ29hxM3zcYTI=";
       };
       substitutions = [
         {
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "openeb_vendor";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."openeb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "curl" "git" "hdf5-tools" "pkg-config" "unzip" "wget" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

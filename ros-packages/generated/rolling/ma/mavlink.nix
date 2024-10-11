@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "mavlink-source";
         url = "https://github.com/ros2-gbp/mavlink-gbp-release.git";
-        rev = "31ee30cca1dfb58f7dd100c83114e9a982fa462b";
-        hash = "sha256-eMcLVGZW3EwpEMSzXTtwesNUPH1veBpJQRE0DEAaQC4=";
+        rev = "bdedc4d0be4909c6577364582f114b4a0153454a";
+        hash = "sha256-jllCwbTFO+CDKFnFreK49tfu3P3j+Xbgrm6a90V3M1g=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mavlink";
-  version = "2024.6.6-1";
+  version = "2024.10.10-1";
   src = finalAttrs.passthru.sources."mavlink";
   nativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };

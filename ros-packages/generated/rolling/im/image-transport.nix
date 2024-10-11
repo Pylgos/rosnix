@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "image_transport-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "cba46347b86abf13abc229b61804730323302c91";
-        hash = "sha256-AW489wIrB08Aq5oTHKEu+XWFx6wriOv279SJEBTvPEY=";
+        rev = "eac211a0e94d3ab53ed619cc708438e00efda034";
+        hash = "sha256-G+vq+oRBsOa4JoyFkxLQvxWMcGItH8nniH3hMSt9tUY=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport";
-  version = "6.0.0-1";
+  version = "6.0.1-1";
   src = finalAttrs.passthru.sources."image_transport";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
