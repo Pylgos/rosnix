@@ -41,7 +41,9 @@ mkRecursiveBuilder stdenv.mkDerivation (
       ++ (with buildPackages.pythonForRosPackages; [
         colcon-core
         colcon-bash
+        colcon-zsh
         colcon-library-path
+        colcon-metadata
       ]);
 
     buildPhase =

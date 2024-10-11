@@ -30,18 +30,20 @@ in
       in
       {
         inherit (pkgsByName)
-          rosdistro
           catkin-pkg
-          flake8-quotes
-          flake8-comprehensions
-          flake8-builtins
-          colcon-core
           colcon-bash
-          colcon-ros
-          colcon-library-path
           colcon-cmake
           colcon-common-extensions
+          colcon-core
+          colcon-library-path
+          colcon-metadata
+          colcon-ros
+          colcon-zsh
           empy
+          flake8-builtins
+          flake8-comprehensions
+          flake8-quotes
+          rosdistro
           ;
       }
     );
