@@ -5,11 +5,11 @@ use std::{
     io::{Read, Write},
 };
 
-use anyhow::{anyhow, bail, Context, Result};
+use anyhow::{bail, Context, Result};
 use reqwest::{IntoUrl, Url};
 use serde::Deserialize;
 use serde_roxmltree::Options;
-use tracing::{debug, info, info_span, warn};
+use tracing::{debug, info, info_span};
 use yaml_rust2::YamlLoader;
 
 use crate::{condition::eval_condition, config::ConfigRef};
