@@ -47,12 +47,12 @@ final: prev: {
       );
       behaviortree-cpp = rosPrev.behaviortree-cpp.overrideAttrs (
         {
-          rosCmakeArgs ? [ ],
+          cmakeFlags ? [ ],
           doCheck ? false,
           ...
         }:
         {
-          rosCmakeArgs = rosCmakeArgs ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
+          cmakeFlags = cmakeFlags ++ [ "-DBTCPP_UNIT_TESTS=${if doCheck then "ON" else "OFF"}" ];
         }
       );
       gz-gui-vendor = rosPrev.gz-gui-vendor.overrideAttrs (
