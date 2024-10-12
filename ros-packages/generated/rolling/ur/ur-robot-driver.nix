@@ -47,8 +47,8 @@ let
       src = fetchgit {
         name = "ur_robot_driver-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "5c31d89e863723bf053585b210f4ac31cfb55a59";
-        hash = "sha256-mJ7a9PTlrO5EdPL530/dPZX5cVmd+ht/6uVaVPLQgjU=";
+        rev = "46c178e9947bdcb3d50b1e267714990da016c55f";
+        hash = "sha256-tAqD92lHai4+NHvupe2ShvqChFny2rFl3e2EsWlucCY=";
       };
       substitutions = [
       ];
@@ -57,7 +57,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_robot_driver";
-  version = "2.4.10-1";
+  version = "2.4.11-1";
   src = finalAttrs.passthru.sources."ur_robot_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

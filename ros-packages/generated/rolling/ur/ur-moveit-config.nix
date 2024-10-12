@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "ur_moveit_config-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "af515f6ffb35935685452ca72d0758b0fbe64a86";
-        hash = "sha256-qvHGwtUJecBk9mV2nEUbnOjBvR0gkyqZSPeJ9LFYVRc=";
+        rev = "4869927f32a00b3ba002ba23202396e4bac04670";
+        hash = "sha256-xepbh3ogqtPd1JLaQfINpkLRneUSwSmk63CojX9iPbg=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_moveit_config";
-  version = "2.4.10-1";
+  version = "2.4.11-1";
   src = finalAttrs.passthru.sources."ur_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

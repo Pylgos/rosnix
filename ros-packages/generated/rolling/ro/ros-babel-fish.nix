@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "ros_babel_fish-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-        rev = "72b057f8b5393d4a9eee6ebe458e27fff5f7b709";
-        hash = "sha256-XoiEc4FfDXjQDZH62Ttxms7TepvyTOKzO1dGp3HDqDA=";
+        rev = "3bdd67fc5c9176524303e7a234d003bfc5258ade";
+        hash = "sha256-ZQCnJxtk1aSMJw31hGcl4BR4AoNQnWW2L2W12EKW7NU=";
       };
       substitutions = [
       ];
@@ -39,15 +39,15 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish";
-  version = "0.9.3-1";
+  version = "0.9.5-1";
   src = finalAttrs.passthru.sources."ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action rcpputils rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "action_tutorials_interfaces" ]; };
+  propagatedBuildInputs = [ ament-index-cpp example-interfaces geometry-msgs rclcpp rclcpp-action rcpputils rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto example-interfaces geometry-msgs ros-babel-fish-test-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto geometry-msgs ros-babel-fish-test-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

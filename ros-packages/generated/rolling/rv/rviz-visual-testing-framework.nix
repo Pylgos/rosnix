@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "rviz_visual_testing_framework-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "38bd0040dad803d9a5d04bc8c67af893df7b98e5";
-        hash = "sha256-k2dxchdWioqXS5jssGLl4dYDbnwZ4eh8p1y2fG7LVhM=";
+        rev = "f9ee9e5acff155817652938d38cf17ca8b740da7";
+        hash = "sha256-vs7Vrwc17vFpBpWmjV5Hvv5BcZkLVi2ar1vey3bWmy0=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_visual_testing_framework";
-  version = "14.3.0-1";
+  version = "14.3.1-1";
   src = finalAttrs.passthru.sources."rviz_visual_testing_framework";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
