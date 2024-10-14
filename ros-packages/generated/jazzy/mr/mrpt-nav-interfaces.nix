@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_nav_interfaces-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "08e5c25b87edb04a25f549478c8a8945929b06a6";
-        hash = "sha256-0yU9H5yVRuETFODJ84/JmcWBnqwTGUu4RFTTPLrlF28=";
+        rev = "c3f9086615dd75bc23761f6f69b21dcae305e0ce";
+        hash = "sha256-8KTKjf4wojCWJyyCLAjYtgfTkudf2BASMVhT9gy9+1M=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_nav_interfaces";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_nav_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

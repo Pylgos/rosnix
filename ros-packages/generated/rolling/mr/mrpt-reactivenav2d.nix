@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "mrpt_reactivenav2d-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "c3c584383b2415fe46900ad278de7da163f8c96e";
-        hash = "sha256-iDWejQBkrSTmop7pPuyZvrNLQsSsvq61OV//YWkSBxU=";
+        rev = "3d421364414f6597f0619f6988be522ee3514993";
+        hash = "sha256-FUqjTTs6ZOcyEnrx+RcewPZp2zmK55he+SPTxQy3Sgs=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_reactivenav2d";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_reactivenav2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

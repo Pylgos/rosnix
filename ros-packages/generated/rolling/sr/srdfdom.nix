@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "srdfdom-source";
         url = "https://github.com/ros2-gbp/srdfdom-release.git";
-        rev = "3ffcda38afbac1807a74ab51d7d8320504c26bba";
-        hash = "sha256-prL0Yiv6HgqxBVa5raU7ocG1FLScJku5/Ka/7m0aKOM=";
+        rev = "ac9c39d09685dfa5b6094a68cc7ea3a9db9c303b";
+        hash = "sha256-O35FLQSyh06uYnSd8k5+YZLWx4rFjxvJdpVS25ieMDo=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "srdfdom";
-  version = "2.0.5-1";
+  version = "2.0.6-1";
   src = finalAttrs.passthru.sources."srdfdom";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

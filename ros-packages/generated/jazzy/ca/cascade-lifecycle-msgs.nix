@@ -18,7 +18,7 @@ let
       src = fetchgit {
         name = "cascade_lifecycle_msgs-source";
         url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-        rev = "545036c9a46bd1a542280f389d8a1e904cd219fa";
+        rev = "e35b5bf7ac2a267a9aecddd6564b9894af3486ba";
         hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
       };
       substitutions = [
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "cascade_lifecycle_msgs";
-  version = "2.0.0-2";
+  version = "2.0.0-3";
   src = finalAttrs.passthru.sources."cascade_lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

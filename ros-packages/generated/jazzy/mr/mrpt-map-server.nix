@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "mrpt_map_server-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "74ed88f79cd2ad6391cdc1493229a9b41d911f5f";
-        hash = "sha256-rpNgZdhrt9jg15OAcuimTW8LQ3VQM8VysiW+7f3jRHo=";
+        rev = "377b6cfc08ebece9971e1c1b4dea05a14861fa69";
+        hash = "sha256-BEauUe4tNWhyzC7SQzWjaLpow3YdlxmXf17I9Ftm6FI=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_map_server";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

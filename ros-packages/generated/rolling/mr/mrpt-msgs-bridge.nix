@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "mrpt_msgs_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "e19ae4511fd0a60df605daa5fc353b17a544250b";
-        hash = "sha256-Sk5Tg1H0m/JeksTur+3ngLXeUkNwJmoV0w4+IUSFPjY=";
+        rev = "baf843e9e77b3eda879f8a8a5331c8202796f8c7";
+        hash = "sha256-3JoT3mH40gcxQBdB784HDMRVG2g2jiRBDNSb6kL+DsA=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_msgs_bridge";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

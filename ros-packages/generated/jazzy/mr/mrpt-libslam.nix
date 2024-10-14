@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mrpt_libslam-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "f38bde68486e2f59da5556624a6c11dbf4de5135";
-        hash = "sha256-Xw1gggDJH/aHxoVXuCuevXcwQjgHU+wG/LuaokqV+1U=";
+        rev = "e8b247306c8486dc526efa652199ffe7f79adf3a";
+        hash = "sha256-1/ate8g4zVXuGY2EVJjMCHqq9Ku1pOGgRzQdv5YxxWk=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libslam";
-  version = "2.14.2-1";
+  version = "2.14.3-1";
   src = finalAttrs.passthru.sources."mrpt_libslam";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

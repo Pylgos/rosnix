@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "mrpt_pointcloud_pipeline-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "725d88d70e50d2d27b02d3e71a53fbde981e4dbb";
-        hash = "sha256-DvOOW96l+9WUKATwVHIRoKSkMsr4yAJTFBPk5R/bpOE=";
+        rev = "86e3698cdb4502ad1a7ceeb27f08ac57667c92ba";
+        hash = "sha256-hH6KSVz/+YaNavnGjVMvwUFlv8kvWfa65nrsD9cpfuI=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pointcloud_pipeline";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_pointcloud_pipeline";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

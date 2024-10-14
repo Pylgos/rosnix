@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "mrpt_tps_astar_planner-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "14431e55f4e2e38bb958601accffaedb9f05a7ad";
-        hash = "sha256-N6Tml7BQoajjvvJSatRzrlyHNGdAeTRwY06DioxXmF8=";
+        rev = "742b0e9b9aeb201a095577d1456358fc5f82c298";
+        hash = "sha256-Ks13fdjdQxTBr9f9vORbnJAHopRtziGX+H2mqFiv0uM=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_tps_astar_planner";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_tps_astar_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
