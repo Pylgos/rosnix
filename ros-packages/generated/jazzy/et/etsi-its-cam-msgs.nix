@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "etsi_its_cam_msgs-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "1a9abcfd91b21441b1873c0c6bef0303f3135efe";
-        hash = "sha256-zkiUTEJ/tmPAlUKx1CJD4yluVwkDm44D5uHtfZWveAE=";
+        rev = "36ab057df93bf725a8850152c5a0132ea68be54c";
+        hash = "sha256-qhXZod5q1BFcr5kMJvck8NdF/TjFO6+P8+Y7JjcBD9A=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_msgs";
-  version = "2.2.0-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_msgs";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "etsi_its_cpm_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "3a9266d4227093fa14d9c24caf16d2ac3bd97321";
-        hash = "sha256-HN8RgYRWGzgc6ayAfwqIFg9T7D9zZ1SJYJygbR1m9YE=";
+        rev = "099ad537d88517f56e5af8699a465dcf1cd1bf9a";
+        hash = "sha256-6XUvmnYvMRWhpR7BDrHFfltV9r2RPKGDpRnQUbSrcU4=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cpm_ts_coding";
-  version = "2.2.0-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cpm_ts_coding";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

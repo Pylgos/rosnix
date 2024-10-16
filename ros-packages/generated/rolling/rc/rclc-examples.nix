@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "rclc_examples-source";
         url = "https://github.com/ros2-gbp/rclc-release.git";
-        rev = "7d0294f2f2fc9eae07bef07bbab2a53578465a60";
-        hash = "sha256-oGcnLCr8skjywWIh93EYKzbeJaXxJpnHiJB2rbxQjSI=";
+        rev = "c91af81f6642d783126c29f37983b57dd5be7785";
+        hash = "sha256-SC9LbRxorM55xg8sK9pDm235fnw5UvYahla7aUvq7e0=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclc_examples";
-  version = "6.1.0-2";
+  version = "6.2.0-1";
   src = finalAttrs.passthru.sources."rclc_examples";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

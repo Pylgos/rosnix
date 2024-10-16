@@ -1,24 +1,22 @@
 {
-  action-msgs,
   ament-cmake,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
+  ros-environment,
   rosSystemPackages,
-  rosidl-default-generators,
-  rosidl-default-runtime,
   substituteSource,
 }:
 let
   sources = mkSourceSet (sources: {
-    "ur_dashboard_msgs" = substituteSource {
+    "etsi_its_vam_ts_coding" = substituteSource {
       src = fetchgit {
-        name = "ur_dashboard_msgs-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "d4c55907fbae1432b810291c8b968fe2b1b80ee3";
-        hash = "sha256-1ZASl/53GgHzHN30oi08llG9Twb1rP3MzioTevQZHhk=";
+        name = "etsi_its_vam_ts_coding-source";
+        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
+        rev = "8251d83eb592905bf544ae93e2520930235f0708";
+        hash = "sha256-rMXfKxcxmrVLlwAysEngE/wvBpqAQVRQVRtN6iIBpLU=";
       };
       substitutions = [
       ];
@@ -26,13 +24,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "ur_dashboard_msgs";
-  version = "2.4.12-1";
-  src = finalAttrs.passthru.sources."ur_dashboard_msgs";
+  pname = "etsi_its_vam_ts_coding";
+  version = "2.3.0-1";
+  src = finalAttrs.passthru.sources."etsi_its_vam_ts_coding";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action-msgs rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -40,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Messages around the UR Dashboard server.";
+    description = "C++ compatible C source code for ETSI ITS VAMs (TS) generated from ASN.1 using asn1c";
   };
 })

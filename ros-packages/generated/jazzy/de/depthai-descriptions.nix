@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "depthai_descriptions-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "9b1aa37c38dd2daa0306afad52f738f7058a55e3";
-        hash = "sha256-uNFjKaWZPAPZ92Wrc+Rj2wyS/KUFTWh406gyM9rIY6Q=";
+        rev = "d133c032aa1c3f1099853147774fb6f26c3da94e";
+        hash = "sha256-5KK+SDR+yK8+X4VJnSlcRsDFemWF14hRr2HpLGmQ7mc=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_descriptions";
-  version = "2.10.2-1";
+  version = "2.10.3-1";
   src = finalAttrs.passthru.sources."depthai_descriptions";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "etsi_its_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "7afb1932d1e8ffc0bf29661d281c544aaada73aa";
-        hash = "sha256-1PsO7RaqrI25xAc4Z7eZ0HIG+lwxJEQIPpBvse0KCQ8=";
+        rev = "3ee687aa14b88d181f87d30c1e1ef3ac4935019b";
+        hash = "sha256-7ICDNuYN5jKIH/5e9abc1GwbQaP3wY3My4xAU9fDEJA=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_rviz_plugins";
-  version = "2.2.0-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

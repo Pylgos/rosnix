@@ -1,24 +1,22 @@
 {
-  action-msgs,
   ament-cmake,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rclcpp,
   rosSystemPackages,
-  rosidl-default-generators,
-  rosidl-default-runtime,
   substituteSource,
 }:
 let
   sources = mkSourceSet (sources: {
-    "ur_dashboard_msgs" = substituteSource {
+    "popf" = substituteSource {
       src = fetchgit {
-        name = "ur_dashboard_msgs-source";
-        url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "d4c55907fbae1432b810291c8b968fe2b1b80ee3";
-        hash = "sha256-1ZASl/53GgHzHN30oi08llG9Twb1rP3MzioTevQZHhk=";
+        name = "popf-source";
+        url = "https://github.com/ros2-gbp/popf-release.git";
+        rev = "bb811a0ad2d771cc49a83ab9e42b7fb663637791";
+        hash = "sha256-TJKpSf62pP7klj4DN47+5tHR0WznsqxheV/XJBb0QIQ=";
       };
       substitutions = [
       ];
@@ -26,13 +24,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "ur_dashboard_msgs";
-  version = "2.4.12-1";
-  src = finalAttrs.passthru.sources."ur_dashboard_msgs";
+  pname = "popf";
+  version = "0.0.17-1";
+  src = finalAttrs.passthru.sources."popf";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action-msgs rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bison" "coinor-libcbc-dev" "coinor-libcgl-dev" "coinor-libclp-dev" "coinor-libcoinutils-dev" "flex" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -40,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Messages around the UR Dashboard server.";
+    description = "The POPF package";
   };
 })

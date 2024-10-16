@@ -11,7 +11,6 @@
   fetchzip,
   geometry-msgs,
   mkSourceSet,
-  python-cmake-module,
   rclcpp,
   rosSystemPackages,
   sensor-msgs,
@@ -28,8 +27,8 @@ let
       src = fetchgit {
         name = "tf2_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "9c88a9a14f4ccd8fbfcefac9b65c0c4ce6f3a84c";
-        hash = "sha256-+lnKI1+XLbMaUoFi7N0q2/U5jritwSZAtTOy5UEg3VA=";
+        rev = "dfd8f654b9e3ad166dc722f398b58e44d76b234d";
+        hash = "sha256-v/gcBTLkgODybIjW3ZUsGfcdWgNJODEJGI5+l/VIwUI=";
       };
       substitutions = [
       ];
@@ -38,9 +37,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_sensor_msgs";
-  version = "0.39.0-1";
+  version = "0.39.1-1";
   src = finalAttrs.passthru.sources."tf2_sensor_msgs";
-  nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ geometry-msgs sensor-msgs sensor-msgs-py std-msgs tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-numpy" ]; };

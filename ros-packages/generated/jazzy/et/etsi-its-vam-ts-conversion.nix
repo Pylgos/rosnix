@@ -1,6 +1,9 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
+  etsi-its-primitives-conversion,
+  etsi-its-vam-ts-coding,
+  etsi-its-vam-ts-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,12 +14,12 @@
 }:
 let
   sources = mkSourceSet (sources: {
-    "etsi_its_denm_coding" = substituteSource {
+    "etsi_its_vam_ts_conversion" = substituteSource {
       src = fetchgit {
-        name = "etsi_its_denm_coding-source";
+        name = "etsi_its_vam_ts_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "e75143a37ecf47e4ed4c766465aeb35a7e08bf3d";
-        hash = "sha256-XALO4BkIMD4hxZ2q5VvwI8I8Bo3WiiMY/L4QbyNzJFI=";
+        rev = "5b37806c9a6be49ddf769f33bc8fa807f3b80fc1";
+        hash = "sha256-0UZ8g0f0IcakoBy6MAB2fykKAVpvqdrRbQUMOVgp+HM=";
       };
       substitutions = [
       ];
@@ -24,13 +27,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "etsi_its_denm_coding";
+  pname = "etsi_its_vam_ts_conversion";
   version = "2.3.0-1";
-  src = finalAttrs.passthru.sources."etsi_its_denm_coding";
+  src = finalAttrs.passthru.sources."etsi_its_vam_ts_conversion";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ etsi-its-primitives-conversion etsi-its-vam-ts-coding etsi-its-vam-ts-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -38,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "C++ compatible C source code for ETSI ITS DENMs generated from ASN.1 using asn1c";
+    description = "Conversion functions for converting ROS messages to and from ASN.1-encoded ETSI ITS VAMs (TS)";
   };
 })

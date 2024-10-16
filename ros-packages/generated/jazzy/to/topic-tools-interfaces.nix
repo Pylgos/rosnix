@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "topic_tools_interfaces-source";
         url = "https://github.com/ros2-gbp/topic_tools-release.git";
-        rev = "9447181ac14a55192f1d162c49c0798bfd904237";
-        hash = "sha256-5x6LhI6fAyPkc3XkqWV9DjxWKMx85wevw7GVK0R1sxA=";
+        rev = "6b8b5a858de893da33765f4088de77d6d34994ec";
+        hash = "sha256-Bll3fTZDwv7tif/1J6tQ8w4+BiMXOOWXpMKthFQ+yjY=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "topic_tools_interfaces";
-  version = "1.3.1-1";
+  version = "1.3.2-1";
   src = finalAttrs.passthru.sources."topic_tools_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

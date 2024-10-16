@@ -11,7 +11,6 @@
   geometry-msgs,
   mkSourceSet,
   orocos-kdl-vendor,
-  python-cmake-module,
   rclcpp,
   rosSystemPackages,
   substituteSource,
@@ -25,8 +24,8 @@ let
       src = fetchgit {
         name = "tf2_geometry_msgs-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "24ba111dca97f9977ecb0619f66f8eb5c4318dc0";
-        hash = "sha256-6xuPxh5xKE3WnJgx11cLTIxQ1YrLUYBI+nktBnwxqBY=";
+        rev = "b2eb39cd9be9684946342cadb67064ad9d0d8ba2";
+        hash = "sha256-++ueLngm05KMZmuJFFKqPjArtwyWpoHp/Vbdvr2y/lM=";
       };
       substitutions = [
       ];
@@ -35,9 +34,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_geometry_msgs";
-  version = "0.39.0-1";
+  version = "0.39.1-1";
   src = finalAttrs.passthru.sources."tf2_geometry_msgs";
-  nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ geometry-msgs orocos-kdl-vendor tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };

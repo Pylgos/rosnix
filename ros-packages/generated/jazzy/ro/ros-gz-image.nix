@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "ros_gz_image-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "13244388c8ca31c89d5f4cb97eaa8b407cc85bc5";
-        hash = "sha256-GbUPZkFipoVMuk/huC08Lb1JBLL8ScNr17fT48mOm64=";
+        rev = "5c9d07e715c9ac49727a208e5aa6203e726448c1";
+        hash = "sha256-CfDV7USiI21nSgPSiirxLbQ12nZGv3bkp8BwNtgnO7M=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_image";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."ros_gz_image";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

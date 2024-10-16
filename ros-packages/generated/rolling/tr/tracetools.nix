@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "tracetools-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "205bfd617e249f1c3ba2bd145a7f34c652e9ccd2";
-        hash = "sha256-ZD9KMKxTs31H4UCBDAFj81/ww7J3YUjz36CrbRGw4Bg=";
+        rev = "2dc21ae3b24511ae5b98adb7db5e5b6788c0f484";
+        hash = "sha256-U6e6BbCh7ymlFBWEDRMhWdcyHzqHK/8dhrgBgV5Sd9Q=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tracetools";
-  version = "8.3.0-1";
+  version = "8.4.0-1";
   src = finalAttrs.passthru.sources."tracetools";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

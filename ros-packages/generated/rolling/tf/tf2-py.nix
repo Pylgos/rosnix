@@ -10,7 +10,6 @@
   fetchzip,
   geometry-msgs,
   mkSourceSet,
-  python-cmake-module,
   rclpy,
   rosSystemPackages,
   rpyutils,
@@ -23,8 +22,8 @@ let
       src = fetchgit {
         name = "tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "3ee9e3deb88cc6c604a82218aa9cc56e8bf02c8e";
-        hash = "sha256-rWVgPv2ndN/24m0+K9oeiWgxoqT5or1s0gXjVpobeWo=";
+        rev = "23241f02f20f99ee678a117769922167621c2079";
+        hash = "sha256-98lXeZFxGJ8FBkVh8yU0Rm60YwnwhKq8GOIhvDp70Nc=";
       };
       substitutions = [
       ];
@@ -33,9 +32,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_py";
-  version = "0.39.0-1";
+  version = "0.39.1-1";
   src = finalAttrs.passthru.sources."tf2_py";
-  nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rpyutils tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

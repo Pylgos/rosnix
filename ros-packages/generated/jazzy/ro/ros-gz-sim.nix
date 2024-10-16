@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-python,
   ament-index-python,
   ament-lint-auto,
   ament-lint-common,
@@ -11,11 +12,13 @@
   gz-msgs-vendor,
   gz-sim-vendor,
   gz-transport-vendor,
+  launch,
   launch-ros,
   launch-testing,
   launch-testing-ament-cmake,
   mkSourceSet,
   rclcpp,
+  rclcpp-components,
   rosSystemPackages,
   std-msgs,
   substituteSource,
@@ -27,8 +30,8 @@ let
       src = fetchgit {
         name = "ros_gz_sim-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "8c3ad6b5d8dc95447333a1ae693544dc0e9cde7b";
-        hash = "sha256-FoRu+Y1cHe74E4jeWffOy6YumycexOfzGyIbn4DEeHM=";
+        rev = "6aeeedb88e40e228db8fc15cd6e9f890aeb336e1";
+        hash = "sha256-x8H9mZIDdDBzFpDrTfVRtt/0XY1rtiMR7AEWFeK8t0I=";
       };
       substitutions = [
       ];
@@ -37,12 +40,12 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_sim";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."ros_gz_sim";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-python gz-math-vendor gz-msgs-vendor gz-sim-vendor gz-transport-vendor rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgflags-dev" ]; };
+  propagatedBuildInputs = [ ament-index-python gz-math-vendor gz-msgs-vendor gz-sim-vendor gz-transport-vendor launch launch-ros rclcpp rclcpp-components std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgflags-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common launch-ros launch-testing launch-testing-ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

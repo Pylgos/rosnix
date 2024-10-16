@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "ros_gz_interfaces-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "93c27925327b7280d911ec4e5a0ef6108e6cc19b";
-        hash = "sha256-cQ7tadtogckAIsZh9oJAIFXdZQCE9Aa0/+xahTXPa5c=";
+        rev = "6f57a3c9f3e6c218ec76e6968c5d0189e14a0956";
+        hash = "sha256-zrQhDTtMKKWDMhp+nEjBxLdUNPfOsOZ7Ioani/6IWY8=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_interfaces";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."ros_gz_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

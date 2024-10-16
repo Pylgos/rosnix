@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "ur_description-source";
         url = "https://github.com/ros2-gbp/ur_description-release.git";
-        rev = "9f031057d2bd630a62f2e13f98c8c860d1dd1a92";
-        hash = "sha256-MG7vbOrCS9hiqah2946KSpRaeUFDNuiKjvdxaPVjVOo=";
+        rev = "48ec53775ca46845b38c8d92afafc298fae0f6db";
+        hash = "sha256-S49Zxap5rZMmT7JpRonDsJaITE/nW9zGBDHVhPVHS1M=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_description";
-  version = "2.4.3-1";
+  version = "2.4.5-1";
   src = finalAttrs.passthru.sources."ur_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
