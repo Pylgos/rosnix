@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "ublox_ubx_msgs-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "ab4207257e0bd9e858866e33b108aa90ba412e5a";
-        hash = "sha256-ERggcaG4kBM5GwH5iM+42CzraKbcqjGc1IMqgeoBtrE=";
+        rev = "8bc1f80c8d3337f370f9b975c1b877e03b8e8ece";
+        hash = "sha256-rBY8JJGYz4cmcT/mc+W+E7s+zL5tFeK6IWQZsdW0BgQ=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_ubx_msgs";
-  version = "0.5.3-2";
+  version = "0.5.4-1";
   src = finalAttrs.passthru.sources."ublox_ubx_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
