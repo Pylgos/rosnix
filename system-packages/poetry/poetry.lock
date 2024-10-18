@@ -139,13 +139,13 @@ recommended = ["colcon-override-check"]
 
 [[package]]
 name = "colcon-core"
-version = "0.18.1"
+version = "0.18.2"
 description = "Command line tool to build sets of software packages."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "colcon-core-0.18.1.tar.gz", hash = "sha256:14a91463cae8432bcae3efe0959b9b2261b9f85237c88094da2700310803f517"},
-    {file = "colcon_core-0.18.1-py3-none-any.whl", hash = "sha256:0b02358ad5c5b6cf7c7113c271e841a4310f6906cd8332215fa0e3e3440509ec"},
+    {file = "colcon-core-0.18.2.tar.gz", hash = "sha256:28f247d2aa189887b844554e9f40eab477f87769b18452c2c6adefe40087df0d"},
+    {file = "colcon_core-0.18.2-py3-none-any.whl", hash = "sha256:94c3f821feb146cd5da20c75ffefb40cddcaabf03fe55e0b31a7bd36ec21d096"},
 ]
 
 [package.dependencies]
