@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "fastrtps-source";
         url = "https://github.com/ros2-gbp/fastrtps-release.git";
-        rev = "2ed4a01f31f5e04860e4e24fedc8a4a1012a282f";
-        hash = "sha256-wECFJjYb5fz4u/B375jBBUkB8xQ1njY3pIcc8pixN9g=";
+        rev = "2f51251ca97cce3e388eced9a48979a5e9cd52f9";
+        hash = "sha256-KSSHJqNx1mzl93n+QLasqWT2+NllPGG82pdzSM97uh4=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "fastrtps";
-  version = "2.14.1-1";
+  version = "2.14.3-1";
   src = finalAttrs.passthru.sources."fastrtps";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
