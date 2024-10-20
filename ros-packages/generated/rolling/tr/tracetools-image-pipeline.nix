@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "tracetools_image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "eae6b9c3cefb2a7ba38754bb54e420f04a10208f";
-        hash = "sha256-9UnLZuObDSfdlFlp7mE3Lk/BgnZRMXtI9gY9IngO18c=";
+        rev = "51c813897630c93cdd32a7005f8bcb88992b51c3";
+        hash = "sha256-C9kxzukA/tqfc+nsb+JgrLkCJkm29InFDX+SeLA01KA=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tracetools_image_pipeline";
-  version = "6.0.3-1";
+  version = "6.0.4-1";
   src = finalAttrs.passthru.sources."tracetools_image_pipeline";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

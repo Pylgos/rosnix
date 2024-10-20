@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "octomap_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/octomap_rviz_plugins-release.git";
-        rev = "ef308b3f3c173f50646443d89fb596c2d115a8aa";
-        hash = "sha256-jYZZwVA/LByiBlY+KXs0ETYwsDlvq8yjFj31QoHrvM0=";
+        rev = "eff5e875ec68d40f2376128080fc8583492c347b";
+        hash = "sha256-QVITVxkP6CU0CctWwD8LPkQMcPlNyOgkrz/NV/aARM0=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_rviz_plugins";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."octomap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "image_rotate-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "f7ef189a7b5733ba87de0f9aff0af6e56bbef7f1";
-        hash = "sha256-+BEJ0KVOxcyyqZqemHgf739QyF8Dsm/1FBTZOuyEkBE=";
+        rev = "8cf0a3a306e4c6c1251f97124ccc829070834a97";
+        hash = "sha256-LTJzfcGhvhlZzn4kn0RW6Qda62XY1L0DatzTTk8O6UE=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_rotate";
-  version = "6.0.3-1";
+  version = "6.0.4-1";
   src = finalAttrs.passthru.sources."image_rotate";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

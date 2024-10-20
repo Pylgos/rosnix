@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "depth_image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "f8767d98e14ecadb0040f7ee603721db2b1c8e6a";
-        hash = "sha256-iXzePoqM7vsVgt2Y9h3m2scZ7J8qfIkJ31crq9I/j9s=";
+        rev = "98d06c57165a4d5a112a21efbf41c6f49b8a118e";
+        hash = "sha256-Z9wYZVPFeA/ZF5X5u8ACgLdYADmqSdlCjPWGtk50f0s=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "depth_image_proc";
-  version = "6.0.3-1";
+  version = "6.0.4-1";
   src = finalAttrs.passthru.sources."depth_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

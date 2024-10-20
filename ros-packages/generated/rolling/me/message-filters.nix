@@ -11,7 +11,6 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  python-cmake-module,
   rclcpp,
   rclcpp-lifecycle,
   rclpy,
@@ -27,8 +26,8 @@ let
       src = fetchgit {
         name = "message_filters-source";
         url = "https://github.com/ros2-gbp/ros2_message_filters-release.git";
-        rev = "fd410348c057bb9fbce661dbabf854a81baa5093";
-        hash = "sha256-s++LSF1gfnzLtSyDy3Om1+3tnuMfcqyOIszTHC+VfRc=";
+        rev = "3dfccd87e66b993c2b7b8d26570a829376ccb8af";
+        hash = "sha256-2MCvT639lEUFB2PV+p3bIoprL5pHOpP1leMKQGfb/3I=";
       };
       substitutions = [
       ];
@@ -37,9 +36,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "message_filters";
-  version = "6.0.5-1";
+  version = "6.0.6-1";
   src = finalAttrs.passthru.sources."message_filters";
-  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ builtin-interfaces rclcpp rclpy rcutils std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

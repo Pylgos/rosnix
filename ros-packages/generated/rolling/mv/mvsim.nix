@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "mvsim-source";
         url = "https://github.com/ros2-gbp/mvsim-release.git";
-        rev = "c6fdef55331c118e3f5dfd7aae5cff9ecb21f925";
-        hash = "sha256-VbMaZfrEEzcN9AtCfJj2/aIAQ+U0OJbYOJdOCh8IoLE=";
+        rev = "86a78747b501006f32bf695ab5d2966361ed2ae7";
+        hash = "sha256-tcW9CoKFkAGd7TOpD2Yu676C+JFqqVDucsXgUKKCz5E=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mvsim";
-  version = "0.11.0-1";
+  version = "0.11.1-1";
   src = finalAttrs.passthru.sources."mvsim";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" "wget" ]; };
