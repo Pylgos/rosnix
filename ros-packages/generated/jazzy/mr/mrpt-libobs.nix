@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_libobs-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "11bd1734a713b94f2050da2266fd70a48b0ebe81";
-        hash = "sha256-OiRly/tbnEVkHXxPAZLwwipIADMA48osao70E2Hsgkk=";
+        rev = "fdad3f916ee7a4b9f0943ee85483e1b8d19ddbe0";
+        hash = "sha256-QgRS6IHvBEW1HI4SPkuSGTJJzHyc1KMFcZXDAF3tAbM=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libobs";
-  version = "2.14.3-1";
+  version = "2.14.4-1";
   src = finalAttrs.passthru.sources."mrpt_libobs";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

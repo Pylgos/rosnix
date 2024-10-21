@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mrpt_libmath-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "f484fe9d311848e32372492c598dd2681dec4358";
-        hash = "sha256-gl/doiL2ybVPH11XYSIqKrkIa/NToIMf4DXma+MGSw0=";
+        rev = "2628d6aa63de2161acea462d66b03252159c4779";
+        hash = "sha256-6iQWlDr1n4rkTPzJtPmBigpsVxdVz4jsN7Ddd9exU3c=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libmath";
-  version = "2.14.3-1";
+  version = "2.14.4-1";
   src = finalAttrs.passthru.sources."mrpt_libmath";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

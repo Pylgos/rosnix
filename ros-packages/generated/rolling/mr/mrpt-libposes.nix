@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "mrpt_libposes-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "160746657d3ca6cb9107d803ca34995fdcb6fe0f";
-        hash = "sha256-zaV7IXSr2t/ZrWByHGbNmfqgRtVSQTz3/Lkd/WiH/V8=";
+        rev = "5145ff5e4f909fa5a009a842b83d97616a55d7f0";
+        hash = "sha256-VZVDBxjyhkQ3imd71Cb4zPoSWjUStIqBjw28OTmrzmQ=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libposes";
-  version = "2.14.3-1";
+  version = "2.14.4-1";
   src = finalAttrs.passthru.sources."mrpt_libposes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
