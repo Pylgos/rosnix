@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "turtlebot4_diagnostics-source";
         url = "https://github.com/ros2-gbp/turtlebot4_robot-release.git";
-        rev = "3b80d2df0c213c3d2e1a98fb877bc508ab773649";
-        hash = "sha256-l8/G7CJucHvQsgFsuKRVdeRwbcYjfCuE8AaYYLrXetc=";
+        rev = "32bad70f6d4c90bbaf5a066a8c496dfeae1b4ad5";
+        hash = "sha256-B46IK3a+5YodP4TuzKagryJAPtJbj/vHWYIAt5vb3Ko=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot4_diagnostics";
-  version = "2.0.0-1";
+  version = "2.0.1-2";
   src = finalAttrs.passthru.sources."turtlebot4_diagnostics";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

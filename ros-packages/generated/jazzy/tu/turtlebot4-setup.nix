@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "turtlebot4_setup-source";
         url = "https://github.com/ros2-gbp/turtlebot4_setup-release.git";
-        rev = "f3525cd611c3d3e9595265fa9fc5e0f375f31368";
-        hash = "sha256-zY/n2klyXJ5SgQPHt5FwyQA5r7gPvQRXswtN646+2s4=";
+        rev = "ed4b0c6500a05dcfb6637303e16ecc9b06934e2c";
+        hash = "sha256-Pko5/FnJRtrAsVXfE60I6fWrq3ZHJL1CRvna+/5THZo=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_setup";
-  version = "2.0.1-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."turtlebot4_setup";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
