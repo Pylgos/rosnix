@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "irobot_create_control-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
-        rev = "0e0f1270c26c56b884ac0781a234a0a0583a277e";
-        hash = "sha256-j4fr3cnwHeEcROWPEVOuX166mwrcUUdLf/pbKdVq8us=";
+        rev = "d28a594294502afeabcb18897efa1fa7a7657093";
+        hash = "sha256-onK0Y4CHHFOcoGq525bOy2/hJXwyPkfCCL7MOHjy+Oo=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "irobot_create_control";
-  version = "3.0.3-1";
+  version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_control";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

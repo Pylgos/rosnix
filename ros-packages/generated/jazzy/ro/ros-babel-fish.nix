@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "ros_babel_fish-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-        rev = "7867e75abcda2937b762a3d824698e00df647212";
-        hash = "sha256-XoiEc4FfDXjQDZH62Ttxms7TepvyTOKzO1dGp3HDqDA=";
+        rev = "4f5e0fedf71d227d50dfbf30420cafa98f1cc115";
+        hash = "sha256-g/a4mv7eVt7dI4gThb/FU0vQPhJy//wIEScnUtniGws=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish";
-  version = "0.9.3-1";
+  version = "0.10.0-1";
   src = finalAttrs.passthru.sources."ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

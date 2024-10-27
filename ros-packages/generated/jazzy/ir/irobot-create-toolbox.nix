@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "irobot_create_toolbox-source";
         url = "https://github.com/ros2-gbp/create3_sim-release.git";
-        rev = "39a23e493fb885afb10248f8abf23cc90e3916b5";
-        hash = "sha256-Kl6c5Cng8dqaC4deKdBJ165BBcxj6G6Gnqv27mx1wgU=";
+        rev = "c16db4ef31eab56d12d68812ac41a6c399f6f40e";
+        hash = "sha256-G1aWtTU0jiNj6YeC1U/ab26lI7Mm0VvgRj2TCkxI4vk=";
       };
       substitutions = [
       ];
@@ -34,12 +34,12 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "irobot_create_toolbox";
-  version = "3.0.3-1";
+  version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [ gz-math-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ gz-math-vendor rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

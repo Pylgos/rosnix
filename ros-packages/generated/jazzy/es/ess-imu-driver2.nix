@@ -1,26 +1,25 @@
 {
   ament-cmake,
-  ament-cmake-lint-cmake,
   ament-lint-auto,
+  ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  irobot-create-control,
   mkSourceSet,
+  rclcpp,
   rosSystemPackages,
+  sensor-msgs,
   substituteSource,
-  urdf,
-  xacro,
 }:
 let
   sources = mkSourceSet (sources: {
-    "irobot_create_description" = substituteSource {
+    "ess_imu_driver2" = substituteSource {
       src = fetchgit {
-        name = "irobot_create_description-source";
-        url = "https://github.com/ros2-gbp/create3_sim-release.git";
-        rev = "55dfe0688de4b965a4692355096c51952fc453f1";
-        hash = "sha256-FqmRCHnFVkq6A9ZTsVE/iptcMQRuCBd3nyl0qznEwv8=";
+        name = "ess_imu_driver2-source";
+        url = "https://github.com/ros2-gbp/ess_imu_driver2-release.git";
+        rev = "cd96c7f842ff20d14bb3896e6efec7b58106d6ca";
+        hash = "sha256-EM4RYOYKegmjBi7Mh3OJERJwDyDgSXXuUP19v6tuaaQ=";
       };
       substitutions = [
       ];
@@ -28,20 +27,20 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "irobot_create_description";
-  version = "3.0.4-1";
-  src = finalAttrs.passthru.sources."irobot_create_description";
+  pname = "ess_imu_driver2";
+  version = "2.0.2-1";
+  src = finalAttrs.passthru.sources."ess_imu_driver2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ irobot-create-control urdf xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-lint-cmake ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };
   meta = {
-    description = "Provides the model description for the iRobot(R) Create(R) 3 Educational Robot.";
+    description = "ROS2 package for Epson IMU using C++ wrapper around Linux C driver";
   };
 })
