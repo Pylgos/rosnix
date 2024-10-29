@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "controller_manager_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "b1326b3e915b57c8d5a434cc8d1a4e80c82bf77c";
-        hash = "sha256-7HgQxEjzc5OYRFRrvVKj1+eZIkTrO3Er5DtInCRM+AM=";
+        rev = "3315226c3b11313e4e29206c2a1528b4f99d4c4b";
+        hash = "sha256-EG7Q27unL4Fpdmmuo8t+xl+QDKnRIrnuIbootJQuxo4=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager_msgs";
-  version = "4.18.0-1";
+  version = "4.19.0-1";
   src = finalAttrs.passthru.sources."controller_manager_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

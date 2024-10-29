@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "ros2controlcli-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "e0015c7d37d3779c210b07f773c9afe0c90fcdc5";
-        hash = "sha256-L9zKf80do8mQ+G6ucswZj9KfEKaLoUwdamqit7CbVC0=";
+        rev = "d73be651d674b3a6c5f3f2414e0af7ea0b70c1a6";
+        hash = "sha256-fuPzUwl50JsPyuFWLj98sGkmdMZdpUCua0q2pEicbUo=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2controlcli";
-  version = "4.18.0-1";
+  version = "4.19.0-1";
   src = finalAttrs.passthru.sources."ros2controlcli";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

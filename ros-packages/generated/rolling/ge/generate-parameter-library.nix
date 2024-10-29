@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "generate_parameter_library-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "380ed9e0a0282e8bfc90367bbf20657902646799";
-        hash = "sha256-3/xDuucYQUArz1x/C9LSjpYpCEX8i3QuApT+wUhylr0=";
+        rev = "1853c17212645ce6838d4cdecf286befaa268c31";
+        hash = "sha256-NXMcFX+gCyK3BtyHoRmZzIxZcjHN3efW0myqGkFz6xk=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "generate_parameter_library";
-  version = "0.3.8-3";
+  version = "0.3.9-1";
   src = finalAttrs.passthru.sources."generate_parameter_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ generate-parameter-library-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

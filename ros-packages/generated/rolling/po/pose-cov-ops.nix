@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "pose_cov_ops-source";
         url = "https://github.com/ros2-gbp/pose_cov_ops-release.git";
-        rev = "db3c26f4cf8ae7377bf6bfea89a1f8f5d321c1c3";
-        hash = "sha256-ftJdad3w9XrnAQn/DRLfldWx8OMRbiX22JrSv1wmA3I=";
+        rev = "0fb300e86e3226a4501a0b2b0966d51eb2eb1aee";
+        hash = "sha256-WCVQfOvBWgHCzt+CebDkO3z2LXoE4E2kgaNHKGNp02M=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "pose_cov_ops";
-  version = "0.3.12-1";
+  version = "0.3.13-1";
   src = finalAttrs.passthru.sources."pose_cov_ops";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

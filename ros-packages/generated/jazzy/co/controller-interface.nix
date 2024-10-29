@@ -6,9 +6,11 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geometry-msgs,
   hardware-interface,
   mkSourceSet,
   rclcpp-lifecycle,
+  realtime-tools,
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
@@ -19,8 +21,8 @@ let
       src = fetchgit {
         name = "controller_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "3e2e5d3a9fdce99899c5838972d8625398a99583";
-        hash = "sha256-WTKOdeZaFnH/rhTdCaDnT94/bzeS+P72kSMBw3xUG1E=";
+        rev = "ecdc669b7937a584a5433d289f47c317d11bf28f";
+        hash = "sha256-HGih4w86k7ExwGME8gA55SgxQuJs2QMspfWkZ1Jwpno=";
       };
       substitutions = [
       ];
@@ -29,15 +31,15 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
-  version = "4.18.0-1";
+  version = "4.19.0-1";
   src = finalAttrs.passthru.sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

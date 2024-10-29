@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "cmake_generate_parameter_module_example-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "98db3ef1d11ed8145e5643b2ce060fd0e274db90";
-        hash = "sha256-fv1GUmHiJR1Zj2CI0CdtNFcUIVXuykeEmbSN9ib0fRw=";
+        rev = "8b72ea233af26ab40a5620a129aefda8321ca30a";
+        hash = "sha256-i6F2r51JSWVCPArP5W0ySLktAgv2RX1lb2qhI7qDt0A=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "cmake_generate_parameter_module_example";
-  version = "0.3.8-4";
+  version = "0.3.9-1";
   src = finalAttrs.passthru.sources."cmake_generate_parameter_module_example";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

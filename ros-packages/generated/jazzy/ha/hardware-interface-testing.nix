@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "hardware_interface_testing-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "f6e13a9c7cfa2a307f132954867c445ca3533fbf";
-        hash = "sha256-yvKQv0WZZ/kN+p6eD9RrfklZHSC3RQolkOqLi1xMoUc=";
+        rev = "f52277e4960ea2d7bccab0097ce6633433dac025";
+        hash = "sha256-+TLmjKl/6eLwumz51FdaYIa6LxQUQR6ccdSRnbF4VvY=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "hardware_interface_testing";
-  version = "4.18.0-1";
+  version = "4.19.0-1";
   src = finalAttrs.passthru.sources."hardware_interface_testing";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
