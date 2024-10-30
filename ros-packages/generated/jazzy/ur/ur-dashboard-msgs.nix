@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "ur_dashboard_msgs-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "d4c55907fbae1432b810291c8b968fe2b1b80ee3";
-        hash = "sha256-1ZASl/53GgHzHN30oi08llG9Twb1rP3MzioTevQZHhk=";
+        rev = "1e30feb17247b1ad74a64d5f7bf9ba53c7db0f50";
+        hash = "sha256-AbCIu04/KTey6z7hZOQ4u7+ONTVyFnk5ok1U/Jiymqs=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_dashboard_msgs";
-  version = "2.4.12-1";
+  version = "2.4.13-1";
   src = finalAttrs.passthru.sources."ur_dashboard_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

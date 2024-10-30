@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "turtlebot4_gz_toolbox-source";
         url = "https://github.com/ros2-gbp/turtlebot4_simulator-release.git";
-        rev = "3e2d92b6aa372a77377035236af275b906ef6e6e";
-        hash = "sha256-YT2pTTYGkZ7/W8jP+6UWzRfWVoaYbyRcY5C5AcqJKRo=";
+        rev = "e0981ccd502ceb8982347b9912b90c8fcce47d16";
+        hash = "sha256-3OsOIy2pTEOlqlVW4tEYwBPR2ZVG71NAHsRirj7yDwg=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_gz_toolbox";
-  version = "2.0.1-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."turtlebot4_gz_toolbox";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

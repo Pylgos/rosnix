@@ -10,6 +10,7 @@
   irobot-create-common-bringup,
   irobot-create-description,
   irobot-create-gz-bringup,
+  irobot-create-gz-plugins,
   irobot-create-gz-toolbox,
   irobot-create-msgs,
   irobot-create-nodes,
@@ -35,8 +36,8 @@ let
       src = fetchgit {
         name = "turtlebot4_gz_bringup-source";
         url = "https://github.com/ros2-gbp/turtlebot4_simulator-release.git";
-        rev = "ac19bf9bf475c12170ca7b01ab7c3939e298042e";
-        hash = "sha256-k3vXzAg0WVo5WbwkUj/84aih5y9BibGw6gZ0CS8w7lc=";
+        rev = "0f4e5149c34da6d2592c54ffa5823c246d5f1f87";
+        hash = "sha256-SJRTOWdEUsRtPSj76DZ6PpkFrlmbwavtp1SoP6hRBMQ=";
       };
       substitutions = [
       ];
@@ -45,12 +46,12 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_gz_bringup";
-  version = "2.0.1-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."turtlebot4_gz_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs irobot-create-common-bringup irobot-create-description irobot-create-gz-bringup irobot-create-gz-toolbox irobot-create-msgs irobot-create-nodes irobot-create-toolbox ros-gz-interfaces ros-gz-sim std-msgs turtlebot4-description turtlebot4-gz-gui-plugins turtlebot4-gz-toolbox turtlebot4-msgs turtlebot4-navigation turtlebot4-node turtlebot4-viz ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ geometry-msgs irobot-create-common-bringup irobot-create-description irobot-create-gz-bringup irobot-create-gz-plugins irobot-create-gz-toolbox irobot-create-msgs irobot-create-nodes irobot-create-toolbox ros-gz-interfaces ros-gz-sim std-msgs turtlebot4-description turtlebot4-gz-gui-plugins turtlebot4-gz-toolbox turtlebot4-msgs turtlebot4-navigation turtlebot4-node turtlebot4-viz ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
