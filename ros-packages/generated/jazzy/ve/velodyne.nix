@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "velodyne-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "94c7ffc762f021d72b7295602f86f988b7e10160";
-        hash = "sha256-Wr9qH+muZay+hoPYPI7pJRs11jWr4I26LKKsmaWL/4A=";
+        rev = "3b191bc124c22a336901dcc0d5edf3c13988bbcb";
+        hash = "sha256-ij8/MWRD+BjZNdi4rwc9yLXRBNR0YL4a1+R0SllAY7M=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne";
-  version = "2.3.0-4";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."velodyne";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

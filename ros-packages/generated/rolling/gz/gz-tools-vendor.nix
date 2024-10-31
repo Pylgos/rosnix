@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "gz_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_tools_vendor-release.git";
-        rev = "083cec4758cccadb89a4f9378488e2973ac149c6";
-        hash = "sha256-ixU28XwQpuvBdg20zvpUusc9YuvIYmO2InG9iTKg4MY=";
+        rev = "b922c4d6658f7d745786a15caac3c0db601b98f0";
+        hash = "sha256-scQaHWy2trSQahhD/roz5CGnBxq/T0Epi97aF8U4WsI=";
       };
       substitutions = [
         {
@@ -45,7 +45,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_tools_vendor";
-  version = "0.1.0-1";
+  version = "0.1.1-1";
   src = finalAttrs.passthru.sources."gz_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -53,7 +53,7 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-tools2" "ruby" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rubocop" ]; };
+  checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

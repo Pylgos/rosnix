@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "camera_calibration-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "5363ecb32033605781465ca50cd75d11cb288648";
-        hash = "sha256-z6xVflb4TRQGIEmaMPJfBeM4k4SRBIT3elfOjUjI2+o=";
+        rev = "d25cc11e195fefe30633762afdcb237f53f445f1";
+        hash = "sha256-XUWvr4/CTlEDoUU7KbUDl1aTKeTzaWTrzAUOBtpc6gw=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "camera_calibration";
-  version = "6.0.4-1";
+  version = "6.0.5-1";
   src = finalAttrs.passthru.sources."camera_calibration";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
