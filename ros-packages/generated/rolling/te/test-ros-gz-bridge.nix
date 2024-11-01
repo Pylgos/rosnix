@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "test_ros_gz_bridge-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "47d78a19eb540de8062edb9070f0d3ba81659ca2";
-        hash = "sha256-zm6AyAn4PwYne8nDEI5lGZ8+AkdAxA8W6FoeRetw4oM=";
+        rev = "b1b0ed4118b4853e9e27995a41e09e3dbe70eaf4";
+        hash = "sha256-LH/laOfQq+up99zD2j8+J9UG4ahRE7I6/v+8uIxALb0=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "test_ros_gz_bridge";
-  version = "2.1.1-1";
+  version = "2.1.2-1";
   src = finalAttrs.passthru.sources."test_ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

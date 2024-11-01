@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "velodyne_laserscan-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "04f1dc1662b5848a314a423dd445d79fa934d3c9";
-        hash = "sha256-XOGdHKMMVQ8oMj+4lZNsEQYn17h/Yuwks1zSD+jbACQ=";
+        rev = "7e1bc2d54a3612ae27f46cff0dc825d86b91d606";
+        hash = "sha256-vxfBGHebyJrP5lJ7zXMLbVg/eMBRkghsPg4URP19K9k=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_laserscan";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

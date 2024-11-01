@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "c714cee87edfff8a390f892ac07ec39681fa2e79";
-        hash = "sha256-ML1wI5cUHCKYUxZFsy2VsLHd/hlKwMXxYsxBqwxjTMk=";
+        rev = "c6626da25e434e0f7236469a7582ee23dbfa3ac4";
+        hash = "sha256-OEda1/kKdeJnLSIN1bEDgdy4o4fFNmFam6VZRIWifWI=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_pipeline";
-  version = "5.0.4-1";
+  version = "5.0.5-1";
   src = finalAttrs.passthru.sources."image_pipeline";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

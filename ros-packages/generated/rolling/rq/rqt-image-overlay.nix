@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "rqt_image_overlay-source";
         url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
-        rev = "086da41cf47b934b392f4c4198e9e121a566e768";
-        hash = "sha256-rjv8Zxu7V4qDtMRcwMdiYByPpFiYIRJL8N+KK/Gte+E=";
+        rev = "ab205af5bc986f34b54f4604ec412c18ebbbce7b";
+        hash = "sha256-IrZimFGQ4HoVsT+LcqrJQhwy4Y9DiMUWjZ4Kltdjah8=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_image_overlay";
-  version = "0.3.1-3";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."rqt_image_overlay";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

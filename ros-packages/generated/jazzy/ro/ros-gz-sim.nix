@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "ros_gz_sim-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "6aeeedb88e40e228db8fc15cd6e9f890aeb336e1";
-        hash = "sha256-x8H9mZIDdDBzFpDrTfVRtt/0XY1rtiMR7AEWFeK8t0I=";
+        rev = "93577ae25457f9072b0d2187659c118ad8486bf1";
+        hash = "sha256-xz/y7k4nLkoGjC5ad8efCYz5X4ZTjb+6JVLTfYSXHh0=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_sim";
-  version = "1.0.5-1";
+  version = "1.0.6-1";
   src = finalAttrs.passthru.sources."ros_gz_sim";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

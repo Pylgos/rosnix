@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "velodyne_msgs-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "09847a537228b9868921dc16bf10b4420a28f113";
-        hash = "sha256-A/0gyQ2O4N3wRahpbYiMQ1HD+76VBMoWZ+K+wJvnSuE=";
+        rev = "6b6ee9492c1e73219276508bcfd85bd4591faaff";
+        hash = "sha256-iscfIy80Wu1MlKkXs2oJbpaRXU44PgxQIfgA1DrrA6w=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_msgs";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

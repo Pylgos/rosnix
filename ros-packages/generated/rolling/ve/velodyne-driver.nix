@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "velodyne_driver-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "2bad9fcf214eb442dfd9f3301b888c8b58962b28";
-        hash = "sha256-/NqCpOFqMBOfmpbDlS+gf6Dv3bhfLO0c+l8NNPGKL20=";
+        rev = "785711121f89673901382a02ecc035fbc04b177c";
+        hash = "sha256-EEA0OQ2KQU5mB8doCIzWuG3oCeYiq0HG7KKfn9xeRr0=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_driver";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_driver";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "stereo_image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "6d3fa2be3c370299c54309c5aee81fca0d2a323f";
-        hash = "sha256-j0YwgBwlXe4UuGx3w0jQ1q+s9QfyvsMb5hOKttqvVYc=";
+        rev = "8b0dd016615bead703ae791b3dc68dcd4f12201a";
+        hash = "sha256-K5z37gXvskkl5vLC2PnKN9oFaPCNuocldeQNYglvlDU=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "stereo_image_proc";
-  version = "5.0.4-1";
+  version = "5.0.5-1";
   src = finalAttrs.passthru.sources."stereo_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

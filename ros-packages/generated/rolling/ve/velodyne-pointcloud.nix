@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "velodyne_pointcloud-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "a89c79b4fd6fd22573f348f546eb08dc70dd75f2";
-        hash = "sha256-1o89WmRWWM2ZfeKZPxgEOa5ijVURUBO/qmGbcmM9AR0=";
+        rev = "55e530db15fc3771b3ea8231616f26e812100a1e";
+        hash = "sha256-1Y2KKTZwRt7Abdc3Z47naRMYPYn/UyMuiTGTj8qw/eA=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_pointcloud";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_pointcloud";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
