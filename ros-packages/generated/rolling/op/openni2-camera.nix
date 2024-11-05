@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "openni2_camera-source";
         url = "https://github.com/ros2-gbp/openni2_camera-release.git";
-        rev = "60b0bf8f39a9231553ca174a59a5eb437f709461";
-        hash = "sha256-zluskCIVNU5rB7PJXU3uYl7qJha6gw33mZminvZOkd8=";
+        rev = "32a91a081983de487a72a9b92d8d8d5ee3161a5d";
+        hash = "sha256-CSYqk5PiDxVyyGakTWJCE4KM4z/tKVAPGLvPgx506rM=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "openni2_camera";
-  version = "2.2.1-1";
+  version = "2.2.2-1";
   src = finalAttrs.passthru.sources."openni2_camera";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
