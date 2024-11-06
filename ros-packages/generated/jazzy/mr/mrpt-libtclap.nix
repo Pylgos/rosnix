@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mrpt_libtclap-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "9e1a2d3dbe4a67ea56432c3e9c497f15e79e2153";
-        hash = "sha256-52jenS3yJgzjVbZvQMdQ3Z6f1QoyS2mBG3zXx75LRiA=";
+        rev = "f687d7dc32fc3dba971114508d27f846004fa240";
+        hash = "sha256-YoU9NWdJcDpt2hzY5VzHsSojoczYNgs4kyAtrWbr9d8=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libtclap";
-  version = "2.14.4-1";
+  version = "2.14.5-1";
   src = finalAttrs.passthru.sources."mrpt_libtclap";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };

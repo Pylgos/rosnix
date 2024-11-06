@@ -16,7 +16,7 @@ let
       src = fetchgit {
         name = "gurumdds_cmake_module-source";
         url = "https://github.com/ros2-gbp/rmw_gurumdds-release.git";
-        rev = "22d6529c65cf410a7a9a70819d7ae8b48c941614";
+        rev = "857cd534f75670d423f94f18a3a262d7a06a7e80";
         hash = "sha256-F9rv9B7x6Rv5rWdg3XWrctpfTUis1eLklzj+XaJdJDQ=";
       };
       substitutions = [
@@ -26,7 +26,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gurumdds_cmake_module";
-  version = "5.0.0-1";
+  version = "5.0.0-2";
   src = finalAttrs.passthru.sources."gurumdds_cmake_module";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

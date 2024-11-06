@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "realtime_tools-source";
         url = "https://github.com/ros2-gbp/realtime_tools-release.git";
-        rev = "e3806700b4d5424d40e8d2704b8dff934265b9c6";
-        hash = "sha256-O+JIb/Nj1NVKgFsEAEvpf/tYJG74a6ApfkNiFOzlM0s=";
+        rev = "bdd0ca03785f6ea7c88898f64b4156d76625f554";
+        hash = "sha256-6FP+c0lipDhCjJyrNTpU02fe3kTKuqJId1zinxJHfpQ=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "realtime_tools";
-  version = "2.8.0-1";
+  version = "2.8.1-1";
   src = finalAttrs.passthru.sources."realtime_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
