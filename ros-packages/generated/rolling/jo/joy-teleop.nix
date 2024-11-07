@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "joy_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "2fed97259ceec7e8ebff3c2dad1cc1d6ff9fbe93";
-        hash = "sha256-hHgsgt+KFKmJbWtcErIsEnrMF6Eg0Ge4KsJeh+D1I9A=";
+        rev = "73de7c92d8a10b3adf529c7c17fabb47ee2ae368";
+        hash = "sha256-K7tFHXLPXEjENFHRkVbx+HSv3Z6ka0lX/hzXxrobpNQ=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "joy_teleop";
-  version = "1.6.0-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."joy_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

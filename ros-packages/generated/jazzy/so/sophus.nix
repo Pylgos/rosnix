@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "bc041de0db118a30cb5588a435e1d56cac95e60b";
-        hash = "sha256-V47t6tSf6YxFszoxCWrgmf2bmvJUD8pMssE5c1fndi0=";
+        rev = "f46f5be4fa4d24c4e5382d0251315f361ce97424";
+        hash = "sha256-r+wFtlUoaL64oXP5NbJ5kQFDvCutFAuRnKqy5+08mxw=";
       };
       substitutions = [
       ];

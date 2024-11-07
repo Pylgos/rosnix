@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "openvdb_vendor-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "0b03bd682394a382754e396f31b0fa117bd26d71";
-        hash = "sha256-+hS4Rke9zP2HolcnMjcA0b7z7S0A+J6JZwrCeBvUyUg=";
+        rev = "34ab2cc5824f1a2c4f34e8c146a3bea8131ceb1a";
+        hash = "sha256-oixZb7HAcXbqx8D35IVcqMaO8R4j2iEd6cYeyK5Rtqk=";
       };
       substitutions = [
         {
@@ -60,7 +60,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "openvdb_vendor";
-  version = "2.5.2-1";
+  version = "2.5.3-1";
   src = finalAttrs.passthru.sources."openvdb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

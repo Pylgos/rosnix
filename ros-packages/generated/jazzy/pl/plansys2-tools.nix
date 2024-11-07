@@ -1,33 +1,33 @@
 {
   ament-cmake,
+  ament-cmake-gtest,
   ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
-  controller-manager,
   fetchgit,
   fetchurl,
   fetchzip,
-  gz-plugin-vendor,
-  gz-sim-vendor,
-  hardware-interface,
   mkSourceSet,
-  pluginlib,
+  plansys2-msgs,
+  plansys2-problem-expert,
+  qt-gui-cpp,
   rclcpp,
   rclcpp-lifecycle,
   rosSystemPackages,
+  rqt-gui,
+  rqt-gui-cpp,
   substituteSource,
   wrapRosQtAppsHook,
-  yaml-cpp-vendor,
 }:
 let
   sources = mkSourceSet (sources: {
-    "gz_ros2_control" = substituteSource {
+    "plansys2_tools" = substituteSource {
       src = fetchgit {
-        name = "gz_ros2_control-source";
-        url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "baa43807d473b64fc617c26b2372ab9041328d59";
-        hash = "sha256-dG53F7d+tzQEVaCFfxPLxJ8h9GKeSsFv3ofGxNXXp3U=";
+        name = "plansys2_tools-source";
+        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
+        rev = "578d214a287e48de44526c1d31619fd667ad173d";
+        hash = "sha256-nQOTBTDPcklUeXQDTcsd2eGsCHwJCioQs6eCIAmeYL0=";
       };
       substitutions = [
       ];
@@ -35,20 +35,20 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "gz_ros2_control";
-  version = "1.2.8-1";
-  src = finalAttrs.passthru.sources."gz_ros2_control";
+  pname = "plansys2_tools";
+  version = "2.0.13-1";
+  src = finalAttrs.passthru.sources."plansys2_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ plansys2-msgs plansys2-problem-expert qt-gui-cpp rclcpp rclcpp-lifecycle rqt-gui rqt-gui-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };
   meta = {
-    description = "Gazebo ros2_control package allows to control simulated robots using ros2_control framework.";
+    description = "A set of tools for monitoring ROS2 Planning System";
   };
 })

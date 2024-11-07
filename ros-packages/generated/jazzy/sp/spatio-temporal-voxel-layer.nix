@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "spatio_temporal_voxel_layer-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "b90240ec24e8493687336fa512d84fded305a7d8";
-        hash = "sha256-TI+acykuLfFK0oE0y9ADZZKcvn02EJ4JPHkP88+jaz4=";
+        rev = "7d72e2bc0d74851ecc26cdf7b3b600a0d5b19f72";
+        hash = "sha256-ys9aApSVsouGLSzHuoKESK3WGn43rMg20fPDSQdH3AY=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "spatio_temporal_voxel_layer";
-  version = "2.5.2-1";
+  version = "2.5.3-1";
   src = finalAttrs.passthru.sources."spatio_temporal_voxel_layer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

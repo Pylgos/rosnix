@@ -42,8 +42,8 @@ let
       src = fetchgit {
         name = "gz_ros2_control_demos-source";
         url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "f25fb245c3d154f807efd2bfbf815195e30e9bde";
-        hash = "sha256-oFa8pMwGaxu4uTVmOWL6709Mg3uGcSBFP03qzNgFaYE=";
+        rev = "509f037544816972dcc6ea4e742c1c49fc88098e";
+        hash = "sha256-YcaFi50xvtMWT0kvH9tD8+l5WYM2KIUw/U3zjdOnFSg=";
       };
       substitutions = [
       ];
@@ -52,7 +52,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control_demos";
-  version = "1.2.7-1";
+  version = "1.2.8-1";
   src = finalAttrs.passthru.sources."gz_ros2_control_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

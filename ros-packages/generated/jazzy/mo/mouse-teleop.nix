@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "mouse_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "d2ad73c7cbd917db010fd4ee1b0c6d84282a75f7";
-        hash = "sha256-485g/769r6HN7tldkE+3oc0YcEDu1lMiX+vvdOQ3aCo=";
+        rev = "74f2646d2a34b2c8df502119da4cbb5513a900b4";
+        hash = "sha256-aOP48rfspGDsSFU8rwhF9mhTNccMC5JOa1mWtpW08cQ=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "mouse_teleop";
-  version = "1.6.0-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."mouse_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };

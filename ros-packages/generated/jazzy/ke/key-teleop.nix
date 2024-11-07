@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "key_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "9b8afae068502c79f447d4ee66b45c732fd688d5";
-        hash = "sha256-8eSp3ZpGLPsD+IaosmQkyJ4Rxf2bbTV5yKjCWtrItNM=";
+        rev = "f1fbb30230c60fcf9d79207e8cc3ba8e5f03be5e";
+        hash = "sha256-HYIAeTW/FIJtUM3S9a5KIKG5IEhFU64E6fp8ursuQTE=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "key_teleop";
-  version = "1.6.0-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."key_teleop";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
