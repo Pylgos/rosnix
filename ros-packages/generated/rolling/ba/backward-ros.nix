@@ -1,6 +1,4 @@
 {
-  ament-lint-auto,
-  ament-lint-common,
   buildCmakePackage,
   fetchgit,
   fetchurl,
@@ -15,8 +13,8 @@ let
       src = fetchgit {
         name = "backward_ros-source";
         url = "https://github.com/ros2-gbp/backward_ros-release.git";
-        rev = "7385b7bf6be40bc277b3a73c5ca32104dfb47ea0";
-        hash = "sha256-bWsmqFK/qWWpbhuWLQpYSQyNWcbHbMKq/ACVsHa/Vf0=";
+        rev = "1e2cf0cd2c8ee82e678a25a91b18983a97e1d5fb";
+        hash = "sha256-K7oqrgMSoLx3eFF2IGVngyAI02mWSh7ZbrWEImayhuc=";
       };
       substitutions = [
       ];
@@ -25,7 +23,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "backward_ros";
-  version = "1.0.5-1";
+  version = "1.0.6-1";
   src = finalAttrs.passthru.sources."backward_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -33,7 +31,7 @@ buildCmakePackage (finalAttrs: {
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libdw-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

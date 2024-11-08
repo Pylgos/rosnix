@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "microstrain_inertial_rqt-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "bf0778695ebf5e99022c4dd81789ab1c6773f193";
-        hash = "sha256-PmfMnM67zdGmBxihr+jVfGvg9kgpjXm/QhtBQmz2ZZk=";
+        rev = "1108a0977b5245c5778c9d4c11de7a0b08b289b7";
+        hash = "sha256-rlZo2M8zgAec4dXU3PT5NM87THpdk3pAbPp0F5QLkRc=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "microstrain_inertial_rqt";
-  version = "4.4.0-1";
+  version = "4.5.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_rqt";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
