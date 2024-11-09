@@ -2,11 +2,11 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1730652660,
-        "narHash": "sha256-+XVYfmVXAiYA0FZT7ijHf555dxCe+AoAT5A6RU+6vSo=",
+        "lastModified": 1731098351,
+        "narHash": "sha256-HQkYvKvaLQqNa10KEFGgWHfMAbWBfFp+4cAgkut+NNE=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "a4ca93905455c07cb7e3aca95d4faf7601cba458",
+        "rev": "ef80ead953c1b28316cc3f8613904edc2eb90c28",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1731025526,
-        "narHash": "sha256-z0jMgVMXEkn6lmFNu2oSrcOKGwymvthyPWPjxXOi1eA=",
+        "lastModified": 1731116004,
+        "narHash": "sha256-GuMm8WlTL1HQXSfpaPxUzsyVbmkoxWW4pJG4W6VEuDw=",
         "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "be0cb8b526f05d636a19c466148c458ad18a5660",
+        "rev": "be34b419c975998861fa9727fa079d51406a6438",
         "type": "github"
       },
       "original": {
