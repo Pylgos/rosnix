@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "leo_teleop-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "8f00e8b87e7197ac928ad1c538d672ca6ae5b152";
-        hash = "sha256-JeNimAF404UWrQOSZAjVQxl5ntBZtCKMBiq6oUssPTo=";
+        rev = "3c0a674168ad40053c1147b328b885694c6a8fda";
+        hash = "sha256-7LSrtldXhZrS28iRUeqnMX0ow1RCOW0DdAV4F0oYmM0=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_teleop";
-  version = "3.0.3-1";
+  version = "3.0.4-1";
   src = finalAttrs.passthru.sources."leo_teleop";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

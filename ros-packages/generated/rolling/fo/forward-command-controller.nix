@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "forward_command_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "8b8ff828a5473cb710e49892b8de0acadeecad9f";
-        hash = "sha256-FhGZ5zpp/ZnwFNPqvtvgvINGrX9PsTbvcVhD9p3L320=";
+        rev = "097717e0ca2dfc35656c28f976c269deaad0ec9e";
+        hash = "sha256-bW/eYP7E8fwfv93VvEbBEgq+SRLrNMCuN7uqR1ibang=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "forward_command_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."forward_command_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

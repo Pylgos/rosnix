@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "nav2_behavior_tree-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "514435645fd784662bd5646e4452560408cd9ccd";
-        hash = "sha256-n8/qWnKTojyTZFNfXLMQRMV9FDbcmLweC+AgTJAwNPI=";
+        rev = "40323b329735d5b4399b0bdda9b1e28d15bffcaa";
+        hash = "sha256-fLl8/hLrkBgjMkeUerX4rAjLHkdrwAyLbm22ZMkYa8g=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_behavior_tree";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_behavior_tree";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

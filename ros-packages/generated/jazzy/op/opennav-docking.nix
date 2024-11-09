@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "opennav_docking-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "06c983c12bf21fa2ecf378ea2c66d3a7c7146e4b";
-        hash = "sha256-oYMQqBvVgM5FLPZFrKDxNjYTFDJdTanndgsarscpmRQ=";
+        rev = "3c1f7c877a7c1150c45adac1f33c9b042ac99fca";
+        hash = "sha256-yyaqfM9ybuUr2S6Xhtvk8JJwbNWkbuKKxgm1ONOu2J0=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "opennav_docking";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."opennav_docking";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

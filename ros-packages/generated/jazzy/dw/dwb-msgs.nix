@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "dwb_msgs-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "1dc28380a90258ff5deef89dcb84eda522a426f8";
-        hash = "sha256-9HSAL6xB2YdYGmB4n8g0hReYRJn4I0vCb65YjT60tS4=";
+        rev = "d412339f453abf72b31e7d6a8c9c75c666ac3a83";
+        hash = "sha256-RmJ8uoT49t7+FRDAyxcA7amPB4xGzazfDwJo96fVetg=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_msgs";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."dwb_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

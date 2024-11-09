@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "nav2_constrained_smoother-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "52a83dce9691003caf0a377ec9a8eaf6429b3956";
-        hash = "sha256-i6JL0yHKXGGnfgQ/RN9Y7TM/e+mqg/UACteF6y6TZxg=";
+        rev = "1879bd06127e08b2cdf30addd7432b4e53b1c471";
+        hash = "sha256-9cM+4oegVrhXEd6oK+tTKaP6mWYfss6nRlzTqZl+BCc=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_constrained_smoother";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_constrained_smoother";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

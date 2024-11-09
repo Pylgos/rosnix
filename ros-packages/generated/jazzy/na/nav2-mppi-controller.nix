@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "nav2_mppi_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "08b4b177721f7728db0d97ab714d3bfa0f387b6f";
-        hash = "sha256-4CddM03BKfM5pwz77c4aVffGkIep/OMgIakWNQ+zkiY=";
+        rev = "19ec167090f6758ad058c43c6563d639be8ead9c";
+        hash = "sha256-T8fCoWk16a0rGQzATBpZZvVjaPAFzRHoU1Gm29koTGY=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_mppi_controller";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_mppi_controller";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };

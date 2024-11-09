@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "costmap_queue-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "da08cfe50233ed3e54da9786f8b7bfdc32f2f07b";
-        hash = "sha256-7Vx3j1lLqN2jVzMUhVfdA49s7LLJrh9n5/x1hu/UD4I=";
+        rev = "4d092ede37bba1bee745e5d5ef5d165b7f41af8a";
+        hash = "sha256-AF6cXVPCpSWEs8ZAAKTXut3tHo3dcyZeHdaeKg99QNc=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "costmap_queue";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."costmap_queue";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

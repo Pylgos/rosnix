@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "nav2_smac_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4e117a9a6da62c8502b0ca84f7a66d1fa1fd8867";
-        hash = "sha256-XPoM1zgQ8+Oi7SPouSGBnhxuRDCQyA4UmmNf46yn9y0=";
+        rev = "169fa7d6577c56c4b764bf08c09a5205757a1d65";
+        hash = "sha256-kjlJhz3xHD5GzKFpsozXiiQfD/NTySWLDI+GwpWTcxU=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smac_planner";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_smac_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

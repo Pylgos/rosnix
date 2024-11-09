@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "nav2_waypoint_follower-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "f3ef643e5c81b498b5fcdc3bf2d937b4fa93b104";
-        hash = "sha256-0cD4CecbDGvV70fMa3RmgpZ5MHzPM4Pm/ee7ksLer8M=";
+        rev = "80a0fd60d2b24e081c32ebcf4fe51eaf70d31d4e";
+        hash = "sha256-tUzvgJHo5006TKwMoZH41F99BFqypU7eZcqdqoQ9CRc=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_waypoint_follower";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_waypoint_follower";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

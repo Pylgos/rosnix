@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "range_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "0334c6e38d54d8cb2367939982eb15d265a3e90f";
-        hash = "sha256-eaTLDaG3MWQE83EM4BtVtLdYY3Ek0GqDNoDXDY2Jdbo=";
+        rev = "220b020d2bd73cd99ec33e9c3f3a02e3cea539be";
+        hash = "sha256-+7JBZLW9i4jRedL8sla0vZlUXP8uf0j9eCfoNeNWP7U=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "range_sensor_broadcaster";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."range_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

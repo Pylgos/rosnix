@@ -42,8 +42,8 @@ let
       src = fetchgit {
         name = "nav2_costmap_2d-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "b83cd7d17af1a2d0ca1e7f57fb3f5c56f06eec55";
-        hash = "sha256-JorqUFfLMk72HunH0GA2akURRw6BDCXHICrzwbf9gj0=";
+        rev = "14134bfc46845ae85c2cdfef826b3e099d3090f0";
+        hash = "sha256-h2oCRyVXfR2BZGESJNfgDMRPShgRQARf48mD08SDxco=";
       };
       substitutions = [
       ];
@@ -52,7 +52,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_costmap_2d";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_costmap_2d";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

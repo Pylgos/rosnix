@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "nav2_voxel_grid-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "e6e1b2bac1516c762e7c4d30a5fc0db1976b8f8c";
-        hash = "sha256-3w89YjGD049Hpv4TT3LxnPtulNZJCchHqIRiD3uWUUQ=";
+        rev = "6169cb0df8eab522d9e1833b40aac8f7c6ce1075";
+        hash = "sha256-3nTIGZvAHJfKsEcKCxGacj645SHmIslkmg9R64DSQIw=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_voxel_grid";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_voxel_grid";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

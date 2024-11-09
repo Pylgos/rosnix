@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "nav2_map_server-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "2cc46a8da02d1bf47c55e6f879f28f1f83fbab36";
-        hash = "sha256-WRK3aQuENt5qMq+gPo495n3d4g5uXTLEGmk2y1S/OXw=";
+        rev = "242cd7b500f8ee1e1643e23c5c23d555d0a771bc";
+        hash = "sha256-9iuttQnHiojNNGOtNYUzkiYhXf3jgkgbu1UHA5ZIEcE=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_map_server";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

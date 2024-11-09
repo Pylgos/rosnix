@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "joint_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "cd5ff68197f159c9f4a3ee5f219a7a05de421f18";
-        hash = "sha256-+BO2Dh/oDhZ+sBl088PrkbvR+7sGBZJIkXn5h3kBE1I=";
+        rev = "35f5336000e9b295eb70f651195714b737e308a6";
+        hash = "sha256-GV18pB63Xo1P6n1sE/at1i7hVW029GyHiPcm2w9G7fY=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_broadcaster";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

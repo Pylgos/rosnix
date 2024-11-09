@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "leo_description-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "e6e0ce195979662d770a228c6d72aa71f83abc07";
-        hash = "sha256-Yi8hUp1UDui0Zdzwx6JhxHXBD4N3/L36/mN0dwOHufY=";
+        rev = "c8b7eb7ab155bfa8ffa686bd6fc14823756346cd";
+        hash = "sha256-m+hHyJ2th4LpHdo+UpwCUwPPDsHwUynBcC9sLCdJZCc=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_description";
-  version = "3.0.3-1";
+  version = "3.0.4-1";
   src = finalAttrs.passthru.sources."leo_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

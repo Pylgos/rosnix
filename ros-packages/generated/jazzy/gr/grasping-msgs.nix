@@ -20,7 +20,7 @@ let
     "grasping_msgs" = substituteSource {
       src = fetchgit {
         name = "grasping_msgs-source";
-        url = "https://github.com/mikeferguson/grasping_msgs-ros2-gbp.git";
+        url = "https://github.com/ros2-gbp/grasping_msgs-release.git";
         rev = "949492c763cdc610059b1ff81b0f9639d903d508";
         hash = "sha256-e/QiiwnuHIrC5x8sGMNrSSN6DseBR27gPzgQxpLo4cs=";
       };

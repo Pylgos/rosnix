@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "position_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "dabf1942eac7a7489bbec5443b17302205eaa4c4";
-        hash = "sha256-nWZD3DxXsfqx+n8PP4p1YAWp3hCQfGUBqMLzBwGCPVA=";
+        rev = "264d2d0ea46922ffca6fa70d428a0a70934dc75e";
+        hash = "sha256-hQL9pKEHr8jscTs05sUKX5Evahw9dM5Y/CH+q/qSm9U=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "position_controllers";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."position_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

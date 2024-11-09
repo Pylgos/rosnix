@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "nav_2d_msgs-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "539d291a79814f3b5881c5776d7d13a46be85e99";
-        hash = "sha256-Fb29xt0/Ou72DqfWrojC+Avcrl6GR8FYzKkQmswHiu8=";
+        rev = "6284b55eed4bd150e16aea17b288d1211da9964e";
+        hash = "sha256-NEAyFPZ6bRJ6pZIMygxhDBtSRImBra6BJoaYr126G3c=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav_2d_msgs";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav_2d_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "octomap_msgs-source";
         url = "https://github.com/ros2-gbp/octomap_msgs-release.git";
-        rev = "e7f6f4c35b2233c5591d0daee0976eb5b6957f4b";
-        hash = "sha256-97tbZTVcZMc2CB2JAW6gn0/ABahvBbfiC3jpHDIJJ6I=";
+        rev = "e4ef4ab8ccdab5606fecb035ef0c8f77325fb3b4";
+        hash = "sha256-K+JsNe6XUHfZcd7C4bJTFo1CsVsdOSF/YNIshrKDaq0=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_msgs";
-  version = "2.0.0-4";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."octomap_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

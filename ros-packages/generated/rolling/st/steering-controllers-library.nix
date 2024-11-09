@@ -34,8 +34,8 @@ let
       src = fetchgit {
         name = "steering_controllers_library-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "d63364880f9150b31a94bff37abbdb59caf62966";
-        hash = "sha256-pZv0h+LnhOEuK9m9aE94PufmBK+yLr4QC60KXh/cr9I=";
+        rev = "c3d2de5f3e0ff4a2b89b05c6d7e8c11292adab6c";
+        hash = "sha256-8jhjwRlnBhRs9Pd6OoeIq2EhGFLN7qKmnYqVXYlcVh4=";
       };
       substitutions = [
       ];
@@ -44,7 +44,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "steering_controllers_library";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."steering_controllers_library";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

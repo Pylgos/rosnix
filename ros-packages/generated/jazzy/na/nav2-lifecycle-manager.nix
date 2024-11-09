@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "nav2_lifecycle_manager-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "b7c8655c4a6cb1cc31625fc1c9bad1ec4040ac07";
-        hash = "sha256-bSmjWv5KmPZCdLOYkhg8JPjLBV9yE663Pk9+8bjD5L8=";
+        rev = "46f35884111f11f95d90624b33878fb69437d3d8";
+        hash = "sha256-jAmq4B0GpgT/MaRncocWxTRABkcY3WzsPRD3A1e2nEE=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_lifecycle_manager";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_lifecycle_manager";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

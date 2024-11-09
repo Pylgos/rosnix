@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "dwb_core-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "d601c7ec253305ccf6fef058cd1aaf913bfa9c1a";
-        hash = "sha256-CxMMRdvdGeXbpXUmbJZ4RD5D+N8vMBzpzTF5GWasHLI=";
+        rev = "94d388ff2e3c2b673aa64c3bb2d8bd550de249a8";
+        hash = "sha256-15XfBcfqImq9wRUuzKzH+xSowcCA+s4/FKcpXWpq35E=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_core";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."dwb_core";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -29,8 +29,8 @@ let
       src = fetchgit {
         name = "imu_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "47c5f0a450772d247800b4c0b6be44869716c234";
-        hash = "sha256-TZjyHDQhzGwZ1Uh2HE3S2qFDi8QfF4ftVVg8KYeVS9I=";
+        rev = "cabb6f4f19b30d9beb1d5e3bca4297d130a05dad";
+        hash = "sha256-IKvvKwTjn1RtSL4plocpVa4EcUfEm22MWYUyw3G9KUk=";
       };
       substitutions = [
       ];
@@ -39,7 +39,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_sensor_broadcaster";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."imu_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

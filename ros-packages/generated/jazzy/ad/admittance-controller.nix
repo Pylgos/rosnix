@@ -39,8 +39,8 @@ let
       src = fetchgit {
         name = "admittance_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "883f29473a4b5adaefeaa711835d1d6dfb7b5746";
-        hash = "sha256-Zkt5JmPydw/KVXv1XavAZqiPM5t+YtVN7CP50suVYg4=";
+        rev = "32ca0831c8d32dcc8a28d14e09a3f6148910b98b";
+        hash = "sha256-hZ3Ai2ECC/9T/wZPQ2YhrqfGCuI5H9IXSvrJ22PeQHY=";
       };
       substitutions = [
       ];
@@ -49,7 +49,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "admittance_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."admittance_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

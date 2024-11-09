@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "90e77a0067f0a83559e8d8fc94e073eb94b85396";
-        hash = "sha256-+ld4KEgfOIqDx83cISGvXFv3m9aSva9+fcP8ZEV9Bu4=";
+        rev = "7570747afd08960a32a415a198f4e4123ebb1d00";
+        hash = "sha256-kiHsB67vn5nWHy4oYzZFoVF+A+ZvMEez3xDC8tGUiao=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_trajectory_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."joint_trajectory_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

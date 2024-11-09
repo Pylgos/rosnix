@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "tricycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "54690415effc7501bf2160dc11d89d319bf4b274";
-        hash = "sha256-pz4W/omr37OWtBputE5FItmA7S4RrTVrEPsHjeRBz4Q=";
+        rev = "a26f0fd5c3ea0236d61628f3d91ae63d8194dabb";
+        hash = "sha256-FVBM0L2iDgDj/LGrwyDo6Z11gdWJIs4/+sk1i3y2g7Q=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_steering_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."tricycle_steering_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

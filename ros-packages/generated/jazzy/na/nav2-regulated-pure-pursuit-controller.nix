@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "nav2_regulated_pure_pursuit_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "63fee1a413678f3e3486048d458c959fe254f822";
-        hash = "sha256-h95hho/UqqE9r5MxhSzR2GQ/PLLzTmJTMO60j+wdzwA=";
+        rev = "0cd1b687428f4132ef299df1dc41754c9da87169";
+        hash = "sha256-D/KeuoWA4zKBdOHKJoWiYWpsck4YSwKYX+a3GNO/Jqc=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_regulated_pure_pursuit_controller";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_regulated_pure_pursuit_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

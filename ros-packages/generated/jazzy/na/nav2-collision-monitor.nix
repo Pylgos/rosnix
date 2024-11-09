@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "nav2_collision_monitor-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "0f167662f9c507cb0cfd8d1b1be30181ab3a60f5";
-        hash = "sha256-WSNXPiamfmrxFjAyvQOd4d/wqZz7s9RgIQJLACMyB34=";
+        rev = "4278e1c732080122ca1a2eaca5ea5bdf2db88bc7";
+        hash = "sha256-2iBBTkfdK33yLZIbKcGCq5VrLUUsIdRoyTcoOVLYXfw=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_collision_monitor";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_collision_monitor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

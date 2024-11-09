@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "nav2_smoother-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "311ed7c2b8f69a96be19e31976acfa153724226f";
-        hash = "sha256-JbBJn0lGa7Dym+rtfMP2D1prnQdXflrMl9WCxndv/4o=";
+        rev = "cf0bac764b0e3dd24feb513d7af1ecf950dfa234";
+        hash = "sha256-gocd0TwuO2gTtF+PMOwKyCYxaq1JALR0MlVgGHArBTs=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smoother";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_smoother";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

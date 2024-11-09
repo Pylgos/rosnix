@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "bicycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c83baa588607985db7e33de40ae2539d9cd26175";
-        hash = "sha256-kuMM9XMkLTfD1Aj46maICX7gsjs9JqpJvavUB1FkiiQ=";
+        rev = "bce7243605573d6429c634c5a195a3b4025ec2d9";
+        hash = "sha256-S3Lt1DxHPoeDC8yjcoufYWi1vrWJYW7gE9Uoc0QxA/s=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "bicycle_steering_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."bicycle_steering_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "robot_calibration-source";
         url = "https://github.com/ros2-gbp/robot_calibration-release.git";
-        rev = "739632d141c42b7e2b5827568eee1351270bd89f";
-        hash = "sha256-fzPPa6NBKrV3U/XQPpUYuVK+ZY5efMVqnexTp429bBQ=";
+        rev = "7e9ad1e9eba3c24760d1da2d89b0c647d042b238";
+        hash = "sha256-Wjdl+yT4g0dUIdUSrMGeweY3rJs8WDOsNliZ9xRBCvc=";
       };
       substitutions = [
       ];
@@ -47,7 +47,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration";
-  version = "0.9.1-1";
+  version = "0.9.2-1";
   src = finalAttrs.passthru.sources."robot_calibration";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

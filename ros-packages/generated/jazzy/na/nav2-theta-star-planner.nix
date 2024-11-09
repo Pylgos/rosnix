@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "nav2_theta_star_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "e36d6e0da50f7626d260f756dbfe141ed990c020";
-        hash = "sha256-Nr2c+669UgvzGc55Tz1013vuzVVZAiOI6lKDv6g2Sww=";
+        rev = "03213956804ebc7e4305317b535365834d3e46ec";
+        hash = "sha256-XGcpbT6hNHd4hplye+Vt2410AFVRL1aV1Mta7YbBpRQ=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_theta_star_planner";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_theta_star_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

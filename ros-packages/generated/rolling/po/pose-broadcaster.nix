@@ -10,29 +10,25 @@
   fetchzip,
   generate-parameter-library,
   geometry-msgs,
-  hardware-interface,
   hardware-interface-testing,
   mkSourceSet,
-  nav-msgs,
   pluginlib,
   rclcpp,
   rclcpp-lifecycle,
-  rcpputils,
   realtime-tools,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
-  tf2,
   tf2-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
-    "diff_drive_controller" = substituteSource {
+    "pose_broadcaster" = substituteSource {
       src = fetchgit {
-        name = "diff_drive_controller-source";
+        name = "pose_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "f9b4969d4c9d73998edb73c091f01d3d2843bce9";
-        hash = "sha256-DWmqYM3ONV7JS28AR0wLNy98s/ydygVM3AhEhm7CYsE=";
+        rev = "de9a00a31ca5595b423d7ada207abfd605f53626";
+        hash = "sha256-HONOiC7cCywY6cHfIAXcjr+OV8N1DqbLPKUw8BjIYQc=";
       };
       substitutions = [
       ];
@@ -40,13 +36,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "diff_drive_controller";
+  pname = "pose_broadcaster";
   version = "4.16.0-1";
-  src = finalAttrs.passthru.sources."diff_drive_controller";
+  src = finalAttrs.passthru.sources."pose_broadcaster";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -54,6 +50,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Controller for a differential drive mobile base.";
+    description = "Broadcaster to publish cartesian states.";
   };
 })

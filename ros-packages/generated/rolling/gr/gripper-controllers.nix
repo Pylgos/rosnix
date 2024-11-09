@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "gripper_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c53716a2bb5081f571549a34f1afe69e942799e8";
-        hash = "sha256-MlQg3I4gYe9lO76MSEQyvn9zO6KRrUqJ0K8LUimt3+Q=";
+        rev = "54d9fb9380c3ba1ca99257b78c3e0853b968eef9";
+        hash = "sha256-JMeVAienMsJwF3mHTHAe67vAGdPk0FAlNrcbwqkvuLw=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gripper_controllers";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."gripper_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

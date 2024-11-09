@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rqt_controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "51274764b4a6dc8da820b7c847592e21da0fe399";
-        hash = "sha256-FkcnIA/iKNMRoL7SKpsrX+QJWZc/rOVXDlhxMZp3lWg=";
+        rev = "a184c985e006d18e05afca5107b5618631ad1be5";
+        hash = "sha256-VPqTJHC4PSG2t6l0lQQg6X+VbY0O7gxAVNqbX1PiKa8=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_controller_manager";
-  version = "4.19.0-1";
+  version = "4.20.0-1";
   src = finalAttrs.passthru.sources."rqt_controller_manager";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

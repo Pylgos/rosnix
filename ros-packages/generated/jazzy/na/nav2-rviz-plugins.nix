@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "nav2_rviz_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "6fa0a928c11367965d18de1db92dd32764729b15";
-        hash = "sha256-xPI0IwHmylfSWm036ptYq2DFSUosgFvONkgJ9/LNCPA=";
+        rev = "d9d209e96c1550bf4f9f6e32fe8b86291e937307";
+        hash = "sha256-QIXVHZ2lwckS60xQL296R+7LlmmymSh3kV8IShGJrWE=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_rviz_plugins";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

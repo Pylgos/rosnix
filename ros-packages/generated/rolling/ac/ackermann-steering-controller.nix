@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "ackermann_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "70733a52e9ad2b64543c873caee6bf78da09cf43";
-        hash = "sha256-DIjSsFluFrAID13gh+AruMVdDoAHcySXbf+5jqLDJmI=";
+        rev = "2ff59bc4139b1f8fb4c4895539a2fb30d057e4a8";
+        hash = "sha256-I3XjdubHbAgHeHBL5WZfRQFkc/UWkWZ0gD9V9JLvheQ=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ackermann_steering_controller";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."ackermann_steering_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

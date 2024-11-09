@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "nav2_bringup-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "3ed52d2e3b71b48b5f0141e0c4475baf17770d08";
-        hash = "sha256-Deg2qAY6VvKeHrjquPFWHy8FbL6BRP3LR1hQWoJsHNk=";
+        rev = "c56a3ae38b799f736bf9df87fb512bf0940bb440";
+        hash = "sha256-lmTcuNaGdaqtv4yAViPDOGIu8ahLa+DSAGzReocP7Dw=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_bringup";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

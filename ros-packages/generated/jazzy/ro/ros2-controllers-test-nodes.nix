@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "ros2_controllers_test_nodes-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "018251ed60271dde1999d95508113dbea5870f84";
-        hash = "sha256-nq/UGNefB5ZqWjGnd72namS4ixfssi5NAgQp2taehZM=";
+        rev = "53c7bf5436277c4b80ae57910f125570aa4489c0";
+        hash = "sha256-gr2lvgk69yHRVD6/3tVItx1pz8Z3TcAqo0z+6hgN0Tw=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2_controllers_test_nodes";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."ros2_controllers_test_nodes";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

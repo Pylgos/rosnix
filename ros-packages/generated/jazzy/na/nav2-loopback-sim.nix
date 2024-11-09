@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "nav2_loopback_sim-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "0c1736afb9ce7684200dee034620c05da7a3ede9";
-        hash = "sha256-JsQnEvE47ybiHdLPwyBF8N6oH36t/gUgyypgOtDezVI=";
+        rev = "94031f83845c7a6d0a0465911b99c1e2bb3fa98d";
+        hash = "sha256-ucVzh31JNG7H+sLXPqCeigSNwu2tKsgvkoKqMbITOf8=";
       };
       substitutions = [
       ];
@@ -31,12 +31,12 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_loopback_sim";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_loopback_sim";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy tf2-ros tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-transforms3d" ]; };
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy tf2-ros tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };

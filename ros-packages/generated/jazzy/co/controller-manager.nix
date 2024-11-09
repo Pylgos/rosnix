@@ -35,8 +35,8 @@ let
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "89bb8847d3974e7987eef5c3d940bc481b6c9e9f";
-        hash = "sha256-EWRp/kC2e56NBrr3PAM+jXvuGni30w3QMHF/9uXix40=";
+        rev = "1cd8c77d2bbdf4c2954e0f030dd961a04a6ed54a";
+        hash = "sha256-hpBmgk2l+h3PHWfF9HSb3ZBja3g287KRoyxXHA5y5XQ=";
       };
       substitutions = [
       ];
@@ -45,7 +45,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
-  version = "4.19.0-1";
+  version = "4.20.0-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

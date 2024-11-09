@@ -34,8 +34,8 @@ let
       src = fetchgit {
         name = "gz_sim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sim_vendor-release.git";
-        rev = "c0f753371bf676c571049995e5094a117a3801a6";
-        hash = "sha256-UUKPw98W66wrptTZTOyVG5yzrMELSFJ9vIrluYTgCGY=";
+        rev = "37f9af89aaf45fa7bb80f793bbe03595bd3c7e20";
+        hash = "sha256-qmFpVvXOZisJ5vsBR+Q/EMusnXMtZkVGCRveityfXc4=";
       };
       substitutions = [
         {
@@ -49,8 +49,8 @@ let
       src = fetchgit {
         name = "gz-sim-source";
         url = "https://github.com/gazebosim/gz-sim.git";
-        rev = "4226d04fa3e51c6d4cf5970a2915d5891af37501";
-        hash = "sha256-zSiPHEh3h2J8hGL342tde5U9FLaGnWs72WD9BqyPf6E=";
+        rev = "c298007066eb3a0a4b260884fe9a1148903e7bc3";
+        hash = "sha256-Kalt+UwFiL1D+A5pkM/aZyEmBenqPo9U4jlAmqLze3c=";
       };
       substitutions = [
       ];
@@ -59,7 +59,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sim_vendor";
-  version = "0.0.5-1";
+  version = "0.0.6-1";
   src = finalAttrs.passthru.sources."gz_sim_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
@@ -72,6 +72,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-sim8 8.6.0 Gazebo Sim : A Robotic Simulator";
+    description = "Vendor package for: gz-sim8 8.7.0 Gazebo Sim : A Robotic Simulator";
   };
 })

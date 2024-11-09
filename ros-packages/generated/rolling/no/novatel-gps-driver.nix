@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "novatel_gps_driver-source";
         url = "https://github.com/ros2-gbp/novatel_gps_driver-release.git";
-        rev = "ba8842b4e47e05cfccbdca9b7c1f2c1698ec1af3";
-        hash = "sha256-vdcYwUolZmKLnlDwWfWCMc2ndQTtmceSjVNyU+rp3Vw=";
+        rev = "96f09fdfe0143f01ec45322224fe4138a2c47a18";
+        hash = "sha256-MuPfnwvvI0/AYzr5gNpi1R3/Mcp6IkqJpIv7fMdhPac=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "novatel_gps_driver";
-  version = "4.1.3-1";
+  version = "4.2.0-1";
   src = finalAttrs.passthru.sources."novatel_gps_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

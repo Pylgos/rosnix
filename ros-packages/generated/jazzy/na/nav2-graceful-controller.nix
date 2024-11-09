@@ -30,8 +30,8 @@ let
       src = fetchgit {
         name = "nav2_graceful_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "531c39e19ced9c9d1fc7f9708b7d0aa91ad27903";
-        hash = "sha256-HMbaIXM4eHC7iq4gPO/DBRlM6zBWUo510ifLC5BZs7s=";
+        rev = "7bc7678baa02d40c2d4d0c424756143fd8579fc4";
+        hash = "sha256-izjx4heA8hpIhtF4DxY3GJa+s9cApOru+TUg2+3ci+I=";
       };
       substitutions = [
       ];
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_graceful_controller";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_graceful_controller";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

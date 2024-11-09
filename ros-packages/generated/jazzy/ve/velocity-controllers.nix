@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "velocity_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "31503d0479d25ebdf4bb0661200d6bc0a0752179";
-        hash = "sha256-6lkS/dF8zJhA/Bh+eDvDfCp7beETF6jncNhAAegekxo=";
+        rev = "329020003660e3c286983cc17a71570c04193b0d";
+        hash = "sha256-OAuRRfG3gdEwsUW7JxRmj5ChxB8clBcYZh1402AuIBA=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velocity_controllers";
-  version = "4.15.0-1";
+  version = "4.16.0-1";
   src = finalAttrs.passthru.sources."velocity_controllers";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

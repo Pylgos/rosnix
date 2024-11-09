@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "nav2_simple_commander-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4a1746775eda82582b36284167b4614465541c70";
-        hash = "sha256-zYsPBi6Y9OHE1Sct61Zk905/ZbLsNw2526c2dtYtElk=";
+        rev = "1badc6841f8ee2fc361adb1e25c8210079937633";
+        hash = "sha256-GDt+wzBUFNCmOSDiNRQ5T2BP+NnJbz1lgqEYy1SHo1o=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_simple_commander";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_simple_commander";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

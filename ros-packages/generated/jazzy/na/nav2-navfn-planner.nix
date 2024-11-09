@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "nav2_navfn_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "3f18d08e9de0f4c35c60f81b6a1e51871a6fd7f8";
-        hash = "sha256-+VJaEVKOfGsHGPs2VCB0GCaR+Oq9KlTOniN6Cbt/H+0=";
+        rev = "709ab945b92e0fddc65c7579268f3e0c91b4f36c";
+        hash = "sha256-HLcTw+1zjw4W4rZLAxgdscFFktwEzdiMx7ql8aH0HY8=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_navfn_planner";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."nav2_navfn_planner";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
