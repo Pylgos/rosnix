@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "58fc2fca97687c581f8a84d31c5ac553880fd6b5";
-        hash = "sha256-sxWa6Jzb8GW/7BfFmn8OXazQdq6fF+DkB5C7KyDJTtY=";
+        rev = "71db3a4e893c5cc82066c33eb6243d6982c2d916";
+        hash = "sha256-lBQwF+2oJIliQau5c9ZGQJ5+Tz1IE+n+l6YAsEdMOvo=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildCmakePackage (finalAttrs: {
   pname = "mp2p_icp";
-  version = "1.6.2-1";
+  version = "1.6.3-1";
   src = finalAttrs.passthru.sources."mp2p_icp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
