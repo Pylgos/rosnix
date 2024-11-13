@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "gz_sensors_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sensors_vendor-release.git";
-        rev = "085d65b284ef6a7536ff40f18e64e298e56f0ec0";
-        hash = "sha256-lIlYTD+b6EjuknN8kJlsw7yW6ti8Nu+XTiF1pyKE5EU=";
+        rev = "f8078d8ea662d026611c92dc68c89adbb07a3c48";
+        hash = "sha256-JkDABKa5TTGfPxpcWr7FzO6shR3UlzOycRnrLEsdVJY=";
       };
       substitutions = [
         {
@@ -42,8 +42,8 @@ let
       src = fetchgit {
         name = "gz-sensors-source";
         url = "https://github.com/gazebosim/gz-sensors.git";
-        rev = "410a999f1e0e91bdcf81c6aff70fa3e95e369757";
-        hash = "sha256-j/8kS+Bvaim2gtsZcp+/u8CAE+N24/5qZhciFR0Q8+M=";
+        rev = "f44c31f6ddedff4440d2df8896f77ab94dcc25d2";
+        hash = "sha256-wEUJoHbvvImuFbaKk84maw5AoKhoEhdU0uOYVBtHhI0=";
       };
       substitutions = [
       ];
@@ -52,7 +52,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sensors_vendor";
-  version = "0.0.4-1";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_sensors_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -65,6 +65,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-sensors8 8.2.0 Gazebo Sensors : Sensor models for simulation";
+    description = "Vendor package for: gz-sensors8 8.2.1 Gazebo Sensors : Sensor models for simulation";
   };
 })

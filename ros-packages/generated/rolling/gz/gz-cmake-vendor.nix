@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "gz_cmake_vendor-source";
         url = "https://github.com/ros2-gbp/gz_cmake_vendor-release.git";
-        rev = "a0b6c7c350fb2cf13eb81c45bf8d9636e671a5f9";
-        hash = "sha256-Du1OPUNOy4/njNpEwsNZoqfkZU80+Y8m4gfx9c5EdpM=";
+        rev = "46e4ed7cab736fd57e68e12aa31c46cfece68356";
+        hash = "sha256-3LOsOvMbjd+vBxT6PINb6nGBIb4FjOlIFSW5buTsd3U=";
       };
       substitutions = [
         {
@@ -34,8 +34,8 @@ let
       src = fetchgit {
         name = "gz-cmake-source";
         url = "https://github.com/gazebosim/gz-cmake.git";
-        rev = "6e202b72e56bda3965d1efdf6edf8447cc1299cc";
-        hash = "sha256-r1XQqx+JqH+ITZIaixgZjA/9weyPq8+LQ1N2ZsIdOK4=";
+        rev = "eb1c510e6278935eb742ed92c6a6d1388439f8bd";
+        hash = "sha256-GyVDbJM3qdFSdp+Kw8z1vB6ipOkB0+4TYWLV+FhIsj4=";
       };
       substitutions = [
       ];
@@ -44,7 +44,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_cmake_vendor";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_cmake_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-cmake4" ]; };
@@ -57,6 +57,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-cmake4 4.0.0 Gazebo CMake : CMake Modules for Gazebo Projects";
+    description = "Vendor package for: gz-cmake4 4.1.0 Gazebo CMake : CMake Modules for Gazebo Projects";
   };
 })

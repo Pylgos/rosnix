@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "gz_physics_vendor-source";
         url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
-        rev = "53288c00b4ac180945be5466ce87a9e1b1f32366";
-        hash = "sha256-iDCkqgePD0uE6dcCI23Zq502xOXwGQ9b0iyMmHs94lk=";
+        rev = "78c424e0eb7c78be9d8c06637c67d79bc89e7268";
+        hash = "sha256-i8IQYCjycE9zEcYxAsWHNDxg8Rud9U14hlA7OjPUQls=";
       };
       substitutions = [
         {
@@ -41,8 +41,8 @@ let
       src = fetchgit {
         name = "gz-physics-source";
         url = "https://github.com/gazebosim/gz-physics.git";
-        rev = "f54d4ded615626d3cff34a5dcfa0cedfe8bd903f";
-        hash = "sha256-PTalEQc9C/QsYMO+XK7aOzZUzC01jxiW6bjdItB5hlM=";
+        rev = "550c6b14e24bbf81087c5c03ed3b6a3e17e18cca";
+        hash = "sha256-14/P/xoZSqqqf9krgqDKVcO/rTZOEhLni8ZUR3W9ey4=";
       };
       substitutions = [
       ];
@@ -51,7 +51,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_physics_vendor";
-  version = "0.0.4-1";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_physics_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
@@ -64,6 +64,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-physics7 7.3.0 Gazebo Physics : Physics classes and functions for robot applications";
+    description = "Vendor package for: gz-physics7 7.4.0 Gazebo Physics : Physics classes and functions for robot applications";
   };
 })

@@ -22,6 +22,20 @@ let
         hash = "sha256-VOAouaWTIzYdk++/+Quu0gP35VrR5eUIUMlK1RFbcrA=";
       };
       substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "URL https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
+          to = "URL ${sources."kortex_driver/linux_x86-64_x86_gcc"}";
+        }
+      ];
+    };
+    "kortex_driver/linux_x86-64_x86_gcc" = substituteSource {
+      src = fetchzip {
+        name = "linux_x86-64_x86_gcc-source";
+        url = "https://artifactory.kinovaapps.com:443/artifactory/generic-public/kortex/API/2.5.0/linux_x86-64_x86_gcc.zip";
+        hash = "sha256-+fUMtXCoThItleO1C2jTZfK6DP/Z7dVJx26WWbBQ9Uc=";
+      };
+      substitutions = [
       ];
     };
   });

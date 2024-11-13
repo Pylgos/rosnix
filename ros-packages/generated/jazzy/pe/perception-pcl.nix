@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "perception_pcl-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
-        rev = "95b50e2aced7d1d6c743f13b7debe0960e9285a8";
-        hash = "sha256-P/Qu0+b3vRkm+jivWMUPgmcBsnB+nSLxDlJDEOmtuCQ=";
+        rev = "dffbf37d2e3ac6dd31d2c9e8b7e7591c6bb3347e";
+        hash = "sha256-bBmHIHH2Ic0r/71bht2jdqPLUUY9mCpMkJK5yspGf14=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "perception_pcl";
-  version = "2.6.1-4";
+  version = "2.6.2-1";
   src = finalAttrs.passthru.sources."perception_pcl";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "gz_msgs_vendor-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
-        rev = "25905a007be43a355645730c7be99fad30cc7636";
-        hash = "sha256-0geXZdTt4n0yj0TwzXFxblk35LrxZePiOVTUBPLkwH4=";
+        rev = "2c5435d57f6475379f2b28888a26b2a008174585";
+        hash = "sha256-XQ922f4I6dK4HGhDOKvqa3rGZNSDRdGK2IKzOFCl8o8=";
       };
       substitutions = [
         {
@@ -37,8 +37,8 @@ let
       src = fetchgit {
         name = "gz-msgs-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "0da35a8b1239c3186e398ac4ed2dbe1762f3aaa4";
-        hash = "sha256-PQT8EpTxafldnKG3hDSXw2P22gLRg2EfMllrzaTaDEw=";
+        rev = "d9501cf8ab410288d8ca388971eece8ff40a67e3";
+        hash = "sha256-GBEylFQvR2MWOIivW2+MGy//jjewId41mk8qpLfoaYM=";
       };
       substitutions = [
       ];
@@ -47,7 +47,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_msgs_vendor";
-  version = "0.0.4-1";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_msgs_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -60,6 +60,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-msgs10 10.3.0 Gazebo Messages: Protobuf messages and functions for robot applications";
+    description = "Vendor package for: gz-msgs10 10.3.1 Gazebo Messages: Protobuf messages and functions for robot applications";
   };
 })

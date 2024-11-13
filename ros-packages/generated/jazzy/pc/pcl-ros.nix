@@ -21,6 +21,7 @@
   sensor-msgs,
   substituteSource,
   tf2,
+  tf2-eigen,
   tf2-geometry-msgs,
   tf2-ros,
 }:
@@ -30,8 +31,8 @@ let
       src = fetchgit {
         name = "pcl_ros-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
-        rev = "4200ad2cd0685c607ff4c420e6825f5abeb5457c";
-        hash = "sha256-JYaF0rM0jptFPpMnfXIyQDMAwFXoG/ULAVW/d4/CVPs=";
+        rev = "9a55281930a3a501cb9fa7e7fd7f4244d71e7eb6";
+        hash = "sha256-4CwCp92Ei2vmlkxdeJsjU+WFxcuP8xA7O4e3uFVLDgA=";
       };
       substitutions = [
       ];
@@ -40,12 +41,12 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "pcl_ros";
-  version = "2.6.1-4";
+  version = "2.6.2-1";
   src = finalAttrs.passthru.sources."pcl_ros";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs pcl-conversions rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
+  propagatedBuildInputs = [ geometry-msgs pcl-conversions rclcpp rclcpp-components sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-ros launch-testing launch-testing-ros sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
