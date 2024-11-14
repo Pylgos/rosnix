@@ -19,7 +19,7 @@ let
       src = fetchgit {
         name = "scenario_execution_gazebo-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "c782b91821dc7f5e8888a1368f0ae3a8ee9cea19";
+        rev = "d722e4dd777f40f821eca09758fe56d5e047aac3";
         hash = "sha256-jzgSo2mMBkttGaQFSROZqXETnDmtgNcbDO2z0NWByAs=";
       };
       substitutions = [
@@ -29,7 +29,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_gazebo";
-  version = "1.2.0-4";
+  version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_gazebo";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

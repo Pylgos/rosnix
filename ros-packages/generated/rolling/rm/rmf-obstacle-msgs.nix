@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "rmf_obstacle_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "bd0f5d903fea0de6efac65d2c33e718d65e4c686";
-        hash = "sha256-T+44xFhP0J1CcKlHCMsscjVNq744oOxfx4YahZcS90k=";
+        rev = "2a73a5deccc1974ce86d87a237a6e753317d9026";
+        hash = "sha256-HVEXOE4+DRlNek0zQHn7ptoMCxUIsGnq794DaObKerw=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_obstacle_msgs";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_obstacle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

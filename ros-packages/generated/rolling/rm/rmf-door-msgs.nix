@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rmf_door_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "45f07814633885f5cc4ba73eadb8ff095df67ad3";
-        hash = "sha256-oBojJpKki4FgnSc89Kaw6h3lzwFHyCR4E0oI6m9fg2g=";
+        rev = "a4d365cde948290ed3bea1e19d2f399659278ce5";
+        hash = "sha256-r7XQF5PoAeWcDe3kf48K9ed2DsgB8/LjMhWwKPCtzEY=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_door_msgs";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_door_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

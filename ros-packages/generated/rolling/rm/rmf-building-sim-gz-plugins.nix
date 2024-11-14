@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "rmf_building_sim_gz_plugins-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
-        rev = "f4456eab04356539da4fdccccde696260e82c7d6";
-        hash = "sha256-duYHwQRSX20g+iDWR99abmt/7Os5XLyv1a/5Qrt5TYA=";
+        rev = "6ce450a3c292b4e9b659417d175babbd30addb1e";
+        hash = "sha256-fzdbcl/ilmj9BDRBKwzwe3c2JFK+w0acoYG6Fq+rkgI=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_building_sim_gz_plugins";
-  version = "2.4.0-1";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_building_sim_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

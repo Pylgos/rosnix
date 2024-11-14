@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "rmf_ingestor_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "80cb9499987cbb1651daec50d1e2fbb54ad46793";
-        hash = "sha256-ByCTTV+efqO2XsOFUYgcVIJpcOoJGIuJcUh/9o7EkVE=";
+        rev = "a287ffdea18d746e8a22769de8cc6daa8fdf4fde";
+        hash = "sha256-VeVTPl/U694TpuftNXnWGUrBooRsfEC0QhIPd7mLs78=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_ingestor_msgs";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_ingestor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

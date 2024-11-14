@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rmf_charger_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "1af302b814fe28bff5dc7b1ac795b81110759105";
-        hash = "sha256-Zq+5POBVCSDqFV3JvCA3Vjec5Hvk53rJL19y55gNq7A=";
+        rev = "bedf8e1266f4c9737cdcab974c3ecba6118cb0a8";
+        hash = "sha256-4yYp6f8sB1pWOCMf0lafsewhx0hYlSBaWMNqDQd8xns=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_charger_msgs";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_charger_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

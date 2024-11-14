@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rmf_workcell_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "14ab76a1d4b734908c0d8c91e39acf4417ab6006";
-        hash = "sha256-vdhgQpCZUTplR3Uz68OMF+gsVwlSeIebTzJ22a7Tcw8=";
+        rev = "4779545955c501b7875c7a3aad821b1e6f46e87e";
+        hash = "sha256-V1i2BgR1tHJMYTrERQS7lzeo7VBFtPUmEdXRdDARPuQ=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_workcell_msgs";
-  version = "3.4.0-1";
+  version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_workcell_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -23,7 +23,7 @@ let
       src = fetchgit {
         name = "scenario_execution_nav2-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "8998470da7aae4635a944afe049d05e29f9646b5";
+        rev = "a843db52c1d47b642b7c4d461e3af1dbc4319c25";
         hash = "sha256-fUFKyw5Ih3f9tsoyxu+xbmPnncK2Pvtz8bk3w+YhSZo=";
       };
       substitutions = [
@@ -33,7 +33,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_nav2";
-  version = "1.2.0-4";
+  version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_nav2";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

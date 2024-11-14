@@ -22,7 +22,7 @@ let
       src = fetchgit {
         name = "scenario_execution_rviz-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "7aa8ca774d0607811ee07d47e16b223d833ba5ee";
+        rev = "5212d394d7948664fb5217cbb2e34c6a19e44d08";
         hash = "sha256-p27uZ5eR/tar0rcEeDdT7Pvfm3ELidJuZwuzWfXOQzQ=";
       };
       substitutions = [
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "scenario_execution_rviz";
-  version = "1.2.0-4";
+  version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_rviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

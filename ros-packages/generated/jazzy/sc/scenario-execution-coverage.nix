@@ -17,7 +17,7 @@ let
       src = fetchgit {
         name = "scenario_execution_coverage-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "0ed39b14124936ff3a1abf9359139d1dc233448f";
+        rev = "3a84ec826447f4748a84012c8121b64478552e97";
         hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
       };
       substitutions = [
@@ -27,7 +27,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_coverage";
-  version = "1.2.0-4";
+  version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_coverage";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
