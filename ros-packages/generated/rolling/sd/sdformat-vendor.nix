@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "045efd2ffcfd752b1144cb6bdbb07b559d9005d9";
-        hash = "sha256-UTYW/cFFe/iHBV3Fe9TjsWefo5shl65K1ot+71njgXs=";
+        rev = "ffa1d275d49a6b31058495b136301f6925e4e8c0";
+        hash = "sha256-xWSyBjF9TNsJ0LtKJ/r1H96EsjRb5snQ9AaZsWGyDpc=";
       };
       substitutions = [
         {
@@ -39,8 +39,8 @@ let
       src = fetchgit {
         name = "sdformat-source";
         url = "https://github.com/gazebosim/sdformat.git";
-        rev = "551cb998e8bd1af84e0196b337098ff686ea47a0";
-        hash = "sha256-d9PKTgUIFPX1rc1HlKCQPxcUcTn2ivObMvkGz/HBExw=";
+        rev = "e40c32f3d39554bdda361e0467219b4da48032f9";
+        hash = "sha256-59spzVnuKamIKFIItEx0K5+otuef1LVHp0U7u0UaA8o=";
       };
       substitutions = [
       ];
@@ -49,7 +49,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -62,6 +62,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: sdformat15 15.0.0 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
+    description = "Vendor package for: sdformat15 15.1.0 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
   };
 })
