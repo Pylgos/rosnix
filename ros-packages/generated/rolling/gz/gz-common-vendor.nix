@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "gz_common_vendor-source";
         url = "https://github.com/ros2-gbp/gz_common_vendor-release.git";
-        rev = "c1436d1a84bd06b019153b55f19338ca6734e9b7";
-        hash = "sha256-XYGIppOtHfOwdKJuUZFRGj4YGZ8L0uE16TrpQu96Maw=";
+        rev = "3874c786c0b6074fdbc9511e10db3c35d1f50242";
+        hash = "sha256-kERdSmYJggNk9JV0KiCMkb5g8cR8G5PSEoB2Za2v5Rc=";
       };
       substitutions = [
         {
@@ -48,9 +48,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_common_vendor";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_common_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ gz-math-vendor gz-utils-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common6" "libfreeimage-dev" "libgdal-dev" "tinyxml2" "uuid" ]; };

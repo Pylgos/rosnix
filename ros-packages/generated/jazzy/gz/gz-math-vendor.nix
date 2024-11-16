@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "gz_math_vendor-source";
         url = "https://github.com/ros2-gbp/gz_math_vendor-release.git";
-        rev = "9ee0d2c6b471b903146be7edba1daa76ac173e72";
-        hash = "sha256-aeSRxO6Ulxx8Jun8wEcDM9GzDbK2GuJ+r57mJMJGTEk=";
+        rev = "56e7988959298262402f973214e44b2bd12aa012";
+        hash = "sha256-x0a5fJyaqkyaTXp8f3n6qY83Qf/iccVxgKXYQJn71dY=";
       };
       substitutions = [
         {
@@ -36,8 +36,8 @@ let
       src = fetchgit {
         name = "gz-math-source";
         url = "https://github.com/gazebosim/gz-math.git";
-        rev = "7a595ca81b2914c765e09075c656ae08078e9021";
-        hash = "sha256-TEadejtPCR3FAUbyAAME28tmqaxypPTJDYidjZ3FPIY=";
+        rev = "5072602c5ea8b8434a11d42f296aeedf1b695498";
+        hash = "sha256-RxCZiU0h0skVPBSn+PMtkdwEabmTKl+0PYDpl9SQoq8=";
       };
       substitutions = [
       ];
@@ -46,7 +46,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_math_vendor";
-  version = "0.0.6-1";
+  version = "0.0.7-1";
   src = finalAttrs.passthru.sources."gz_math_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -59,6 +59,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Vendor package for: gz-math7 7.5.0 Gazebo Math : Math classes and functions for robot applications";
+    description = "Vendor package for: gz-math7 7.5.1 Gazebo Math : Math classes and functions for robot applications";
   };
 })
