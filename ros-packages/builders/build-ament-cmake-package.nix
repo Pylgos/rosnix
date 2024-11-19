@@ -25,8 +25,13 @@ mkRecursiveBuilder buildColconPackage (
       colconFlags
       ++ [
         "--cmake-args"
-        " -DBUILD_TESTING=${if doCheck then "ON" else "OFF"}"
       ]
-      ++ (map (arg: " ${arg}") cmakeFlags);
+      ++ (map (arg: " ${arg}") (
+        [
+          "-DBUILD_TESTING=${if doCheck then "ON" else "OFF"}"
+          "-DPython3_EXECUTABLE=${buildPackages.pythonForRos.interpreter}"
+        ]
+        ++ cmakeFlags
+      ));
   }
 )
