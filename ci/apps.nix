@@ -23,7 +23,7 @@ in
         if [[ -z $DONT_COMMIT ]]; then
           git add ./poetry.lock
           if ! git diff --quiet --cached ./poetry.lock; then
-            git commit -m "Update poetry.lock"
+            git commit -m "system-packages/poetry/poetry.lock: Update"
           fi
         fi
         popd
