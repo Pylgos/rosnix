@@ -32,6 +32,7 @@ in
         inherit (pkgsByName)
           catkin-pkg
           colcon-bash
+          colcon-cd
           colcon-cmake
           colcon-common-extensions
           colcon-core
