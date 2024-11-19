@@ -24,6 +24,22 @@ final: prev: {
           depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.python3 ];
         }
       );
+      rmw-implementation = rosPrev.rmw-implementation.overrideAttrs {
+        propagatedBuildInputs =
+          with rosFinal;
+          [
+            ament-index-cpp
+            rcpputils
+            rcutils
+            rmw
+          ]
+          ++ final.rosConfig.defaultRmwImplementation;
+        cmakeFlags = [
+          "-DRMW_IMPLEMENTATION_DISABLE_RUNTIME_SELECTION=${
+            if final.rosConfig.disableRmwRuntimeSelection then "ON" else "OFF"
+          }"
+        ];
+      };
       libcurl-vendor = rosPrev.libcurl-vendor.overrideAttrs (
         {
           propagatedBuildInputs ? [ ],

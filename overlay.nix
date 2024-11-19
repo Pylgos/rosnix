@@ -16,6 +16,8 @@ let
             rolling = final.python311;
           }
           .${finalConfig.distro};
+        defaultRmwImplementation = [ final.rosPackages.rmw-fastrtps-cpp ];
+        disableRmwRuntimeSelection = false;
       }
       // config
     );
