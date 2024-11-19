@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "plansys2_pddl_parser-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "222be1585f17ed67598f3e928469dad338d2bfa4";
-        hash = "sha256-MCeRVwcQ7o0pOnxlPNYHiWr/iC8KralfriwqYt0NLgA=";
+        rev = "d4670b8079c2b1c185fd4eb7aaec3ac9836b7b1f";
+        hash = "sha256-yoWj2YQNyqr1NTlXAUfuJRFgJ0U8qC/LzxlenprR0GM=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_pddl_parser";
-  version = "2.0.13-1";
+  version = "2.0.14-1";
   src = finalAttrs.passthru.sources."plansys2_pddl_parser";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

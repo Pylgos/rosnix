@@ -36,8 +36,8 @@ let
       src = fetchgit {
         name = "plansys2_executor-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "a3638e6280750d385724d09a5ec353138a28a374";
-        hash = "sha256-wXu2THMHUSsL135E/Ko0HqiRgVjJTBtWp3f/i4/F8BU=";
+        rev = "a66ca6585f10ac0b54ca320dd654c3349c288117";
+        hash = "sha256-604AwnhB5WBL4czNBuKDRbHyqWzG50iHw4DpkuriFSI=";
       };
       substitutions = [
       ];
@@ -46,10 +46,10 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_executor";
-  version = "2.0.13-1";
+  version = "2.0.14-1";
   src = finalAttrs.passthru.sources."plansys2_executor";
-  nativeBuildInputs = [ ament-cmake eigen3-cmake-module wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ ament-index-cpp behaviortree-cpp lifecycle-msgs plansys2-core plansys2-domain-expert plansys2-msgs plansys2-pddl-parser plansys2-planner plansys2-problem-expert pluginlib popf rclcpp rclcpp-action rclcpp-cascade-lifecycle rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

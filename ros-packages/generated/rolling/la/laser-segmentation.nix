@@ -7,21 +7,24 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  lifecycle-msgs,
   mkSourceSet,
   rclcpp,
+  rclcpp-components,
   rclcpp-lifecycle,
   rosSystemPackages,
+  sensor-msgs,
+  slg-msgs,
   substituteSource,
+  visualization-msgs,
 }:
 let
   sources = mkSourceSet (sources: {
-    "plansys2_lifecycle_manager" = substituteSource {
+    "laser_segmentation" = substituteSource {
       src = fetchgit {
-        name = "plansys2_lifecycle_manager-source";
-        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "0025106e1eb051411f94d034baf42b171d5388b6";
-        hash = "sha256-PdojLkDXi7Cs+cKbfq4iKNf+ztXeGJsnWs032nsQQAY=";
+        name = "laser_segmentation-source";
+        url = "https://github.com/ros2-gbp/laser_segmentation-release.git";
+        rev = "18117b81054865877d943544c6036d4e1f91deb2";
+        hash = "sha256-u0BxTOObbPkIga7fFw2mrJJOcy7+rd0rL7mPlCNOAlk=";
       };
       substitutions = [
       ];
@@ -29,13 +32,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "plansys2_lifecycle_manager";
-  version = "2.0.14-1";
-  src = finalAttrs.passthru.sources."plansys2_lifecycle_manager";
+  pname = "laser_segmentation";
+  version = "3.0.2-1";
+  src = finalAttrs.passthru.sources."laser_segmentation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs slg-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -43,6 +46,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "A controller/manager for the lifecycle nodes of the ROS2 Planning System";
+    description = "Implementation of algorithms for segmentation of laserscans.";
   };
 })

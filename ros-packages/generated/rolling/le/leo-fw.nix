@@ -33,8 +33,8 @@ let
       src = fetchgit {
         name = "leo_fw-source";
         url = "https://github.com/ros2-gbp/leo_robot-release.git";
-        rev = "b980ea332555df1757a3033b9b08b65c02429a89";
-        hash = "sha256-P9NJHS6QNdT2tsdtQVCLg4+fd0xJYQZJS3dOrTRDWUk=";
+        rev = "1ca20d1d34c91e4adf87c18605d4697eb219c074";
+        hash = "sha256-ikiYrOytg6FefwWuYw6UyFlI3CkyZw9YUbxuTo7Q5Ek=";
       };
       substitutions = [
       ];
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_fw";
-  version = "1.4.0-2";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."leo_fw";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };

@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "twist_stamper-source";
         url = "https://github.com/ros2-gbp/twist_stamper-release.git";
-        rev = "55f1d527940dafdcdd83c1e2f4a7165f086262b5";
-        hash = "sha256-AE3PKMNhcFfc7nbMllXSYBoKhQmRVHLCirRpDAEknEQ=";
+        rev = "3e5340da6100bb8e5c3963c45cb86bd9d03be499";
+        hash = "sha256-GUWWQcNLlgDez65Loqdfe/lgdkjUu2ZwDp91WEh8Hus=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "twist_stamper";
-  version = "0.0.3-3";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."twist_stamper";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

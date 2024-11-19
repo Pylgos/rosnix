@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "plansys2_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "c42a512944878662af0ff06b917a53c0be688619";
-        hash = "sha256-qmKH5Z+7PRnOz27x2Bn6/IGl/YvtxmoRsTd9PFEAMJ0=";
+        rev = "12c2125fc82c42759a92f611f52ab90f34b1b58c";
+        hash = "sha256-3G7wV4V4YYUnGr/mM4TeGZw89vd0ZYsihnX6uDYbJe8=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_msgs";
-  version = "2.0.13-1";
+  version = "2.0.14-1";
   src = finalAttrs.passthru.sources."plansys2_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

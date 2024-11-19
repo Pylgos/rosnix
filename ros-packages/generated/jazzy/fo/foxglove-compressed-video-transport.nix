@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "foxglove_compressed_video_transport-source";
         url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
-        rev = "ac84a01ce5fdeb17d78d38c147e4dbbb42d3a68a";
-        hash = "sha256-ru3czXqeURYGh9sqc15zME8C9tUTa6Vkwo8Z7fOkBbc=";
+        rev = "5078aba7cba4e8604ab6fac48600d5817eba4bde";
+        hash = "sha256-gZlIzuW2GXtIFEwfLwStRPLdI2koKHJEGYQN1ULi5rA=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_compressed_video_transport";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."foxglove_compressed_video_transport";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

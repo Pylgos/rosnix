@@ -27,8 +27,8 @@ let
       src = fetchgit {
         name = "plansys2_bt_actions-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "b363654f5d40bc5203f9efa163e72de01cdfe358";
-        hash = "sha256-YPnSv+qcj+4YsZevjlnEt3xJkD3wLz5TBhDwos3LSyE=";
+        rev = "286e4f253693ba15eeb3aa97aaa691bdc86ccb0e";
+        hash = "sha256-7ifNQ2gxGtePO8kJ5AVkoKyZoqIgtfMpL9nYHMwc+Dc=";
       };
       substitutions = [
       ];
@@ -37,7 +37,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_bt_actions";
-  version = "2.0.13-1";
+  version = "2.0.14-1";
   src = finalAttrs.passthru.sources."plansys2_bt_actions";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
