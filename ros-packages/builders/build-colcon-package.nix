@@ -38,7 +38,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
         concatToPolyfillHook
         rosSetupHook
       ]
-      ++ (with buildPackages.pythonForRosPackages; [
+      ++ (with buildPackages.rosPythonPackages; [
         colcon-core
         colcon-bash
         colcon-zsh

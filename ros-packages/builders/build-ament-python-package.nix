@@ -2,7 +2,7 @@
   buildColconPackage,
   buildPackages,
   mkRecursiveBuilder,
-  pythonForRos,
+  rosPython,
 }:
 
 mkRecursiveBuilder buildColconPackage (
@@ -13,6 +13,6 @@ mkRecursiveBuilder buildColconPackage (
   }:
   {
     nativeBuildInputs =
-      nativeBuildInputs ++ (with buildPackages.pythonForRosPackages; [ colcon-ros ]) ++ [ pythonForRos ];
+      nativeBuildInputs ++ (with buildPackages.rosPythonPackages; [ colcon-ros ]) ++ [ rosPython ];
   }
 )

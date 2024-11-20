@@ -20,7 +20,7 @@ mkRecursiveBuilder buildColconPackage (
     nativeBuildInputs =
       nativeBuildInputs
       ++ [ buildPackages.cmake ]
-      ++ (with buildPackages.pythonForRosPackages; [ colcon-ros ]);
+      ++ (with buildPackages.rosPythonPackages; [ colcon-ros ]);
     colconFlags =
       colconFlags
       ++ [
@@ -29,7 +29,7 @@ mkRecursiveBuilder buildColconPackage (
       ++ (map (arg: " ${arg}") (
         [
           "-DBUILD_TESTING=${if doCheck then "ON" else "OFF"}"
-          "-DPython3_EXECUTABLE=${buildPackages.pythonForRos.interpreter}"
+          "-DPython3_EXECUTABLE=${buildPackages.rosPython.interpreter}"
         ]
         ++ cmakeFlags
       ));

@@ -48,7 +48,7 @@ buildColconPackage (
 
     buildInputs = mergeInputs "buildInputs";
     nativeBuildInputs = [
-      buildPackages.pythonForRosPackages.colcon-common-extensions
+      buildPackages.rosPythonPackages.colcon-common-extensions
     ] ++ packages ++ (mergeInputs "nativeBuildInputs");
     propagatedBuildInputs = mergeInputs "propagatedBuildInputs";
     propagatedNativeBuildInputs = mergeInputs "propagatedNativeBuildInputs";

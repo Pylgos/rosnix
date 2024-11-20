@@ -24,7 +24,7 @@ final: prev: {
           ...
         }:
         {
-          depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.pythonForRos ];
+          depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.rosPython ];
         }
       );
       rmw-implementation = rosPrev.rmw-implementation.overrideAttrs {
