@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "odom_to_tf_ros2-source";
         url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release.git";
-        rev = "bc18a72d110f839d34783f572b5349edc60748b0";
-        hash = "sha256-NLgcLHtLs9BUGyLk3dUSc6HQLbiQU9HEgg0zPzhybPQ=";
+        rev = "ee201cdc17dd2bc939f10ded1c0eb8a1fc33770d";
+        hash = "sha256-I8CKjztzSzou/SmWqXNQxMVL2b0uWOtnryk/0NYC2pk=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "odom_to_tf_ros2";
-  version = "1.0.3-3";
+  version = "1.0.4-1";
   src = finalAttrs.passthru.sources."odom_to_tf_ros2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
