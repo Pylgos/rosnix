@@ -656,7 +656,7 @@ in
     python3-deprecated = [ final.pythonForRosPackages.deprecated ];
     python3-dev = [ final.pythonForRos ];
     python3-distro = [ final.pythonForRosPackages.distro ];
-    python3-distutils = [ final.python3 ];
+    python3-distutils = [ final.pythonForRos ];
     python3-docker = [ final.pythonForRosPackages.docker ];
     python3-docopt = [ final.pythonForRosPackages.docopt ];
     python3-docutils = [ final.pythonForRosPackages.docutils ];
@@ -685,7 +685,7 @@ in
     python3-imageio = [ final.pythonForRosPackages.imageio ];
     python3-importlib-metadata = [ final.pythonForRosPackages.importlib-metadata ];
     python3-importlib-resources = [ final.pythonForRosPackages.importlib-resources ];
-    python3-interpreter = [ final.python3 ];
+    python3-interpreter = [ final.pythonForRos ];
     python3-jinja2 = [ final.pythonForRosPackages.jinja2 ];
     python3-jmespath = [ final.pythonForRosPackages.jmespath ];
     python3-joblib = [ final.pythonForRosPackages.joblib ];
@@ -790,8 +790,8 @@ in
     python3-unidiff = [ final.pythonForRosPackages.unidiff ];
     python3-urllib3 = [ final.pythonForRosPackages.urllib3 ];
     python3-usb = [ final.pythonForRosPackages.pyusb ];
-    python3-vcstool = [ final.vcstool ];
-    python3-venv = [ final.python3 ];
+    python3-vcstool = [ (final.vcstool.override { python3Packages = final.pythonForRosPackages; }) ];
+    python3-venv = [ final.pythonForRos ];
     python3-watchdog = [ final.pythonForRosPackages.watchdog ];
     python3-webargs = [ final.pythonForRosPackages.webargs ];
     python3-websockets = [ final.pythonForRosPackages.websockets ];

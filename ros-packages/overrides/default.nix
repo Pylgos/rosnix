@@ -13,6 +13,9 @@ final: prev: {
         {
           propagatedBuildInputs = propagatedBuildInputs ++ [ final.git ];
           patches = patches ++ [ ./ament-cmake-vendor-package.patch ];
+          preBuild = ''
+            printenv PATH
+          '';
         }
       );
       rosidl-generator-py = rosPrev.rosidl-generator-py.overrideAttrs (
@@ -21,7 +24,7 @@ final: prev: {
           ...
         }:
         {
-          depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.python3 ];
+          depsTargetTargetPropagated = depsTargetTargetPropagated ++ [ final.pkgsTargetTarget.pythonForRos ];
         }
       );
       rmw-implementation = rosPrev.rmw-implementation.overrideAttrs {
