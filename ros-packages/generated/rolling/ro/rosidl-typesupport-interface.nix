@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rosidl_typesupport_interface-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "bdbcde502f4a3246e95e00996edeb1449971e14e";
-        hash = "sha256-RVvV87jeFCshQRKvueDLkIcaOF531lrInyyEvFV6x3Q=";
+        rev = "f7f10e7ad77ccdb876b0316b705c5e163f552619";
+        hash = "sha256-KzLouAzfvr4w1AEFS58OccqKDBK0rpE6Jj/8PL3cg4w=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_typesupport_interface";
-  version = "4.9.0-1";
+  version = "4.9.1-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_interface";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

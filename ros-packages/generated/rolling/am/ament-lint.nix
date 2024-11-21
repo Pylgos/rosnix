@@ -13,8 +13,8 @@ let
       src = fetchgit {
         name = "ament_lint-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "fd288a5221f6fe0c5a20e3392eac9bfc49578931";
-        hash = "sha256-1FbkiZrxjuALIPXdxlYFWn8yilt8SSI8m/TDxm33r3U=";
+        rev = "010424fc1032034b0bf53e21d470e8c1d24d8716";
+        hash = "sha256-5knofdyuB91p4Cw6e0S7mSgS6cZ4PL/UOKMWWd+zByg=";
       };
       substitutions = [
       ];
@@ -23,7 +23,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_lint";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_lint";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

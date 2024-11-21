@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "rcl_lifecycle-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "0db36b56f12c39adb95fc08852bde78825395f2e";
-        hash = "sha256-r3mcD5cJ9Y9KaUkVcwZ7KFsh0pYVaOvzIHThP5tEWYI=";
+        rev = "28409c24a7085121e665772bf11b6e5bd022c44b";
+        hash = "sha256-BHZP8bwj0BOE7qhIA5USpko7zU+jAa4dRJUpCLAueNA=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_lifecycle";
-  version = "10.0.0-1";
+  version = "10.0.1-1";
   src = finalAttrs.passthru.sources."rcl_lifecycle";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "dummy_map_server-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "96fd3f9b03e66b8aaeb00c8a7ffcc09e900e5bca";
-        hash = "sha256-BFxWiRnN+hJHNICcLlexCKloU3fqBZ31ZtRUuGnuN0c=";
+        rev = "44d3d3e365caa8b206f4389849af933a0354dacf";
+        hash = "sha256-QbX7oY60WHbuX3T+eofbqMPhtV6dHH8Qxx0c2Uc0uS4=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_map_server";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."dummy_map_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

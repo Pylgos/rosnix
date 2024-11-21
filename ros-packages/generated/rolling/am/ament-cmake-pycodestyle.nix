@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_pycodestyle-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "529492f0986383e2acb95a9207910f73e54f4e99";
-        hash = "sha256-mTygsl8AdcvnnOSof5uI0q7mdJt+Pjt9xW7FfBgQ7RU=";
+        rev = "44eea7faf5dd246c821d12413748bb06b4ba241d";
+        hash = "sha256-0aa2kp+MhECipjZtd6lRZ0BJe7t6A/3HD72++IbNu9w=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pycodestyle";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_pycodestyle";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pycodestyle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

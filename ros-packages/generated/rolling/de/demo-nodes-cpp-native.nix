@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "demo_nodes_cpp_native-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "7f4a536ab0c7cf4f686d2bf300aa9efba957f209";
-        hash = "sha256-djSe6k5KwVk+Dgs81t784EWAajmeXsbzlGwMmrVvmoE=";
+        rev = "a31bbd4785707dd3bafe443d0e84fa1f91e1672d";
+        hash = "sha256-lJTHLWWjYTow3glf/SCVo+Hig4EVFzhRRC+k8GSNK7o=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "demo_nodes_cpp_native";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."demo_nodes_cpp_native";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

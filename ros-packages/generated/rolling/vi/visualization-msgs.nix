@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "visualization_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "1e543ac937d80aaffa1e61f7ceff31b5fe61f59d";
-        hash = "sha256-ZlS9JdcYbrNlGsduohJAZQT6DFfNF1DdOYxhQk5xoOw=";
+        rev = "2eaf85aede3bcd7e70f471ed62129b8f5d0a566b";
+        hash = "sha256-kDHBWTiU6dEIIdlXY+ZpuWZ7586wDOaaTIdMO+v8Gs0=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "visualization_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."visualization_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

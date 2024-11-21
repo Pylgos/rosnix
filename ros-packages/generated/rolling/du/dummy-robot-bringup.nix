@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "0a2fe9b9331acef4ea5f798b1871c37eaf7310fd";
-        hash = "sha256-IescQKsiV97XqO4sr1HHfSTFipytDA6ihPS+qfXD7Lg=";
+        rev = "6eace22064a7a57cbfaf879fd01c2c4b92ddf9a1";
+        hash = "sha256-voUg4NonSVtDqhap/BOmygeH4ZR4hZlztXOCLWWlm2g=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -9,7 +9,6 @@
   pluginlib,
   point-cloud-transport,
   pybind11-vendor,
-  python-cmake-module,
   rclcpp,
   rosSystemPackages,
   rpyutils,
@@ -22,8 +21,8 @@ let
       src = fetchgit {
         name = "point_cloud_transport_py-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
-        rev = "7da6f3c00e4f6269c260730d596b3a6bea79a00d";
-        hash = "sha256-PzDdGYin6FqLps+VbfUEQxDsH/cmoWWgk/s1JxBK29A=";
+        rev = "43f0942b64edd1420b95601cd89dd856b269d68a";
+        hash = "sha256-yIYuWWeP+9nnJyi7oZQdVGn6GQaIRGr7NveRBjrFNw4=";
       };
       substitutions = [
       ];
@@ -32,9 +31,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_py";
-  version = "5.0.4-1";
+  version = "5.1.0-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_py";
-  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ pluginlib point-cloud-transport pybind11-vendor rclcpp rpyutils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };

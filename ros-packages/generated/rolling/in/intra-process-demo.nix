@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "intra_process_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "f6fc4e542685194d0a4233df05735d5262bcf7dd";
-        hash = "sha256-TqKbqacVB+Jl3FnpxCaJwVFN/lmR4gAepEQujDeEW9k=";
+        rev = "22658df8177bd64b42b447faae85190490a42ccb";
+        hash = "sha256-2Uq20PlElplByW9nE3WFQx7Vk5zT/5DpC7En56ykX+Q=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "intra_process_demo";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."intra_process_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

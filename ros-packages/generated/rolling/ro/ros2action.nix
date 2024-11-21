@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "ros2action-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "56ce857336e00acbdd8392046bd6ce3c38d0a4dc";
-        hash = "sha256-W+JbJ5o7967EiI/wrXIgjatRZbzDRems335EA9RitDs=";
+        rev = "e14fd430b379e7983140ddc0b3c39ccb1e26edc1";
+        hash = "sha256-v2jWo6uCwREl0nC5xTGk8FWr616xEnz7+kSUS2b363k=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2action";
-  version = "0.35.0-1";
+  version = "0.36.0-1";
   src = finalAttrs.passthru.sources."ros2action";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

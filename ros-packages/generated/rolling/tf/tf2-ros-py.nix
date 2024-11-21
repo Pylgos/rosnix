@@ -1,4 +1,5 @@
 {
+  ament-xmllint,
   buildAmentPythonPackage,
   builtin-interfaces,
   fetchgit,
@@ -20,8 +21,8 @@ let
       src = fetchgit {
         name = "tf2_ros_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "1f8c3da6e2fe0ddd66db851879631bb70f588243";
-        hash = "sha256-26neSUex4/1O/H5TCGjFSYDlPhS2OZzp1bsQ6DiZEKQ=";
+        rev = "8e7aba10c15beb9c9c67b1c8bae0a8ca8b2679d5";
+        hash = "sha256-AN0gE3rIbJNmPnLLgO6QFPlRK7SWmf5LnG9vKE3RtD0=";
       };
       substitutions = [
       ];
@@ -30,7 +31,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "tf2_ros_py";
-  version = "0.39.1-1";
+  version = "0.39.2-1";
   src = finalAttrs.passthru.sources."tf2_ros_py";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -38,7 +39,7 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy sensor-msgs std-msgs tf2-msgs tf2-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-xmllint sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
     inherit sources;
   };

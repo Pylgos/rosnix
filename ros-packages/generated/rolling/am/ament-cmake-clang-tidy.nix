@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_clang_tidy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "49f79afb240141cd3c89cb542ffb2547c031a126";
-        hash = "sha256-1Jf+nzvRetlayhXvmKC9VA4XMyrzWH6C9M4kxBfJiBU=";
+        rev = "5d208020934b96cd9ff1cd8d60bc97d00351c580";
+        hash = "sha256-AgIIYvoY08HSh0N8Iq7dyZTDVOCYoAWAJcMvHlSMq2g=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_clang_tidy";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_clang_tidy";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-clang-tidy ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

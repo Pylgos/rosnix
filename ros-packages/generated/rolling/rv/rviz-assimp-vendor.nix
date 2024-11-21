@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "rviz_assimp_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "7f0610cbf57d710b01e39fd034e915be8e496d84";
-        hash = "sha256-CF4rRN6mK5OIUBVEa17m8p7yhV8cX5CV8J2HQIzp8oE=";
+        rev = "4197c9cd9732b4593de6698c965f9d284d60bc1c";
+        hash = "sha256-Jv4TCPCr16NFzU4RKhJ+yi/QMNWZd6p7D76GaMTNuu8=";
       };
       substitutions = [
         {
@@ -230,7 +230,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_assimp_vendor";
-  version = "14.3.1-1";
+  version = "14.3.2-1";
   src = finalAttrs.passthru.sources."rviz_assimp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

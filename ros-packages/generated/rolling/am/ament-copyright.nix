@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "ament_copyright-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "9c1b98cd1e76b37c38eb9bbe6a283b53c417917d";
-        hash = "sha256-NEzyvUfgHAK7h3avlhpUj0AKLCsg2Yckk1fWbNOjhxo=";
+        rev = "ce0f65dcf334bca05999815b80e8079d37a5f960";
+        hash = "sha256-4p2XuAs2RSSRLbN9f38l87RKiA2kVt2c3QA5igKTapA=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_copyright";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_copyright";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" ]; };

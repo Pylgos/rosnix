@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "std_srvs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "08515a4af1637209ef330a1f54bf88224f8606b4";
-        hash = "sha256-LQSxnV1r2+ii3xUcLThhlzxUVKFvnXogcm0OV20AHSw=";
+        rev = "2bd5ca2155ca6ce575f0aa778ba9d21d3e963443";
+        hash = "sha256-VaxgM4gc20BG2Hb31NHkmxsqY2BZ+dHeLOC/QwazYMc=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "std_srvs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."std_srvs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

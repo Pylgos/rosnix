@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rosidl_runtime_cpp-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "40015dd207363bee1b7a1ca6808c17b20ac4e91d";
-        hash = "sha256-E2EzVwO9+dQAhzcnX/iM/13nduog03lLcyB0Y92PrkY=";
+        rev = "759aeea29abc464887a8629c4b4a4a589e043c0f";
+        hash = "sha256-0EfdghPWvbX4BoMvEHwBFKCNRI23Y53HROzWcaBvvCI=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_runtime_cpp";
-  version = "4.9.0-1";
+  version = "4.9.1-1";
   src = finalAttrs.passthru.sources."rosidl_runtime_cpp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

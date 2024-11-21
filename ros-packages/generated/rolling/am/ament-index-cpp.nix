@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "ament_index_cpp-source";
         url = "https://github.com/ros2-gbp/ament_index-release.git";
-        rev = "9baf121b4a5a096c46ba22f1b532abd5e5a58edc";
-        hash = "sha256-u2PnkbZa8OPxEjZuLcwBQWln7+m503qodgz+YnLvGH0=";
+        rev = "de1404cfe677aacf5068bd9d292438878b4551a6";
+        hash = "sha256-0LF3qifb212b9L6iT6qgpuO76NAxT+NGyLGazT4eBJE=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_index_cpp";
-  version = "1.10.0-1";
+  version = "1.10.1-1";
   src = finalAttrs.passthru.sources."ament_index_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

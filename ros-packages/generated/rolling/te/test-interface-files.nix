@@ -14,8 +14,8 @@ let
       src = fetchgit {
         name = "test_interface_files-source";
         url = "https://github.com/ros2-gbp/test_interface_files-release.git";
-        rev = "3192114c9aa0f21b6753e6de98990d2fc3942601";
-        hash = "sha256-+JVChj8V5o/ami/f0h5aFvmiBgphRScf8UBOKJt5FWg=";
+        rev = "6d941b72a8a6263cc00a289c938d129fdc2151b5";
+        hash = "sha256-1bEeRwPhq17UA3gBMPRTcHBN52UjCDi8I0h/iOYN5b4=";
       };
       substitutions = [
       ];
@@ -24,7 +24,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "test_interface_files";
-  version = "0.12.0-1";
+  version = "0.13.0-1";
   src = finalAttrs.passthru.sources."test_interface_files";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

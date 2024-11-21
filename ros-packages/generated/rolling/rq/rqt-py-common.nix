@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-cmake-pytest,
+  ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -8,7 +9,6 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  python-cmake-module,
   python-qt-binding,
   qt-gui,
   rclpy,
@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "rqt_py_common-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
-        rev = "69ed7988d5acdeb62152a6f9eb211d942c627d1c";
-        hash = "sha256-s04opJbNUbhVVMZMfjQbUNPTu4bqn79mTo2al4m6tzo=";
+        rev = "b7a39318b177c05201676800b41085d3d120a177";
+        hash = "sha256-qRqDzXsT06HyvaSFlLOWINupnQKitro29dDYk9Aja1g=";
       };
       substitutions = [
       ];
@@ -34,15 +34,15 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_py_common";
-  version = "1.7.3-1";
+  version = "1.8.0-1";
   src = finalAttrs.passthru.sources."rqt_py_common";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ python-qt-binding qt-gui rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common python-cmake-module rosidl-default-generators rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common rosidl-default-generators rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "ros_testing-source";
         url = "https://github.com/ros2-gbp/ros_testing-release.git";
-        rev = "56f6ba90ce5a80ef42bb8a398d1f9b427626c864";
-        hash = "sha256-CCY++zeA6CY3WCkxRl5FTCFac8DPBSMpQd7N2ciH0oA=";
+        rev = "05e86164252e57a0cf75996fcab8d100e086fcfc";
+        hash = "sha256-0tK9r5gFIoHHtxtDyu+FDsReDPyYIPTwUY2kycUpv3c=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_testing";
-  version = "0.7.0-1";
+  version = "0.8.0-1";
   src = finalAttrs.passthru.sources."ros_testing";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies launch-testing-ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

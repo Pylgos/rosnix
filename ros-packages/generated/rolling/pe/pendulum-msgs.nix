@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "pendulum_msgs-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "2735298241493727448dceec1793d9f3345e08f5";
-        hash = "sha256-gUIfQ5YqbHQCOn24xbi3t/ko4rAu/STgQUe89rLHCRo=";
+        rev = "f8fbdd446d674db12416361974669297e12b9d15";
+        hash = "sha256-/ICUL21LppoTGqecxi+O5VVJ5y5klaNstU5sk+gr/7g=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "pendulum_msgs";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."pendulum_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -2,6 +2,7 @@
   ament-copyright,
   ament-flake8,
   ament-pep257,
+  ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
   fetchurl,
@@ -20,8 +21,8 @@ let
       src = fetchgit {
         name = "tf2_tools-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "a87b0e745cd2bdd3198ecbc153c56f2018f12763";
-        hash = "sha256-tQOg5Z9AKea7nnXNe40oPccCDsBVSP5zAZTFr/9Ozf4=";
+        rev = "3872fb6dcd0fd5a1c6bed209376d61a9c3836495";
+        hash = "sha256-vuWakR1u246RCICljroH8iDfvn/BmoKv2ro/9wKY0eg=";
       };
       substitutions = [
       ];
@@ -30,7 +31,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "tf2_tools";
-  version = "0.39.1-1";
+  version = "0.39.2-1";
   src = finalAttrs.passthru.sources."tf2_tools";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -38,7 +39,7 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedBuildInputs = [ rclpy tf2-msgs tf2-py tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
     inherit sources;
   };

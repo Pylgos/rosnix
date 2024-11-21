@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rosidl_dynamic_typesupport_fastrtps-source";
         url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport_fastrtps-release.git";
-        rev = "52903997cf3540416b91aceb67484da9502a88f8";
-        hash = "sha256-/6hCwkM/wzvXaP4OPz5zHKYLJycpL+FPQY0UdW5Yj3U=";
+        rev = "2d124c078ca75105570d239d11443b303e86fb8d";
+        hash = "sha256-qkfsno56PSSOQcLYr0fAwdLBpXAz/uT5Ngw1Pj240Ec=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_dynamic_typesupport_fastrtps";
-  version = "0.2.0-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
   nativeBuildInputs = [ ament-cmake-ros fastrtps-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

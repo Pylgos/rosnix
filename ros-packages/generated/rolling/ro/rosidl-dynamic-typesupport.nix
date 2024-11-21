@@ -16,8 +16,8 @@ let
       src = fetchgit {
         name = "rosidl_dynamic_typesupport-source";
         url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport-release.git";
-        rev = "3b1c0a96815326ef61f93a5540755a2045121b12";
-        hash = "sha256-cxUaFspLddpCcGHuK1GeiWTVVg8IMknpJ/V5ATpBQgE=";
+        rev = "9ca962f4ede9e95baf52630264176bd79d294478";
+        hash = "sha256-OXUHhjsC0xSHzFsM0du3PW9dmONfugFTdWk1Q+Kha9I=";
       };
       substitutions = [
       ];
@@ -26,7 +26,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_dynamic_typesupport";
-  version = "0.2.0-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

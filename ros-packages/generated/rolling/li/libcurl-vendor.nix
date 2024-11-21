@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "libcurl_vendor-source";
         url = "https://github.com/ros2-gbp/resource_retriever-release.git";
-        rev = "21f597630799e54afc2ba279715729c2562f35e6";
-        hash = "sha256-BfR9gU8jdd2P7nCPNEa2+sCLgCrXMLNqP4gp13pNpIs=";
+        rev = "166d51c2d9ca0945f10cefd11cd297070df35441";
+        hash = "sha256-4AAFxIDglM7VEU+89FD+HxbyOvhdxVOgFORV6aQuEPw=";
       };
       substitutions = [
         {
@@ -40,7 +40,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "libcurl_vendor";
-  version = "3.5.1-1";
+  version = "3.6.0-1";
   src = finalAttrs.passthru.sources."libcurl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "pkg-config" ]; };

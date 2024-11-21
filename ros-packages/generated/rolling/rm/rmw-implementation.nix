@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "rmw_implementation-source";
         url = "https://github.com/ros2-gbp/rmw_implementation-release.git";
-        rev = "f1530024dde5d95977f7d0041b313aaa6867ca9c";
-        hash = "sha256-9oAkiRRoOm4OcdJ/DHGXfUxLnS3pFfp8PtQTa+l5Nuo=";
+        rev = "6d04acd2fbe67c40d5aa705ac46db84fae0ccb1e";
+        hash = "sha256-pJFhRvH7vc2BSNx5Y+3LXzhvhbdPrvyUjVj6xYSjtAE=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_implementation";
-  version = "3.0.2-1";
+  version = "3.0.3-1";
   src = finalAttrs.passthru.sources."rmw_implementation";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

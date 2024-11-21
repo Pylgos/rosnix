@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ros2lifecycle_test_fixtures-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "a68edd7911f3352de7fa45a793de2434d7b5a9fc";
-        hash = "sha256-kzpEDd09W+RDfCXSEnYfBf5iZDKNoauiypfcusz9o3I=";
+        rev = "3f77ff7ab7277186b5ef90c505b24876513b16da";
+        hash = "sha256-3c40WR144YPmLV0c9EQPpROjZnBVgJJL016MuACVuHI=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2lifecycle_test_fixtures";
-  version = "0.35.0-1";
+  version = "0.36.0-1";
   src = finalAttrs.passthru.sources."ros2lifecycle_test_fixtures";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

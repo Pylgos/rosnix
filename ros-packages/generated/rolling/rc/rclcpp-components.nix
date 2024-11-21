@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "rclcpp_components-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "9ab9a6644a8be7b34c0d59c53853df6fc6e45d20";
-        hash = "sha256-rTX2Z3i2P5X1qPtPVMVyK4uPFETY0bJh0q/HHOT16b0=";
+        rev = "de7a2c321200b8c56e2a8e55700dc0479344589b";
+        hash = "sha256-yoDFDsZTLaG/+IKF77zkM1k3XuvnSbYWRJQdMv1meaU=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_components";
-  version = "29.0.0-1";
+  version = "29.1.0-1";
   src = finalAttrs.passthru.sources."rclcpp_components";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

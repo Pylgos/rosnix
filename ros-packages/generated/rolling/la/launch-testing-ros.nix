@@ -3,6 +3,7 @@
   ament-flake8,
   ament-index-python,
   ament-pep257,
+  ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
   fetchurl,
@@ -21,8 +22,8 @@ let
       src = fetchgit {
         name = "launch_testing_ros-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "d27270ce8c6d4582f38bdb308157a948fb1eb0a8";
-        hash = "sha256-9GXZS23J7O9+BfPs8lrPn0YbGccJyjQZU5IPoyaTXVA=";
+        rev = "3c999ac944ce2b65440d9c0cacf6e2ec9d263b57";
+        hash = "sha256-OVoAVzQcq8UWpaK+KdVxxQCyIvCqZTUxiAOgv8C7v/0=";
       };
       substitutions = [
       ];
@@ -31,7 +32,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_ros";
-  version = "0.27.3-1";
+  version = "0.28.0-1";
   src = finalAttrs.passthru.sources."launch_testing_ros";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
@@ -39,7 +40,7 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-copyright ament-flake8 ament-pep257 std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
     inherit sources;
   };

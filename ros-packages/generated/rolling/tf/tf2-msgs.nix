@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "tf2_msgs-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "e69c38c21833c3f14c7565c5d127e4ed812ae69e";
-        hash = "sha256-lI5Ax4A+W08RYJQQzsg6H7KMfw+uh94+fc/5If9YgHU=";
+        rev = "29d90423e74e193ba36ab81f439299cf9d524406";
+        hash = "sha256-yu3fil2bOC1XVcuyMTZuSEyFqSZTm63gsuyCZ8eV5Rg=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_msgs";
-  version = "0.39.1-1";
+  version = "0.39.2-1";
   src = finalAttrs.passthru.sources."tf2_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

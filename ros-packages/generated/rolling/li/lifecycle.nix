@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "lifecycle-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "d3fb49667e457e17a1ba7bc952d2b25b68c32640";
-        hash = "sha256-/wP5SZuaCfK+XvKHIdQhSBkpcoqsOf8ircc/HRDjD2g=";
+        rev = "3ab6e3dbc213e2abd88a91deccd691936bb0610e";
+        hash = "sha256-BShj/OjZWPBpP5W1vMvsI7CIX6BNdb0EH/PHCxsM2sA=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "lifecycle";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."lifecycle";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

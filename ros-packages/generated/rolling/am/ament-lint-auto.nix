@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "ament_lint_auto-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "2ce3b1ce9eca2e7462a565a68ca9e5ddb38fedd5";
-        hash = "sha256-Ze46PSzbaD90A9Pw9p+GuTiSeSNRTkW+XHLtP9hAJTM=";
+        rev = "9eb95b56da84a433d4fa193bd08a2393ce42f5a6";
+        hash = "sha256-90md4EFW0GBHz676RCkPdWqqcFzJ9HYZcsSrEbCpWts=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_lint_auto";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_lint_auto";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

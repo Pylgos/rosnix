@@ -24,8 +24,8 @@ let
       src = fetchgit {
         name = "ros2node-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "7d7a4a1049767ffac076818536276b92730e9b52";
-        hash = "sha256-Re0193k8oU/jHajwuJvOKgAgV0BVSIr0iIO6VqKCFLQ=";
+        rev = "90714093d5ccf0b901e08455804660580841991a";
+        hash = "sha256-VBfU3HKsfyIQ5tt0TPDLOuSOYqDXoLSLhKiiXUK+cns=";
       };
       substitutions = [
       ];
@@ -34,7 +34,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2node";
-  version = "0.35.0-1";
+  version = "0.36.0-1";
   src = finalAttrs.passthru.sources."ros2node";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

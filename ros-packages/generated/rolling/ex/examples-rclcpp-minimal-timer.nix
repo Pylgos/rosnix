@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "examples_rclcpp_minimal_timer-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "4d089066984274be01975880acca289bd7dad629";
-        hash = "sha256-3UBR+hlH3QZ4iuLsvslqoZuTKw54gPtuGA7gLv3ouEU=";
+        rev = "b86c7af609fd1346cdc9aa812e3996b8cd3dfcee";
+        hash = "sha256-Q4yy+eCklK/JGVd5fHTU+tC44lgm8sy2GtyHnzMVYjM=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_minimal_timer";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_timer";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

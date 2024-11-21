@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-cmake-core,
+  ament-cmake-mypy,
   ament-cmake-pytest,
   ament-lint-auto,
   ament-lint-common,
@@ -19,8 +20,8 @@ let
       src = fetchgit {
         name = "rosidl_adapter-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "3d77f1ee6082ee116989c005acafc96ced3a9792";
-        hash = "sha256-Sm2QgEaOcCzsc9bjdttkuhs8f9BthrM5u1gDYNdZsTo=";
+        rev = "3f88d356b95381580fa0453e47c4c6864d7a08ed";
+        hash = "sha256-rf4YpzuVifH9LU4aTI1XMwLS+cGZXIIpN1en2i/t2zk=";
       };
       substitutions = [
       ];
@@ -29,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_adapter";
-  version = "4.9.0-1";
+  version = "4.9.1-1";
   src = finalAttrs.passthru.sources."rosidl_adapter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-core rosidl-cli ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "python3-empy" ]; };
@@ -37,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedBuildInputs = [ ament-cmake ament-cmake-core rosidl-cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-empy" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-mypy ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

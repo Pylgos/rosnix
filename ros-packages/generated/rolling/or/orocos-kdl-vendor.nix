@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "orocos_kdl_vendor-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
-        rev = "cdb25798979b61d7591030abc06923438eaf990c";
-        hash = "sha256-UMCjg5ol7D43QHfQX9G3elox5GLUsHb5Q93TExrjorc=";
+        rev = "006d95b33129697c167746d8c20024616a7398ed";
+        hash = "sha256-PX+x2ThgIPCex6Ngb2CSTWD+sC7pL+qsTDNtilWwr90=";
       };
       substitutions = [
         {
@@ -43,7 +43,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "orocos_kdl_vendor";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

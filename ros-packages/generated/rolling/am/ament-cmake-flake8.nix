@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_flake8-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "e7a0ecd8bf25d988dbbea9ef6e3596242557852d";
-        hash = "sha256-GzbWu2ZZCMu0THva1BaruSf2TsLcpi9FVddqmdDFpec=";
+        rev = "79f25fa291791b4a4d6b842ecf0bae8a72350841";
+        hash = "sha256-nZrHLFooxVBEyalvKeTm10aPqzRuPyi4RYx2HWcetmU=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_flake8";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_flake8";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-flake8 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

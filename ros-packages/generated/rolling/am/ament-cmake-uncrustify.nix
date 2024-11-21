@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_uncrustify-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "efebef7b70c55c2f4001c5955c5b06d06a736a19";
-        hash = "sha256-K+nAwXcoj7oyJgT+1aLuomdj6Y9zjGP6P7Lq9ZKU1pY=";
+        rev = "755056f33952b5baf8b6dd6bc8e3745037f9477b";
+        hash = "sha256-NquFu9CCd42ia4g59u06xNofYLieR+RGyRU5yLgrUQk=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_uncrustify";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_uncrustify";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-uncrustify ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -8,7 +8,6 @@
   fetchzip,
   launch-testing,
   mkSourceSet,
-  python-cmake-module,
   rosSystemPackages,
   substituteSource,
 }:
@@ -18,8 +17,8 @@ let
       src = fetchgit {
         name = "launch_testing_ament_cmake-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
-        rev = "59cd0d7ef210e7ee9e28ffaa626cd76398855db4";
-        hash = "sha256-4qQhk+y1feqwjrRt5EBlc1e7Lzo+rMf/iJdJFcfb2cA=";
+        rev = "c427507052b761fb4f28e9b4b02544fd2c725c56";
+        hash = "sha256-jnHNsAkYHWYexLLsdyhJF4fSeQn+yxdOIgjmgoqeR4s=";
       };
       substitutions = [
       ];
@@ -28,15 +27,15 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "launch_testing_ament_cmake";
-  version = "3.6.1-1";
+  version = "3.7.0-1";
   src = finalAttrs.passthru.sources."launch_testing_ament_cmake";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-test python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-cmake-test python-cmake-module ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-cmake-test ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [ launch-testing ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-copyright launch-testing python-cmake-module ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-copyright launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };

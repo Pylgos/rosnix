@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "pluginlib-source";
         url = "https://github.com/ros2-gbp/pluginlib-release.git";
-        rev = "55497a0f479607be3195b6883a6107a38f2f8dfd";
-        hash = "sha256-JB5F/PRTfU9jNzXznaDg8QBlh9q79Rg5RISPTHuPTZA=";
+        rev = "7453ba4f9e7584e3a7fdde82466812c129978a27";
+        hash = "sha256-RKDPpx8m5DNeX60ABlUnjYUeqfC+Qe4NjdDcGEU2zVU=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "pluginlib";
-  version = "5.5.1-1";
+  version = "5.5.2-1";
   src = finalAttrs.passthru.sources."pluginlib";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

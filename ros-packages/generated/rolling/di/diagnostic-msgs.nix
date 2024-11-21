@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "diagnostic_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "7154fea364cabc46edd39c64261c39eeb9807394";
-        hash = "sha256-o2VBY/NTRC11cnudQYMtrOY6gtYm7OHndBRG+MXBxdk=";
+        rev = "ded412b198d934ca9daab1b0042fd3170d486f37";
+        hash = "sha256-D6PP0gKQym8xngbmdgsxQY/9sid00iSPsu+8VgvmouA=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."diagnostic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

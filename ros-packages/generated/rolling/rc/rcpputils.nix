@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "rcpputils-source";
         url = "https://github.com/ros2-gbp/rcpputils-release.git";
-        rev = "3572bf76c1892591f6302a0c56d089e30f5556b4";
-        hash = "sha256-bjzOX/OXYaeBH5Rw+QjIa9El/o+nf5RNfkT/tMD24iQ=";
+        rev = "75daa84bc38eaa6c9aebd8c78e0ac320fbc06120";
+        hash = "sha256-J0YEsdshJKRbRLgmhATFfp1hMVPbLjehF6pYwMdHci0=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcpputils";
-  version = "2.13.1-1";
+  version = "2.13.2-1";
   src = finalAttrs.passthru.sources."rcpputils";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

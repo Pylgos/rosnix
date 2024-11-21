@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "examples_rclcpp_cbg_executor-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "252aa7c2a48ab8e405559450005176eec1c956ff";
-        hash = "sha256-7xxfcH0W413tJ4YVsQMejitI/aVXFTAQvwmKkng8v9Y=";
+        rev = "4c7a4a39f922c0748bd1143fe86276cb6befe7de";
+        hash = "sha256-XtVeqzHInEOR9yhhJJlgPmMqGc6/eWI5M/6h+HPnujg=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_cbg_executor";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_cbg_executor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

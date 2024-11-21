@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "examples_rclcpp_multithreaded_executor-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "d79abd1d7a416f47e637d7c7bf8324beb689ed6a";
-        hash = "sha256-cZuucFJIqk02QCFcMbblgvLfFua9VihT+lK1qCS6bHw=";
+        rev = "b83880ead54e3b57624cd01f47b202e0528feb5a";
+        hash = "sha256-jhpjPh8i4xGHbzlbMX62igBfRFYBNYTAFnaKZCIDjx4=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_multithreaded_executor";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_multithreaded_executor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

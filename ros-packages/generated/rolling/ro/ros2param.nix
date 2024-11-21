@@ -26,8 +26,8 @@ let
       src = fetchgit {
         name = "ros2param-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "b69a4e7eb6a4b721c624f83a0a74baa6cb3f3269";
-        hash = "sha256-97B87Hc7t/Y2Q3psYn5DB8NiQbyOtJZ01OZ5djYZunY=";
+        rev = "bd8ce4a33811af81f64f87dacc87da20db63c39a";
+        hash = "sha256-sRZUat1sQ4u5WltyI+L0JVbyAIOH+3/yOhhtQlom+CA=";
       };
       substitutions = [
       ];
@@ -36,7 +36,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2param";
-  version = "0.35.0-1";
+  version = "0.36.0-1";
   src = finalAttrs.passthru.sources."ros2param";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -10,7 +10,6 @@
   mkSourceSet,
   orocos-kdl-vendor,
   pybind11-vendor,
-  python-cmake-module,
   rosSystemPackages,
   substituteSource,
 }:
@@ -20,8 +19,8 @@ let
       src = fetchgit {
         name = "python_orocos_kdl_vendor-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
-        rev = "573fe19a96d05b976e2d7734a5f7dc0c09077601";
-        hash = "sha256-V3BBOQVqhrrQUHacG4mKlmLmCaiIq1uYPc7qgwem+2s=";
+        rev = "97c2f24677475f85f6a30754f8e57f79b6d61461";
+        hash = "sha256-6LTYaqfa5BtH2IzfhVI09xTm1XDJGQfGpr8Zmg0gHcI=";
       };
       substitutions = [
         {
@@ -44,9 +43,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "python_orocos_kdl_vendor";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."python_orocos_kdl_vendor";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ orocos-kdl-vendor pybind11-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };

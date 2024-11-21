@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "stereo_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "0888846426c3944223b3f65c780dce03a7d6b0a1";
-        hash = "sha256-gYP1t5Uq6u+ynppcnyCymLqe0G5VL91xa2dcfBAiDJQ=";
+        rev = "9d0639978fbc81beaf4233020e0220a0d594a81c";
+        hash = "sha256-AN3DO6Bwguk+y07ZXglPOn7+zkWoNYXr771yParWYWU=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "stereo_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."stereo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

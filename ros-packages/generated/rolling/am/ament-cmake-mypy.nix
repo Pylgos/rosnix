@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_mypy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "91810f41709319202fbfcff3e05e295b6f1962af";
-        hash = "sha256-HW+csb772XRl3wyN41cpciuG2mw8Jbek4OMYsrY2hVc=";
+        rev = "51a0160c6d75b9cd4513d1736f6356d3cd13fbcd";
+        hash = "sha256-GIWvzwxTfHskF4QGkWKlAeKDr3gRCGAbbTDTiyL6kv8=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_mypy";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_mypy";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-mypy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -1,4 +1,5 @@
 {
+  ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
   fetchurl,
@@ -13,8 +14,8 @@ let
       src = fetchgit {
         name = "ament_pycodestyle-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "4a6fe66afc81455e7c1d234d8d149e226af72fc6";
-        hash = "sha256-PRAH4qMWsZfuV6QVDxo472LXI8bGtUnTv71iVfxv528=";
+        rev = "bbdd57330265470e7c6a37e87f731d2db2545853";
+        hash = "sha256-TaPjtvtOMRWh8FSntee0cHeZatzyWm4NieVHPk1HQIQ=";
       };
       substitutions = [
       ];
@@ -23,7 +24,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_pycodestyle";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_pycodestyle";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pycodestyle" ]; };
@@ -31,7 +32,7 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pycodestyle" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
     inherit sources;
   };

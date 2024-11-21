@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_cpplint-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "10ef0daaaa4e3c0763da28e1925b94a16edd2937";
-        hash = "sha256-zpBXJXUfHgltg1Noo0b2roDBUFAt4uxSTrCEAcIxYSE=";
+        rev = "0692c451f263dc09367300949dbf28dc32c657c4";
+        hash = "sha256-YUG+IzG8bzZdDuNFHNYJV5vTaqjDFh1PK7mPXbKeKYc=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_cpplint";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_cpplint";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-cpplint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

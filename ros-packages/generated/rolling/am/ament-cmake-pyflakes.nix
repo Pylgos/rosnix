@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "ament_cmake_pyflakes-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "b8d1b6ee68852df1be5bdc5b5da035333bdde5d0";
-        hash = "sha256-JYKDqcUKWLZvS/7uH/b8uweqB8C1w9INwldLHIqvxXU=";
+        rev = "ab7ed8372e652ffc4e9c92a7015f608a51280926";
+        hash = "sha256-qtX46UM1DBaVEAkJ8NxtgZSNE0w9BtBDGBx04Iy+cTc=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pyflakes";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_pyflakes";
   nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pyflakes ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

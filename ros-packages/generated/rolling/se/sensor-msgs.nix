@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "sensor_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "9ad158665e37b84d8036bf192b2f5ae13439d949";
-        hash = "sha256-NwqTJiOqL73T6duUjf+n8OiC0VTiECZ+GvVC1BTwf1k=";
+        rev = "2c189690c9c6e02e9734e7befb1f644e5ee7427e";
+        hash = "sha256-L1vpCfMbKQBw/M/OzPW72ODKFhBXrecnP3ZaJRGxmMQ=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "sensor_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

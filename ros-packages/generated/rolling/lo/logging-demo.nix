@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "logging_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "5185a91c97089a47aa39f49a7d952fcf854ef4d4";
-        hash = "sha256-Rfju1OLzeDqJ2G7ABckz3J1+EenVxmt9vfZGHL7qb7s=";
+        rev = "d2d519bbe999d23f73ccc6a1ee9d97e68711afdd";
+        hash = "sha256-hOJebHSrG84/PMPR0xbvx+8Knj9YgacS8mvahCduBYo=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "logging_demo";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."logging_demo";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

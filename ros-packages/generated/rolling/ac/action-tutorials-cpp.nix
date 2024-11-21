@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "action_tutorials_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "5120938390bd96dceb174beb939a7b009cd7fc4f";
-        hash = "sha256-6ByKaIxl+EG0djgtJbCd/h3hXZ7hcrQ0I9p3vg8W3U4=";
+        rev = "54179fe912d0d549c73173a212269393f6306e99";
+        hash = "sha256-Lf+9dsTXR0BlVayteqDyi6cPJUkxxGS7573J4B5mHZA=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "action_tutorials_cpp";
-  version = "0.35.0-1";
+  version = "0.35.1-1";
   src = finalAttrs.passthru.sources."action_tutorials_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -28,8 +28,8 @@ let
       src = fetchgit {
         name = "common_interfaces-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "5bdd17489af0e10295441cf99d06ea662173c04a";
-        hash = "sha256-sY3G36Si+RGICbER9vogXSz2Ooba4wre6O0uI78NBKw=";
+        rev = "6a685bf6b6ad51b6b854df39d5230a43edd6fdd9";
+        hash = "sha256-8/nBGPX0SJJ/W0/e1eM1fAT/zAj/8eO24YTcLdc39ig=";
       };
       substitutions = [
       ];
@@ -38,7 +38,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "common_interfaces";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."common_interfaces";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

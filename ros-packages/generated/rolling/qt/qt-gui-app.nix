@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "qt_gui_app-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "1a01067cf80037481f6949abe6b5941350867b24";
-        hash = "sha256-Sor72UP2YXAqhkJzqlWRTCiT6J5EtBB7kuWEDWJ6TSw=";
+        rev = "0580a4ba839e42a0f583e15826c89e829cadfbc1";
+        hash = "sha256-cZamnJ0l8IlwpXbF+tgSSck3qDyALVsL4zb67037anY=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_app";
-  version = "2.8.2-1";
+  version = "2.8.3-1";
   src = finalAttrs.passthru.sources."qt_gui_app";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

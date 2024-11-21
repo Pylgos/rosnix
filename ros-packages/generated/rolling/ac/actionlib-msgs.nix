@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "actionlib_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "f5035948dce2ee364ae95ec431dcd3523e4b2b56";
-        hash = "sha256-dQGRJRukTE6CLpk3gynFaqd4seZ2l8LMthey+WsWCvs=";
+        rev = "786522906847491da603dd66c5b1d37bd488fea4";
+        hash = "sha256-LtWxbdvwdhlOkvoPxjgQTcUVn3ZOCpo6hJOPsn9yJBI=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "actionlib_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."actionlib_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

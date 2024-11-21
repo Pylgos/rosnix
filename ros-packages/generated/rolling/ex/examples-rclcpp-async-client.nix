@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "examples_rclcpp_async_client-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "d6beeff45c3e1df3c7cdc7d5e0bb5dad4dcf58f0";
-        hash = "sha256-OdDyEM9FzKIbcozbrj6PTlgs8hMM4ueBO6sAaLRqCyw=";
+        rev = "f38447a2da36e017ea96b98304dbaab7d5efe3e2";
+        hash = "sha256-tJnyVRcarjvMgLCg6I/1lzdyn4i1VZ3i2eVLUtP0QpE=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_async_client";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_async_client";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

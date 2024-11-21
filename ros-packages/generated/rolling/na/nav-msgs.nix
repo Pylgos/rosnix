@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "nav_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "cc47cfffcc25d41c45d304dbdce3bab5056fe540";
-        hash = "sha256-Xd1E6EyQ4xRoJud5diXKb+ixqD+MLbYxZRF591xgocE=";
+        rev = "10ec99e9770c392e7362947fdd997abdb9ded9f1";
+        hash = "sha256-99u1PUOGdncERX6pY1WQLSqn6ou2O+N23qcYhQ9f3Nk=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."nav_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

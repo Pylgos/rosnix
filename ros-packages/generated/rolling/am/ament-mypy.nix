@@ -1,5 +1,6 @@
 {
   ament-flake8,
+  ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
   fetchurl,
@@ -14,8 +15,8 @@ let
       src = fetchgit {
         name = "ament_mypy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "c31f1d8ae9d65d1f0d48429ae9e33c4c2d786657";
-        hash = "sha256-R7jHNYuhpeiCE5glxRX9kuYPgQD5j6RoEqbNkX48ivo=";
+        rev = "6fc997eba599748ca91d9ea92ca5a644e558b770";
+        hash = "sha256-ULlxsGOKxCTgi+60FJe7/SqRmkYohMbZQSU+Vk9JF08=";
       };
       substitutions = [
       ];
@@ -24,7 +25,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_mypy";
-  version = "0.18.1-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."ament_mypy";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-mypy" ]; };
@@ -32,7 +33,7 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-mypy" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-flake8 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
+  checkInputs = [ ament-flake8 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
   passthru = {
     inherit sources;
   };

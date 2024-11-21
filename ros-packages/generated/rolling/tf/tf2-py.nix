@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "23241f02f20f99ee678a117769922167621c2079";
-        hash = "sha256-98lXeZFxGJ8FBkVh8yU0Rm60YwnwhKq8GOIhvDp70Nc=";
+        rev = "fb1926c85320347162c670eba1bbfb950911d646";
+        hash = "sha256-1V9JhinsTayPyj0utN7z7YKNuY16+fbU6i3lL7ZzDro=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_py";
-  version = "0.39.1-1";
+  version = "0.39.2-1";
   src = finalAttrs.passthru.sources."tf2_py";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

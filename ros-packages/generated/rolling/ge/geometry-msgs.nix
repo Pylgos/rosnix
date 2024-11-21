@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "geometry_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "026ddae2e1fc15cd04b84540bf2de87e3b81d317";
-        hash = "sha256-PiZxjzoYNv5XhN29elEtWpVLAVg1n+JAq4jFiImv7nc=";
+        rev = "746275d3a681976cb1a474638c2a4c7ce92e06fe";
+        hash = "sha256-1sYA5hXwXFwVGM1TdgRVbZiARc+Cz1PVH8RyHzIHCrc=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "geometry_msgs";
-  version = "5.4.1-1";
+  version = "5.4.2-1";
   src = finalAttrs.passthru.sources."geometry_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
