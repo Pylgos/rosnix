@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "spinnaker_synchronized_camera_driver-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "7e6e393730d404731707617d6729da35ee03d1a6";
-        hash = "sha256-00at/VcWxA8N7f7Y/CHRtm6A7EnyL3p5j1qVoksz4R4=";
+        rev = "ba9e9f0356f64dca6d0837bdb9b6677d7a6fb43e";
+        hash = "sha256-RIibVom6w6HpnXQJmj0ZOw8rDids49aCM9F6AYfZpWw=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_synchronized_camera_driver";
-  version = "2.0.20-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."spinnaker_synchronized_camera_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "flir_camera_description-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "c95f5f228611318d905943bb465df57ce9a0a6cf";
-        hash = "sha256-BW9xfT7JS4SQrUug5BG2EQ0c49xUa1glCNWO0Wpwk2g=";
+        rev = "79fedf0bfc9249f83f55835b85ec35594999a770";
+        hash = "sha256-juVFZYQShq5XUOWXlJHXaXr1K7IdudyEJwkcGYIaFz4=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "flir_camera_description";
-  version = "2.0.20-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."flir_camera_description";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

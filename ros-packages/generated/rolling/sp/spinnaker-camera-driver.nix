@@ -14,6 +14,7 @@
   mkSourceSet,
   rclcpp,
   rclcpp-components,
+  ros-environment,
   rosSystemPackages,
   sensor-msgs,
   std-msgs,
@@ -25,8 +26,8 @@ let
       src = fetchgit {
         name = "spinnaker_camera_driver-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "d20097a76ba1542f0040176a9ec50755c8788835";
-        hash = "sha256-MTLkSEO/NkdU6Fa/1zhCvcWbcyRFQ58qqX66+pGBmdk=";
+        rev = "5d9aedb11eb453d79898041a3136b22cb66118ea";
+        hash = "sha256-yyb7Mxxw6htbpNQmOpPjMCQm67nKQsVeqnN/WcyUuAs=";
       };
       substitutions = [
       ];
@@ -35,9 +36,9 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_camera_driver";
-  version = "2.0.20-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."spinnaker_camera_driver";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ camera-info-manager flir-camera-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "dpkg" "ffmpeg" "libusb-1.0-dev" "python3-distro" "yaml-cpp" ]; };

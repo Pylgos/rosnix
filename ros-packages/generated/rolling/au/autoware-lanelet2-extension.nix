@@ -31,8 +31,8 @@ let
       src = fetchgit {
         name = "autoware_lanelet2_extension-source";
         url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
-        rev = "cc17a16963d747fb998f1a8223077c654b5d8beb";
-        hash = "sha256-hCTVBEAFHHCe8f524kEhnkm4yU9EZnItUg/f2dPj91w=";
+        rev = "6cb70a2bb4b3ecf9f35368c900442703140400fd";
+        hash = "sha256-N82XthGqtoDx6ooutkIKgroFlkB6o6LZRivc35HVYeE=";
       };
       substitutions = [
       ];
@@ -41,7 +41,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_lanelet2_extension";
-  version = "0.6.0-1";
+  version = "0.6.2-1";
   src = finalAttrs.passthru.sources."autoware_lanelet2_extension";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

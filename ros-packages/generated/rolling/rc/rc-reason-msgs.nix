@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "rc_reason_msgs-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
-        rev = "e7fc5794f1a306595436423575f7cf97907418f1";
-        hash = "sha256-P8ovKBUpAcX6Vgdu5eENt0kWdRw73g5+UuFDNlhsJxY=";
+        rev = "61412342ea7654265445a3887c083719e768c3fd";
+        hash = "sha256-4UWrVAe/idz19Rp3JIISd3dreXqEZKnY2FgbPcNPfqQ=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rc_reason_msgs";
-  version = "0.4.0-1";
+  version = "0.3.1-2";
   src = finalAttrs.passthru.sources."rc_reason_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
