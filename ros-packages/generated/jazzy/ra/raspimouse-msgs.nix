@@ -1,28 +1,25 @@
 {
   ament-cmake,
+  ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry-msgs,
   mkSourceSet,
-  rc-common-msgs,
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
-  shape-msgs,
-  std-msgs,
   substituteSource,
 }:
 let
   sources = mkSourceSet (sources: {
-    "rc_reason_msgs" = substituteSource {
+    "raspimouse_msgs" = substituteSource {
       src = fetchgit {
-        name = "rc_reason_msgs-source";
-        url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
-        rev = "97713dff96f187870f8ba4f05bc5243f5b2df6d1";
-        hash = "sha256-P8ovKBUpAcX6Vgdu5eENt0kWdRw73g5+UuFDNlhsJxY=";
+        name = "raspimouse_msgs-source";
+        url = "https://github.com/ros2-gbp/raspimouse2-release.git";
+        rev = "5623e6a63f7c840dee29b4d5335de05e9e10d458";
+        hash = "sha256-BTBw6W+S6YWOjkYwpnlUXY9tYU/1lQNPLM6WiiyHi8s=";
       };
       substitutions = [
       ];
@@ -30,20 +27,20 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "rc_reason_msgs";
-  version = "0.4.0-2";
-  src = finalAttrs.passthru.sources."rc_reason_msgs";
+  pname = "raspimouse_msgs";
+  version = "2.0.0-1";
+  src = finalAttrs.passthru.sources."raspimouse_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs rc-common-msgs rosidl-default-runtime shape-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   passthru = {
     inherit sources;
   };
   meta = {
-    description = "Msg and srv definitions for rc_reason_clients";
+    description = "RaspiMouse messages";
   };
 })

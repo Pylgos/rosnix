@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "pal_statistics_msgs-source";
         url = "https://github.com/ros2-gbp/pal_statistics-release.git";
-        rev = "6c866cbe77d964560c81d9c184c06d1371661686";
-        hash = "sha256-8QGt/RdBUUO5MaWpDpaVy7xWuLywg94gm/Gmo1J8GiY=";
+        rev = "b5a3fe79ee9a6380479a2a4562fbe62bd9e5e647";
+        hash = "sha256-X0WdtFtEDw9BHB7bbH7qV3N7dNVNJ+Ge6IyhxVeNpBY=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "pal_statistics_msgs";
-  version = "2.2.4-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."pal_statistics_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

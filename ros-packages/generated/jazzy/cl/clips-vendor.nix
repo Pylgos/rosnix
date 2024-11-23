@@ -1,22 +1,22 @@
 {
   ament-cmake,
+  ament-cmake-vendor-package,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 let
   sources = mkSourceSet (sources: {
-    "etsi_its_primitives_conversion" = substituteSource {
+    "clips_vendor" = substituteSource {
       src = fetchgit {
-        name = "etsi_its_primitives_conversion-source";
-        url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "52378caeac5785a71d240d40fcf2753b5f807fd3";
-        hash = "sha256-3ZwlPcYJzClL8SmuPX2ckSCQ0Vj/+ByE7EzL9WEIvYQ=";
+        name = "clips_vendor-source";
+        url = "https://github.com/ros2-gbp/clips_vendor-release.git";
+        rev = "74e366cbfccf99aba9a6e63b8b72b5121bef666d";
+        hash = "sha256-7JkRRJ9Ux61zz2UwB9uq6ldDNNcpSjZL3vekd3yk64c=";
       };
       substitutions = [
       ];
@@ -24,11 +24,11 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "etsi_its_primitives_conversion";
-  version = "2.4.0-1";
-  src = finalAttrs.passthru.sources."etsi_its_primitives_conversion";
+  pname = "clips_vendor";
+  version = "6.4.3-1";
+  src = finalAttrs.passthru.sources."clips_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
@@ -38,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Conversion functions for converting ROS primitives to and from ASN.1-encoded primitives";
+    description = "Vendor package for the CLIPS rule based production system";
   };
 })

@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "rc_reason_clients-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
-        rev = "e8e4ce1459a8bae56c3865eaa512dbf4ee360532";
-        hash = "sha256-nrDAYPBtkbSi1QAZJHR9jYhMnPLwemNMDxIzccehO1o=";
+        rev = "23990489c5bbdd53b5db3fc9f14d469a359008ff";
+        hash = "sha256-WI+zIg/6kZyvcTtK5zKnMl0PWGu5udO8YXCI3C1rY3E=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "rc_reason_clients";
-  version = "0.3.1-3";
+  version = "0.4.0-2";
   src = finalAttrs.passthru.sources."rc_reason_clients";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

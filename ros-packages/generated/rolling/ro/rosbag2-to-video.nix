@@ -1,28 +1,29 @@
 {
   ament-copyright,
   ament-flake8,
+  ament-mypy,
   ament-pep257,
   buildAmentPythonPackage,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry-msgs,
-  launch-ros,
   mkSourceSet,
   rclpy,
+  ros2bag,
   rosSystemPackages,
-  sensor-msgs,
+  rosbag2-py,
+  rosidl-runtime-py,
   substituteSource,
-  tf2-ros-py,
 }:
 let
   sources = mkSourceSet (sources: {
-    "examples_tf2_py" = substituteSource {
+    "rosbag2_to_video" = substituteSource {
       src = fetchgit {
-        name = "examples_tf2_py-source";
-        url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "ebd3bf2f237878a219a9eef7beb99f269db9b566";
-        hash = "sha256-x/Gt+oaCGIxsVFcd59ghmnBXRiWujozSUt/zMf5A2oo=";
+        name = "rosbag2_to_video-source";
+        url = "https://github.com/ros2-gbp/rosbag2_to_video-release.git";
+        rev = "661e2dbb6a6fe64d1615442ab0666b76b20e36ba";
+        hash = "sha256-cIIIILgxEls8aRJ8CNJa9vP6dRz4Xw0ARTQudqviVWI=";
       };
       substitutions = [
       ];
@@ -30,20 +31,20 @@ let
   });
 in
 buildAmentPythonPackage (finalAttrs: {
-  pname = "examples_tf2_py";
-  version = "0.36.5-1";
-  src = finalAttrs.passthru.sources."examples_tf2_py";
+  pname = "rosbag2_to_video";
+  version = "1.0.1-1";
+  src = finalAttrs.passthru.sources."rosbag2_to_video";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs launch-ros rclpy sensor-msgs tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ cv-bridge rclpy ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
     inherit sources;
   };
   meta = {
-    description = "Has examples of using the tf2 Python API.";
+    description = "Command line tool to create a video from a rosbag recording";
   };
 })

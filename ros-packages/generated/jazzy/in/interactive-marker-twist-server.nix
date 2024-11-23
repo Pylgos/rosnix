@@ -21,8 +21,8 @@ let
       src = fetchgit {
         name = "interactive_marker_twist_server-source";
         url = "https://github.com/ros2-gbp/interactive_marker_twist_server-release.git";
-        rev = "ebbcfde78840e10069a8c7d8c7c8255dcd8668a7";
-        hash = "sha256-FvPQhN5z6jkYZtScraxOUe3bjI3cA495ni/sp/Hh7uk=";
+        rev = "86045d0aabbf882b4f54941510b65ac357846abb";
+        hash = "sha256-09yOPHNNaMnQ74PvxlJRcDeLXktVm6n/ftEOa55NlPA=";
       };
       substitutions = [
       ];
@@ -31,7 +31,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "interactive_marker_twist_server";
-  version = "2.1.0-3";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."interactive_marker_twist_server";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

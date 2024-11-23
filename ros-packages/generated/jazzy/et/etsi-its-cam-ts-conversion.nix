@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "etsi_its_cam_ts_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "a0c1a29ec430cc092e7c48c3d48613df1220dd65";
-        hash = "sha256-bWBphzQvTobJf4yQZp5LVqhQcQSqtjVh9CNn4LEHfZM=";
+        rev = "19cf19995f7c56bc52294f14b9cbf0b7f1e3d4cc";
+        hash = "sha256-XQaWzbjNQpi9EvBbbAwBgFeSGRNyNx6GzYc5RocCmFE=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_ts_conversion";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_ts_conversion";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

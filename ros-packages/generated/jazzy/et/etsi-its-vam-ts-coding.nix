@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "etsi_its_vam_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "8251d83eb592905bf544ae93e2520930235f0708";
-        hash = "sha256-rMXfKxcxmrVLlwAysEngE/wvBpqAQVRQVRtN6iIBpLU=";
+        rev = "eaefbfad64b217baa9ebefa2a647c65b2904d3a7";
+        hash = "sha256-LI/OP/9S2acqiAsk8dd11tRMYNJWButU4JZYvWreaVU=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_vam_ts_coding";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_vam_ts_coding";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
