@@ -83,13 +83,13 @@ colcon-package-information = "*"
 
 [[package]]
 name = "colcon-cmake"
-version = "0.2.28"
+version = "0.2.29"
 description = "Extension for colcon to support CMake packages."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "colcon-cmake-0.2.28.tar.gz", hash = "sha256:5e910890148d9d3c7f82f5c0e97904478e0e0bf156b786729099ead73d6ec4f0"},
-    {file = "colcon_cmake-0.2.28-py3-none-any.whl", hash = "sha256:22d3350c3a5f9782b32bc20787808dddca2e1301d9e49920891b7ea3e1c9b985"},
+    {file = "colcon-cmake-0.2.29.tar.gz", hash = "sha256:f1c0a14e2530d3b738f8d0659c27d59e2a0a03dfef601e61369bb5083ebf1f69"},
+    {file = "colcon_cmake-0.2.29-py3-none-any.whl", hash = "sha256:f3a18a4459494ba3ea7635abcab350e1c0780d1cc976a8347a4c4e7b6755f78b"},
 ]
 
 [package.dependencies]
@@ -139,13 +139,13 @@ recommended = ["colcon-override-check"]
 
 [[package]]
 name = "colcon-core"
-version = "0.18.3"
+version = "0.18.4"
 description = "Command line tool to build sets of software packages."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "colcon-core-0.18.3.tar.gz", hash = "sha256:8b3dcf0b140b2851a9169c60b3ed2ca78a6e48fec8ececdeefa287a6715f2e17"},
-    {file = "colcon_core-0.18.3-py3-none-any.whl", hash = "sha256:55295281a588d12f595e7f97650c09a1975fed7345a96db92424c471e4d40f41"},
+    {file = "colcon-core-0.18.4.tar.gz", hash = "sha256:39ec26dd66d5c69a5f4031239c93258069f61fa3df6f88744a370073d2691a1d"},
+    {file = "colcon_core-0.18.4-py3-none-any.whl", hash = "sha256:bc36b3ac6a4c60074e34efce476db1a9f4248c7c74a045378d9a05415e648061"},
 ]
 
 [package.dependencies]
