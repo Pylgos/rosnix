@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "point_cloud_interfaces" = substituteSource {
-        src = fetchgit {
-          name = "point_cloud_interfaces-source";
-          url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-          rev = "94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70";
-          hash = "sha256-hijq0cE+AbzE2YCfnlqxbEHL/9OsqrR5Nv35rDhX7Vw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "point_cloud_interfaces" = substituteSource {
+      src = fetchgit {
+        name = "point_cloud_interfaces-source";
+        url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
+        rev = "94dc2b693b4a5d981dfe7c8b3bfc4757ad05dd70";
+        hash = "sha256-hijq0cE+AbzE2YCfnlqxbEHL/9OsqrR5Nv35rDhX7Vw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "msg definitions for use with point_cloud_transport plugins.";
   };

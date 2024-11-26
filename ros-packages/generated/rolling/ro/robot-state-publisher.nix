@@ -31,18 +31,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "robot_state_publisher" = substituteSource {
-        src = fetchgit {
-          name = "robot_state_publisher-source";
-          url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
-          rev = "ec77148a420bc7ebc6727077436a2feb6b7aadc0";
-          hash = "sha256-LZBeqk7Kua+ROcmdZZfIUe+gIWb4W7TAiPXrViz6Aj4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "robot_state_publisher" = substituteSource {
+      src = fetchgit {
+        name = "robot_state_publisher-source";
+        url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
+        rev = "ec77148a420bc7ebc6727077436a2feb6b7aadc0";
+        hash = "sha256-LZBeqk7Kua+ROcmdZZfIUe+gIWb4W7TAiPXrViz6Aj4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "This package take the joint angles of a robot as input, and publishes the 3D poses of the robot links to tf2, using a kinematic tree model of the robot.";
   };

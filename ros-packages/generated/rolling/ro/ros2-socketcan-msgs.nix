@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros2_socketcan_msgs" = substituteSource {
-        src = fetchgit {
-          name = "ros2_socketcan_msgs-source";
-          url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
-          rev = "181e851e78d05f6211aef8b74e106d09979bebbd";
-          hash = "sha256-CdTyUOxtcJWtdaWIWAMV8DBwNPVcpobmkdjvFqDo8xE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros2_socketcan_msgs" = substituteSource {
+      src = fetchgit {
+        name = "ros2_socketcan_msgs-source";
+        url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
+        rev = "181e851e78d05f6211aef8b74e106d09979bebbd";
+        hash = "sha256-CdTyUOxtcJWtdaWIWAMV8DBwNPVcpobmkdjvFqDo8xE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages for SocketCAN";
   };

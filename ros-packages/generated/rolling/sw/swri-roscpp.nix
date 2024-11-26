@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-cmake ];
   propagatedBuildInputs = [ diagnostic-updater marti-common-msgs nav-msgs rclcpp rosidl-default-runtime std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "swri_roscpp" = substituteSource {
-        src = fetchgit {
-          name = "swri_roscpp-source";
-          url = "https://github.com/ros2-gbp/marti_common-release.git";
-          rev = "91f705878c525169595dcb44486fc504b5df25e1";
-          hash = "sha256-qtBkcbUk+6HXrSLdLd15YZqN/5x48gCfTKi8EGSg2fw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "swri_roscpp" = substituteSource {
+      src = fetchgit {
+        name = "swri_roscpp-source";
+        url = "https://github.com/ros2-gbp/marti_common-release.git";
+        rev = "91f705878c525169595dcb44486fc504b5df25e1";
+        hash = "sha256-qtBkcbUk+6HXrSLdLd15YZqN/5x48gCfTKi8EGSg2fw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package that extends rclcpp with some commonly used functionality to reduce boilerplate code.";
   };

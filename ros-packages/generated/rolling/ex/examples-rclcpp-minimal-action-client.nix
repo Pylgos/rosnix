@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-action ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "examples_rclcpp_minimal_action_client" = substituteSource {
-        src = fetchgit {
-          name = "examples_rclcpp_minimal_action_client-source";
-          url = "https://github.com/ros2-gbp/examples-release.git";
-          rev = "efd94afe996cb5643f141ff9ddef2eaabeba6f66";
-          hash = "sha256-L2J/czvbZ86z5ooUnZOS5kOwU+nNpwu6lqejoSQ8uaE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "examples_rclcpp_minimal_action_client" = substituteSource {
+      src = fetchgit {
+        name = "examples_rclcpp_minimal_action_client-source";
+        url = "https://github.com/ros2-gbp/examples-release.git";
+        rev = "efd94afe996cb5643f141ff9ddef2eaabeba6f66";
+        hash = "sha256-L2J/czvbZ86z5ooUnZOS5kOwU+nNpwu6lqejoSQ8uaE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Minimal action client examples";
   };

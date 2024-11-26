@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake-auto ament-lint-auto ros-environment ];
   propagatedBuildInputs = [ ament-cmake-auto ament-lint-auto ros-environment ];
   checkInputs = [ ament-lint-auto autoware-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_cmake" = substituteSource {
-        src = fetchgit {
-          name = "autoware_cmake-source";
-          url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
-          rev = "a5b2d0fd0287fd4074a390357cb8408ca535fe4f";
-          hash = "sha256-uNWJEFHdKrWaAM3S5MTv2SI5xia8uBU4BdoPu0+jjpc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_cmake" = substituteSource {
+      src = fetchgit {
+        name = "autoware_cmake-source";
+        url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
+        rev = "a5b2d0fd0287fd4074a390357cb8408ca535fe4f";
+        hash = "sha256-uNWJEFHdKrWaAM3S5MTv2SI5xia8uBU4BdoPu0+jjpc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "CMake scripts for Autoware";
   };

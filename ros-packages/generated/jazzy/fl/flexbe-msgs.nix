@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "flexbe_msgs" = substituteSource {
-        src = fetchgit {
-          name = "flexbe_msgs-source";
-          url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
-          rev = "a5d7f9f1c81ae33f3c3c2fb01e0721bb2bdd926a";
-          hash = "sha256-uBMqKj7xP+bWHd1rLyL8C2Tx+/vWfPi7wrtzjqmywGM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "flexbe_msgs" = substituteSource {
+      src = fetchgit {
+        name = "flexbe_msgs-source";
+        url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
+        rev = "a5d7f9f1c81ae33f3c3c2fb01e0721bb2bdd926a";
+        hash = "sha256-uBMqKj7xP+bWHd1rLyL8C2Tx+/vWfPi7wrtzjqmywGM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "flexbe_msgs provides the messages used by FlexBE.";
   };

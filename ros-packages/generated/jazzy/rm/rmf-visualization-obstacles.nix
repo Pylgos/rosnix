@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs rclcpp rclcpp-components rmf-obstacle-msgs rmf-visualization-msgs vision-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-uncrustify rmf-utils ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmf_visualization_obstacles" = substituteSource {
-        src = fetchgit {
-          name = "rmf_visualization_obstacles-source";
-          url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-          rev = "ea5997876c9e316df71b29cb446ba5299b768c7c";
-          hash = "sha256-Cu1rClmXAp3Zuzc5DhsHEau7XqrwfIKFKHXhFHYXU0U=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmf_visualization_obstacles" = substituteSource {
+      src = fetchgit {
+        name = "rmf_visualization_obstacles-source";
+        url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
+        rev = "ea5997876c9e316df71b29cb446ba5299b768c7c";
+        hash = "sha256-Cu1rClmXAp3Zuzc5DhsHEau7XqrwfIKFKHXhFHYXU0U=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A visualizer for obstacles in RMF";
   };

@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   propagatedBuildInputs = [ geometry-msgs mrpt-libnav mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_reactivenav2d" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_reactivenav2d-source";
-          url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-          rev = "3d421364414f6597f0619f6988be522ee3514993";
-          hash = "sha256-FUqjTTs6ZOcyEnrx+RcewPZp2zmK55he+SPTxQy3Sgs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_reactivenav2d" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_reactivenav2d-source";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        rev = "3d421364414f6597f0619f6988be522ee3514993";
+        hash = "sha256-FUqjTTs6ZOcyEnrx+RcewPZp2zmK55he+SPTxQy3Sgs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Reactive navigation for wheeled robots using MRPT navigation algorithms (TP-Space)";
   };

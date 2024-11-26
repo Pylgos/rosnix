@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs unique-identifier-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "geographic_msgs" = substituteSource {
-        src = fetchgit {
-          name = "geographic_msgs-source";
-          url = "https://github.com/ros2-gbp/geographic_info-release.git";
-          rev = "1efe3b2b34b48437bc1af05abe67bbbf832c9957";
-          hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "geographic_msgs" = substituteSource {
+      src = fetchgit {
+        name = "geographic_msgs-source";
+        url = "https://github.com/ros2-gbp/geographic_info-release.git";
+        rev = "1efe3b2b34b48437bc1af05abe67bbbf832c9957";
+        hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS messages for Geographic Information Systems.";
   };

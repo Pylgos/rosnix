@@ -44,18 +44,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
   checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rclcpp" = substituteSource {
-        src = fetchgit {
-          name = "rclcpp-source";
-          url = "https://github.com/ros2-gbp/rclcpp-release.git";
-          rev = "422bba55227b308b5716fee777ee3c3c266114aa";
-          hash = "sha256-hR/y6lCWd924ihDaLijd+QOljnhU9v2odBsY2bqpS6g=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rclcpp" = substituteSource {
+      src = fetchgit {
+        name = "rclcpp-source";
+        url = "https://github.com/ros2-gbp/rclcpp-release.git";
+        rev = "422bba55227b308b5716fee777ee3c3c266114aa";
+        hash = "sha256-hR/y6lCWd924ihDaLijd+QOljnhU9v2odBsY2bqpS6g=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The ROS client library in C++.";
   };

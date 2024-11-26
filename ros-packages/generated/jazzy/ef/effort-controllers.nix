@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "effort_controllers" = substituteSource {
-        src = fetchgit {
-          name = "effort_controllers-source";
-          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-          rev = "bc78fcc830cd50f06eae9c1f89b76e8ecc970a7a";
-          hash = "sha256-FUQwIbhMyVSPRZe92ePpOu7VkTNlgaoP3RyktenTkUQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "effort_controllers" = substituteSource {
+      src = fetchgit {
+        name = "effort_controllers-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "bc78fcc830cd50f06eae9c1f89b76e8ecc970a7a";
+        hash = "sha256-FUQwIbhMyVSPRZe92ePpOu7VkTNlgaoP3RyktenTkUQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Generic controller for forwarding commands.";
   };

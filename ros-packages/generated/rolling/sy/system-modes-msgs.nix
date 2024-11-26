@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "system_modes_msgs" = substituteSource {
-        src = fetchgit {
-          name = "system_modes_msgs-source";
-          url = "https://github.com/ros2-gbp/system_modes-release.git";
-          rev = "54ca985a62ba5234ccc4578a795f722e79168f9d";
-          hash = "sha256-UcVnvMWo1lcz8PljlXg4m53YoUKsphq4TbfgB7Z3dgw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "system_modes_msgs" = substituteSource {
+      src = fetchgit {
+        name = "system_modes_msgs-source";
+        url = "https://github.com/ros2-gbp/system_modes-release.git";
+        rev = "54ca985a62ba5234ccc4578a795f722e79168f9d";
+        hash = "sha256-UcVnvMWo1lcz8PljlXg4m53YoUKsphq4TbfgB7Z3dgw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Interface package, containing message definitions and service definitions for the system modes package.";
   };

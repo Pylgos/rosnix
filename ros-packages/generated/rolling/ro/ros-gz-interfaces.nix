@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rcl-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros_gz_interfaces" = substituteSource {
-        src = fetchgit {
-          name = "ros_gz_interfaces-source";
-          url = "https://github.com/ros2-gbp/ros_ign-release.git";
-          rev = "9ed8c78ca6f2777be369a0c3a6c83a11bee932bf";
-          hash = "sha256-ag2fQALfoDvUN1i8N19adK3DK6wzf/caMy747e4qgWg=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros_gz_interfaces" = substituteSource {
+      src = fetchgit {
+        name = "ros_gz_interfaces-source";
+        url = "https://github.com/ros2-gbp/ros_ign-release.git";
+        rev = "9ed8c78ca6f2777be369a0c3a6c83a11bee932bf";
+        hash = "sha256-ag2fQALfoDvUN1i8N19adK3DK6wzf/caMy747e4qgWg=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message and service data structures for interacting with Gazebo from ROS2.";
   };

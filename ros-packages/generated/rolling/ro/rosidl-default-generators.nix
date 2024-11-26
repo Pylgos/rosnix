@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedBuildInputs = [ ament-cmake-core rosidl-core-generators ];
   depsTargetTargetPropagated = [ action-msgs service-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosidl_default_generators" = substituteSource {
-        src = fetchgit {
-          name = "rosidl_default_generators-source";
-          url = "https://github.com/ros2-gbp/rosidl_defaults-release.git";
-          rev = "ce3a55682bdd70d8dbafbd9287eb0503d1423d1c";
-          hash = "sha256-mcblgN7cnPOiwbFvSMsZMS/lmwJm1JP1DnqN1KXRayg=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosidl_default_generators" = substituteSource {
+      src = fetchgit {
+        name = "rosidl_default_generators-source";
+        url = "https://github.com/ros2-gbp/rosidl_defaults-release.git";
+        rev = "ce3a55682bdd70d8dbafbd9287eb0503d1423d1c";
+        hash = "sha256-mcblgN7cnPOiwbFvSMsZMS/lmwJm1JP1DnqN1KXRayg=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A configuration package defining the default ROS interface generators.";
   };

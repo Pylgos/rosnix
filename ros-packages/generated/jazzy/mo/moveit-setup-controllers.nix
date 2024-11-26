@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp moveit-setup-framework pluginlib rclcpp ];
   checkInputs = [ ament-cmake-gtest moveit-configs-utils moveit-resources-fanuc-moveit-config moveit-resources-panda-moveit-config ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_setup_controllers" = substituteSource {
-        src = fetchgit {
-          name = "moveit_setup_controllers-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "ebab99912374cff2100a3f9efc20fdd3ae1ba654";
-          hash = "sha256-zvscEXuZnQ5Iz08FIIvh8kcnJcoRoKGt/jBrky0tHfM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_setup_controllers" = substituteSource {
+      src = fetchgit {
+        name = "moveit_setup_controllers-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "ebab99912374cff2100a3f9efc20fdd3ae1ba654";
+        hash = "sha256-zvscEXuZnQ5Iz08FIIvh8kcnJcoRoKGt/jBrky0tHfM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "MoveIt Setup Steps for ROS 2 Control";
   };

@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ mrt-cmake-modules ];
   propagatedBuildInputs = [ lanelet2-core ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "pugixml-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "lanelet2_io" = substituteSource {
-        src = fetchgit {
-          name = "lanelet2_io-source";
-          url = "https://github.com/ros2-gbp/lanelet2-release.git";
-          rev = "38f37dab6a64d5c16ff048611c0a3b4e1bd4d132";
-          hash = "sha256-B0AHMNYejPsaUhx0+RpURz56wZfnlpEXWZ/KnhdUuOQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "lanelet2_io" = substituteSource {
+      src = fetchgit {
+        name = "lanelet2_io-source";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
+        rev = "38f37dab6a64d5c16ff048611c0a3b4e1bd4d132";
+        hash = "sha256-B0AHMNYejPsaUhx0+RpURz56wZfnlpEXWZ/KnhdUuOQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Parser/Writer module for lanelet2";
   };

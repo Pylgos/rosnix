@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ autoware-planning-msgs builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_vehicle_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_vehicle_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "2e7a7d302607f1f72640ef3c2470972bd4a056d2";
-          hash = "sha256-Vhi/nEQ9aR8T+yrBn2BckqUHU80Fpjd6O3teMwwRqsI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_vehicle_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_vehicle_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "2e7a7d302607f1f72640ef3c2470972bd4a056d2";
+        hash = "sha256-Vhi/nEQ9aR8T+yrBn2BckqUHU80Fpjd6O3teMwwRqsI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Interfaces between core Autoware vehicle components";
   };

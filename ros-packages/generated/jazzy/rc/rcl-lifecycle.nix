@@ -26,18 +26,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedBuildInputs = [ lifecycle-msgs rcl rcutils rmw rosidl-runtime-c tracetools ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rcl_lifecycle" = substituteSource {
-        src = fetchgit {
-          name = "rcl_lifecycle-source";
-          url = "https://github.com/ros2-gbp/rcl-release.git";
-          rev = "8cb8586b19d57cd069ab404e5d6da720b3eba370";
-          hash = "sha256-8tST8DBg7YREQrVCiCyV79R/z1VOpOu2V0o6RsTCoxc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rcl_lifecycle" = substituteSource {
+      src = fetchgit {
+        name = "rcl_lifecycle-source";
+        url = "https://github.com/ros2-gbp/rcl-release.git";
+        rev = "8cb8586b19d57cd069ab404e5d6da720b3eba370";
+        hash = "sha256-8tST8DBg7YREQrVCiCyV79R/z1VOpOu2V0o6RsTCoxc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package containing a C-based lifecycle implementation";
   };

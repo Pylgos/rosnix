@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs diagnostic-msgs geometry-msgs rosidl-default-runtime unique-identifier-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "py_trees_ros_interfaces" = substituteSource {
-        src = fetchgit {
-          name = "py_trees_ros_interfaces-source";
-          url = "https://github.com/ros2-gbp/py_trees_ros_interfaces-release.git";
-          rev = "6bd6a582945f5c8bbfe8e1a07ecee856a35d0835";
-          hash = "sha256-QrixpzDzAj86KcSWBgYVI0CjrjuAtdFy7bMlEJgweaw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "py_trees_ros_interfaces" = substituteSource {
+      src = fetchgit {
+        name = "py_trees_ros_interfaces-source";
+        url = "https://github.com/ros2-gbp/py_trees_ros_interfaces-release.git";
+        rev = "6bd6a582945f5c8bbfe8e1a07ecee856a35d0835";
+        hash = "sha256-QrixpzDzAj86KcSWBgYVI0CjrjuAtdFy7bMlEJgweaw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Interfaces used by py_trees_ros and py_trees_ros_tutorials.";
   };

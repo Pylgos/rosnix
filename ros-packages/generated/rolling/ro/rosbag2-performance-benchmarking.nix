@@ -34,18 +34,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-python launch launch-ros rclcpp rmw rosbag2-compression rosbag2-cpp rosbag2-performance-benchmarking-msgs rosbag2-py rosbag2-storage sensor-msgs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-psutil" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common launch-ros ros2bag ros2launch ros-testing rosbag2-storage-default-plugins rosbag2-test-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosbag2_performance_benchmarking" = substituteSource {
-        src = fetchgit {
-          name = "rosbag2_performance_benchmarking-source";
-          url = "https://github.com/ros2-gbp/rosbag2-release.git";
-          rev = "fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557";
-          hash = "sha256-0ti0o5YC/Jf7W6qTqpcQA6g9D7b7OZhsSPm3I4qQEy0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosbag2_performance_benchmarking" = substituteSource {
+      src = fetchgit {
+        name = "rosbag2_performance_benchmarking-source";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        rev = "fbd639668c47a5c489f6cedc2b5bbe3bf0f5f557";
+        hash = "sha256-0ti0o5YC/Jf7W6qTqpcQA6g9D7b7OZhsSPm3I4qQEy0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Code to benchmark rosbag2";
   };

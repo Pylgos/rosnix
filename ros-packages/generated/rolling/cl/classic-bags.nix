@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ builtin-interfaces rclcpp rclpy rosbag2-cpp rosbag2-py rosbag2-storage rosidl-runtime-py ];
   checkInputs = [ ament-cmake-pytest rosbag2-storage-mcap rosbag2-storage-sqlite3 std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "classic_bags" = substituteSource {
-        src = fetchgit {
-          name = "classic_bags-source";
-          url = "https://github.com/ros2-gbp/classic_bags-release.git";
-          rev = "e2538f43275fa7e7c37016cad69ba2a72e9dff4e";
-          hash = "sha256-ZJSMrs9eRmeojheIs6GQcdz6FbdvasObPF8AjZg6XQM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "classic_bags" = substituteSource {
+      src = fetchgit {
+        name = "classic_bags-source";
+        url = "https://github.com/ros2-gbp/classic_bags-release.git";
+        rev = "e2538f43275fa7e7c37016cad69ba2a72e9dff4e";
+        hash = "sha256-ZJSMrs9eRmeojheIs6GQcdz6FbdvasObPF8AjZg6XQM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A ROS 2 interface in the style of ROS 1 for reading and writing bag files";
   };

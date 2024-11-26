@@ -17,18 +17,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."novatel_gps_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "novatel_gps_msgs" = substituteSource {
-        src = fetchgit {
-          name = "novatel_gps_msgs-source";
-          url = "https://github.com/ros2-gbp/novatel_gps_driver-release.git";
-          rev = "004382f37eb43a1979cee51a07114315b8b8caf8";
-          hash = "sha256-lpfr1W/b25fBZyVBfOIIfoO7Bc5NjgdnlwVK62AaTeA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "novatel_gps_msgs" = substituteSource {
+      src = fetchgit {
+        name = "novatel_gps_msgs-source";
+        url = "https://github.com/ros2-gbp/novatel_gps_driver-release.git";
+        rev = "004382f37eb43a1979cee51a07114315b8b8caf8";
+        hash = "sha256-lpfr1W/b25fBZyVBfOIIfoO7Bc5NjgdnlwVK62AaTeA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages for proprietary (non-NMEA) sentences from Novatel GPS receivers.";
   };

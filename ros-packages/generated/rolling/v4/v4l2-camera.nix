@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "v4l2_camera" = substituteSource {
-        src = fetchgit {
-          name = "v4l2_camera-source";
-          url = "https://github.com/ros2-gbp/ros2_v4l2_camera-release.git";
-          rev = "e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e";
-          hash = "sha256-OaSGrGK1Lj3ZocwVMqc8WO1+T6jU/Ky2u2UwIpRHqwY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "v4l2_camera" = substituteSource {
+      src = fetchgit {
+        name = "v4l2_camera-source";
+        url = "https://github.com/ros2-gbp/ros2_v4l2_camera-release.git";
+        rev = "e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e";
+        hash = "sha256-OaSGrGK1Lj3ZocwVMqc8WO1+T6jU/Ky2u2UwIpRHqwY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A ROS 2 camera driver using Video4Linux2";
   };

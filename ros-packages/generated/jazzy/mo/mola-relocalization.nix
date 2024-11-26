@@ -21,18 +21,16 @@ buildCmakePackage (finalAttrs: {
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mola-pose-list mp2p-icp mrpt-libmaps mrpt-libobs mrpt-libslam ];
   checkInputs = [ mola-test-datasets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mola_relocalization" = substituteSource {
-        src = fetchgit {
-          name = "mola_relocalization-source";
-          url = "https://github.com/ros2-gbp/mola-release.git";
-          rev = "b15855be487a1dca7a900412f41a6b95fc386da7";
-          hash = "sha256-fbPyWW6k874EYfr6gWdwf6D0CZP6VOq/rWAWL2Y3Muc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mola_relocalization" = substituteSource {
+      src = fetchgit {
+        name = "mola_relocalization-source";
+        url = "https://github.com/ros2-gbp/mola-release.git";
+        rev = "b15855be487a1dca7a900412f41a6b95fc386da7";
+        hash = "sha256-fbPyWW6k874EYfr6gWdwf6D0CZP6VOq/rWAWL2Y3Muc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "C++ library with algorithms for relocalization, global localization, or pose estimation given a large initial uncertainty";
   };

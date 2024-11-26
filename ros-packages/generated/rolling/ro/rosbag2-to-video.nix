@@ -22,18 +22,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."rosbag2_to_video";
   propagatedBuildInputs = [ cv-bridge rclpy ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosbag2_to_video" = substituteSource {
-        src = fetchgit {
-          name = "rosbag2_to_video-source";
-          url = "https://github.com/ros2-gbp/rosbag2_to_video-release.git";
-          rev = "661e2dbb6a6fe64d1615442ab0666b76b20e36ba";
-          hash = "sha256-cIIIILgxEls8aRJ8CNJa9vP6dRz4Xw0ARTQudqviVWI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosbag2_to_video" = substituteSource {
+      src = fetchgit {
+        name = "rosbag2_to_video-source";
+        url = "https://github.com/ros2-gbp/rosbag2_to_video-release.git";
+        rev = "661e2dbb6a6fe64d1615442ab0666b76b20e36ba";
+        hash = "sha256-cIIIILgxEls8aRJ8CNJa9vP6dRz4Xw0ARTQudqviVWI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Command line tool to create a video from a rosbag recording";
   };

@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rcutils sensor-msgs statistics-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "topic_statistics_demo" = substituteSource {
-        src = fetchgit {
-          name = "topic_statistics_demo-source";
-          url = "https://github.com/ros2-gbp/demos-release.git";
-          rev = "e1907df448636e5dd94ff2d850c0113c94daa4df";
-          hash = "sha256-OlO5t7+iAoMYbqErFwVmm6hLKUhUroA88+QHpxjBuPE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "topic_statistics_demo" = substituteSource {
+      src = fetchgit {
+        name = "topic_statistics_demo-source";
+        url = "https://github.com/ros2-gbp/demos-release.git";
+        rev = "e1907df448636e5dd94ff2d850c0113c94daa4df";
+        hash = "sha256-OlO5t7+iAoMYbqErFwVmm6hLKUhUroA88+QHpxjBuPE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "C++ demo application for topic statistics feature.";
   };

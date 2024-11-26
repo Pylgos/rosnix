@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rcss3d_agent_msgs" = substituteSource {
-        src = fetchgit {
-          name = "rcss3d_agent_msgs-source";
-          url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
-          rev = "f77c39ad9b2617e0ae8097535ecdea2e6720aae5";
-          hash = "sha256-AN/eyLroQDeZjI/JosPYI5tZHhbJn0jP1d8D3wjuN54=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rcss3d_agent_msgs" = substituteSource {
+      src = fetchgit {
+        name = "rcss3d_agent_msgs-source";
+        url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
+        rev = "f77c39ad9b2617e0ae8097535ecdea2e6720aae5";
+        hash = "sha256-AN/eyLroQDeZjI/JosPYI5tZHhbJn0jP1d8D3wjuN54=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Custom messages for communicating with rcss3d_agent";
   };

@@ -43,18 +43,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ ament-index-python eigen-stl-containers geometry-msgs interactive-markers launch launch-ros pluginlib rclcpp rclcpp-components rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering sensor-msgs shape-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libqt5-widgets" "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rviz_visual_tools" = substituteSource {
-        src = fetchgit {
-          name = "rviz_visual_tools-source";
-          url = "https://github.com/ros2-gbp/rviz_visual_tools-release.git";
-          rev = "2e05b97387c407ea702931822cc02c3f29dea126";
-          hash = "sha256-tVfPKQNpM962nm3D4nPbalanEed98pZ6A4v4ySC79yI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rviz_visual_tools" = substituteSource {
+      src = fetchgit {
+        name = "rviz_visual_tools-source";
+        url = "https://github.com/ros2-gbp/rviz_visual_tools-release.git";
+        rev = "2e05b97387c407ea702931822cc02c3f29dea126";
+        hash = "sha256-tVfPKQNpM962nm3D4nPbalanEed98pZ6A4v4ySC79yI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Utility functions for displaying and debugging data in Rviz via published markers";
   };

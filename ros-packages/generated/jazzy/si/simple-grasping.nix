@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs grasping-msgs moveit-msgs pcl-conversions pcl-ros rclcpp rclcpp-action rclcpp-components sensor-msgs shape-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" ]; };
   checkInputs = [ ament-cmake-cpplint ament-cmake-gtest ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "simple_grasping" = substituteSource {
-        src = fetchgit {
-          name = "simple_grasping-source";
-          url = "https://github.com/ros2-gbp/simple_grasping-release.git";
-          rev = "be381c16389399851b794f835e19a40410e3a3dd";
-          hash = "sha256-9mz6liueWT2sBhaNwYvXNwJpFf8NTEzTam3jr+13GHU=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "simple_grasping" = substituteSource {
+      src = fetchgit {
+        name = "simple_grasping-source";
+        url = "https://github.com/ros2-gbp/simple_grasping-release.git";
+        rev = "be381c16389399851b794f835e19a40410e3a3dd";
+        hash = "sha256-9mz6liueWT2sBhaNwYvXNwJpFf8NTEzTam3jr+13GHU=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Basic grasping applications and demos.";
   };

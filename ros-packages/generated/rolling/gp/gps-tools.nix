@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."gps_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ gps-msgs nav-msgs rclcpp rclcpp-components rclpy sensor-msgs std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "gps_tools" = substituteSource {
-        src = fetchgit {
-          name = "gps_tools-source";
-          url = "https://github.com/ros2-gbp/gps_umd-release.git";
-          rev = "9a31b611731b288d0e6e348a809458bd3c6c1c86";
-          hash = "sha256-+bW839E0UolKzA4D0kkBoqHgk4d/WmPJZLONWM/hGV0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "gps_tools" = substituteSource {
+      src = fetchgit {
+        name = "gps_tools-source";
+        url = "https://github.com/ros2-gbp/gps_umd-release.git";
+        rev = "9a31b611731b288d0e6e348a809458bd3c6c1c86";
+        hash = "sha256-+bW839E0UolKzA4D0kkBoqHgk4d/WmPJZLONWM/hGV0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "GPS routines for use in GPS drivers";
   };

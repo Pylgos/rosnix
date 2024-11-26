@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp-components rcss3d-agent ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rcss3d_agent_basic" = substituteSource {
-        src = fetchgit {
-          name = "rcss3d_agent_basic-source";
-          url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
-          rev = "83f3365fc34367897fbfbf27e8679063c155f695";
-          hash = "sha256-nDJGmIM8WHHjNPs3KRLNXOf8EM2VIwF9YZX1CVE662Q=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rcss3d_agent_basic" = substituteSource {
+      src = fetchgit {
+        name = "rcss3d_agent_basic-source";
+        url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
+        rev = "83f3365fc34367897fbfbf27e8679063c155f695";
+        hash = "sha256-nDJGmIM8WHHjNPs3KRLNXOf8EM2VIwF9YZX1CVE662Q=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Basic rcss3d agent node that uses rcss3d_agent_msgs";
   };

@@ -17,18 +17,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ mrt-cmake-modules ];
   propagatedBuildInputs = [ lanelet2-core ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "lanelet2_maps" = substituteSource {
-        src = fetchgit {
-          name = "lanelet2_maps-source";
-          url = "https://github.com/ros2-gbp/lanelet2-release.git";
-          rev = "db6403e91180c4a93b2ce17ee7bb21667fbda6ad";
-          hash = "sha256-neyAYG4BaHOn/2vqAXGTk6mFwmVeutNUc/jdcl7B1HY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "lanelet2_maps" = substituteSource {
+      src = fetchgit {
+        name = "lanelet2_maps-source";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
+        rev = "db6403e91180c4a93b2ce17ee7bb21667fbda6ad";
+        hash = "sha256-neyAYG4BaHOn/2vqAXGTk6mFwmVeutNUc/jdcl7B1HY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Example maps in the lanelet2-format";
   };

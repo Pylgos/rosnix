@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake python-cmake-module ];
   propagatedBuildInputs = [ autoware-lanelet2-extension geometry-msgs lanelet2-core lanelet2-io lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-python-dev" ]; };
   checkInputs = [ ament-cmake-ros ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_lanelet2_extension_python" = substituteSource {
-        src = fetchgit {
-          name = "autoware_lanelet2_extension_python-source";
-          url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
-          rev = "1b9710475c472532d9b9c94e99a7f714f34b3ac7";
-          hash = "sha256-kjpYqgn0erUNmaNOU6j8NqRriefYltZ5rf4XfRbpo1Q=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_lanelet2_extension_python" = substituteSource {
+      src = fetchgit {
+        name = "autoware_lanelet2_extension_python-source";
+        url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
+        rev = "1b9710475c472532d9b9c94e99a7f714f34b3ac7";
+        hash = "sha256-kjpYqgn0erUNmaNOU6j8NqRriefYltZ5rf4XfRbpo1Q=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The autoware_lanelet2_extension_python package contains Python bindings for lanelet2_extension package";
   };

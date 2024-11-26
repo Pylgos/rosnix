@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_localization_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_localization_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "9b8ffb53dab7bc5194ce33b78be56667c90aa15e";
-          hash = "sha256-8G0y6BrS1JgpA2HgD1fs968EVIcGKIuBWYkKCi8pg3g=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_localization_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_localization_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "9b8ffb53dab7bc5194ce33b78be56667c90aa15e";
+        hash = "sha256-8G0y6BrS1JgpA2HgD1fs968EVIcGKIuBWYkKCi8pg3g=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Autoware localization messages package.";
   };

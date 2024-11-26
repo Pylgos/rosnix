@@ -17,18 +17,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ mrt-cmake-modules ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "lanelet2_core" = substituteSource {
-        src = fetchgit {
-          name = "lanelet2_core-source";
-          url = "https://github.com/ros2-gbp/lanelet2-release.git";
-          rev = "5630708c5df854376fa1a16947d6172dc6468b1f";
-          hash = "sha256-Nz/Uglhw2hDL1gfYqEdDLJHWEOErA4wg5rDzu3S1wik=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "lanelet2_core" = substituteSource {
+      src = fetchgit {
+        name = "lanelet2_core-source";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
+        rev = "5630708c5df854376fa1a16947d6172dc6468b1f";
+        hash = "sha256-Nz/Uglhw2hDL1gfYqEdDLJHWEOErA4wg5rDzu3S1wik=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Lanelet2 core module";
   };

@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "hatchbed_common" = substituteSource {
-        src = fetchgit {
-          name = "hatchbed_common-source";
-          url = "https://github.com/ros2-gbp/hatchbed_common-release.git";
-          rev = "e02ba7ea72c77f2b15675b0655cfef77537f7e9e";
-          hash = "sha256-c1poWAtmemh2EMWWZWMhAp/tymKR/qJpxU9GsHG7U8U=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "hatchbed_common" = substituteSource {
+      src = fetchgit {
+        name = "hatchbed_common-source";
+        url = "https://github.com/ros2-gbp/hatchbed_common-release.git";
+        rev = "e02ba7ea72c77f2b15675b0655cfef77537f7e9e";
+        hash = "sha256-c1poWAtmemh2EMWWZWMhAp/tymKR/qJpxU9GsHG7U8U=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Common Hatchbed C++ utility code for ROS, such registering and handling updates to ros parameters.";
   };

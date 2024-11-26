@@ -23,18 +23,16 @@ buildCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
   propagatedBuildInputs = [ mola-common mrpt-libbase mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libposes mrpt-libtclap ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "tbb" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mp2p_icp" = substituteSource {
-        src = fetchgit {
-          name = "mp2p_icp-source";
-          url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-          rev = "d3d0590091b5a3eedef973389c2eb7d8b36caf46";
-          hash = "sha256-lBQwF+2oJIliQau5c9ZGQJ5+Tz1IE+n+l6YAsEdMOvo=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mp2p_icp" = substituteSource {
+      src = fetchgit {
+        name = "mp2p_icp-source";
+        url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
+        rev = "d3d0590091b5a3eedef973389c2eb7d8b36caf46";
+        hash = "sha256-lBQwF+2oJIliQau5c9ZGQJ5+Tz1IE+n+l6YAsEdMOvo=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A repertory of multi primitive-to-primitive (MP2P) ICP algorithms in C++";
   };

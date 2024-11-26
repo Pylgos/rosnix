@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "kartech_linear_actuator_msgs" = substituteSource {
-        src = fetchgit {
-          name = "kartech_linear_actuator_msgs-source";
-          url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-          rev = "ff9619e827b54c47fa7510043858db7b8a01d211";
-          hash = "sha256-Xad77u1Iv7LJdsdK8vW1H475ls/kjnSvZbln4wUXpmQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "kartech_linear_actuator_msgs" = substituteSource {
+      src = fetchgit {
+        name = "kartech_linear_actuator_msgs-source";
+        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        rev = "ff9619e827b54c47fa7510043858db7b8a01d211";
+        hash = "sha256-Xad77u1Iv7LJdsdK8vW1H475ls/kjnSvZbln4wUXpmQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The kartech_linear_actuator_msgs package";
   };

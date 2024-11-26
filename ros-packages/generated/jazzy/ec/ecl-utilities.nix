@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-concepts ecl-license ecl-mpl ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ecl_utilities" = substituteSource {
-        src = fetchgit {
-          name = "ecl_utilities-source";
-          url = "https://github.com/ros2-gbp/ecl_core-release.git";
-          rev = "b5d6924f855d8ab70a7d59415fbed2d89ed6cd38";
-          hash = "sha256-lr/gRtkjgtYbXIMwa5OUbaSehxs5kKRTATWgZooFnRA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ecl_utilities" = substituteSource {
+      src = fetchgit {
+        name = "ecl_utilities-source";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        rev = "b5d6924f855d8ab70a7d59415fbed2d89ed6cd38";
+        hash = "sha256-lr/gRtkjgtYbXIMwa5OUbaSehxs5kKRTATWgZooFnRA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Includes various supporting tools and utilities for c++ programming.";
   };

@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ouster_sensor_msgs" = substituteSource {
-        src = fetchgit {
-          name = "ouster_sensor_msgs-source";
-          url = "https://github.com/ros2-gbp/ouster-ros-release.git";
-          rev = "88c8ddb06249e2ea9d794edd07856dfb06d05ebd";
-          hash = "sha256-fWka9voPQDtcLHrGdOeYmWY8U9UNQhMwTOlIudhLi28=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ouster_sensor_msgs" = substituteSource {
+      src = fetchgit {
+        name = "ouster_sensor_msgs-source";
+        url = "https://github.com/ros2-gbp/ouster-ros-release.git";
+        rev = "88c8ddb06249e2ea9d794edd07856dfb06d05ebd";
+        hash = "sha256-fWka9voPQDtcLHrGdOeYmWY8U9UNQhMwTOlIudhLi28=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ouster_ros message and service definitions";
   };

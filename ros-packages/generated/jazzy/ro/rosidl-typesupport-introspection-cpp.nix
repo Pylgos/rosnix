@@ -30,18 +30,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake rosidl-cli rosidl-cmake rosidl-generator-c rosidl-generator-cpp rosidl-parser rosidl-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   propagatedBuildInputs = [ ament-index-python rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-interface rosidl-typesupport-introspection-c ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosidl_typesupport_introspection_cpp" = substituteSource {
-        src = fetchgit {
-          name = "rosidl_typesupport_introspection_cpp-source";
-          url = "https://github.com/ros2-gbp/rosidl-release.git";
-          rev = "3d1e73234d6c45ee7d55bc02db960a324c596fb8";
-          hash = "sha256-kuVQy/yb5O3pIi5lEua5g9biPs5xb9vA5hBf9wgfYRE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosidl_typesupport_introspection_cpp" = substituteSource {
+      src = fetchgit {
+        name = "rosidl_typesupport_introspection_cpp-source";
+        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        rev = "3d1e73234d6c45ee7d55bc02db960a324c596fb8";
+        hash = "sha256-kuVQy/yb5O3pIi5lEua5g9biPs5xb9vA5hBf9wgfYRE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Generate the message type support for dynamic message construction in C++.";
   };

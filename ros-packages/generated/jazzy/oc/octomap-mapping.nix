@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ octomap-server ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "octomap_mapping" = substituteSource {
-        src = fetchgit {
-          name = "octomap_mapping-source";
-          url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
-          rev = "918cf6c3585bab48f747e6301424388cc394363b";
-          hash = "sha256-b/eXXTaTKgI3DlT33nue0Yz0x52yTantz+VlRbfMyzI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "octomap_mapping" = substituteSource {
+      src = fetchgit {
+        name = "octomap_mapping-source";
+        url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
+        rev = "918cf6c3585bab48f747e6301424388cc394363b";
+        hash = "sha256-b/eXXTaTKgI3DlT33nue0Yz0x52yTantz+VlRbfMyzI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Mapping tools to be used with the";
   };

@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools tf2 tf2-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "diff_drive_controller" = substituteSource {
-        src = fetchgit {
-          name = "diff_drive_controller-source";
-          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-          rev = "7032687b45ddd7931237edfc704d9b905872396f";
-          hash = "sha256-DWmqYM3ONV7JS28AR0wLNy98s/ydygVM3AhEhm7CYsE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "diff_drive_controller" = substituteSource {
+      src = fetchgit {
+        name = "diff_drive_controller-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "7032687b45ddd7931237edfc704d9b905872396f";
+        hash = "sha256-DWmqYM3ONV7JS28AR0wLNy98s/ydygVM3AhEhm7CYsE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Controller for a differential drive mobile base.";
   };

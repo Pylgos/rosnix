@@ -30,18 +30,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
   propagatedBuildInputs = [ apriltag apriltag-detector apriltag-msgs cv-bridge image-transport pluginlib rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "apriltag_detector_umich" = substituteSource {
-        src = fetchgit {
-          name = "apriltag_detector_umich-source";
-          url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
-          rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
-          hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "apriltag_detector_umich" = substituteSource {
+      src = fetchgit {
+        name = "apriltag_detector_umich-source";
+        url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
+        rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
+        hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS package for apriltag detection with the UMich detector";
   };

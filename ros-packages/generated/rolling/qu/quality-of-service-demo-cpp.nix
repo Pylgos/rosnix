@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ];
   propagatedBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils rmw sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common launch launch-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "quality_of_service_demo_cpp" = substituteSource {
-        src = fetchgit {
-          name = "quality_of_service_demo_cpp-source";
-          url = "https://github.com/ros2-gbp/demos-release.git";
-          rev = "0cf327175d240dac9a213fbf73fc2069b8841425";
-          hash = "sha256-WPLJXTtM1oZB/0R96RSeHcVoAnyEFeKQMCYJdidgrIE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "quality_of_service_demo_cpp" = substituteSource {
+      src = fetchgit {
+        name = "quality_of_service_demo_cpp-source";
+        url = "https://github.com/ros2-gbp/demos-release.git";
+        rev = "0cf327175d240dac9a213fbf73fc2069b8841425";
+        hash = "sha256-WPLJXTtM1oZB/0R96RSeHcVoAnyEFeKQMCYJdidgrIE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "C++ Demo applications for Quality of Service features";
   };

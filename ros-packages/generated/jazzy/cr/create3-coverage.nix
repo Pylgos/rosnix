@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ create3-examples-msgs geometry-msgs irobot-create-msgs nav-msgs rclcpp rclcpp-action tf2-geometry-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "create3_coverage" = substituteSource {
-        src = fetchgit {
-          name = "create3_coverage-source";
-          url = "https://github.com/ros2-gbp/create3_examples-release.git";
-          rev = "dadf03e2365f6d573bb83d0e85c2469915c8c12b";
-          hash = "sha256-4DHaRyW3Yq9QCid1Dxl7TyuFlu6GmXp2hARv1WRiqZM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "create3_coverage" = substituteSource {
+      src = fetchgit {
+        name = "create3_coverage-source";
+        url = "https://github.com/ros2-gbp/create3_examples-release.git";
+        rev = "dadf03e2365f6d573bb83d0e85c2469915c8c12b";
+        hash = "sha256-4DHaRyW3Yq9QCid1Dxl7TyuFlu6GmXp2hARv1WRiqZM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "C++ action server exposing a non-systematic coverage behavior";
   };

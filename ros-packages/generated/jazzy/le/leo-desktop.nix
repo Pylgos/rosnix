@@ -17,18 +17,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."leo_desktop";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ leo leo-viz ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "leo_desktop" = substituteSource {
-        src = fetchgit {
-          name = "leo_desktop-source";
-          url = "https://github.com/ros2-gbp/leo_desktop-release.git";
-          rev = "c1a54f9b40ddbf3bc97fee01d5c59273e6dde297";
-          hash = "sha256-6KTjQDWAPViQZPNJ0TvIOpgM0ZK6q5bDKX6joQDuOnw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "leo_desktop" = substituteSource {
+      src = fetchgit {
+        name = "leo_desktop-source";
+        url = "https://github.com/ros2-gbp/leo_desktop-release.git";
+        rev = "c1a54f9b40ddbf3bc97fee01d5c59273e6dde297";
+        hash = "sha256-6KTjQDWAPViQZPNJ0TvIOpgM0ZK6q5bDKX6joQDuOnw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Metapackage of software for operating Leo Rover from ROS desktop";
   };

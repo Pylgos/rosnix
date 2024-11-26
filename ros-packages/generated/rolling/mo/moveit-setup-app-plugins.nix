@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp moveit-configs-utils moveit-ros-visualization moveit-setup-framework pluginlib rclcpp ];
   checkInputs = [ ament-cmake-gtest ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_setup_app_plugins" = substituteSource {
-        src = fetchgit {
-          name = "moveit_setup_app_plugins-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "ee56a0dcffa31745c28526cb65f1838c7be43b7b";
-          hash = "sha256-R2EfqBGaXZjN46MSrxtlZZ7YKUuwAuQJmKZATkyiHdQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_setup_app_plugins" = substituteSource {
+      src = fetchgit {
+        name = "moveit_setup_app_plugins-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "ee56a0dcffa31745c28526cb65f1838c7be43b7b";
+        hash = "sha256-R2EfqBGaXZjN46MSrxtlZZ7YKUuwAuQJmKZATkyiHdQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Various specialty plugins for MoveIt Setup Assistant";
   };

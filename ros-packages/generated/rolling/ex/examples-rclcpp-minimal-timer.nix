@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "examples_rclcpp_minimal_timer" = substituteSource {
-        src = fetchgit {
-          name = "examples_rclcpp_minimal_timer-source";
-          url = "https://github.com/ros2-gbp/examples-release.git";
-          rev = "b86c7af609fd1346cdc9aa812e3996b8cd3dfcee";
-          hash = "sha256-Q4yy+eCklK/JGVd5fHTU+tC44lgm8sy2GtyHnzMVYjM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "examples_rclcpp_minimal_timer" = substituteSource {
+      src = fetchgit {
+        name = "examples_rclcpp_minimal_timer-source";
+        url = "https://github.com/ros2-gbp/examples-release.git";
+        rev = "b86c7af609fd1346cdc9aa812e3996b8cd3dfcee";
+        hash = "sha256-Q4yy+eCklK/JGVd5fHTU+tC44lgm8sy2GtyHnzMVYjM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Examples of minimal nodes which have timers";
   };

@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmf_building_map_msgs" = substituteSource {
-        src = fetchgit {
-          name = "rmf_building_map_msgs-source";
-          url = "https://github.com/ros2-gbp/rmf_building_map_msgs-release.git";
-          rev = "e409acc4f2091d16a17a0a012be4ad2c5186e5e5";
-          hash = "sha256-panz5UM+k9FD/nfgBmSl6D13IlI/AjxpDJlGjI0IaZs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmf_building_map_msgs" = substituteSource {
+      src = fetchgit {
+        name = "rmf_building_map_msgs-source";
+        url = "https://github.com/ros2-gbp/rmf_building_map_msgs-release.git";
+        rev = "e409acc4f2091d16a17a0a012be4ad2c5186e5e5";
+        hash = "sha256-panz5UM+k9FD/nfgBmSl6D13IlI/AjxpDJlGjI0IaZs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages used to send building maps";
   };

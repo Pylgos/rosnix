@@ -21,18 +21,16 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-lark-parser" "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python osrf-pycommon ];
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "launch" = substituteSource {
-        src = fetchgit {
-          name = "launch-source";
-          url = "https://github.com/ros2-gbp/launch-release.git";
-          rev = "8b3999ad44624811bbaa7e8751fe41b512ba032b";
-          hash = "sha256-Nox7bazyVYIXC7DvRZ5CiTHbN+aunUeLUBxMMHfV8C0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "launch" = substituteSource {
+      src = fetchgit {
+        name = "launch-source";
+        url = "https://github.com/ros2-gbp/launch-release.git";
+        rev = "8b3999ad44624811bbaa7e8751fe41b512ba032b";
+        hash = "sha256-Nox7bazyVYIXC7DvRZ5CiTHbN+aunUeLUBxMMHfV8C0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The ROS launch tool.";
   };

@@ -30,18 +30,16 @@ buildAmentPythonPackage (finalAttrs: {
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ builtin-interfaces rclpy std-msgs webots-ros2-control webots-ros2-driver webots-ros2-epuck webots-ros2-importer webots-ros2-mavic webots-ros2-msgs webots-ros2-tesla webots-ros2-tiago webots-ros2-turtlebot webots-ros2-universal-robot ];
   checkInputs = [ ament-copyright webots-ros2-tests ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "webots_ros2" = substituteSource {
-        src = fetchgit {
-          name = "webots_ros2-source";
-          url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-          rev = "e465a2d49062e1fb9e10606d3db646602944bd3c";
-          hash = "sha256-MU8z5pasd46CfN/dGIGVbDVgC6W0iUUPh9lf0TeCFUQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "webots_ros2" = substituteSource {
+      src = fetchgit {
+        name = "webots_ros2-source";
+        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        rev = "e465a2d49062e1fb9e10606d3db646602944bd3c";
+        hash = "sha256-MU8z5pasd46CfN/dGIGVbDVgC6W0iUUPh9lf0TeCFUQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Interface between Webots and ROS2";
   };

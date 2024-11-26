@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs geometry-msgs object-recognition-msgs octomap-msgs rosidl-default-runtime sensor-msgs shape-msgs std-msgs trajectory-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-cmake ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_msgs" = substituteSource {
-        src = fetchgit {
-          name = "moveit_msgs-source";
-          url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
-          rev = "0daba4a04b95f58faeb7fecc078126948195df1f";
-          hash = "sha256-eWWWhKKdKRwr1U0N2bGllNmgC2EzT0l5DNKFFjjXAYI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_msgs" = substituteSource {
+      src = fetchgit {
+        name = "moveit_msgs-source";
+        url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
+        rev = "0daba4a04b95f58faeb7fecc078126948195df1f";
+        hash = "sha256-eWWWhKKdKRwr1U0N2bGllNmgC2EzT0l5DNKFFjjXAYI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages, services and actions used by MoveIt";
   };

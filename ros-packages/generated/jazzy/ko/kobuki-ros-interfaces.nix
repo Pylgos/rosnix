@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "kobuki_ros_interfaces" = substituteSource {
-        src = fetchgit {
-          name = "kobuki_ros_interfaces-source";
-          url = "https://github.com/ros2-gbp/kobuki_ros_interfaces-release.git";
-          rev = "205640a951da2a7d5fa47e3518b32d6df046829d";
-          hash = "sha256-svbQG6e1o4u1HncdcNcx55XoYK99I02G7CxL2jvBZhs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "kobuki_ros_interfaces" = substituteSource {
+      src = fetchgit {
+        name = "kobuki_ros_interfaces-source";
+        url = "https://github.com/ros2-gbp/kobuki_ros_interfaces-release.git";
+        rev = "205640a951da2a7d5fa47e3518b32d6df046829d";
+        hash = "sha256-svbQG6e1o4u1HncdcNcx55XoYK99I02G7CxL2jvBZhs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "";
   };

@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedBuildInputs = [ gz-msgs-vendor gz-transport-vendor image-transport rclcpp ros-gz-bridge sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros_gz_image" = substituteSource {
-        src = fetchgit {
-          name = "ros_gz_image-source";
-          url = "https://github.com/ros2-gbp/ros_ign-release.git";
-          rev = "be5f5e17c598dfe87bf3f0d976dfd683e6c07826";
-          hash = "sha256-cXIqChYhY/2BTb68tEpX4vlHlmrDf+feVSxYcrLBpsM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros_gz_image" = substituteSource {
+      src = fetchgit {
+        name = "ros_gz_image-source";
+        url = "https://github.com/ros2-gbp/ros_ign-release.git";
+        rev = "be5f5e17c598dfe87bf3f0d976dfd683e6c07826";
+        hash = "sha256-cXIqChYhY/2BTb68tEpX4vlHlmrDf+feVSxYcrLBpsM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Image utilities for Gazebo simulation with ROS.";
   };

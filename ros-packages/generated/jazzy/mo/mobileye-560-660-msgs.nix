@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mobileye_560_660_msgs" = substituteSource {
-        src = fetchgit {
-          name = "mobileye_560_660_msgs-source";
-          url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-          rev = "e8de98737d059f4e2e5b2fef12cb57ecc8ff8283";
-          hash = "sha256-VUBlCZa6YHrHj0N2L4MPJZXOD74+Uu4leG3oXg1ZOJg=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mobileye_560_660_msgs" = substituteSource {
+      src = fetchgit {
+        name = "mobileye_560_660_msgs-source";
+        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        rev = "e8de98737d059f4e2e5b2fef12cb57ecc8ff8283";
+        hash = "sha256-VUBlCZa6YHrHj0N2L4MPJZXOD74+Uu4leG3oXg1ZOJg=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message definitions for the Mobileye 560/660";
   };

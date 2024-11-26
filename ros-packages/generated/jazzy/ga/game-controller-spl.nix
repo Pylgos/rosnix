@@ -18,18 +18,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."game_controller_spl";
   propagatedBuildInputs = [ game-controller-spl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "game_controller_spl" = substituteSource {
-        src = fetchgit {
-          name = "game_controller_spl-source";
-          url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
-          rev = "722cad901ad97f959b0fca1199076f464f8479e7";
-          hash = "sha256-FvjsH3PKrQtxsZS4hXMelGbnTjvs6W2JjiYn6WevoWA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "game_controller_spl" = substituteSource {
+      src = fetchgit {
+        name = "game_controller_spl-source";
+        url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
+        rev = "722cad901ad97f959b0fca1199076f464f8479e7";
+        hash = "sha256-FvjsH3PKrQtxsZS4hXMelGbnTjvs6W2JjiYn6WevoWA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "GameController-Robot communication in RoboCup SPL";
   };

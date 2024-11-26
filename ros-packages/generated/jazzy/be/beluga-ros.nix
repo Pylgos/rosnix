@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-h5py" "python3-matplotlib" "python3-scipy" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "beluga_ros" = substituteSource {
-        src = fetchgit {
-          name = "beluga_ros-source";
-          url = "https://github.com/ros2-gbp/beluga-release.git";
-          rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
-          hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "beluga_ros" = substituteSource {
+      src = fetchgit {
+        name = "beluga_ros-source";
+        url = "https://github.com/ros2-gbp/beluga-release.git";
+        rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
+        hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Utilities to interface ROS with Beluga.";
   };

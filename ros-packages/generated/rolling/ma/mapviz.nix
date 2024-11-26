@@ -33,18 +33,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
   propagatedBuildInputs = [ cv-bridge geometry-msgs image-transport mapviz-interfaces marti-common-msgs pluginlib rclcpp rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mapviz" = substituteSource {
-        src = fetchgit {
-          name = "mapviz-source";
-          url = "https://github.com/ros2-gbp/mapviz-release.git";
-          rev = "209a4127774e8c8ef5b0a4ddd329b95458f10b0b";
-          hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mapviz" = substituteSource {
+      src = fetchgit {
+        name = "mapviz-source";
+        url = "https://github.com/ros2-gbp/mapviz-release.git";
+        rev = "209a4127774e8c8ef5b0a4ddd329b95458f10b0b";
+        hash = "sha256-OhfuhW6844KCy+wJF+YuGhGnEIRRoZNvHAUkYOa1408=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "mapviz";
   };

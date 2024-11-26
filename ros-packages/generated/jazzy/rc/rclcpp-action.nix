@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ action-msgs rcl rcl-action rclcpp rcpputils rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rclcpp_action" = substituteSource {
-        src = fetchgit {
-          name = "rclcpp_action-source";
-          url = "https://github.com/ros2-gbp/rclcpp-release.git";
-          rev = "beccbe56c6180ed32d6eb0062099e8e238fa585f";
-          hash = "sha256-ANnYhYXfDfNXuNjWCHyetQp0s8OV7bX50bN7sfqqLE4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rclcpp_action" = substituteSource {
+      src = fetchgit {
+        name = "rclcpp_action-source";
+        url = "https://github.com/ros2-gbp/rclcpp-release.git";
+        rev = "beccbe56c6180ed32d6eb0062099e8e238fa585f";
+        hash = "sha256-ANnYhYXfDfNXuNjWCHyetQp0s8OV7bX50bN7sfqqLE4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Adds action APIs for C++.";
   };

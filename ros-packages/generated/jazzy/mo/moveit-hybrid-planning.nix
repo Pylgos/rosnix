@@ -40,18 +40,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp controller-manager moveit-common moveit-core moveit-msgs moveit-resources-panda-moveit-config moveit-ros-planning moveit-ros-planning-interface pluginlib position-controllers rclcpp rclcpp-action rclcpp-components robot-state-publisher rviz2 std-msgs std-srvs tf2-ros trajectory-msgs ];
   checkInputs = [ ament-cmake-gtest controller-manager moveit-configs-utils moveit-planners-ompl moveit-resources-panda-moveit-config moveit-simple-controller-manager position-controllers robot-state-publisher ros-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_hybrid_planning" = substituteSource {
-        src = fetchgit {
-          name = "moveit_hybrid_planning-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "85a5b5c67eb522f7730ee025c2e603c36e4acaeb";
-          hash = "sha256-KUzQByTujYnu6ZUbStJRiivd3oUpOSdi34fHHSs9Zy0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_hybrid_planning" = substituteSource {
+      src = fetchgit {
+        name = "moveit_hybrid_planning-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "85a5b5c67eb522f7730ee025c2e603c36e4acaeb";
+        hash = "sha256-KUzQByTujYnu6ZUbStJRiivd3oUpOSdi34fHHSs9Zy0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Hybrid planning components of MoveIt 2";
   };

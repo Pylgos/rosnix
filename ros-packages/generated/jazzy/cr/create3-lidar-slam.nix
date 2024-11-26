@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."create3_lidar_slam";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ irobot-create-msgs launch-ros rplidar-ros slam-toolbox ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "create3_lidar_slam" = substituteSource {
-        src = fetchgit {
-          name = "create3_lidar_slam-source";
-          url = "https://github.com/ros2-gbp/create3_examples-release.git";
-          rev = "d4e05e13f1ea844bb4ab14dc41584f521370cc6b";
-          hash = "sha256-iYwJwoKjMJYskalC2VgZqnpezqt/rJSEL6aLa5zvVxc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "create3_lidar_slam" = substituteSource {
+      src = fetchgit {
+        name = "create3_lidar_slam-source";
+        url = "https://github.com/ros2-gbp/create3_examples-release.git";
+        rev = "d4e05e13f1ea844bb4ab14dc41584f521370cc6b";
+        hash = "sha256-iYwJwoKjMJYskalC2VgZqnpezqt/rJSEL6aLa5zvVxc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Example for using an RPLIDAR A1 with a Create 3";
   };

@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "leo_msgs" = substituteSource {
-        src = fetchgit {
-          name = "leo_msgs-source";
-          url = "https://github.com/ros2-gbp/leo_common-release.git";
-          rev = "e29e4cfae01ff153a9745b2836900884b007207a";
-          hash = "sha256-/NlSo70CW4CXaWeELJSZuBtPzi3tcWsLc90frzePkpA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "leo_msgs" = substituteSource {
+      src = fetchgit {
+        name = "leo_msgs-source";
+        url = "https://github.com/ros2-gbp/leo_common-release.git";
+        rev = "e29e4cfae01ff153a9745b2836900884b007207a";
+        hash = "sha256-/NlSo70CW4CXaWeELJSZuBtPzi3tcWsLc90frzePkpA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message and Service definitions for Leo Rover";
   };

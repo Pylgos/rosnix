@@ -34,18 +34,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ diagnostic-updater fuse-constraints fuse-core fuse-graphs fuse-msgs fuse-variables pluginlib rclcpp rclcpp-components std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libceres-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common fuse-models geometry-msgs launch launch-pytest launch-ros nav-msgs rclcpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "fuse_optimizers" = substituteSource {
-        src = fetchgit {
-          name = "fuse_optimizers-source";
-          url = "https://github.com/ros2-gbp/fuse-release.git";
-          rev = "cfabad7a430ea1c75b98f294edddf5dd4679e1c6";
-          hash = "sha256-dabQsl6P+3hhZYHysGHSSw3bSnbLe+0tgaMNcYyu6kY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "fuse_optimizers" = substituteSource {
+      src = fetchgit {
+        name = "fuse_optimizers-source";
+        url = "https://github.com/ros2-gbp/fuse-release.git";
+        rev = "cfabad7a430ea1c75b98f294edddf5dd4679e1c6";
+        hash = "sha256-dabQsl6P+3hhZYHysGHSSw3bSnbLe+0tgaMNcYyu6kY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The fuse_optimizers package provides a set of optimizer implementations. An optimizer is the object responsible \\ for coordinating the sensors and motion model inputs, computing the optimal state values, and providing access to \\ to the optimal state via the publishers.";
   };

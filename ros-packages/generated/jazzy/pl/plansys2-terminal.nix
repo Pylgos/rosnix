@@ -30,18 +30,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ plansys2-domain-expert plansys2-executor plansys2-msgs plansys2-pddl-parser plansys2-planner plansys2-problem-expert rclcpp rclcpp-action rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libreadline" ]; };
   checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ament-lint-common lifecycle-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "plansys2_terminal" = substituteSource {
-        src = fetchgit {
-          name = "plansys2_terminal-source";
-          url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-          rev = "a4e1ae9a6a00c54c7d407a6ab0462d5f789472e8";
-          hash = "sha256-3muUuFkdYaZTpZ4WA2sjrYVVSXaJ3o5W6Fq51npQZi0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "plansys2_terminal" = substituteSource {
+      src = fetchgit {
+        name = "plansys2_terminal-source";
+        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
+        rev = "a4e1ae9a6a00c54c7d407a6ab0462d5f789472e8";
+        hash = "sha256-3muUuFkdYaZTpZ4WA2sjrYVVSXaJ3o5W6Fq51npQZi0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A terminal tool for monitor and manage the ROS2 Planning System";
   };

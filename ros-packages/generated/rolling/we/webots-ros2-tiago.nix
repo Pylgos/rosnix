@@ -27,18 +27,16 @@ buildAmentPythonPackage (finalAttrs: {
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller geometry-msgs joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "webots_ros2_tiago" = substituteSource {
-        src = fetchgit {
-          name = "webots_ros2_tiago-source";
-          url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-          rev = "c9c5e69b41e510454ba3badcc6839baa7ac6090d";
-          hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "webots_ros2_tiago" = substituteSource {
+      src = fetchgit {
+        name = "webots_ros2_tiago-source";
+        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+        rev = "c9c5e69b41e510454ba3badcc6839baa7ac6090d";
+        hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "TIAGo robots ROS2 interface for Webots.";
   };

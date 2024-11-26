@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros rosidl-cmake ];
   propagatedBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmw_gurumdds_cpp" = substituteSource {
-        src = fetchgit {
-          name = "rmw_gurumdds_cpp-source";
-          url = "https://github.com/ros2-gbp/rmw_gurumdds-release.git";
-          rev = "085def94504969a914feaee68f4498ee563f6aab";
-          hash = "sha256-TJX8Mi7rXd5+2X83YBNsuDw9673aYlSe/99ZCeJ2IPo=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmw_gurumdds_cpp" = substituteSource {
+      src = fetchgit {
+        name = "rmw_gurumdds_cpp-source";
+        url = "https://github.com/ros2-gbp/rmw_gurumdds-release.git";
+        rev = "085def94504969a914feaee68f4498ee563f6aab";
+        hash = "sha256-TJX8Mi7rXd5+2X83YBNsuDw9673aYlSe/99ZCeJ2IPo=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Implement the ROS middleware interface using GurumNetworks GurumDDS static code generation in C++.";
   };

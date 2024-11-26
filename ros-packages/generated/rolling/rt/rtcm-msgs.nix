@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rtcm_msgs" = substituteSource {
-        src = fetchgit {
-          name = "rtcm_msgs-source";
-          url = "https://github.com/ros2-gbp/rtcm_msgs-release.git";
-          rev = "79254b5d483f7f53b6915dfb4c74340b3b81de42";
-          hash = "sha256-5yTtIdGostlOwChSlKKL4JivCyK284g0KYZxB6GBtBY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rtcm_msgs" = substituteSource {
+      src = fetchgit {
+        name = "rtcm_msgs-source";
+        url = "https://github.com/ros2-gbp/rtcm_msgs-release.git";
+        rev = "79254b5d483f7f53b6915dfb4c74340b3b81de42";
+        hash = "sha256-5yTtIdGostlOwChSlKKL4JivCyK284g0KYZxB6GBtBY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The rtcm_msgs package contains messages related to data in the RTCM format.";
   };

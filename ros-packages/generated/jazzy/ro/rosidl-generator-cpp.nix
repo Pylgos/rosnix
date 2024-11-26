@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedBuildInputs = [ ament-cmake-core rosidl-cli rosidl-cmake rosidl-generator-c rosidl-generator-type-description rosidl-parser rosidl-pycommon ];
   depsTargetTargetPropagated = [ ament-index-python rosidl-runtime-cpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosidl_generator_cpp" = substituteSource {
-        src = fetchgit {
-          name = "rosidl_generator_cpp-source";
-          url = "https://github.com/ros2-gbp/rosidl-release.git";
-          rev = "7d428cc877416bb6b71790f6a1806cf0c8e9c91b";
-          hash = "sha256-5gAeM5LxQ/HaE/VpMX7PW/V2nLyrtIPkmF6d6tVmpUI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosidl_generator_cpp" = substituteSource {
+      src = fetchgit {
+        name = "rosidl_generator_cpp-source";
+        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        rev = "7d428cc877416bb6b71790f6a1806cf0c8e9c91b";
+        hash = "sha256-5gAeM5LxQ/HaE/VpMX7PW/V2nLyrtIPkmF6d6tVmpUI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Generate the ROS interfaces in C++.";
   };

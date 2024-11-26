@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ message-filters pluginlib rclcpp rcpputils rosidl-runtime-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rqt_image_overlay_layer" = substituteSource {
-        src = fetchgit {
-          name = "rqt_image_overlay_layer-source";
-          url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
-          rev = "57714d97548f7c9dacee0f3599a0b914ea7c1823";
-          hash = "sha256-/0HaJFLVN/yUJvAE9JU6R53Nhv5QA/72rUweZfeT1uc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rqt_image_overlay_layer" = substituteSource {
+      src = fetchgit {
+        name = "rqt_image_overlay_layer-source";
+        url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
+        rev = "57714d97548f7c9dacee0f3599a0b914ea7c1823";
+        hash = "sha256-/0HaJFLVN/yUJvAE9JU6R53Nhv5QA/72rUweZfeT1uc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Provides an rqt_image_overlay_layer plugin interface, and a template impelementation class";
   };

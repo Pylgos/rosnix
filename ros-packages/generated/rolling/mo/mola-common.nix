@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mola_common" = substituteSource {
-        src = fetchgit {
-          name = "mola_common-source";
-          url = "https://github.com/ros2-gbp/mola_common-release.git";
-          rev = "5ac43ad82c58ebe66a9ec65bf475744de841e42f";
-          hash = "sha256-/Tdh6DToezWhDazCgDASE+Avu+8dWQAnzATlFBfVIQY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mola_common" = substituteSource {
+      src = fetchgit {
+        name = "mola_common-source";
+        url = "https://github.com/ros2-gbp/mola_common-release.git";
+        rev = "5ac43ad82c58ebe66a9ec65bf475744de841e42f";
+        hash = "sha256-/Tdh6DToezWhDazCgDASE+Avu+8dWQAnzATlFBfVIQY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Common CMake scripts to all MOLA modules";
   };

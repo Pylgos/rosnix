@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rcpputils rcutils rosbag2-cpp rosbag2-storage ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common rclcpp rosbag2-test-common test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosbag2_compression" = substituteSource {
-        src = fetchgit {
-          name = "rosbag2_compression-source";
-          url = "https://github.com/ros2-gbp/rosbag2-release.git";
-          rev = "b1df03598c07fd88d69076c5a7bd8f337adf53cc";
-          hash = "sha256-YqhK+2a9OZWO/V8rsRVHWFygual9Tkl9cFQW+oqvtHM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosbag2_compression" = substituteSource {
+      src = fetchgit {
+        name = "rosbag2_compression-source";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        rev = "b1df03598c07fd88d69076c5a7bd8f337adf53cc";
+        hash = "sha256-YqhK+2a9OZWO/V8rsRVHWFygual9Tkl9cFQW+oqvtHM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Compression implementations for rosbag2 bags and messages.";
   };

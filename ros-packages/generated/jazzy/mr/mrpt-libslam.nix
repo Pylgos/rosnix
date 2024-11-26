@@ -20,18 +20,16 @@ buildCmakePackage (finalAttrs: {
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedBuildInputs = [ cv-bridge mrpt-libmaps rclcpp rosbag2-storage ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pybind11-dev" "python3-pip" "tbb" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_libslam" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_libslam-source";
-          url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-          rev = "612bd34c3ae8358ecabf501fdcf3bf21546de93f";
-          hash = "sha256-YoQwAuNR+T7BxB8NwXEXSWJX2hcYCbJCCQnE21u+YOk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_libslam" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_libslam-source";
+        url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
+        rev = "612bd34c3ae8358ecabf501fdcf3bf21546de93f";
+        hash = "sha256-YoQwAuNR+T7BxB8NwXEXSWJX2hcYCbJCCQnE21u+YOk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Mobile Robot Programming Toolkit (MRPT) libraries (slam/vision C++ libraries). This package contains: mrpt-slam, mrpt-vision";
   };

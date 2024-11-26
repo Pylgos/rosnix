@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   propagatedBuildInputs = [ mrpt-map-server mrpt-nav-interfaces mrpt-pf-localization mrpt-pointcloud-pipeline mrpt-rawlog mrpt-reactivenav2d mrpt-tutorials ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_navigation" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_navigation-source";
-          url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-          rev = "8b7f21de956e6b83eeafdaf70cfdd72c9edd283e";
-          hash = "sha256-ZEc6Cr1tibn6stb5JiRItrl0QOyePBZ1RyhyL/tPVH4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_navigation" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_navigation-source";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        rev = "8b7f21de956e6b83eeafdaf70cfdd72c9edd283e";
+        hash = "sha256-ZEc6Cr1tibn6stb5JiRItrl0QOyePBZ1RyhyL/tPVH4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Tools related to the Mobile Robot Programming Toolkit (MRPT). Refer to https://wiki.ros.org/mrpt_navigation for further documentation.";
   };

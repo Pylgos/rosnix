@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "pendulum_msgs" = substituteSource {
-        src = fetchgit {
-          name = "pendulum_msgs-source";
-          url = "https://github.com/ros2-gbp/demos-release.git";
-          rev = "83f032490db157d7ed8370f619b4c1c66a1f357b";
-          hash = "sha256-1JWm79OTUZtFSw5uQlLrFJa7pFC4lPijuZdDjWMq3X4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "pendulum_msgs" = substituteSource {
+      src = fetchgit {
+        name = "pendulum_msgs-source";
+        url = "https://github.com/ros2-gbp/demos-release.git";
+        rev = "83f032490db157d7ed8370f619b4c1c66a1f357b";
+        hash = "sha256-1JWm79OTUZtFSw5uQlLrFJa7pFC4lPijuZdDjWMq3X4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Custom messages for real-time pendulum control.";
   };

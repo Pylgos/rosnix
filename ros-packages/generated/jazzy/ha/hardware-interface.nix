@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedBuildInputs = [ control-msgs joint-limits lifecycle-msgs pluginlib rclcpp-lifecycle rcpputils rcutils sdformat-urdf tinyxml2-vendor urdf ];
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "hardware_interface" = substituteSource {
-        src = fetchgit {
-          name = "hardware_interface-source";
-          url = "https://github.com/ros2-gbp/ros2_control-release.git";
-          rev = "3a367a11945c7bdefa643befaf9cbb49a0b32b9f";
-          hash = "sha256-PbPnSn7CwR+QK1lHirSwjTQqV9k5kbzrN6blm54I4S8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "hardware_interface" = substituteSource {
+      src = fetchgit {
+        name = "hardware_interface-source";
+        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        rev = "3a367a11945c7bdefa643befaf9cbb49a0b32b9f";
+        hash = "sha256-PbPnSn7CwR+QK1lHirSwjTQqV9k5kbzrN6blm54I4S8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ros2_control hardware interface";
   };

@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."phidgets_gyroscope";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs std-msgs std-srvs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "phidgets_gyroscope" = substituteSource {
-        src = fetchgit {
-          name = "phidgets_gyroscope-source";
-          url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-          rev = "9a124bf6171fd1ac6d42166fad230f4d9b88c0d0";
-          hash = "sha256-umLPYnGNeRNHzYU1z5tXxDJe/QFYAnmXCCPxLFH4E5U=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "phidgets_gyroscope" = substituteSource {
+      src = fetchgit {
+        name = "phidgets_gyroscope-source";
+        url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
+        rev = "9a124bf6171fd1ac6d42166fad230f4d9b88c0d0";
+        hash = "sha256-umLPYnGNeRNHzYU1z5tXxDJe/QFYAnmXCCPxLFH4E5U=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Driver for the Phidgets Gyroscope devices";
   };

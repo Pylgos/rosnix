@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ pendulum-msgs rclcpp rttest tlsf-cpp ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ros2run ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "pendulum_control" = substituteSource {
-        src = fetchgit {
-          name = "pendulum_control-source";
-          url = "https://github.com/ros2-gbp/demos-release.git";
-          rev = "9c41f54d091d0e65ce9ca393779b066247e4f793";
-          hash = "sha256-zBBWIeQBw01hP3nP2HNVs6iPduXjXSSXMSELX/n2JHQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "pendulum_control" = substituteSource {
+      src = fetchgit {
+        name = "pendulum_control-source";
+        url = "https://github.com/ros2-gbp/demos-release.git";
+        rev = "9c41f54d091d0e65ce9ca393779b066247e4f793";
+        hash = "sha256-zBBWIeQBw01hP3nP2HNVs6iPduXjXSSXMSELX/n2JHQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Demonstrates ROS 2's realtime capabilities with a simulated inverted pendulum.";
   };

@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "aruco_msgs" = substituteSource {
-        src = fetchgit {
-          name = "aruco_msgs-source";
-          url = "https://github.com/pal-gbp/aruco_ros-release.git";
-          rev = "dd365b8b0a63b154ef602fb3405829342398996f";
-          hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "aruco_msgs" = substituteSource {
+      src = fetchgit {
+        name = "aruco_msgs-source";
+        url = "https://github.com/pal-gbp/aruco_ros-release.git";
+        rev = "dd365b8b0a63b154ef602fb3405829342398996f";
+        hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The aruco_msgs package";
   };

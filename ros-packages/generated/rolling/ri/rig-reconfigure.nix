@@ -16,33 +16,31 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."rig_reconfigure";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglfw3-dev" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rig_reconfigure" = substituteSource {
-        src = fetchgit {
-          name = "rig_reconfigure-source";
-          url = "https://github.com/ros2-gbp/rig_reconfigure-release.git";
-          rev = "4283814a77c44e9288104373831efbea6b955446";
-          hash = "sha256-5YdUtLc8CL42MhHlX2/Y0rbBFdE1G5GAIWBqj0NfIRY=";
-        };
-        substitutions = [
-          {
-            path = "CMakeLists.txt";
-            from = "GIT_REPOSITORY https://github.com/ocornut/imgui.git";
-            to = "URL ${sources."rig_reconfigure/imgui"}";
-          }
-        ];
+  passthru.sources = mkSourceSet (sources: {
+    "rig_reconfigure" = substituteSource {
+      src = fetchgit {
+        name = "rig_reconfigure-source";
+        url = "https://github.com/ros2-gbp/rig_reconfigure-release.git";
+        rev = "4283814a77c44e9288104373831efbea6b955446";
+        hash = "sha256-5YdUtLc8CL42MhHlX2/Y0rbBFdE1G5GAIWBqj0NfIRY=";
       };
-      "rig_reconfigure/imgui" = substituteSource {
-        src = fetchgit {
-          name = "imgui-source";
-          url = "https://github.com/ocornut/imgui.git";
-          rev = "f8704cd085c4347f835c21dc12a3951924143872";
-          hash = "sha256-eY8lRsonPfDRTMCPhInT9rQ6lSaJPsXpkh428OKpTnA=";
-        };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/ocornut/imgui.git";
+          to = "URL ${sources."rig_reconfigure/imgui"}";
+        }
+      ];
+    };
+    "rig_reconfigure/imgui" = substituteSource {
+      src = fetchgit {
+        name = "imgui-source";
+        url = "https://github.com/ocornut/imgui.git";
+        rev = "f8704cd085c4347f835c21dc12a3951924143872";
+        hash = "sha256-eY8lRsonPfDRTMCPhInT9rQ6lSaJPsXpkh428OKpTnA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Standalone GUI tool for editing node parameters at runtime.";
   };

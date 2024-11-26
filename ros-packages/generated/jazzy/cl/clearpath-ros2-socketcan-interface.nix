@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ can-msgs rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "clearpath_ros2_socketcan_interface" = substituteSource {
-        src = fetchgit {
-          name = "clearpath_ros2_socketcan_interface-source";
-          url = "https://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release.git";
-          rev = "811fedb0081776add503c15d657b8b0c03e6b2aa";
-          hash = "sha256-AjrEmWigq3JPtpDT1LIrXSwoClkNYsrhG/4SNfaCS+A=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "clearpath_ros2_socketcan_interface" = substituteSource {
+      src = fetchgit {
+        name = "clearpath_ros2_socketcan_interface-source";
+        url = "https://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release.git";
+        rev = "811fedb0081776add503c15d657b8b0c03e6b2aa";
+        hash = "sha256-AjrEmWigq3JPtpDT1LIrXSwoClkNYsrhG/4SNfaCS+A=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A ROS 2 socketcan interface.";
   };

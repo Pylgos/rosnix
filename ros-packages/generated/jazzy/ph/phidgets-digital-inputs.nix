@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."phidgets_digital_inputs";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "phidgets_digital_inputs" = substituteSource {
-        src = fetchgit {
-          name = "phidgets_digital_inputs-source";
-          url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-          rev = "28b6e1c5cba7484cc3c576b6ea9baaa9fe9e7be5";
-          hash = "sha256-taMmD3Mb/CxQDtrkT5cyYYpsjvqCfhPtQH88w96/tto=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "phidgets_digital_inputs" = substituteSource {
+      src = fetchgit {
+        name = "phidgets_digital_inputs-source";
+        url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
+        rev = "28b6e1c5cba7484cc3c576b6ea9baaa9fe9e7be5";
+        hash = "sha256-taMmD3Mb/CxQDtrkT5cyYYpsjvqCfhPtQH88w96/tto=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Driver for the Phidgets Digital Input devices";
   };

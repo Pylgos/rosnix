@@ -37,18 +37,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ geometry-msgs moveit-common moveit-ros moveit-ros-planning-interface rclcpp rclcpp-action tf2-ros trajectory-msgs xacro ];
   checkInputs = [ ament-cmake-pytest ament-cmake-uncrustify launch-pytest launch-testing-ament-cmake moveit-configs-utils moveit-planners-ompl moveit-resources rmf-utils robot-state-publisher ros2-control warehouse-ros-sqlite ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_ros_trajectory_cache" = substituteSource {
-        src = fetchgit {
-          name = "moveit_ros_trajectory_cache-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "52dcc3bcb278818529a53271eaf6437f45fa05e4";
-          hash = "sha256-uy4MQ2Y9O3j6x0ti5PIxjE09zuvxcGiwPfFCSXT/S3Y=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_ros_trajectory_cache" = substituteSource {
+      src = fetchgit {
+        name = "moveit_ros_trajectory_cache-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "52dcc3bcb278818529a53271eaf6437f45fa05e4";
+        hash = "sha256-uy4MQ2Y9O3j6x0ti5PIxjE09zuvxcGiwPfFCSXT/S3Y=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A trajectory cache for MoveIt 2 motion plans and cartesian plans.";
   };

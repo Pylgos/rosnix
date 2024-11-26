@@ -21,18 +21,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."demo_nodes_py";
   propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "demo_nodes_py" = substituteSource {
-        src = fetchgit {
-          name = "demo_nodes_py-source";
-          url = "https://github.com/ros2-gbp/demos-release.git";
-          rev = "e02223d3cfeaf484b6e77330e9b8fa8c11019711";
-          hash = "sha256-ZFRDF1S8p79hUHhlRBNwfTL6QrWKANxIqNQt0HFQ2H8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "demo_nodes_py" = substituteSource {
+      src = fetchgit {
+        name = "demo_nodes_py-source";
+        url = "https://github.com/ros2-gbp/demos-release.git";
+        rev = "e02223d3cfeaf484b6e77330e9b8fa8c11019711";
+        hash = "sha256-ZFRDF1S8p79hUHhlRBNwfTL6QrWKANxIqNQt0HFQ2H8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Python nodes which were previously in the ros2/examples repository but are now just used for demo purposes.";
   };

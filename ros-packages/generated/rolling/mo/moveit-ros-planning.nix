@@ -43,18 +43,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ ament-index-cpp generate-parameter-library message-filters moveit-common moveit-core moveit-msgs moveit-ros-occupancy-map-monitor pluginlib rclcpp rclcpp-action rclcpp-components srdfdom std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-msgs tf2-ros urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest launch-testing-ament-cmake moveit-configs-utils moveit-resources-panda-moveit-config ros-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_ros_planning" = substituteSource {
-        src = fetchgit {
-          name = "moveit_ros_planning-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "c11121878648022aee751c9c630ce7c4c23bad3e";
-          hash = "sha256-QIve6UhlfaK/LyaV9NXlCGWoBgbaFNCYq2vU0nq+wW4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_ros_planning" = substituteSource {
+      src = fetchgit {
+        name = "moveit_ros_planning-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "c11121878648022aee751c9c630ce7c4c23bad3e";
+        hash = "sha256-QIve6UhlfaK/LyaV9NXlCGWoBgbaFNCYq2vU0nq+wW4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Planning components of MoveIt that use ROS";
   };

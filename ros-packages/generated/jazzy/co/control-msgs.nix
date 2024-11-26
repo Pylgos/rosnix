@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "control_msgs" = substituteSource {
-        src = fetchgit {
-          name = "control_msgs-source";
-          url = "https://github.com/ros2-gbp/control_msgs-release.git";
-          rev = "c8db594eddb8bf136a1f676b11067054986389eb";
-          hash = "sha256-ag11y+5JXrKfvrZcWVvIMwmtHoU8d1wX12DmsHHMvso=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "control_msgs" = substituteSource {
+      src = fetchgit {
+        name = "control_msgs-source";
+        url = "https://github.com/ros2-gbp/control_msgs-release.git";
+        rev = "c8db594eddb8bf136a1f676b11067054986389eb";
+        hash = "sha256-ag11y+5JXrKfvrZcWVvIMwmtHoU8d1wX12DmsHHMvso=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "control_msgs contains base messages and actions useful for controlling robots. It provides representations for controller setpoints and joint and cartesian trajectories.";
   };

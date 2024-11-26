@@ -35,18 +35,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros tinyxml2-vendor urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-svg" "libqt5-svg-dev" "libqt5-widgets" "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rviz_common" = substituteSource {
-        src = fetchgit {
-          name = "rviz_common-source";
-          url = "https://github.com/ros2-gbp/rviz-release.git";
-          rev = "f2aab9d512949f22ca0d200e6faee82c7b1d0d68";
-          hash = "sha256-OR9niFjNm0/wMOxtvDS96O/UJ8UY6C8eouV9P6igSZs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rviz_common" = substituteSource {
+      src = fetchgit {
+        name = "rviz_common-source";
+        url = "https://github.com/ros2-gbp/rviz-release.git";
+        rev = "f2aab9d512949f22ca0d200e6faee82c7b1d0d68";
+        hash = "sha256-OR9niFjNm0/wMOxtvDS96O/UJ8UY6C8eouV9P6igSZs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Common rviz API, used by rviz plugins and applications.";
   };

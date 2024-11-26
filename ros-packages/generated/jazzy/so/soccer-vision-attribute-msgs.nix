@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "soccer_vision_attribute_msgs" = substituteSource {
-        src = fetchgit {
-          name = "soccer_vision_attribute_msgs-source";
-          url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
-          rev = "f44eead2de262caf02988809719f54cf89f5d8d7";
-          hash = "sha256-9qP2U6SUU5zrVvt+xkbzRF6iJCxm6YSfeUBgsj29Hf8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "soccer_vision_attribute_msgs" = substituteSource {
+      src = fetchgit {
+        name = "soccer_vision_attribute_msgs-source";
+        url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
+        rev = "f44eead2de262caf02988809719f54cf89f5d8d7";
+        hash = "sha256-9qP2U6SUU5zrVvt+xkbzRF6iJCxm6YSfeUBgsj29Hf8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package containing attributes of objects in 2d/3d vision in the soccer domain.";
   };

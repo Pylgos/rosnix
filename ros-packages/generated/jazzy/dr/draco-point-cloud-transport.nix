@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ pluginlib point-cloud-interfaces point-cloud-transport rclcpp rcpputils sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libdraco-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "draco_point_cloud_transport" = substituteSource {
-        src = fetchgit {
-          name = "draco_point_cloud_transport-source";
-          url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-          rev = "a82bc7999a6ac97fe76280fede4c4d3e486eaee7";
-          hash = "sha256-Pv8YnDdLGd8hGHHgtfiCWcDav6Ig5uyuvdaDZ65Q+kQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "draco_point_cloud_transport" = substituteSource {
+      src = fetchgit {
+        name = "draco_point_cloud_transport-source";
+        url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
+        rev = "a82bc7999a6ac97fe76280fede4c4d3e486eaee7";
+        hash = "sha256-Pv8YnDdLGd8hGHHgtfiCWcDav6Ig5uyuvdaDZ65Q+kQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "draco_point_cloud_transport provides a plugin to point_cloud_transport for sending point clouds encoded with KD tree compression.";
   };

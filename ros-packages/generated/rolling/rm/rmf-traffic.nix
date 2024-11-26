@@ -19,18 +19,16 @@ buildCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libccd-dev" ]; };
   checkInputs = [ ament-cmake-catch2 ament-cmake-uncrustify ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmf_traffic" = substituteSource {
-        src = fetchgit {
-          name = "rmf_traffic-source";
-          url = "https://github.com/ros2-gbp/rmf_traffic-release.git";
-          rev = "115cb3d6e520330da26430f58a4d87bba028ec61";
-          hash = "sha256-GsvWlGm9wOqDfFFLBx/5bA0m7HX+RXAciWvTU8pvg4Q=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmf_traffic" = substituteSource {
+      src = fetchgit {
+        name = "rmf_traffic-source";
+        url = "https://github.com/ros2-gbp/rmf_traffic-release.git";
+        rev = "115cb3d6e520330da26430f58a4d87bba028ec61";
+        hash = "sha256-GsvWlGm9wOqDfFFLBx/5bA0m7HX+RXAciWvTU8pvg4Q=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package for managing traffic in the Robotics Middleware Framework";
   };

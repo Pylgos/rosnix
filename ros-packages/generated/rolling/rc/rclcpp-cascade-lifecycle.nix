@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cascade-lifecycle-msgs lifecycle-msgs rclcpp rclcpp-lifecycle ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rclcpp_cascade_lifecycle" = substituteSource {
-        src = fetchgit {
-          name = "rclcpp_cascade_lifecycle-source";
-          url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-          rev = "725ec2485afc1dc88ad80e53ec89d0d77e233125";
-          hash = "sha256-tJ+QyrBJij5KGBc/C7qOJIbVs9xcT5mG8e6fFABi1wI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rclcpp_cascade_lifecycle" = substituteSource {
+      src = fetchgit {
+        name = "rclcpp_cascade_lifecycle-source";
+        url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
+        rev = "725ec2485afc1dc88ad80e53ec89d0d77e233125";
+        hash = "sha256-tJ+QyrBJij5KGBc/C7qOJIbVs9xcT5mG8e6fFABi1wI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Provides a mechanism to make trees of lifecycle nodes to propagate state changes";
   };

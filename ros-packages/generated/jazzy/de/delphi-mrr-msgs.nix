@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "delphi_mrr_msgs" = substituteSource {
-        src = fetchgit {
-          name = "delphi_mrr_msgs-source";
-          url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-          rev = "80133cae1505fb482f79e8d2465c8f28d0685ddf";
-          hash = "sha256-wRjHKzZNBmMaEJPFEgEysXQ+9dMe3vyzYyFO3V+cuEs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "delphi_mrr_msgs" = substituteSource {
+      src = fetchgit {
+        name = "delphi_mrr_msgs-source";
+        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        rev = "80133cae1505fb482f79e8d2465c8f28d0685ddf";
+        hash = "sha256-wRjHKzZNBmMaEJPFEgEysXQ+9dMe3vyzYyFO3V+cuEs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message definitions for the Delphi MRR";
   };

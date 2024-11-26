@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ console-bridge-vendor tinyxml2-vendor urdf urdfdom-headers urdfdom-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libconsole-bridge-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-cmake ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "srdfdom" = substituteSource {
-        src = fetchgit {
-          name = "srdfdom-source";
-          url = "https://github.com/ros2-gbp/srdfdom-release.git";
-          rev = "1ecaddf54d764a6264c6a34a1f0d1acedaf6d259";
-          hash = "sha256-prL0Yiv6HgqxBVa5raU7ocG1FLScJku5/Ka/7m0aKOM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "srdfdom" = substituteSource {
+      src = fetchgit {
+        name = "srdfdom-source";
+        url = "https://github.com/ros2-gbp/srdfdom-release.git";
+        rev = "1ecaddf54d764a6264c6a34a1f0d1acedaf6d259";
+        hash = "sha256-prL0Yiv6HgqxBVa5raU7ocG1FLScJku5/Ka/7m0aKOM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Parser for Semantic Robot Description Format (SRDF).";
   };

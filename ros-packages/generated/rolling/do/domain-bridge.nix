@@ -36,18 +36,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rclcpp rclcpp-components rcutils rosbag2-cpp rosidl-default-runtime rosidl-typesupport-cpp zstd-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common example-interfaces launch launch-testing launch-testing-ament-cmake rmw-connextdds rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-implementation-cmake rosgraph-msgs test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "domain_bridge" = substituteSource {
-        src = fetchgit {
-          name = "domain_bridge-source";
-          url = "https://github.com/ros2-gbp/domain_bridge-release.git";
-          rev = "b791d5fffdc7651f2fa3300adb454ae5674b9e35";
-          hash = "sha256-eajUFSE7L+45VSlUvbXcvd6RjjdERKimvpFjuXVbCO8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "domain_bridge" = substituteSource {
+      src = fetchgit {
+        name = "domain_bridge-source";
+        url = "https://github.com/ros2-gbp/domain_bridge-release.git";
+        rev = "b791d5fffdc7651f2fa3300adb454ae5674b9e35";
+        hash = "sha256-eajUFSE7L+45VSlUvbXcvd6RjjdERKimvpFjuXVbCO8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS 2 Domain Bridge";
   };

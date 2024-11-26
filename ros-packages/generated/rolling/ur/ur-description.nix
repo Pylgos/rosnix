@@ -26,18 +26,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
   checkInputs = [ ament-cmake-pytest launch-testing-ament-cmake launch-testing-ros xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-tools" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ur_description" = substituteSource {
-        src = fetchgit {
-          name = "ur_description-source";
-          url = "https://github.com/ros2-gbp/ur_description-release.git";
-          rev = "27208f20c33f4119519a3caa989284ad183fa37e";
-          hash = "sha256-S49Zxap5rZMmT7JpRonDsJaITE/nW9zGBDHVhPVHS1M=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ur_description" = substituteSource {
+      src = fetchgit {
+        name = "ur_description-source";
+        url = "https://github.com/ros2-gbp/ur_description-release.git";
+        rev = "27208f20c33f4119519a3caa989284ad183fa37e";
+        hash = "sha256-S49Zxap5rZMmT7JpRonDsJaITE/nW9zGBDHVhPVHS1M=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "URDF description for Universal Robots";
   };

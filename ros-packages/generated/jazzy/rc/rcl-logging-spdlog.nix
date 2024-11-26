@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ rcl-logging-interface rcpputils rcutils spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common performance-test-fixture ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rcl_logging_spdlog" = substituteSource {
-        src = fetchgit {
-          name = "rcl_logging_spdlog-source";
-          url = "https://github.com/ros2-gbp/rcl_logging-release.git";
-          rev = "5648031902b5d7055b6bf46596cf424912d86a3e";
-          hash = "sha256-1G9tkqVueqbs4DvEFCJyRqYkNap6ekz9JUZzdLt4emw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rcl_logging_spdlog" = substituteSource {
+      src = fetchgit {
+        name = "rcl_logging_spdlog-source";
+        url = "https://github.com/ros2-gbp/rcl_logging-release.git";
+        rev = "5648031902b5d7055b6bf46596cf424912d86a3e";
+        hash = "sha256-1G9tkqVueqbs4DvEFCJyRqYkNap6ekz9JUZzdLt4emw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Implementation of rcl_logging API for an spdlog backend.";
   };

@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "irobot_create_msgs" = substituteSource {
-        src = fetchgit {
-          name = "irobot_create_msgs-source";
-          url = "https://github.com/ros2-gbp/irobot_create_msgs-release.git";
-          rev = "d6ad51b50f113a00229ac22ef07831ed3d086002";
-          hash = "sha256-N1qIlklUPDvElU+dpUZJGeSzsiBeFmgh0kyqT+KM2fs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "irobot_create_msgs" = substituteSource {
+      src = fetchgit {
+        name = "irobot_create_msgs-source";
+        url = "https://github.com/ros2-gbp/irobot_create_msgs-release.git";
+        rev = "d6ad51b50f113a00229ac22ef07831ed3d086002";
+        hash = "sha256-N1qIlklUPDvElU+dpUZJGeSzsiBeFmgh0kyqT+KM2fs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package containing action, message, and service definitions used by the iRobot(R) Create(R) platform";
   };

@@ -19,18 +19,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."twist_stamper";
   propagatedBuildInputs = [ geometry-msgs rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "twist_stamper" = substituteSource {
-        src = fetchgit {
-          name = "twist_stamper-source";
-          url = "https://github.com/ros2-gbp/twist_stamper-release.git";
-          rev = "3e5340da6100bb8e5c3963c45cb86bd9d03be499";
-          hash = "sha256-GUWWQcNLlgDez65Loqdfe/lgdkjUu2ZwDp91WEh8Hus=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "twist_stamper" = substituteSource {
+      src = fetchgit {
+        name = "twist_stamper-source";
+        url = "https://github.com/ros2-gbp/twist_stamper-release.git";
+        rev = "3e5340da6100bb8e5c3963c45cb86bd9d03be499";
+        hash = "sha256-GUWWQcNLlgDez65Loqdfe/lgdkjUu2ZwDp91WEh8Hus=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS2 package for converting between Twist and TwistStamped messages";
   };

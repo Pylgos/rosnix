@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   buildInputs = [ ament-cmake-python ];
   propagatedBuildInputs = [ ament-cmake rosidl-pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-empy" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosidl_cmake" = substituteSource {
-        src = fetchgit {
-          name = "rosidl_cmake-source";
-          url = "https://github.com/ros2-gbp/rosidl-release.git";
-          rev = "25ed1379bd7b49ffc25bad87ce60bd70d0b00995";
-          hash = "sha256-yCyu3MX2CE7iaLTR1CWo9d85x+ZS+SmmJ6ywRTpjFZs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosidl_cmake" = substituteSource {
+      src = fetchgit {
+        name = "rosidl_cmake-source";
+        url = "https://github.com/ros2-gbp/rosidl-release.git";
+        rev = "25ed1379bd7b49ffc25bad87ce60bd70d0b00995";
+        hash = "sha256-yCyu3MX2CE7iaLTR1CWo9d85x+ZS+SmmJ6ywRTpjFZs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The CMake functionality to invoke code generation for ROS interface files.";
   };

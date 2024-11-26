@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedBuildInputs = [ action-msgs rcl rcutils rmw rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp rmw-implementation-cmake test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rcl_action" = substituteSource {
-        src = fetchgit {
-          name = "rcl_action-source";
-          url = "https://github.com/ros2-gbp/rcl-release.git";
-          rev = "868ff9095314171d56b2fd487e1845348d94e4df";
-          hash = "sha256-TklJN5nQBFMMQvVnkzTMwotHnnBQ72KPI2LiaGnYghk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rcl_action" = substituteSource {
+      src = fetchgit {
+        name = "rcl_action-source";
+        url = "https://github.com/ros2-gbp/rcl-release.git";
+        rev = "868ff9095314171d56b2fd487e1845348d94e4df";
+        hash = "sha256-TklJN5nQBFMMQvVnkzTMwotHnnBQ72KPI2LiaGnYghk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package containing a C-based ROS action implementation";
   };

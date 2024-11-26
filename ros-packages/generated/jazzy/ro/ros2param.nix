@@ -26,18 +26,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ros2param";
   propagatedBuildInputs = [ rcl-interfaces rclpy ros2cli ros2node ros2service ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros2param" = substituteSource {
-        src = fetchgit {
-          name = "ros2param-source";
-          url = "https://github.com/ros2-gbp/ros2cli-release.git";
-          rev = "ee8dd6eb93f0f338a6cbb016e7badabee6c7e64f";
-          hash = "sha256-XSOpnY0a2+4OjpeKOrPY5J9WItW0sAZ2VGeByFpd4N0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros2param" = substituteSource {
+      src = fetchgit {
+        name = "ros2param-source";
+        url = "https://github.com/ros2-gbp/ros2cli-release.git";
+        rev = "ee8dd6eb93f0f338a6cbb016e7badabee6c7e64f";
+        hash = "sha256-XSOpnY0a2+4OjpeKOrPY5J9WItW0sAZ2VGeByFpd4N0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The param command for ROS 2 command line tools.";
   };

@@ -44,18 +44,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ generate-parameter-library geometry-msgs moveit-common moveit-core moveit-msgs moveit-ros-move-group moveit-ros-planning orocos-kdl-vendor pluginlib rclcpp tf2 tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl tf2-ros ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest launch-param-builder moveit-configs-utils moveit-resources-panda-moveit-config moveit-resources-prbt-moveit-config moveit-resources-prbt-pg70-support moveit-resources-prbt-support pilz-industrial-motion-planner-testutils ros-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "pilz_industrial_motion_planner" = substituteSource {
-        src = fetchgit {
-          name = "pilz_industrial_motion_planner-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "6c4e09661847e7e58281c4b9781ba4cf7469e3a8";
-          hash = "sha256-RSFyg5wm+9tWtBgOD5RaB8k0P6n+77DZ6lMbVpB9GeI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "pilz_industrial_motion_planner" = substituteSource {
+      src = fetchgit {
+        name = "pilz_industrial_motion_planner-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "6c4e09661847e7e58281c4b9781ba4cf7469e3a8";
+        hash = "sha256-RSFyg5wm+9tWtBgOD5RaB8k0P6n+77DZ6lMbVpB9GeI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "MoveIt plugin to generate industrial trajectories PTP, LIN, CIRC and sequences thereof.";
   };

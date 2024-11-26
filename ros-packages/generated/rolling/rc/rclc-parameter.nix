@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ builtin-interfaces rcl rcl-interfaces rclc rcutils rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces osrf-testing-tools-cpp rclcpp std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rclc_parameter" = substituteSource {
-        src = fetchgit {
-          name = "rclc_parameter-source";
-          url = "https://github.com/ros2-gbp/rclc-release.git";
-          rev = "0ff49ddd6218b33dab0139a0c36994038c26ff65";
-          hash = "sha256-UDYvrYLk3fIIGr/tjgNWoo/XFXIS0HEJrwtzKHon0mE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rclc_parameter" = substituteSource {
+      src = fetchgit {
+        name = "rclc_parameter-source";
+        url = "https://github.com/ros2-gbp/rclc-release.git";
+        rev = "0ff49ddd6218b33dab0139a0c36994038c26ff65";
+        hash = "sha256-UDYvrYLk3fIIGr/tjgNWoo/XFXIS0HEJrwtzKHon0mE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Parameter server implementation for micro-ROS nodes";
   };

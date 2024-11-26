@@ -43,18 +43,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles geometry-msgs laser-geometry map-msgs message-filters nav2-common nav2-msgs nav2-util nav2-voxel-grid nav-msgs pluginlib rclcpp rclcpp-lifecycle sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing nav2-lifecycle-manager nav2-map-server ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "nav2_costmap_2d" = substituteSource {
-        src = fetchgit {
-          name = "nav2_costmap_2d-source";
-          url = "https://github.com/SteveMacenski/navigation2-release.git";
-          rev = "14134bfc46845ae85c2cdfef826b3e099d3090f0";
-          hash = "sha256-h2oCRyVXfR2BZGESJNfgDMRPShgRQARf48mD08SDxco=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "nav2_costmap_2d" = substituteSource {
+      src = fetchgit {
+        name = "nav2_costmap_2d-source";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        rev = "14134bfc46845ae85c2cdfef826b3e099d3090f0";
+        hash = "sha256-h2oCRyVXfR2BZGESJNfgDMRPShgRQARf48mD08SDxco=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "This package provides an implementation of a 2D costmap that takes in sensor data from the world, builds a 2D or 3D occupancy grid of the data (depending on whether a voxel based implementation is used), and inflates costs in a 2D costmap based on the occupancy grid and a user specified inflation radius. This package also provides support for map_server based initialization of a costmap, rolling window based costmaps, and parameter based subscription to and configuration of sensor topics.";
   };

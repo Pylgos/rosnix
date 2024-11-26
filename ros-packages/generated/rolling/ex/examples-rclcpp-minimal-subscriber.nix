@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rclcpp-components std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "examples_rclcpp_minimal_subscriber" = substituteSource {
-        src = fetchgit {
-          name = "examples_rclcpp_minimal_subscriber-source";
-          url = "https://github.com/ros2-gbp/examples-release.git";
-          rev = "451f195b97ad415ea703f89e02d8c59b3df455fe";
-          hash = "sha256-wc+onr3xBm9uZyJAtHd7GqP81YXJDduqvPkZmdxYJyU=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "examples_rclcpp_minimal_subscriber" = substituteSource {
+      src = fetchgit {
+        name = "examples_rclcpp_minimal_subscriber-source";
+        url = "https://github.com/ros2-gbp/examples-release.git";
+        rev = "451f195b97ad415ea703f89e02d8c59b3df455fe";
+        hash = "sha256-wc+onr3xBm9uZyJAtHd7GqP81YXJDduqvPkZmdxYJyU=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Examples of minimal subscribers";
   };

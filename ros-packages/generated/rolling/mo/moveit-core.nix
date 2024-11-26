@@ -58,18 +58,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module google-benchmark-vendor ];
   propagatedBuildInputs = [ angles common-interfaces eigen-stl-containers generate-parameter-library geometric-shapes geometry-msgs kdl-parser moveit-common moveit-msgs octomap-msgs osqp-vendor pluginlib random-numbers rclcpp rsl ruckig sensor-msgs shape-msgs srdfdom std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-kdl trajectory-msgs urdf urdfdom urdfdom-headers visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "boost" "bullet" "eigen" "libfcl-dev" "liboctomap-dev" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-index-cpp angles launch-testing-ament-cmake moveit-resources-panda-moveit-config moveit-resources-pr2-description orocos-kdl-vendor rcl-interfaces rclpy ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_core" = substituteSource {
-        src = fetchgit {
-          name = "moveit_core-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "f5a91d3f79fa363e7b041433e3e0fcb306a4c780";
-          hash = "sha256-MvFvH1SaCcBe4lBCyYtBhu7z4R1VqzA3s+0I7DIu15c=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_core" = substituteSource {
+      src = fetchgit {
+        name = "moveit_core-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "f5a91d3f79fa363e7b041433e3e0fcb306a4c780";
+        hash = "sha256-MvFvH1SaCcBe4lBCyYtBhu7z4R1VqzA3s+0I7DIu15c=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Core libraries used by MoveIt";
   };

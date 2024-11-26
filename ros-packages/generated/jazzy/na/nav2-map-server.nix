@@ -31,18 +31,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ launch-ros launch-testing nav2-common nav2-msgs nav2-util nav-msgs rclcpp rclcpp-lifecycle std-msgs tf2 yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphicsmagick" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "nav2_map_server" = substituteSource {
-        src = fetchgit {
-          name = "nav2_map_server-source";
-          url = "https://github.com/SteveMacenski/navigation2-release.git";
-          rev = "242cd7b500f8ee1e1643e23c5c23d555d0a771bc";
-          hash = "sha256-9iuttQnHiojNNGOtNYUzkiYhXf3jgkgbu1UHA5ZIEcE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "nav2_map_server" = substituteSource {
+      src = fetchgit {
+        name = "nav2_map_server-source";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        rev = "242cd7b500f8ee1e1643e23c5c23d555d0a771bc";
+        hash = "sha256-9iuttQnHiojNNGOtNYUzkiYhXf3jgkgbu1UHA5ZIEcE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Refactored map server for ROS2 Navigation";
   };

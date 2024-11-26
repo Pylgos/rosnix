@@ -17,18 +17,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."scenario_execution_coverage";
   propagatedBuildInputs = [ scenario-execution ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-pexpect" "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "scenario_execution_coverage" = substituteSource {
-        src = fetchgit {
-          name = "scenario_execution_coverage-source";
-          url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-          rev = "3a84ec826447f4748a84012c8121b64478552e97";
-          hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "scenario_execution_coverage" = substituteSource {
+      src = fetchgit {
+        name = "scenario_execution_coverage-source";
+        url = "https://github.com/ros2-gbp/scenario_execution-release.git";
+        rev = "3a84ec826447f4748a84012c8121b64478552e97";
+        hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Robotics Scenario Execution Coverage Tools";
   };

@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "nmea_msgs" = substituteSource {
-        src = fetchgit {
-          name = "nmea_msgs-source";
-          url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
-          rev = "4b29747f76d0da74da508f79b19ab99bc513fbe0";
-          hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "nmea_msgs" = substituteSource {
+      src = fetchgit {
+        name = "nmea_msgs-source";
+        url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
+        rev = "4b29747f76d0da74da508f79b19ab99bc513fbe0";
+        hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The nmea_msgs package contains messages related to data in the NMEA format.";
   };

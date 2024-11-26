@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_v2x_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_v2x_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "15ffb69d8a61244ec9c37e4a18963dab7dd421ef";
-          hash = "sha256-fh0eqKt1AzOQIRTU+MCGaqxn4flj9lUKjoSpsN2LkGM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_v2x_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_v2x_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "15ffb69d8a61244ec9c37e4a18963dab7dd421ef";
+        hash = "sha256-fh0eqKt1AzOQIRTU+MCGaqxn4flj9lUKjoSpsN2LkGM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Autoware v2x messages package.";
   };

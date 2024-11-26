@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools sensor-msgs ];
   checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "controller_interface" = substituteSource {
-        src = fetchgit {
-          name = "controller_interface-source";
-          url = "https://github.com/ros2-gbp/ros2_control-release.git";
-          rev = "c5762aea4bfc2db8d54ebbc8fd38253e7e1022f9";
-          hash = "sha256-KMc6WXgXekanXI6ukeQxLmA3BiepF+I8WOQhHMkOTPU=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "controller_interface" = substituteSource {
+      src = fetchgit {
+        name = "controller_interface-source";
+        url = "https://github.com/ros2-gbp/ros2_control-release.git";
+        rev = "c5762aea4bfc2db8d54ebbc8fd38253e7e1022f9";
+        hash = "sha256-KMc6WXgXekanXI6ukeQxLmA3BiepF+I8WOQhHMkOTPU=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Description of controller_interface";
   };

@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "phidgets_msgs" = substituteSource {
-        src = fetchgit {
-          name = "phidgets_msgs-source";
-          url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-          rev = "c44be5c46e76ad890399c4d473cbbe1aeed297ac";
-          hash = "sha256-IenMv0kesMXll/udluqu/FKfShQu8sd0QaGFr+rW4/E=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "phidgets_msgs" = substituteSource {
+      src = fetchgit {
+        name = "phidgets_msgs-source";
+        url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
+        rev = "c44be5c46e76ad890399c4d473cbbe1aeed297ac";
+        hash = "sha256-IenMv0kesMXll/udluqu/FKfShQu8sd0QaGFr+rW4/E=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Custom ROS messages for Phidgets drivers";
   };

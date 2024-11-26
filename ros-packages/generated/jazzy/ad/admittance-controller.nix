@@ -40,18 +40,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros control-msgs control-toolbox controller-interface filters generate-parameter-library geometry-msgs hardware-interface joint-trajectory-controller kinematics-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2 tf2-eigen tf2-geometry-msgs tf2-kdl tf2-ros trajectory-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing kinematics-interface-kdl ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "admittance_controller" = substituteSource {
-        src = fetchgit {
-          name = "admittance_controller-source";
-          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-          rev = "32ca0831c8d32dcc8a28d14e09a3f6148910b98b";
-          hash = "sha256-hZ3Ai2ECC/9T/wZPQ2YhrqfGCuI5H9IXSvrJ22PeQHY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "admittance_controller" = substituteSource {
+      src = fetchgit {
+        name = "admittance_controller-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "32ca0831c8d32dcc8a28d14e09a3f6148910b98b";
+        hash = "sha256-hZ3Ai2ECC/9T/wZPQ2YhrqfGCuI5H9IXSvrJ22PeQHY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Implementation of admittance controllers for different input and output interface.";
   };

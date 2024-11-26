@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "plotjuggler_msgs" = substituteSource {
-        src = fetchgit {
-          name = "plotjuggler_msgs-source";
-          url = "https://github.com/ros2-gbp/plotjuggler_msgs-release.git";
-          rev = "5edb7b4a405975459292f0410ccdff2e9f11982d";
-          hash = "sha256-Lu4ZRsDpvbS2QzbjWOL23H8lsKRSTPGe6MgiCaUedO4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "plotjuggler_msgs" = substituteSource {
+      src = fetchgit {
+        name = "plotjuggler_msgs-source";
+        url = "https://github.com/ros2-gbp/plotjuggler_msgs-release.git";
+        rev = "5edb7b4a405975459292f0410ccdff2e9f11982d";
+        hash = "sha256-Lu4ZRsDpvbS2QzbjWOL23H8lsKRSTPGe6MgiCaUedO4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Special Messages for PlotJuggler";
   };

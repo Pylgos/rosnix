@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-converters ecl-errors ecl-exceptions ecl-formatters ecl-license ecl-mpl ecl-type-traits ecl-utilities ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ecl_containers" = substituteSource {
-        src = fetchgit {
-          name = "ecl_containers-source";
-          url = "https://github.com/ros2-gbp/ecl_core-release.git";
-          rev = "b06753c443575d5f82ed4a98aa1933c674737437";
-          hash = "sha256-943O8bp1zs58toB05o+e+e5rOiiB7i0OAWEjrbjQ7Ng=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ecl_containers" = substituteSource {
+      src = fetchgit {
+        name = "ecl_containers-source";
+        url = "https://github.com/ros2-gbp/ecl_core-release.git";
+        rev = "b06753c443575d5f82ed4a98aa1933c674737437";
+        hash = "sha256-943O8bp1zs58toB05o+e+e5rOiiB7i0OAWEjrbjQ7Ng=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The containers included here are intended to extend the stl containers. In all cases, these implementations are designed to implement c++ conveniences and safety where speed is not sacrificed. Also includes techniques for memory debugging of common problems such as buffer overruns.";
   };

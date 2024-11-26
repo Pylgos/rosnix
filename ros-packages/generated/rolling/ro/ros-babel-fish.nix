@@ -30,18 +30,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-cpp example-interfaces geometry-msgs rclcpp rclcpp-action rcpputils rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto geometry-msgs ros-babel-fish-test-msgs std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros_babel_fish" = substituteSource {
-        src = fetchgit {
-          name = "ros_babel_fish-source";
-          url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-          rev = "ba498ca83a7a9b831937d11850551bfbd4c3a1c7";
-          hash = "sha256-7cUbbBBmtq0EpPXpryxrVIvTtzzKIRqFIJP7nuf/Vy0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros_babel_fish" = substituteSource {
+      src = fetchgit {
+        name = "ros_babel_fish-source";
+        url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
+        rev = "ba498ca83a7a9b831937d11850551bfbd4c3a1c7";
+        hash = "sha256-7cUbbBBmtq0EpPXpryxrVIvTtzzKIRqFIJP7nuf/Vy0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A runtime message handler for ROS. Allows subscription, publishing, calling of services and actions with messages known only at runtime as long as they are available in the local environment.";
   };

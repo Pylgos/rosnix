@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module ];
   propagatedBuildInputs = [ fastcdr fastrtps rcpputils rcutils rmw rmw-dds-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmw_fastrtps_shared_cpp" = substituteSource {
-        src = fetchgit {
-          name = "rmw_fastrtps_shared_cpp-source";
-          url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-          rev = "b609d7a8280d5367315a6b737fb978ef57e4838f";
-          hash = "sha256-Gk7zSdNOj2nEqeEZ91ISzzpWRzFZ/eeLDA1N90GHgTc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmw_fastrtps_shared_cpp" = substituteSource {
+      src = fetchgit {
+        name = "rmw_fastrtps_shared_cpp-source";
+        url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
+        rev = "b609d7a8280d5367315a6b737fb978ef57e4838f";
+        hash = "sha256-Gk7zSdNOj2nEqeEZ91ISzzpWRzFZ/eeLDA1N90GHgTc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Code shared on static and dynamic type support of rmw_fastrtps_cpp.";
   };

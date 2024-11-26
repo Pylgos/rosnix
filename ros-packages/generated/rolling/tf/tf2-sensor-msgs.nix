@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ geometry-msgs sensor-msgs sensor-msgs-py std-msgs tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-numpy" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rclcpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "tf2_sensor_msgs" = substituteSource {
-        src = fetchgit {
-          name = "tf2_sensor_msgs-source";
-          url = "https://github.com/ros2-gbp/geometry2-release.git";
-          rev = "73e9eee96994f5b8e34cc970d522e1515ab2db2b";
-          hash = "sha256-Im5fCA4kU4YQm0ZAUeP3avvG1ZUFOEUNdp75AUn3LUA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "tf2_sensor_msgs" = substituteSource {
+      src = fetchgit {
+        name = "tf2_sensor_msgs-source";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
+        rev = "73e9eee96994f5b8e34cc970d522e1515ab2db2b";
+        hash = "sha256-Im5fCA4kU4YQm0ZAUeP3avvG1ZUFOEUNdp75AUn3LUA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Small lib to transform sensor_msgs with tf. Most notably, PointCloud2";
   };

@@ -30,18 +30,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools sensor-msgs ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common controller-manager hardware-interface-testing ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "imu_sensor_broadcaster" = substituteSource {
-        src = fetchgit {
-          name = "imu_sensor_broadcaster-source";
-          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-          rev = "5a846003b026daa9b004fe686757516ce202224d";
-          hash = "sha256-IKvvKwTjn1RtSL4plocpVa4EcUfEm22MWYUyw3G9KUk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "imu_sensor_broadcaster" = substituteSource {
+      src = fetchgit {
+        name = "imu_sensor_broadcaster-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "5a846003b026daa9b004fe686757516ce202224d";
+        hash = "sha256-IKvvKwTjn1RtSL4plocpVa4EcUfEm22MWYUyw3G9KUk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Controller to publish readings of IMU sensors.";
   };

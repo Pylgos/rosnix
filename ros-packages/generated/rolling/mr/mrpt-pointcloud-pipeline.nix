@@ -29,18 +29,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   propagatedBuildInputs = [ mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libros-bridge nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_pointcloud_pipeline" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_pointcloud_pipeline-source";
-          url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-          rev = "f0881d72af69121b64eaaecb4f841d611d0de3ca";
-          hash = "sha256-hH6KSVz/+YaNavnGjVMvwUFlv8kvWfa65nrsD9cpfuI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_pointcloud_pipeline" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_pointcloud_pipeline-source";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        rev = "f0881d72af69121b64eaaecb4f841d611d0de3ca";
+        hash = "sha256-hH6KSVz/+YaNavnGjVMvwUFlv8kvWfa65nrsD9cpfuI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Maintains a local obstacle map from recent sensor readings, including optional point cloud pipeline filtering or processing.";
   };

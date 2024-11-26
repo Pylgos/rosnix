@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ plansys2-msgs plansys2-pddl-parser pluginlib rclcpp rclcpp-lifecycle ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "plansys2_core" = substituteSource {
-        src = fetchgit {
-          name = "plansys2_core-source";
-          url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-          rev = "cd4a197e608b3b5bae9833ac8125d306a3461d44";
-          hash = "sha256-fT33KY8/1WIlwJcQfu1ABWhvLEUs/ze7R8OGuiACnGQ=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "plansys2_core" = substituteSource {
+      src = fetchgit {
+        name = "plansys2_core-source";
+        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
+        rev = "cd4a197e608b3b5bae9833ac8125d306a3461d44";
+        hash = "sha256-fT33KY8/1WIlwJcQfu1ABWhvLEUs/ze7R8OGuiACnGQ=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "This package contains the PDDL-based core for the ROS2 Planning System";
   };

@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ action-msgs behaviortree-cpp plansys2-executor rclcpp rclcpp-action rclcpp-lifecycle ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs plansys2-msgs test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "plansys2_bt_actions" = substituteSource {
-        src = fetchgit {
-          name = "plansys2_bt_actions-source";
-          url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-          rev = "286e4f253693ba15eeb3aa97aaa691bdc86ccb0e";
-          hash = "sha256-7ifNQ2gxGtePO8kJ5AVkoKyZoqIgtfMpL9nYHMwc+Dc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "plansys2_bt_actions" = substituteSource {
+      src = fetchgit {
+        name = "plansys2_bt_actions-source";
+        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
+        rev = "286e4f253693ba15eeb3aa97aaa691bdc86ccb0e";
+        hash = "sha256-7ifNQ2gxGtePO8kJ5AVkoKyZoqIgtfMpL9nYHMwc+Dc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "This package contains the Problem Expert module for the ROS2 Planning System";
   };

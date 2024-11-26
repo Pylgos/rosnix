@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "nao_sensor_msgs" = substituteSource {
-        src = fetchgit {
-          name = "nao_sensor_msgs-source";
-          url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
-          rev = "74dded0e1662ddd1fdfe95359a2066528032731d";
-          hash = "sha256-z8HBYfJ4SH1kbToGsf6tHPccjImandiilK9gxOLUF90=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "nao_sensor_msgs" = substituteSource {
+      src = fetchgit {
+        name = "nao_sensor_msgs-source";
+        url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
+        rev = "74dded0e1662ddd1fdfe95359a2066528032731d";
+        hash = "sha256-z8HBYfJ4SH1kbToGsf6tHPccjImandiilK9gxOLUF90=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package defining sensor msgs to be received from NAO robot.";
   };

@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common ros-environment ];
   propagatedBuildInputs = [ cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_sensor_bumblebee_stereo" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_sensor_bumblebee_stereo-source";
-          url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-          rev = "f96854a0179b96d0f314831f90099c6e9eac52a0";
-          hash = "sha256-RdSetxlV3aRkTreC+ol1ENdwAu440EnXqTubJg53Q48=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_sensor_bumblebee_stereo" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_sensor_bumblebee_stereo-source";
+        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
+        rev = "f96854a0179b96d0f314831f90099c6e9eac52a0";
+        hash = "sha256-RdSetxlV3aRkTreC+ol1ENdwAu440EnXqTubJg53Q48=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS node for Bumblebee Stereo Cameras using libdc1394 interface (based on mrpt-hwdrivers)";
   };

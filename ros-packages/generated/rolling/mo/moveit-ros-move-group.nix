@@ -33,18 +33,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ moveit-common moveit-core moveit-kinematics moveit-ros-occupancy-map-monitor moveit-ros-planning pluginlib rclcpp rclcpp-action std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   checkInputs = [ ament-cmake-gtest moveit-configs-utils moveit-resources-fanuc-moveit-config moveit-resources-panda-moveit-config ros-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_ros_move_group" = substituteSource {
-        src = fetchgit {
-          name = "moveit_ros_move_group-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "1ccea2726e203bc1cd13f79f0af74f4775a12727";
-          hash = "sha256-ojnDFjRlABmP5WrWGQY2cJBLNCdncMPK1to3IcphMrA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_ros_move_group" = substituteSource {
+      src = fetchgit {
+        name = "moveit_ros_move_group-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "1ccea2726e203bc1cd13f79f0af74f4775a12727";
+        hash = "sha256-ojnDFjRlABmP5WrWGQY2cJBLNCdncMPK1to3IcphMrA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The move_group node for MoveIt";
   };

@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "statistics_msgs" = substituteSource {
-        src = fetchgit {
-          name = "statistics_msgs-source";
-          url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
-          rev = "56895ab09c1f7b1420d45dffa4e0dcb63aa42573";
-          hash = "sha256-StmM/vqSkqqgg84bt4x/hUKy7R7QgDmBoDzsFvBrucw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "statistics_msgs" = substituteSource {
+      src = fetchgit {
+        name = "statistics_msgs-source";
+        url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
+        rev = "56895ab09c1f7b1420d45dffa4e0dcb63aa42573";
+        hash = "sha256-StmM/vqSkqqgg84bt4x/hUKy7R7QgDmBoDzsFvBrucw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message definitions for reporting statistics for topics and system resources.";
   };

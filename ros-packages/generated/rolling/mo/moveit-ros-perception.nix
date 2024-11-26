@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."moveit_ros_perception";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ cv-bridge image-transport message-filters moveit-common moveit-core moveit-msgs moveit-ros-occupancy-map-monitor moveit-ros-planning object-recognition-msgs pluginlib rclcpp sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "glut" "libglew-dev" "libomp-dev" "opengl" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_ros_perception" = substituteSource {
-        src = fetchgit {
-          name = "moveit_ros_perception-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "043463672defc12b592a9268dafa4d39be534d5f";
-          hash = "sha256-rFSC9YlLgiexWdX1cjk8llWmlEL1xjfBAlCcCd2EWR0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_ros_perception" = substituteSource {
+      src = fetchgit {
+        name = "moveit_ros_perception-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "043463672defc12b592a9268dafa4d39be534d5f";
+        hash = "sha256-rFSC9YlLgiexWdX1cjk8llWmlEL1xjfBAlCcCd2EWR0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Components of MoveIt connecting to perception";
   };

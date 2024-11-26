@@ -18,18 +18,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."nmea_navsat_driver";
   propagatedBuildInputs = [ geometry-msgs nmea-msgs rclpy sensor-msgs tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-serial" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "nmea_navsat_driver" = substituteSource {
-        src = fetchgit {
-          name = "nmea_navsat_driver-source";
-          url = "https://github.com/ros2-gbp/nmea_navsat_driver-release.git";
-          rev = "2dadf09b62ddc47adf7c9e60794c05308bf996d9";
-          hash = "sha256-Sk5PVLiGhnZlswzI74j4DqsxsA7icXEWu6Wb6JlbN4s=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "nmea_navsat_driver" = substituteSource {
+      src = fetchgit {
+        name = "nmea_navsat_driver-source";
+        url = "https://github.com/ros2-gbp/nmea_navsat_driver-release.git";
+        rev = "2dadf09b62ddc47adf7c9e60794c05308bf996d9";
+        hash = "sha256-Sk5PVLiGhnZlswzI74j4DqsxsA7icXEWu6Wb6JlbN4s=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Package to parse NMEA strings and publish a very simple GPS message. Does not require or use the GPSD deamon.";
   };

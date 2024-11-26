@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ geometry-msgs pluginlib rviz-common rviz-rendering ];
   checkInputs = [ ament-cmake-clang-format ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "snowbot_operating_system" = substituteSource {
-        src = fetchgit {
-          name = "snowbot_operating_system-source";
-          url = "https://github.com/ros2-gbp/snowbot_release.git";
-          rev = "cc969e3a6ae8b55e35a55cc08be7045d805c037a";
-          hash = "sha256-jsc6W+E4XVtTLGd+ZSn45ChfZmV6/c9nUg1FpqA6d8s=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "snowbot_operating_system" = substituteSource {
+      src = fetchgit {
+        name = "snowbot_operating_system-source";
+        url = "https://github.com/ros2-gbp/snowbot_release.git";
+        rev = "cc969e3a6ae8b55e35a55cc08be7045d805c037a";
+        hash = "sha256-jsc6W+E4XVtTLGd+ZSn45ChfZmV6/c9nUg1FpqA6d8s=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The weather outside is frightful";
   };

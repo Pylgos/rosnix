@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-cpp class-loader rcpputils rcutils tinyxml2-vendor ];
   checkInputs = [ ament-cmake-gtest ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "pluginlib" = substituteSource {
-        src = fetchgit {
-          name = "pluginlib-source";
-          url = "https://github.com/ros2-gbp/pluginlib-release.git";
-          rev = "e8b556270ca67d5640214fb34d895a2ff5081689";
-          hash = "sha256-ZIVIHw0nimqFqss8537p3ec6RbiUeWpREml5RkLqwdg=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "pluginlib" = substituteSource {
+      src = fetchgit {
+        name = "pluginlib-source";
+        url = "https://github.com/ros2-gbp/pluginlib-release.git";
+        rev = "e8b556270ca67d5640214fb34d895a2ff5081689";
+        hash = "sha256-ZIVIHw0nimqFqss8537p3ec6RbiUeWpREml5RkLqwdg=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The pluginlib package provides tools for writing and dynamically loading plugins using the ROS build infrastructure. To work, these tools require plugin providers to register their plugins in the package.xml of their package.";
   };

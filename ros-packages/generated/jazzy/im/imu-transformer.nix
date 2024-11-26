@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ message-filters rclcpp rclcpp-components sensor-msgs tf2-ros tf2-sensor-msgs ];
   checkInputs = [ geometry-msgs tf2-geometry-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "imu_transformer" = substituteSource {
-        src = fetchgit {
-          name = "imu_transformer-source";
-          url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
-          rev = "fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61";
-          hash = "sha256-lcQiOtqXK/0Dj9s+hSjZPSC6ypDEmOUVpRrIqNzO+Qw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "imu_transformer" = substituteSource {
+      src = fetchgit {
+        name = "imu_transformer-source";
+        url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
+        rev = "fa9d7c47c35a05548c3db37bfa58ba7d99d7ff61";
+        hash = "sha256-lcQiOtqXK/0Dj9s+hSjZPSC6ypDEmOUVpRrIqNzO+Qw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Node/components to transform sensor_msgs::Imu data from one frame into another.";
   };

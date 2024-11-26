@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui leo-description rviz2 ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "leo_viz" = substituteSource {
-        src = fetchgit {
-          name = "leo_viz-source";
-          url = "https://github.com/ros2-gbp/leo_desktop-release.git";
-          rev = "d6ad7387de6715c03425618a157a2df65b04ae8a";
-          hash = "sha256-JrS6oiobEEu7mNXfAH7Ayk6hIbPY0ldoaaA3B4v78iI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "leo_viz" = substituteSource {
+      src = fetchgit {
+        name = "leo_viz-source";
+        url = "https://github.com/ros2-gbp/leo_desktop-release.git";
+        rev = "d6ad7387de6715c03425618a157a2df65b04ae8a";
+        hash = "sha256-JrS6oiobEEu7mNXfAH7Ayk6hIbPY0ldoaaA3B4v78iI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Visualization launch files and RViz configurations for Leo Rover";
   };

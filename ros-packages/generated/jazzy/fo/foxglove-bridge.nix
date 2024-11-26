@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment ];
   propagatedBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever rosgraph-msgs rosx-introspection ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" "libssl-dev" "libwebsocketpp-dev" "nlohmann-json-dev" "openssl" "zlib" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto std-msgs std-srvs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "foxglove_bridge" = substituteSource {
-        src = fetchgit {
-          name = "foxglove_bridge-source";
-          url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
-          rev = "488ba6a290f4df44a014b70da8c39e925ea7af59";
-          hash = "sha256-55+rvWwEo3BQQ39q4jHC7MXaagY3vheCEPc3TnNeZZ0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "foxglove_bridge" = substituteSource {
+      src = fetchgit {
+        name = "foxglove_bridge-source";
+        url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
+        rev = "488ba6a290f4df44a014b70da8c39e925ea7af59";
+        hash = "sha256-55+rvWwEo3BQQ39q4jHC7MXaagY3vheCEPc3TnNeZZ0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS Foxglove Bridge";
   };

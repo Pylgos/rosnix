@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   propagatedBuildInputs = [ mvsim teleop-twist-keyboard ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_tutorials" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_tutorials-source";
-          url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-          rev = "702920bfe55a7b49c38f7ff4f69119361e59c16a";
-          hash = "sha256-k96ZKLyVvJ9smLG32kWaPsdp5ZmUkQoO84LIAoj6JOw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_tutorials" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_tutorials-source";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        rev = "702920bfe55a7b49c38f7ff4f69119361e59c16a";
+        hash = "sha256-k96ZKLyVvJ9smLG32kWaPsdp5ZmUkQoO84LIAoj6JOw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Example files used as tutorials for MRPT ROS packages";
   };

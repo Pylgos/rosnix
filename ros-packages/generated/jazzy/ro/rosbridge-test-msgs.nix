@@ -33,18 +33,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rosidl-default-runtime std-msgs ];
   checkInputs = [ action-msgs ament-cmake-pytest builtin-interfaces diagnostic-msgs example-interfaces geometry-msgs nav-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosbridge_test_msgs" = substituteSource {
-        src = fetchgit {
-          name = "rosbridge_test_msgs-source";
-          url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-          rev = "0c944deabe557513bf17d3464c0a4562338f7ce1";
-          hash = "sha256-oy5Ym9Cqjxvje6sN1vCG18Bo3eYlZM8DyZuJKqLXfY0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosbridge_test_msgs" = substituteSource {
+      src = fetchgit {
+        name = "rosbridge_test_msgs-source";
+        url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
+        rev = "0c944deabe557513bf17d3464c0a4562338f7ce1";
+        hash = "sha256-oy5Ym9Cqjxvje6sN1vCG18Bo3eYlZM8DyZuJKqLXfY0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message and service definitions used in internal tests for rosbridge packages.";
   };

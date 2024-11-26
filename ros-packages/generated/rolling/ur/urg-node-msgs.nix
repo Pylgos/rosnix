@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "urg_node_msgs" = substituteSource {
-        src = fetchgit {
-          name = "urg_node_msgs-source";
-          url = "https://github.com/ros2-gbp/urg_node_msgs-release.git";
-          rev = "9cd9bea8dd2eba058dfa171b3378be85bff29c4f";
-          hash = "sha256-IBl7J8akPgn5ni5/8kPGDOh4Fklto+RggWCIxGald/w=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "urg_node_msgs" = substituteSource {
+      src = fetchgit {
+        name = "urg_node_msgs-source";
+        url = "https://github.com/ros2-gbp/urg_node_msgs-release.git";
+        rev = "9cd9bea8dd2eba058dfa171b3378be85bff29c4f";
+        hash = "sha256-IBl7J8akPgn5ni5/8kPGDOh4Fklto+RggWCIxGald/w=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "urg_node_msgs";
   };

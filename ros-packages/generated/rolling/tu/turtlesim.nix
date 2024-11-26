@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "turtlesim" = substituteSource {
-        src = fetchgit {
-          name = "turtlesim-source";
-          url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
-          rev = "4fa7d0da6427665fa4540503b0c5bc5cf85314db";
-          hash = "sha256-ubEzRIkm0yl5MNSHbJDbWkgXp05T9JMpO2ogZNP4zd8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "turtlesim" = substituteSource {
+      src = fetchgit {
+        name = "turtlesim-source";
+        url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
+        rev = "4fa7d0da6427665fa4540503b0c5bc5cf85314db";
+        hash = "sha256-ubEzRIkm0yl5MNSHbJDbWkgXp05T9JMpO2ogZNP4zd8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "turtlesim is a tool made for teaching ROS and ROS packages.";
   };

@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces lifecycle-msgs rclcpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "cascade_lifecycle_msgs" = substituteSource {
-        src = fetchgit {
-          name = "cascade_lifecycle_msgs-source";
-          url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-          rev = "e35b5bf7ac2a267a9aecddd6564b9894af3486ba";
-          hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "cascade_lifecycle_msgs" = substituteSource {
+      src = fetchgit {
+        name = "cascade_lifecycle_msgs-source";
+        url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
+        rev = "e35b5bf7ac2a267a9aecddd6564b9894af3486ba";
+        hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages for rclcpp_cascade_lifecycle package";
   };

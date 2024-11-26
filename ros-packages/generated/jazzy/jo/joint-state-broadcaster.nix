@@ -32,18 +32,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs urdf ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing rclcpp ros2-control-test-assets ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "joint_state_broadcaster" = substituteSource {
-        src = fetchgit {
-          name = "joint_state_broadcaster-source";
-          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-          rev = "19eaf1238a0cae76d5855a2325bdee581ba6490c";
-          hash = "sha256-GV18pB63Xo1P6n1sE/at1i7hVW029GyHiPcm2w9G7fY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "joint_state_broadcaster" = substituteSource {
+      src = fetchgit {
+        name = "joint_state_broadcaster-source";
+        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+        rev = "19eaf1238a0cae76d5855a2325bdee581ba6490c";
+        hash = "sha256-GV18pB63Xo1P6n1sE/at1i7hVW029GyHiPcm2w9G7fY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Broadcaster to publish joint state";
   };

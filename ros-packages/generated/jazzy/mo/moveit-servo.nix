@@ -43,18 +43,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs gripper-controllers joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ];
   checkInputs = [ ament-cmake-gtest moveit-resources-panda-moveit-config ros-testing ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_servo" = substituteSource {
-        src = fetchgit {
-          name = "moveit_servo-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "cb66905f35b3d028d549fedb54280842822adbe6";
-          hash = "sha256-4S4Bt6Fu+LWXvvdRWVqxwaCP7Q2ELAJsz0I3zGYIWvM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_servo" = substituteSource {
+      src = fetchgit {
+        name = "moveit_servo-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "cb66905f35b3d028d549fedb54280842822adbe6";
+        hash = "sha256-4S4Bt6Fu+LWXvvdRWVqxwaCP7Q2ELAJsz0I3zGYIWvM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Provides real-time manipulator Cartesian and joint servoing.";
   };

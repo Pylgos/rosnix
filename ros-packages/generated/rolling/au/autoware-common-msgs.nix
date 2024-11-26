@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_common_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_common_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "a56633cf986a0448c503d5060e3a5ee036330417";
-          hash = "sha256-TfUoiStySJ0JJyM/ozRj66RtkS1FHTpO+F+qsBoKHNw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_common_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_common_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "a56633cf986a0448c503d5060e3a5ee036330417";
+        hash = "sha256-TfUoiStySJ0JJyM/ozRj66RtkS1FHTpO+F+qsBoKHNw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Autoware common messages package.";
   };

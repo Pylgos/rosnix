@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "gc_spl_interfaces" = substituteSource {
-        src = fetchgit {
-          name = "gc_spl_interfaces-source";
-          url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
-          rev = "40ceafe3b472fb84d11e1e50ab4458723e2638bf";
-          hash = "sha256-zib/AEpu2CDmpEXFyiedKxZD52Ub6+OPzPJpw/a2jqE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "gc_spl_interfaces" = substituteSource {
+      src = fetchgit {
+        name = "gc_spl_interfaces-source";
+        url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
+        rev = "40ceafe3b472fb84d11e1e50ab4458723e2638bf";
+        hash = "sha256-zib/AEpu2CDmpEXFyiedKxZD52Ub6+OPzPJpw/a2jqE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "RoboCup SPL GameController Data ROS msg";
   };

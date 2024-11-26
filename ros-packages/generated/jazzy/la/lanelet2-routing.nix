@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ mrt-cmake-modules ];
   propagatedBuildInputs = [ lanelet2-core lanelet2-traffic-rules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "lanelet2_routing" = substituteSource {
-        src = fetchgit {
-          name = "lanelet2_routing-source";
-          url = "https://github.com/ros2-gbp/lanelet2-release.git";
-          rev = "dbd7e7453edcca24e6a8face2b3b64f538039d84";
-          hash = "sha256-nGVDdE1W8o7u9mMs1LHE5cT4A9mFdBo3NEHLB0QeZqE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "lanelet2_routing" = substituteSource {
+      src = fetchgit {
+        name = "lanelet2_routing-source";
+        url = "https://github.com/ros2-gbp/lanelet2-release.git";
+        rev = "dbd7e7453edcca24e6a8face2b3b64f538039d84";
+        hash = "sha256-nGVDdE1W8o7u9mMs1LHE5cT4A9mFdBo3NEHLB0QeZqE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Routing module for lanelet2";
   };

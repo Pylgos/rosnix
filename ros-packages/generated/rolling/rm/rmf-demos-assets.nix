@@ -13,18 +13,16 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."rmf_demos_assets";
   nativeBuildInputs = [ ament-cmake ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmf_demos_assets" = substituteSource {
-        src = fetchgit {
-          name = "rmf_demos_assets-source";
-          url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-          rev = "26fc620cbddafca3d9f1c8e25d17a4c702a1a5c7";
-          hash = "sha256-VsIJqUNdINgbYyJsjQxClBrPuvKaBBu9euUTLv+Ez2o=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmf_demos_assets" = substituteSource {
+      src = fetchgit {
+        name = "rmf_demos_assets-source";
+        url = "https://github.com/ros2-gbp/rmf_demos-release.git";
+        rev = "26fc620cbddafca3d9f1c8e25d17a4c702a1a5c7";
+        hash = "sha256-VsIJqUNdINgbYyJsjQxClBrPuvKaBBu9euUTLv+Ez2o=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Models and other media used for RMF demos";
   };

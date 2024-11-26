@@ -15,18 +15,16 @@ buildCatkinPackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "tinyxml" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "menge_vendor" = substituteSource {
-        src = fetchgit {
-          name = "menge_vendor-source";
-          url = "https://github.com/ros2-gbp/menge_vendor-release.git";
-          rev = "dc8e4100a05e84a960dcb1362a6c08fd42f7cb06";
-          hash = "sha256-AJu4LBC/jCbOc7xsuWQYqlSM6c4VDKO69VNdPQljsDE=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "menge_vendor" = substituteSource {
+      src = fetchgit {
+        name = "menge_vendor-source";
+        url = "https://github.com/ros2-gbp/menge_vendor-release.git";
+        rev = "dc8e4100a05e84a960dcb1362a6c08fd42f7cb06";
+        hash = "sha256-AJu4LBC/jCbOc7xsuWQYqlSM6c4VDKO69VNdPQljsDE=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Menge is a powerful, cross-platform, modular framework for crowd simulation developed at the University of North Carolina - Chapel Hill. This package includes the core simulation part of origin menge package, with a bit modification for crowd simulation in gazebo and ignition gazebo.";
   };

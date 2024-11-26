@@ -14,18 +14,16 @@ buildCmakePackage (finalAttrs: {
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "uuid" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "azure_iot_sdk_c" = substituteSource {
-        src = fetchgit {
-          name = "azure_iot_sdk_c-source";
-          url = "https://github.com/ros2-gbp/azure_iot_sdk_c-release.git";
-          rev = "b08c4fbb256b9438813e8c86c42512e330eb18f5";
-          hash = "sha256-zGeKBP8LXVA/vOI7EHJ8q6AZ/d2YyMv5VGdvVlaFzCI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "azure_iot_sdk_c" = substituteSource {
+      src = fetchgit {
+        name = "azure_iot_sdk_c-source";
+        url = "https://github.com/ros2-gbp/azure_iot_sdk_c-release.git";
+        rev = "b08c4fbb256b9438813e8c86c42512e330eb18f5";
+        hash = "sha256-zGeKBP8LXVA/vOI7EHJ8q6AZ/d2YyMv5VGdvVlaFzCI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Azure IoT C SDKs and Libraries";
   };

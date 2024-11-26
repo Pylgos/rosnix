@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ament-cmake-version ];
   propagatedBuildInputs = [ rcutils rosidl-dynamic-typesupport rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmw" = substituteSource {
-        src = fetchgit {
-          name = "rmw-source";
-          url = "https://github.com/ros2-gbp/rmw-release.git";
-          rev = "26c3988106253055a5ab299ac8a86532c1ccef17";
-          hash = "sha256-LWo7vL8C0tqposyiosxLmiRZXcHfSvlsQk+6X/wGfow=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmw" = substituteSource {
+      src = fetchgit {
+        name = "rmw-source";
+        url = "https://github.com/ros2-gbp/rmw-release.git";
+        rev = "26c3988106253055a5ab299ac8a86532c1ccef17";
+        hash = "sha256-LWo7vL8C0tqposyiosxLmiRZXcHfSvlsQk+6X/wGfow=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Contains the ROS middleware API.";
   };

@@ -21,18 +21,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmf_obstacle_msgs" = substituteSource {
-        src = fetchgit {
-          name = "rmf_obstacle_msgs-source";
-          url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-          rev = "a796af42f093c36eab792b59b423a4d1f98c57f0";
-          hash = "sha256-mxfaFAH5p/S3vxK4RdkH6kRiLSEWAyw4UfSCuD8DwBI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmf_obstacle_msgs" = substituteSource {
+      src = fetchgit {
+        name = "rmf_obstacle_msgs-source";
+        url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
+        rev = "a796af42f093c36eab792b59b423a4d1f98c57f0";
+        hash = "sha256-mxfaFAH5p/S3vxK4RdkH6kRiLSEWAyw4UfSCuD8DwBI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package containing messages for describing obstacles in the environment";
   };

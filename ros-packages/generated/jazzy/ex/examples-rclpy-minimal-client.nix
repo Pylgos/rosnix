@@ -19,18 +19,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."examples_rclpy_minimal_client";
   propagatedBuildInputs = [ example-interfaces rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "examples_rclpy_minimal_client" = substituteSource {
-        src = fetchgit {
-          name = "examples_rclpy_minimal_client-source";
-          url = "https://github.com/ros2-gbp/examples-release.git";
-          rev = "d149821ca87d6608df40eb67fc9625e567a5d1a4";
-          hash = "sha256-ArQUsjRTLQk95bcoXaFC1l3execpR74HzzFrOyYJpAk=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "examples_rclpy_minimal_client" = substituteSource {
+      src = fetchgit {
+        name = "examples_rclpy_minimal_client-source";
+        url = "https://github.com/ros2-gbp/examples-release.git";
+        rev = "d149821ca87d6608df40eb67fc9625e567a5d1a4";
+        hash = "sha256-ArQUsjRTLQk95bcoXaFC1l3execpR74HzzFrOyYJpAk=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Examples of minimal service clients using rclpy.";
   };

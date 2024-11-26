@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."simulation";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ros-base ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "simulation" = substituteSource {
-        src = fetchgit {
-          name = "simulation-source";
-          url = "https://github.com/ros2-gbp/variants-release.git";
-          rev = "a3513af0b98ac4456aeeb919c038ab17b02c3fbb";
-          hash = "sha256-F5Xdwf30yp+svq3b6jwcfeMbm+oLQKi9hw3ZkozBy68=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "simulation" = substituteSource {
+      src = fetchgit {
+        name = "simulation-source";
+        url = "https://github.com/ros2-gbp/variants-release.git";
+        rev = "a3513af0b98ac4456aeeb919c038ab17b02c3fbb";
+        hash = "sha256-F5Xdwf30yp+svq3b6jwcfeMbm+oLQKi9hw3ZkozBy68=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package which extends 'ros_base' and includes simulation packages.";
   };

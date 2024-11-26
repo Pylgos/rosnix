@@ -16,18 +16,16 @@ buildCatkinPackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libssl-dev" ]; };
   checkInputs = [ launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-websocket" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "async_web_server_cpp" = substituteSource {
-        src = fetchgit {
-          name = "async_web_server_cpp-source";
-          url = "https://github.com/ros2-gbp/async_web_server_cpp-release.git";
-          rev = "8874c7a0cf8a444467852bff277bfa23f6e20f4f";
-          hash = "sha256-bz0je03yD60CjR08T++F1rGD5GhfXZJWAbL6L5rINbo=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "async_web_server_cpp" = substituteSource {
+      src = fetchgit {
+        name = "async_web_server_cpp-source";
+        url = "https://github.com/ros2-gbp/async_web_server_cpp-release.git";
+        rev = "8874c7a0cf8a444467852bff277bfa23f6e20f4f";
+        hash = "sha256-bz0je03yD60CjR08T++F1rGD5GhfXZJWAbL6L5rINbo=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Asynchronous Web/WebSocket Server in C++";
   };

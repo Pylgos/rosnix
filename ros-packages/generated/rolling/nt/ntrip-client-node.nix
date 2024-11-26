@@ -26,18 +26,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedBuildInputs = [ libcurl-vendor rclcpp rclcpp-components rtcm-msgs std-msgs ];
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-uncrustify ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ntrip_client_node" = substituteSource {
-        src = fetchgit {
-          name = "ntrip_client_node-source";
-          url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-          rev = "334b5665b085aa1ecdb9b687f3504e5e730e17ec";
-          hash = "sha256-+Oy7LbeyrPeCJtrX2tBn3s6UqroOSWzv/21mm90Gp90=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ntrip_client_node" = substituteSource {
+      src = fetchgit {
+        name = "ntrip_client_node-source";
+        url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
+        rev = "334b5665b085aa1ecdb9b687f3504e5e730e17ec";
+        hash = "sha256-+Oy7LbeyrPeCJtrX2tBn3s6UqroOSWzv/21mm90Gp90=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Publishes RTCM ntrip messages from an external mountpoint";
   };

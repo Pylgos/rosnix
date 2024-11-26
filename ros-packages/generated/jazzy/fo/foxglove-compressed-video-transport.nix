@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
   propagatedBuildInputs = [ ffmpeg-encoder-decoder foxglove-msgs image-transport pluginlib rclcpp rcutils sensor-msgs std-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "foxglove_compressed_video_transport" = substituteSource {
-        src = fetchgit {
-          name = "foxglove_compressed_video_transport-source";
-          url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
-          rev = "5078aba7cba4e8604ab6fac48600d5817eba4bde";
-          hash = "sha256-gZlIzuW2GXtIFEwfLwStRPLdI2koKHJEGYQN1ULi5rA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "foxglove_compressed_video_transport" = substituteSource {
+      src = fetchgit {
+        name = "foxglove_compressed_video_transport-source";
+        url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
+        rev = "5078aba7cba4e8604ab6fac48600d5817eba4bde";
+        hash = "sha256-gZlIzuW2GXtIFEwfLwStRPLdI2koKHJEGYQN1ULi5rA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "foxglove_compressed_video_transport provides a plugin to image_transport for transparently sending an image stream encoded in foxglove compressed video packets.";
   };

@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment ];
   propagatedBuildInputs = [ class-loader event-camera-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-gtest ament-lint-auto ament-lint-common rclcpp rosbag2-cpp ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "event_camera_codecs" = substituteSource {
-        src = fetchgit {
-          name = "event_camera_codecs-source";
-          url = "https://github.com/ros2-gbp/event_camera_codecs-release.git";
-          rev = "ef4d15e31247f27136cb0fa31a91be03301cbe31";
-          hash = "sha256-9Eas9XPxZcx9fbTdybVPyqvyW6KEShMM/xaX0xqv+aw=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "event_camera_codecs" = substituteSource {
+      src = fetchgit {
+        name = "event_camera_codecs-source";
+        url = "https://github.com/ros2-gbp/event_camera_codecs-release.git";
+        rev = "ef4d15e31247f27136cb0fa31a91be03301cbe31";
+        hash = "sha256-9Eas9XPxZcx9fbTdybVPyqvyW6KEShMM/xaX0xqv+aw=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "package to encode and decode event_camera_msgs";
   };

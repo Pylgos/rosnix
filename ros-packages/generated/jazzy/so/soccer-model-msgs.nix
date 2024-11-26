@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime soccer-geometry-msgs soccer-vision-attribute-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "soccer_model_msgs" = substituteSource {
-        src = fetchgit {
-          name = "soccer_model_msgs-source";
-          url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
-          rev = "ebf0e34af5420aeb209be524c5792b13da56c101";
-          hash = "sha256-CGzaSmn0XKOI2Vq0FoGUiKLfqeE3RryN6A+WRhir8+E=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "soccer_model_msgs" = substituteSource {
+      src = fetchgit {
+        name = "soccer_model_msgs-source";
+        url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
+        rev = "ebf0e34af5420aeb209be524c5792b13da56c101";
+        hash = "sha256-CGzaSmn0XKOI2Vq0FoGUiKLfqeE3RryN6A+WRhir8+E=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package containing world model related message definitions in the soccer domain.";
   };

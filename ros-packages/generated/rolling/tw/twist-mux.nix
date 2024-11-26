@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ diagnostic-updater geometry-msgs rclcpp std-msgs twist-mux-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "twist_mux" = substituteSource {
-        src = fetchgit {
-          name = "twist_mux-source";
-          url = "https://github.com/ros2-gbp/twist_mux-release.git";
-          rev = "ba5494130539cd0907809dca963f0aa54514eb22";
-          hash = "sha256-LUjCjkOa8TZo6t3CRx4EEhpfJcZGcPNk3gRiEF4U1GY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "twist_mux" = substituteSource {
+      src = fetchgit {
+        name = "twist_mux-source";
+        url = "https://github.com/ros2-gbp/twist_mux-release.git";
+        rev = "ba5494130539cd0907809dca963f0aa54514eb22";
+        hash = "sha256-LUjCjkOa8TZo6t3CRx4EEhpfJcZGcPNk3gRiEF4U1GY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Twist multiplexer, which multiplex several velocity commands (topics) and allows to priorize or disable them (locks).";
   };

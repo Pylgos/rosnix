@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
   propagatedBuildInputs = [ motion-capture-tracking-interfaces rclcpp sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "motion_capture_tracking" = substituteSource {
-        src = fetchgit {
-          name = "motion_capture_tracking-source";
-          url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
-          rev = "42bccb83df2d4181678a85d158baf5f9a996a3fe";
-          hash = "sha256-i4x1fFnItmyr13Kz2YfUYfYKcessV15UqBvrOb4Q41c=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "motion_capture_tracking" = substituteSource {
+      src = fetchgit {
+        name = "motion_capture_tracking-source";
+        url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
+        rev = "42bccb83df2d4181678a85d158baf5f9a996a3fe";
+        hash = "sha256-i4x1fFnItmyr13Kz2YfUYfYKcessV15UqBvrOb4Q41c=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS Package for different motion capture systems, including custom rigid body tracking support";
   };

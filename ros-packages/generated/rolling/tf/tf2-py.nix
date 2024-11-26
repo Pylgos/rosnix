@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rpyutils tf2 ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "tf2_py" = substituteSource {
-        src = fetchgit {
-          name = "tf2_py-source";
-          url = "https://github.com/ros2-gbp/geometry2-release.git";
-          rev = "2c830f3877ecf14bc3a339bcdb53f38cc2a1324c";
-          hash = "sha256-JRAABWpzhyh5BCywFNxYkDLsTv/iN+mHCWL1yuaVtXY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "tf2_py" = substituteSource {
+      src = fetchgit {
+        name = "tf2_py-source";
+        url = "https://github.com/ros2-gbp/geometry2-release.git";
+        rev = "2c830f3877ecf14bc3a339bcdb53f38cc2a1324c";
+        hash = "sha256-JRAABWpzhyh5BCywFNxYkDLsTv/iN+mHCWL1yuaVtXY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The tf2_py package";
   };

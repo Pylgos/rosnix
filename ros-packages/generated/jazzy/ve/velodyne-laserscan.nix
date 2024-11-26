@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "velodyne_laserscan" = substituteSource {
-        src = fetchgit {
-          name = "velodyne_laserscan-source";
-          url = "https://github.com/ros2-gbp/velodyne-release.git";
-          rev = "7e1bc2d54a3612ae27f46cff0dc825d86b91d606";
-          hash = "sha256-vxfBGHebyJrP5lJ7zXMLbVg/eMBRkghsPg4URP19K9k=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "velodyne_laserscan" = substituteSource {
+      src = fetchgit {
+        name = "velodyne_laserscan-source";
+        url = "https://github.com/ros2-gbp/velodyne-release.git";
+        rev = "7e1bc2d54a3612ae27f46cff0dc825d86b91d606";
+        hash = "sha256-vxfBGHebyJrP5lJ7zXMLbVg/eMBRkghsPg4URP19K9k=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Extract a single ring of a Velodyne PointCloud2 and publish it as a LaserScan message";
   };

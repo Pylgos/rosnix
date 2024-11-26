@@ -23,18 +23,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedBuildInputs = [ geometry-msgs rclcpp std-msgs tf2 vrpn ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "vrpn_mocap" = substituteSource {
-        src = fetchgit {
-          name = "vrpn_mocap-source";
-          url = "https://github.com/ros2-gbp/vrpn_mocap-release.git";
-          rev = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf";
-          hash = "sha256-qTdwB+YAkx59icepyKJgOykWlxF7kMMSSJ/EKm+NVWs=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "vrpn_mocap" = substituteSource {
+      src = fetchgit {
+        name = "vrpn_mocap-source";
+        url = "https://github.com/ros2-gbp/vrpn_mocap-release.git";
+        rev = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf";
+        hash = "sha256-qTdwB+YAkx59icepyKJgOykWlxF7kMMSSJ/EKm+NVWs=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS2";
   };

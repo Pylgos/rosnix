@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedBuildInputs = [ fuse-core pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqwt-qt5-dev" "qtbase5-dev" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "fuse_loss" = substituteSource {
-        src = fetchgit {
-          name = "fuse_loss-source";
-          url = "https://github.com/ros2-gbp/fuse-release.git";
-          rev = "0f73e371eac052747faaa867ca413ef08c36d9a4";
-          hash = "sha256-euEBZo32VlyBPb2xMuQ1jUISg2Z8v9ftPmATkr1iHOY=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "fuse_loss" = substituteSource {
+      src = fetchgit {
+        name = "fuse_loss-source";
+        url = "https://github.com/ros2-gbp/fuse-release.git";
+        rev = "0f73e371eac052747faaa867ca413ef08c36d9a4";
+        hash = "sha256-euEBZo32VlyBPb2xMuQ1jUISg2Z8v9ftPmATkr1iHOY=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The fuse_loss package provides a set of commonly used loss functions, such as the basic ones provided by Ceres.";
   };

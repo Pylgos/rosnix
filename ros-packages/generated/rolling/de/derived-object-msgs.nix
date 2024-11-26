@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime shape-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "derived_object_msgs" = substituteSource {
-        src = fetchgit {
-          name = "derived_object_msgs-source";
-          url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-          rev = "1dfd8e6f1209b7008d35424f62b0fc392de8724e";
-          hash = "sha256-gHKh+ix0fZzuNvAtc/i+u0v6YLY+jUfqW9BPaLgC0/U=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "derived_object_msgs" = substituteSource {
+      src = fetchgit {
+        name = "derived_object_msgs-source";
+        url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
+        rev = "1dfd8e6f1209b7008d35424f62b0fc392de8724e";
+        hash = "sha256-gHKh+ix0fZzuNvAtc/i+u0v6YLY+jUfqW9BPaLgC0/U=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Abstracted Messages from Perception Modalities";
   };

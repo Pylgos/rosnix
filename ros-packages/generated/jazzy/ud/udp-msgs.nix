@@ -22,18 +22,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "udp_msgs" = substituteSource {
-        src = fetchgit {
-          name = "udp_msgs-source";
-          url = "https://github.com/ros2-gbp/udp_msgs-release.git";
-          rev = "2b677f6a0a80cdfccf8e993bf33291735a27a16f";
-          hash = "sha256-wk0E8P+RhBD3LVdBSrcJHrF2CwKgOXysrKAiCDRiSPI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "udp_msgs" = substituteSource {
+      src = fetchgit {
+        name = "udp_msgs-source";
+        url = "https://github.com/ros2-gbp/udp_msgs-release.git";
+        rev = "2b677f6a0a80cdfccf8e993bf33291735a27a16f";
+        hash = "sha256-wk0E8P+RhBD3LVdBSrcJHrF2CwKgOXysrKAiCDRiSPI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS / ROS2 udp_msgs package";
   };

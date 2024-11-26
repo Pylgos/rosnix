@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ example-interfaces rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "examples_rclcpp_minimal_client" = substituteSource {
-        src = fetchgit {
-          name = "examples_rclcpp_minimal_client-source";
-          url = "https://github.com/ros2-gbp/examples-release.git";
-          rev = "c6b31483341b8084f64a89d91ed43d3f86963fa8";
-          hash = "sha256-woQ1FHPCq2a21gXeyq6VcPjNO2LWpQehw8PZZgDaj3s=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "examples_rclcpp_minimal_client" = substituteSource {
+      src = fetchgit {
+        name = "examples_rclcpp_minimal_client-source";
+        url = "https://github.com/ros2-gbp/examples-release.git";
+        rev = "c6b31483341b8084f64a89d91ed43d3f86963fa8";
+        hash = "sha256-woQ1FHPCq2a21gXeyq6VcPjNO2LWpQehw8PZZgDaj3s=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Examples of minimal service clients";
   };

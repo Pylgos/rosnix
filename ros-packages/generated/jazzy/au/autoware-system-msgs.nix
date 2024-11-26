@@ -26,18 +26,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs rosidl-default-runtime std-msgs unique-identifier-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_system_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_system_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "6ebd8216c0dcd4bc8911400d77cfed4b26109e19";
-          hash = "sha256-+CY851PH0AJh2+FXUrLpRYzLqcGsT18E/EhCKUVkcT0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_system_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_system_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "6ebd8216c0dcd4bc8911400d77cfed4b26109e19";
+        hash = "sha256-+CY851PH0AJh2+FXUrLpRYzLqcGsT18E/EhCKUVkcT0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Autoware system messages package.";
   };

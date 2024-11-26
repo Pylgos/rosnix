@@ -28,18 +28,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   propagatedBuildInputs = [ cv-bridge mrpt-libros-bridge mrpt-libtclap mrpt-msgs nav-msgs rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_rawlog" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_rawlog-source";
-          url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-          rev = "2f74b2aa62068ee9d329e552ebbcf9d1af71faaf";
-          hash = "sha256-j4TYpawndaYvtwsh9HyR+MXbwpDgZ9LdVzZ0tM2Gg3E=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_rawlog" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_rawlog-source";
+        url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
+        rev = "2f74b2aa62068ee9d329e552ebbcf9d1af71faaf";
+        hash = "sha256-j4TYpawndaYvtwsh9HyR+MXbwpDgZ9LdVzZ0tM2Gg3E=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Nodes and programs to record and play MRPT rawlogs or to transform between rosbags and rawlogs.";
   };

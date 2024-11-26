@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "std_msgs" = substituteSource {
-        src = fetchgit {
-          name = "std_msgs-source";
-          url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-          rev = "15bc7a0227f9937e286719154fdba18501cb7b11";
-          hash = "sha256-qujzcYOInYZiNTUVuim1nJOC0QVdfbwKE8n0e2qBsco=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "std_msgs" = substituteSource {
+      src = fetchgit {
+        name = "std_msgs-source";
+        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
+        rev = "15bc7a0227f9937e286719154fdba18501cb7b11";
+        hash = "sha256-qujzcYOInYZiNTUVuim1nJOC0QVdfbwKE8n0e2qBsco=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "A package containing some standard message definitions.";
   };

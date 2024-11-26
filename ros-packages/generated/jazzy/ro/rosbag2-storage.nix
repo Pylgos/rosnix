@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ pluginlib rclcpp rcutils rmw yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common rosbag2-test-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rosbag2_storage" = substituteSource {
-        src = fetchgit {
-          name = "rosbag2_storage-source";
-          url = "https://github.com/ros2-gbp/rosbag2-release.git";
-          rev = "d262f25b5d1c6ed5d4990564c4d38714c76979e3";
-          hash = "sha256-rQml0kQM+slCIYfBdNjoknaI6qqq2XEYt6w6t3FhLXc=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rosbag2_storage" = substituteSource {
+      src = fetchgit {
+        name = "rosbag2_storage-source";
+        url = "https://github.com/ros2-gbp/rosbag2-release.git";
+        rev = "d262f25b5d1c6ed5d4990564c4d38714c76979e3";
+        hash = "sha256-rQml0kQM+slCIYfBdNjoknaI6qqq2XEYt6w6t3FhLXc=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS2 independent storage format to store serialized ROS2 messages";
   };

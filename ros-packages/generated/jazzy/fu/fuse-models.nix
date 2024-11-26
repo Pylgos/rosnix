@@ -36,18 +36,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ fuse-constraints fuse-core fuse-graphs fuse-msgs fuse-publishers fuse-variables geometry-msgs nav-msgs pluginlib rclcpp rclcpp-components sensor-msgs std-srvs tf2 tf2-2d tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libceres-dev" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "fuse_models" = substituteSource {
-        src = fetchgit {
-          name = "fuse_models-source";
-          url = "https://github.com/ros2-gbp/fuse-release.git";
-          rev = "4b3d2a3c62eda494d2a2dc9feb8d8bb73406c7f1";
-          hash = "sha256-N2bDbs4TD0BkUWc4ewNT2KRCMSvN4FvVzTyzBpyOHI4=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "fuse_models" = substituteSource {
+      src = fetchgit {
+        name = "fuse_models-source";
+        url = "https://github.com/ros2-gbp/fuse-release.git";
+        rev = "4b3d2a3c62eda494d2a2dc9feb8d8bb73406c7f1";
+        hash = "sha256-N2bDbs4TD0BkUWc4ewNT2KRCMSvN4FvVzTyzBpyOHI4=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "fuse plugins that implement various kinematic and sensor models";
   };

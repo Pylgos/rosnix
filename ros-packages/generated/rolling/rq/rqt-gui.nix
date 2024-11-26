@@ -22,18 +22,16 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui rclpy ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rqt_gui" = substituteSource {
-        src = fetchgit {
-          name = "rqt_gui-source";
-          url = "https://github.com/ros2-gbp/rqt-release.git";
-          rev = "1de48c2c3878bf790611897afb321c5a0d1f9051";
-          hash = "sha256-TSRsxfzC3BWWU1G9d/76GSxgcxrWOYbSHLnq0C2qNfA=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rqt_gui" = substituteSource {
+      src = fetchgit {
+        name = "rqt_gui-source";
+        url = "https://github.com/ros2-gbp/rqt-release.git";
+        rev = "1de48c2c3878bf790611897afb321c5a0d1f9051";
+        hash = "sha256-TSRsxfzC3BWWU1G9d/76GSxgcxrWOYbSHLnq0C2qNfA=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "rqt_gui provides the main to start an instance of the ROS integrated graphical user interface provided by qt_gui.";
   };

@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces rclcpp std-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "plansys2_msgs" = substituteSource {
-        src = fetchgit {
-          name = "plansys2_msgs-source";
-          url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-          rev = "12c2125fc82c42759a92f611f52ab90f34b1b58c";
-          hash = "sha256-3G7wV4V4YYUnGr/mM4TeGZw89vd0ZYsihnX6uDYbJe8=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "plansys2_msgs" = substituteSource {
+      src = fetchgit {
+        name = "plansys2_msgs-source";
+        url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
+        rev = "12c2125fc82c42759a92f611f52ab90f34b1b58c";
+        hash = "sha256-3G7wV4V4YYUnGr/mM4TeGZw89vd0ZYsihnX6uDYbJe8=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Messages and service files for the ROS2 Planning System";
   };

@@ -27,18 +27,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-cppcheck ament-cpplint ament-lint-auto ament-lint-cmake ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "mrpt_msgs" = substituteSource {
-        src = fetchgit {
-          name = "mrpt_msgs-source";
-          url = "https://github.com/ros2-gbp/mrpt_msgs-release.git";
-          rev = "fd59a4baa4a6aedd7c61638400ea5f24fecaaa7b";
-          hash = "sha256-kzyjY/49L47+2kgZ/rg3m1pP60+muDrYNp+XxufWJos=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "mrpt_msgs" = substituteSource {
+      src = fetchgit {
+        name = "mrpt_msgs-source";
+        url = "https://github.com/ros2-gbp/mrpt_msgs-release.git";
+        rev = "fd59a4baa4a6aedd7c61638400ea5f24fecaaa7b";
+        hash = "sha256-kzyjY/49L47+2kgZ/rg3m1pP60+muDrYNp+XxufWJos=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "ROS messages for MRPT classes and objects";
   };

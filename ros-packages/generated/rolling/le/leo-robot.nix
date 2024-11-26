@@ -17,18 +17,16 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."leo_robot";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo leo-bringup leo-fw ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "leo_robot" = substituteSource {
-        src = fetchgit {
-          name = "leo_robot-source";
-          url = "https://github.com/ros2-gbp/leo_robot-release.git";
-          rev = "e1c3a45ed7361442793269ed0483a7fde9376d37";
-          hash = "sha256-JcxBJPkbijaYWriR5InIZU+gMtzZaoTf9pKJhyEe3wo=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "leo_robot" = substituteSource {
+      src = fetchgit {
+        name = "leo_robot-source";
+        url = "https://github.com/ros2-gbp/leo_robot-release.git";
+        rev = "e1c3a45ed7361442793269ed0483a7fde9376d37";
+        hash = "sha256-JcxBJPkbijaYWriR5InIZU+gMtzZaoTf9pKJhyEe3wo=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Metapackage of software to install on Leo Rover.";
   };

@@ -18,18 +18,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ urdf-launch ];
   checkInputs = [ ament-lint-auto ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "urdf_tutorial" = substituteSource {
-        src = fetchgit {
-          name = "urdf_tutorial-source";
-          url = "https://github.com/ros2-gbp/urdf_tutorial-release.git";
-          rev = "f50ad9cf19409844dee10830671567cdfff72c98";
-          hash = "sha256-is2/qeO2wFsbEBxJ8Kf0u+3EkFtbejI8nZpazjXVziM=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "urdf_tutorial" = substituteSource {
+      src = fetchgit {
+        name = "urdf_tutorial-source";
+        url = "https://github.com/ros2-gbp/urdf_tutorial-release.git";
+        rev = "f50ad9cf19409844dee10830671567cdfff72c98";
+        hash = "sha256-is2/qeO2wFsbEBxJ8Kf0u+3EkFtbejI8nZpazjXVziM=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "This package contains a number of URDF tutorials.";
   };

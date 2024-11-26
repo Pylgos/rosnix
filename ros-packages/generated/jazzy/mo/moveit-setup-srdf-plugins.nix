@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ moveit-setup-framework pluginlib ];
   checkInputs = [ ament-cmake-gtest moveit-resources-fanuc-description ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "moveit_setup_srdf_plugins" = substituteSource {
-        src = fetchgit {
-          name = "moveit_setup_srdf_plugins-source";
-          url = "https://github.com/ros2-gbp/moveit2-release.git";
-          rev = "966f9f9255ac91a2abea818c45aeebeb6b7c433d";
-          hash = "sha256-MFThaG7t1x9XbP+Y+w2dQF28A/I7Oiq0qD7PTQ8IFY0=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "moveit_setup_srdf_plugins" = substituteSource {
+      src = fetchgit {
+        name = "moveit_setup_srdf_plugins-source";
+        url = "https://github.com/ros2-gbp/moveit2-release.git";
+        rev = "966f9f9255ac91a2abea818c45aeebeb6b7c433d";
+        hash = "sha256-MFThaG7t1x9XbP+Y+w2dQF28A/I7Oiq0qD7PTQ8IFY0=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "SRDF-based plugins for MoveIt Setup Assistant";
   };

@@ -19,18 +19,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
   checkInputs = [ ament-cmake-gtest ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "data_tamer_cpp" = substituteSource {
-        src = fetchgit {
-          name = "data_tamer_cpp-source";
-          url = "https://github.com/ros2-gbp/data_tamer-release.git";
-          rev = "fbf9cbcb7bc45fe016d6428d6366f9cd556456de";
-          hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "data_tamer_cpp" = substituteSource {
+      src = fetchgit {
+        name = "data_tamer_cpp-source";
+        url = "https://github.com/ros2-gbp/data_tamer-release.git";
+        rev = "fbf9cbcb7bc45fe016d6428d6366f9cd556456de";
+        hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "DataTamer data logging library";
   };

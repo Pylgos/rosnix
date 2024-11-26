@@ -21,18 +21,16 @@ buildAmentPythonPackage (finalAttrs: {
   src = finalAttrs.passthru.sources."tracetools_launch";
   propagatedBuildInputs = [ launch launch-ros tracetools-trace ];
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "tracetools_launch" = substituteSource {
-        src = fetchgit {
-          name = "tracetools_launch-source";
-          url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-          rev = "107987b687166c110ffb91c1d817b85a4cae9a43";
-          hash = "sha256-pPHDdLreGR01AaB5KIHa5S4OiGOOlzNiRcNmdkNNB4w=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "tracetools_launch" = substituteSource {
+      src = fetchgit {
+        name = "tracetools_launch-source";
+        url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
+        rev = "107987b687166c110ffb91c1d817b85a4cae9a43";
+        hash = "sha256-pPHDdLreGR01AaB5KIHa5S4OiGOOlzNiRcNmdkNNB4w=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Launch integration for tracing.";
   };

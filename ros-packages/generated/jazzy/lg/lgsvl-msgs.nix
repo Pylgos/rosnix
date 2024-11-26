@@ -25,18 +25,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "lgsvl_msgs" = substituteSource {
-        src = fetchgit {
-          name = "lgsvl_msgs-source";
-          url = "https://github.com/ros2-gbp/lgsvl_msgs-release.git";
-          rev = "df62ae3eea8caa26f3b54f6c394ca369ddfa63be";
-          hash = "sha256-Pd5TP0wLuUr0/m+WvLpkvURpB0d0hbik3SOPkifg8YU=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "lgsvl_msgs" = substituteSource {
+      src = fetchgit {
+        name = "lgsvl_msgs-source";
+        url = "https://github.com/ros2-gbp/lgsvl_msgs-release.git";
+        rev = "df62ae3eea8caa26f3b54f6c394ca369ddfa63be";
+        hash = "sha256-Pd5TP0wLuUr0/m+WvLpkvURpB0d0hbik3SOPkifg8YU=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Message definitions for interfacing with the LGSVL Simulator for ROS and ROS 2.";
   };

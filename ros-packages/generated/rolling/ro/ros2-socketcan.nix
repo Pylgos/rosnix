@@ -24,18 +24,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ can-msgs lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle ros2-socketcan-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros2_socketcan" = substituteSource {
-        src = fetchgit {
-          name = "ros2_socketcan-source";
-          url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
-          rev = "3bf434b06d9791787e58a0b855b6cfccd982d140";
-          hash = "sha256-+pXj+cTr4khaX16vO9udW9wG0Acdjndi7NydrNL2uZo=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros2_socketcan" = substituteSource {
+      src = fetchgit {
+        name = "ros2_socketcan-source";
+        url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
+        rev = "3bf434b06d9791787e58a0b855b6cfccd982d140";
+        hash = "sha256-+pXj+cTr4khaX16vO9udW9wG0Acdjndi7NydrNL2uZo=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Simple wrapper around SocketCAN";
   };

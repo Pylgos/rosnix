@@ -180,14 +180,12 @@ fn generate_package_body(
     dst.write_str(&get_dep_string(NixDependencyKind::TargetTarget, false))?;
     dst.write_str(&get_dep_string(NixDependencyKind::TargetTarget, true))?;
     dst.write_str(&get_dep_string(NixDependencyKind::Check, false))?;
-    writeln!(dst, "passthru = {{")?;
-    writeln!(dst, "  sources = mkSourceSet (sources: {{")?;
+    writeln!(dst, "passthru.sources = mkSourceSet (sources: {{")?;
     generate_source_list(
-        indented(&mut dst).with_str("    "),
+        indented(&mut dst).with_str("  "),
         all_srcs.values().copied(),
     )?;
-    writeln!(dst, "  }});")?;
-    writeln!(dst, "}};")?;
+    writeln!(dst, "}});")?;
     writeln!(dst, "meta = {{")?;
     writeln!(dst, "  description = {};", escape(&manifest.description))?;
     writeln!(dst, "}};")?;

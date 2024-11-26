@@ -27,18 +27,16 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ builtin-interfaces rclpy rosidl-runtime-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 geometry-msgs rclpy-message-converter-msgs std-msgs std-srvs tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rclpy_message_converter" = substituteSource {
-        src = fetchgit {
-          name = "rclpy_message_converter-source";
-          url = "https://github.com/ros2-gbp/rospy_message_converter-release.git";
-          rev = "5e7b6eadffc924bce02c147aaee115e21b564fc8";
-          hash = "sha256-4HeOI1VnkkBwlxa0SlJMAGbmV5bMUIvxslRecDwZm04=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rclpy_message_converter" = substituteSource {
+      src = fetchgit {
+        name = "rclpy_message_converter-source";
+        url = "https://github.com/ros2-gbp/rospy_message_converter-release.git";
+        rev = "5e7b6eadffc924bce02c147aaee115e21b564fc8";
+        hash = "sha256-4HeOI1VnkkBwlxa0SlJMAGbmV5bMUIvxslRecDwZm04=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Converts between Python dictionaries and JSON to rclpy messages.";
   };

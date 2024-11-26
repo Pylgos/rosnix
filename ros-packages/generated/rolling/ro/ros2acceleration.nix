@@ -22,18 +22,16 @@ buildAmentPythonPackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ rclpy ros2cli rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "ros2acceleration" = substituteSource {
-        src = fetchgit {
-          name = "ros2acceleration-source";
-          url = "https://github.com/ros2-gbp/ros2acceleration-release.git";
-          rev = "68bb4a8cac40d09d0935915f94804cd724705761";
-          hash = "sha256-DRkaUv6JAKKbX1+DqnpK8wTDm1+jlEoHal/0i6rhA6I=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "ros2acceleration" = substituteSource {
+      src = fetchgit {
+        name = "ros2acceleration-source";
+        url = "https://github.com/ros2-gbp/ros2acceleration-release.git";
+        rev = "68bb4a8cac40d09d0935915f94804cd724705761";
+        hash = "sha256-DRkaUv6JAKKbX1+DqnpK8wTDm1+jlEoHal/0i6rhA6I=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The acceleration command for ROS 2 command line tools.";
   };

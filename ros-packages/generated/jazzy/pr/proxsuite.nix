@@ -15,18 +15,16 @@ buildCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-scipy" "simde" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "matio" ]; };
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "proxsuite" = substituteSource {
-        src = fetchgit {
-          name = "proxsuite-source";
-          url = "https://github.com/ros2-gbp/proxsuite-release.git";
-          rev = "b1b7dbc9106d896b347c4d5db9d01de37e0c2a2c";
-          hash = "sha256-Qfv+vWLLcZfUtZpRYZaoL3rQ3ibCYBKQcAkpFP0YdWI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "proxsuite" = substituteSource {
+      src = fetchgit {
+        name = "proxsuite-source";
+        url = "https://github.com/ros2-gbp/proxsuite-release.git";
+        rev = "b1b7dbc9106d896b347c4d5db9d01de37e0c2a2c";
+        hash = "sha256-Qfv+vWLLcZfUtZpRYZaoL3rQ3ibCYBKQcAkpFP0YdWI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "The Advanced Proximal Optimization Toolbox";
   };

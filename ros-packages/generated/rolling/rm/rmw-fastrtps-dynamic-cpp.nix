@@ -34,18 +34,16 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module ];
   propagatedBuildInputs = [ fastcdr fastrtps rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp test-msgs ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "rmw_fastrtps_dynamic_cpp" = substituteSource {
-        src = fetchgit {
-          name = "rmw_fastrtps_dynamic_cpp-source";
-          url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-          rev = "16fd8954369ca07195bbd96340c3437de8b52f45";
-          hash = "sha256-atL2lri8OlQ1lCugQK4d08bik9Cy5cxwv/ckLQOn21M=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "rmw_fastrtps_dynamic_cpp" = substituteSource {
+      src = fetchgit {
+        name = "rmw_fastrtps_dynamic_cpp-source";
+        url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
+        rev = "16fd8954369ca07195bbd96340c3437de8b52f45";
+        hash = "sha256-atL2lri8OlQ1lCugQK4d08bik9Cy5cxwv/ckLQOn21M=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Implement the ROS middleware interface using introspection type support.";
   };

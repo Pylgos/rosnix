@@ -20,18 +20,16 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
-  passthru = {
-    sources = mkSourceSet (sources: {
-      "autoware_control_msgs" = substituteSource {
-        src = fetchgit {
-          name = "autoware_control_msgs-source";
-          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-          rev = "92e0232aa6283fe88e6110fcf13b42b6ddbac394";
-          hash = "sha256-kScZfYLVFZc9TKmSnUM0P6tw7Nw35eNoAbnS7r1oVWI=";
-        };
+  passthru.sources = mkSourceSet (sources: {
+    "autoware_control_msgs" = substituteSource {
+      src = fetchgit {
+        name = "autoware_control_msgs-source";
+        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+        rev = "92e0232aa6283fe88e6110fcf13b42b6ddbac394";
+        hash = "sha256-kScZfYLVFZc9TKmSnUM0P6tw7Nw35eNoAbnS7r1oVWI=";
       };
-    });
-  };
+    };
+  });
   meta = {
     description = "Autoware control messages package.";
   };
