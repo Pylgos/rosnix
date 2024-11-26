@@ -32,8 +32,8 @@ let
       src = fetchgit {
         name = "dual_laser_merger-source";
         url = "https://github.com/ros2-gbp/dual_laser_merger-release.git";
-        rev = "693b3b2c82703ea08e68ead07f472c9974e55b7a";
-        hash = "sha256-k6n4Zz7U1+/hRdCJ1i61VsE3PPwNhvnG7GpwMwGXtoM=";
+        rev = "1b789fe079cfd519d6b52af9da1ece80b617b2d7";
+        hash = "sha256-XBjby/cle6UcIPSo+NLF8GfT7LiAiSh7oBDgsJi2IWc=";
       };
       substitutions = [
       ];
@@ -42,7 +42,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dual_laser_merger";
-  version = "0.0.1-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."dual_laser_merger";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "geometry2-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "01e1f6c8071f140609d45370f57859a6d150ccc2";
-        hash = "sha256-WrBYXitzULm4AkXsiIHNXxVUq+96W77RIVSft3tQczI=";
+        rev = "14c09e07b19b4181b72d25eaf5cc5bd6ef28ae30";
+        hash = "sha256-xTegNNuOIwzstnrBwDX8bxU3iibG37C/xXYaVmZKLPI=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "geometry2";
-  version = "0.39.2-1";
+  version = "0.39.3-1";
   src = finalAttrs.passthru.sources."geometry2";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

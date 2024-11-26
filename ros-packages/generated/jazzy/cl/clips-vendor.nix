@@ -15,8 +15,8 @@ let
       src = fetchgit {
         name = "clips_vendor-source";
         url = "https://github.com/ros2-gbp/clips_vendor-release.git";
-        rev = "74e366cbfccf99aba9a6e63b8b72b5121bef666d";
-        hash = "sha256-7JkRRJ9Ux61zz2UwB9uq6ldDNNcpSjZL3vekd3yk64c=";
+        rev = "39be2a87760b71f3e3a6bbe75eba3a45294f4574";
+        hash = "sha256-ODWNZFZKzcQicALaeCeY1NDZvGdJEVPBhJb/+m2C8qs=";
       };
       substitutions = [
       ];
@@ -25,7 +25,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "clips_vendor";
-  version = "6.4.3-1";
+  version = "6.4.3-2";
   src = finalAttrs.passthru.sources."clips_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" ]; };

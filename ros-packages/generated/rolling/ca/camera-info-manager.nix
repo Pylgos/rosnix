@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "camera_info_manager-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "542087d04761d1070a62419e96da91e9fbbdcd70";
-        hash = "sha256-naIjjtEli8As5NQWyKp8ZO6Qly0vC+3vksFKaaRjEuQ=";
+        rev = "d5c5314bd56b1bb657500169888d88fa8b56ea79";
+        hash = "sha256-lZNmpxNCqRYh3jh2469JnA8WjSD9PHMI5wBKKva/om4=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_info_manager";
-  version = "6.0.1-1";
+  version = "6.0.3-1";
   src = finalAttrs.passthru.sources."camera_info_manager";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

@@ -17,8 +17,8 @@ let
       src = fetchgit {
         name = "rttest-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
-        rev = "65d6f7088d03fe7d87ff2bf26281d950f908c4ea";
-        hash = "sha256-syi3doCFfPT6ug1jYQqAxc/qkOnPsHMhRIuNszED+ok=";
+        rev = "bf6f2e4595b613275a6ad7f01f45f31127d47e9c";
+        hash = "sha256-mQ7u/24fZwA+ru+S2UNfw8ZaBKaS2qAv/CSGhJGx0t8=";
       };
       substitutions = [
       ];
@@ -27,7 +27,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rttest";
-  version = "0.18.1-1";
+  version = "0.18.2-1";
   src = finalAttrs.passthru.sources."rttest";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

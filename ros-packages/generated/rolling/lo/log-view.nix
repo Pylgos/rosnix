@@ -3,23 +3,23 @@
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
-  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
-  image-transport,
   mkSourceSet,
+  rcl-interfaces,
+  rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 let
   sources = mkSourceSet (sources: {
-    "compressed_image_transport" = substituteSource {
+    "log_view" = substituteSource {
       src = fetchgit {
-        name = "compressed_image_transport-source";
-        url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "8ad8dcccffb2d7b58d9436539acbafffe92d5cb5";
-        hash = "sha256-gWHw4IShEiNDzI2sFfAq9u6lQmED0ObO2kOZbl7CeaI=";
+        name = "log_view-source";
+        url = "https://github.com/ros2-gbp/log_view-release.git";
+        rev = "ff1a54425af28293ecfc43bb470bb8d633dec1c5";
+        hash = "sha256-kDoFGgmKSU4dUcWtTd3uzCR/u+kjw3SgvQOuhOtToGM=";
       };
       substitutions = [
       ];
@@ -27,13 +27,13 @@ let
   });
 in
 buildAmentCmakePackage (finalAttrs: {
-  pname = "compressed_image_transport";
-  version = "5.0.1-1";
-  src = finalAttrs.passthru.sources."compressed_image_transport";
+  pname = "log_view";
+  version = "0.2.4-1";
+  src = finalAttrs.passthru.sources."log_view";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ cv-bridge image-transport ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ rcl-interfaces rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libncurses-dev" "xclip" ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
@@ -41,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     inherit sources;
   };
   meta = {
-    description = "Compressed_image_transport provides a plugin to image_transport for transparently sending images encoded as JPEG or PNG.";
+    description = "The log_view package provides a ncurses based terminal GUI for viewing and filtering published ROS log messages. This is an alternative to rqt_console and swri_console that doesn't depend on qt and can be run directly in a terminal.";
   };
 })

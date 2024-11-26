@@ -25,8 +25,8 @@ let
       src = fetchgit {
         name = "theora_image_transport-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "15dad3242bced4bb1c9045ce507ace092bf2b10b";
-        hash = "sha256-uLQriOe67EH5xOn08ciMFc/MsoPGdo+MmShfutqfgrI=";
+        rev = "70121c89c5b7c1a12282c80882a6c138ae7fed46";
+        hash = "sha256-H7Ee/DLvTUS5Gqz7XEo7yx/Gb8L1gLwDL7B7Aja6Dro=";
       };
       substitutions = [
       ];
@@ -35,7 +35,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "theora_image_transport";
-  version = "4.0.2-1";
+  version = "4.0.3-1";
   src = finalAttrs.passthru.sources."theora_image_transport";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

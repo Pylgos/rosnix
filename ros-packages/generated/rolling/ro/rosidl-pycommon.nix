@@ -19,8 +19,8 @@ let
       src = fetchgit {
         name = "rosidl_pycommon-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "6f60ff5bb00b007cb33ff3c3c240e801e110f4d1";
-        hash = "sha256-iv1VZyUcvjA3Fc0W0Un02b9f4xj+JO9HwE4UOkPhUKw=";
+        rev = "cb9854739545458abafa1930c575fb8ffd1a6b97";
+        hash = "sha256-IPtqKHyI43q0Mht1y5GmPML7lcNS/5rsVRdNNP7yhyI=";
       };
       substitutions = [
       ];
@@ -29,7 +29,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "rosidl_pycommon";
-  version = "4.9.1-1";
+  version = "4.9.2-1";
   src = finalAttrs.passthru.sources."rosidl_pycommon";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ rosidl-parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

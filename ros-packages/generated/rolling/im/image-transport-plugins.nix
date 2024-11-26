@@ -18,8 +18,8 @@ let
       src = fetchgit {
         name = "image_transport_plugins-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "bd4c8419b2e58ee263c58f2900fdbecb0feada27";
-        hash = "sha256-Kff7avXfi8zrLe4JBJ/j1eLrZ1kpPPZWLUtGTO5VtQM=";
+        rev = "3d692107a2aad25cf191e52df12d527c0c9e26d4";
+        hash = "sha256-b++R5RBuKhdeS0TWmMBZBrLcTq4mjKU4ADo+/VQNtVY=";
       };
       substitutions = [
       ];
@@ -28,7 +28,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport_plugins";
-  version = "5.0.0-1";
+  version = "5.0.1-1";
   src = finalAttrs.passthru.sources."image_transport_plugins";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

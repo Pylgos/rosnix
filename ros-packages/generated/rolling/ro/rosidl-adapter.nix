@@ -20,8 +20,8 @@ let
       src = fetchgit {
         name = "rosidl_adapter-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "3f88d356b95381580fa0453e47c4c6864d7a08ed";
-        hash = "sha256-rf4YpzuVifH9LU4aTI1XMwLS+cGZXIIpN1en2i/t2zk=";
+        rev = "be917c1af06427457cb2c43dc1b4bc62c308c9b4";
+        hash = "sha256-A2D/br+wRuh1m9C32kKNU8UtiLzG7O0dvbM7lGzhmyI=";
       };
       substitutions = [
       ];
@@ -30,7 +30,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_adapter";
-  version = "4.9.1-1";
+  version = "4.9.2-1";
   src = finalAttrs.passthru.sources."rosidl_adapter";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-core rosidl-cli ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "python3-empy" ]; };

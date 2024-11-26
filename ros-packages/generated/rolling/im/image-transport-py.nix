@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "image_transport_py-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "6c6d20d6f3e873ea58dfbb111690aad4834301dd";
-        hash = "sha256-fT36nrmvt5ZaiJzUer7gyN5vBURANZuKQcBtZIv8ycw=";
+        rev = "04d06cb264cd0e678046c0c36c08f6313af868ff";
+        hash = "sha256-ZOVDp7Wplp/kmteZcZJD0gchpGcQJn2tro69cxaV0dk=";
       };
       substitutions = [
       ];
@@ -32,10 +32,10 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport_py";
-  version = "6.0.1-1";
+  version = "6.0.3-1";
   src = finalAttrs.passthru.sources."image_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
   buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   propagatedBuildInputs = [ image-transport pybind11-vendor rclcpp rpyutils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
   depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };

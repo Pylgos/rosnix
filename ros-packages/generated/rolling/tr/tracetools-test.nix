@@ -23,8 +23,8 @@ let
       src = fetchgit {
         name = "tracetools_test-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "2d3db8007f8b7e0c683b9aee1d9a4c6338692756";
-        hash = "sha256-K5HGqDx8t9tSiLbYPH7irCvWhxAF60vM0llapEvUR68=";
+        rev = "a420df55baa63e8631cc82144de59c612626938f";
+        hash = "sha256-1J3CiaY+1IvsQ++jBCVMwaHHNya0+93GZu3DeafC4vs=";
       };
       substitutions = [
       ];
@@ -33,7 +33,7 @@ let
 in
 buildAmentPythonPackage (finalAttrs: {
   pname = "tracetools_test";
-  version = "8.4.0-1";
+  version = "8.4.1-1";
   src = finalAttrs.passthru.sources."tracetools_test";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };

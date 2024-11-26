@@ -22,8 +22,8 @@ let
       src = fetchgit {
         name = "tlsf_cpp-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
-        rev = "875209961463330f80ea29ebf6597e6678135727";
-        hash = "sha256-C2+ZxTkM4JIkAgNsq0h2PbqKRjBM9gZ3dJPLy+B4QuY=";
+        rev = "b49cc08e46118ff5f4ddb2b3d2ec4ea4a4c137b5";
+        hash = "sha256-TjeR5rjRzcjyAheMp4EVfNdgOu3res+vsBSi2BKj9gU=";
       };
       substitutions = [
       ];
@@ -32,7 +32,7 @@ let
 in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tlsf_cpp";
-  version = "0.18.1-1";
+  version = "0.18.2-1";
   src = finalAttrs.passthru.sources."tlsf_cpp";
   nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
