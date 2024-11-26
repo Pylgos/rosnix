@@ -22,33 +22,24 @@
   trajectory-msgs,
   visualization-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "common_interfaces" = substituteSource {
-      src = fetchgit {
-        name = "common_interfaces-source";
-        url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "6a685bf6b6ad51b6b854df39d5230a43edd6fdd9";
-        hash = "sha256-8/nBGPX0SJJ/W0/e1eM1fAT/zAj/8eO24YTcLdc39ig=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "common_interfaces";
   version = "5.4.2-1";
   src = finalAttrs.passthru.sources."common_interfaces";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ actionlib-msgs builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ actionlib-msgs builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "common_interfaces" = substituteSource {
+        src = fetchgit {
+          name = "common_interfaces-source";
+          url = "https://github.com/ros2-gbp/common_interfaces-release.git";
+          rev = "6a685bf6b6ad51b6b854df39d5230a43edd6fdd9";
+          hash = "sha256-8/nBGPX0SJJ/W0/e1eM1fAT/zAj/8eO24YTcLdc39ig=";
+        };
+      };
+    });
   };
   meta = {
     description = "common_interfaces contains messages and services that are widely used by other ROS packages.";

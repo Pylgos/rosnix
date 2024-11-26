@@ -31,33 +31,24 @@
   tinyxml2-vendor,
   visualization-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "robot_calibration" = substituteSource {
-      src = fetchgit {
-        name = "robot_calibration-source";
-        url = "https://github.com/ros2-gbp/robot_calibration-release.git";
-        rev = "f02d7b4937a192206195860126cf3aaa34fafc09";
-        hash = "sha256-Wjdl+yT4g0dUIdUSrMGeweY3rJs8WDOsNliZ9xRBCvc=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration";
   version = "0.9.2-1";
   src = finalAttrs.passthru.sources."robot_calibration";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ camera-calibration-parsers control-msgs cv-bridge geometric-shapes geometry-msgs kdl-parser moveit-msgs nav-msgs pluginlib rclcpp rclcpp-action robot-calibration-msgs rosbag2-cpp sensor-msgs std-msgs tf2-geometry-msgs tf2-ros tinyxml2-vendor visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libboost-filesystem-dev" "libceres-dev" "libgflags-dev" "liborocos-kdl-dev" "protobuf-dev" "suitesparse" "tinyxml2" "yaml-cpp" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest launch launch-ros launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest launch launch-ros launch-testing ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "robot_calibration" = substituteSource {
+        src = fetchgit {
+          name = "robot_calibration-source";
+          url = "https://github.com/ros2-gbp/robot_calibration-release.git";
+          rev = "f02d7b4937a192206195860126cf3aaa34fafc09";
+          hash = "sha256-Wjdl+yT4g0dUIdUSrMGeweY3rJs8WDOsNliZ9xRBCvc=";
+        };
+      };
+    });
   };
   meta = {
     description = "Calibrate a Robot";

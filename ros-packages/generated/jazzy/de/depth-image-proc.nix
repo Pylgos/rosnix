@@ -23,33 +23,24 @@
   tf2-eigen,
   tf2-ros,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "depth_image_proc" = substituteSource {
-      src = fetchgit {
-        name = "depth_image_proc-source";
-        url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "c2d8a66c24aba21280fa0d2199bb8c806cf1293c";
-        hash = "sha256-5xAhe3C/blVEkBKEFqIy1MnTkdKAoHCCayi6TdJS84w=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "depth_image_proc";
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."depth_image_proc";
-  nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ class-loader cv-bridge image-geometry image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs stereo-msgs tf2 tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "depth_image_proc" = substituteSource {
+        src = fetchgit {
+          name = "depth_image_proc-source";
+          url = "https://github.com/ros2-gbp/image_pipeline-release.git";
+          rev = "c2d8a66c24aba21280fa0d2199bb8c806cf1293c";
+          hash = "sha256-5xAhe3C/blVEkBKEFqIy1MnTkdKAoHCCayi6TdJS84w=";
+        };
+      };
+    });
   };
   meta = {
     description = "Contains components for processing depth images such as those produced by OpenNI camera. Functions include creating disparity images and point clouds, as well as registering (reprojecting) a depth image into another camera frame.";

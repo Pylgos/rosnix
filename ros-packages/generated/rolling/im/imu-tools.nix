@@ -12,33 +12,23 @@
   substituteSource,
   wrapRosQtAppsHook,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "imu_tools" = substituteSource {
-      src = fetchgit {
-        name = "imu_tools-source";
-        url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "8a41ced25e631717e56c24cfa375edff7d68ad20";
-        hash = "sha256-RYtGkmyCnleRNM/JSK+PXSSNuFKByBaAj7lGoDv8zl8=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_tools";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."imu_tools";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ imu-complementary-filter imu-filter-madgwick rviz-imu-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedBuildInputs = [ imu-complementary-filter imu-filter-madgwick rviz-imu-plugin ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "imu_tools" = substituteSource {
+        src = fetchgit {
+          name = "imu_tools-source";
+          url = "https://github.com/ros2-gbp/imu_tools-release.git";
+          rev = "8a41ced25e631717e56c24cfa375edff7d68ad20";
+          hash = "sha256-RYtGkmyCnleRNM/JSK+PXSSNuFKByBaAj7lGoDv8zl8=";
+        };
+      };
+    });
   };
   meta = {
     description = "Various tools for IMU devices";

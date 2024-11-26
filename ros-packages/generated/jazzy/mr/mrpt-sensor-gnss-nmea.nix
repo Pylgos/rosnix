@@ -26,33 +26,24 @@
   tf2,
   tf2-ros,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "mrpt_sensor_gnss_nmea" = substituteSource {
-      src = fetchgit {
-        name = "mrpt_sensor_gnss_nmea-source";
-        url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "170d5682248d72aa34bf624c2ca7e2f53d39d387";
-        hash = "sha256-AZcZeGwHOjz/3QOqQ7+B9U1A1MQLQZJfbvs+EwbBJWw=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_gnss_nmea";
   version = "0.2.3-1";
   src = finalAttrs.passthru.sources."mrpt_sensor_gnss_nmea";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common ros-environment ];
+  propagatedBuildInputs = [ cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "mrpt_sensor_gnss_nmea" = substituteSource {
+        src = fetchgit {
+          name = "mrpt_sensor_gnss_nmea-source";
+          url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
+          rev = "170d5682248d72aa34bf624c2ca7e2f53d39d387";
+          hash = "sha256-AZcZeGwHOjz/3QOqQ7+B9U1A1MQLQZJfbvs+EwbBJWw=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS node for GNSS receivers generating NMEA messages (based on mrpt-hwdrivers)";

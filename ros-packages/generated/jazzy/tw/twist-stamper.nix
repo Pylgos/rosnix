@@ -13,33 +13,23 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "twist_stamper" = substituteSource {
-      src = fetchgit {
-        name = "twist_stamper-source";
-        url = "https://github.com/ros2-gbp/twist_stamper-release.git";
-        rev = "42c7aba1cc0cf36a4e4a11ca6b4598b3031e7a51";
-        hash = "sha256-GUWWQcNLlgDez65Loqdfe/lgdkjUu2ZwDp91WEh8Hus=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "twist_stamper";
   version = "0.0.5-1";
   src = finalAttrs.passthru.sources."twist_stamper";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  propagatedBuildInputs = [ geometry-msgs rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "twist_stamper" = substituteSource {
+        src = fetchgit {
+          name = "twist_stamper-source";
+          url = "https://github.com/ros2-gbp/twist_stamper-release.git";
+          rev = "42c7aba1cc0cf36a4e4a11ca6b4598b3031e7a51";
+          hash = "sha256-GUWWQcNLlgDez65Loqdfe/lgdkjUu2ZwDp91WEh8Hus=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS2 package for converting between Twist and TwistStamped messages";

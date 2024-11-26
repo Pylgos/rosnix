@@ -117,7 +117,12 @@ fn generate_parameters(
     Ok(())
 }
 
-fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManifest) -> Result<()> {
+fn generate_package_body(
+    ctx: &Ctx,
+    mut dst: impl Write,
+    manifest: &PackageManifest,
+    all_srcs: &BTreeMap<String, &PatchedSource>,
+) -> Result<()> {
     writeln!(dst, "pname = {};", escape(&manifest.name))?;
     writeln!(dst, "version = {};", escape(&manifest.release_version))?;
     writeln!(
@@ -149,45 +154,39 @@ fn generate_package_body(ctx: &Ctx, mut dst: impl Write, manifest: &PackageManif
             NixDependencyKind::TargetTarget => "forDepsTargetTarget",
             NixDependencyKind::Check => "forBuildInputs",
         };
-        format!("[ {ros_pkgs_str} ] ++ rosSystemPackages.getPackages {{ {pkgs_for} = [ {system_pkgs_str} ]; }}")
+        let inputs_name = match (kind, propagated) {
+            (NixDependencyKind::BuildHost, false) => "nativeBuildInputs",
+            (NixDependencyKind::BuildHost, true) => "propagatedNativeBuildInputs",
+            (NixDependencyKind::HostTarget, false) => "buildInputs",
+            (NixDependencyKind::HostTarget, true) => "propagatedBuildInputs",
+            (NixDependencyKind::TargetTarget, false) => "depsTargetTarget",
+            (NixDependencyKind::TargetTarget, true) => "depsTargetTargetPropagated",
+            (NixDependencyKind::Check, _) => "checkInputs",
+        };
+        if system_pkgs_str.is_empty() && ros_pkgs_str.is_empty() {
+            "".to_string()
+        } else if system_pkgs_str.is_empty() && !ros_pkgs_str.is_empty() {
+            format!("{inputs_name} = [ {ros_pkgs_str} ];\n")
+        } else if !system_pkgs_str.is_empty() && ros_pkgs_str.is_empty() {
+            format!("{inputs_name} = rosSystemPackages.getPackages {{ {pkgs_for} = [ {system_pkgs_str} ]; }};\n")
+        } else {
+            format!("{inputs_name} = [ {ros_pkgs_str} ] ++ rosSystemPackages.getPackages {{ {pkgs_for} = [ {system_pkgs_str} ]; }};\n")
+        }
     };
-    writeln!(
-        dst,
-        "nativeBuildInputs = {};",
-        get_dep_string(NixDependencyKind::BuildHost, false)
-    )?;
-    writeln!(
-        dst,
-        "propagatedNativeBuildInputs = {};",
-        get_dep_string(NixDependencyKind::BuildHost, true)
-    )?;
-    writeln!(
-        dst,
-        "buildInputs = {};",
-        get_dep_string(NixDependencyKind::HostTarget, false)
-    )?;
-    writeln!(
-        dst,
-        "propagatedBuildInputs = {};",
-        get_dep_string(NixDependencyKind::HostTarget, true)
-    )?;
-    writeln!(
-        dst,
-        "depsTargetTarget = {};",
-        get_dep_string(NixDependencyKind::TargetTarget, false)
-    )?;
-    writeln!(
-        dst,
-        "depsTargetTargetPropagated = {};",
-        get_dep_string(NixDependencyKind::TargetTarget, true)
-    )?;
-    writeln!(
-        dst,
-        "checkInputs = {};",
-        get_dep_string(NixDependencyKind::Check, false)
-    )?;
+    dst.write_str(&get_dep_string(NixDependencyKind::BuildHost, false))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::BuildHost, true))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::HostTarget, false))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::HostTarget, true))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::TargetTarget, false))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::TargetTarget, true))?;
+    dst.write_str(&get_dep_string(NixDependencyKind::Check, false))?;
     writeln!(dst, "passthru = {{")?;
-    writeln!(dst, "  inherit sources;")?;
+    writeln!(dst, "  sources = mkSourceSet (sources: {{")?;
+    generate_source_list(
+        indented(&mut dst).with_str("    "),
+        all_srcs.values().copied(),
+    )?;
+    writeln!(dst, "  }});")?;
     writeln!(dst, "}};")?;
     writeln!(dst, "meta = {{")?;
     writeln!(dst, "  description = {};", escape(&manifest.description))?;
@@ -205,17 +204,9 @@ fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> R
         &ctx.sources[&manifest.name],
     );
     generate_parameters(ctx, &mut dst, manifest, &extra_packages)?;
-    writeln!(dst, "let")?;
-    writeln!(dst, "  sources = mkSourceSet (sources: {{")?;
-    generate_source_list(
-        indented(&mut dst).with_str("    "),
-        all_srcs.values().copied(),
-    )?;
-    writeln!(dst, "  }});")?;
-    writeln!(dst, "in")?;
     let builder_fn = builder_fn(manifest.build_type);
     writeln!(dst, "{builder_fn} (finalAttrs: {{")?;
-    generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest)?;
+    generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest, &all_srcs)?;
     writeln!(dst, "}})")?;
     let mut file = std::fs::File::create(dst_path)?;
     file.write_all(dst.as_bytes())?;
@@ -275,64 +266,66 @@ fn generate_source_list<'a>(
                 writeln!(dst, "  }};")?;
             }
         }
-        writeln!(dst, "  substitutions = [")?;
-        for sub in src.substitutions.iter() {
-            writeln!(dst, "    {{")?;
-            writeln!(dst, "      path = {};", escape(sub.path.to_str().unwrap()))?;
-            writeln!(dst, "      from = {};", escape(&sub.from))?;
-            match &sub.with {
-                Replacement::Path(with_src) => {
-                    writeln!(
-                        dst,
-                        "      to = {};",
-                        quote(&format!(
-                            "VCS_TYPE path VCS_URL ${{sources.{}}}",
-                            escape(with_src.local_name())
-                        ))
-                    )?;
+        if !src.substitutions.is_empty() {
+            writeln!(dst, "  substitutions = [")?;
+            for sub in src.substitutions.iter() {
+                writeln!(dst, "    {{")?;
+                writeln!(dst, "      path = {};", escape(sub.path.to_str().unwrap()))?;
+                writeln!(dst, "      from = {};", escape(&sub.from))?;
+                match &sub.with {
+                    Replacement::Path(with_src) => {
+                        writeln!(
+                            dst,
+                            "      to = {};",
+                            quote(&format!(
+                                "VCS_TYPE path VCS_URL ${{sources.{}}}",
+                                escape(with_src.local_name())
+                            ))
+                        )?;
+                    }
+                    Replacement::Url(with_src) => {
+                        writeln!(
+                            dst,
+                            "      to = {};",
+                            quote(&format!(
+                                "URL ${{sources.{}}}",
+                                escape(with_src.local_name())
+                            ))
+                        )?;
+                    }
+                    Replacement::Literal(to) => {
+                        writeln!(dst, "      to = {};", escape(to))?;
+                    }
+                    Replacement::Download(with_src) => {
+                        writeln!(
+                            dst,
+                            "      to = {};",
+                            quote(&format!(
+                                "DOWNLOAD file://${{sources.{}}}",
+                                escape(with_src.local_name())
+                            ))
+                        )?;
+                    }
+                    Replacement::Prefixed(prefix, with_src) => {
+                        writeln!(
+                            dst,
+                            "      to = {} + {};",
+                            escape(prefix),
+                            quote(&format!("${{sources.{}}}", escape(with_src.local_name())))
+                        )?;
+                    }
+                    Replacement::Shebang(package, program) => {
+                        writeln!(
+                            dst,
+                            "      to = {};",
+                            quote(&format!("#!${{buildPackages.{package}}}/bin/{program}"))
+                        )?;
+                    }
                 }
-                Replacement::Url(with_src) => {
-                    writeln!(
-                        dst,
-                        "      to = {};",
-                        quote(&format!(
-                            "URL ${{sources.{}}}",
-                            escape(with_src.local_name())
-                        ))
-                    )?;
-                }
-                Replacement::Literal(to) => {
-                    writeln!(dst, "      to = {};", escape(to))?;
-                }
-                Replacement::Download(with_src) => {
-                    writeln!(
-                        dst,
-                        "      to = {};",
-                        quote(&format!(
-                            "DOWNLOAD file://${{sources.{}}}",
-                            escape(with_src.local_name())
-                        ))
-                    )?;
-                }
-                Replacement::Prefixed(prefix, with_src) => {
-                    writeln!(
-                        dst,
-                        "      to = {} + {};",
-                        escape(prefix),
-                        quote(&format!("${{sources.{}}}", escape(with_src.local_name())))
-                    )?;
-                }
-                Replacement::Shebang(package, program) => {
-                    writeln!(
-                        dst,
-                        "      to = {};",
-                        quote(&format!("#!${{buildPackages.{package}}}/bin/{program}"))
-                    )?;
-                }
+                writeln!(dst, "    }}")?;
             }
-            writeln!(dst, "    }}")?;
+            writeln!(dst, "  ];")?;
         }
-        writeln!(dst, "  ];")?;
         writeln!(dst, "}};")?;
     }
 

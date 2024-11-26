@@ -13,33 +13,24 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "grid_map_sdf" = substituteSource {
-      src = fetchgit {
-        name = "grid_map_sdf-source";
-        url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "e0edb03fc06d1afe46a6f68f735c12b588073966";
-        hash = "sha256-xaVPI1GG4agH0Va8y03KPbPJFZ9qVyoOjT4F+ukjWWk=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_sdf";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."grid_map_sdf";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ grid-map-cmake-helpers grid-map-core ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcl-all-dev" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "grid_map_sdf" = substituteSource {
+        src = fetchgit {
+          name = "grid_map_sdf-source";
+          url = "https://github.com/ros2-gbp/grid_map-release.git";
+          rev = "e0edb03fc06d1afe46a6f68f735c12b588073966";
+          hash = "sha256-xaVPI1GG4agH0Va8y03KPbPJFZ9qVyoOjT4F+ukjWWk=";
+        };
+      };
+    });
   };
   meta = {
     description = "Generates signed distance fields from grid maps.";

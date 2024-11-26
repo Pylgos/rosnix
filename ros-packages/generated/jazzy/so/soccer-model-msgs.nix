@@ -16,33 +16,25 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "soccer_model_msgs" = substituteSource {
-      src = fetchgit {
-        name = "soccer_model_msgs-source";
-        url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
-        rev = "ebf0e34af5420aeb209be524c5792b13da56c101";
-        hash = "sha256-CGzaSmn0XKOI2Vq0FoGUiKLfqeE3RryN6A+WRhir8+E=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "soccer_model_msgs";
   version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_model_msgs";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime soccer-geometry-msgs soccer-vision-attribute-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators ];
+  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime soccer-geometry-msgs soccer-vision-attribute-msgs std-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "soccer_model_msgs" = substituteSource {
+        src = fetchgit {
+          name = "soccer_model_msgs-source";
+          url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
+          rev = "ebf0e34af5420aeb209be524c5792b13da56c101";
+          hash = "sha256-CGzaSmn0XKOI2Vq0FoGUiKLfqeE3RryN6A+WRhir8+E=";
+        };
+      };
+    });
   };
   meta = {
     description = "A package containing world model related message definitions in the soccer domain.";

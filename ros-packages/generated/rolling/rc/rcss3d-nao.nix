@@ -19,33 +19,24 @@
   soccer-vision-3d-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "rcss3d_nao" = substituteSource {
-      src = fetchgit {
-        name = "rcss3d_nao-source";
-        url = "https://github.com/ros2-gbp/rcss3d_nao-release.git";
-        rev = "eca4398e014f5149e7dfddd70953dc5e0a3b260f";
-        hash = "sha256-gDCJv4U5VGvPzE6+9SysE6xYUMNx7KGRawSEwZp7sVM=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcss3d_nao";
   version = "1.2.0-2";
   src = finalAttrs.passthru.sources."rcss3d_nao";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs nao-lola-command-msgs nao-lola-sensor-msgs rclcpp-components rcss3d-agent rcss3d-agent-msgs-to-soccer-interfaces sensor-msgs soccer-vision-3d-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs nao-lola-command-msgs nao-lola-sensor-msgs rclcpp-components rcss3d-agent rcss3d-agent-msgs-to-soccer-interfaces sensor-msgs soccer-vision-3d-msgs ];
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "rcss3d_nao" = substituteSource {
+        src = fetchgit {
+          name = "rcss3d_nao-source";
+          url = "https://github.com/ros2-gbp/rcss3d_nao-release.git";
+          rev = "eca4398e014f5149e7dfddd70953dc5e0a3b260f";
+          hash = "sha256-gDCJv4U5VGvPzE6+9SysE6xYUMNx7KGRawSEwZp7sVM=";
+        };
+      };
+    });
   };
   meta = {
     description = "An interface to SimSpark that uses interfaces used by a Nao robot";

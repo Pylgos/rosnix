@@ -14,33 +14,25 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "aruco_msgs" = substituteSource {
-      src = fetchgit {
-        name = "aruco_msgs-source";
-        url = "https://github.com/pal-gbp/aruco_ros-release.git";
-        rev = "7938091ebd1c7023cfed193add32d60e10f9d672";
-        hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_msgs";
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco_msgs";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators ];
+  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "aruco_msgs" = substituteSource {
+        src = fetchgit {
+          name = "aruco_msgs-source";
+          url = "https://github.com/pal-gbp/aruco_ros-release.git";
+          rev = "7938091ebd1c7023cfed193add32d60e10f9d672";
+          hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
+        };
+      };
+    });
   };
   meta = {
     description = "The aruco_msgs package";

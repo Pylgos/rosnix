@@ -25,33 +25,25 @@
   tf2,
   tf2-geometry-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "mola_bridge_ros2" = substituteSource {
-      src = fetchgit {
-        name = "mola_bridge_ros2-source";
-        url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "d26c379763d085ea3bec2b7a75484cc915f38dc6";
-        hash = "sha256-fgD1bPviykqltyhv/xq87yRlBiOTV02fhKB0O0f6E1s=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_bridge_ros2";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge nav-msgs rclcpp sensor-msgs tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ros-environment ];
+  propagatedBuildInputs = [ geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge nav-msgs rclcpp sensor-msgs tf2 tf2-geometry-msgs ];
+  checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "mola_bridge_ros2" = substituteSource {
+        src = fetchgit {
+          name = "mola_bridge_ros2-source";
+          url = "https://github.com/ros2-gbp/mola-release.git";
+          rev = "d26c379763d085ea3bec2b7a75484cc915f38dc6";
+          hash = "sha256-fgD1bPviykqltyhv/xq87yRlBiOTV02fhKB0O0f6E1s=";
+        };
+      };
+    });
   };
   meta = {
     description = "Bidirectional bridge ROS2-MOLA";

@@ -18,33 +18,25 @@
   substituteSource,
   unique-identifier-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "autoware_system_msgs" = substituteSource {
-      src = fetchgit {
-        name = "autoware_system_msgs-source";
-        url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "0bd28ce7ab702bf09924dc33cd4c558f4dd6ce0f";
-        hash = "sha256-+CY851PH0AJh2+FXUrLpRYzLqcGsT18E/EhCKUVkcT0=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_system_msgs";
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."autoware_system_msgs";
-  nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs rosidl-default-runtime std-msgs unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-auto ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs rosidl-default-runtime std-msgs unique-identifier-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "autoware_system_msgs" = substituteSource {
+        src = fetchgit {
+          name = "autoware_system_msgs-source";
+          url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
+          rev = "0bd28ce7ab702bf09924dc33cd4c558f4dd6ce0f";
+          hash = "sha256-+CY851PH0AJh2+FXUrLpRYzLqcGsT18E/EhCKUVkcT0=";
+        };
+      };
+    });
   };
   meta = {
     description = "Autoware system messages package.";

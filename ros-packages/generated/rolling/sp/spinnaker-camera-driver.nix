@@ -20,33 +20,25 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "spinnaker_camera_driver" = substituteSource {
-      src = fetchgit {
-        name = "spinnaker_camera_driver-source";
-        url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "5d9aedb11eb453d79898041a3136b22cb66118ea";
-        hash = "sha256-yyb7Mxxw6htbpNQmOpPjMCQm67nKQsVeqnN/WcyUuAs=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_camera_driver";
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."spinnaker_camera_driver";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   propagatedBuildInputs = [ camera-info-manager flir-camera-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "dpkg" "ffmpeg" "libusb-1.0-dev" "python3-distro" "yaml-cpp" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "spinnaker_camera_driver" = substituteSource {
+        src = fetchgit {
+          name = "spinnaker_camera_driver-source";
+          url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
+          rev = "5d9aedb11eb453d79898041a3136b22cb66118ea";
+          hash = "sha256-yyb7Mxxw6htbpNQmOpPjMCQm67nKQsVeqnN/WcyUuAs=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS2 driver for flir spinnaker sdk";

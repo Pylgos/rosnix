@@ -13,33 +13,24 @@
   substituteSource,
   test-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "ros2cli" = substituteSource {
-      src = fetchgit {
-        name = "ros2cli-source";
-        url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "49586abceb6d931f606ae48f0f0c0d489741d965";
-        hash = "sha256-5P9cc0b91/m93MNGwH6lxSFu323hsdkru4QUT5o/XI8=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2cli";
   version = "0.36.0-1";
   src = finalAttrs.passthru.sources."ros2cli";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };
   propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-packaging" "python3-psutil" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "ros2cli" = substituteSource {
+        src = fetchgit {
+          name = "ros2cli-source";
+          url = "https://github.com/ros2-gbp/ros2cli-release.git";
+          rev = "49586abceb6d931f606ae48f0f0c0d489741d965";
+          hash = "sha256-5P9cc0b91/m93MNGwH6lxSFu323hsdkru4QUT5o/XI8=";
+        };
+      };
+    });
   };
   meta = {
     description = "Framework for ROS 2 command line tools.";

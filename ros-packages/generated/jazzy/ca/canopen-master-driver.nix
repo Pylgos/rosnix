@@ -16,33 +16,24 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "canopen_master_driver" = substituteSource {
-      src = fetchgit {
-        name = "canopen_master_driver-source";
-        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "f879ab2ee6a9a8d8fa4f75531daaff0d1f07375e";
-        hash = "sha256-xzkjzzOaEItvb16SVik9+qsQVSauWVtMX/phwDXKdDk=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_master_driver";
   version = "0.2.9-2";
   src = finalAttrs.passthru.sources."canopen_master_driver";
-  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ canopen-core canopen-interfaces lely-core-libraries rclcpp rclcpp-components rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ canopen-core canopen-interfaces lely-core-libraries rclcpp rclcpp-components rclcpp-lifecycle ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "canopen_master_driver" = substituteSource {
+        src = fetchgit {
+          name = "canopen_master_driver-source";
+          url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
+          rev = "f879ab2ee6a9a8d8fa4f75531daaff0d1f07375e";
+          hash = "sha256-xzkjzzOaEItvb16SVik9+qsQVSauWVtMX/phwDXKdDk=";
+        };
+      };
+    });
   };
   meta = {
     description = "Basic canopen master implementation";

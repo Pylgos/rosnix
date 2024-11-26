@@ -19,33 +19,24 @@
   stereo-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "rc_genicam_driver" = substituteSource {
-      src = fetchgit {
-        name = "rc_genicam_driver-source";
-        url = "https://github.com/ros2-gbp/rc_genicam_driver_ros2-release.git";
-        rev = "d56cbe21b74232fd2602bc2cc2921c365d034321";
-        hash = "sha256-DXGpRFliAauxi+eYKJddSkZfNo9jJ/5UsxBtJEkSdCs=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rc_genicam_driver";
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rc_genicam_driver";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ diagnostic-updater image-transport rc-common-msgs rc-genicam-api rclcpp rclcpp-components sensor-msgs stereo-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-cppcheck ament-cmake-xmllint ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ diagnostic-updater image-transport rc-common-msgs rc-genicam-api rclcpp rclcpp-components sensor-msgs stereo-msgs ];
+  checkInputs = [ ament-cmake-cppcheck ament-cmake-xmllint ament-lint-auto ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "rc_genicam_driver" = substituteSource {
+        src = fetchgit {
+          name = "rc_genicam_driver-source";
+          url = "https://github.com/ros2-gbp/rc_genicam_driver_ros2-release.git";
+          rev = "d56cbe21b74232fd2602bc2cc2921c365d034321";
+          hash = "sha256-DXGpRFliAauxi+eYKJddSkZfNo9jJ/5UsxBtJEkSdCs=";
+        };
+      };
+    });
   };
   meta = {
     description = "Driver for rc_visard and rc_cube from Roboception GmbH";

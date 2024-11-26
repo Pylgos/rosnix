@@ -23,33 +23,24 @@
   sensor-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "apriltag_detector_umich" = substituteSource {
-      src = fetchgit {
-        name = "apriltag_detector_umich-source";
-        url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
-        rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
-        hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_detector_umich";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."apriltag_detector_umich";
-  nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ apriltag apriltag-detector apriltag-msgs cv-bridge image-transport pluginlib rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
+  propagatedBuildInputs = [ apriltag apriltag-detector apriltag-msgs cv-bridge image-transport pluginlib rclcpp rclcpp-components sensor-msgs ];
+  checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "apriltag_detector_umich" = substituteSource {
+        src = fetchgit {
+          name = "apriltag_detector_umich-source";
+          url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
+          rev = "b9f3375255a5b2b64a44202a618273c318389c3a";
+          hash = "sha256-+DFXS65T4DDOtMzxOjIdGqvpD5wtTKL3o+uo7bGsw0I=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS package for apriltag detection with the UMich detector";

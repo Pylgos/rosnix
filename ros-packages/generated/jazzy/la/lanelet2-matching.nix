@@ -14,33 +14,25 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "lanelet2_matching" = substituteSource {
-      src = fetchgit {
-        name = "lanelet2_matching-source";
-        url = "https://github.com/ros2-gbp/lanelet2-release.git";
-        rev = "e120080f9db30d7662445e1114d585757305a81f";
-        hash = "sha256-umrqsdgMBtb04ryHzY6h/Yb+wrZUXVnyvb+0AeF2ebI=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "lanelet2_matching";
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."lanelet2_matching";
-  nativeBuildInputs = [ ament-cmake-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ lanelet2-core lanelet2-traffic-rules ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  nativeBuildInputs = [ ament-cmake-core ];
+  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
+  propagatedBuildInputs = [ lanelet2-core lanelet2-traffic-rules ];
   checkInputs = [ lanelet2-io lanelet2-maps lanelet2-projection ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "lanelet2_matching" = substituteSource {
+        src = fetchgit {
+          name = "lanelet2_matching-source";
+          url = "https://github.com/ros2-gbp/lanelet2-release.git";
+          rev = "e120080f9db30d7662445e1114d585757305a81f";
+          hash = "sha256-umrqsdgMBtb04ryHzY6h/Yb+wrZUXVnyvb+0AeF2ebI=";
+        };
+      };
+    });
   };
   meta = {
     description = "Library to match objects to lanelets";

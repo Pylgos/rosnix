@@ -13,33 +13,24 @@
   rosidl-default-runtime,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "teleop_tools_msgs" = substituteSource {
-      src = fetchgit {
-        name = "teleop_tools_msgs-source";
-        url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "5751392090ed0daf4c8aa39a1b69e3cc47e5b142";
-        hash = "sha256-ew4H/L8sAVoI216eyavu6PeHyoJ9FUYvEUKi8xEaVr0=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "teleop_tools_msgs";
   version = "1.7.0-1";
   src = finalAttrs.passthru.sources."teleop_tools_msgs";
-  nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ action-msgs rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ action-msgs rosidl-default-runtime ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "teleop_tools_msgs" = substituteSource {
+        src = fetchgit {
+          name = "teleop_tools_msgs-source";
+          url = "https://github.com/ros2-gbp/teleop_tools-release.git";
+          rev = "5751392090ed0daf4c8aa39a1b69e3cc47e5b142";
+          hash = "sha256-ew4H/L8sAVoI216eyavu6PeHyoJ9FUYvEUKi8xEaVr0=";
+        };
+      };
+    });
   };
   meta = {
     description = "The teleop_tools_msgs package";

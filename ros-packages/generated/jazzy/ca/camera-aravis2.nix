@@ -19,33 +19,24 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "camera_aravis2" = substituteSource {
-      src = fetchgit {
-        name = "camera_aravis2-source";
-        url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
-        rev = "5f3e3d8ced22c864b03026f8804b1a5b45aa0648";
-        hash = "sha256-5Ah7DOmJ1tb7bQ9XttTlDnsH6igmEM8S5i3sZm4pWZc=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_aravis2";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."camera_aravis2";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ camera-aravis2-msgs camera-info-manager cv-bridge diagnostic-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "aravis-dev" "libglib-dev" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "camera_aravis2" = substituteSource {
+        src = fetchgit {
+          name = "camera_aravis2-source";
+          url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
+          rev = "5f3e3d8ced22c864b03026f8804b1a5b45aa0648";
+          hash = "sha256-5Ah7DOmJ1tb7bQ9XttTlDnsH6igmEM8S5i3sZm4pWZc=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS2 camera driver for [GenICam](https://www.emva.org/standards-technology/genicam/)-based GigEVision and USB3Vision cameras.";

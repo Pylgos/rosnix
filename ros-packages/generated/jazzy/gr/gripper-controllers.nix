@@ -22,33 +22,24 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "gripper_controllers" = substituteSource {
-      src = fetchgit {
-        name = "gripper_controllers-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "4a03d5e2f163df60fd556dda6f45450d43a7c9c6";
-        hash = "sha256-JMeVAienMsJwF3mHTHAe67vAGdPk0FAlNrcbwqkvuLw=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gripper_controllers";
   version = "4.16.0-1";
   src = finalAttrs.passthru.sources."gripper_controllers";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action realtime-tools ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action realtime-tools ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "gripper_controllers" = substituteSource {
+        src = fetchgit {
+          name = "gripper_controllers-source";
+          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+          rev = "4a03d5e2f163df60fd556dda6f45450d43a7c9c6";
+          hash = "sha256-JMeVAienMsJwF3mHTHAe67vAGdPk0FAlNrcbwqkvuLw=";
+        };
+      };
+    });
   };
   meta = {
     description = "The gripper_controllers package";

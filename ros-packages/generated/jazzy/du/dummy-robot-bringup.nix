@@ -17,33 +17,24 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "dummy_robot_bringup" = substituteSource {
-      src = fetchgit {
-        name = "dummy_robot_bringup-source";
-        url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "ce97419b6cd330a7b4eacf837949c369ee29e0db";
-        hash = "sha256-kJh0WAW3P3UPHmVb2h6QmE7cPgws9qZxrLp8+Faol9s=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher ];
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "dummy_robot_bringup" = substituteSource {
+        src = fetchgit {
+          name = "dummy_robot_bringup-source";
+          url = "https://github.com/ros2-gbp/demos-release.git";
+          rev = "ce97419b6cd330a7b4eacf837949c369ee29e0db";
+          hash = "sha256-kJh0WAW3P3UPHmVb2h6QmE7cPgws9qZxrLp8+Faol9s=";
+        };
+      };
+    });
   };
   meta = {
     description = "dummy robot bringup";

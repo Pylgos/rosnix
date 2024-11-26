@@ -37,33 +37,24 @@
   test-msgs,
   tracetools,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "rclcpp" = substituteSource {
-      src = fetchgit {
-        name = "rclcpp-source";
-        url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "422bba55227b308b5716fee777ee3c3c266114aa";
-        hash = "sha256-hR/y6lCWd924ihDaLijd+QOljnhU9v2odBsY2bqpS6g=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp";
   version = "29.2.0-1";
   src = finalAttrs.passthru.sources."rclcpp";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
+  checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "rclcpp" = substituteSource {
+        src = fetchgit {
+          name = "rclcpp-source";
+          url = "https://github.com/ros2-gbp/rclcpp-release.git";
+          rev = "422bba55227b308b5716fee777ee3c3c266114aa";
+          hash = "sha256-hR/y6lCWd924ihDaLijd+QOljnhU9v2odBsY2bqpS6g=";
+        };
+      };
+    });
   };
   meta = {
     description = "The ROS client library in C++.";

@@ -18,33 +18,25 @@
   substituteSource,
   unique-identifier-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "autoware_adapi_v1_msgs" = substituteSource {
-      src = fetchgit {
-        name = "autoware_adapi_v1_msgs-source";
-        url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release.git";
-        rev = "d70f09816ad6d12d139b08530895fff549518325";
-        hash = "sha256-5jgqVvAOI02ArN1EDxTdvc/F1f4E/LDkN9nPbnHYSQI=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_adapi_v1_msgs";
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."autoware_adapi_v1_msgs";
-  nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs rosidl-default-runtime shape-msgs std-msgs unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-auto ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs rosidl-default-runtime shape-msgs std-msgs unique-identifier-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "autoware_adapi_v1_msgs" = substituteSource {
+        src = fetchgit {
+          name = "autoware_adapi_v1_msgs-source";
+          url = "https://github.com/ros2-gbp/autoware_adapi_msgs-release.git";
+          rev = "d70f09816ad6d12d139b08530895fff549518325";
+          hash = "sha256-5jgqVvAOI02ArN1EDxTdvc/F1f4E/LDkN9nPbnHYSQI=";
+        };
+      };
+    });
   };
   meta = {
     description = "The Autoware AD API interfaces";

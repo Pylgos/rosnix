@@ -12,33 +12,25 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "xacro" = substituteSource {
-      src = fetchgit {
-        name = "xacro-source";
-        url = "https://github.com/ros2-gbp/xacro-release.git";
-        rev = "cf73bd6240c8b19a819681498f671f0c3ca80758";
-        hash = "sha256-+93WLiVZewjzhzlEzSTG/zTjYx3+ri7uv+d7nO1xdX8=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "xacro";
   version = "2.0.11-2";
   src = finalAttrs.passthru.sources."xacro";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-pytest ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python ];
+  checkInputs = [ ament-cmake-pytest ament-lint-auto ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "xacro" = substituteSource {
+        src = fetchgit {
+          name = "xacro-source";
+          url = "https://github.com/ros2-gbp/xacro-release.git";
+          rev = "cf73bd6240c8b19a819681498f671f0c3ca80758";
+          hash = "sha256-+93WLiVZewjzhzlEzSTG/zTjYx3+ri7uv+d7nO1xdX8=";
+        };
+      };
+    });
   };
   meta = {
     description = "Xacro (XML Macros) Xacro is an XML macro language. With xacro, you can construct shorter and more readable XML files by using macros that expand to larger XML expressions.";

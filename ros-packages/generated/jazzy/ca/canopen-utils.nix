@@ -12,33 +12,23 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "canopen_utils" = substituteSource {
-      src = fetchgit {
-        name = "canopen_utils-source";
-        url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "181beef157c2ca0a620517759160ed38a96b752b";
-        hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "canopen_utils";
   version = "0.2.9-2";
   src = finalAttrs.passthru.sources."canopen_utils";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ canopen-interfaces lifecycle-msgs rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedBuildInputs = [ canopen-interfaces lifecycle-msgs rclpy std-msgs ];
+  checkInputs = [ ament-lint-auto ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "canopen_utils" = substituteSource {
+        src = fetchgit {
+          name = "canopen_utils-source";
+          url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
+          rev = "181beef157c2ca0a620517759160ed38a96b752b";
+          hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
+        };
+      };
+    });
   };
   meta = {
     description = "Utils for working with ros2_canopen.";

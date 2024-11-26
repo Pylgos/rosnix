@@ -28,33 +28,24 @@
   tf2,
   tf2-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "tricycle_controller" = substituteSource {
-      src = fetchgit {
-        name = "tricycle_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "aba5c2d0b0993e7988a611f2112bd7ed073aa9b2";
-        hash = "sha256-/WO5WUpkKYlO4dStleb3EIOjFaiBPV/nQSR1AvYb7aY=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_controller";
   version = "4.16.0-1";
   src = finalAttrs.passthru.sources."tricycle_controller";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ackermann-msgs backward-ros builtin-interfaces controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools std-srvs tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ackermann-msgs backward-ros builtin-interfaces controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools std-srvs tf2 tf2-msgs ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "tricycle_controller" = substituteSource {
+        src = fetchgit {
+          name = "tricycle_controller-source";
+          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+          rev = "aba5c2d0b0993e7988a611f2112bd7ed073aa9b2";
+          hash = "sha256-/WO5WUpkKYlO4dStleb3EIOjFaiBPV/nQSR1AvYb7aY=";
+        };
+      };
+    });
   };
   meta = {
     description = "Controller for a tricycle drive mobile base";

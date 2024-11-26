@@ -20,33 +20,24 @@
   webots-ros2-driver,
   wrapRosQtAppsHook,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "webots_ros2_tiago" = substituteSource {
-      src = fetchgit {
-        name = "webots_ros2_tiago-source";
-        url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "52431f1869c9f2d891411a5659830af752083a55";
-        hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tiago";
   version = "2023.1.3-1";
   src = finalAttrs.passthru.sources."webots_ros2_tiago";
-  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller geometry-msgs joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  nativeBuildInputs = [ wrapRosQtAppsHook ];
+  propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller geometry-msgs joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "webots_ros2_tiago" = substituteSource {
+        src = fetchgit {
+          name = "webots_ros2_tiago-source";
+          url = "https://github.com/ros2-gbp/webots_ros2-release.git";
+          rev = "52431f1869c9f2d891411a5659830af752083a55";
+          hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
+        };
+      };
+    });
   };
   meta = {
     description = "TIAGo robots ROS2 interface for Webots.";

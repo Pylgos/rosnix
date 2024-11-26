@@ -9,33 +9,23 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "ament_cmake_export_interfaces" = substituteSource {
-      src = fetchgit {
-        name = "ament_cmake_export_interfaces-source";
-        url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "7e1222695310bafa927c415e80131c89efaf9e3a";
-        hash = "sha256-vglDEy/EOedm0uggWvpECsJK8DMPPHdJn2fsGWpoguY=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_export_interfaces";
   version = "2.7.2-1";
   src = finalAttrs.passthru.sources."ament_cmake_export_interfaces";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-libraries ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-cmake-core ament-cmake-export-libraries ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-libraries ];
+  propagatedBuildInputs = [ ament-cmake-core ament-cmake-export-libraries ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "ament_cmake_export_interfaces" = substituteSource {
+        src = fetchgit {
+          name = "ament_cmake_export_interfaces-source";
+          url = "https://github.com/ros2-gbp/ament_cmake-release.git";
+          rev = "7e1222695310bafa927c415e80131c89efaf9e3a";
+          hash = "sha256-vglDEy/EOedm0uggWvpECsJK8DMPPHdJn2fsGWpoguY=";
+        };
+      };
+    });
   };
   meta = {
     description = "The ability to export interfaces to downstream packages in the ament buildsystem in CMake.";

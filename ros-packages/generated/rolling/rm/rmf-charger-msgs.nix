@@ -13,33 +13,24 @@
   rosidl-default-runtime,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "rmf_charger_msgs" = substituteSource {
-      src = fetchgit {
-        name = "rmf_charger_msgs-source";
-        url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "bedf8e1266f4c9737cdcab974c3ecba6118cb0a8";
-        hash = "sha256-4yYp6f8sB1pWOCMf0lafsewhx0hYlSBaWMNqDQd8xns=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_charger_msgs";
   version = "3.4.1-1";
   src = finalAttrs.passthru.sources."rmf_charger_msgs";
-  nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "rmf_charger_msgs" = substituteSource {
+        src = fetchgit {
+          name = "rmf_charger_msgs-source";
+          url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
+          rev = "bedf8e1266f4c9737cdcab974c3ecba6118cb0a8";
+          hash = "sha256-4yYp6f8sB1pWOCMf0lafsewhx0hYlSBaWMNqDQd8xns=";
+        };
+      };
+    });
   };
   meta = {
     description = "This package contains messages regarding charging and discharging";

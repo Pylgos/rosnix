@@ -12,33 +12,24 @@
   rosSystemPackages,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "data_tamer_cpp" = substituteSource {
-      src = fetchgit {
-        name = "data_tamer_cpp-source";
-        url = "https://github.com/ros2-gbp/data_tamer-release.git";
-        rev = "fbf9cbcb7bc45fe016d6428d6366f9cd556456de";
-        hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_cpp";
   version = "0.9.4-3";
   src = finalAttrs.passthru.sources."data_tamer_cpp";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
+  checkInputs = [ ament-cmake-gtest ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "data_tamer_cpp" = substituteSource {
+        src = fetchgit {
+          name = "data_tamer_cpp-source";
+          url = "https://github.com/ros2-gbp/data_tamer-release.git";
+          rev = "fbf9cbcb7bc45fe016d6428d6366f9cd556456de";
+          hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
+        };
+      };
+    });
   };
   meta = {
     description = "DataTamer data logging library";

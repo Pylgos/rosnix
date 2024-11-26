@@ -14,33 +14,23 @@
   tf2-ros,
   wrapRosQtAppsHook,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "microstrain_inertial_examples" = substituteSource {
-      src = fetchgit {
-        name = "microstrain_inertial_examples-source";
-        url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "81d5861e2c6e097de8d2f7cc4deaacbdef1fdc3a";
-        hash = "sha256-Hx7NDq/2SgHHYR/geQ1eke+0WnBAdW4Jk+VC6iJPTGM=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_examples";
   version = "4.5.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_examples";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ microstrain-inertial-driver rviz2 rviz-imu-plugin sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedBuildInputs = [ microstrain-inertial-driver rviz2 rviz-imu-plugin sensor-msgs tf2-ros ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "microstrain_inertial_examples" = substituteSource {
+        src = fetchgit {
+          name = "microstrain_inertial_examples-source";
+          url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
+          rev = "81d5861e2c6e097de8d2f7cc4deaacbdef1fdc3a";
+          hash = "sha256-Hx7NDq/2SgHHYR/geQ1eke+0WnBAdW4Jk+VC6iJPTGM=";
+        };
+      };
+    });
   };
   meta = {
     description = "Simple examples using the microstrain_inertial_driver for MicroStrain sensors.";

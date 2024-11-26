@@ -16,33 +16,23 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "launch_testing_ros" = substituteSource {
-      src = fetchgit {
-        name = "launch_testing_ros-source";
-        url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "3c999ac944ce2b65440d9c0cacf6e2ec9d263b57";
-        hash = "sha256-OVoAVzQcq8UWpaK+KdVxxQCyIvCqZTUxiAOgv8C7v/0=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_ros";
   version = "0.28.0-1";
   src = finalAttrs.passthru.sources."launch_testing_ros";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "launch_testing_ros" = substituteSource {
+        src = fetchgit {
+          name = "launch_testing_ros-source";
+          url = "https://github.com/ros2-gbp/launch_ros-release.git";
+          rev = "3c999ac944ce2b65440d9c0cacf6e2ec9d263b57";
+          hash = "sha256-OVoAVzQcq8UWpaK+KdVxxQCyIvCqZTUxiAOgv8C7v/0=";
+        };
+      };
+    });
   };
   meta = {
     description = "A package providing utilities for writing ROS2 enabled launch tests.";

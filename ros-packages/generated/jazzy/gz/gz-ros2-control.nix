@@ -20,33 +20,24 @@
   wrapRosQtAppsHook,
   yaml-cpp-vendor,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "gz_ros2_control" = substituteSource {
-      src = fetchgit {
-        name = "gz_ros2_control-source";
-        url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "baa43807d473b64fc617c26b2372ab9041328d59";
-        hash = "sha256-dG53F7d+tzQEVaCFfxPLxJ8h9GKeSsFv3ofGxNXXp3U=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control";
   version = "1.2.8-1";
   src = finalAttrs.passthru.sources."gz_ros2_control";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle yaml-cpp-vendor ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "gz_ros2_control" = substituteSource {
+        src = fetchgit {
+          name = "gz_ros2_control-source";
+          url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
+          rev = "baa43807d473b64fc617c26b2372ab9041328d59";
+          hash = "sha256-dG53F7d+tzQEVaCFfxPLxJ8h9GKeSsFv3ofGxNXXp3U=";
+        };
+      };
+    });
   };
   meta = {
     description = "Gazebo ros2_control package allows to control simulated robots using ros2_control framework.";

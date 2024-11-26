@@ -14,33 +14,24 @@
   std-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "velodyne_msgs" = substituteSource {
-      src = fetchgit {
-        name = "velodyne_msgs-source";
-        url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "ef6471bd871d07facea9caa683a7876c060995ce";
-        hash = "sha256-iscfIy80Wu1MlKkXs2oJbpaRXU44PgxQIfgA1DrrA6w=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_msgs";
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_msgs";
-  nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "velodyne_msgs" = substituteSource {
+        src = fetchgit {
+          name = "velodyne_msgs-source";
+          url = "https://github.com/ros2-gbp/velodyne-release.git";
+          rev = "ef6471bd871d07facea9caa683a7876c060995ce";
+          hash = "sha256-iscfIy80Wu1MlKkXs2oJbpaRXU44PgxQIfgA1DrrA6w=";
+        };
+      };
+    });
   };
   meta = {
     description = "ROS message definitions for Velodyne 3D LIDARs.";

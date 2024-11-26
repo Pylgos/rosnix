@@ -24,33 +24,25 @@
   substituteSource,
   test-msgs,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "rclc" = substituteSource {
-      src = fetchgit {
-        name = "rclc-source";
-        url = "https://github.com/ros2-gbp/rclc-release.git";
-        rev = "b34236539056dee4ec3a309c0c3a4c8db6ebd383";
-        hash = "sha256-A49/yUw6gCxZpDhW8qijU7K6AFuP1R5dzLhqDvefndA=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclc";
   version = "6.1.0-3";
   src = finalAttrs.passthru.sources."rclc";
-  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [ rosidl-generator-c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ rcl rcl-action rcutils rosidl-typesupport-c ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces launch-testing osrf-testing-tools-cpp rclcpp rclcpp-action std-msgs test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ rosidl-generator-c ];
+  propagatedBuildInputs = [ rcl rcl-action rcutils rosidl-typesupport-c ];
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces launch-testing osrf-testing-tools-cpp rclcpp rclcpp-action std-msgs test-msgs ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "rclc" = substituteSource {
+        src = fetchgit {
+          name = "rclc-source";
+          url = "https://github.com/ros2-gbp/rclc-release.git";
+          rev = "b34236539056dee4ec3a309c0c3a4c8db6ebd383";
+          hash = "sha256-A49/yUw6gCxZpDhW8qijU7K6AFuP1R5dzLhqDvefndA=";
+        };
+      };
+    });
   };
   meta = {
     description = "The ROS client library in C.";

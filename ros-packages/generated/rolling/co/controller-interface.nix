@@ -15,33 +15,24 @@
   sensor-msgs,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "controller_interface" = substituteSource {
-      src = fetchgit {
-        name = "controller_interface-source";
-        url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "c5762aea4bfc2db8d54ebbc8fd38253e7e1022f9";
-        hash = "sha256-KMc6WXgXekanXI6ukeQxLmA3BiepF+I8WOQhHMkOTPU=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
   version = "4.20.0-1";
   src = finalAttrs.passthru.sources."controller_interface";
-  nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools sensor-msgs ];
+  checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "controller_interface" = substituteSource {
+        src = fetchgit {
+          name = "controller_interface-source";
+          url = "https://github.com/ros2-gbp/ros2_control-release.git";
+          rev = "c5762aea4bfc2db8d54ebbc8fd38253e7e1022f9";
+          hash = "sha256-KMc6WXgXekanXI6ukeQxLmA3BiepF+I8WOQhHMkOTPU=";
+        };
+      };
+    });
   };
   meta = {
     description = "Description of controller_interface";

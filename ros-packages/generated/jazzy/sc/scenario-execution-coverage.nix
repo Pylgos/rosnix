@@ -11,33 +11,23 @@
   scenario-execution,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "scenario_execution_coverage" = substituteSource {
-      src = fetchgit {
-        name = "scenario_execution_coverage-source";
-        url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "3a84ec826447f4748a84012c8121b64478552e97";
-        hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_coverage";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_coverage";
-  nativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ scenario-execution ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
+  propagatedBuildInputs = [ scenario-execution ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-pexpect" "python3-pytest" ]; };
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "scenario_execution_coverage" = substituteSource {
+        src = fetchgit {
+          name = "scenario_execution_coverage-source";
+          url = "https://github.com/ros2-gbp/scenario_execution-release.git";
+          rev = "3a84ec826447f4748a84012c8121b64478552e97";
+          hash = "sha256-uUGVKVodwZKOi0njDxEx29bEDkDfwjHrC+02x7blURQ=";
+        };
+      };
+    });
   };
   meta = {
     description = "Robotics Scenario Execution Coverage Tools";

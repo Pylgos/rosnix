@@ -22,33 +22,24 @@
   steering-controllers-library,
   substituteSource,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "tricycle_steering_controller" = substituteSource {
-      src = fetchgit {
-        name = "tricycle_steering_controller-source";
-        url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "16ab86bf61e8d2327585a0990f1e62e9a36e4102";
-        hash = "sha256-FVBM0L2iDgDj/LGrwyDo6Z11gdWJIs4/+sk1i3y2g7Q=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_steering_controller";
   version = "4.16.0-1";
   src = finalAttrs.passthru.sources."tricycle_steering_controller";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  propagatedBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle std-srvs steering-controllers-library ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle std-srvs steering-controllers-library ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "tricycle_steering_controller" = substituteSource {
+        src = fetchgit {
+          name = "tricycle_steering_controller-source";
+          url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
+          rev = "16ab86bf61e8d2327585a0990f1e62e9a36e4102";
+          hash = "sha256-FVBM0L2iDgDj/LGrwyDo6Z11gdWJIs4/+sk1i3y2g7Q=";
+        };
+      };
+    });
   };
   meta = {
     description = "Steering controller with tricycle kinematics. Rear fixed wheels are powering the vehicle and front wheel is steering.";

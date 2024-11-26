@@ -20,33 +20,24 @@
   substituteSource,
   wrapRosQtAppsHook,
 }:
-let
-  sources = mkSourceSet (sources: {
-    "turtlesim" = substituteSource {
-      src = fetchgit {
-        name = "turtlesim-source";
-        url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
-        rev = "dee596e8c4643aec9e5a6f93098371f93b5c8a02";
-        hash = "sha256-+NwG+0EX/wiy8jFqWI7LoLitojrfxvVmRfY4duvQICU=";
-      };
-      substitutions = [
-      ];
-    };
-  });
-in
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlesim";
   version = "1.8.3-1";
   src = finalAttrs.passthru.sources."turtlesim";
-  nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  propagatedNativeBuildInputs = [  ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [  ]; };
-  buildInputs = [  ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp geometry-msgs rcl-interfaces rclcpp rclcpp-action rosidl-default-runtime std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
-  depsTargetTarget = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  depsTargetTargetPropagated = [  ] ++ rosSystemPackages.getPackages { forDepsTargetTarget = [  ]; };
-  checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [  ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru = {
-    inherit sources;
+    sources = mkSourceSet (sources: {
+      "turtlesim" = substituteSource {
+        src = fetchgit {
+          name = "turtlesim-source";
+          url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
+          rev = "dee596e8c4643aec9e5a6f93098371f93b5c8a02";
+          hash = "sha256-+NwG+0EX/wiy8jFqWI7LoLitojrfxvVmRfY4duvQICU=";
+        };
+      };
+    });
   };
   meta = {
     description = "turtlesim is a tool made for teaching ROS and ROS packages.";
