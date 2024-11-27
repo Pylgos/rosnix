@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "odri_master_board_sdk";
-  version = "1.0.7-1";
+  version = "1.0.7-2";
   src = finalAttrs.passthru.sources."odri_master_board_sdk";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "odri_master_board_sdk-source";
         url = "https://github.com/ros2-gbp/odri_master_board_sdk-release.git";
-        rev = "41c57d95b2495d683c3b3e74c7db7e79436dea4c";
+        rev = "ddaac79fa255c4230cba3bb75a65fce7cbfced27";
         hash = "sha256-hVYlw+fnKfoLeEwC3IzJJzmd2oDeFVlqPOm0WJxqJlg=";
       };
     };
