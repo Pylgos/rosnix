@@ -3,12 +3,12 @@
 	<p><strong>Effortless ROS 2 Package Management with Nix</strong></p>
 </div>
 
-`rosnix` is a package collection designed to manage ROS 2 packages in a simple and reproducible way using the Nix package manager.
+`rosnix` is a nixpkgs overlay providing ROS 2 packages. It is available for almost all Linux distributions.
 
 ## 🔧 Key Features
 
-- **🔄 Reproducible Builds**: All builds are performed in isolated environments with dependencies strictly managed by Nix, ensuring consistent and reliable results.
-- **⚙️ Development Shell**: Provides immediate access to a development environment that mirrors the Nix build environment while allowing the use of host tools, offering greater convenience than container-based development.
+- **🔄 Reproducible Builds**: All builds occur in isolated, dependency-controlled environments, guaranteeing consistent and reproducible outcomes.
+- **⚙️ Development Shell**: Provides immediate access to a development environment that replicates the Nix build environment, which is more convenient than container-based development.
 - **🖥️ Wide Linux Support**: Works on all Linux distributions supported by Nix.
 - **🔗 Dependency Management via Git**: By including the Nix Flakes lock file in your repository, you can manage the versions of all dependency packages with Git.
 - **🚀 Always Up-to-Date**: Packages are updated daily via GitHub Actions to ensure you always have access to the latest versions.
@@ -17,11 +17,11 @@
 
 While `rosnix` is heavily inspired by `nix-ros-overlay`, it offers several unique advantages:
 
-- **📦 Uses `colcon`**: Leverages `colcon` for building and environment setup.
-- **🛠 Automatic Vendor Patching**: Automatically applies vendor patches by parsing CMake files during package generation.
-- **🔍 Precise Dependency Management**: Utilizes heuristics and manual adjustments to accurately classify `nativeBuildInputs` and `buildInputs`, enabling cross-compilation for some packages.
-- **⚙️ System Package Overrides**: Allows users to override system packages using the `rosSystemPackages` attribute for greater flexibility.
-- **📁 Per-Distribution Overlays**: Provides overlays for each ROS 2 distribution, making it easy to manage multiple distributions efficiently.
+- **📦 Uses `colcon`**: Employs `colcon` for streamlined builds and environment configuration, tailored for ROS 2.
+- **🛠 Automatic Vendor Patching**: Automatically parses CMake files to apply necessary patches, minimizing manual intervention.
+- **🔍 Precise Dependency Management**: Offers advanced dependency classification for `nativeBuildInputs` and `buildInputs`, enabling better support for cross-compilation.
+- **⚙️ System Package Overrides**: Customize system packages flexibly with the `rosSystemPackages` attribute.
+- **📁 Per-Distribution Overlays**: Easily manage multiple ROS 2 distributions with specific overlays for each version.
 
 ## Flake Outputs
 <!---
