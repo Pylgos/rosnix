@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_visualization_building_systems";
-  version = "2.4.0-1";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_building_systems";
   propagatedBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-door-msgs rmf-lift-msgs rmf-visualization-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_building_systems-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "091dd4ddd3de80bb08af0af8e10b88da60072c77";
-        hash = "sha256-lTaY75owEt1+2JAjgITJGaf9qqpBv0Lkc+D9WhneXp8=";
+        rev = "e4dbe1e632168051a340168bc3b1205577e259fa";
+        hash = "sha256-zb5H/VDYMLrCtQkAUziABUWZqvLIvQjalSvS+bGKKlg=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_dartsim_vendor";
-  version = "0.0.2-1";
+  version = "0.0.3-1";
   src = finalAttrs.passthru.sources."gz_dartsim_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "bullet" "eigen" "fmt" "libboost-dev" "libboost-regex-dev" "libboost-system-dev" "libccd-dev" "libfcl-dev" "liburdfdom-dev" "lz4" "opende" "tinyxml2" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_dartsim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_dartsim_vendor-release.git";
-        rev = "38bdb4c6948952978b640c95beb7b4e8aaea61f3";
-        hash = "sha256-M1p+knNPSpbfQpQATwwHo5EqtCKx0Fn9S7rZLTTWICY=";
+        rev = "b155efdf267f7bfe39e23add87ad324a69c99f70";
+        hash = "sha256-B6QSeeHCwixbeQXeGfaOBZ3mCQ4o3ulgkfqtq/l2P34=";
       };
       substitutions = [
         {

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_schedule";
-  version = "2.4.0-1";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_schedule";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_schedule-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "347404c0b38dcdcb8e0dec289a85341560d77bdf";
-        hash = "sha256-ZF0Jt3pX5RbjlWgJufsYS4sKto+XE38Dr6NGpijIVzg=";
+        rev = "3a4575f27c0f652db78f1aeea38b34703d501c42";
+        hash = "sha256-9ZWxHe0EVOwT5RrDz4yB4KzLTcLxowp6fTR7IBzUCk8=";
       };
     };
   });

@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_fleet_states";
-  version = "2.4.0-1";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_fleet_states";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rclcpp-components rmf-fleet-msgs rmf-visualization-msgs visualization-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_fleet_states-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "1eb0b4f1bcda34147b95ba805fff5abaa05a635b";
-        hash = "sha256-cRJbXpBi7w81AFyIbgfNZYmU5yfAG7GZla81mgGErVs=";
+        rev = "99fb7e8ab16f5d7d6d92b98484cb8d21c172aa4b";
+        hash = "sha256-SIQWlpUxUzCQHfRSeRYuKle/wAp/byM4j4RSL0B3494=";
       };
     };
   });

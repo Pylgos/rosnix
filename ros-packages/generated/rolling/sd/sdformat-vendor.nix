@@ -20,9 +20,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.2.2-1";
+  version = "0.2.3-2";
   src = finalAttrs.passthru.sources."sdformat_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = [ gz-math-vendor gz-tools-vendor gz-utils-vendor urdfdom ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pybind11-dev" "sdformat15" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libxml2-utils" "python3-psutil" "python3-pytest" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "ffa1d275d49a6b31058495b136301f6925e4e8c0";
-        hash = "sha256-xWSyBjF9TNsJ0LtKJ/r1H96EsjRb5snQ9AaZsWGyDpc=";
+        rev = "ec1930a54ba4353d717e50b4d8f0060331837ac4";
+        hash = "sha256-FGLS7UN/RIgpunqpUkVdtlH3KitcT8JBLNHEKvNP0VI=";
       };
       substitutions = [
         {
@@ -46,12 +46,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat-source";
         url = "https://github.com/gazebosim/sdformat.git";
-        rev = "e40c32f3d39554bdda361e0467219b4da48032f9";
-        hash = "sha256-59spzVnuKamIKFIItEx0K5+otuef1LVHp0U7u0UaA8o=";
+        rev = "cc524e7ebea952652aea3b03a95f13dc6416c563";
+        hash = "sha256-4/0pVaev++v0+wHQiGeTl8XtTDzh2li32dND0EjfjwA=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: sdformat15 15.1.0 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
+    description = "Vendor package for: sdformat15 15.1.1 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
   };
 })
