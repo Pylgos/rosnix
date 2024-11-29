@@ -718,7 +718,9 @@ in
     python3-pkg-resources = [ final.rosPythonPackages.setuptools ];
     python3-prettytable = [ final.rosPythonPackages.prettytable ];
     python3-progressbar = [ final.rosPythonPackages.progressbar ];
-    python3-protobuf = [ final.rosPythonPackages.protobuf ];
+    python3-protobuf = [
+      (final.rosPythonPackages.protobuf.override { protobuf = final.protobuf_21; })
+    ];
     python3-psutil = [ final.rosPythonPackages.psutil ];
     python3-pyaudio = [ final.rosPythonPackages.pyaudio ];
     python3-pyclipper = [ final.rosPythonPackages.pyclipper ];
