@@ -162,6 +162,27 @@ final: prev: {
           patches = patches ++ [ ./librealsense2-install-presets.patch ];
         }
       );
+      cartographer = rosPrev.cartographer.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          ...
+        }:
+        {
+          nativeBuildInputs = nativeBuildInputs ++ final.rosSystemPackages.protobuf-dev;
+          postPatch = ''
+            (
+              shopt -s globstar
+              for file in **/*.cc **/*.h; do
+                # See https://github.com/cartographer-project/cartographer/pull/1919
+                substituteInPlace "$file" \
+                  --replace-quiet ' LOCKS_EXCLUDED' ' ABSL_LOCKS_EXCLUDED' \
+                  --replace-quiet ' GUARDED_BY' ' ABSL_GUARDED_BY' \
+                  --replace-quiet ' EXCLUSIVE_LOCKS_REQUIRED' ' ABSL_EXCLUSIVE_LOCKS_REQUIRED'
+              done
+            )
+          '';
+        }
+      );
     })
   );
 }
