@@ -270,7 +270,7 @@ in
     konsole = [ final.plasma5Packages.konsole ];
     lcov = [ final.lcov ];
     leveldb = [ final.leveldb ];
-    libabsl-dev = [ final.abseil-cpp_202206 ];
+    libabsl-dev = [ final.abseil-cpp ];
     libasound2-dev = [ final.alsaLib ];
     libatomic = [ ];
     libavahi-client-dev = [ final.avahi ];
@@ -619,8 +619,8 @@ in
     powertop = [ final.powertop ];
     procps = [ final.procps ];
     proj = [ final.proj ];
-    protobuf = [ final.protobuf_21 ];
-    protobuf-dev = [ final.protobuf_21 ];
+    protobuf = [ final.protobuf ];
+    protobuf-dev = [ final.protobuf ];
     pstoedit = [ final.pstoedit ];
     psutils = [ final.psutils ];
     pugixml-dev = [ final.pugixml ];
@@ -719,7 +719,7 @@ in
     python3-prettytable = [ final.rosPythonPackages.prettytable ];
     python3-progressbar = [ final.rosPythonPackages.progressbar ];
     python3-protobuf = [
-      (final.rosPythonPackages.protobuf.override { protobuf = final.protobuf_21; })
+      final.rosPythonPackages.protobuf
     ];
     python3-psutil = [ final.rosPythonPackages.psutil ];
     python3-pyaudio = [ final.rosPythonPackages.pyaudio ];
