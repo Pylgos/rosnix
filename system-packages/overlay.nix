@@ -14,7 +14,7 @@ in
             python = rosPy;
             overrides = final.poetry2nix.overrides.withDefaults (
               final: prev: {
-                inherit (pyFinal) docutils flake8;
+                inherit (pyFinal) docutils flake8 pyyaml;
                 flake8-builtins = prev.flake8-builtins.overridePythonAttrs (oldAttras: {
                   nativeBuildInputs = oldAttras.nativeBuildInputs ++ [ final.hatchling ];
                 });
