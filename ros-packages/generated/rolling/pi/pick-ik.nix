@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pick_ik";
-  version = "1.1.0-3";
+  version = "1.1.1-1";
   src = finalAttrs.passthru.sources."pick_ik";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp rsl tf2-geometry-msgs tf2-kdl tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "range-v3" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pick_ik-source";
         url = "https://github.com/ros2-gbp/pick_ik-release.git";
-        rev = "0f84171a76bb1da5eb047dfef7bcaf7c27b87cdd";
-        hash = "sha256-TKEKv9lclKHQqUyAVLAw2f8hI+p0lV4m8xLdNCeqBYA=";
+        rev = "7d67049a406336c74fe490f95cc6c4d91d553efe";
+        hash = "sha256-WJWwusM53/5NugtjfDHdpf7abgE/4HS9EZ6pcb3fOMo=";
       };
       substitutions = [
         {

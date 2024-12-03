@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_msgs";
-  version = "0.21.5-3";
+  version = "0.21.9-1";
   src = finalAttrs.passthru.sources."rtabmap_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs std-srvs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtabmap_msgs-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "4d39aa5b5a1f290d1cb15cf5bcb5807d3d46afaf";
-        hash = "sha256-7rObv5E6b5U7ZbUP+lk1aN9ZgzKeUiOstReb9/Fsh1E=";
+        rev = "d2c0fe561a20b6210c6a29017836e35e06775500";
+        hash = "sha256-gCdMLBdGSTE21+qNzuk1dmQ/+okpC0R6UMuokPwOLM8=";
       };
     };
   });

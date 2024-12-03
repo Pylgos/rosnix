@@ -14,7 +14,7 @@
 }:
 buildCatkinPackage (finalAttrs: {
   pname = "axis_msgs";
-  version = "3.0.0-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."axis_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -25,8 +25,8 @@ buildCatkinPackage (finalAttrs: {
       src = fetchgit {
         name = "axis_msgs-source";
         url = "https://github.com/clearpath-gbp/axis_camera-release.git";
-        rev = "4ef9363e5a83d6d906972378bf4ec697974e28ed";
-        hash = "sha256-aMoX6UegwrmP8+VmQIU0D1U1ibnZ2oSWRdqz9ISSCZo=";
+        rev = "2e8bcb00b2e3f6063e8bf310eb9e433172d84489";
+        hash = "sha256-S4dmx+VBi+qBSgvqbsXPK8W7SOSC+50P2QYVlQEGFqE=";
       };
     };
   });

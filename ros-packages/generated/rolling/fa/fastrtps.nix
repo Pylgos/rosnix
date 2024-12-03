@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "fastrtps";
-  version = "2.14.3-1";
+  version = "2.14.4-1";
   src = finalAttrs.passthru.sources."fastrtps";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ fastcdr foonathan-memory-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" "libssl-dev" "python3" "tinyxml2" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fastrtps-source";
         url = "https://github.com/ros2-gbp/fastrtps-release.git";
-        rev = "9d6f48dc2ecfe0bc33d20f96717755d11826616f";
-        hash = "sha256-KSSHJqNx1mzl93n+QLasqWT2+NllPGG82pdzSM97uh4=";
+        rev = "b227ea7f1a99d4e9a34efc21262ef1524e47d9c6";
+        hash = "sha256-SFz+jKoVq4zpS1C9CJppWVP0PbtBQ5cryatqVjLSlM8=";
       };
     };
   });

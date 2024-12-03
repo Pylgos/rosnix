@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raspimouse_fake";
-  version = "3.0.0-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."raspimouse_fake";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-srvs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raspimouse_fake-source";
         url = "https://github.com/ros2-gbp/raspimouse_sim-release.git";
-        rev = "da9a9351649baeceac1f177bafe0859f8d7ac930";
-        hash = "sha256-U5a/d03zmyJ+AH9bj0JDuWnNAW0s52PeQlu4L2PBkB8=";
+        rev = "d45b0d5bd89a979b875b733f0f80286ab3772740";
+        hash = "sha256-mD7JiGVmSxrjLqHvnikSROtU+VUUr/7WpYrUwKSaKDg=";
       };
     };
   });

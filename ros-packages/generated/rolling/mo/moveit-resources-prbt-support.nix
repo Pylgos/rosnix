@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_prbt_support";
-  version = "2.11.0-1";
+  version = "2.12.0-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_support";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ xacro ];
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_resources_prbt_support-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "4c5940fc78925590b1a0553b326cf3752f87bf05";
-        hash = "sha256-l87aYdIm16svC+suFDhJflcsGdzK1xcnn4Ra+k2nUzI=";
+        rev = "c6490ecb925d60835c0fe0db61d26728ed40d657";
+        hash = "sha256-fVxjIDpW1KOHhCdfHRGfPWXqu30SBU4NlJhkL5T212o=";
       };
     };
   });

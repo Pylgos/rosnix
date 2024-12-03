@@ -42,7 +42,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_trajectory_cache-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "63e451c56ad464aba124ef5cba0ea5bff4a94c00";
+        rev = "2bb28d9e02007d24ce3d9a9c34ff1a026e7c2fb6";
         hash = "sha256-H4dNfsyJRZkioxEqlVvVXfDGBqUPl/uITl9ClLwgamU=";
       };
     };

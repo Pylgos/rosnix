@@ -25,19 +25,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "geometric_shapes";
-  version = "2.2.1-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."geometric_shapes";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ console-bridge-vendor eigen-stl-containers geometry-msgs random-numbers rclcpp resource-retriever rosidl-default-runtime shape-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "assimp-dev" "eigen" "libboost-dev" "libboost-filesystem" "libboost-filesystem-dev" "liboctomap-dev" "libqhull" ]; };
+  propagatedBuildInputs = [ console-bridge-vendor eigen-stl-containers geometry-msgs random-numbers rclcpp resource-retriever rosidl-default-runtime shape-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "assimp-dev" "eigen" "libboost-dev" "libboost-filesystem" "libboost-filesystem-dev" "libfcl" "libfcl-dev" "liboctomap-dev" "libqhull" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-gtest ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "geometric_shapes" = substituteSource {
       src = fetchgit {
         name = "geometric_shapes-source";
         url = "https://github.com/ros2-gbp/geometric_shapes-release.git";
-        rev = "64d51b830c30086c0e79af229e2394fbb13fbb8b";
-        hash = "sha256-o2Eck5v0SgZlsbOmbpf5qikEjkjDqv/wJ2kTdTiq2RQ=";
+        rev = "8f704c59219c71d32a8418964cd6352968a77ec9";
+        hash = "sha256-sWp/xMHCWmli9MEzDRe6UUdiMlBopPpdr7EcMBD8ZYM=";
       };
     };
   });

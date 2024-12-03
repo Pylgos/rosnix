@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_visual_tools";
-  version = "4.1.0-3";
+  version = "4.1.1-1";
   src = finalAttrs.passthru.sources."moveit_visual_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ geometry-msgs graph-msgs moveit-common moveit-core moveit-ros-planning rclcpp rviz-visual-tools std-msgs tf2-eigen tf2-ros trajectory-msgs visualization-msgs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_visual_tools-source";
         url = "https://github.com/ros2-gbp/moveit_visual_tools-release.git";
-        rev = "15653a26d06fb4725cdd4ec2626caa895586e876";
-        hash = "sha256-OsgJs0kV7m3GzRlDL1x8i5hG03piwA+9f+Mbpx+dOmw=";
+        rev = "92109a340333f0f683a9d288100a4281fa14c958";
+        hash = "sha256-Wt4dV+I7vmFHZ3rqHaflsS8+NoLUhyL0NNUX1/ZAAW0=";
       };
     };
   });

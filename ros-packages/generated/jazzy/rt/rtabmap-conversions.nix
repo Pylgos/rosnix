@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_conversions";
-  version = "0.21.5-3";
+  version = "0.21.9-1";
   src = finalAttrs.passthru.sources."rtabmap_conversions";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtabmap_conversions-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "1c80b042346259ac95789f3c2ab2fa03ee3e1df9";
-        hash = "sha256-dEGeaZyM+ar3xkk16/dwV+D6Ms6mJyf8IFNTI1wDkMY=";
+        rev = "9a11c4d1b233e1373da1bbb51dbe74bfa19708f9";
+        hash = "sha256-Y6VNn6+Gj6M39PsmYhvkeORZpewdCirondIeyugIelw=";
       };
     };
   });

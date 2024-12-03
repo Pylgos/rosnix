@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raspimouse_gazebo";
-  version = "3.0.0-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."raspimouse_gazebo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ controller-manager diff-drive-controller joint-state-broadcaster raspimouse-description raspimouse-fake robot-state-publisher ros-gz ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raspimouse_gazebo-source";
         url = "https://github.com/ros2-gbp/raspimouse_sim-release.git";
-        rev = "7e3576d146ebef2e99f0604757f29988e90a8b80";
-        hash = "sha256-00+xpqUcbvV0fCz6nNFJ1pUCtvCnLhhQhE0oD2bCmHM=";
+        rev = "b182887c4b3380ff818f209bc78b8168197f475a";
+        hash = "sha256-AZEqsn/tMLFykPK2Sw/WPPQXVsOHb9ygnmUQdpCOAjs=";
       };
     };
   });

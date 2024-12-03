@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rtabmap_python";
-  version = "0.21.5-3";
+  version = "0.21.9-1";
   src = finalAttrs.passthru.sources."rtabmap_python";
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rtabmap_python-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "de46ffbf511fc67a7d4ed7d3138f3b371ad6ca33";
-        hash = "sha256-BAkiOWJxqmytuyxSALt33GudRjNjfpI3j3J7DPMDkGA=";
+        rev = "bf42a9777e56f09e02c61d502ff6f32c7df81b6c";
+        hash = "sha256-R2rZm2P7IupNEp7FhHBLae2FYVMw4kXZQb5JagpxKKg=";
       };
     };
   });

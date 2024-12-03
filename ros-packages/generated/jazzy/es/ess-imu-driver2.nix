@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ess_imu_driver2";
-  version = "2.0.2-1";
+  version = "2.0.3-1";
   src = finalAttrs.passthru.sources."ess_imu_driver2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp sensor-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ess_imu_driver2-source";
         url = "https://github.com/ros2-gbp/ess_imu_driver2-release.git";
-        rev = "cd96c7f842ff20d14bb3896e6efec7b58106d6ca";
-        hash = "sha256-EM4RYOYKegmjBi7Mh3OJERJwDyDgSXXuUP19v6tuaaQ=";
+        rev = "5cae0d71330689da0a42025737bb24fb5b94bd02";
+        hash = "sha256-sl95nraOLRrr+xOM42NPP/JCS8bEFgJyvZeOtL+cW7Y=";
       };
     };
   });

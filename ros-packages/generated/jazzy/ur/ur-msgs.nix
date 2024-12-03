@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_msgs";
-  version = "2.0.1-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."ur_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_msgs-source";
         url = "https://github.com/ros2-gbp/ur_msgs-release.git";
-        rev = "1a4ce636466d9e55cac0776d327b11da912cd629";
-        hash = "sha256-APoTEfEsmzNBQr7HiUBJcSoQLDL+nXRwY5l+meYTlwk=";
+        rev = "6c33edf5ca53b16fb67dbb62dbf0d78bd40478f3";
+        hash = "sha256-7cH9WwTKM++V1UGgmtuDaaf1LnoFpGzdy353ywB4I14=";
       };
     };
   });
