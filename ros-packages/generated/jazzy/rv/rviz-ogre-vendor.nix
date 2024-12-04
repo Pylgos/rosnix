@@ -86,11 +86,6 @@ buildAmentCmakePackage (finalAttrs: {
           to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/pugixml-1"}";
         }
         {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD \n            http://zlib.net/zlib-1.2.11.tar.gz";
-          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/zlib-1"}";
-        }
-        {
           path = "Components/Overlay/CMakeLists.txt";
           from = "DOWNLOAD\n        https://github.com/ocornut/imgui/archive/v1.79.tar.gz";
           to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/v1"}";
@@ -137,13 +132,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "v5-source";
         url = "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz";
         hash = "sha256-ETEOwfKtLNRrlbqI+sqPeqoe/pqhJgXFXj3iuXez2/w=";
-      };
-    };
-    "rviz_ogre_vendor/ogre/zlib-1" = substituteSource {
-      src = fetchurl {
-        name = "zlib-1-source";
-        url = "http://zlib.net/zlib-1.2.11.tar.gz";
-        hash = "sha256-nX3sdLJNncxFphvXbACREuv69jEQyfPESrFGFpdpS2I=";
       };
     };
     "rviz_ogre_vendor/zlib" = substituteSource {
