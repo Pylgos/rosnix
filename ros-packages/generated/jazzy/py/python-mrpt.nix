@@ -18,7 +18,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "python_mrpt";
-  version = "2.14.5-1";
+  version = "2.14.6-1";
   src = finalAttrs.passthru.sources."python_mrpt";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -28,8 +28,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "python_mrpt-source";
         url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
-        rev = "f816af8cf127c85df80a9d4929a4f1be245c4bd0";
-        hash = "sha256-MAyZcTRIiVgQSP4xVmQ9Dvg7eKhss2B3Hl1vucCCe9k=";
+        rev = "b21ff6d11c3dbdf55c32b08eb96caa66d71dd618";
+        hash = "sha256-tm97t+6c3tudXZ1nXT7hoeZ2/TPVsrUiMPrKO/onvf8=";
       };
       substitutions = [
         {

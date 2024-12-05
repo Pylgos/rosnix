@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_msgs";
-  version = "2.0.14-1";
+  version = "2.0.15-1";
   src = finalAttrs.passthru.sources."plansys2_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "12c2125fc82c42759a92f611f52ab90f34b1b58c";
-        hash = "sha256-3G7wV4V4YYUnGr/mM4TeGZw89vd0ZYsihnX6uDYbJe8=";
+        rev = "118c051e0e59683551d6afc5e1a4b2206694033d";
+        hash = "sha256-kQ9eFV/P0AWmmKBYeeahl/UJlZzNWNjrG3MJwMxpMmU=";
       };
     };
   });

@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_bt_actions";
-  version = "2.0.14-1";
+  version = "2.0.15-1";
   src = finalAttrs.passthru.sources."plansys2_bt_actions";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ action-msgs behaviortree-cpp plansys2-executor rclcpp rclcpp-action rclcpp-lifecycle ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_bt_actions-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "286e4f253693ba15eeb3aa97aaa691bdc86ccb0e";
-        hash = "sha256-7ifNQ2gxGtePO8kJ5AVkoKyZoqIgtfMpL9nYHMwc+Dc=";
+        rev = "8fc150522231ff9357bf13fb0dfb444ebc3c2613";
+        hash = "sha256-t82nBn12y870fss0YSzgO8VPABId8rKndq6N+pROA/Q=";
       };
     };
   });

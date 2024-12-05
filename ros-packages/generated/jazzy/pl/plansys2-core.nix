@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_core";
-  version = "2.0.14-1";
+  version = "2.0.15-1";
   src = finalAttrs.passthru.sources."plansys2_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ plansys2-msgs plansys2-pddl-parser pluginlib rclcpp rclcpp-lifecycle ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_core-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "cd4a197e608b3b5bae9833ac8125d306a3461d44";
-        hash = "sha256-fT33KY8/1WIlwJcQfu1ABWhvLEUs/ze7R8OGuiACnGQ=";
+        rev = "21e5a0e92ad420d694831a41d802ff89ee6b1fc1";
+        hash = "sha256-GIMnUjc7ICCRw9AwKjFiox3rVynUkP/VMzBlx7Dcptw=";
       };
     };
   });

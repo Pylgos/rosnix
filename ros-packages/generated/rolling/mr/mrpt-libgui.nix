@@ -15,7 +15,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libgui";
-  version = "2.14.5-1";
+  version = "2.14.6-1";
   src = finalAttrs.passthru.sources."mrpt_libgui";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -25,8 +25,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libgui-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "e616d325d23a26a6c0892e4d01fb6776685bbd76";
-        hash = "sha256-SSKGczxtcwjz6uMBPpcSdxfzm98UhzmI36g+HlQKbUo=";
+        rev = "3ed683de5f3310b297f6d9d8316715cf1193c921";
+        hash = "sha256-PsaXpvB3XeK4gP2Pt5ArzfFmnCiU28TMVJJ5Nm+4FyA=";
       };
     };
   });
