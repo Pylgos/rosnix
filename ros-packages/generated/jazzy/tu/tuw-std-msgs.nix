@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
     "tuw_std_msgs" = substituteSource {
       src = fetchgit {
         name = "tuw_std_msgs-source";
-        url = "https://github.com/tuw-robotics/tuw_msgs-release.git";
-        rev = "9cbf4b24aff36417baf18b9571eae33670f56858";
+        url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
+        rev = "368345fd8e93cc486f7598efb87b2add63b9135f";
         hash = "sha256-GFuWPljwfE/jEfBaFCmvOhZ9J4RtJas+R0QBEtFDFPs=";
       };
     };

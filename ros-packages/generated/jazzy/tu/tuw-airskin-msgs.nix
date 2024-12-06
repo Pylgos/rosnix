@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
     "tuw_airskin_msgs" = substituteSource {
       src = fetchgit {
         name = "tuw_airskin_msgs-source";
-        url = "https://github.com/tuw-robotics/tuw_msgs-release.git";
-        rev = "5f562c12992366ed6c2a1add5377af740f4af41a";
+        url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
+        rev = "9430170112e71add7adaf9d5c1389cd1cde22ef3";
         hash = "sha256-8h8CzlxjNc6EPRTqKhLkhvfJUJG6C7OuNbYwuxTJsh4=";
       };
     };

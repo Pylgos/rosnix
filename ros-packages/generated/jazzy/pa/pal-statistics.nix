@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pal_statistics";
-  version = "2.5.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."pal_statistics";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
   propagatedBuildInputs = [ pal-statistics-msgs rclcpp rclcpp-lifecycle rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pal_statistics-source";
         url = "https://github.com/ros2-gbp/pal_statistics-release.git";
-        rev = "8ea4918d00a81ea8f404c62402da08dad72c3a4d";
-        hash = "sha256-55rOGyNixcZl1kIvymE7HsfhbcLK+3VjZ6VJOy4ZdiE=";
+        rev = "a5e4e4f104678492e2b4be75ec18825e2646774c";
+        hash = "sha256-dss/TsIfZtDVO3vHgSr5eXjgFeZt6zOyPolwln/M+7w=";
       };
     };
   });

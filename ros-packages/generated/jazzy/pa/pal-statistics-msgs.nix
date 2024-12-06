@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pal_statistics_msgs";
-  version = "2.5.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."pal_statistics_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pal_statistics_msgs-source";
         url = "https://github.com/ros2-gbp/pal_statistics-release.git";
-        rev = "a766462b9dc9a379482a840a0449df3d5eddf899";
-        hash = "sha256-X0WdtFtEDw9BHB7bbH7qV3N7dNVNJ+Ge6IyhxVeNpBY=";
+        rev = "3701501e1001ae2872f9d48e066252df12e0c851";
+        hash = "sha256-l/i+Y2x2ILtdvLhgAusav9oam/nCrQFRq5ZYprP4lIo=";
       };
     };
   });

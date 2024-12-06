@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marker_msgs-source";
         url = "https://github.com/ros2-gbp/marker_msgs-release.git";
-        rev = "48c49ae7228184a68313fcc90131fb2a473086e5";
+        rev = "8aa78dca85331364821f5ec14785e59de90e99c5";
         hash = "sha256-TJ+mJSLub3gPCgw1hkWHwCQISpkllJxEB3y/zH9Syqs=";
       };
     };

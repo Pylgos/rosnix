@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geographic-msgs,
   geometry-msgs,
   mkSourceSet,
   rosSystemPackages,
@@ -16,23 +17,23 @@
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "tuw_multi_robot_msgs";
-  version = "0.2.2-1";
-  src = finalAttrs.passthru.sources."tuw_multi_robot_msgs";
+  pname = "tuw_geo_msgs";
+  version = "0.2.2-2";
+  src = finalAttrs.passthru.sources."tuw_geo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
-    "tuw_multi_robot_msgs" = substituteSource {
+    "tuw_geo_msgs" = substituteSource {
       src = fetchgit {
-        name = "tuw_multi_robot_msgs-source";
+        name = "tuw_geo_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "36a7f10041fcf511e2cb99e1e759df364c73e4cc";
-        hash = "sha256-Xxr5KmCuHxPlzrnLZgWWUkXUoBA0h5cEYjP70idx0d0=";
+        rev = "e72f70afbfa663d34f915074165c58df600138f9";
+        hash = "sha256-XISamLBdcchShE1A+9bhQ1HfDx2xQjyo3Me+6uqFFrA=";
       };
     };
   });
   meta = {
-    description = "The tuw_multi_robot_msgs package contains messages for sending graph, route and sync data over topics.";
+    description = "The tuw_geo_msgs package";
   };
 })

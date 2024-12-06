@@ -16,23 +16,23 @@
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "tuw_multi_robot_msgs";
-  version = "0.2.2-1";
-  src = finalAttrs.passthru.sources."tuw_multi_robot_msgs";
+  pname = "tuw_graph_msgs";
+  version = "0.2.2-2";
+  src = finalAttrs.passthru.sources."tuw_graph_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
-    "tuw_multi_robot_msgs" = substituteSource {
+    "tuw_graph_msgs" = substituteSource {
       src = fetchgit {
-        name = "tuw_multi_robot_msgs-source";
+        name = "tuw_graph_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "36a7f10041fcf511e2cb99e1e759df364c73e4cc";
-        hash = "sha256-Xxr5KmCuHxPlzrnLZgWWUkXUoBA0h5cEYjP70idx0d0=";
+        rev = "4335f79950888c856fa2598dada5d9814a18cc0e";
+        hash = "sha256-15VogEmCwzKMtwXxzYmItO8da+gqJMPYfkL1dqKl20U=";
       };
     };
   });
   meta = {
-    description = "The tuw_multi_robot_msgs package contains messages for sending graph, route and sync data over topics.";
+    description = "The tuw_graph_msgs package contains messages for sending graphs.";
   };
 })
