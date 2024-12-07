@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "geometric_shapes";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."geometric_shapes";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "geometric_shapes-source";
         url = "https://github.com/ros2-gbp/geometric_shapes-release.git";
-        rev = "ab42cb8c2e30b9e4da15ea2aac4d0de1f7dbb933";
-        hash = "sha256-sWp/xMHCWmli9MEzDRe6UUdiMlBopPpdr7EcMBD8ZYM=";
+        rev = "26e643fe6798431f1db399247a1ea2f372f9eb30";
+        hash = "sha256-K1WbFJ4sP5R3SYigngUoxH8XVYcJsD7gsudxShgnWaU=";
       };
     };
   });

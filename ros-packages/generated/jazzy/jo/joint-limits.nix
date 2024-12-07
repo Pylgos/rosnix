@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_limits";
-  version = "4.20.0-1";
+  version = "4.21.0-1";
   src = finalAttrs.passthru.sources."joint_limits";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools trajectory-msgs urdf ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "joint_limits-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "00a9f9a9d37c1e056f2ea563b9406b09196b7687";
-        hash = "sha256-QmfBxkBRuRylXDMJ9Kf2dchnnHpSGzV6/zBHLcminAY=";
+        rev = "0a6aa4607bac87964396f01a38d6576edfdadd4b";
+        hash = "sha256-D8Jki75NDwBSvf3IJellyZ15rnlo0UiMkMcIeX/uqK8=";
       };
     };
   });
