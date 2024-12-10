@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "game_controller_spl";
-  version = "4.0.1-1";
+  version = "5.0.0-2";
   src = finalAttrs.passthru.sources."game_controller_spl";
   propagatedBuildInputs = [ game-controller-spl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "game_controller_spl-source";
         url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
-        rev = "0df9a750b7eb24371f5f828dd89cf6472e5bfc7f";
-        hash = "sha256-FvjsH3PKrQtxsZS4hXMelGbnTjvs6W2JjiYn6WevoWA=";
+        rev = "b6c2fb3c8281f4c9198143f76fa09ca7bc6d16db";
+        hash = "sha256-RPU0suzS2uUV5FPh8HLJ4g/GiyJDnWUIVL9NmJ+7U1U=";
       };
     };
   });

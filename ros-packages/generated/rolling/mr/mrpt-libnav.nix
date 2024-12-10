@@ -15,7 +15,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libnav";
-  version = "2.14.6-1";
+  version = "2.14.7-1";
   src = finalAttrs.passthru.sources."mrpt_libnav";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -25,8 +25,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libnav-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "87edd25374c00b8f537de2a3a2ce65dbede1491d";
-        hash = "sha256-DiA8kRuUP3mCfOxI8Oao+BGWSvb8Vz9vohTW8428P2Q=";
+        rev = "72ff240ac4fa88125df5b286953ba7936491545d";
+        hash = "sha256-Ir662QnohAR8kVVXsyubnJwMP/JA09zzMzt+7WAMt1Y=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libbase";
-  version = "2.14.6-1";
+  version = "2.14.7-1";
   src = finalAttrs.passthru.sources."mrpt_libbase";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libbase-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "52d06b40b6867d41eec35d7c5531ed5e091ba4f2";
-        hash = "sha256-C6oFUqS//xs6/md9hdBDg6IgDoe7QaSZTu2bQnI/o+g=";
+        rev = "29d0414da154dac95e7db8912f1f65ccdb79d652";
+        hash = "sha256-OUzqXGNhG33CR22gTZRO67d9vma2zSz/2YvWu7Aeijs=";
       };
     };
   });

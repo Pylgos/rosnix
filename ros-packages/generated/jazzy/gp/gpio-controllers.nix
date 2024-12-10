@@ -1,10 +1,8 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  backward-ros,
   buildAmentCmakePackage,
   control-msgs,
-  control-toolbox,
   controller-interface,
   controller-manager,
   fetchgit,
@@ -16,30 +14,30 @@
   mkSourceSet,
   pluginlib,
   rclcpp,
-  rclcpp-action,
+  rclcpp-lifecycle,
   realtime-tools,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "gripper_controllers";
+  pname = "gpio_controllers";
   version = "4.17.0-1";
-  src = finalAttrs.passthru.sources."gripper_controllers";
+  src = finalAttrs.passthru.sources."gpio_controllers";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action realtime-tools ];
+  propagatedBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
-    "gripper_controllers" = substituteSource {
+    "gpio_controllers" = substituteSource {
       src = fetchgit {
-        name = "gripper_controllers-source";
+        name = "gpio_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "f7f32d33e710bc33108088f4fa44fc42c0f1a9c9";
-        hash = "sha256-QPHRoKIdYkPYMSZImBTIaaySk3sBluw3vJadFR0DRsg=";
+        rev = "106ab3903a75eab4c6f7dc0c76261adefebc586a";
+        hash = "sha256-uRTiFurdxumS2rrMK5YcmqgMYRUsLy7AZPyvmurRzXg=";
       };
     };
   });
   meta = {
-    description = "The gripper_controllers package";
+    description = "Controllers to interact with gpios.";
   };
 })

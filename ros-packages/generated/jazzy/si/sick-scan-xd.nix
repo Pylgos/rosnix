@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_scan_xd";
-  version = "3.5.0-1";
+  version = "3.6.0-1";
   src = finalAttrs.passthru.sources."sick_scan_xd";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sick_scan_xd-source";
         url = "https://github.com/ros2-gbp/sick_scan_xd-release.git";
-        rev = "57b8181c28f123fc94e5d534130a66a291638dd1";
-        hash = "sha256-OpGqhZHuRFU+3mBBBUkZLbQQntgFz5VerY96kBS4O7U=";
+        rev = "9290df801c548da006c3540783b1b06b4804140b";
+        hash = "sha256-D4FtnQ6Mrapxk5u+2qI9oUBjQIUomc6DmPWQSOsL6Ts=";
       };
     };
   });

@@ -21,7 +21,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libros_bridge";
-  version = "2.14.6-1";
+  version = "2.14.7-1";
   src = finalAttrs.passthru.sources."mrpt_libros_bridge";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -31,8 +31,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "6d4fd0543e4e229052c2aad8218074df5e033821";
-        hash = "sha256-dfnooH0816dEssD04uge8dpuXqILv9/RcoGlQwKXUUk=";
+        rev = "70bc4827399994939f57bc8cdd2a794d9502de6f";
+        hash = "sha256-nAg+CYQH0HMFQUQHH5sK2wn/eSCmVDHGPWgYrXV5LYg=";
       };
     };
   });
