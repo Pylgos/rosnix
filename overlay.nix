@@ -12,7 +12,7 @@ let
         distro = "jazzy";
         rosPython =
           {
-            jazzy = final.python312; # python3.12 breaks sip4 and pyside2
+            jazzy = final.python312;
             rolling = final.python312;
           }
           .${finalConfig.distro};
