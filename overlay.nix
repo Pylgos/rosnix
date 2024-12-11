@@ -12,8 +12,8 @@ let
         distro = "jazzy";
         rosPython =
           {
-            jazzy = final.python311; # python3.12 breaks sip4 and pyside2
-            rolling = final.python311;
+            jazzy = final.python312; # python3.12 breaks sip4 and pyside2
+            rolling = final.python312;
           }
           .${finalConfig.distro};
         defaultRmwImplementation = [ final.rosPackages.rmw-fastrtps-cpp ];
