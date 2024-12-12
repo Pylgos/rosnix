@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_navstate_fuse";
-  version = "1.2.1-1";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."mola_navstate_fuse";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mola-imu-preintegration mola-kernel mrpt-libobs ];
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_navstate_fuse-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "8664787fcb06ef8b580d98c69a887ff79dedfd54";
-        hash = "sha256-lyrgWAPN2YfsheC8eQTh4eHYQCQtxkdEIiGXhgnxaBk=";
+        rev = "9472874ee19df66a7b541a33141dda97903f91f6";
+        hash = "sha256-oU4FE6p/0+FLaTqcaPp9pznxL8N22ra2LGbPbx+R4dU=";
       };
     };
   });

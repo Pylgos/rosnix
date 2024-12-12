@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_bridge_ros2";
-  version = "1.2.1-1";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "036c062bd5b602f238bd47670fd4f693f323ba78";
-        hash = "sha256-fgD1bPviykqltyhv/xq87yRlBiOTV02fhKB0O0f6E1s=";
+        rev = "97dbd0dda0448f1248cf9f37e7f32b877b2f8be8";
+        hash = "sha256-T3HYWar1/2101xc6sSjhVKGG0dTgcMnduSpgi03xsHs=";
       };
     };
   });

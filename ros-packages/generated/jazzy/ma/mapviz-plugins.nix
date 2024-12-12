@@ -35,7 +35,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz_plugins";
-  version = "2.4.3-1";
+  version = "2.4.4-1";
   src = finalAttrs.passthru.sources."mapviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -46,8 +46,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mapviz_plugins-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "3297a8fc347a2f33c9dd5e250b472244f0c946d1";
-        hash = "sha256-NSStccAh0YxU7PjWnggfTIoejGS9SpbMcDMmryOXaa0=";
+        rev = "bdac45483f5c91f332d0ecb4f708cbc8e4977ba5";
+        hash = "sha256-SAuGZpsDaLeSuO1qylpmpEqnNGBQ+fWw1PTq+nrJCFo=";
       };
     };
   });
