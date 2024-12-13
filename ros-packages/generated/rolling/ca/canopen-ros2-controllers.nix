@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_ros2_controllers";
-  version = "0.2.12-2";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_ros2_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ canopen-402-driver canopen-interfaces canopen-proxy-driver controller-interface controller-manager hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools std-msgs std-srvs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "canopen_ros2_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "6d54a85e5ba27d48ce477bfed1f7ea3e8d562c71";
-        hash = "sha256-5O9E0FDjrfSvUzW0vP+MnP8FH9dnDmUiiCmJL+7nJ78=";
+        rev = "868a224d319b6cc663308ccfbe6d7515eb7d41cc";
+        hash = "sha256-N6K+Y5Zseu5kt3amsc7nR/a8+di+Ck5nucRfsqEbh2w=";
       };
     };
   });

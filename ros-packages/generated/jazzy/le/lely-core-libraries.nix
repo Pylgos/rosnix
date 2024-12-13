@@ -10,18 +10,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lely_core_libraries";
-  version = "0.2.9-2";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."lely_core_libraries";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-empy" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-empy" "python3-yaml" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "autoconf" "automake" "libtool" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lely_core_libraries" = substituteSource {
       src = fetchgit {
         name = "lely_core_libraries-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "a2c52c6ab8e6405d6c61adb8ba3633c923bd4dd5";
-        hash = "sha256-XbLd6G2IQP4m5Fdi/04Xg1Og2BUFtPxMfonMm+uCI9g=";
+        rev = "2049236b38c980fe697e024b385254a72e048ce0";
+        hash = "sha256-Q42ibxR4A7Cfh3vVjmCUwKG7a5p6Vv9qQ51FGXs+Edc=";
       };
       substitutions = [
         {

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_aravis2";
-  version = "1.0.0-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."camera_aravis2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ camera-aravis2-msgs camera-info-manager cv-bridge diagnostic-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "aravis-dev" "libglib-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "camera_aravis2-source";
         url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
-        rev = "5f3e3d8ced22c864b03026f8804b1a5b45aa0648";
-        hash = "sha256-5Ah7DOmJ1tb7bQ9XttTlDnsH6igmEM8S5i3sZm4pWZc=";
+        rev = "a9f7b9061720fe42ecf3042faffc946fbd5fc1d7";
+        hash = "sha256-CSVTrWdleQCVzub57XrwvApge62wmzZ9cP5W57mQCn0=";
       };
     };
   });

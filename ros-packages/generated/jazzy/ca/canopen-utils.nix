@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "canopen_utils";
-  version = "0.2.9-2";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_utils";
   propagatedBuildInputs = [ canopen-interfaces lifecycle-msgs rclpy std-msgs ];
   checkInputs = [ ament-lint-auto ];
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "canopen_utils-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "181beef157c2ca0a620517759160ed38a96b752b";
-        hash = "sha256-6Wm4mQlXmkNgHkDqu2NDjeeA/4QXqqxc0vWdyftHwgc=";
+        rev = "cce17436a954a6cc4f75083dd1e6e71265fcabf8";
+        hash = "sha256-xjmDkjh2uqqyH/WIa718fRx3mXj/VETeYKrUYEZc1SE=";
       };
     };
   });
