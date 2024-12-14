@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_loopback_sim";
-  version = "1.3.3-1";
+  version = "1.3.4-1";
   src = finalAttrs.passthru.sources."nav2_loopback_sim";
   propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy tf2-ros tf-transformations ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_loopback_sim-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "94031f83845c7a6d0a0465911b99c1e2bb3fa98d";
-        hash = "sha256-ucVzh31JNG7H+sLXPqCeigSNwu2tKsgvkoKqMbITOf8=";
+        rev = "21b7de2b123b01df71cc4de1921cf41fe03dca6d";
+        hash = "sha256-7SAwdI3jihlfCK5f+Zou/BbX3HbATuftYJMx4323pOM=";
       };
     };
   });

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_math_vendor";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."gz_math_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_math_vendor-source";
         url = "https://github.com/ros2-gbp/gz_math_vendor-release.git";
-        rev = "051e18a710588ee756fda6acfbc5b690d90d3014";
-        hash = "sha256-Ya+gIgPf9lYhmhMJsB3tDhGIS7nB2Q1qGEMKjWISLJc=";
+        rev = "563dfba4a7cad06bc8214b2a30b5d844cae9eaeb";
+        hash = "sha256-Wj1uVdEdzK6Nj/Gtrn/EJv8UcRae+9BQWfzGy4Lzz30=";
       };
       substitutions = [
         {
@@ -43,12 +43,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-math-source";
         url = "https://github.com/gazebosim/gz-math.git";
-        rev = "eeb17eae96b027af9497b099f706abf0637f96ec";
-        hash = "sha256-3+846hhsaBaiFLIURlXQx6Z1+VYfp9UZgjdl96JvrRw=";
+        rev = "2179284cb6fe77f42001c4797e060c034d8e92dc";
+        hash = "sha256-3jQk98HJ0ru2Q4fTqoiaPRaIHaWQKQlnqj+gN2PLxkE=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-math8 8.0.0 Gazebo Math : Math classes and functions for robot applications";
+    description = "Vendor package for: gz-math8 8.1.0 Gazebo Math : Math classes and functions for robot applications";
   };
 })

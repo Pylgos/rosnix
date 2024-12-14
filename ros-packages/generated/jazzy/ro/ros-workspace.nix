@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ros_workspace";
-  version = "1.0.3-6";
+  version = "1.0.3-7";
   src = finalAttrs.passthru.sources."ros_workspace";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ament-package ];
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_workspace-source";
         url = "https://github.com/ros2-gbp/ros_workspace-release.git";
-        rev = "7bf5b2dda99e80015f603d80529cf7852471bc39";
+        rev = "0a743e57ed7f163f48cff4f0574739393957ad61";
         hash = "sha256-+tYPQJjQzjD0UJKtZroIo9VzvGZ6Up1hzFfYxxQKiy0=";
       };
     };
