@@ -8,6 +8,7 @@
   ament-cmake-pep257,
   ament-cmake-pyflakes,
   ament-cmake-xmllint,
+  ament-index-python,
   ament-lint-auto,
   buildAmentCmakePackage,
   camera-info-manager,
@@ -27,18 +28,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_ros";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."camera_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ camera-info-manager cv-bridge image-view libcamera rclcpp rclcpp-components ros2launch sensor-msgs ];
+  propagatedBuildInputs = [ ament-index-python camera-info-manager cv-bridge image-view libcamera rclcpp rclcpp-components ros2launch sensor-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-mypy ament-cmake-pep257 ament-cmake-pyflakes ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "camera_ros" = substituteSource {
       src = fetchgit {
         name = "camera_ros-source";
         url = "https://github.com/ros2-gbp/camera_ros-release.git";
-        rev = "9501311bac815030c27295d1a0acb7154f02fa97";
-        hash = "sha256-FkkwnZAh+7ZduSkXEKwyvRcJKZJEiWw2niMZr9jqnuY=";
+        rev = "2d0d3a0d7929cd926f478acabe8d1d358fe7c048";
+        hash = "sha256-Tn6Iqfyo846H93uhxaBGsNl+2Ql7GRW1R7yLLjq03Aw=";
       };
     };
   });
