@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dataspeed_can_usb";
-  version = "2.0.4-1";
+  version = "2.0.5-1";
   src = finalAttrs.passthru.sources."dataspeed_can_usb";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ can-msgs lusb rclcpp rclcpp-components std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dataspeed_can_usb-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
-        rev = "fd9e730828c76794727d487dcbdf04df6bb1c976";
-        hash = "sha256-MEqRh40rqPPZKh38w3FJEACnlHS8d8pk63+Mp5sdWkM=";
+        rev = "1d4d74fe03c3cd1ec29a88523f8192189b3abd16";
+        hash = "sha256-pfh1FRdxr8yDFLiPmPumfdc1jpsL09jAG0FX6hIBwiM=";
       };
     };
   });

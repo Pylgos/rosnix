@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_airskin_msgs";
-  version = "0.2.3-1";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."tuw_airskin_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_airskin_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "59b0ea49328c381a8840e26af8c7c4a5174a0b6c";
-        hash = "sha256-6zd43yJSOEBWkh8iezwkqgU/T750bGYhwYVQEhC1tUo=";
+        rev = "4848d568bcbc2dea58f9331ffbea76d45344dece";
+        hash = "sha256-c31NwBi8kLOOcnJ5Fu04kHTdwT8knfqp3TBkbfQiBJU=";
       };
     };
   });
