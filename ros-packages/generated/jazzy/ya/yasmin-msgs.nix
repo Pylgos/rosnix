@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin_msgs";
-  version = "3.0.2-1";
+  version = "3.0.3-1";
   src = finalAttrs.passthru.sources."yasmin_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin_msgs-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "81ec28664c1fdeac4cac73a56c89b59f9042f809";
-        hash = "sha256-4AVE3JB2YnMtE2noet/xYUCch4rQ2XPmvHGN/6NG7rw=";
+        rev = "f84e31ef1304312665661854407091b59749fc06";
+        hash = "sha256-rGAsOs341Wr0lzM+HaKOxfh5fHbwI0E14LtlKHemAF4=";
       };
     };
   });
