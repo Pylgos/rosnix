@@ -9,7 +9,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "osrf_pycommon";
-  version = "2.1.4-3";
+  version = "2.1.5-1";
   src = finalAttrs.passthru.sources."osrf_pycommon";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "osrf_pycommon-source";
         url = "https://github.com/ros2-gbp/osrf_pycommon-release.git";
-        rev = "77786223feb1aa12ee889310a09c68c575612f29";
-        hash = "sha256-r7SjLNdaRpcA2w4gbir3vE/3B7hy6aHv2HUw8wJi8OI=";
+        rev = "688bb8a4780314188dccc6d319cf57440d4b8409";
+        hash = "sha256-sCC4cTeXVzhU2x3GSvTgNEBpndaYG0H5n7TV2MyKARc=";
       };
     };
   });

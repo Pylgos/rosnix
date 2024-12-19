@@ -39,7 +39,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp";
-  version = "28.1.5-1";
+  version = "28.1.6-1";
   src = finalAttrs.passthru.sources."rclcpp";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclcpp-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "725693dab47a5b65aa8631b4fe03bfa21fe5ea7f";
-        hash = "sha256-BMNYlzGpWN34ozMIk2Lvte6dN0QxJ0yxGs0VeTxYnFs=";
+        rev = "0cb82b44db20489f4b6e95347b89a4664d97b31c";
+        hash = "sha256-vc1A7CjvQQjxV2srBeEZk/HAkQyIBMQj0rIlt+UNWG8=";
       };
     };
   });
