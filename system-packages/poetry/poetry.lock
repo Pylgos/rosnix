@@ -164,13 +164,13 @@ test = ["flake8 (>=3.6.0)", "flake8-blind-except", "flake8-builtins", "flake8-cl
 
 [[package]]
 name = "colcon-defaults"
-version = "0.2.8"
+version = "0.2.9"
 description = "Extension for colcon to read defaults from a config file."
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 files = [
-    {file = "colcon-defaults-0.2.8.tar.gz", hash = "sha256:053e8a18fbae04cf182a2968d7f7ed474c5125bf3b306b8049250574f4096fa1"},
-    {file = "colcon_defaults-0.2.8-py3-none-any.whl", hash = "sha256:bfaa13750f1aa75d6510aaa00849302aa69ef968d935637cb232769fa68063e2"},
+    {file = "colcon-defaults-0.2.9.tar.gz", hash = "sha256:b0f3cc900626906a46ae9ee5341f78b237908df9572a10e57d0f041d946b88e3"},
+    {file = "colcon_defaults-0.2.9-py3-none-any.whl", hash = "sha256:801ab5f6ff845a986425a9bad7e2131cf0b90523cc7ce276eaeea1b49d51efaa"},
 ]
 
 [package.dependencies]
