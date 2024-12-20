@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_control_interface";
-  version = "2.12.0-1";
+  version = "2.12.1-1";
   src = finalAttrs.passthru.sources."moveit_ros_control_interface";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ controller-manager-msgs moveit-common moveit-core moveit-simple-controller-manager pluginlib rclcpp-action trajectory-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_control_interface-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "95eeee3f9b890ae47d8c4e5a4ec7074357f89a0d";
-        hash = "sha256-khDXN1iXupdoLucBLEY8kt0QagvTt4gZuk9Z8S02xeA=";
+        rev = "6b05cbba407d17c7327e2fdab7b30bebf65d93d9";
+        hash = "sha256-9fgPyYwd3Ily5x9Pg688UFKiSie5EbcvT02lTfaDz58=";
       };
     };
   });

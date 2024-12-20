@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_moveit_config";
-  version = "2.4.13-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."ur_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ moveit-configs-utils moveit-kinematics moveit-planners moveit-planners-chomp moveit-ros-move-group moveit-ros-visualization moveit-servo moveit-simple-controller-manager ur-description warehouse-ros-sqlite xacro ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_moveit_config-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "8e859126898f592472a585feb3b4126bc27c9da5";
-        hash = "sha256-5fHMGMBSwYJVulIgY9d8GffQumLubLb0CGQtTiMW2Sg=";
+        rev = "eaef70095a3f122f6e98ea0b871e1ff34b14729f";
+        hash = "sha256-u0UgkpnRRBkn08LgqojWzIW9vdDeSlrzxVg+A+pBER4=";
       };
     };
   });

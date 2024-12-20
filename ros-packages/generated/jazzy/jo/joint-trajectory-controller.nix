@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_trajectory_controller";
-  version = "4.17.0-1";
+  version = "4.18.0-1";
   src = finalAttrs.passthru.sources."joint_trajectory_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected trajectory-msgs urdf ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "b0f38d0cd506e72053738d48697dadd571964f8e";
-        hash = "sha256-7jHDcQsd2tJEqk9g2GmYFV5yM9UPqlo9q1lPa1IFBWI=";
+        rev = "ce5d40d41ec712b8e46b4e2d915b9f17875ca1be";
+        hash = "sha256-KfZ7+dmE/4AlYWpowjfTBro+G2uXTS8MioY2M2nxWFo=";
       };
     };
   });
