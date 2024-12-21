@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2node";
-  version = "0.36.0-1";
+  version = "0.36.1-1";
   src = finalAttrs.passthru.sources."ros2node";
   propagatedBuildInputs = [ rclpy ros2cli ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros rclpy test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
@@ -29,8 +29,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2node-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "90714093d5ccf0b901e08455804660580841991a";
-        hash = "sha256-VBfU3HKsfyIQ5tt0TPDLOuSOYqDXoLSLhKiiXUK+cns=";
+        rev = "be1482bf6d867076386209b42994483fe0df451b";
+        hash = "sha256-GiKEKZOnOQWySNl54YsMt/5TfxqBMh135TbodAMBDv4=";
       };
     };
   });

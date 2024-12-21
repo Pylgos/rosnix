@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rosidl_cli";
-  version = "4.9.2-1";
+  version = "4.9.3-1";
   src = finalAttrs.passthru.sources."rosidl_cli";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_cli-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "a09ac16fb421aae0bc85eaf22b4d0dd5490c8984";
-        hash = "sha256-Ea6+gLeUQNGFymCun1fsDtmotkfebtQ3u4JrWAM9sNI=";
+        rev = "ecbac7116729ae91af1c2a1da8e81d967a28178d";
+        hash = "sha256-9omrBsn/tv2IbPq+bPzV31dDb6y4gnyu0WnlVe6EgJ8=";
       };
     };
   });

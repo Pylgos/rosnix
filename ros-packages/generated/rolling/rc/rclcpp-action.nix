@@ -1,6 +1,5 @@
 {
   action-msgs,
-  ament-cmake,
   ament-cmake-gtest,
   ament-cmake-ros,
   ament-lint-auto,
@@ -23,10 +22,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_action";
-  version = "29.2.0-1";
+  version = "29.3.0-1";
   src = finalAttrs.passthru.sources."rclcpp_action";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ action-msgs rcl rcl-action rclcpp rcpputils rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture test-msgs ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclcpp_action-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "ae25c38b496231c0205ef638263d507a6f116b6e";
-        hash = "sha256-i2/j+PWKOTwm08gqXUV2jN0oHwEe8mWtiWfsTKsRwh8=";
+        rev = "e0e5640d776ba5accd318b8d9332e27d9ccc9928";
+        hash = "sha256-6tvCG/QAh6DojGwSEq56ijUiwIOz89ngJfIk/kgkmIg=";
       };
     };
   });

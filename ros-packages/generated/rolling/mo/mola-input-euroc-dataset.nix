@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_euroc_dataset";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."mola_input_euroc_dataset";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mola-kernel mrpt-libmath mrpt-libobs ];
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_euroc_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "a68104cd1d437cef8b05839b818a10e9ac272b2f";
-        hash = "sha256-hN8/6yDNP1Ua95vWpKNkRFlljFdKEkQ5N/TsDxGlob0=";
+        rev = "3c7750bd819170933c3a87e4a378f578b1f176bd";
+        hash = "sha256-ZqQQydd/HBEjptux8Hbn+WxjGMRllM53lIR/3znbc5s=";
       };
     };
   });

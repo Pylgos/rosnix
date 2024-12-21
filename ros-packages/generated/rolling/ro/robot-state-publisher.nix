@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_state_publisher";
-  version = "3.4.1-1";
+  version = "3.4.2-1";
   src = finalAttrs.passthru.sources."robot_state_publisher";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robot_state_publisher-source";
         url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
-        rev = "ec77148a420bc7ebc6727077436a2feb6b7aadc0";
-        hash = "sha256-LZBeqk7Kua+ROcmdZZfIUe+gIWb4W7TAiPXrViz6Aj4=";
+        rev = "a7bdc627f3fce6fca09151ee9fe4910fff99a5cd";
+        hash = "sha256-xwQmVW16NquGc+Wz1cJWkX9l8q+pxX1rj4qz9mR98w8=";
       };
     };
   });

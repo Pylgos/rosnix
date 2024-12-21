@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_paris_luco_dataset";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."mola_input_paris_luco_dataset";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mola-kernel mrpt-libmaps ];
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_paris_luco_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "83b3e1515d3c48fd378516a4038b9a240d5eec32";
-        hash = "sha256-bZ7c4h98pli15EyYsY9bPzbX16N0qdFVRJnfnA70FF0=";
+        rev = "1389077f6844744a099eda92129e89cd8ae369a1";
+        hash = "sha256-cpGoPFqt5F7CtvTSmnoOf/3LzuNsSU1SgczCL7oysos=";
       };
     };
   });

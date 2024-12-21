@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "shared_queues_vendor";
-  version = "0.26.5-1";
+  version = "0.26.6-1";
   src = finalAttrs.passthru.sources."shared_queues_vendor";
   nativeBuildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "shared_queues_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "fea3a738733673c927d77631a735157993ff6395";
-        hash = "sha256-2grePnrvPf9hev+nkF44pj7pyvZlyitshiL0aZhKT7o=";
+        rev = "ae8373a8f65d699ccf7c18d40b32f76ebebac38c";
+        hash = "sha256-ebPNsa6VYualkX2r0js9MipCOhRHr8QpW2YitFe4KjE=";
       };
       substitutions = [
         {

@@ -2,6 +2,8 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-index-cpp,
+  ament-lint-auto,
+  ament-lint-common,
   buildAmentCmakePackage,
   class-loader,
   fetchgit,
@@ -16,18 +18,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pluginlib";
-  version = "5.5.2-1";
+  version = "5.6.0-1";
   src = finalAttrs.passthru.sources."pluginlib";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-cpp class-loader rcpputils rcutils tinyxml2-vendor ];
-  checkInputs = [ ament-cmake-gtest ];
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "pluginlib" = substituteSource {
       src = fetchgit {
         name = "pluginlib-source";
         url = "https://github.com/ros2-gbp/pluginlib-release.git";
-        rev = "7453ba4f9e7584e3a7fdde82466812c129978a27";
-        hash = "sha256-RKDPpx8m5DNeX60ABlUnjYUeqfC+Qe4NjdDcGEU2zVU=";
+        rev = "05e60ed809104e9e5d8d4c3fb2bfb5dccdd7ab20";
+        hash = "sha256-Fcr8/ie2ksgWdSL3+niEcq0NpwGgzVdGL6kCoRgbMaw=";
       };
     };
   });

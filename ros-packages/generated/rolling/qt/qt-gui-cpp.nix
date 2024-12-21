@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_cpp";
-  version = "2.8.3-1";
+  version = "2.9.0-1";
   src = finalAttrs.passthru.sources."qt_gui_cpp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qt_gui_cpp-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "36270eb79c9c2e4f06633701c5cd1f877b55bd4b";
-        hash = "sha256-XcvMI2m79NCtOc955KUai7bhv0XgkUuqcj109AVZBNg=";
+        rev = "d26686fb79ea7010edb6f76740fe70b4462d72f2";
+        hash = "sha256-o3vYmlglovQBtgByoL9MZB6zV1Y3QmbyVulIWOgevrI=";
       };
     };
   });
