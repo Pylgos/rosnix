@@ -1,5 +1,7 @@
 {
   ament-cmake,
+  ament-cmake-cppcheck,
+  ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -22,18 +24,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_msgs";
-  version = "0.2.4-1";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."tuw_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rclcpp-components tuw-airskin-msgs tuw-geometry-msgs tuw-graph-msgs tuw-multi-robot-msgs tuw-nav-msgs tuw-object-map-msgs tuw-object-msgs tuw-std-msgs ];
-  checkInputs = [ ament-lint-auto ament-lint-common ];
+  checkInputs = [ ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tuw_msgs" = substituteSource {
       src = fetchgit {
         name = "tuw_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "aae34cdeb0790b80b9074d79190d33b0f371db42";
-        hash = "sha256-ynwEpnTqaSzrzwOQSMeM0IoaLVqv4tlkMVSSTNom0/Y=";
+        rev = "a220ead9f1bac5b01f93221b15d6919c09a51fcd";
+        hash = "sha256-/zJ8o4x4BllpVqCoDfQViq48JmCsqsCVYYy89dgWLAA=";
       };
     };
   });

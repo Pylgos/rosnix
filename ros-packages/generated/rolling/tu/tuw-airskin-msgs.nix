@@ -1,6 +1,8 @@
 {
   ament-cmake,
   ament-cmake-cppcheck,
+  ament-cmake-gtest,
+  ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
   builtin-interfaces,
@@ -16,18 +18,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_airskin_msgs";
-  version = "0.2.4-1";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."tuw_airskin_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
-  checkInputs = [ ament-cmake-cppcheck ament-lint-common ];
+  checkInputs = [ ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tuw_airskin_msgs" = substituteSource {
       src = fetchgit {
         name = "tuw_airskin_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "4848d568bcbc2dea58f9331ffbea76d45344dece";
-        hash = "sha256-c31NwBi8kLOOcnJ5Fu04kHTdwT8knfqp3TBkbfQiBJU=";
+        rev = "41b00fe7001164bbfacc5f063d9a199fa5f9e04f";
+        hash = "sha256-Fm6NbuJ+PY6sfo1mECKn1SVIMkqgQlVWhxeqHcN4mEc=";
       };
     };
   });
