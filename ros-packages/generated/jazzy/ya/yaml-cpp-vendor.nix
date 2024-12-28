@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yaml_cpp_vendor";
-  version = "9.0.0-2";
+  version = "9.0.1-1";
   src = finalAttrs.passthru.sources."yaml_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "yaml_cpp_vendor-source";
         url = "https://github.com/ros2-gbp/yaml_cpp_vendor-release.git";
-        rev = "01001306eb4361d5de3bb06a749a72769884cadd";
-        hash = "sha256-+IC1J62UuHdmOjU/1+W0xO33jgHhgeC3OZXA8E8ewDw=";
+        rev = "2659fc4dd6597ca3131647f281c6d9e3f73f9deb";
+        hash = "sha256-JwYpWQk9dikCFaddNNFqk8hkFtS1yWtxuzSS9/pjcgU=";
       };
       substitutions = [
         {

@@ -19,7 +19,6 @@
   mola-kernel,
   mola-launcher,
   mola-metric-maps,
-  mola-navstate-fuse,
   mola-pose-list,
   mola-test-datasets,
   mola-viz,
@@ -37,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."mola_lidar_odometry";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
-  propagatedBuildInputs = [ mola-common mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-navstate-fuse mola-pose-list mola-viz mp2p-icp mrpt-libmaps mrpt-libtclap ];
+  propagatedBuildInputs = [ mola-common mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-pose-list mola-viz mp2p-icp mrpt-libmaps mrpt-libtclap ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mola_navstate_fuse" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-xmllint ament-lint-auto ament-lint-cmake mola-metric-maps mola-test-datasets rosbag2-storage-mcap ];
   passthru.sources = mkSourceSet (sources: {
     "mola_lidar_odometry" = substituteSource {
