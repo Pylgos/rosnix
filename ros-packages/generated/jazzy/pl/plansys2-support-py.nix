@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_support_py";
-  version = "2.0.15-1";
+  version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_support_py";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
   propagatedBuildInputs = [ lifecycle-msgs plansys2-msgs rclpy ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_support_py-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "06b9f1a4fccdf682b72dd960b93ca2141aca27b8";
-        hash = "sha256-2yWLS5qnYSLrRUmdEi0i99A8lofZ6vaTO3JEuSuX6s8=";
+        rev = "831d3fa64fd45f6641c7536b178466250fd5b3e8";
+        hash = "sha256-lOc73VFBBkTgFNPpTsQXnEW7GfqWNlBkICCPf2B4TlY=";
       };
     };
   });

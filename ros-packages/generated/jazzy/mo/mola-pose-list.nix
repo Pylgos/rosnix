@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_pose_list";
-  version = "1.4.0-1";
+  version = "1.5.1-1";
   src = finalAttrs.passthru.sources."mola_pose_list";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mrpt-libmaps mrpt-libposes ];
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_pose_list-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "e96f55422a195dd0d5981f293e624a6cb797d96d";
-        hash = "sha256-vSG28z1ONEnSOpclRcMpYarLCtn9bthaaLEONQgS3bw=";
+        rev = "998e99124966fba3fa67b2f1caec0a1544a82df5";
+        hash = "sha256-dE6IhUa/QzmgdHaaZCTObfuKTKDYPhFwDPu6+zpnt3o=";
       };
     };
   });

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_pipeline";
-  version = "0.5.0-2";
+  version = "0.5.1-1";
   src = finalAttrs.passthru.sources."imu_pipeline";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ imu-processors imu-transformer ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_pipeline-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
-        rev = "f4f45b6e65736bb43363ee7c1dd9d0663ec936d5";
-        hash = "sha256-dJGjG62iCrupov3xWznx6yfooP5Q5w6rg7pfsX1P9x0=";
+        rev = "f1629b45f04c4f18a60b7542a6b5cafe28e5b496";
+        hash = "sha256-9xMqedHJei8MHcCkj1SBnubRex6dxDBOsh1twB+KxCY=";
       };
     };
   });

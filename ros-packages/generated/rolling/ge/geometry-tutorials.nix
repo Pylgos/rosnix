@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "geometry_tutorials";
-  version = "0.6.2-1";
+  version = "0.6.3-1";
   src = finalAttrs.passthru.sources."geometry_tutorials";
   nativeBuildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "geometry_tutorials-source";
         url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
-        rev = "e5a64a1b195d49794093248bdf3f7bdb8d64e50c";
-        hash = "sha256-pKGL96jK4+eJOdLsryPMZOhHrsfCeS5TARr8qQeRhPI=";
+        rev = "25f63a818f4ffab78daa70fcdbee5e05d3a48653";
+        hash = "sha256-XBLuSqrZAESwbGcFHljRtxx8cFqStc8uyUEEwa6fXEM=";
       };
     };
   });

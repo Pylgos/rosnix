@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_lifecycle_manager";
-  version = "2.0.15-1";
+  version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_lifecycle_manager";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_lifecycle_manager-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "9056797ab25a765b7b52f8067c7a11fb8cbc1d69";
-        hash = "sha256-/DN+U4NozZt5pWed/hi0s12I06gufFUh/TUFjUy6wx0=";
+        rev = "7976abbbd4969547895ee676374ad914293ab124";
+        hash = "sha256-VYd0ulDlU/4xafW1ZabUER0PTdiMvUL8Vmhiv2R4tEc=";
       };
     };
   });

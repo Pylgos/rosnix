@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtle_tf2_cpp";
-  version = "0.6.2-1";
+  version = "0.6.3-1";
   src = finalAttrs.passthru.sources."turtle_tf2_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs launch launch-ros message-filters rclcpp tf2 tf2-geometry-msgs tf2-ros turtlesim-msgs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtle_tf2_cpp-source";
         url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
-        rev = "bb92fc60658921a5999f0d605be3e4adcbc3ede8";
-        hash = "sha256-b1ne7m5Zdgi7/STRiI1TUKoZk6LJLMEfsGsKEKYzIWU=";
+        rev = "b918077a0bf6a973b05d8436444504958e99453a";
+        hash = "sha256-C0Q5L6gfeXkCRa2iPqrr8Ozq4aO9997DMOu305BL8qw=";
       };
     };
   });
