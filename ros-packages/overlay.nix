@@ -55,6 +55,7 @@ let
         // {
           # Setup hooks
           wrapRosQtAppsHook = self.callPackage ./hooks/wrap-ros-qt-apps-hook.nix { };
+          rosSetupHelper = self.callPackage ./hooks/ros-setup-helper.nix { };
           rosSetupHook = self.callPackage ./hooks/ros-setup-hook.nix { };
 
           # Builders
@@ -69,6 +70,9 @@ let
 
           # Shell builders
           mkRosWorkspaceShell = self.callPackage ./builders/make-ros-workspace-shell.nix { };
+
+          # Wrapper builders
+          wrapRosApplication = self.callPackage ./wrap-ros-application.nix { };
         };
     };
 in
