@@ -151,6 +151,16 @@ final: prev: {
           };
         }
       );
+      gz-transport-vendor = rosPrev.gz-transport-vendor.overrideAttrs (
+        {
+          buildInputs ? [ ],
+          ...
+        }:
+        {
+          # Ref: https://github.com/lopsided98/nix-ros-overlay/pull/228
+          buildInputs = buildInputs ++ [ final.libsodium ];
+        }
+      );
       librealsense2 = rosPrev.librealsense2.overrideAttrs (
         {
           nativeBuildInputs ? [ ],
