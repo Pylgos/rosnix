@@ -4,23 +4,31 @@
   selfLegacyPackages,
 }:
 
+let
+  nixpkgsInstances = lib.removeAttrs selfLegacyPackages [ "default" ];
+in
 rec {
-  distros = lib.mapAttrs (
-    _distro_name: pkgs: lib.filterAttrs (_name: value: lib.isDerivation value) pkgs.rosPackages
-  ) (lib.removeAttrs selfLegacyPackages [ "default" ]);
-
   all = lib.mapAttrs (
-    distro: rosPkgs:
+    distro: pkgs:
+    let
+      rosPkgs = lib.filterAttrs (_name: value: lib.isDerivation value) pkgs;
+    in
     pkgs.stdenv.mkDerivation {
       name = "rosnix-ci-${distro}-all-pkgs";
       deps = lib.attrValues rosPkgs;
       phases = [ "installPhase" ];
       installPhase = "touch $out";
     }
-  ) distros;
+  ) nixpkgsInstances;
 
   check = lib.mapAttrs (
-    distro: rosPkgs:
+    distro: pkgs:
+    let
+      tests = import ../tests {
+        inherit lib pkgs;
+      };
+      rosPkgs = pkgs.rosPackages;
+    in
     pkgs.stdenv.mkDerivation {
       name = "rosnix-ci-${distro}-check-pkgs";
       deps = [
@@ -30,9 +38,9 @@ rec {
         rosPkgs.navigation2
         rosPkgs.ros-gz
         rosPkgs.librealsense2
-      ];
+      ] ++ lib.attrValues tests;
       phases = [ "installPhase" ];
       installPhase = "touch $out";
     }
-  ) distros;
+  ) nixpkgsInstances;
 }

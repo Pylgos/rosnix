@@ -49,6 +49,10 @@
 
         ci = import ./ci/outputs.nix { inherit lib pkgs selfLegacyPackages; };
         apps = import ./ci/apps.nix { inherit lib pkgs generator; };
+        checks = import ./tests {
+          inherit lib;
+          pkgs = selfLegacyPackages.default;
+        };
       }
     ))
     // {
