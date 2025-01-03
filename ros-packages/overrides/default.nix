@@ -193,6 +193,20 @@ final: prev: {
           '';
         }
       );
+      ros-gz-sim = rosPrev.ros-gz-sim.overrideAttrs (
+        {
+          postPatch ? "",
+          ...
+        }:
+        {
+          postPatch =
+            postPatch
+            + ''
+              substituteInPlace launch/gz_sim.launch.py.in \
+                --replace-fail 'ruby $(which gz) sim' 'gz sim'
+            '';
+        }
+      );
     })
   );
 }
