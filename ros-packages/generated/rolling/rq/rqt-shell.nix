@@ -1,4 +1,8 @@
 {
+  ament-copyright,
+  ament-flake8,
+  ament-pep257,
+  ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
   fetchurl,
@@ -15,19 +19,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_shell";
-  version = "1.3.0-1";
+  version = "1.3.1-1";
   src = finalAttrs.passthru.sources."rqt_shell";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   propagatedBuildInputs = [ python-qt-binding qt-gui qt-gui-py-common rqt-gui rqt-gui-py ];
-  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_shell" = substituteSource {
       src = fetchgit {
         name = "rqt_shell-source";
         url = "https://github.com/ros2-gbp/rqt_shell-release.git";
-        rev = "1376dec5790ec2f47ea79b579ac66684aee5232b";
-        hash = "sha256-hjDKsz1hq0zW5waUT2DAxJUfDJhJ7MndfTYdsHBLyN8=";
+        rev = "06f2b63f864ece1e8080f78bd351e85ceb989750";
+        hash = "sha256-cy+IzDB1rrixdpAkR7ikWuVq9u1wwC1HoZFbr8vtLg0=";
       };
     };
   });
