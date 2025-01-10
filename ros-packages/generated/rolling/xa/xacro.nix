@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "xacro";
-  version = "2.0.11-1";
+  version = "2.0.12-1";
   src = finalAttrs.passthru.sources."xacro";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "xacro-source";
         url = "https://github.com/ros2-gbp/xacro-release.git";
-        rev = "b40362a1d5d97599cac992900b0177b36308c257";
-        hash = "sha256-+93WLiVZewjzhzlEzSTG/zTjYx3+ri7uv+d7nO1xdX8=";
+        rev = "fcae89f41ae7f2de5025d85ed15773590e5f9119";
+        hash = "sha256-2dqarPGpy8HSAX9zhzUAlXoe4PQ1lj2Q+HRJXkqIUac=";
       };
     };
   });
