@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai-ros";
-  version = "2.10.3-1";
+  version = "2.10.5-1";
   src = finalAttrs.passthru.sources."depthai-ros";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai-ros-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "35ee868529b9b08b55041387de3670c67a5daaad";
-        hash = "sha256-ZV+z8zhQZLTkgErK8eA0udZ4k71aSmwFN7S9TYWBFs4=";
+        rev = "e05e77e6b4b4c668d4a99030220fce9ef68df761";
+        hash = "sha256-A9Jrlb6p8FJsIbZHvYVuppoTEZHwBKZ86t2usZISCbM=";
       };
     };
   });
