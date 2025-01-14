@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "generate_parameter_library";
-  version = "0.3.9-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."generate_parameter_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ generate-parameter-library-py ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "generate_parameter_library-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "7e825abe9bfe9f6bcbd180053d28f37d7b055c9f";
-        hash = "sha256-NXMcFX+gCyK3BtyHoRmZzIxZcjHN3efW0myqGkFz6xk=";
+        rev = "19b9e9376eca984d1ea4f16d195bd25bffa44d05";
+        hash = "sha256-S0FqevWIS+jgTPXfXFYwz1TdcwIx+PDpbUlispHMHQM=";
       };
     };
   });

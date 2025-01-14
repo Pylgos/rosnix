@@ -18,9 +18,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_msgs_vendor";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."gz_msgs_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = [ gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-msgs11" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_msgs_vendor-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
-        rev = "129340be47bce1bc4b4cadcc3819e291b22b84d2";
-        hash = "sha256-ML1KCQVsEEKKeaxviCkSCAgbQH9KUEmi/+yRKzwX5Zo=";
+        rev = "51d02cbf1151d7dbd97f951f9565621fabf4ee45";
+        hash = "sha256-tofNn2PLSsreyFAhcbUEWBX6vu9jqu1Eq7Ums1p/Zp4=";
       };
       substitutions = [
         {
@@ -44,12 +44,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-msgs-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "de833cd9c79b5b839bc2a8bcba1af2fe5b3f1e76";
-        hash = "sha256-bOHw1CvQDGB8CaJnZF3CwsdeQJyn6LOvufRxbH8ufZc=";
+        rev = "21a942be1223e08c9b42c5aefb29e0414e9ddd2a";
+        hash = "sha256-PUhFOmVPRiOVWfOjAU8z8dcxKPdcoTrgRwDGXP/vsUs=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-msgs11 11.0.1 Gazebo Messages: Protobuf messages and functions for robot applications";
+    description = "Vendor package for: gz-msgs11 11.0.2 Gazebo Messages: Protobuf messages and functions for robot applications";
   };
 })

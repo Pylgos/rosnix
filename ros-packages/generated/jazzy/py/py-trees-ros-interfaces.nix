@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "py_trees_ros_interfaces";
-  version = "2.1.0-4";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."py_trees_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "py_trees_ros_interfaces-source";
         url = "https://github.com/ros2-gbp/py_trees_ros_interfaces-release.git";
-        rev = "461e14c922c6c5c08dac7346b43608f832d30045";
-        hash = "sha256-QrixpzDzAj86KcSWBgYVI0CjrjuAtdFy7bMlEJgweaw=";
+        rev = "cfbf896fec2519a845084caf86388400eb2d19ab";
+        hash = "sha256-zAo2PFl8If37U7QigICSgeDB9DYHdmAupY8FvXBCVzM=";
       };
     };
   });

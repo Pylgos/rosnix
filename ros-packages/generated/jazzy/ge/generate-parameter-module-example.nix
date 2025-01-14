@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "generate_parameter_module_example";
-  version = "0.3.9-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."generate_parameter_module_example";
   propagatedNativeBuildInputs = [ generate-parameter-library-py ];
   propagatedBuildInputs = [ generate-parameter-library rclpy ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "generate_parameter_module_example-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "bfc9860c2161006188946bfca4d00bc0d1f7c0ff";
-        hash = "sha256-Xd9FBLcNIN6hPET+5ZdyWqsg0Qf3Ijvil9+lg5I6riQ=";
+        rev = "c264d53c8ebcc9bc34b2ffbedc3e89498ba1fc45";
+        hash = "sha256-Oo5Y0wijKiyg68WugHrYK+XJ9hr3WN4jsGB7e6SYYHc=";
       };
     };
   });

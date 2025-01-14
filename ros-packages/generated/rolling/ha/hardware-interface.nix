@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hardware_interface";
-  version = "4.23.0-1";
+  version = "4.24.0-1";
   src = finalAttrs.passthru.sources."hardware_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedBuildInputs = [ backward-ros control-msgs joint-limits lifecycle-msgs pluginlib rclcpp-lifecycle rcpputils rcutils realtime-tools sdformat-urdf tinyxml2-vendor urdf ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hardware_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "1cd2ecb71eb8ce0eec8732ef120de918a3b333a4";
-        hash = "sha256-WzF22MpFSInBgzAEiYtdsnoQF0EXhi85MAP4+o+Rc/0=";
+        rev = "bec28be346c80500c0802d22fe8abf34246a96ed";
+        hash = "sha256-Z2NR2zERbDF2oTZrtoW24ISlBY8a3aLaQouR1X57WOQ=";
       };
     };
   });
