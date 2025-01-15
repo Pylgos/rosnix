@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_editor_test_maps";
-  version = "1.9.1-1";
+  version = "1.9.2-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor_test_maps";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ rmf-building-map-tools ros2run ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_traffic_editor_test_maps-source";
         url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
-        rev = "0cae53184649ffa92ff7f95414420d400f872d35";
-        hash = "sha256-+CyU4MrWaOGPsEtm5SXBONfFEeg5kLfRAu+zuSx4nbo=";
+        rev = "6ffe62c40797a73942ab82ebb0603953aabe082c";
+        hash = "sha256-cgNMcGNhqTBVwLx/ohFW3mc63BhtT9UfGV95TzTih/w=";
       };
     };
   });

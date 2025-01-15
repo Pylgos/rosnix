@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees_ros_viewer";
-  version = "0.2.4-1";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."py_trees_ros_viewer";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "py_trees_ros_viewer-source";
         url = "https://github.com/ros2-gbp/py_trees_ros_viewer-release.git";
-        rev = "316800ba129a6b0c211b661fc8d5b8bf1473c9b2";
-        hash = "sha256-eoBNKHi0APYOkEfQDy5oGZeBmBif2rhwUhg3/ggkI2A=";
+        rev = "432296ac8248beeb47f4d883a7a044c476e931f0";
+        hash = "sha256-HWfDcBXRA8OAXtmKl5NwUvRRQFB0tghQCUpyXIkTBLM=";
       };
     };
   });

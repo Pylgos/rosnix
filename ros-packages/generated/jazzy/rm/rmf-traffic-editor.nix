@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_editor";
-  version = "1.9.1-1";
+  version = "1.9.2-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-cmake ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_traffic_editor-source";
         url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
-        rev = "a17b109599bbc97db4b07b9f9d6a490a7475f491";
-        hash = "sha256-/bCf//VJVmOLJCSaTg1j/g7qr0BfYLnLrUdf0C5cX+4=";
+        rev = "1b812415e3d278ff2a30ac398209047718a8c563";
+        hash = "sha256-iGa/t+mLPunqD1xTOC8GHa/YHYcP7JcYiajVKLFF5js=";
       };
     };
   });

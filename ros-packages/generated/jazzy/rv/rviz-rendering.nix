@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_rendering";
-  version = "14.1.6-1";
+  version = "14.1.7-1";
   src = finalAttrs.passthru.sources."rviz_rendering";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_rendering-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "0b35227fe363b956426c856a75861ff33255173c";
-        hash = "sha256-yNZaaT/OBSh2DhuioD0Q9gfwk+l1QkpWVyRMoVjtBOk=";
+        rev = "b3c52177071e52a9a62b904060fad0c8d55e1c43";
+        hash = "sha256-QV7nRd8iRT7YqRTZfHaYdNghQG7GixPd/BHFwafDIhA=";
       };
     };
   });
