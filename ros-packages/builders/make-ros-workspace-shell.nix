@@ -17,6 +17,7 @@
   propagatedBuildInputs ? [ ],
   propagatedNativeBuildInputs ? [ ],
   shellHook ? "",
+  stdenv ? null,
   ...
 }@attrs:
 let
@@ -39,17 +40,25 @@ let
     "propagatedBuildInputs"
     "propagatedNativeBuildInputs"
     "shellHook"
+    "stdenv"
   ];
+
+  buildColconPackageWithStdenv = buildColconPackage.override (oldAttrs: {
+    stdenv = if stdenv == null then oldAttrs.stdenv else stdenv;
+  });
 in
 
-buildColconPackage (
+buildColconPackageWithStdenv (
   {
     inherit name;
 
     buildInputs = mergeInputs "buildInputs";
-    nativeBuildInputs = [
-      buildPackages.rosPythonPackages.colcon-common-extensions
-    ] ++ packages ++ (mergeInputs "nativeBuildInputs");
+    nativeBuildInputs =
+      [
+        buildPackages.rosPythonPackages.colcon-common-extensions
+      ]
+      ++ packages
+      ++ (mergeInputs "nativeBuildInputs");
     propagatedBuildInputs = mergeInputs "propagatedBuildInputs";
     propagatedNativeBuildInputs = mergeInputs "propagatedNativeBuildInputs";
 
