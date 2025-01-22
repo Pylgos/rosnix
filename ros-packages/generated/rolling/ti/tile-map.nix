@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tile_map";
-  version = "2.4.4-1";
+  version = "2.4.5-1";
   src = finalAttrs.passthru.sources."tile_map";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tile_map-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "ab44a8978d9215d421e3de148bc8084a4096b2db";
-        hash = "sha256-9/OIgo7e7cn2nbRGocssYwRimHNxdW177ZrHUCSpYdk=";
+        rev = "34d4de4a89622df241bb59b7a43d997f135f659f";
+        hash = "sha256-SsHgObDFX8nfRURxp+wdys6+44IoMttT69AV/j3R/8M=";
       };
     };
   });

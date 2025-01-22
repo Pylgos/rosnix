@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_pcl";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_pcl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ grid-map-cmake-helpers grid-map-core grid-map-msgs grid-map-ros rclcpp rcutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcl-all" "libpcl-all-dev" "yaml-cpp" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_pcl-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "5b1b36c2655838e289e1f927ac0a2e5075f5ff93";
-        hash = "sha256-6Xmy/TY0qJ7PmIuvbV8JBCMb/1Sr6LteahCV0M51Wuw=";
+        rev = "3bd1742e3255fe02e0e02162a9cd8ff9b2c7a9ec";
+        hash = "sha256-dUsOMHAeLXIq2WBMy0FYgHrkALhzN+KuJRrjdfelKKk=";
       };
     };
   });

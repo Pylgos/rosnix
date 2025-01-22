@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "automatika_ros_sugar";
-  version = "0.2.5-1";
+  version = "0.2.6-1";
   src = finalAttrs.passthru.sources."automatika_ros_sugar";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-numpy" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "automatika_ros_sugar-source";
         url = "https://github.com/ros2-gbp/automatika_ros_sugar-release.git";
-        rev = "5229e5107513cca7b4743c5652353aa5240b00ab";
-        hash = "sha256-Abh7WVgOsMcv46iOHZB3DRI4TCXkmyhCxEVx8AjAiqk=";
+        rev = "3c8e69f53219e727194c3bfdf7909da7ada0547f";
+        hash = "sha256-d3hcJuBrbesrlPTtIMM1K0aL/hG+7qOQunDYzH6OZDI=";
       };
     };
   });

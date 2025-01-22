@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_cv";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_cv";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cv-bridge filters grid-map-cmake-helpers grid-map-core pluginlib rclcpp sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_cv-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "6504315ac27f69868585f914363ea1a1f345f250";
-        hash = "sha256-Lp09fVPR5XQQzOBAN+e2yIboOKRcMBV7vLPniPun+LA=";
+        rev = "14983347cc1c79ed9cbe8f7e45352bb3b0393e55";
+        hash = "sha256-oKXC0vbq2OSmg8lZ24t8dkv+9kWEyjprAVdELMSFLLI=";
       };
     };
   });

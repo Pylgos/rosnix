@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_loader";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_loader";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ grid-map-cmake-helpers grid-map-msgs grid-map-ros ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_loader-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "4501f5bc538250bd4dc4b016ba952b05b243039f";
-        hash = "sha256-Qd1RNyDd206Vr7IV8iIlm6BUxM+U3emoWQlVg2YEPBg=";
+        rev = "145f2b7800caee1ed542fa74ddbd0e104b29d46e";
+        hash = "sha256-haWLLnlpI4rzlV7GEJa4gSyer/Y3LE6bn7t1vdvG7S4=";
       };
     };
   });
