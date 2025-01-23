@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."performance_test_fixture";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-export-targets ament-cmake-test ];
-  propagatedNativeBuildInputs = [ ament-cmake-google-benchmark google-benchmark-vendor ];
-  propagatedBuildInputs = [ osrf-testing-tools-cpp ];
+  propagatedNativeBuildInputs = [ ament-cmake-google-benchmark ];
+  propagatedBuildInputs = [ google-benchmark-vendor osrf-testing-tools-cpp ];
   checkInputs = [ ament-cmake-google-benchmark ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "performance_test_fixture" = substituteSource {

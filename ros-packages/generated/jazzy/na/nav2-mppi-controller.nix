@@ -31,8 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.4-1";
   src = finalAttrs.passthru.sources."nav2_mppi_controller";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
-  propagatedBuildInputs = [ geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libomp-dev" "xsimd" "xtensor" ]; };
+  propagatedBuildInputs = [ geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" "libomp-dev" "xsimd" "xtensor" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nav2_mppi_controller" = substituteSource {

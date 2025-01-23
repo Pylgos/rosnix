@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_physics_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
-  propagatedBuildInputs = [ gz-common-vendor gz-dartsim-vendor gz-math-vendor gz-plugin-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bullet" "eigen" "gz-physics7" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor ];
+  propagatedBuildInputs = [ gz-common-vendor gz-dartsim-vendor gz-math-vendor gz-plugin-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" "bullet" "eigen" "gz-physics7" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_physics_vendor" = substituteSource {
