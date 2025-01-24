@@ -2,6 +2,21 @@
 let
   inherit (pkgs) rosPackages testers runCommand;
   inherit (lib) splitVersion elemAt match;
+  inherit (lib.devshell-apps.mkBuilders pkgs) writeDevshellApplication;
+
+  mkTestScript =
+    {
+      name,
+      text,
+      packages,
+    }:
+    writeDevshellApplication {
+      inherit name text;
+      shell = rosPackages.mkRosWorkspaceShell {
+        buildInputs = packages;
+      };
+      rcScriptConfigs.runShellHook = false;
+    };
 
   majorMinorPatch =
     s:
@@ -63,13 +78,12 @@ in
       {
         imports = [ ./nixos/x11.nix ];
         environment.systemPackages = [
-          (pkgs.rosPackages.wrapRosApplication {
-            name = "ros2cli-wrapper";
-            bin = "${pkgs.rosPackages.ros2cli}/bin/ros2";
-            buildInputs = [
-              pkgs.rosPackages.ros2run
-              pkgs.rosPackages.rviz2
-            ];
+          (mkTestScript {
+            name = "run-rviz2";
+            text = ''
+              rviz2
+            '';
+            packages = [ pkgs.rosPackages.rviz2 ];
           })
         ];
       };
@@ -77,7 +91,7 @@ in
       { ... }:
       ''
         machine.wait_for_x()
-        machine.execute("xterm -e 'ros2 run rviz2 rviz2' >&2 &")
+        machine.execute("xterm -e 'run-rviz2' >&2 &")
         machine.wait_for_window("RViz")
       '';
   };

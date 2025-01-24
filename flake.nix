@@ -10,6 +10,7 @@
     nix-filter.url = "github:numtide/nix-filter";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     poetry2nix.url = "github:nix-community/poetry2nix";
+    devshell-apps.url = "github:Pylgos/nix-devshell-apps";
   };
 
   outputs =
@@ -20,9 +21,16 @@
       poetry2nix,
       crane,
       nix-filter,
+      devshell-apps,
     }:
     let
-      lib = flake-utils.lib // nixpkgs.lib // builtins;
+      lib =
+        flake-utils.lib
+        // nixpkgs.lib
+        // builtins
+        // {
+          devshell-apps = devshell-apps.lib;
+        };
     in
     (lib.eachDefaultSystem (
       system:
