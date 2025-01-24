@@ -70,9 +70,6 @@ let
 
           # Shell builders
           mkRosWorkspaceShell = self.callPackage ./builders/make-ros-workspace-shell.nix { };
-
-          # Wrapper builders
-          wrapRosApplication = self.callPackage ./wrap-ros-application.nix { };
         };
     };
 in
