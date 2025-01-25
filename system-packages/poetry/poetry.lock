@@ -952,13 +952,13 @@ test = ["mock", "pytest"]
 
 [[package]]
 name = "rospkg"
-version = "1.5.1"
+version = "1.6.0"
 description = "ROS package library"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 files = [
-    {file = "rospkg-1.5.1-py3-none-any.whl", hash = "sha256:1167a8f908d9c4379954732a605810e166ddcc18fcf47e6555395e1d6d972a7c"},
-    {file = "rospkg-1.5.1.tar.gz", hash = "sha256:fce76a7477786c3732981262198ea250f097f88e0d3329c10c11069bf40ca604"},
+    {file = "rospkg-1.6.0-py3-none-any.whl", hash = "sha256:491d49a0d85969cd99df056122f95fc33ff277992a4e275c4448c2e02220a9cb"},
+    {file = "rospkg-1.6.0.tar.gz", hash = "sha256:61c87ab60877388c0874c2e89f506b862918e8ca87b7f2949d9991a4add87036"},
 ]
 
 [package.dependencies]
@@ -967,7 +967,7 @@ distro = {version = ">=1.4.0", markers = "python_version >= \"3.8\""}
 PyYAML = "*"
 
 [package.extras]
-test = ["mock", "pytest"]
+test = ["pytest"]
 
 [[package]]
 name = "setuptools"
