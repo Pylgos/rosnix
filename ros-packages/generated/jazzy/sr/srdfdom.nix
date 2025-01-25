@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "srdfdom";
-  version = "2.0.5-1";
+  version = "2.0.7-1";
   src = finalAttrs.passthru.sources."srdfdom";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ console-bridge-vendor tinyxml2-vendor urdf urdfdom-headers urdfdom-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libconsole-bridge-dev" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "srdfdom-source";
         url = "https://github.com/ros2-gbp/srdfdom-release.git";
-        rev = "1ecaddf54d764a6264c6a34a1f0d1acedaf6d259";
-        hash = "sha256-prL0Yiv6HgqxBVa5raU7ocG1FLScJku5/Ka/7m0aKOM=";
+        rev = "8ef7596a27fee3518869d9bc47c9d5612b69f407";
+        hash = "sha256-Y43XZ4Ah7okzBvMXyDksanhoU85h7//Ua4vEPQLhQ0Y=";
       };
     };
   });

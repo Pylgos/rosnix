@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "eigen_stl_containers";
-  version = "1.0.0-6";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."eigen_stl_containers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "eigen_stl_containers-source";
         url = "https://github.com/ros2-gbp/eigen_stl_containers-release.git";
-        rev = "e9ab518e7f504037094a576f85e52d674b031009";
-        hash = "sha256-Zjjaom5lCGLMKC33kq6er1Ji54XUj/3hkSIWcBnXI+E=";
+        rev = "cc75c7c712ac409c4c2f2a0ca4078c433f335aca";
+        hash = "sha256-HvDyCdPMY26yuRxRrJPckGl3mDTNx9twIZS5bqLO1/c=";
       };
     };
   });
