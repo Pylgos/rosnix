@@ -36,6 +36,7 @@ rec {
         rosPkgs.cartographer
         (rosPkgs.slam-toolbox or null)
         rosPkgs.navigation2
+        rosPkgs.nav2-bringup
         rosPkgs.ros-gz
         rosPkgs.librealsense2
       ] ++ lib.attrValues tests;
