@@ -813,6 +813,7 @@ in
     python3-tk = [ final.rosPythonPackages.tkinter ];
     python3-toml = [ final.rosPythonPackages.toml ];
     python3-tornado = [ final.rosPythonPackages.tornado ];
+    python3-typeguard = [ final.rosPythonPackages.typeguard ];
     python3-tqdm = [ final.rosPythonPackages.tqdm ];
     python3-twilio = [ final.rosPythonPackages.twilio ];
     python3-twisted = [ final.rosPythonPackages.twisted ];

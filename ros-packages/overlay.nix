@@ -63,10 +63,10 @@ let
           buildCmakePackage = self.callPackage ./builders/build-ament-cmake-package.nix { };
           buildAmentCmakePackage = self.callPackage ./builders/build-ament-cmake-package.nix { };
           buildAmentPythonPackage = self.callPackage ./builders/build-ament-python-package.nix { };
+          buildCatkinPackage = self.buildAmentCmakePackage;
 
           # Stub builders
           buildMesonPackage = self.callPackage ./builders/build-colcon-package.nix { };
-          buildCatkinPackage = self.callPackage ./builders/build-colcon-package.nix { };
 
           # Shell builders
           mkRosWorkspaceShell = self.callPackage ./builders/make-ros-workspace-shell.nix { };
