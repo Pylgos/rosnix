@@ -14,18 +14,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_ros2_socketcan_interface";
-  version = "2.0.0-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."clearpath_ros2_socketcan_interface";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ can-msgs rclcpp ];
+  propagatedBuildInputs = [ can-msgs rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "iproute2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_ros2_socketcan_interface" = substituteSource {
       src = fetchgit {
         name = "clearpath_ros2_socketcan_interface-source";
         url = "https://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release.git";
-        rev = "811fedb0081776add503c15d657b8b0c03e6b2aa";
-        hash = "sha256-AjrEmWigq3JPtpDT1LIrXSwoClkNYsrhG/4SNfaCS+A=";
+        rev = "efd6fdad48c4b1c6f37a1a09b2838cc21c6594e3";
+        hash = "sha256-os4JvHgJTP3YxuZnZIXVAgQYrTFXTEKpCb4l13HtSJo=";
       };
     };
   });
