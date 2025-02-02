@@ -4,6 +4,17 @@ let
   rosPy = final.rosConfig.rosPython;
 in
 {
+  # nav2_mppi_controller breaks in xsimd 13.0.0 (direction of cmd_vel is reversed for some reason)
+  xsimd = prev.xsimd.overrideAttrs rec {
+    version = "12.1.1";
+    src = final.fetchFromGitHub {
+      owner = "xtensor-stack";
+      repo = "xsimd";
+      rev = version;
+      hash = "sha256-ofUFieeRtpnzNv3Ad5oYwKWb2XcqQHoj601TIhydJyI=";
+    };
+  };
+
   rosPython = rosPy // {
     pkgs = rosPy.pkgs.overrideScope (
       pyFinal: pyPrev:

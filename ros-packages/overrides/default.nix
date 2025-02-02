@@ -1,6 +1,23 @@
 { lib }:
 
-final: prev: {
+final: prev:
+let
+  makePatch = final.callPackage ./make-patch.nix { };
+  getSource = p: builtins.filterSource (path: type: true) p;
+  nav2-costmap-2d-patch = makePatch "nav2-costmap-2d.patch" (final.fetchgit {
+    name = "nav2_costmap_2d-source";
+    url = "https://github.com/SteveMacenski/navigation2-release.git";
+    rev = "46cc562b9f04c067746ddd463e2b97fb263132a7";
+    hash = "sha256-G7HOD6Z/hdpAT1Z/ZQsSIKuvE6M+fFbMA5ITMIEQgBI=";
+  }) (getSource ./patch-sources/nav2-costmap-2d);
+  nav2-rviz-plugins-patch = makePatch "nav2-rviz-plugins.patch" (final.fetchgit {
+        name = "nav2_rviz_plugins-source";
+        url = "https://github.com/SteveMacenski/navigation2-release.git";
+        rev = "93d970dc9a2ba0ae6d8cf1dda03aa3ca4e4dc8cf";
+        hash = "sha256-kUCfSM3OVJHIsXBY2ovsiqR1jMhPdL9TcxFXExll4nA=";
+  }) (getSource ./patch-sources/nav2-rviz-plugins);
+in
+{
   rosPackages = prev.rosPackages.overrideScope (
     rosFinal: rosPrev:
     (lib.filterAttrs (name: pkg: lib.hasAttr name prev.rosPackages) {
@@ -205,6 +222,24 @@ final: prev: {
               substituteInPlace launch/gz_sim.launch.py.in \
                 --replace-fail 'ruby $(which gz) sim' 'gz sim'
             '';
+        }
+      );
+      nav2-costmap-2d = rosPrev.nav2-costmap-2d.overrideAttrs (
+        {
+          patches ? [ ],
+          ...
+        }:
+        {
+          patches = patches ++ [ nav2-costmap-2d-patch ];
+        }
+      );
+      nav2-rviz-plugins = rosPrev.nav2-rviz-plugins.overrideAttrs (
+        {
+          patches ? [ ],
+          ...
+        }:
+        {
+          patches = patches ++ [ nav2-rviz-plugins-patch ];
         }
       );
     })
