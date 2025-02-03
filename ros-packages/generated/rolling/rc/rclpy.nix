@@ -36,7 +36,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclpy";
-  version = "8.0.0-1";
+  version = "9.0.0-1";
   src = finalAttrs.passthru.sources."rclpy";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-yaml" ]; };
@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclpy-source";
         url = "https://github.com/ros2-gbp/rclpy-release.git";
-        rev = "aaf2e83bef2579329822220f79b79eb11eeb0d61";
-        hash = "sha256-0H5yxcf/haUnw2Tm9haJ4SSpuL6yF+Va0T2VjruLXsY=";
+        rev = "95e8b3de3597924862e22956c74cbef46826c692";
+        hash = "sha256-e9O+oWhV+l36mc2c1fcEk1WaqktiOKl7AFZE49JiJLs=";
       };
     };
   });
