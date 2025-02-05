@@ -9,7 +9,6 @@
   fetchzip,
   mkSourceSet,
   pybind11-vendor,
-  python-cmake-module,
   rcl-interfaces,
   rclpy,
   rosSystemPackages,
@@ -28,9 +27,10 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_py";
-  version = "0.29.0-1";
+  version = "0.31.0-1";
   src = finalAttrs.passthru.sources."rosbag2_py";
-  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ];
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
   propagatedBuildInputs = [ pybind11-vendor rclpy rosbag2-compression rosbag2-cpp rosbag2-storage rosbag2-transport rpyutils ];
   checkInputs = [ ament-lint-auto ament-lint-common rcl-interfaces rosbag2-compression-zstd rosbag2-storage-default-plugins rosbag2-test-common rosbag2-test-msgdefs rosidl-runtime-py std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_py-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "913d2b93944db49310f7b74c2a22d2a02d5067b4";
-        hash = "sha256-Jbjroz4/ce2RjXEw9Rj+z5HtAsGJSMP6IiAxwLBGjWw=";
+        rev = "6692d38c2899df8fe035fabf8fa42d15228cdffe";
+        hash = "sha256-42GQihowTN3wzlEIGzhsPrjmXlxKMhULFGIJhx+bItg=";
       };
     };
   });

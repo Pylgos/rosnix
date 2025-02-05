@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "backward_ros";
-  version = "1.0.6-1";
+  version = "1.0.7-1";
   src = finalAttrs.passthru.sources."backward_ros";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libdw-dev" ]; };
@@ -18,8 +18,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "backward_ros-source";
         url = "https://github.com/ros2-gbp/backward_ros-release.git";
-        rev = "1e2cf0cd2c8ee82e678a25a91b18983a97e1d5fb";
-        hash = "sha256-K7oqrgMSoLx3eFF2IGVngyAI02mWSh7ZbrWEImayhuc=";
+        rev = "cd7f6c6ce4372951e77f76dcc4ca22e75aed108a";
+        hash = "sha256-xTghbestQdopaIBolpmuc4lGbg5rOFZcIo3aCQrpLNU=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_test_msgdefs";
-  version = "0.29.0-1";
+  version = "0.31.0-1";
   src = finalAttrs.passthru.sources."rosbag2_test_msgdefs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_test_msgdefs-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "cd001c6dd3a02b634037d89941c6b1698ae73948";
-        hash = "sha256-gABC2Jr+Dewv+vpLYdtS2eaBtfDmQqv/tRiQFr6be5s=";
+        rev = "53feeecaf598e2fdd3ea1bc86c23818def57c9a6";
+        hash = "sha256-XSa6756j5fIXuOdLRvOyQJJGVRxHrTw8QnEmkYCD/b4=";
       };
     };
   });

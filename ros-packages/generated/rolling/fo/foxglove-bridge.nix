@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_bridge";
-  version = "0.8.2-1";
+  version = "0.8.3-1";
   src = finalAttrs.passthru.sources."foxglove_bridge";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_bridge-source";
         url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
-        rev = "baa2da751a8b93596039f4ca529f2581fa76b563";
-        hash = "sha256-n8qBsFxUEeBGJwgM0QWdLQCjtvNZ3I8EvSquIHMea9o=";
+        rev = "1d7611436f888706c2048dd414a376e28d8beab2";
+        hash = "sha256-n4fcLsjIRFa1W9FIABG+3MvlajPcCOtHYymBTG81PaE=";
       };
     };
   });
