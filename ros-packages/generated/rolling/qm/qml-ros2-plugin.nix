@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qml_ros2_plugin";
-  version = "1.0.1-1";
+  version = "2.25.2-1";
   src = finalAttrs.passthru.sources."qml_ros2_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp image-transport rclcpp ros-babel-fish tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-multimedia" "libqt5-qml" "libqt5-quick" "qtbase5-dev" "qtdeclarative5-dev" "qtmultimedia5-dev" "yaml-cpp" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qml_ros2_plugin-source";
         url = "https://github.com/ros2-gbp/qml_ros2_plugin-release.git";
-        rev = "26fb96c81e6b21a7197c21b96565c4d8a0558d9e";
-        hash = "sha256-yoKPHciam4zihyBcYUf/zrVk7LhG14peuJ3WXxLD9No=";
+        rev = "d4308648d08320c122ae07cd647833b56f7d0bb2";
+        hash = "sha256-uXUhksWztJs5dxbq4mmjKW9DWwDMzcm6G+yj5PkLaOE=";
       };
     };
   });

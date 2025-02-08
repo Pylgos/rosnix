@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "battery_state_rviz_overlay";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."battery_state_rviz_overlay";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rviz-2d-overlay-msgs sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "battery_state_rviz_overlay-source";
         url = "https://github.com/ros2-gbp/ros_battery_monitoring-release.git";
-        rev = "3440c215e463be37cb5f6c309babe8089d2d2151";
-        hash = "sha256-A61MKRfgwWoXT2grhLyskRsZlX0jDeFHTt4+Vl4eu4s=";
+        rev = "94ae1da742e4a3b1343a68d8f4e7c53466d723dc";
+        hash = "sha256-QNV2hwmneAK0X9LrwihDpvvg7eMXaUgScqpUDLZtVqM=";
       };
     };
   });
