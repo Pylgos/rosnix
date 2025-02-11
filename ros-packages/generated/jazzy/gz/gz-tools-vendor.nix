@@ -16,9 +16,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_tools_vendor";
-  version = "0.0.5-1";
+  version = "0.0.6-1";
   src = finalAttrs.passthru.sources."gz_tools_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gz-tools2" "ruby" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_tools_vendor-release.git";
-        rev = "69a6a8c93b08c8e0714881c15248b3241fe3b952";
-        hash = "sha256-U16Qty/v4yP/bk6SPE+EGun1q5fvE1zj2rAPqgQLIXY=";
+        rev = "a4b672bc82f198130c7eb327b8ad473d317290e2";
+        hash = "sha256-tkl05beQ5yIYH+O0ueOik2+bpfH3tCDxYJQyeAVYJEQ=";
       };
       substitutions = [
         {
@@ -42,12 +42,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-tools-source";
         url = "https://github.com/gazebosim/gz-tools.git";
-        rev = "efcc504bd3665151266f38db627c9095e5a5773f";
-        hash = "sha256-sV/T53oVk1fgjwqn/SRTaPTukt+vAlGGxGvTN8+G6Mo=";
+        rev = "2d2cf690aae6533d46cc9264f3347d8986c79037";
+        hash = "sha256-CY+W1jWIkszKwKuLgKmJpZMXHn0RnueMHFSDhOXIzLg=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-tools2 2.0.1 Gazebo Tools: Entrypoint to Gazebo's command line interface";
+    description = "Vendor package for: gz-tools2 2.0.2 Gazebo Tools: Entrypoint to Gazebo's command line interface";
   };
 })

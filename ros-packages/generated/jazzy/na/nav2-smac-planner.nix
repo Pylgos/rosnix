@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smac_planner";
-  version = "1.3.4-1";
+  version = "1.3.5-1";
   src = finalAttrs.passthru.sources."nav2_smac_planner";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_smac_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4b985c9b778bd0b920f6d7f2fcbd84f5e26f0744";
-        hash = "sha256-VnWXJtqyNCJTlmAmABaNFEd6k2Qm21cF9f4SXlOaTaQ=";
+        rev = "14052985924be903d02034bb8ec28ccc5364fac5";
+        hash = "sha256-BCKbIm7DuQh9w8gdJtJAUw1mD9hon6fgWYsSa4yHAxA=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_control_test_assets";
-  version = "4.25.0-1";
+  version = "4.26.0-1";
   src = finalAttrs.passthru.sources."ros2_control_test_assets";
   nativeBuildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_control_test_assets-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "120ae46b9f977748315a6819354a8993e6cef890";
-        hash = "sha256-Yip996xxCSLuh2CI+JqOkB+WqNh9YvDOD/iIIIFxK5Y=";
+        rev = "2d8559eca995ec45d5a376748c67c1ed55f907c4";
+        hash = "sha256-yqzAfjeRhV10iWRRkuF7qnXA4XK5ICgQFQrEZKk4Zbk=";
       };
     };
   });

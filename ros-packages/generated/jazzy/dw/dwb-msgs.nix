@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_msgs";
-  version = "1.3.4-1";
+  version = "1.3.5-1";
   src = finalAttrs.passthru.sources."dwb_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs nav-2d-msgs nav-msgs rosidl-default-runtime std-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dwb_msgs-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "7dd209db7820267bc2d182426e34687672214694";
-        hash = "sha256-3euGAXKPbR/NoJPPiVF0EU9qU6RD50jBi6Uvcl1d+aw=";
+        rev = "d211d4926056c691c7a65b54fb08fa92464b26fd";
+        hash = "sha256-I8KNjUfKHzu811wYhgGV5oywhZFep8ssS0C8sqQUSFY=";
       };
     };
   });

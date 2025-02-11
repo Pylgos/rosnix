@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_graceful_controller";
-  version = "1.3.4-1";
+  version = "1.3.5-1";
   src = finalAttrs.passthru.sources."nav2_graceful_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util nav-2d-utils pluginlib rclcpp tf2 tf2-geometry-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_graceful_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "2709d812885d2f4c56946077d0fdf2d29866bf73";
-        hash = "sha256-fRvE3JLFAbueER5iZFp9SgWr3REroxCk64c5gYsvky8=";
+        rev = "7f62b13007a41b0c533ac3abbddd563ff40b4aa2";
+        hash = "sha256-jGCWYm8vylXzbc1qDBDzp5oEBHiz0jzFX2FrcboyB9M=";
       };
     };
   });
