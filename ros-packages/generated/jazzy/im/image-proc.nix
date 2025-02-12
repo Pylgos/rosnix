@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_proc";
-  version = "5.0.6-1";
+  version = "5.0.7-1";
   src = finalAttrs.passthru.sources."image_proc";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ camera-calibration-parsers cv-bridge geometry-msgs image-geometry image-transport rclcpp rclcpp-components rcutils sensor-msgs tf2 tf2-geometry-msgs tracetools-image-pipeline ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "74c340e608e4b6d889745e003f6bd42863a12892";
-        hash = "sha256-raRlHUIMWGD5SaLU+W/I1fGkykRtuW5kg31SIwT7ehs=";
+        rev = "add32e20b394a57ce1cbf0cc2cb3cd7c3b6fb95a";
+        hash = "sha256-Vb581jPmjWit6oGR+cLpuVuoROvyeOCp+KMMjLi/p7Y=";
       };
     };
   });

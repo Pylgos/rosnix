@@ -20,9 +20,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_transport_vendor";
-  version = "0.0.5-1";
+  version = "0.0.6-1";
   src = finalAttrs.passthru.sources."gz_transport_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "python3-dev" "python3-pytest" ]; };
   propagatedBuildInputs = [ gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-transport13" "libsqlite3-dev" "libzmq3-dev" "protobuf-dev" "pybind11-dev" "python3-psutil" "uuid" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_transport_vendor-source";
         url = "https://github.com/ros2-gbp/gz_transport_vendor-release.git";
-        rev = "507e93357bfe90f8a3a4c11a3e09fbbd3fa501fc";
-        hash = "sha256-LJR/bu6SYZ/U+NsUqQuHEVALhkJyStdp7Tb8Fi1TZ5s=";
+        rev = "4f33dac3ec8ae1aa73bbc2b96f0d2fc6c4ccb574";
+        hash = "sha256-c0Srhd2bD4PuK+jYiuyMKfizxfgDybBtIxC4XDuyn94=";
       };
       substitutions = [
         {
@@ -46,12 +46,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-transport-source";
         url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "73757e716dcf21e395e1884fbfb4afc6bac10d85";
-        hash = "sha256-2Akd3vKr07IdgoJppvUV1nZlHE4RdQfI2R18ihHTDHk=";
+        rev = "c571f73f4829ecbaea6d944494aac3dd21483246";
+        hash = "sha256-hCP+yVoyl1c3KNmQ5jKrYvPT1IlAy9JkCh0c0mOF+KM=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-transport13 13.4.0 Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.";
+    description = "Vendor package for: gz-transport13 13.4.1 Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.";
   };
 })

@@ -24,7 +24,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_plot";
-  version = "1.6.0-1";
+  version = "1.6.1-1";
   src = finalAttrs.passthru.sources."rqt_plot";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rosidl-parser ];
@@ -35,8 +35,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_plot-source";
         url = "https://github.com/ros2-gbp/rqt_plot-release.git";
-        rev = "62ceb3f01c7db692ed1975d7367b44ffa2798b90";
-        hash = "sha256-uqzYtzSEusZOU0naDhJ/V7/wohxuSv/yE5nB6WMwih8=";
+        rev = "d8b24a21c9ec9913cad58fc75c0841ca6cfd9b72";
+        hash = "sha256-YSDLFwP3DA777pIs57ZU7VgVj1vAW9gIqvq29WjubVU=";
       };
     };
   });

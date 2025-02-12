@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_msgs";
-  version = "3.0.0-3";
+  version = "3.1.0-1";
   src = finalAttrs.passthru.sources."foxglove_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
@@ -29,12 +29,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_msgs-source";
         url = "https://github.com/ros2-gbp/ros_foxglove_msgs-release.git";
-        rev = "1643daf92cf16b9a75cc2e3e184c7077de87db2a";
-        hash = "sha256-M7/eEP7tPukgpkdDKo93zEfydXTiLUzUaeR6h4c6lxM=";
+        rev = "16128175ac2f6115f8dc6189f54d8e765b0bb88e";
+        hash = "sha256-CIKqPni/xU+9ZW2HO5tiDdBYvnvpDmmr/IOp6BXAwVI=";
       };
     };
   });
   meta = {
-    description = "foxglove_msgs provides visualization messages that are supported by Foxglove Studio.";
+    description = "foxglove_msgs provides visualization messages that are supported by Foxglove.";
   };
 })

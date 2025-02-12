@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "stereo_image_proc";
-  version = "5.0.6-1";
+  version = "5.0.7-1";
   src = finalAttrs.passthru.sources."stereo_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ cv-bridge image-geometry image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs stereo-msgs ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "stereo_image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "e7afa4ed95f2a2eed1d3af46d8955f86db06e5fa";
-        hash = "sha256-HWGr+Qo2QoXSz8cmdEQEP06XRuWoXMrW+20ya8d9nXw=";
+        rev = "4dfbba9cbf12962e35f5fd951aa71492696736f6";
+        hash = "sha256-FzpNzzlqMe/51SF3X7T6Zu4wEvL88OLAz+QRRthHvIc=";
       };
     };
   });

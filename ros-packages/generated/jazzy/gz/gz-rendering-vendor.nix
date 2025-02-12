@@ -21,9 +21,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_rendering_vendor";
-  version = "0.0.5-1";
+  version = "0.0.6-1";
   src = finalAttrs.passthru.sources."gz_rendering_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = [ gz-common-vendor gz-math-vendor gz-ogre-next-vendor gz-plugin-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "gz-rendering8" "libfreeimage-dev" "libglew-dev" "libogre-dev" "libvulkan-dev" "libxi-dev" "libxmu-dev" "uuid" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "xvfb" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_rendering_vendor-source";
         url = "https://github.com/ros2-gbp/gz_rendering_vendor-release.git";
-        rev = "50d1833d1859876a79ddf2ae91b0aa6850dc3d30";
-        hash = "sha256-bqebULbzJZ8g6XH+SgQ0NnBvF6dn2cHzGYqo3DpiwtE=";
+        rev = "e8895662d9da48e125aba145f65eb1d49c79b363";
+        hash = "sha256-F0pvswJ1yLGJ2cXj1U9gZcIDxTYWjkhfvN+w1Fibjdg=";
       };
       substitutions = [
         {
@@ -47,12 +47,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-rendering-source";
         url = "https://github.com/gazebosim/gz-rendering.git";
-        rev = "c28c1cc00a1c14f6c6980ca7ad8f27301c756598";
-        hash = "sha256-ZHeEC/zvBKROJ/e+6Bdvhut30crhlC5VMsxrpIGIA0M=";
+        rev = "3feca6130076f8efb3eb704451cadcde40dff165";
+        hash = "sha256-x+QHn8d+19U12CG1+HEmP0KcM3beY00Vvrc8mrxvAs0=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-rendering8 8.2.1 Gazebo Rendering: Rendering library for robot applications";
+    description = "Vendor package for: gz-rendering8 8.2.2 Gazebo Rendering: Rendering library for robot applications";
   };
 })

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zstd_image_transport";
-  version = "4.0.3-1";
+  version = "4.0.4-1";
   src = finalAttrs.passthru.sources."zstd_image_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-transport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zlib" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zstd_image_transport-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "dd946a143ff44a2271fc3a41ca59f7f904db9080";
-        hash = "sha256-Hvfx4e4Co5JA2j5XazBrSAZls/UGBGzRVcx8rnpLT0w=";
+        rev = "79e4b04651c24503f3ca24abcd2296658725f16a";
+        hash = "sha256-2apx0E4WeQFkFFndxtVBFPlLLhhksgbm6IVMZFGGBfM=";
       };
     };
   });
