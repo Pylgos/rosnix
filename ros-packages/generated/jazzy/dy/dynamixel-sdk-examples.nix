@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_sdk_examples";
-  version = "3.7.40-6";
+  version = "3.8.1-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk_examples";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces rclcpp ];
@@ -25,12 +25,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_sdk_examples-source";
         url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
-        rev = "35ae7e09eb0d2d3a39c518764c296ea3d1aef187";
-        hash = "sha256-TRPWVWEEJtx/attfpSr6SATpy7YhzqP9x8ef/IVsULA=";
+        rev = "454c8000bd0dd14189a58fa7c218a6051725686b";
+        hash = "sha256-QMtHaTQ7D66bWdGe1zFjTpHHWLqo1iRdBtPG6RUesf8=";
       };
     };
   });
   meta = {
-    description = "ROS2 examples using ROBOTIS DYNAMIXEL SDK";
+    description = "ROS 2 examples using ROBOTIS DYNAMIXEL SDK";
   };
 })

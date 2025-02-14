@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_rviz_plugins";
-  version = "0.21.9-1";
+  version = "0.21.10-1";
   src = finalAttrs.passthru.sources."rtabmap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedBuildInputs = [ pcl-conversions pluginlib rclcpp rtabmap-conversions rtabmap-msgs rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs tf2 ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtabmap_rviz_plugins-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "591be4beecc6b0fff4030dfc9cc2e397046b3af5";
-        hash = "sha256-dQKKgVeE2g3FjoIzdlCA3C4cIeizszZbxZ0LFvVQKwU=";
+        rev = "1b03c7af5ab4037aee417018b5d4882d8a8efa29";
+        hash = "sha256-4pTbU7SEyoNMS+7Dsuj5GzHdIWGl42dm83Sz42ol77M=";
       };
     };
   });

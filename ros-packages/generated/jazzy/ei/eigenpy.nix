@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "eigenpy";
-  version = "3.8.2-1";
+  version = "3.10.3-1";
   src = finalAttrs.passthru.sources."eigenpy";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
@@ -19,8 +19,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "eigenpy-source";
         url = "https://github.com/ros2-gbp/eigenpy-release.git";
-        rev = "a7fcfca7312d7d98686fce1b2b23b9b5af161e46";
-        hash = "sha256-SjF0ivZjk1x6wk3jjCcgoenV6ZIsE6PF1YxvNwIFVVo=";
+        rev = "5f1699b0e61352efffff6690f24d078103a0b527";
+        hash = "sha256-dYKkoFlYCOfJRkkIy+oVrV1YL6p1RZC1oTmVnuDPFlk=";
       };
     };
   });
