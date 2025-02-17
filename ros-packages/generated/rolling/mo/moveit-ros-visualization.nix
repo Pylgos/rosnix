@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_visualization";
-  version = "2.12.0-1";
+  version = "2.13.0-1";
   src = finalAttrs.passthru.sources."moveit_ros_visualization";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedBuildInputs = [ class-loader geometric-shapes interactive-markers moveit-common moveit-ros-planning-interface moveit-ros-robot-interaction moveit-ros-warehouse object-recognition-msgs pluginlib rclcpp rclpy rviz2 tf2-eigen ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libqt5-opengl-dev" "qtbase5-dev" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_visualization-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "fd50f9e181981e0784ca0b35d7b7b5fc82490cf2";
-        hash = "sha256-LaRReQZ48JgsXjkHKeesGJX6ekjO1EhCaPaWU0PGpS4=";
+        rev = "fbd73248d808aa1eadefc3f2f639e806f335d508";
+        hash = "sha256-kG78bKtomYFDenXvEZ7i/oaBZC6hcoelWPyFp9HRncY=";
       };
     };
   });

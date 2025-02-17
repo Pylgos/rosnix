@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "apriltag";
-  version = "3.4.2-1";
+  version = "3.4.3-1";
   src = finalAttrs.passthru.sources."apriltag";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "apriltag-source";
         url = "https://github.com/ros2-gbp/apriltag-release.git";
-        rev = "05397e039099186e22a3c6f73a00e2e7b395a262";
-        hash = "sha256-gh98hPfxaAHqN4iEbnlYrBGpiD9urWJSo4Qg5OZgfgE=";
+        rev = "fba6204f5b51962605e0014e7cb9d34d3d174ce9";
+        hash = "sha256-6jPxacqfvL7dIgZC/kZpWhYDF/cnGL5c4JFVhTsx7gg=";
       };
     };
   });
