@@ -39,7 +39,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_servo";
-  version = "2.12.1-1";
+  version = "2.12.2-1";
   src = finalAttrs.passthru.sources."moveit_servo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs gripper-controllers joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ];
@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_servo-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "e9e3823c6ef62588637d829a5c2b236924b56f1e";
-        hash = "sha256-5DeZWd7aHHMYKL4+brKC0QhanhDRPajboX0sGF/7sV8=";
+        rev = "af9648078fd0cbfb5e13508b4929d45e3939ea00";
+        hash = "sha256-g74rT+P/8A1r8i0HikMAssM5vlioTpxZWQZ8IT8eS+I=";
       };
     };
   });
