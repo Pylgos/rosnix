@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tiago";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_tiago";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller geometry-msgs joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_tiago-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "52431f1869c9f2d891411a5659830af752083a55";
-        hash = "sha256-DZQWy3i/GDQNwnUZ0pD/Bm+cEkSqvUwuYeE+PehZtyk=";
+        rev = "7e5f8f4d773cf20aeef2f6341de2528115f874cf";
+        hash = "sha256-8JunOZqOehDZ1efaaL+uP5DRrdSauP7Dqw1tq6Grdn0=";
       };
     };
   });

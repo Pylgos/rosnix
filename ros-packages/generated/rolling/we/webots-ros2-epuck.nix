@@ -26,7 +26,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_epuck";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_epuck";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller geometry-msgs joint-state-broadcaster nav-msgs rclpy robot-state-publisher rviz2 sensor-msgs std-msgs tf2-ros webots-ros2-control webots-ros2-driver webots-ros2-msgs ];
@@ -36,8 +36,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_epuck-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "47f9066772aa1aaaba31885c6d5c2d9f4186e8f6";
-        hash = "sha256-Em4RVC4wQa1yoFZKEoSapNa94dL24g4MqYxIRXKc9Ok=";
+        rev = "b802ac13dd81d37f747637b4e41122e0ae3930a8";
+        hash = "sha256-IwLNdUZ4HQC6qsc2htBPUATENIaGM/m2w/UJ95kaDJE=";
       };
     };
   });

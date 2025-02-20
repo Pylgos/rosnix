@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_importer";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_importer";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
   propagatedBuildInputs = [ builtin-interfaces xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-collada" ]; };
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_importer-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "ab7ad4c33c287904075a6bb56d13703b36c3b113";
-        hash = "sha256-0BjkWBfT9UijOpEXMxJlQSl5ecFhKxV3II4hqj3MLsY=";
+        rev = "60e93ce925b5678cb725d47464a65f68b63321c5";
+        hash = "sha256-hyO9zwXiAuwnmksvQWgVUBFskFy3nq9/wVsdveT174o=";
       };
     };
   });

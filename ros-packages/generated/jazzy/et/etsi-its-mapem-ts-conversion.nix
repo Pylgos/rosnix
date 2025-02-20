@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_mapem_ts_conversion";
-  version = "3.0.0-1";
+  version = "3.1.0-1";
   src = finalAttrs.passthru.sources."etsi_its_mapem_ts_conversion";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_mapem_ts_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "c46f5702439e6742083cae59cf9a45bb607c6b91";
-        hash = "sha256-MF5GgXBlUE6aUDY7KMJQIJCcHeykQKC/twrYjvVVGmM=";
+        rev = "24c37dfe5af8239615a962b17f706530e1264aed";
+        hash = "sha256-KV8dDUEGsMqXzWrrdBTNMtCNQmFiyfsEPeoFGyQW6k0=";
       };
     };
   });

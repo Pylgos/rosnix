@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tesla";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_tesla";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ ackermann-msgs builtin-interfaces rclpy webots-ros2-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_tesla-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "d233344bc73905dd94849ea6965b8fbaccdf5136";
-        hash = "sha256-EgiN0ZldemtOfOdvupDqu2SL+ieC5jRLvULy0+7ejsU=";
+        rev = "56e1af64e8852a9591f51728bf8269750d9fe41c";
+        hash = "sha256-d7ViiwsbvVRzu8c3hE5aqZDy41IDHt03I7WBKTxBBfU=";
       };
     };
   });

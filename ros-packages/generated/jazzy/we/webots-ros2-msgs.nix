@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "webots_ros2_msgs";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs vision-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_msgs-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "bfee757a57bc766e9154ae58cdb753fa284f310c";
-        hash = "sha256-JqQw9sZlQ+FC3E6cjgt+uIWAOIo71p5qQUTns/ppNZ8=";
+        rev = "ef45349ee38cb82b4071f54658f8bb50ec1ad97e";
+        hash = "sha256-ukCcwPgzwNYFS/FYkMrz1uTzORHMeT8G19k+hByQoRM=";
       };
     };
   });

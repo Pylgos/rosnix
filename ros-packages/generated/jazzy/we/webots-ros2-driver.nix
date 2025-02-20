@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "webots_ros2_driver";
-  version = "2023.1.3-1";
+  version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_driver-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "e4b5418d661d13d7841e889fe614d4f7c8cfe06e";
-        hash = "sha256-G6weVTbEsygOn7dKbZRH3n+HRo2Yz1i2JeACgKMjWwk=";
+        rev = "27af7494fe6936d6d62b30bf22aa813127a8d4bb";
+        hash = "sha256-nJsNOULUL+lisVx69l3n2ycJ9VeCXYJx4iBTrs/DKNc=";
       };
     };
   });
