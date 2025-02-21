@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ds_dbw_joystick_demo";
-  version = "2.3.1-1";
+  version = "2.3.2-1";
   src = finalAttrs.passthru.sources."ds_dbw_joystick_demo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ds-dbw-can ds-dbw-msgs joy rclcpp rclcpp-components sensor-msgs std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ds_dbw_joystick_demo-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
-        rev = "de792aef3f59d996d9114d2ae0eb9eb62e750ae9";
-        hash = "sha256-rNJfOPWZs/+ZUF9j/OZ11ZD4rj3hKV1WubHL62KhtoA=";
+        rev = "93cc05831723496e9062f80404a6320f41cad5e0";
+        hash = "sha256-2E779Mn+rzJMfNAM51OWBHqhsUq+a2sPnf1fMTiQr3M=";
       };
     };
   });

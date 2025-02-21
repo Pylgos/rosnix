@@ -9,18 +9,19 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pangolin";
-  version = "0.9.1-3";
+  version = "0.9.3-1";
   src = finalAttrs.passthru.sources."pangolin";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "wayland" "wayland-dev" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-wheel" "wayland" "wayland-dev" ]; };
+  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "catch2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pangolin" = substituteSource {
       src = fetchgit {
         name = "pangolin-source";
         url = "https://github.com/ros2-gbp/Pangolin-release.git";
-        rev = "4a5f472c7c48e921bcce34c2d9ddad4f0e130970";
-        hash = "sha256-VAE6VKDuVagjFsw1q6X/hpGUYbDSIx+Os9F+/76bo08=";
+        rev = "752d52ad42059bbcd1e1ab4e886608b04341d321";
+        hash = "sha256-ezFSxZftarl5QZZJdtU6VAyRAUQrPiLdGQ8hkoc0cCY=";
       };
     };
   });

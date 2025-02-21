@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.2.3-2";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "ec1930a54ba4353d717e50b4d8f0060331837ac4";
-        hash = "sha256-FGLS7UN/RIgpunqpUkVdtlH3KitcT8JBLNHEKvNP0VI=";
+        rev = "13dcf15f3819770acfb05dfa25d5464f80d40f88";
+        hash = "sha256-nKTwO0+qy8OM1nbUPgsQ2ulGIPyht6uHwQ3xovA1kho=";
       };
       substitutions = [
         {
@@ -46,12 +46,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat-source";
         url = "https://github.com/gazebosim/sdformat.git";
-        rev = "cc524e7ebea952652aea3b03a95f13dc6416c563";
-        hash = "sha256-4/0pVaev++v0+wHQiGeTl8XtTDzh2li32dND0EjfjwA=";
+        rev = "7ea246dd2ccba74831c7049898d80832a1e8d976";
+        hash = "sha256-RarpOKoJ9w+yJw5HU5exZYjx1zVdtkE05+8PBADhOwY=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: sdformat15 15.1.1 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
+    description = "Vendor package for: sdformat15 15.2.0 SDFormat is an XML file format that describes environments, objects, and robots in a manner suitable for robotic applications";
   };
 })

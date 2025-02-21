@@ -18,9 +18,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_plugin_vendor";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_plugin_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = [ gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-plugin3" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_plugin_vendor-source";
         url = "https://github.com/ros2-gbp/gz_plugin_vendor-release.git";
-        rev = "183bc4d418ef0c2b0cecaa888ce7fadf40a5533a";
-        hash = "sha256-prFCEjcqpFU4tJKND9ce4tM+ZSGHBZwryNtIMUxhNCo=";
+        rev = "9b72efc9b30faaa27c3d02b95ef8778eeaf76092";
+        hash = "sha256-eMZdNsqOnrvK34DRcuvbcScvYZmGGYcaVcjvIXjKoV0=";
       };
       substitutions = [
         {
@@ -44,12 +44,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-plugin-source";
         url = "https://github.com/gazebosim/gz-plugin.git";
-        rev = "faaf65e805cca46b4539e1941266189beb6b0bae";
-        hash = "sha256-h2Dx0KcFmJlS67q0v1zbd9nQkTCKgHkxt5KKTT5v+fw=";
+        rev = "4c0ba4bef006d9a395023c46bc7cce4b0dc626aa";
+        hash = "sha256-7v6fzylJ4R1uoyQFM+eyl2/bXVy5MGC5dPjS7/taB8U=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-plugin3 3.0.0 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.";
+    description = "Vendor package for: gz-plugin3 3.0.1 Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.";
   };
 })

@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zenoh_cpp_vendor";
-  version = "0.3.1-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."zenoh_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "git" ]; };
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zenoh_cpp_vendor-source";
         url = "https://github.com/ros2-gbp/rmw_zenoh-release.git";
-        rev = "38dca581a5214b99a3113d7cd9c55d36e394fa49";
-        hash = "sha256-roFQAvKHMErOuFUVmxaIgGfQyMMhR4qBYId7GxJ9qTg=";
+        rev = "ec047596ec5c05dd6d904260b8293b2106f9506e";
+        hash = "sha256-z0IhXRerbXoANcjfLIKgKW8/tebqGy8aXlIZ2VocJks=";
       };
       substitutions = [
         {
@@ -41,16 +41,16 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zenoh-c-source";
         url = "https://github.com/eclipse-zenoh/zenoh-c.git";
-        rev = "5fce7fb1d397e016ad02a50bde4262007d755424";
-        hash = "sha256-jayvCq4xvvAheeSpmxwg1VA3TLPyS4QGdVhte8wk0KA=";
+        rev = "261493682c7dc54db3a07079315e009a2e7c1573";
+        hash = "sha256-WhD0zzD9xnUBV9OuHmV5SajFlF9k/b4eWCntN5b59GQ=";
       };
     };
     "zenoh_cpp_vendor/zenoh-cpp" = substituteSource {
       src = fetchgit {
         name = "zenoh-cpp-source";
         url = "https://github.com/eclipse-zenoh/zenoh-cpp";
-        rev = "bd4d741c6c4fa6509d8d745e22c3c50b4306bd65";
-        hash = "sha256-OLNlew4pOLl1PRWrJTTfDv7LGYHGX0A7A4RW9jwCOsE=";
+        rev = "5dfb68c9ac966925e59bcb52f39b9bc26c0ad6d3";
+        hash = "sha256-qEkY4M5gaBst5WEvZmW9jOPdZHcjgdR6HUZj4n7iN1E=";
       };
     };
   });

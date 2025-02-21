@@ -39,7 +39,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control_demos";
-  version = "2.0.5-1";
+  version = "2.0.6-1";
   src = finalAttrs.passthru.sources."gz_ros2_control_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ackermann-steering-controller ament-index-python control-msgs diff-drive-controller effort-controllers geometry-msgs gz-ros2-control hardware-interface imu-sensor-broadcaster joint-state-broadcaster joint-trajectory-controller launch launch-ros mecanum-drive-controller rclcpp rclcpp-action robot-state-publisher ros2controlcli ros2launch ros-gz-bridge ros-gz-sim std-msgs tricycle-controller velocity-controllers xacro ];
@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_ros2_control_demos-source";
         url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "27545ed9db1aa978aefaf4551735dfca59023986";
-        hash = "sha256-zoOwUEEykMe7RkBr2ls/qXNWcdTLus/E+GBdL5nM8JA=";
+        rev = "d37b8dccb10b26d04a037d80f549034245a18c50";
+        hash = "sha256-maUfl9VQ5ikLypXlrn2Y6x8FGoIH0woKxH6kmupamFg=";
       };
     };
   });

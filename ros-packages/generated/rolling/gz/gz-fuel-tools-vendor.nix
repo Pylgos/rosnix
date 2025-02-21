@@ -21,9 +21,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_fuel_tools_vendor";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_fuel_tools_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
   propagatedBuildInputs = [ gz-common-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-fuel_tools10" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libyaml-dev" "libzip-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_fuel_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_fuel_tools_vendor-release.git";
-        rev = "72f664f589c0461e087b37fbc9186dfba37f3621";
-        hash = "sha256-MJLvbIBIph2f6hJpR2sjF+lU5N47CT/D4Igl0iRCgrY=";
+        rev = "52b3fe497ef701459a74b62617371ee9697892fe";
+        hash = "sha256-KG72owcVroJv0BU2mgbj9lk1js0lhA+6dC/qKDhmns4=";
       };
       substitutions = [
         {
@@ -47,12 +47,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-fuel-tools-source";
         url = "https://github.com/gazebosim/gz-fuel-tools.git";
-        rev = "93803c78dc55a978e39dfbb2a89d47585ff3c999";
-        hash = "sha256-9WskZnci7D09aW32lzmdtlhRBM+hcmhG6iNgf3OC1js=";
+        rev = "84842609463393207786494b22cea539b8f159c3";
+        hash = "sha256-/Xfhec6kpv6srSp+hudqBaK4dKFn0QK45aGqxzNyytw=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-fuel_tools10 10.0.0 Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel";
+    description = "Vendor package for: gz-fuel_tools10 10.0.1 Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel";
   };
 })

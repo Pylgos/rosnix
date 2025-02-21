@@ -16,22 +16,23 @@
   rosidl-typesupport-fastrtps-c,
   rosidl-typesupport-fastrtps-cpp,
   substituteSource,
+  tracetools,
   zenoh-cpp-vendor,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_zenoh_cpp";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."rmw_zenoh_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rcpputils rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp zenoh-cpp-vendor ];
+  propagatedBuildInputs = [ ament-index-cpp fastcdr rcpputils rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools zenoh-cpp-vendor ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_zenoh_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_zenoh_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_zenoh-release.git";
-        rev = "c820611b287ab0af48717ff55e2f2eceba56fb90";
-        hash = "sha256-lzCyU/cZrByIYbFTfP5acTextgNJEL3HNWhqErR24CA=";
+        rev = "5fad84dfb1413a3c633f056948ab04bda4e1dcdf";
+        hash = "sha256-53Rd7yMUDzsYOiM9ku7VKFtdTOH+5xmc/Pt58lX9jYI=";
       };
     };
   });

@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sim_vendor";
-  version = "0.0.7-1";
+  version = "0.0.8-1";
   src = finalAttrs.passthru.sources."gz_sim_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_sim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sim_vendor-release.git";
-        rev = "c0d0a1291bc221b45e3ae12a56e2bc84e14bd5de";
-        hash = "sha256-WXKbwxJMiSmPIevMZJuCUSzlDKWgUfJ0eisWTuSgBMI=";
+        rev = "c70492cae31c0660bd2b8a40c71b4a4929357015";
+        hash = "sha256-sv9sH9amOGuBzLmyxGiEcKIQjbByKMsI3V+ik7luqB0=";
       };
       substitutions = [
         {
@@ -56,12 +56,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-sim-source";
         url = "https://github.com/gazebosim/gz-sim.git";
-        rev = "4c2797d335c3d44128923c1315a051a5c922ebaa";
-        hash = "sha256-C3DuM7pnxPoKd9NcmwKbD5n9eDxaJ9T3+wwbH1ZbWmg=";
+        rev = "49670c95d2cab9e1c4f993fb675a31ca97452805";
+        hash = "sha256-hvhq2XBzcIoupJdJyJzk38LDXoEnd9iBCCiXvPZsPqY=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-sim8 8.8.0 Gazebo Sim : A Robotic Simulator";
+    description = "Vendor package for: gz-sim8 8.9.0 Gazebo Sim : A Robotic Simulator";
   };
 })
