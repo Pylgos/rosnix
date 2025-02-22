@@ -7,6 +7,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geometry-msgs,
   mkSourceSet,
   rosSystemPackages,
   rosidl-default-generators,
@@ -16,22 +17,22 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_msgs";
-  version = "2.2.1-5";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."turtlebot3_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_msgs" = substituteSource {
       src = fetchgit {
         name = "turtlebot3_msgs-source";
         url = "https://github.com/ros2-gbp/turtlebot3_msgs-release.git";
-        rev = "bdda58f589ea7a37beb28192ab4830cbed47537f";
-        hash = "sha256-AfTC3VY2EzfPdav7DvNaPrB+NM5laHjJRrpSaWfb2Cw=";
+        rev = "e92ca73b13ed56908f6b4541eebb720b125e8db4";
+        hash = "sha256-UAF6r9jlQPRsfWpMKtRlU66TrYkul8Dgac3DgarW1k8=";
       };
     };
   });
   meta = {
-    description = "Message and service types: custom messages and services for TurtleBot3 packages for ROS2";
+    description = "Message and service types: custom messages and services for TurtleBot3 packages for ROS 2";
   };
 })

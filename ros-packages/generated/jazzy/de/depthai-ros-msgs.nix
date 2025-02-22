@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_ros_msgs";
-  version = "2.10.5-1";
+  version = "2.11.0-1";
   src = finalAttrs.passthru.sources."depthai_ros_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai_ros_msgs-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "61745fcbcaf9909a4288d87734b3bb6ba17f5e88";
-        hash = "sha256-TRI0CiF3LpO8bHutmgOK3jN9HNzlJfPS4lor2FsCf/M=";
+        rev = "c46d2ee11821bb1f2110e9a1a31bf83384649973";
+        hash = "sha256-FD6Nuae18ezLlHqh445X5Gxaq1kCSo2Gdt9vrKK7cOE=";
       };
     };
   });
