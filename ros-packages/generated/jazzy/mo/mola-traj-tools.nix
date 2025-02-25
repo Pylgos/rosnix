@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_traj_tools";
-  version = "1.6.1-1";
+  version = "1.6.2-1";
   src = finalAttrs.passthru.sources."mola_traj_tools";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mrpt-libposes ];
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_traj_tools-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "dea62eb9300344221bf0f8329d07de6f3ee1a84e";
-        hash = "sha256-H7sjeu2/Fv+mpZKsg/03PrrDpmaIdFpmh7tsqc+kSGY=";
+        rev = "c38f314eaa50337ed813cf784c2fbf3ed95c058a";
+        hash = "sha256-upp4AAJhoHL3nujqeWWXqArp01qxpXnQUCYMyogEiJg=";
       };
     };
   });

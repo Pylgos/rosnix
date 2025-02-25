@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_lidar_odometry";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."mola_lidar_odometry";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_lidar_odometry-source";
         url = "https://github.com/ros2-gbp/mola_lidar_odometry-release.git";
-        rev = "4f5404a0f96849312320120a3e53b3320116d9e1";
-        hash = "sha256-66ckF+GBpUB//i6do/TxLO5IqDwjdpyTbl3nDkPS4gQ=";
+        rev = "ec1de8a2104a3361465d77cd614fd4162b107368";
+        hash = "sha256-UT61qmVoE2iW/03MLMj6AjXNvbM3elvbnEtCR8Ivwdk=";
       };
     };
   });

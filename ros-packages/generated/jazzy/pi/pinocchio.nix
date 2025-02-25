@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pinocchio";
-  version = "3.4.0-1";
+  version = "3.4.0-2";
   src = finalAttrs.passthru.sources."pinocchio";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
@@ -23,8 +23,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pinocchio-source";
         url = "https://github.com/ros2-gbp/pinocchio-release.git";
-        rev = "ede4ec3f6c95edfbbd6b7067860afcbe44460482";
-        hash = "sha256-tQH+eP3CoBlsAwZJ5oe6kI88mJWw0nVbQfqHUWUnWyk=";
+        rev = "1e9be14ab09e28ee5868bcdcd5ed3c73881de9a0";
+        hash = "sha256-HyLjifuhkperqjWOklOYL+KWWXQEM/RavkFvw8wCj/Q=";
       };
     };
   });

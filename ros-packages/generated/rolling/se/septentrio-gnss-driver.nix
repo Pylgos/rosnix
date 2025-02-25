@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "septentrio_gnss_driver";
-  version = "1.4.1-1";
+  version = "1.4.2-1";
   src = finalAttrs.passthru.sources."septentrio_gnss_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "septentrio_gnss_driver-source";
         url = "https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git";
-        rev = "4f592056d04bcdc124aef51dd210b22785e2180c";
-        hash = "sha256-0hF2yHegysVB6UW1kJ6htFYxwG5CX3O5uEtfuVT7LYg=";
+        rev = "99f5092e3ad400d7cdf160289a64b77a708a5678";
+        hash = "sha256-BMYMGG+wR+N8zUD/bkfkQyytyCez8M2gus8aN7+tQKg=";
       };
     };
   });

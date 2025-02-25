@@ -14,7 +14,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_state_estimation_smoother";
-  version = "1.6.1-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_smoother";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ gtsam mola-common mola-imu-preintegration mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
@@ -23,8 +23,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_state_estimation_smoother-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "d16c4563c79e8415a33c061616af0f27a296561e";
-        hash = "sha256-Wnwbd6A1pNL/jWYTbefyCJHaLPgexiLXmt3z6E8DgAQ=";
+        rev = "7624f3c65b6c348c19ab9da1a4c93dc63ad2079a";
+        hash = "sha256-W/12iDrmD32v6hWpqyKJwR0of0doM+UTJT/6iis7vNg=";
       };
     };
   });
