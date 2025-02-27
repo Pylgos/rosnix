@@ -1,6 +1,7 @@
 {
   action-msgs,
   ament-cmake,
+  ament-cmake-mypy,
   ament-cmake-pytest,
   ament-cmake-ros,
   buildAmentCmakePackage,
@@ -29,18 +30,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_library";
-  version = "2.1.0-1";
+  version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-pil" ]; };
-  checkInputs = [ action-msgs ament-cmake-pytest builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
+  checkInputs = [ action-msgs ament-cmake-mypy ament-cmake-pytest builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_library" = substituteSource {
       src = fetchgit {
         name = "rosbridge_library-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "dc7b11927fb6824744ea4cf8b2be8541fea1ee1a";
-        hash = "sha256-+pOcP2d8XFjvRpJbVfA1m9s80GnHHqz/rlEs55oQoPM=";
+        rev = "f33ccf4fdf93a4297767e396ecd2ae3472350f33";
+        hash = "sha256-y7D5wJGA9pDkUXmoKfmwBrvlTnKYZxULzjX5zPRFBHg=";
       };
     };
   });

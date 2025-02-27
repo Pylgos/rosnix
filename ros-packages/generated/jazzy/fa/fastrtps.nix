@@ -19,7 +19,7 @@ buildCmakePackage (finalAttrs: {
     "fastrtps" = substituteSource {
       src = fetchgit {
         name = "fastrtps-source";
-        url = "https://github.com/ros2-gbp/fastrtps-release.git";
+        url = "https://github.com/ros2-gbp/fastdds-release.git";
         rev = "e0266de0cee3d08918746a0cf559c4bbdf936da1";
         hash = "sha256-SFz+jKoVq4zpS1C9CJppWVP0PbtBQ5cryatqVjLSlM8=";
       };

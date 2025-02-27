@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_workbench_msgs";
-  version = "2.0.3-4";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."dynamixel_workbench_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_workbench_msgs-source";
         url = "https://github.com/ros2-gbp/dynamixel_workbench_msgs-release.git";
-        rev = "653a571fecc97291b062e04ba41ea1a810c3c85e";
-        hash = "sha256-NMrVMFxbUmSDCdSRTO6gRJtKsmEeqY4Q5FqkBQCeY3I=";
+        rev = "dcd706406ae5a6915ba2c5337965dfda1648e72c";
+        hash = "sha256-N24xbzm/t5NM4E4QW/blx5ACQaAaAhiZV31flzdUGJE=";
       };
     };
   });

@@ -1,4 +1,5 @@
 {
+  ament-cmake-mypy,
   ament-cmake-pytest,
   ament-cmake-ros,
   buildAmentCmakePackage,
@@ -12,8 +13,6 @@
   rclpy,
   rmw-dds-common,
   ros2node,
-  ros2param,
-  ros2pkg,
   ros2service,
   ros2topic,
   rosSystemPackages,
@@ -25,18 +24,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosapi";
-  version = "2.1.0-1";
+  version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosapi";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2param ros2pkg ros2service ros2topic rosapi-msgs rosbridge-library ];
-  checkInputs = [ ament-cmake-pytest geometry-msgs rmw-dds-common sensor-msgs shape-msgs ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
+  checkInputs = [ ament-cmake-mypy ament-cmake-pytest geometry-msgs rmw-dds-common sensor-msgs shape-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosapi" = substituteSource {
       src = fetchgit {
         name = "rosapi-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "3585d6e0b12c08a749b91c78bb847dc61e25d779";
-        hash = "sha256-MdizJo6Z9eAshzwDPfTu5T2l2lsIAO7jgboOubOcGk4=";
+        rev = "abc32cb6508f9ef904d1caf32e955aa28a320058";
+        hash = "sha256-EH+w3Bc5IfN6UyaM7VkfgbUulLNDlD4tkaUWjtKhrSY=";
       };
     };
   });

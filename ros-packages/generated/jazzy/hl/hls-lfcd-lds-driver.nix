@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hls_lfcd_lds_driver";
-  version = "2.0.4-6";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."hls_lfcd_lds_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" ]; };
@@ -21,12 +21,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hls_lfcd_lds_driver-source";
         url = "https://github.com/ros2-gbp/hls_lfcd_lds_driver-release.git";
-        rev = "43116c85f64ac8288dd6fb013e81b3fcf98d9bad";
-        hash = "sha256-gFslT2HGpW6SzRM8frU8D/gistcJDw02YkcZTXZcfa8=";
+        rev = "2bb7785a3e848641464b40d7352e614a3266c0ba";
+        hash = "sha256-OdRrjDmRtsetvk1xPct5UMMtKhFQDbIcGgf4iax8TbI=";
       };
     };
   });
   meta = {
-    description = "ROS package for LDS(HLS-LFCD2). The LDS (Laser Distance Sensor) is a sensor sending the data to Host for the simultaneous localization and mapping (SLAM). Simultaneously the detecting obstacle data can also be sent to Host. HLDS(Hitachi-LG Data Storage) is developing the technology for the moving platform sensor such as Robot Vacuum Cleaners, Home Robot, Robotics Lawn Mower Sensor, etc.";
+    description = "ROS package for LDS-01(HLS-LFCD2). The LDS (Laser Distance Sensor) is a sensor sending the data to Host for the simultaneous localization and mapping (SLAM). Simultaneously the detecting obstacle data can also be sent to Host. HLDS(Hitachi-LG Data Storage) is developing the technology for the moving platform sensor such as Robot Vacuum Cleaners, Home Robot, Robotics Lawn Mower Sensor, etc.";
   };
 })

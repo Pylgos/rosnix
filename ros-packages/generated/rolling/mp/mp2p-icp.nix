@@ -18,7 +18,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mp2p_icp";
-  version = "1.6.5-1";
+  version = "1.6.6-1";
   src = finalAttrs.passthru.sources."mp2p_icp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -28,8 +28,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "fba0cab677f659e6870f16e3b6afca4b9e0226e3";
-        hash = "sha256-s5OUzmA0lxynl1tsWNln4SMSLRvNo/gyNXgxha9yr2U=";
+        rev = "a0d95b1ab66767e8395495f914dfde3cece609fd";
+        hash = "sha256-qiYAKVZJtH6BBwLIdiFkrdS5guyBw0AFBGtaCSYSFFQ=";
       };
     };
   });

@@ -15,11 +15,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_cmake_vendor";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."gz_cmake_vendor";
-  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-cmake4" ]; };
-  buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ];
+  buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gz-cmake4" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_cmake_vendor-source";
         url = "https://github.com/ros2-gbp/gz_cmake_vendor-release.git";
-        rev = "46e4ed7cab736fd57e68e12aa31c46cfece68356";
-        hash = "sha256-3LOsOvMbjd+vBxT6PINb6nGBIb4FjOlIFSW5buTsd3U=";
+        rev = "59edceab580d5db12c6ea452574edb51093c22a8";
+        hash = "sha256-QZU+1aK7KameXMrftLGI6dmS2OVNpRzjv1o6zQ26Dmg=";
       };
       substitutions = [
         {
@@ -42,12 +42,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-cmake-source";
         url = "https://github.com/gazebosim/gz-cmake.git";
-        rev = "eb1c510e6278935eb742ed92c6a6d1388439f8bd";
-        hash = "sha256-GyVDbJM3qdFSdp+Kw8z1vB6ipOkB0+4TYWLV+FhIsj4=";
+        rev = "1c65374c074268ec93df72be4a2d21722920e62a";
+        hash = "sha256-BWgRm+3UW65Cu7TqXtFFG05JlYF52dbpAsIE8aDnJM0=";
       };
     };
   });
   meta = {
-    description = "Vendor package for: gz-cmake4 4.1.0 Gazebo CMake : CMake Modules for Gazebo Projects";
+    description = "Vendor package for: gz-cmake4 4.1.1 Gazebo CMake : CMake Modules for Gazebo Projects";
   };
 })

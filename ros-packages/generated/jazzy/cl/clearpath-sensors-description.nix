@@ -10,14 +10,13 @@
   realsense2-description,
   rosSystemPackages,
   substituteSource,
-  velodyne-description,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_sensors_description";
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."clearpath_sensors_description";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ axis-description microstrain-inertial-description realsense2-description velodyne-description ];
+  propagatedBuildInputs = [ axis-description microstrain-inertial-description realsense2-description ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "velodyne_description" ]; };
   passthru.sources = mkSourceSet (sources: {
     "clearpath_sensors_description" = substituteSource {
       src = fetchgit {
