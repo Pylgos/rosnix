@@ -2,7 +2,6 @@
   ament-cmake-ros,
   buildAmentCmakePackage,
   fastcdr,
-  fastrtps,
   fastrtps-cmake-module,
   fetchgit,
   fetchurl,
@@ -18,7 +17,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
   nativeBuildInputs = [ ament-cmake-ros fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr fastrtps rcutils rosidl-dynamic-typesupport ];
+  propagatedBuildInputs = [ fastcdr rcutils rosidl-dynamic-typesupport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fastrtps" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rosidl_dynamic_typesupport_fastrtps" = substituteSource {
       src = fetchgit {

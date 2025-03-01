@@ -5,7 +5,6 @@
   ament-lint-common,
   buildAmentCmakePackage,
   fastcdr,
-  fastrtps,
   fastrtps-cmake-module,
   fetchgit,
   fetchurl,
@@ -30,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."rmw_fastrtps_shared_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr fastrtps rcpputils rcutils rmw rmw-dds-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedBuildInputs = [ fastcdr rcpputils rcutils rmw rmw-dds-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fastrtps" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_shared_cpp" = substituteSource {

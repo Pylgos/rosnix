@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tracetools_image_pipeline";
-  version = "6.0.9-1";
+  version = "6.0.10-1";
   src = finalAttrs.passthru.sources."tracetools_image_pipeline";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tracetools_image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "e8e133a42c6c08c959cb53d188be0e648855eb92";
-        hash = "sha256-yu9bdcfa5dwOfqC3wLKBudjH2Mrsrx+fmDJJCCbgpqA=";
+        rev = "3ed5b2bab4e1902bc131c4202851d07bb05cbf2e";
+        hash = "sha256-wORlioc0OzuyW8qBUxxjfmXy2Qfi3Vqb6qgkeJXI/s8=";
       };
     };
   });
