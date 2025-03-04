@@ -15,7 +15,6 @@
   rmw,
   rmw-connextdds,
   rmw-cyclonedds-cpp,
-  rmw-desert,
   rmw-fastrtps-cpp,
   rmw-fastrtps-dynamic-cpp,
   rmw-gurumdds-cpp,
@@ -30,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."rmw_implementation";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rmw-implementation-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-desert rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-zenoh-cpp ];
+  propagatedBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-zenoh-cpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_implementation" = substituteSource {
