@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2_controllers_test_nodes";
-  version = "4.20.0-1";
+  version = "4.21.0-1";
   src = finalAttrs.passthru.sources."ros2_controllers_test_nodes";
   propagatedBuildInputs = [ rclpy sensor-msgs std-msgs trajectory-msgs ];
   checkInputs = [ launch-ros launch-testing-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_controllers_test_nodes-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "25385518a3c41685827a9e117067415919a3076f";
-        hash = "sha256-kdc5MJ+kqhhsjgFFaW3xHt9n3TLRsWpw86cBGF+B2HA=";
+        rev = "109e1f8e424a4b5ca15065d16842013509ab807e";
+        hash = "sha256-GNorf5sYLkWEDIxNixKzlLAygmLqXjmRpqNWfZtAM9E=";
       };
     };
   });

@@ -6,7 +6,7 @@
   ament-lint-common,
   buildAmentCmakePackage,
   fastcdr,
-  fastrtps-cmake-module,
+  fastdds,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -27,19 +27,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_dynamic_cpp";
-  version = "9.2.0-1";
+  version = "9.3.0-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_dynamic_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fastrtps" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_dynamic_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_fastrtps_dynamic_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "cc6717b6d677bbdc1bbc944b2df86cc49c0199f4";
-        hash = "sha256-4hSChBOR8XncdjXON0OsLy8nqimZYQL+fB/GQekfF7w=";
+        rev = "d08cea0eac183d13ca8cf486e3e29056d7289d89";
+        hash = "sha256-/bmBCWvPSfjNAcMTfym4T+D28kQiD9/lRSoh4iNSZR0=";
       };
     };
   });

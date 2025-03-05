@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_satellite";
-  version = "4.1.0-1";
+  version = "4.1.0-2";
   src = finalAttrs.passthru.sources."rviz_satellite";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ angles rclcpp rcpputils rviz-common rviz-default-plugins sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_satellite-source";
         url = "https://github.com/nobleo/rviz_satellite-release.git";
-        rev = "48cec4c14133a35baed22a947a2a48487f13ee06";
+        rev = "34b3f8cb31dcfde054c8c1a9ce0d6bb9d173b97f";
         hash = "sha256-md1r1pU2BDHugOSENoO8Um9K/tJKgazRl80PYKYzQok=";
       };
     };

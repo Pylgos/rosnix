@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_setup";
-  version = "2.0.2-1";
+  version = "2.0.3-1";
   src = finalAttrs.passthru.sources."turtlebot4_setup";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot4_setup-source";
         url = "https://github.com/ros2-gbp/turtlebot4_setup-release.git";
-        rev = "ed4b0c6500a05dcfb6637303e16ecc9b06934e2c";
-        hash = "sha256-Pko5/FnJRtrAsVXfE60I6fWrq3ZHJL1CRvna+/5THZo=";
+        rev = "d22ba9826a6f95d7b57c57f3a84a823d8c236ec9";
+        hash = "sha256-qqrX3hMU7D5F7DmiJofuKZWTMIsk01TtzFdWW8mHqtQ=";
       };
     };
   });
