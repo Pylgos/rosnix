@@ -2,11 +2,12 @@
   ament-cmake-ros,
   buildAmentCmakePackage,
   fastcdr,
-  fastrtps-cmake-module,
+  fastdds,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rcpputils,
   rcutils,
   rosSystemPackages,
   rosidl-dynamic-typesupport,
@@ -14,17 +15,17 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_dynamic_typesupport_fastrtps";
-  version = "0.3.0-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
-  nativeBuildInputs = [ ament-cmake-ros fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr rcutils rosidl-dynamic-typesupport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fastrtps" ]; };
+  nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ fastcdr fastdds rcpputils rcutils rosidl-dynamic-typesupport ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_dynamic_typesupport_fastrtps" = substituteSource {
       src = fetchgit {
         name = "rosidl_dynamic_typesupport_fastrtps-source";
         url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport_fastrtps-release.git";
-        rev = "2d124c078ca75105570d239d11443b303e86fb8d";
-        hash = "sha256-qkfsno56PSSOQcLYr0fAwdLBpXAz/uT5Ngw1Pj240Ec=";
+        rev = "2e51dcc321ea8f291c3fc796b0a3a90fbd91e4fc";
+        hash = "sha256-w5owagM1VknNl2rtmeL9Ef5ne+hzpNfdESuEeiDv+oc=";
       };
     };
   });
