@@ -103,7 +103,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchurl {
         name = "freetype-2-source";
         url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-        hash = "sha256-OmDTkf1XlEBWG/Dn8xryIivGEK1s5NnXvSFlvKhmkRA=";
+        hash = "sha256-QbA+x7rRBNewN+tXb939fh4ZxY+KOEOu72s9arst84k=";
       };
     };
     "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {

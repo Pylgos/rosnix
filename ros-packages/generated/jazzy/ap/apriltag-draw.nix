@@ -11,7 +11,6 @@
   fetchzip,
   image-transport,
   mkSourceSet,
-  pluginlib,
   rclcpp,
   rclcpp-components,
   ros-environment,
@@ -20,23 +19,23 @@
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "apriltag_detector";
+  pname = "apriltag_draw";
   version = "3.0.1-1";
-  src = finalAttrs.passthru.sources."apriltag_detector";
+  src = finalAttrs.passthru.sources."apriltag_draw";
   nativeBuildInputs = [ ament-cmake ros-environment ];
-  propagatedBuildInputs = [ apriltag-msgs cv-bridge image-transport pluginlib rclcpp rclcpp-components sensor-msgs ];
+  propagatedBuildInputs = [ apriltag-msgs cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
-    "apriltag_detector" = substituteSource {
+    "apriltag_draw" = substituteSource {
       src = fetchgit {
-        name = "apriltag_detector-source";
+        name = "apriltag_draw-source";
         url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
-        rev = "dfdfc2ff349bc5fe0a926093d5d9463d7592d4fd";
-        hash = "sha256-vky7Ck0D3eBgyZYsbzM6Obrn3j0YWfz5uP7njgkbw9s=";
+        rev = "71249127f8f90d3c020a084a68887e12b525433c";
+        hash = "sha256-rveOYYsEpWWvWr+pTYAEbaBkV2cvQ7DdUxqtZSBCP2E=";
       };
     };
   });
   meta = {
-    description = "ROS2 package for apriltag detection";
+    description = "ROS package for drawing apriltags on image";
   };
 })

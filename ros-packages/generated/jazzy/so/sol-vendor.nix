@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sol2-source";
         url = "https://github.com/ThePhD/sol2.git";
-        rev = "dca62a0f02bb45f3de296de3ce00b1275eb34c25";
-        hash = "sha256-7QHZRudxq3hdsfEAYKKJydc4rv6lyN6UIt/2Zmaejx8=";
+        rev = "c1f95a773c6f8f4fde8ca3efe872e7286afe4444";
+        hash = "sha256-0q0ew2ql0ED5ynYPQkq4UHq21VjiqSZTg09XsrrBwqI=";
       };
     };
   });

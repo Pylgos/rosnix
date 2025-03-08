@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pose_broadcaster";
-  version = "4.20.0-1";
+  version = "4.21.0-1";
   src = finalAttrs.passthru.sources."pose_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pose_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "f0d15a7204577c0919a9ca4813d15326162301c8";
-        hash = "sha256-9FkzE45xH7J1rzUpYGY4IXatRJ42JHRUvIvlqTxbA+I=";
+        rev = "4eed6ec66aa08d740b0b32ed1d39e91362901928";
+        hash = "sha256-eHcnEKxSIiKGuiqNYOuWDL3PVcy8nkkt4QSOFQ91g08=";
       };
     };
   });
