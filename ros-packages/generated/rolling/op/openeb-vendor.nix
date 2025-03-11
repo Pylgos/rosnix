@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "openeb_vendor";
-  version = "2.0.1-2";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."openeb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "curl" "git" "hdf5-tools" "pkg-config" "unzip" "wget" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "ffmpeg" "libglew-dev" "libglfw3-dev" "libhdf5-dev" "libopencv-dev" "libopenscenegraph" "libusb" "libusb-1.0" "libusb-1.0-dev" "libusb-dev" "protobuf-dev" ]; };
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "openeb_vendor-source";
         url = "https://github.com/ros2-gbp/openeb_vendor-release.git";
-        rev = "d6775046e5cfcbd43b1a8f76057cfb46938c6e8e";
-        hash = "sha256-MXdaBPIgCPVvdqSnCICqt7HjzyFe9RjZ29hxM3zcYTI=";
+        rev = "018fb3bd1c226ef255d0cd228cb73543f53fb4ea";
+        hash = "sha256-6msi+NYEgajKMc/prqG9Iawc2rJnCiUNmlnFXYvM1qw=";
       };
       substitutions = [
         {
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "openeb-source";
         url = "https://github.com/prophesee-ai/openeb.git";
-        rev = "53b3618935f90dcc0f64993ccbb79514384404b0";
-        hash = "sha256-cyEZ7tREAeILGQA7Jpwh5tndI+HFrq9Uj7LL8yUgL0o=";
+        rev = "0391df5ab3bea6d0aa2595a73ccee66a1d9c1093";
+        hash = "sha256-r1iZrvfOzMmXL5PRiX49TPczdhZPmOdYW8G46uTtH5Y=";
       };
     };
   });
