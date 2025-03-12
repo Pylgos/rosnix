@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_interfaces";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."dynamixel_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_interfaces-source";
         url = "https://github.com/ros2-gbp/dynamixel_interfaces-release.git";
-        rev = "4f308e5bfc08cac2c30a4ff992605dc19e66cdd7";
-        hash = "sha256-mPmHHE0GKBq0QTY0XAEeMjJGMfZUaTp/s3LoAwtEAXA=";
+        rev = "993ae858ed55c26659b9200b663e3e056bf66c3c";
+        hash = "sha256-kvd2J3AaYf6CIqevFWcVFiRVZ4+1tYNj1+88yamkAFc=";
       };
     };
   });

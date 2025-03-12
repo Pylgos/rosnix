@@ -33,8 +33,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "06e8ee2e357fc2fd6e36de431fa0ca0049aafc7d";
-        hash = "sha256-ca1cRtdG7vsQeTDubR8UOgQYyR5QrYKyN7o+eUd5mOw=";
+        rev = "d28904f12e906dc43f72b549a6b26bceb9c2caff";
+        hash = "sha256-f/9K0fKRZYGkxDPxZG24x1ndvVlMrizApkRNHw+MKm8=";
       };
     };
   });
