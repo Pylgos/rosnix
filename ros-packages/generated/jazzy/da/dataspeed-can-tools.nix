@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dataspeed_can_tools";
-  version = "2.0.5-1";
+  version = "2.0.6-1";
   src = finalAttrs.passthru.sources."dataspeed_can_tools";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ can-msgs dataspeed-can-msgs rclcpp rosbag2-cpp std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dataspeed_can_tools-source";
         url = "https://github.com/DataspeedInc-release/dataspeed_can-release.git";
-        rev = "181f37093cb0a7a564ed4382a1d7144da09a5d9b";
-        hash = "sha256-FXcHmzFNmiNYNOzQSxdc5QTMZ5HCb/G2R+chgBOedLo=";
+        rev = "aca7a1aa31f4e0c3bc9c9877d2a286b691009612";
+        hash = "sha256-jd8Vs5LsDnpTmrB0EXhGyMUn78KIsfwHbxcT7oIoOHc=";
       };
     };
   });
