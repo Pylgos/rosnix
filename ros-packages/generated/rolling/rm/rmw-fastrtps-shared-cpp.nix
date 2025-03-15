@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_shared_cpp";
-  version = "9.3.0-1";
+  version = "9.3.1-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_shared_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ament-cmake ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_fastrtps_shared_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "39be5d77a53ca0cf8a17c95f3f4e26af2aa828aa";
-        hash = "sha256-lbKOV+1KfwG3/sHItpVKF2ocoY4gz2YUlG64tBxlhqs=";
+        rev = "a9f08707e2a0d37ee89b72de497c7a0663358237";
+        hash = "sha256-IaLEHWOdqM526fMqXaUiiHgtX5v/3PxXOrqUmMQ4nno=";
       };
     };
   });

@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinematics_interface";
-  version = "1.2.1-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kinematics_interface-source";
         url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
-        rev = "63e38788e8c2626a5def7fd289fae839f8b89033";
-        hash = "sha256-k2nyuw8/cz0pPqYFRhXam/GSzY+fzlD2VutoDFk/AaQ=";
+        rev = "126541b656eee700c6579f453d8f28fd00848a6c";
+        hash = "sha256-VMomZtBW+WIn6Zvn8yEV0Xvqq9NUBBMOLLjg3uzDGlU=";
       };
     };
   });
