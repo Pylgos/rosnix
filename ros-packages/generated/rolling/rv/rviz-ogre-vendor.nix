@@ -29,11 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
       substitutions = [
         {
           path = "CMakeLists.txt";
-          from = "VCS_URL https://git.savannah.gnu.org/git/freetype/freetype2.git";
-          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype"}";
-        }
-        {
-          path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/OGRECave/ogre.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/ogre"}";
         }
@@ -43,14 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
       ];
-    };
-    "rviz_ogre_vendor/freetype" = substituteSource {
-      src = fetchgit {
-        name = "freetype-source";
-        url = "https://gitlab.freedesktop.org/freetype/freetype.git";
-        rev = "920c5502cc3ddda88f6c7d85ee834ac611bb11cc";
-        hash = "sha256-yylSmVM3D5xnbFx9qEEHFIP/K0x/WDXZr0MA4C7ng7k=";
-      };
     };
     "rviz_ogre_vendor/ogre" = substituteSource {
       src = fetchgit {
