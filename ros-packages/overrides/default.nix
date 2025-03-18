@@ -2,6 +2,7 @@
 
 final: prev:
 let
+  inherit (final.rosConfig) distro;
   makePatch = final.callPackage ./make-patch.nix { };
   getSource = p: builtins.filterSource (path: type: true) p;
   nav2-costmap-2d-patch = makePatch "nav2-costmap-2d.patch" (final.fetchgit {
@@ -264,7 +265,7 @@ in
           ];
           cargoDeps = final.rustPlatform.fetchCargoVendor {
             src = zenoh-c-src;
-            hash = "sha256-LwW9tnW47Ennrk9yQOCBnlsvAP6R2NSfoNdGkCLHAsw=";
+            hash = import ./${distro}/cargo-hashes/zenoh-cpp-vendor.nix;
           };
         }
       );

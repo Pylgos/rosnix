@@ -6,22 +6,24 @@
 
   inputs = {
     crane.url = "github:ipetkov/crane";
+    devshell-apps.url = "github:Pylgos/nix-devshell-apps";
+    flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz";
     flake-utils.url = "github:numtide/flake-utils";
     nix-filter.url = "github:numtide/nix-filter";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     poetry2nix.url = "github:nix-community/poetry2nix";
-    devshell-apps.url = "github:Pylgos/nix-devshell-apps";
   };
 
   outputs =
     {
       self,
+      crane,
+      devshell-apps,
       flake-utils,
+      nix-filter,
       nixpkgs,
       poetry2nix,
-      crane,
-      nix-filter,
-      devshell-apps,
+      ...
     }:
     let
       lib =

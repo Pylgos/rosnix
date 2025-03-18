@@ -12,12 +12,14 @@ in
     drv = pkgs.writeShellApplication {
       name = "rosnix-ci-update";
       runtimeInputs = [
-        pkgs.poetry
         generator
+        pkgs.nurl
+        pkgs.poetry
       ];
       text = ''
         set -eu
         DONT_COMMIT=''${DONT_COMMIT:-}
+
         pushd system-packages/poetry
         poetry update --lock
         if [[ -z $DONT_COMMIT ]]; then
@@ -27,7 +29,9 @@ in
           fi
         fi
         popd
+
         rosnix-generator --config-file ./rosnix.toml generate --report-file /tmp/report.md
+        ros-packages/overrides/update.bash
         if [[ -z $DONT_COMMIT ]]; then
           git add ./ros-packages/generated
           if ! git diff --quiet --cached ./ros-packages/generated; then
