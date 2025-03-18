@@ -1,6 +1,6 @@
 <div align="center">
-	<h1>rosnix</h1>
-	<p><strong>Effortless ROS 2 Package Management with Nix</strong></p>
+ <h1>rosnix</h1>
+ <p><strong>Effortless ROS 2 Package Management with Nix</strong></p>
 </div>
 
 `rosnix` is a nixpkgs overlay providing ROS 2 packages. It is available for almost all Linux distributions.
@@ -11,7 +11,7 @@
 - **⚙️ Development Shell**: Provides immediate access to a development environment that replicates the Nix build environment, which is more convenient than container-based development.
 - **🖥️ Wide Linux Support**: Works on all Linux distributions supported by Nix.
 - **🔗 Dependency Management via Git**: By including the Nix Flakes lock file in your repository, you can manage the versions of all dependency packages with Git.
-- **🚀 Always Up-to-Date**: Packages are updated daily via GitHub Actions to ensure you always have access to the latest versions.
+- **🚀 Always Up-to-Date**: Packages are updated weekly via GitHub Actions to ensure you always have access to the latest versions.
 
 ## 🆚 Differences from `nix-ros-overlay`
 
@@ -44,6 +44,7 @@ https://tree.nathanfriend.com/?s=(%27opBs!(%27fancy!Nue~fullPQINailingSlasIrootD
     ├── default
     └── <distribution names>...
 ```
+
 The Nixpkgs instance with the overlay applied looks like this:
 
 <!--- https://tree.nathanfriend.com/?s=(%27opt3s!(%27fancy!true~fullPat2trailingSlas2rootDot!true)~5(%275%2749extend74-System9getP07system-Configs8tro*4Python*defaultRmwImplementat38ableRmwRuntimeSelect3%27)~vers3!%271%27)*6%20%20-%20p0s%3E...640ackage2h!false~3ion4ros5source!6%5Cn7*%3C8*dis9P0s*%01987654320-* --->
