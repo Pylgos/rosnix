@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "forward_command_controller";
-  version = "4.21.0-1";
+  version = "4.22.0-1";
   src = finalAttrs.passthru.sources."forward_command_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools std-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "forward_command_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "807d0501fddbf56af5a646f22bb026733f48deef";
-        hash = "sha256-Jawj8c3XnxbDOxRF9yzVsHYUsJ6EyhKTUardO1aKVg4=";
+        rev = "cac18e40c6ee6d1625784fd8493326c23dbf791a";
+        hash = "sha256-L6Geeunx5sC7WFIR3j/S6kZtmBZO/52ubvBEe7R2X98=";
       };
     };
   });

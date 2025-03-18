@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_filters";
-  version = "2.11.0-1";
+  version = "2.11.2-1";
   src = finalAttrs.passthru.sources."depthai_filters";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ cv-bridge depthai-ros-msgs image-transport message-filters rclcpp rclcpp-components sensor-msgs vision-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai_filters-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "bc8546984e258f90fde4df8c6ce76482b892d841";
-        hash = "sha256-+l2WW8xRlAZQHQ6dWQTsI3PnFpSjNVpzhTB9bQmboKY=";
+        rev = "c620cc7193d2c9b7f161b1bbbff68a7e64ceaf96";
+        hash = "sha256-si2rw5uErRXoE0ltUpXumF3C+KreH5d6f5Ivqm5GFgE=";
       };
     };
   });

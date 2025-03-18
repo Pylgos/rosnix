@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "novatel_oem7_msgs";
-  version = "24.0.0-1";
+  version = "24.1.0-1";
   src = finalAttrs.passthru.sources."novatel_oem7_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "novatel_oem7_msgs-source";
         url = "https://github.com/novatel-gbp/novatel_oem7_driver-release.git";
-        rev = "d28dd553946edecc8c66822e642c4715c046f7ec";
-        hash = "sha256-2bXG7gbt64q+Dn/wbQCsrQUMHmnx1Lfqm5W2Zbgetic=";
+        rev = "10fe093769b1fdf4b99b3d8248995ea101031bd7";
+        hash = "sha256-PoDFa2rQO/zS+QHZVWgqt9ON/pLgF+Ta9z2vH5qz8yI=";
       };
     };
   });

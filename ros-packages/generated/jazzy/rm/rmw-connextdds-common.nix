@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_connextdds_common";
-  version = "0.22.0-2";
+  version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rmw_connextdds_common";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ament-cmake ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_connextdds_common-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "e0c79b4f730db4ada5914508bd0bcfc53158fbf3";
-        hash = "sha256-+XqwhtzZuRCp9cCFk/lRomX6qv6u9rvJFim/061Lrpo=";
+        rev = "2440118bcf65465084d90097d6a62e4b16c92c9d";
+        hash = "sha256-cPIfMhPMSCk3dH8gKxZqndiKE2Ydp/kH5ndZ2e8aly0=";
       };
     };
   });

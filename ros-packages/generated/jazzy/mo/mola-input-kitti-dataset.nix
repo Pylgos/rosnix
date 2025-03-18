@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_kitti_dataset";
-  version = "1.6.2-1";
+  version = "1.6.3-1";
   src = finalAttrs.passthru.sources."mola_input_kitti_dataset";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mola-kernel mrpt-libmaps ];
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_kitti_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "3603cdd9557142914608bbcafcd27e3a31b1660d";
-        hash = "sha256-QNjJ5o76NMbD0uUG8MhqY4VbjfolagXiUTzkRCof3Lc=";
+        rev = "4ffd5413062c9cb600a017200cb53a8d735aafcb";
+        hash = "sha256-b2nR0CivC+lBVJ2YaX3SC32cUPrthx20o/h+tHmr1z0=";
       };
     };
   });

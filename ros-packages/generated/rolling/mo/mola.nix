@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola";
-  version = "1.6.2-1";
+  version = "1.6.3-1";
   src = finalAttrs.passthru.sources."mola";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "4b9a6e7ea9a2f260a47b4ebc885b65d8867a1cbe";
-        hash = "sha256-TJRxboP3C/c01cZeOKApktq/dWiSaDx0bun/3kAuhqg=";
+        rev = "24dc7be1f53a02d34a49037b7a2495da151af1a5";
+        hash = "sha256-6zrif3O/7UwEzslitWVp9ol/LeYG2b/ftJcF1jw0Ozs=";
       };
     };
   });

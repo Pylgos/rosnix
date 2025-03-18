@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "novatel_oem7_driver";
-  version = "24.0.0-1";
+  version = "24.1.0-1";
   src = finalAttrs.passthru.sources."novatel_oem7_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedBuildInputs = [ gps-msgs nav-msgs nmea-msgs novatel-oem7-msgs pluginlib rclcpp rclcpp-components sensor-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "geographiclib" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "novatel_oem7_driver-source";
         url = "https://github.com/novatel-gbp/novatel_oem7_driver-release.git";
-        rev = "3f6af31cbb0a4994f9831621978fb43ebe81a5d6";
-        hash = "sha256-3A0zS28qJxP3YG3ZjI19rSzQC8FKVvOFiAGUTR09Zkw=";
+        rev = "20aff52b8d2e58e37116965e2c8f49d7a8f58819";
+        hash = "sha256-Px9Amgu3N9WQph9LyYHognGo/bpsPUdlmeWLDarz7Fg=";
       };
       substitutions = [
         {

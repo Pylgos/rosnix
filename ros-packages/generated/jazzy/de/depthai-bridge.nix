@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_bridge";
-  version = "2.11.0-1";
+  version = "2.11.2-1";
   src = finalAttrs.passthru.sources."depthai_bridge";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai_bridge-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "e85a265f119ae1e5001efa499f2b3a09a2a21167";
-        hash = "sha256-3mRC34ql1pNwXIxpocExZnci/KfQAhg3EWW6OYdyfZo=";
+        rev = "5c3faad72f5970ee32a74012da36ce377a1a3dd8";
+        hash = "sha256-ySzeVp4KQvUABeJr7OWlbLr06pIiN0fyGgEx/LaF3qo=";
       };
     };
   });

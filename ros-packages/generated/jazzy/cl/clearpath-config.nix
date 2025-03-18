@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "clearpath_config";
-  version = "2.1.1-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."clearpath_config";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_config-source";
         url = "https://github.com/clearpath-gbp/clearpath_config-release.git";
-        rev = "ad331173652f3bc54c7e397dd702b642a7e58559";
-        hash = "sha256-/3y5dBK2O5wVF9ad1RSXjOH1CRi+pFtCTsRMzfNfqrU=";
+        rev = "da286122539ca909528a3d7d73d9149d075210b7";
+        hash = "sha256-O4R1QzpQQY2mvr7ePswzPOq9oVdvp4tyoNoAiJKB7F0=";
       };
     };
   });

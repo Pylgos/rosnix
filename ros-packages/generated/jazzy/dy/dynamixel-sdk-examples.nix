@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -10,23 +11,24 @@
   fetchzip,
   mkSourceSet,
   rclcpp,
+  rclpy,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_sdk_examples";
-  version = "3.8.1-1";
+  version = "3.8.2-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk_examples";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces rclcpp ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces rclcpp rclpy ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_sdk_examples" = substituteSource {
       src = fetchgit {
         name = "dynamixel_sdk_examples-source";
         url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
-        rev = "454c8000bd0dd14189a58fa7c218a6051725686b";
-        hash = "sha256-QMtHaTQ7D66bWdGe1zFjTpHHWLqo1iRdBtPG6RUesf8=";
+        rev = "aaf3f50e3883b0cb6e0c9691c34865a4bc2d7413";
+        hash = "sha256-7u5h2SgEPWIlbJFsCVQdTfg5CAzn0tWTR8RBT8IwUYY=";
       };
     };
   });

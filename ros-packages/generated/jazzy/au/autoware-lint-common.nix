@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_lint_common";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."autoware_lint_common";
   nativeBuildInputs = [ ament-cmake-export-dependencies ];
   propagatedNativeBuildInputs = [ ament-cmake-copyright ament-cmake-core ament-cmake-cppcheck ament-cmake-lint-cmake ament-cmake-test ament-cmake-xmllint ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_lint_common-source";
         url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
-        rev = "18799aeb6914ff30a282d4d668329f5a20c18ead";
-        hash = "sha256-fS+Hicd3o8vyffKxyp4X3iosj9vznc4UJIbAH8Kp5BU=";
+        rev = "f9b9f931bbd70421b84f9d05c44d35749690b8be";
+        hash = "sha256-cWGM0N7olOhL+JpYFdckmFpfIo70oYlwKB9n3jy2V7o=";
       };
     };
   });

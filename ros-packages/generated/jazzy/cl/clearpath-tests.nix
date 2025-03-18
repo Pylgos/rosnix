@@ -27,7 +27,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "clearpath_tests";
-  version = "0.2.2-1";
+  version = "0.2.3-1";
   src = finalAttrs.passthru.sources."clearpath_tests";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ clearpath-config clearpath-generator-common clearpath-motor-msgs clearpath-platform-msgs diagnostic-msgs geometry-msgs nav-msgs rclpy sensor-msgs simple-term-menu-vendor std-msgs tf2-geometry-msgs tf2-msgs tf-transformations wireless-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "can-utils" "stress" ]; };
@@ -37,8 +37,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_tests-source";
         url = "https://github.com/clearpath-gbp/clearpath_tests-release.git";
-        rev = "80a39af9fca6b0afd1e9991eb46447da5b4263ce";
-        hash = "sha256-wchPW/kUvnLlSPCrBU/ZOZLA/lazqK3yTWh1LQSjWs8=";
+        rev = "d0df715e75b18b024012eac1b77e252edba2ca35";
+        hash = "sha256-PY3by59KdfXEF7CwYY2Cr0n9bTI6jrYmxbLzFZQniq0=";
       };
     };
   });

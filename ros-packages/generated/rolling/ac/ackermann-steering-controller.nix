@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ackermann_steering_controller";
-  version = "4.21.0-1";
+  version = "4.22.0-1";
   src = finalAttrs.passthru.sources."ackermann_steering_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle std-srvs steering-controllers-library ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ackermann_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "b5316e7dcc8939a045dcc4ebbbe7e1f84307ad28";
-        hash = "sha256-alAMvmrAtgtDNQl0xb6k4QDXowVoiykbgGbP2mIKVbE=";
+        rev = "a5c6508e0aae8ca38fec95a41b518c2cc39ba412";
+        hash = "sha256-SvAOEBWPFhH6RNoGnrD9Sf3QHskUBqEqqoVpxQZEsng=";
       };
     };
   });
