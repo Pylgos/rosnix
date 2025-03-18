@@ -39,6 +39,7 @@ rec {
         rosPkgs.nav2-bringup
         rosPkgs.ros-gz
         rosPkgs.librealsense2
+        rosPkgs.rmw-zenoh-cpp
       ] ++ lib.attrValues tests;
       phases = [ "installPhase" ];
       installPhase = "touch $out";
