@@ -11,10 +11,10 @@ let
     hash = "sha256-G7HOD6Z/hdpAT1Z/ZQsSIKuvE6M+fFbMA5ITMIEQgBI=";
   }) (getSource ./patch-sources/nav2-costmap-2d);
   nav2-rviz-plugins-patch = makePatch "nav2-rviz-plugins.patch" (final.fetchgit {
-        name = "nav2_rviz_plugins-source";
-        url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "93d970dc9a2ba0ae6d8cf1dda03aa3ca4e4dc8cf";
-        hash = "sha256-kUCfSM3OVJHIsXBY2ovsiqR1jMhPdL9TcxFXExll4nA=";
+    name = "nav2_rviz_plugins-source";
+    url = "https://github.com/SteveMacenski/navigation2-release.git";
+    rev = "93d970dc9a2ba0ae6d8cf1dda03aa3ca4e4dc8cf";
+    hash = "sha256-kUCfSM3OVJHIsXBY2ovsiqR1jMhPdL9TcxFXExll4nA=";
   }) (getSource ./patch-sources/nav2-rviz-plugins);
 in
 {
@@ -240,6 +240,32 @@ in
         }:
         {
           patches = patches ++ [ nav2-rviz-plugins-patch ];
+        }
+      );
+      zenoh-cpp-vendor = rosPrev.zenoh-cpp-vendor.overrideAttrs (
+        {
+          nativeBuildInputs ? [ ],
+          postPatch ? "",
+          passthru,
+          ...
+        }:
+        let
+          zenoh-c-src = passthru.sources."zenoh_cpp_vendor/zenoh-c";
+        in
+        {
+          postPatch =
+            postPatch
+            + ''
+              cp ${zenoh-c-src}/Cargo.lock .
+            '';
+          nativeBuildInputs = nativeBuildInputs ++ [
+            final.cargo
+            final.rustPlatform.cargoSetupHook
+          ];
+          cargoDeps = final.rustPlatform.fetchCargoVendor {
+            src = zenoh-c-src;
+            hash = "sha256-LwW9tnW47Ennrk9yQOCBnlsvAP6R2NSfoNdGkCLHAsw=";
+          };
         }
       );
     })

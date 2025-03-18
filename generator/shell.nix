@@ -1,21 +1,23 @@
 {
-  mkShell,
   cargo,
-  rustfmt,
-  rust-analyzer,
-  rustc,
+  mkShell,
   nix-prefetch-git,
+  nurl,
   openssl,
   pkg-config,
+  rust-analyzer,
+  rustc,
+  rustfmt,
 }:
 mkShell {
   nativeBuildInputs = [
-    pkg-config
-    nix-prefetch-git
     cargo
-    rustfmt
+    nix-prefetch-git
+    nurl
+    pkg-config
     rust-analyzer
     rustc
+    rustfmt
   ];
   buildInputs = [
     openssl
