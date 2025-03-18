@@ -84,7 +84,6 @@ mkRecursiveBuilder stdenv.mkDerivation (
             --merge-install
             --install-base "$out"
           )
-          concatTo colconFlagsArray colconFlags checkFlags checkFlagsArray
 
           colcon test "''${colconFlagsArray[@]}"
 
