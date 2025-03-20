@@ -826,10 +826,11 @@ in
     python3-tk = [ final.rosPythonPackages.tkinter ];
     python3-toml = [ final.rosPythonPackages.toml ];
     python3-tornado = [ final.rosPythonPackages.tornado ];
-    python3-typeguard = [ final.rosPythonPackages.typeguard ];
     python3-tqdm = [ final.rosPythonPackages.tqdm ];
+    python3-transforms3d = [ final.rosPythonPackages.transforms3d ];
     python3-twilio = [ final.rosPythonPackages.twilio ];
     python3-twisted = [ final.rosPythonPackages.twisted ];
+    python3-typeguard = [ final.rosPythonPackages.typeguard ];
     python3-tz = [ final.rosPythonPackages.pytz ];
     python3-unidiff = [ final.rosPythonPackages.unidiff ];
     python3-urllib3 = [ final.rosPythonPackages.urllib3 ];

@@ -5,6 +5,7 @@
   nurl,
   openssl,
   pkg-config,
+  poetry,
   rust-analyzer,
   rustc,
   rustfmt,
@@ -15,6 +16,7 @@ mkShell {
     nix-prefetch-git
     nurl
     pkg-config
+    poetry
     rust-analyzer
     rustc
     rustfmt
