@@ -110,11 +110,11 @@ stdenv.mkDerivation (finalAttrs: {
       substituteInPlace "$path" --replace-quiet '#include <OIS/' '#include <ois/'
     done
 
-    # Disable desktop file modification and LD_LIBRARY_PATH modification
     substituteInPlace src/webots/launcher/webots-linux.sh \
         --replace-fail '[ ! -e /usr/share/applications/webots.desktop ]' false \
         --replace-fail '[ -e ~/.local/share/applications/webots-bin.desktop ]' false \
-        --replace-fail 'export LD_LIBRARY_PATH="$webots_home/lib/webots":$LD_LIBRARY_PATH' ""
+        --replace-fail 'export LD_LIBRARY_PATH="$webots_home/lib/webots":$LD_LIBRARY_PATH' "" \
+        --replace-fail 'WEBOTS_TMPDIR=$TMPDIR' 'WEBOTS_TMPDIR=/tmp'
   '';
 
   installPhase = ''
