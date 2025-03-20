@@ -15,6 +15,8 @@ in
     };
   };
 
+  webots = final.callPackage ./webots { };
+
   rosPython = rosPy // {
     pkgs = rosPy.pkgs.overrideScope (
       pyFinal: pyPrev:

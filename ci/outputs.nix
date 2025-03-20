@@ -40,6 +40,7 @@ rec {
         rosPkgs.ros-gz
         rosPkgs.librealsense2
         rosPkgs.rmw-zenoh-cpp
+        pkgs.webots
       ] ++ lib.attrValues tests;
       phases = [ "installPhase" ];
       installPhase = "touch $out";
