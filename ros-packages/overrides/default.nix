@@ -269,6 +269,21 @@ in
           };
         }
       );
+      webots-ros2-driver = rosPrev.webots-ros2-driver.overrideAttrs (
+        {
+          postPatch ? "",
+          ...
+        }:
+        {
+          postPatch =
+            postPatch
+            + ''
+              substituteInPlace webots_ros2_driver/webots_launcher.py \
+                --replace-fail 'shutil.copy2(world_path, self.__world_copy.name)' 'shutil.copyfile(world_path, self.__world_copy.name)'
+            '';
+
+        }
+      );
     })
   );
 }
