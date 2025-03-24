@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
-  version = "2.29.0-1";
+  version = "2.30.0-1";
   src = finalAttrs.passthru.sources."depthai";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai-source";
         url = "https://github.com/luxonis/depthai-core-release.git";
-        rev = "6e079d0bf0b69634536f52daf3fe7693d92a01f6";
-        hash = "sha256-PUU/jPbNwIVclR5f0zuD0ZpT9GvQTZHXtMkHVlQKsDY=";
+        rev = "bcb5450bbb7d87228d46af63223e4b37d1474c1b";
+        hash = "sha256-uCHpu+2PRFlvHdNKrZutKOd8RQLhwPDeuV3x3qu+Vrc=";
       };
       substitutions = [
         {
@@ -58,8 +58,8 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/Hunter/config.cmake";
-          from = "URL \"https://github.com/luxonis/XLink/archive/2b517e1cb1ca77bea17679f9fdeb739812431174.tar.gz\"";
-          to = "URL ${sources."depthai/2b517e1cb1ca77bea17679f9fdeb739812431174"}";
+          from = "URL \"https://github.com/luxonis/XLink/archive/82839cb04f2102177fad926fb8f7fcf7b4093cb1.tar.gz\"";
+          to = "URL ${sources."depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1"}";
         }
         {
           path = "cmake/Hunter/config.cmake";
@@ -100,27 +100,6 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-vlSBSnJ1xWC9eKAoG5TdOfD3/Lgs+4VnkMTL6x7MMt8=";
       };
     };
-    "depthai/2b517e1cb1ca77bea17679f9fdeb739812431174" = substituteSource {
-      src = fetchzip {
-        name = "2b517e1cb1ca77bea17679f9fdeb739812431174-source";
-        url = "https://github.com/luxonis/XLink/archive/2b517e1cb1ca77bea17679f9fdeb739812431174.tar.gz";
-        hash = "sha256-X5VUjpblZeGHaweY1KMRIfH3zEBpfkBZXV8qesiDejU=";
-      };
-      substitutions = [
-        {
-          path = "cmake/Hunter/config.cmake";
-          from = "URL \"https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz\"";
-          to = "URL ${sources."depthai/2b517e1cb1ca77bea17679f9fdeb739812431174/b7e4548958325b18feb73977163ad44398099534"}";
-        }
-      ];
-    };
-    "depthai/2b517e1cb1ca77bea17679f9fdeb739812431174/b7e4548958325b18feb73977163ad44398099534" = substituteSource {
-      src = fetchzip {
-        name = "b7e4548958325b18feb73977163ad44398099534-source";
-        url = "https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz";
-        hash = "sha256-DjT7ooqQeRIXt2pRwznaT7twpzOVAea62ngJk1y2mUI=";
-      };
-    };
     "depthai/45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a" = substituteSource {
       src = fetchzip {
         name = "45baa3a3e57104519e1165bcd5ac29c3bd8c9f3a-source";
@@ -133,6 +112,27 @@ buildAmentCmakePackage (finalAttrs: {
         name = "50a1321738554e0152b0a6f1b0ca24e4fdecff5c-source";
         url = "https://github.com/luxonis/cpr/archive/50a1321738554e0152b0a6f1b0ca24e4fdecff5c.tar.gz";
         hash = "sha256-qvFkVEI+5DmK1fE+U7Rm8G5NyF1wqVq0oOE2TGoQiAE=";
+      };
+    };
+    "depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1" = substituteSource {
+      src = fetchzip {
+        name = "82839cb04f2102177fad926fb8f7fcf7b4093cb1-source";
+        url = "https://github.com/luxonis/XLink/archive/82839cb04f2102177fad926fb8f7fcf7b4093cb1.tar.gz";
+        hash = "sha256-OTqJfTDudiNrdsDBe1Pg0T1dJcfneGXO/+AIbXpVfxk=";
+      };
+      substitutions = [
+        {
+          path = "cmake/Hunter/config.cmake";
+          from = "URL \"https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz\"";
+          to = "URL ${sources."depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1/b7e4548958325b18feb73977163ad44398099534"}";
+        }
+      ];
+    };
+    "depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1/b7e4548958325b18feb73977163ad44398099534" = substituteSource {
+      src = fetchzip {
+        name = "b7e4548958325b18feb73977163ad44398099534-source";
+        url = "https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz";
+        hash = "sha256-DjT7ooqQeRIXt2pRwznaT7twpzOVAea62ngJk1y2mUI=";
       };
     };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f" = substituteSource {

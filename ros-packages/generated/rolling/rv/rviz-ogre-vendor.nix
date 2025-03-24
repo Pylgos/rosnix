@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_ogre_vendor";
-  version = "14.4.2-1";
+  version = "14.4.4-1";
   src = finalAttrs.passthru.sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libfreetype-dev" "libfreetype6" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "ea889c54a95c95aa5c867a248cd957ea832c31cc";
-        hash = "sha256-Gdq4IKtaOwTgcSusnN3rcW+0bIZhLi0F4BiGqmnAIpg=";
+        rev = "5b3d576c3a9e4578081cb7df12de41c8e1fa6e0d";
+        hash = "sha256-XLJ/jd0vKYH88YtJTZBUPd4VbQS/eyfLAq3c6bs8D+A=";
       };
       substitutions = [
         {
@@ -34,10 +34,23 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "CMakeLists.txt";
+          from = "VCS_URL https://github.com/freetype/freetype.git";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype"}";
+        }
+        {
+          path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/madler/zlib.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
       ];
+    };
+    "rviz_ogre_vendor/freetype" = substituteSource {
+      src = fetchgit {
+        name = "freetype-source";
+        url = "https://github.com/freetype/freetype.git";
+        rev = "920c5502cc3ddda88f6c7d85ee834ac611bb11cc";
+        hash = "sha256-yylSmVM3D5xnbFx9qEEHFIP/K0x/WDXZr0MA4C7ng7k=";
+      };
     };
     "rviz_ogre_vendor/ogre" = substituteSource {
       src = fetchgit {

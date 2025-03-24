@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "picknik_reset_fault_controller";
-  version = "0.0.3-3";
+  version = "0.0.4-1";
   src = finalAttrs.passthru.sources."picknik_reset_fault_controller";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ controller-interface example-interfaces geometry-msgs rclcpp realtime-tools ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "picknik_reset_fault_controller-source";
         url = "https://github.com/ros2-gbp/picknik_controllers-release.git";
-        rev = "9e3a77bed62ad2d5b25641c7e8347d58db308aca";
-        hash = "sha256-1YeT/ItbimfyeiruRaU6K0IcXsIuJworLhzpN4VczDs=";
+        rev = "0ed965b262bd3f554c77065ff2f71487ff787fd7";
+        hash = "sha256-BeCEZpPnSD8s5P8Zd1y/rbnSRxfpVfsylgugHTjnJHU=";
       };
     };
   });

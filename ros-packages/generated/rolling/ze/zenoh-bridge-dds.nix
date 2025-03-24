@@ -13,8 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-4";
   src = finalAttrs.passthru.sources."zenoh_bridge_dds";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cargo" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cargo" "clang" ]; };
   passthru.sources = mkSourceSet (sources: {
     "zenoh_bridge_dds" = substituteSource {
       src = fetchgit {
