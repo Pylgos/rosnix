@@ -1,0 +1,12 @@
+diff --git a/include/gz/gui/qml/GzSpinBox.qml b/include/gz/gui/qml/GzSpinBox.qml
+index 800db5e1..7e3ab868 100644
+--- a/include/gz/gui/qml/GzSpinBox.qml
++++ b/include/gz/gui/qml/GzSpinBox.qml
+@@ -20,6 +20,7 @@ import QtQuick.Controls.Styles 1.4
+ 
+ SpinBox {
+   style: SpinBoxStyle{
++    textColor: "black",
+     background: Rectangle {
+       implicitWidth: 70
+       implicitHeight: 40

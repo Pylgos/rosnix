@@ -63,7 +63,7 @@ buildAmentCmakePackage (finalAttrs: {
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-2"}";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-VER-2-10-1"}";
         }
         {
           path = "CMake/Dependencies.cmake";
@@ -99,11 +99,11 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
       };
     };
-    "rviz_ogre_vendor/ogre/freetype-2" = substituteSource {
+    "rviz_ogre_vendor/ogre/freetype-VER-2-10-1" = substituteSource {
       src = fetchurl {
-        name = "freetype-2-source";
-        url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-        hash = "sha256-QbA+x7rRBNewN+tXb939fh4ZxY+KOEOu72s9arst84k=";
+        name = "freetype-VER-2-10-1-source";
+        url = "https://gitlab.freedesktop.org/freetype/freetype/-/archive/VER-2-10-1/freetype-VER-2-10-1.tar.gz";
+        hash = "sha256-/njUj1BrAqMfqF245Hu0IE1498g01OpXO5qAvMFNhUY=";
       };
     };
     "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {

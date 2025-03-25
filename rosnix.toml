@@ -62,5 +62,6 @@ ignore_urls = [
   '^http://downloads\.tuxfamily\.org/eigen/lapack_addons_3\.4\.1\.tgz$',
 ]
 replace_urls = [
-  { from = "^https://git.savannah.gnu.org/git/freetype/freetype2.git$", to = "https://gitlab.freedesktop.org/freetype/freetype.git" },
+  { from = '^https://git\.savannah\.gnu\.org/git/freetype/freetype2\.git$', to = "https://gitlab.freedesktop.org/freetype/freetype.git" },
+  { from = '^https://download\.savannah\.gnu\.org/releases/freetype/freetype-([0-9]+)\.([0-9]+)\.([0-9]+)\.tar\.gz', to = 'https://gitlab.freedesktop.org/freetype/freetype/-/archive/VER-$1-$2-$3/freetype-VER-$1-$2-$3.tar.gz' },
 ]

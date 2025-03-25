@@ -96,9 +96,25 @@ in
         {
           nativeBuildInputs ? [ ],
           postInstall ? "",
+          passthru,
           ...
         }:
         {
+          passthru = passthru // {
+            sources = passthru.sources.extend (
+              finalSources: prevSources: {
+                "gz_gui_vendor/gz-gui" = prevSources."gz_gui_vendor/gz-gui".override (
+                  {
+                    patches ? [ ],
+                    ...
+                  }:
+                  {
+                    patches = patches ++ [ ./gz-gui-style.patch ];
+                  }
+                );
+              }
+            );
+          };
           nativeBuildInputs = nativeBuildInputs ++ [ final.patchelf ];
           # Why is this necessary ???????
           postInstall =
