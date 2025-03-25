@@ -6,7 +6,7 @@ index 800db5e1..7e3ab868 100644
  
  SpinBox {
    style: SpinBoxStyle{
-+    textColor: "black",
++    textColor: "black"
      background: Rectangle {
        implicitWidth: 70
        implicitHeight: 40
