@@ -6,9 +6,10 @@ let
       src,
       substitutions ? [ ],
       patches ? [ ],
+      postPatch ? "",
       tar ? false,
     }:
-    if substitutions == [ ] && patches == [ ] && tar == false then
+    if substitutions == [ ] && patches == [ ] && postPatch == "" && tar == false then
       src
     else
       stdenvNoCC.mkDerivation {
@@ -33,7 +34,7 @@ let
               }\n";
             s = lib.concatStrings (map genLine substitutions);
           in
-          s;
+          s + postPatch;
         inherit patches;
         installPhase =
           if tar then
