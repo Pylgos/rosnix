@@ -33,7 +33,7 @@ in
         rosnix-generator --config-file ./rosnix.toml generate --report-file /tmp/report.md
         ros-packages/overrides/update.bash
         if [[ -z $DONT_COMMIT ]]; then
-          git add ./ros-packages/generated
+          git add ./ros-packages
           if ! git diff --quiet --cached ./ros-packages/generated; then
             git commit -m "Update ROS packages" -m "$(cat /tmp/report.md)"
           fi
