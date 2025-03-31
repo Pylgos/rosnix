@@ -34,7 +34,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_localization";
-  version = "3.9.1-1";
+  version = "3.9.2-2";
   src = finalAttrs.passthru.sources."robot_localization";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ angles builtin-interfaces diagnostic-msgs diagnostic-updater geographic-msgs geometry-msgs message-filters nav-msgs rclcpp rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-eigen tf2-geometry-msgs tf2-ros yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "libboost-dev" ]; };
@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robot_localization-source";
         url = "https://github.com/ros2-gbp/robot_localization-release.git";
-        rev = "d9a82c26115fb5aa2185daa1fb49a2273550a606";
-        hash = "sha256-msp4BzyHMrZjhF4/2VpgHOzkGRXIArt0rqvqgiMLt9g=";
+        rev = "7e75f8ec7b013ed6113f66930ed666cdf594747c";
+        hash = "sha256-4FPKRp6m4lv7AuU773NR4RzQJBy473OySBVaR2H/KZk=";
       };
     };
   });

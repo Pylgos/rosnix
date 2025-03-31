@@ -35,7 +35,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_localization";
-  version = "3.8.1-1";
+  version = "3.8.2-1";
   src = finalAttrs.passthru.sources."robot_localization";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   buildInputs = [ builtin-interfaces ];
@@ -46,8 +46,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robot_localization-source";
         url = "https://github.com/ros2-gbp/robot_localization-release.git";
-        rev = "baea1cdab65a10e0a56964ca9098bd3362cf75da";
-        hash = "sha256-fZ43sEzp1RU9bYJqKBy8b3t+X6i8tNx05QFMlplxxys=";
+        rev = "fb6aa7dc5b8ac4dd9f97c278f9081cbe40876da5";
+        hash = "sha256-b4QS7Pb7XXAyqEghVRKhuqJAO9XPd4NTog8715sKJ+c=";
       };
     };
   });

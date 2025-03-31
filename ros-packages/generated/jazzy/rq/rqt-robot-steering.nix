@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_robot_steering";
-  version = "1.0.0-6";
+  version = "1.0.1-2";
   src = finalAttrs.passthru.sources."rqt_robot_steering";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-python geometry-msgs python-qt-binding rclpy rqt-gui rqt-gui-py ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_robot_steering-source";
         url = "https://github.com/ros2-gbp/rqt_robot_steering-release.git";
-        rev = "0bbc8ad54804819c3b35ca495bc285825d9a0b03";
-        hash = "sha256-GQCdfFYxE/yR3Eostcf+T9VKwP2N45EzidAhXz5uVrw=";
+        rev = "969d31c94fd73bda7b74cd4fd8c0be7f98e3432e";
+        hash = "sha256-1Jbjo6RpuvKySYPGOeGeeHFKkz1lcyhtTbXLpXJt4As=";
       };
     };
   });
