@@ -9,20 +9,21 @@
   substituteSource,
   turtlebot3-fake-node,
   turtlebot3-gazebo,
+  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_simulations";
-  version = "2.2.5-4";
+  version = "2.3.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_simulations";
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ turtlebot3-fake-node turtlebot3-gazebo ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_simulations" = substituteSource {
       src = fetchgit {
         name = "turtlebot3_simulations-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
-        rev = "f5f2d3dcf497a22861701c4115a62bd29576a1bd";
-        hash = "sha256-W+h1Fb5Y9PXr/M12d+YOfwxWR1QaArnZtIDmkpQ95xI=";
+        rev = "b666586f6df13c4a6f58384a8459637a524d6bb2";
+        hash = "sha256-j4M3ybTSnOOZgqwbY11InVil3rXWmWDBrpjY6jmDnnc=";
       };
     };
   });

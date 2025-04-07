@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pybind11_vendor";
-  version = "3.1.2-2";
+  version = "3.1.3-1";
   src = finalAttrs.passthru.sources."pybind11_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "pybind11-dev" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11_vendor-source";
         url = "https://github.com/ros2-gbp/pybind11_vendor-release.git";
-        rev = "6551cb9a99f0e0bb3666b9a9d3b2bda0b598c167";
-        hash = "sha256-IqvDvVq5oLGYddeKV7uYtjHnf3SS24Ji+DO4Wua7xbU=";
+        rev = "d5ba3dad4b2f85c3a9070704e78942dee6d54861";
+        hash = "sha256-NWSqTli+QNpPzagIWzdNmMOn6GM3GPiRP1suBvfW6H0=";
       };
       substitutions = [
         {

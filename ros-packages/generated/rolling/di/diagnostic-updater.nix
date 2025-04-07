@@ -3,6 +3,7 @@
   ament-cmake-gtest,
   ament-cmake-pytest,
   ament-cmake-python,
+  ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -23,9 +24,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_updater";
-  version = "4.4.2-1";
+  version = "4.4.3-1";
   src = finalAttrs.passthru.sources."diagnostic_updater";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ament-cmake-ros ];
   propagatedBuildInputs = [ diagnostic-msgs rclcpp rclpy std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ros rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -33,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "diagnostic_updater-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
-        rev = "d29ee6dfb625f0638ade6ebd887bc0d1904fce8c";
-        hash = "sha256-hbiny+v3BWGKurHagv9da97cW1xq166hRRfpcIhY2EM=";
+        rev = "b7fd75240ccfd82adfe7fd7af33cf31502f8bdeb";
+        hash = "sha256-B6cUJgj4UdEIIWnRCy8tv9tL8WQST9BwYqRxNr2k8Ls=";
       };
     };
   });

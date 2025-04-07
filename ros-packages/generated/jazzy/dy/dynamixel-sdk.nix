@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_sdk";
-  version = "3.8.2-1";
+  version = "3.8.3-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   passthru.sources = mkSourceSet (sources: {
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_sdk-source";
         url = "https://github.com/ros2-gbp/dynamixel_sdk-release.git";
-        rev = "d80105a04267c78cf4278516ceb510a704f6db06";
-        hash = "sha256-AtxQsODDvRODC72k7BUUEIgK4y3rn+zpA6Wt+I/OxBg=";
+        rev = "202eb514fa6d18938dbf3746c6daeebc40eb19c1";
+        hash = "sha256-xVMDhgFbP9wlDztMASOzvSlY9Y8DwXraVLayMq14P4I=";
       };
     };
   });

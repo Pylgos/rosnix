@@ -8,24 +8,28 @@
   mkSourceSet,
   nav-msgs,
   rclcpp,
+  ros-gz-bridge,
+  ros-gz-image,
+  ros-gz-sim,
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
   tf2,
+  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_gazebo";
-  version = "2.2.5-5";
+  version = "2.3.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_gazebo";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp sensor-msgs tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gazebo_ros_pkgs" ]; };
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp ros-gz-bridge ros-gz-image ros-gz-sim sensor-msgs tf2 ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_gazebo" = substituteSource {
       src = fetchgit {
         name = "turtlebot3_gazebo-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
-        rev = "2052448a92e43ce2ed8565594d944ba638f78bd9";
-        hash = "sha256-v6xnRm6M8asU/HVNlinmuyhrm7cTaIuA3aSHJzPeX6c=";
+        rev = "e5fa4a7684a35ddac0d9a07ceb96c75c3913d151";
+        hash = "sha256-ed+6no0zpw6+LZEQ2HlreG7GAy3iNL7jLooqAR6jyLE=";
       };
     };
   });

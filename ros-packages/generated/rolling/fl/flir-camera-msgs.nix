@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flir_camera_msgs";
-  version = "3.0.0-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."flir_camera_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flir_camera_msgs-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "87f5a3dc73e04bf81ed93cf669453d8aaf13a325";
-        hash = "sha256-6+GJ3lS8t5ZSmuyd/+Szm5J+hHtqhYT9qEOF9rKAKTQ=";
+        rev = "a1227c5a87164f51673231aea38bc0118585cdf6";
+        hash = "sha256-eP5JgiFJIl8Kh+b3PsVzGxFR323AG5janzdwowzwZo8=";
       };
     };
   });

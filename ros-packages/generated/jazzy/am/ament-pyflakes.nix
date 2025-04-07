@@ -10,7 +10,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_pyflakes";
-  version = "0.17.1-1";
+  version = "0.17.2-1";
   src = finalAttrs.passthru.sources."ament_pyflakes";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pyflakes3" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "pyflakes3" ]; };
@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_pyflakes-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "1862376009b02b5088acb8ac300da55e65394d8a";
-        hash = "sha256-KMHU5aqi9tt95GgtqbB7obYtSAUxzWzR/UFQhILKkdk=";
+        rev = "574c31969702486c9b001d1e18503498434d0392";
+        hash = "sha256-b8mG7uyS4bPUZnSOLfR32Fi0uY861hN+u3fwwv8kFQw=";
       };
     };
   });

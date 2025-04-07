@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_pointcloud_publisher";
-  version = "0.19.4-1";
+  version = "0.19.5-1";
   src = finalAttrs.passthru.sources."examples_rclpy_pointcloud_publisher";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ rclpy sensor-msgs sensor-msgs-py std-msgs ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclpy_pointcloud_publisher-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "2d3126625922b57bdf5e07a97d251ce3678a6377";
-        hash = "sha256-0coxblLLRw5cUv8P6h3qr0L6z2LaGp5ZC5YN35q2kVg=";
+        rev = "aa6fa6f3f00e419e0b4c416998c55cf10f40dd92";
+        hash = "sha256-7HGM/F/kH48le2gU2l/byh29R0edtXpRHKJ1CQ4/6Lw=";
       };
     };
   });

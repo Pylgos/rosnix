@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_calibration_parsers";
-  version = "5.1.5-1";
+  version = "5.1.6-1";
   src = finalAttrs.passthru.sources."camera_calibration_parsers";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ rclcpp sensor-msgs yaml-cpp-vendor ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "camera_calibration_parsers-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "8b64dabf6e56f139849ed3d8b8c723e5ec996a19";
-        hash = "sha256-PlRpax73bF5Rm86TIdwzIDbbBZiFKR4T9rNZQ6g/3Y8=";
+        rev = "14e4281c2e89504f2c0f83e77ded9942409a8409";
+        hash = "sha256-p8jQdNOJJAKG7F85GztC1eR9d/NkxHrNn+lcMDVXeS0=";
       };
     };
   });

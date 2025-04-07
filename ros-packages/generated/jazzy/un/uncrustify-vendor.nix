@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "uncrustify_vendor";
-  version = "3.0.0-2";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."uncrustify_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "uncrustify" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "uncrustify_vendor-source";
         url = "https://github.com/ros2-gbp/uncrustify_vendor-release.git";
-        rev = "69a8304c634ed4b0872634acbc73bc1854510fff";
-        hash = "sha256-yVmdBegpkwKPCWppTjfeJpLZn9LCFAPVsI0sy2mZvpw=";
+        rev = "f6a3d65cf1d2d3662d8f74c411e978d4acde045d";
+        hash = "sha256-SZKnIW5GjaPy1d6SyUhaxP8RVOjUBRTSzH4yc5wbRzQ=";
       };
       substitutions = [
         {
