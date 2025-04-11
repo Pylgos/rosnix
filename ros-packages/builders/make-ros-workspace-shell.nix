@@ -18,6 +18,7 @@
   propagatedNativeBuildInputs ? [ ],
   shellHook ? "",
   stdenv ? null,
+  strictDeps ? false,
   ...
 }@attrs:
 let
@@ -41,6 +42,7 @@ let
     "propagatedNativeBuildInputs"
     "shellHook"
     "stdenv"
+    "strictDeps"
   ];
 
   buildColconPackageWithStdenv = buildColconPackage.override (oldAttrs: {
@@ -50,7 +52,7 @@ in
 
 buildColconPackageWithStdenv (
   {
-    inherit name;
+    inherit name strictDeps;
 
     buildInputs = mergeInputs "buildInputs";
     nativeBuildInputs =
