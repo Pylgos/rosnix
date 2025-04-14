@@ -28,6 +28,7 @@
   rcpputils,
   realtime-tools,
   robot-state-publisher,
+  ros2-control-cmake,
   ros2-control-test-assets,
   ros2param,
   ros2run,
@@ -38,22 +39,22 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
-  version = "4.27.0-1";
+  version = "4.28.0-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
-  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-test-assets ros2param ros2run std-msgs ];
+  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-pytest example-interfaces hardware-interface-testing launch launch-testing launch-testing-ros rclpy robot-state-publisher ros2-control-test-assets sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-coverage" ]; };
   passthru.sources = mkSourceSet (sources: {
     "controller_manager" = substituteSource {
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "2824e664143a8a62058d73442fea63ac95cd8e73";
-        hash = "sha256-BYm5MJ/cMbrmYJOpetCM23RNxxgNV32SbfKQhrXMqFI=";
+        rev = "1ba0245e8dbb80eb79247661601c6b85fc7ad190";
+        hash = "sha256-xf2dLs/giGc2uvIEPbPYdAJTGH5oWRcLZc9Dbf5uEFM=";
       };
     };
   });
   meta = {
-    description = "Description of controller_manager";
+    description = "The main runnable entrypoint of ros2_control and home of controller management and resource management.";
   };
 })

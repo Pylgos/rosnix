@@ -55,8 +55,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "opengametools-source";
         url = "https://github.com/jpaver/opengametools.git";
-        rev = "1c185fe9ce7217df814ec51482a030d7aa66324d";
-        hash = "sha256-euwKNvpVfhtB8hxVHTcetK5iUhSyADxpVtLAEZOiYWs=";
+        rev = "22e71873ffc55c3a6253d31302e4f5e2191f9a0b";
+        hash = "sha256-oIJFi4k5oQsz1rce4wyQrPdxEv3NFyLWgaL8MZ/RYRc=";
       };
     };
   });

@@ -20,6 +20,7 @@
   rclcpp,
   rclcpp-lifecycle,
   realtime-tools,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   std-srvs,
@@ -27,18 +28,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pid_controller";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."pid_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface parameter-traits pluginlib rclcpp rclcpp-lifecycle realtime-tools std-srvs ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface parameter-traits pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "pid_controller" = substituteSource {
       src = fetchgit {
         name = "pid_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "ffc5388e7f6e81869898b9273db7706da5e176f5";
-        hash = "sha256-2lGrW7pkAvd5ExTNhCRSHYFlMGX6KWyKjdgxLkvA35s=";
+        rev = "c5d90adcdfc47be58f73e6130eea6188149a23f5";
+        hash = "sha256-xyyVDJaY/0bDDDZU6jteWuYVnwkFQqjUGPDR67flGmA=";
       };
     };
   });

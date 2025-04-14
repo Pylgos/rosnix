@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_aggregator";
-  version = "4.2.2-1";
+  version = "4.2.3-1";
   src = finalAttrs.passthru.sources."diagnostic_aggregator";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ diagnostic-msgs pluginlib rcl-interfaces rclcpp rclpy std-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "diagnostic_aggregator-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
-        rev = "adf35a07bf4f0a7aceb62bccc6f82e98c26d1e02";
-        hash = "sha256-xJZymQwSlc14RSQsbX/f9ZlEszELnM1o3xlvigKR6zY=";
+        rev = "5767daccbf828f95a949e2b3bd99b7ecc8cce945";
+        hash = "sha256-P+age2YveAOXi5V4tDmloet1Boy9lur+7syPsbZ1FZg=";
       };
     };
   });

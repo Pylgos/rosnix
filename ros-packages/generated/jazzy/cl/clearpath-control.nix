@@ -12,6 +12,7 @@
   joint-state-broadcaster,
   joint-trajectory-controller,
   joy-linux,
+  mecanum-drive-controller,
   mkSourceSet,
   robot-localization,
   robot-state-publisher,
@@ -22,17 +23,17 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_control";
-  version = "2.2.0-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."clearpath_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ clearpath-bt-joy controller-manager diff-drive-controller imu-filter-madgwick interactive-marker-twist-server joint-state-broadcaster joint-trajectory-controller joy-linux robot-localization robot-state-publisher teleop-twist-joy twist-mux ];
+  propagatedBuildInputs = [ clearpath-bt-joy controller-manager diff-drive-controller imu-filter-madgwick interactive-marker-twist-server joint-state-broadcaster joint-trajectory-controller joy-linux mecanum-drive-controller robot-localization robot-state-publisher teleop-twist-joy twist-mux ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_control" = substituteSource {
       src = fetchgit {
         name = "clearpath_control-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "a5152beefc5342b16cd2e6e7055c223fe44e8e09";
-        hash = "sha256-fs71jBIUE878l94VDIJicCFTGAdTukD9htMMw8DorCE=";
+        rev = "0e0f9b19d3da4a2f4a1539b69c49059dc8d85d06";
+        hash = "sha256-KziQHOJneX7obA4ae6SdoJXPDivVxqZyyr4egQdwTe4=";
       };
     };
   });

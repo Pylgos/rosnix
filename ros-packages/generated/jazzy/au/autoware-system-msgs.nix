@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_system_msgs";
-  version = "1.4.0-1";
+  version = "1.6.0-1";
   src = finalAttrs.passthru.sources."autoware_system_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_system_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "c59e61aa49ef9102a32705c08498c0a72b63daa5";
-        hash = "sha256-tg+3Qs1Y5aZPV2nQBKyNnDDL++dWxm1KszOoYUIsJcA=";
+        rev = "777f106f500cf0eeb76ac7c2f7cb87f6f2f61e19";
+        hash = "sha256-Ha7CtQWrXruqPDpoAnD5JQGxJyv1oOpteGqm1eXrRgo=";
       };
     };
   });
