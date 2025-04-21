@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.1.0-1";
   src = finalAttrs.passthru.sources."camera_info_manager";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-index-cpp camera-calibration-parsers rclcpp rclcpp-lifecycle rcpputils sensor-msgs ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils ];
+  propagatedBuildInputs = [ camera-calibration-parsers rclcpp rclcpp-lifecycle sensor-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "camera_info_manager" = substituteSource {

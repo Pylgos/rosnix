@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.9.2-1";
   src = finalAttrs.passthru.sources."turtlesim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "turtlesim" = substituteSource {

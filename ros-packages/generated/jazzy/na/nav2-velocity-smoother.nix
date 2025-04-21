@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_velocity_smoother";
-  version = "1.3.5-1";
+  version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_velocity_smoother";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs nav2-common nav2-util rclcpp rclcpp-components ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_velocity_smoother-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "b3fd63450156bc9522c945115efbdfcb47e28f82";
-        hash = "sha256-UqDpIaY2aGGN3A5+IBf58zFhBGP/7vYDyWsi+rAyHx4=";
+        rev = "55fcfb402d26f308095ccbf7954e2627dc570d5b";
+        hash = "sha256-ogEe6OdZu/2f5yfRxLaF/aIiGN2szdeMzbYvwvXw7yk=";
       };
     };
   });

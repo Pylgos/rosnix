@@ -35,7 +35,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_hybrid_planning";
-  version = "2.12.2-1";
+  version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_hybrid_planning";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-cpp controller-manager moveit-common moveit-core moveit-msgs moveit-resources-panda-moveit-config moveit-ros-planning moveit-ros-planning-interface pluginlib position-controllers rclcpp rclcpp-action rclcpp-components robot-state-publisher rviz2 std-msgs std-srvs tf2-ros trajectory-msgs ];
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_hybrid_planning-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "3d575bfcf22e6f1a6cb23aa237fe1b977dce7206";
-        hash = "sha256-/rGHWf2Mie1NuNQzcggTnwBgWRc1dbYj9HQ3eVjB5Qo=";
+        rev = "e878b2e0d1abbd890c5831a93bfd3370010427b0";
+        hash = "sha256-5Y/WUYoKaCAu0GWtuArI4s9VBYYcsw9BGxOWkld9AP8=";
       };
     };
   });

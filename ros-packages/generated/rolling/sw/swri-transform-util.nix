@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_transform_util";
-  version = "3.7.3-1";
+  version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_transform_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_transform_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "2449a87220579100817417aab1f33511f923c23d";
-        hash = "sha256-NbABucV7KKYYHI02DVMc9siAlEpqGZuYUkZfd+oI9jk=";
+        rev = "d8f4502161658642fae706af69336b2d598c3cee";
+        hash = "sha256-ufNGPic1Lw6iCrP28G0MZUxLCm4f/KFGdTuIkm1+rBU=";
       };
     };
   });

@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.6-1";
   src = finalAttrs.passthru.sources."event_camera_py";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-python ament-cmake-ros python-cmake-module ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ event-camera-codecs event-camera-msgs pybind11-vendor rpyutils ];
+  propagatedNativeBuildInputs = [ ros-environment rpyutils ];
+  propagatedBuildInputs = [ event-camera-codecs event-camera-msgs pybind11-vendor ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-pytest ament-lint-auto ament-lint-common rclpy rosbag2-py rosbag2-storage-default-plugins rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
   passthru.sources = mkSourceSet (sources: {
     "event_camera_py" = substituteSource {

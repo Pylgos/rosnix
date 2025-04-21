@@ -21,8 +21,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2test";
   version = "0.8.0-1";
   src = finalAttrs.passthru.sources."ros2test";
-  propagatedNativeBuildInputs = [ domain-coordinator ];
-  propagatedBuildInputs = [ launch launch-ros launch-testing launch-testing-ros ros2cli ];
+  propagatedBuildInputs = [ domain-coordinator launch launch-ros launch-testing launch-testing-ros ros2cli ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2test" = substituteSource {

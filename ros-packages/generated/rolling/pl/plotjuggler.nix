@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.9.2-1";
   src = finalAttrs.passthru.sources."plotjuggler";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lz4" "protobuf-dev" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp ];
+  propagatedBuildInputs = [ fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lz4" "protobuf-dev" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "plotjuggler" = substituteSource {
       src = fetchgit {

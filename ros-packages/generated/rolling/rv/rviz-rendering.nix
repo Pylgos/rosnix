@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "14.4.4-1";
   src = finalAttrs.passthru.sources."rviz_rendering";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ ament-index-cpp resource-retriever rviz-assimp-vendor rviz-ogre-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp eigen3-cmake-module ];
+  propagatedBuildInputs = [ resource-retriever rviz-assimp-vendor rviz-ogre-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common rviz-assimp-vendor ];
   passthru.sources = mkSourceSet (sources: {
     "rviz_rendering" = substituteSource {

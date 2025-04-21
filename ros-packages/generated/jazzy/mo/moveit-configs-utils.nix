@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "moveit_configs_utils";
-  version = "2.12.2-1";
+  version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_configs_utils";
   propagatedBuildInputs = [ ament-index-python launch launch-param-builder launch-ros srdfdom ];
   passthru.sources = mkSourceSet (sources: {
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_configs_utils-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "8532217581dfdab68e3a56d8e4759f2765a85ecd";
-        hash = "sha256-JHfYo79DToh5B6SaOyqWftTzCqBZyM58z4i2GX6ygpM=";
+        rev = "8f60f9ab36f879ff2ebd828d0599dfd48f700e95";
+        hash = "sha256-HQfYdBWKftxw5HxReNZLFUmST8odKo/5w+YDC1FBN6g=";
       };
     };
   });

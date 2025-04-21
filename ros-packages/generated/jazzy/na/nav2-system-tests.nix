@@ -38,7 +38,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_system_tests";
-  version = "1.3.5-1";
+  version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_system_tests";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "lcov" ]; };
@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_system_tests-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "4b15ec93f8392350b68d2c7a8455d50976bf6f91";
-        hash = "sha256-yUhTEaBEYqawjYWCHheWCQyVg6DMcipKav+FNcUDp6c=";
+        rev = "ad438718d0a422f0543a7b2919139fc7f04ce126";
+        hash = "sha256-RhmNl2SBctFLvHxybxE0aNKEltZPSR9YrEMhTtx+KSk=";
       };
     };
   });

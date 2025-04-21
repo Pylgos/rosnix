@@ -28,6 +28,7 @@
   rcpputils,
   realtime-tools,
   robot-state-publisher,
+  ros2-control-cmake,
   ros2-control-test-assets,
   ros2param,
   ros2run,
@@ -38,22 +39,23 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
-  version = "4.27.0-1";
+  version = "4.28.1-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
-  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-test-assets ros2param ros2run std-msgs ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-pytest example-interfaces hardware-interface-testing launch launch-testing launch-testing-ros rclpy robot-state-publisher ros2-control-test-assets sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-coverage" ]; };
   passthru.sources = mkSourceSet (sources: {
     "controller_manager" = substituteSource {
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "adfe8354bf1e66d6be19a46b832b39a45fc57fd4";
-        hash = "sha256-BYm5MJ/cMbrmYJOpetCM23RNxxgNV32SbfKQhrXMqFI=";
+        rev = "17f9ef56afdb78814476b4f66080948d555fcf51";
+        hash = "sha256-5Ssp4DSaLxvMp0EDt/dDs+IYXBiKnQMCR+8Y6Fl/jYk=";
       };
     };
   });
   meta = {
-    description = "Description of controller_manager";
+    description = "The main runnable entrypoint of ros2_control and home of controller management and resource management.";
   };
 })

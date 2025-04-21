@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.6.2-1";
   src = finalAttrs.passthru.sources."behaviortree_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libsqlite3-dev" "libzmq3-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp ros-environment ];
+  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libsqlite3-dev" "libzmq3-dev" ]; };
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "behaviortree_cpp" = substituteSource {

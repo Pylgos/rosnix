@@ -20,6 +20,7 @@
   rclcpp-lifecycle,
   rcpputils,
   realtime-tools,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   std-srvs,
@@ -30,18 +31,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "steering_controllers_library";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."steering_controllers_library";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ackermann-msgs backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ ackermann-msgs backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "steering_controllers_library" = substituteSource {
       src = fetchgit {
         name = "steering_controllers_library-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "44608cfec62b15d33bb8b5ace109248b55a9a560";
-        hash = "sha256-xz+SSSIVowRJ59LKw6dPIQfCzDqrECEsKQaB1ArSLcI=";
+        rev = "db63dda64a9e37764c4df360a1c77707e58c2da0";
+        hash = "sha256-xULWTXSp3v0TmqMGTtLLLBj8IiVDj3LZ19RVKgVtHPk=";
       };
     };
   });

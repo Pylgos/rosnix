@@ -15,21 +15,22 @@
   ur-client-library,
   ur-robot-driver,
   wrapRosQtAppsHook,
+  yaml-cpp-vendor,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_calibration";
-  version = "3.1.1-1";
+  version = "3.2.1-1";
   src = finalAttrs.passthru.sources."ur_calibration";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ rclcpp ur-client-library ur-robot-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "yaml-cpp" ]; };
+  propagatedBuildInputs = [ rclcpp ur-client-library ur-robot-driver yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ur_calibration" = substituteSource {
       src = fetchgit {
         name = "ur_calibration-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "135feca7b65992479382d95e88c932bc15133cb6";
-        hash = "sha256-MQIOdHFKp5pAr+3O3YdMfIPs8eZG3AnxcDDQCvJtGHo=";
+        rev = "054bdbddcb7d8656119abef441dc8869ac24d0ea";
+        hash = "sha256-Mq1vOkNGlZHto4lGQettiPcaqsLiFdmZfJZZEfc+wP0=";
       };
     };
   });

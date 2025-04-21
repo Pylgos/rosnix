@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo";
-  version = "3.0.3-1";
+  version = "3.1.0-1";
   src = finalAttrs.passthru.sources."leo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo-description leo-msgs leo-teleop ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "fb908a97861b43c2c72b2ec5ed193a3adf0f5201";
-        hash = "sha256-qRmRxzhzTgwKSELlVR4rhl4PT3KhP04L3wJCEVsnpSI=";
+        rev = "496ca3f136716a9a153103e46120b376741b7064";
+        hash = "sha256-iQgyZJMs7pw07DBtPFKsFI9WSArAdENMufLQkAWmaWY=";
       };
     };
   });

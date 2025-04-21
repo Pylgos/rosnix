@@ -22,6 +22,7 @@
   rclcpp,
   rclcpp-lifecycle,
   realtime-tools,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
@@ -34,18 +35,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "admittance_controller";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."admittance_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface kinematics-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools tf2 tf2-eigen tf2-geometry-msgs tf2-kdl tf2-ros trajectory-msgs ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface kinematics-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-eigen tf2-geometry-msgs tf2-kdl tf2-ros trajectory-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing kinematics-interface-kdl ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "admittance_controller" = substituteSource {
       src = fetchgit {
         name = "admittance_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "071436d018423ac503542528eeb2ba1c5d95a820";
-        hash = "sha256-Raq+RIOMCWhIzNFYf78nUJqHh/8cuEs0/2oiMPzfPi0=";
+        rev = "0cb0ffe563cce8c164eeb2b847ba90a3f4523e58";
+        hash = "sha256-AHzQR8xRYW/h6raYcWCh96b88tbui8Lvi0Z7H1wDpas=";
       };
     };
   });

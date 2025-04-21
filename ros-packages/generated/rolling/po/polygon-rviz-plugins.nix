@@ -1,5 +1,5 @@
 {
-  ament-cmake,
+  ament-cmake-ros,
   buildAmentCmakePackage,
   color-util,
   fetchgit,
@@ -18,17 +18,17 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_rviz_plugins";
-  version = "1.1.0-1";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."polygon_rviz_plugins";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedBuildInputs = [ color-util geometry-msgs pluginlib polygon-msgs polygon-utils rviz-common std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "polygon_rviz_plugins" = substituteSource {
       src = fetchgit {
         name = "polygon_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "2097ac05b3dd59f6df042b0a5ff94bbff63c9b26";
-        hash = "sha256-kXUTcZF3KsFumuXqXCeIaMwhTxL4CWEfmRduy9+Uiq4=";
+        rev = "e4b804e1c7c3c996d378d1cd433647468cec1ed8";
+        hash = "sha256-MBvbUxknfjvwHnTRP93MAJrqlCcPo+3YxrmRvgc61xU=";
       };
     };
   });

@@ -41,7 +41,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "slam_toolbox";
-  version = "2.8.2-1";
+  version = "2.8.3-1";
   src = finalAttrs.passthru.sources."slam_toolbox";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -52,8 +52,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "slam_toolbox-source";
         url = "https://github.com/SteveMacenski/slam_toolbox-release.git";
-        rev = "32724fa3642b7e0ce8134da548de06fc3f6ffa60";
-        hash = "sha256-pWJ27U7+GomQhLfCdYg7SGznuB6/wdhajsq7N6Po1Io=";
+        rev = "693b90de9576edee6001d6402c93c1c1488c81e5";
+        hash = "sha256-CyziElwMO0AKsxkahXDKZqqKhQ7e2tu/mu+kgFuKJzY=";
       };
     };
   });

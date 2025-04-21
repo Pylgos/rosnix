@@ -1,6 +1,6 @@
 {
-  ament-cmake,
   ament-cmake-gtest,
+  ament-cmake-ros,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -15,9 +15,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_setup_srdf_plugins";
-  version = "2.13.0-1";
+  version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_setup_srdf_plugins";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
   propagatedBuildInputs = [ moveit-setup-framework pluginlib ];
   checkInputs = [ ament-cmake-gtest moveit-resources-fanuc-description ];
   passthru.sources = mkSourceSet (sources: {
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_setup_srdf_plugins-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "ba20d1a5b87f235a93c18a6df87310d7d7974ecf";
-        hash = "sha256-3ykuiQgjtcXD/f5Zc3KJV5nZpuL043itsiiCn7KyayQ=";
+        rev = "3ceb4f6132dc840d31947aa37cf1c843cc454e98";
+        hash = "sha256-Xb5zYXmoMrtizHfpQcq92RP97dgpBXb2B0DPy89wnDU=";
       };
     };
   });

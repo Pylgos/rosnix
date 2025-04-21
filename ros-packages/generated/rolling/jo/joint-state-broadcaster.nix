@@ -19,6 +19,7 @@
   rclcpp-lifecycle,
   rcutils,
   realtime-tools,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   sensor-msgs,
@@ -27,18 +28,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_broadcaster";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs urdf ];
-  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing rclcpp ros2-control-test-assets ];
+  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp rclcpp-lifecycle rcutils realtime-tools ros2-control-cmake sensor-msgs urdf ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "joint_state_broadcaster" = substituteSource {
       src = fetchgit {
         name = "joint_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "11864a2f25a03010a10e2c17bf234d61d22b6df9";
-        hash = "sha256-BoZYi8Mp5PfakEeDsK46muBAbU6r6WvdlmBHQSVlwMI=";
+        rev = "ad756fc50092dbe2ff652208f306c80285075ac0";
+        hash = "sha256-2WL9Y1TEuVrZu+387jiVAywJhhNn0XKSMUhROoyAUtg=";
       };
     };
   });

@@ -20,6 +20,7 @@
   rclcpp-lifecycle,
   rcpputils,
   realtime-tools,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
@@ -28,18 +29,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diff_drive_controller";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."diff_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools tf2 tf2-msgs ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ backward-ros control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "diff_drive_controller" = substituteSource {
       src = fetchgit {
         name = "diff_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "cf7d77d308e22bdfbcae867aff8067b2ef69e8db";
-        hash = "sha256-sTNNnQBsOtyistafILvHnhRKPH0Cw8iQcdpf60qi0t4=";
+        rev = "03197e775ee9c1113971ae71af4a69306353580f";
+        hash = "sha256-vDSKuihLrhWDu7+VXNwI8OpoKey4jxAKbbfEsTZtY8A=";
       };
     };
   });

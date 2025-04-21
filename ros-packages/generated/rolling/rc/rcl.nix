@@ -38,7 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "10.1.0-1";
   src = finalAttrs.passthru.sources."rcl";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ libyaml-vendor rcl-interfaces rcl-logging-interface rcl-logging-noop rcl-logging-spdlog rcl-yaml-param-parser rcutils rmw rmw-implementation rosidl-runtime-c service-msgs tracetools type-description-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  propagatedNativeBuildInputs = [ rmw-implementation ];
+  propagatedBuildInputs = [ libyaml-vendor rcl-interfaces rcl-logging-interface rcl-logging-noop rcl-logging-spdlog rcl-yaml-param-parser rcutils rmw rosidl-runtime-c service-msgs tracetools type-description-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp rmw rmw-implementation-cmake rosidl-runtime-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rcl" = substituteSource {

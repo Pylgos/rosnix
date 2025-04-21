@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.6-2";
   src = finalAttrs.passthru.sources."behaviortree_cpp_v3";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libncurses-dev" "libzmq3-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp ros-environment ];
+  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libncurses-dev" "libzmq3-dev" ]; };
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "behaviortree_cpp_v3" = substituteSource {

@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "ros_core";
   version = "0.12.0-1";
   src = finalAttrs.passthru.sources."ros_core";
-  propagatedNativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros ament-lint-auto ament-lint-common launch-testing-ament-cmake ros-environment rosidl-default-generators ];
-  propagatedBuildInputs = [ ament-index-cpp ament-index-python class-loader common-interfaces launch launch-ros launch-testing launch-testing-ros launch-xml launch-yaml pluginlib rcl-lifecycle rclcpp rclcpp-action rclcpp-lifecycle rclpy ros2cli-common-extensions ros2launch rosidl-default-runtime sros2 sros2-cmake ];
+  propagatedNativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros ament-index-cpp ament-lint-auto ament-lint-common launch-testing-ament-cmake ros-environment rosidl-default-generators ];
+  propagatedBuildInputs = [ ament-index-python class-loader common-interfaces launch launch-ros launch-testing launch-testing-ros launch-xml launch-yaml pluginlib rcl-lifecycle rclcpp rclcpp-action rclcpp-lifecycle rclpy ros2cli-common-extensions ros2launch rosidl-default-runtime sros2 sros2-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ros_core" = substituteSource {
       src = fetchgit {

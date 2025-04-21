@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "mouse_teleop";
-  version = "1.7.0-1";
+  version = "1.8.0-1";
   src = finalAttrs.passthru.sources."mouse_teleop";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ geometry-msgs rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tk" ]; };
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "mouse_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "74f2646d2a34b2c8df502119da4cbb5513a900b4";
-        hash = "sha256-aOP48rfspGDsSFU8rwhF9mhTNccMC5JOa1mWtpW08cQ=";
+        rev = "437f4604ab282b21368b706e859b43093fc32864";
+        hash = "sha256-gRzPO+3HFvOz+Kix1qa6qYSlpD7AZbxACBgRSxPvpfw=";
       };
     };
   });

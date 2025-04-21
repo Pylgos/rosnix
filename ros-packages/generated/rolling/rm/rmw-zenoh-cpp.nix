@@ -12,6 +12,7 @@
   rcpputils,
   rcutils,
   rmw,
+  rmw-test-fixture,
   rosSystemPackages,
   rosidl-typesupport-fastrtps-c,
   rosidl-typesupport-fastrtps-cpp,
@@ -21,18 +22,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_zenoh_cpp";
-  version = "0.5.0-1";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."rmw_zenoh_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rcpputils rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools zenoh-cpp-vendor ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils rmw-test-fixture ];
+  propagatedBuildInputs = [ fastcdr rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_zenoh_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_zenoh_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_zenoh-release.git";
-        rev = "f5231c9c4e72c448726411fc3d1ae506e178a77d";
-        hash = "sha256-pkV0HFZlaDKNi9R+9xQXwUhZ2dHYokga02hdKBKj2Us=";
+        rev = "c1e0f0e145c9bd23b63dbbe0b67e32dd908b9b20";
+        hash = "sha256-doBqT2ZYpLIaE+JGKCTSP4XQNwktZGeF5os+VTREMjY=";
       };
     };
   });

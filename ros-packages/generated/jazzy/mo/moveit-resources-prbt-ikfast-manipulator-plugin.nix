@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_prbt_ikfast_manipulator_plugin";
-  version = "2.12.2-1";
+  version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_ikfast_manipulator_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_resources_prbt_ikfast_manipulator_plugin-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "a5a0446f9b514f2ba03b887ca3356488c0677772";
-        hash = "sha256-zDrMQpEtvkp2k1c9f92wgdLCnim1j2BISvnucxSOfrQ=";
+        rev = "f838d511b965377177c385415e969c2b58ae0b06";
+        hash = "sha256-zfgXEUoO7K9o+8mcJBuTxztvFQQ951nzriQtU20UHdY=";
       };
     };
   });

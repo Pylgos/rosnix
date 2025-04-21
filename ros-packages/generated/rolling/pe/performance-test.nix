@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."performance_test";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ rclcpp rmw-implementation rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rmw-implementation ros-environment ];
+  propagatedBuildInputs = [ rclcpp rosidl-default-runtime ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "performance_test" = substituteSource {

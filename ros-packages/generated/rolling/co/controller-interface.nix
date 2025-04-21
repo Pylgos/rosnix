@@ -11,28 +11,29 @@
   mkSourceSet,
   rclcpp-lifecycle,
   realtime-tools,
+  ros2-control-cmake,
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
-  version = "4.27.0-1";
+  version = "4.28.1-1";
   src = finalAttrs.passthru.sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools sensor-msgs ];
+  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
   checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "controller_interface" = substituteSource {
       src = fetchgit {
         name = "controller_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "d6085f2091b1640ccaeb5dfd6515941a32aa4ec0";
-        hash = "sha256-NY7JgQf7xzJNYRtBg9vOLQ4Ze8pL5X9gnaXblRO6TjU=";
+        rev = "40fc049a7315da2ee45135a624957cbe5540ca0c";
+        hash = "sha256-4Uj0Z7Y/8bCj3LM+vZZm2OTrbqVvefvAvHRYjVQnnog=";
       };
     };
   });
   meta = {
-    description = "Description of controller_interface";
+    description = "Base classes for controllers and syntax cookies for supporting common sensor types in controllers and broadcasters";
   };
 })

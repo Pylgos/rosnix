@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.1.0-1";
   src = finalAttrs.passthru.sources."image_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
-  propagatedBuildInputs = [ image-transport pybind11-vendor rclcpp rpyutils sensor-msgs ];
+  propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
+  propagatedBuildInputs = [ image-transport pybind11-vendor rclcpp sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_transport_py" = substituteSource {

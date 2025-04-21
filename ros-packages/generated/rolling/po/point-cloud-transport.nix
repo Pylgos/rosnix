@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.1.1-1";
   src = finalAttrs.passthru.sources."point_cloud_transport";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components rcpputils rmw sensor-msgs ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components rmw sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "point_cloud_transport" = substituteSource {

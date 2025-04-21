@@ -62,11 +62,6 @@ buildAmentCmakePackage (finalAttrs: {
       substitutions = [
         {
           path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-VER-2-10-1"}";
-        }
-        {
-          path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
           to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/SDL2-2"}";
         }
@@ -97,13 +92,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "SDL2-2-source";
         url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
         hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
-      };
-    };
-    "rviz_ogre_vendor/ogre/freetype-VER-2-10-1" = substituteSource {
-      src = fetchurl {
-        name = "freetype-VER-2-10-1-source";
-        url = "https://gitlab.freedesktop.org/freetype/freetype/-/archive/VER-2-10-1/freetype-VER-2-10-1.tar.gz";
-        hash = "sha256-/njUj1BrAqMfqF245Hu0IE1498g01OpXO5qAvMFNhUY=";
       };
     };
     "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {

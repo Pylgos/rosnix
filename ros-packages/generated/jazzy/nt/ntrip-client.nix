@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ntrip_client";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."ntrip_client";
   propagatedBuildInputs = [ nmea-msgs rclpy rtcm-msgs sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ntrip_client-source";
         url = "https://github.com/ros2-gbp/ntrip_client-release.git";
-        rev = "b1117bcf91bb8fbd7dafbf000aeb2e659733302a";
-        hash = "sha256-y4y0O6K9sc8V289vd1b7H5Pc9/uWSpJGhGL7Sw0wMos=";
+        rev = "0c264a2a506cb383a25651e1f667482bab64baba";
+        hash = "sha256-baBmRfB8U2r2GQsjFg9naaGaqtg1Iv3l080W10IXZM0=";
       };
     };
   });

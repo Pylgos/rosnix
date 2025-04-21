@@ -1,5 +1,5 @@
 {
-  ament-cmake-ros,
+  ament-cmake-ros-core,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -23,18 +23,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_cyclonedds_cpp";
-  version = "4.0.1-1";
+  version = "4.0.2-1";
   src = finalAttrs.passthru.sources."rmw_cyclonedds_cpp";
-  nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ cyclonedds iceoryx-binding-c rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  nativeBuildInputs = [ ament-cmake-ros-core ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ cyclonedds iceoryx-binding-c rcutils rmw rmw-dds-common rmw-security-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_cyclonedds_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_cyclonedds_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_cyclonedds-release.git";
-        rev = "a7f0b8fa2c4362a2da39885843de025809ca88d9";
-        hash = "sha256-0pMZQgAPGqQ1uKBJjIa/yYXmTJkTL7dmDUU8pawPb+o=";
+        rev = "f506a243575c2965e7b4a972d8b0fca0d7454f72";
+        hash = "sha256-vg2K7ktby48l73v/FdkxmN1X+af3nugNn2DI6ZdZx8A=";
       };
     };
   });

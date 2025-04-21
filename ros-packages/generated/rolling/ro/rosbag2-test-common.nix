@@ -9,6 +9,7 @@
   fetchzip,
   mkSourceSet,
   rclcpp,
+  rclcpp-action,
   rcpputils,
   rcutils,
   rosSystemPackages,
@@ -17,18 +18,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_test_common";
-  version = "0.31.0-1";
+  version = "0.32.0-1";
   src = finalAttrs.passthru.sources."rosbag2_test_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ rclcpp rcpputils rcutils test-msgs ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ rclcpp rclcpp-action rcutils test-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_test_common" = substituteSource {
       src = fetchgit {
         name = "rosbag2_test_common-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "f57eb1a82231a797c5bb3b78ad87b09fe7756d68";
-        hash = "sha256-HTOpjmCePA0xh+3rkvzD1yxe5giYfgyNWLSOxhFYxEo=";
+        rev = "b2598759329fe6d8a0c2ddefd97826d0185c6dbc";
+        hash = "sha256-67EH77+90DevuPeRr8mxa/T8k4p/jDnlq+y+DE6a+EU=";
       };
     };
   });

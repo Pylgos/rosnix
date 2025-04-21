@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_rotation_shim_controller";
-  version = "1.3.5-1";
+  version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_rotation_shim_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp tf2 ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_rotation_shim_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "29f83f661018584733c384f6d3486eb0f93733ab";
-        hash = "sha256-qKJN1J8T8j6LS8SteAijzpNfeooWFJmpYu7swmU8LYU=";
+        rev = "9eb52ef8181442522f8fffa90d84ff20e2b7f1b6";
+        hash = "sha256-k2xg7KrizlmqBt3o5o1gU3UV6aoelefIr48EmD2K5ZY=";
       };
     };
   });

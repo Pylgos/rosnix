@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_roscpp";
-  version = "3.7.3-1";
+  version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_roscpp";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ ros-environment rosidl-cmake ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_roscpp-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "1364a7e867301fe06b040bd24fa55670f87f2557";
-        hash = "sha256-qtBkcbUk+6HXrSLdLd15YZqN/5x48gCfTKi8EGSg2fw=";
+        rev = "b74aaa83fcf9fb6f2fb504c5dbc58d9bf5eef8cf";
+        hash = "sha256-4bkXCi/uQBCYih2MGrUVX1IW338lBKEgLG3UJbWbXjo=";
       };
     };
   });

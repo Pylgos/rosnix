@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_math_util";
-  version = "3.7.3-1";
+  version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_math_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_math_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "c712b994883ae2864c11c14f739473a84a47edd4";
-        hash = "sha256-7Tz49UJ5/aCgz0J73FqouSNfQvkBhH2+iWwJdYBnvog=";
+        rev = "2fe2331a432353211de4f54f2ac2d4bd51d1333f";
+        hash = "sha256-iHLcvsBfa5QVChTWYQqltOhiYBb4eDxiicooQY27hQA=";
       };
     };
   });

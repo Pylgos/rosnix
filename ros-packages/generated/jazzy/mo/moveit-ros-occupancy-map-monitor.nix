@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_occupancy_map_monitor";
-  version = "2.12.2-1";
+  version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_ros_occupancy_map_monitor";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_occupancy_map_monitor-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "e4a7d407235b4190fe38ff6e83b2c53da16e95ee";
-        hash = "sha256-OeuO3a1k0NsOKycOZbh+05YMW+gV9GBSK6ZkTNt1oGM=";
+        rev = "bd07597e03be48d5443ea786476285768490fe63";
+        hash = "sha256-uZ8tf4A9J9vsy0xPN62RapFatTNHojnK/xZD9YrZel0=";
       };
     };
   });

@@ -13,24 +13,25 @@
   mkSourceSet,
   pluginlib,
   rclcpp,
+  ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "position_controllers";
-  version = "4.22.0-1";
+  version = "4.23.0-1";
   src = finalAttrs.passthru.sources."position_controllers";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ];
+  propagatedBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "position_controllers" = substituteSource {
       src = fetchgit {
         name = "position_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "8e4433fed71328153fb908addf364b9c032027d8";
-        hash = "sha256-9B18jNuJjKVuFnYOKVFWZW4CYdGd3CnKX2CqJm3p5Jk=";
+        rev = "e38d07bc2a7fdcdafd7450d14a8b0d61105741ce";
+        hash = "sha256-8hfma00+J5PqxyB8iKEmtDhBGfYjZhUu3U6m5Y+shGE=";
       };
     };
   });

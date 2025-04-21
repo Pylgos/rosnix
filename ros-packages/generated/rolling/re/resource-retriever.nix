@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.6.0-1";
   src = finalAttrs.passthru.sources."resource_retriever";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-index-cpp ament-index-python libcurl-vendor ];
+  propagatedNativeBuildInputs = [ ament-index-cpp ];
+  propagatedBuildInputs = [ ament-index-python libcurl-vendor ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "resource_retriever" = substituteSource {

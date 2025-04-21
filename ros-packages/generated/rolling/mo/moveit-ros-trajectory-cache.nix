@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_trajectory_cache";
-  version = "2.13.0-1";
+  version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_ros_trajectory_cache";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_trajectory_cache-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "1a8e6255896f7663acb6af3e4a56353635aee73c";
-        hash = "sha256-sBq4a/73Zr28E6SagmIrcRyuh1Vjnt7Oj2pgArEpnhE=";
+        rev = "3956bcec9875e4fa3093e30d0abbca117b4fada2";
+        hash = "sha256-BDAtZuiUFjvM3V0i4zvnPQOwBj4TknwPMZSCuwOMS84=";
       };
     };
   });

@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_driver";
-  version = "4.5.0-1";
+  version = "4.6.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_driver";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_driver-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "86eb296f0a793923ec37bdb1c5e9a6abe0309484";
-        hash = "sha256-CvWYCfxVn8HXMPlRzxxRRKaNXtA8AmMq4suxnSzv1tI=";
+        rev = "58bcb547ed1f9d296587361f22ebbbd132e373bd";
+        hash = "sha256-CIHPuMN3AhNh4GlxG3GYM0bu79WGc0r+ipJ1xrt+osM=";
       };
     };
   });

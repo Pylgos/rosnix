@@ -33,18 +33,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_generator_py";
-  version = "0.24.0-1";
+  version = "0.24.1-1";
   src = finalAttrs.passthru.sources."rosidl_generator_py";
-  propagatedNativeBuildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-pep257 ament-cmake-uncrustify rosidl-cli rosidl-generator-c rosidl-parser rosidl-pycommon ];
-  propagatedBuildInputs = [ ament-index-python rmw rosidl-runtime-c rosidl-typesupport-c rosidl-typesupport-interface rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-pep257 ament-cmake-uncrustify rosidl-cli rosidl-generator-c rosidl-parser rosidl-pycommon rpyutils ];
+  propagatedBuildInputs = [ ament-index-python rmw rosidl-runtime-c rosidl-typesupport-c rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
   checkInputs = [ ament-cmake-pytest ament-index-python ament-lint-auto ament-lint-common rmw rosidl-cmake rosidl-generator-c rosidl-generator-cpp rosidl-parser rosidl-typesupport-c rosidl-typesupport-fastrtps-c rosidl-typesupport-introspection-c rpyutils test-interface-files ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rosidl_generator_py" = substituteSource {
       src = fetchgit {
         name = "rosidl_generator_py-source";
         url = "https://github.com/ros2-gbp/rosidl_python-release.git";
-        rev = "9e02b784c2f71ed4a5c29497da821122d3c50f06";
-        hash = "sha256-LmWQApyzijjH36GKOwSN02V9wR1LRW0wcdejN0SHuJg=";
+        rev = "b195da8b99ff2183ba3f7face3cb13e21359d1b3";
+        hash = "sha256-SaFg4Gj4YIqNcfLoZ6Yc86rk83W8nr7A2E6kh99RCoQ=";
       };
     };
   });

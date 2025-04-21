@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.1-1";
   src = finalAttrs.passthru.sources."rmw_dds_common";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ rcpputils rcutils rmw rmw-security-common rosidl-default-runtime rosidl-runtime-c rosidl-runtime-cpp ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ rcutils rmw rmw-security-common rosidl-default-runtime rosidl-runtime-c rosidl-runtime-cpp ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common osrf-testing-tools-cpp performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_dds_common" = substituteSource {

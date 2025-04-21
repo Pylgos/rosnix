@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_gz_worlds";
-  version = "2.0.0-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."leo_gz_worlds";
   nativeBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_gz_worlds-source";
         url = "https://github.com/ros2-gbp/leo_simulator-release.git";
-        rev = "36a94e058e948a4ea73d95c6e57a79ee16da6772";
-        hash = "sha256-EK1pczV1p2fHTbGPgwjCdNvPHbNkIXiSHcLDo6OfCGQ=";
+        rev = "1f1f3d102cf09f6c3936cce92be4d629f753276c";
+        hash = "sha256-674NiKh1xlcd1MnTOQC9NNU0CnfaJcDqSyS9nNUQ4rY=";
       };
     };
   });

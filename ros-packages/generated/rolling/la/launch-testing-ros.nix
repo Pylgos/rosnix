@@ -12,14 +12,16 @@
   launch-testing,
   mkSourceSet,
   rclpy,
+  rmw-test-fixture-implementation,
   rosSystemPackages,
   std-msgs,
   substituteSource,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_ros";
-  version = "0.28.0-1";
+  version = "0.28.1-1";
   src = finalAttrs.passthru.sources."launch_testing_ros";
+  propagatedNativeBuildInputs = [ rmw-test-fixture-implementation ];
   propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -27,8 +29,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_testing_ros-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "3c999ac944ce2b65440d9c0cacf6e2ec9d263b57";
-        hash = "sha256-OVoAVzQcq8UWpaK+KdVxxQCyIvCqZTUxiAOgv8C7v/0=";
+        rev = "6db737643d9349479f82402e208435dcc627ce67";
+        hash = "sha256-S1Tk8YPOmwc6hfje9brILDwutMEGYbqAQTUsN/blhOg=";
       };
     };
   });

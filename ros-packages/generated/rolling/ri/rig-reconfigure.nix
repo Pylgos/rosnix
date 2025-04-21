@@ -15,7 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.5.0-1";
   src = finalAttrs.passthru.sources."rig_reconfigure";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglfw3-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp ];
+  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglfw3-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rig_reconfigure" = substituteSource {
       src = fetchgit {

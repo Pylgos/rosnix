@@ -1,6 +1,7 @@
 {
+  ament-cmake,
   ament-cmake-gmock,
-  ament-cmake-ros,
+  ament-cmake-ros-core,
   ament-cmake-version,
   ament-lint-auto,
   ament-lint-common,
@@ -18,9 +19,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw";
-  version = "7.8.1-1";
+  version = "7.8.2-1";
   src = finalAttrs.passthru.sources."rmw";
-  nativeBuildInputs = [ ament-cmake-ros ament-cmake-version ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ament-cmake-version ];
   propagatedBuildInputs = [ rcutils rosidl-dynamic-typesupport rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
@@ -28,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw-source";
         url = "https://github.com/ros2-gbp/rmw-release.git";
-        rev = "7623d98bbe1b1118fa82329ae1f61234dfbdb9a4";
-        hash = "sha256-ovQJlGxfOu/Y/K1mmRd+3QgGCnJGVPu+ihEbgfvSgJg=";
+        rev = "42bda87d94c745fdcefa9838682d1bb90a3a1685";
+        hash = "sha256-UerAL72wdCQeT+NJ+kYi8vMe3J+B1OkcowrhF9WoiT4=";
       };
     };
   });

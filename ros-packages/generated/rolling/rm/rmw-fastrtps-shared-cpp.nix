@@ -1,6 +1,8 @@
 {
   ament-cmake,
-  ament-cmake-ros,
+  ament-cmake-gmock,
+  ament-cmake-gtest,
+  ament-cmake-ros-core,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -26,19 +28,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_shared_cpp";
-  version = "9.3.1-1";
+  version = "9.3.2-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_shared_cpp";
-  nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
-  checkInputs = [ ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
+  nativeBuildInputs = [ ament-cmake-ros-core ];
+  propagatedNativeBuildInputs = [ ament-cmake rcpputils ];
+  propagatedBuildInputs = [ fastcdr fastdds rcutils rmw rmw-dds-common rmw-security-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_shared_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_fastrtps_shared_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "a9f08707e2a0d37ee89b72de497c7a0663358237";
-        hash = "sha256-IaLEHWOdqM526fMqXaUiiHgtX5v/3PxXOrqUmMQ4nno=";
+        rev = "6f266a8d544b8f5af1aabaf5c6cd72cb6c44363b";
+        hash = "sha256-PSyFu7ScEd6/2T5F8ejZRasb5CxseXi/sRVprSciBo4=";
       };
     };
   });
