@@ -1,3 +1,4 @@
+use core::str;
 use std::{
     collections::{BTreeMap, BTreeSet, HashSet},
     fmt::{Debug, Display},
@@ -26,7 +27,7 @@ pub struct PackageIndex {
     pub cache_url: Url,
     pub ros_version: RosVersion,
     pub python_version: PythonVersion,
-    pub manifests: BTreeMap<String, PackageManifest>,
+    pub releases: BTreeMap<String, PackageRelease>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -49,73 +50,17 @@ pub enum PythonVersion {
 }
 
 #[derive(Debug, Clone)]
-pub struct PackageManifest {
-    pub name: String,
+pub struct PackageRelease {
     pub release_version: String,
-    pub description: String,
     pub repository: String,
     pub tag: String,
-    pub dependencies: RosDependencies,
-    pub member_of_group: BTreeSet<String>,
-    pub build_type: BuildType,
-}
-
-#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
-pub enum BuildType {
-    Catkin,
-    Cmake,
-    Meson,
-    AmentCmake,
-    AmentPython,
-}
-
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum RosDependencyKind {
-    Build,
-    BuildExport,
-    Buildtool,
-    BuildtoolExport,
-    Exec,
-    Test,
-}
-
-impl RosDependencyKind {
-    pub fn is_buildtool(&self) -> bool {
-        [
-            RosDependencyKind::Buildtool,
-            RosDependencyKind::BuildtoolExport,
-        ]
-        .contains(self)
-    }
-
-    pub fn is_runtime(&self) -> bool {
-        [
-            RosDependencyKind::Build,
-            RosDependencyKind::BuildExport,
-            RosDependencyKind::Exec,
-        ]
-        .contains(self)
-    }
-}
-
-#[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
-pub struct RosDependency {
-    pub name: String,
-    pub kind: RosDependencyKind,
-}
-
-#[derive(Debug, Clone)]
-pub struct RosDependencies {
-    pub deps: BTreeSet<RosDependency>,
-    pub group_deps: BTreeSet<String>,
 }
 
 #[tracing::instrument(skip(cfg), fields(url = %url))]
 async fn fetch_file_cached(cfg: &ConfigRef, url: impl IntoUrl + Display) -> Result<Vec<u8>> {
     let url = url.into_url().unwrap();
-    let cache_path = cfg
-        .cache_dir
-        .join(url.path_segments().unwrap().last().unwrap());
+    let mangled_url = url.to_string().replace("/", "@");
+    let cache_path = cfg.cache_dir.join(mangled_url);
     if cache_path.exists() {
         debug!("cache hit {url}");
         let mut file = File::open(cache_path)?;
@@ -135,8 +80,11 @@ async fn fetch_file_cached(cfg: &ConfigRef, url: impl IntoUrl + Display) -> Resu
 impl DistroIndex {
     #[tracing::instrument(skip(cfg))]
     pub async fn fetch(cfg: &ConfigRef) -> Result<Self> {
-        let url = "https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml";
-        let content = String::from_utf8(fetch_file_cached(cfg, url).await?)?;
+        let repo_url = Url::parse("https://raw.githubusercontent.com/ros/rosdistro/").unwrap();
+        let base_url = repo_url.join(&format!("{}/", cfg.index_rev)).unwrap();
+        info!("fetching distro index from {base_url}");
+        let index_url = base_url.join("index-v4.yaml").unwrap();
+        let content = String::from_utf8(fetch_file_cached(cfg, index_url).await?)?;
 
         let docs = YamlLoader::load_from_str(&content)?;
         let doc = &docs[0];
@@ -147,6 +95,11 @@ impl DistroIndex {
             let distro = &doc["distributions"][name.as_str()];
             let span = info_span!("parse distro", distro = %name);
             let _enter = span.enter();
+            let distro_yaml_paths = distro["distribution"]
+                .as_vec()
+                .unwrap()
+                .iter()
+                .map(|rel_path| rel_path.as_str().unwrap());
             let status = match distro["distribution_status"].as_str().unwrap() {
                 "active" => DistroStatus::Active,
                 "end-of-life" => DistroStatus::EndOfLife,
@@ -165,27 +118,32 @@ impl DistroIndex {
                 _ => unimplemented!(),
             };
 
-            let mut env = cfg.env.get(name).cloned().unwrap_or_default();
-            match ros_version {
-                RosVersion::Ros1 => {
-                    env.insert("ROS_VERSION".to_string(), "1".to_string());
-                    env.insert("ros_version".to_string(), "1".to_string());
-                }
-                RosVersion::Ros2 => {
-                    env.insert("ROS_VERSION".to_string(), "2".to_string());
-                    env.insert("ros_version".to_string(), "2".to_string());
-                }
+            // let mut env = cfg.env.get(name).cloned().unwrap_or_default();
+            // match ros_version {
+            //     RosVersion::Ros1 => {
+            //         env.insert("ROS_VERSION".to_string(), "1".to_string());
+            //         env.insert("ros_version".to_string(), "1".to_string());
+            //     }
+            //     RosVersion::Ros2 => {
+            //         env.insert("ROS_VERSION".to_string(), "2".to_string());
+            //         env.insert("ros_version".to_string(), "2".to_string());
+            //     }
+            // }
+            // match python_version {
+            //     PythonVersion::Python2 => {
+            //         env.insert("ROS_PYTHON_VERSION".to_string(), "2".to_string());
+            //     }
+            //     PythonVersion::Python3 => {
+            //         env.insert("ROS_PYTHON_VERSION".to_string(), "3".to_string());
+            //     }
+            // }
+            // env.insert("ROS_DISTRO".to_string(), name.clone());
+
+            let mut releases = BTreeMap::new();
+            for rel_yaml_path in distro_yaml_paths {
+                let url = base_url.join(rel_yaml_path).unwrap();
+                collect_releases(&mut releases, cfg, &url).await?;
             }
-            match python_version {
-                PythonVersion::Python2 => {
-                    env.insert("ROS_PYTHON_VERSION".to_string(), "2".to_string());
-                }
-                PythonVersion::Python3 => {
-                    env.insert("ROS_PYTHON_VERSION".to_string(), "3".to_string());
-                }
-            }
-            env.insert("ROS_DISTRO".to_string(), name.clone());
-            let manifests = fetch_package_manifests(cfg, &cache, &env).await?;
 
             distros.insert(
                 name.clone(),
@@ -195,7 +153,7 @@ impl DistroIndex {
                     cache_url: cache,
                     ros_version,
                     python_version,
-                    manifests,
+                    releases,
                 },
             );
         }
@@ -204,30 +162,23 @@ impl DistroIndex {
     }
 }
 
-#[tracing::instrument(skip(cfg, env), fields(url = %url))]
-async fn fetch_package_manifests(
+#[tracing::instrument(skip(cfg), fields(url = %url))]
+async fn collect_releases(
+    releases: &mut BTreeMap<String, PackageRelease>,
     cfg: &ConfigRef,
     url: &Url,
-    env: &BTreeMap<String, String>,
-) -> Result<BTreeMap<String, PackageManifest>> {
-    info!("fetching package manifest from {url}");
+) -> Result<()> {
+    info!("fetching package releases from {url}");
     let content = fetch_file_cached(cfg, url.clone()).await?;
-    let mut decoder = flate2::read::GzDecoder::new(&content[..]);
-    let mut buf = String::new();
-    decoder.read_to_string(&mut buf)?;
-    parse_distro_packages(cfg, &buf, env)
+    parse_distro_releases(releases, str::from_utf8(&content)?)
 }
 
-fn parse_distro_packages(
-    cfg: &ConfigRef,
+fn parse_distro_releases(
+    releases: &mut BTreeMap<String, PackageRelease>,
     data: &str,
-    env: &BTreeMap<String, String>,
-) -> Result<BTreeMap<String, PackageManifest>> {
+) -> Result<()> {
     let docs = YamlLoader::load_from_str(data)?;
-    let doc = &docs[0];
-    let distro = &doc["distribution_file"][0];
-    let mut packages = BTreeMap::new();
-    for (repo_name, repo) in distro["repositories"].as_hash().unwrap() {
+    for (repo_name, repo) in docs[0]["repositories"].as_hash().unwrap() {
         let repo_name = repo_name.as_str().unwrap();
         let release = &repo["release"];
         let tag_template = &release["tags"]["release"];
@@ -259,151 +210,15 @@ fn parse_distro_packages(
             let tag = tag_template
                 .replace("{version}", version)
                 .replace("{package}", package_name);
-            let package_xml_str = doc["release_package_xmls"][package_name].as_str().unwrap();
-            let (description, member_of_group, dependencies, build_type) =
-                parse_package_xml(cfg, package_xml_str, env)
-                    .context(format!("failed to parse package.xml of {package_name}"))?;
-            let manifest = PackageManifest {
-                name: package_name.to_string(),
+            let release = PackageRelease {
                 release_version: version.to_string(),
-                description,
                 repository: url.to_string(),
                 tag,
-                dependencies,
-                member_of_group,
-                build_type,
             };
-            packages.insert(package_name.to_string(), manifest);
+            releases.insert(package_name.to_string(), release);
         }
     }
-    Ok(packages)
-}
-
-fn parse_package_xml(
-    _cfg: &ConfigRef,
-    xml_str: &str,
-    env: &BTreeMap<String, String>,
-) -> Result<(String, BTreeSet<String>, RosDependencies, BuildType)> {
-    #[derive(Debug, Deserialize)]
-    struct Doc {
-        #[serde(default)]
-        description: String,
-        #[serde(default)]
-        build_depend: Vec<CondText>,
-        #[serde(default)]
-        build_export_depend: Vec<CondText>,
-        #[serde(default)]
-        buildtool_depend: Vec<CondText>,
-        #[serde(default)]
-        buildtool_export_depend: Vec<CondText>,
-        #[serde(default)]
-        exec_depend: Vec<CondText>,
-        #[serde(default)]
-        test_depend: Vec<CondText>,
-        #[serde(default)]
-        depend: Vec<CondText>,
-        #[serde(default)]
-        group_depend: Vec<CondText>,
-        #[serde(default)]
-        member_of_group: Vec<String>,
-        #[serde(default)]
-        export: Option<Export>,
-    }
-
-    #[derive(Debug, Deserialize)]
-    struct Export {
-        #[serde(default)]
-        build_type: Vec<CondText>,
-    }
-
-    #[derive(Debug, Deserialize)]
-    struct CondText {
-        #[serde(rename = "@condition")]
-        condition: Option<String>,
-        #[serde(rename = "$text")]
-        text: String,
-    }
-
-    let check_condition = |cond_text: &CondText| -> Option<String> {
-        if let Some(cond) = &cond_text.condition {
-            if eval_condition(cond, env).unwrap() {
-                Some(cond_text.text.clone())
-            } else {
-                None
-            }
-        } else {
-            Some(cond_text.text.clone())
-        }
-    };
-
-    let xml_doc = roxmltree::Document::parse(xml_str)?;
-    let doc: Doc = serde_roxmltree::defaults()
-        .prefix_attr()
-        .from_doc(&xml_doc)?;
-
-    let deps = [
-        (RosDependencyKind::Build, &doc.build_depend),
-        (RosDependencyKind::BuildExport, &doc.build_export_depend),
-        (RosDependencyKind::Buildtool, &doc.buildtool_depend),
-        (
-            RosDependencyKind::BuildtoolExport,
-            &doc.buildtool_export_depend,
-        ),
-        (RosDependencyKind::Exec, &doc.exec_depend),
-        (RosDependencyKind::Test, &doc.test_depend),
-        (RosDependencyKind::Build, &doc.depend),
-        (RosDependencyKind::BuildExport, &doc.depend),
-        (RosDependencyKind::Exec, &doc.depend),
-    ]
-    .into_iter()
-    .flat_map(|(kind, deps)| {
-        deps.iter()
-            .filter_map(check_condition)
-            .map(move |text| RosDependency { name: text, kind })
-    })
-    .collect();
-
-    let group_deps = doc
-        .group_depend
-        .iter()
-        .filter_map(check_condition)
-        .collect();
-
-    let ros_deps = RosDependencies { deps, group_deps };
-
-    let build_types: HashSet<String> = doc
-        .export
-        .map(|e| e.build_type)
-        .iter()
-        .flatten()
-        .filter_map(check_condition)
-        .collect();
-    let build_type_map = [
-        ("ament_cmake", BuildType::AmentCmake),
-        ("ament_python", BuildType::AmentPython),
-        ("cmake", BuildType::Cmake),
-        ("meson", BuildType::Meson),
-    ];
-    let build_type = build_type_map
-        .into_iter()
-        .filter(|(name, _)| build_types.contains(*name))
-        .map(|(_, build_type)| build_type)
-        .next()
-        .map(Ok)
-        .unwrap_or_else(|| {
-            if build_types.is_empty() {
-                Ok(BuildType::Catkin)
-            } else {
-                bail!("unknown build type {:?}", build_types);
-            }
-        })?;
-
-    Ok((
-        doc.description,
-        doc.member_of_group.into_iter().collect(),
-        ros_deps,
-        build_type,
-    ))
+    Ok(())
 }
 
 #[cfg(test)]

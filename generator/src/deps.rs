@@ -5,7 +5,7 @@ use tracing::warn;
 
 use crate::{
     config::ConfigRef,
-    rosindex::{PackageManifest, RosDependency, RosDependencyKind},
+    manifest::{PackageManifest, RosDependency, RosDependencyKind},
 };
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, PartialOrd, Ord, Serialize)]

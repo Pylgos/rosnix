@@ -1,8 +1,10 @@
 use anyhow::Result;
 use clap::Parser;
 use indicatif::ProgressStyle;
+use manifest::PackageManifest;
+use rosindex::{PythonVersion, RosVersion};
 use std::fmt::Write as _;
-use std::fs::File;
+use std::fs::{self, File};
 use std::io::Write as _;
 use std::path::{Path, PathBuf};
 use std::{collections::BTreeMap, sync::Arc};
@@ -21,7 +23,7 @@ use crate::{
     rosindex::{DistroIndex, DistroStatus, PackageIndex},
     source::Fetcher,
 };
-use futures::{future, stream, StreamExt, TryStreamExt};
+use futures::{future, stream, FutureExt, StreamExt, TryStreamExt};
 use tracing::info_span;
 use tracing::Span;
 use tracing_indicatif::span_ext::IndicatifSpanExt;
@@ -32,7 +34,8 @@ mod condition;
 mod config;
 mod deps;
 mod hunter;
-mod nixgen;
+mod manifest;
+// mod nixgen;
 mod rosindex;
 mod source;
 
@@ -104,37 +107,77 @@ pub async fn fetch_sources(
 ) -> Result<BTreeMap<String, PatchedSource>> {
     let span = info_span!("fetch_sources", distro = %pkg_index.name);
     span.pb_set_style(&ProgressStyle::default_bar());
-    span.pb_set_length(pkg_index.manifests.len() as _);
+    span.pb_set_length(pkg_index.releases.len() as _);
     span.pb_set_position(1);
     let _enter = span.enter();
     let max_concurrent_downloads = fetcher.max_concurrent_downloads();
-    let sources: BTreeMap<String, PatchedSource> = stream::iter(pkg_index.manifests.iter())
-        .map(move |(name, manifest)| {
+    let sources: BTreeMap<String, PatchedSource> = stream::iter(pkg_index.releases.iter())
+        .map(move |(name, release)| {
             let fetcher = fetcher.clone();
-            let manifest = manifest.clone();
+            let release = release.clone();
             let name = name.clone();
             let span = Span::current();
             let cfg = cfg.clone();
-            tokio::spawn(async move {
-                let src = fetcher
-                    .fetch_git(name.as_str(), &manifest.repository, &manifest.tag)
-                    .await?;
-                let patched = auto_patch_source(&cfg, &fetcher, &src).await?;
-                span.pb_inc(1);
-                anyhow::Ok((name.clone(), patched))
-            })
+            async move {
+                tokio::spawn(async move {
+                    let src = fetcher
+                        .fetch_git(name.as_str(), &release.repository, &release.tag)
+                        .await?;
+                    let patched = auto_patch_source(&cfg, &fetcher, &src).await?;
+                    span.pb_inc(1);
+                    anyhow::Ok((name.clone(), patched))
+                })
+                .await
+                .unwrap()
+            }
         })
         .buffer_unordered(max_concurrent_downloads)
-        .then(|res| future::ready(res.unwrap()))
         .try_collect()
         .await?;
     Ok(sources)
 }
 
+pub fn parse_manifests(
+    sources: &BTreeMap<String, PatchedSource>,
+    cfg: &ConfigRef,
+    index: &PackageIndex,
+) -> Result<BTreeMap<String, PackageManifest>> {
+    let mut env = cfg.env.get(&index.name).cloned().unwrap_or_default();
+    match index.ros_version {
+        RosVersion::Ros1 => {
+            env.insert("ROS_VERSION".to_string(), "1".to_string());
+            env.insert("ros_version".to_string(), "1".to_string());
+        }
+        RosVersion::Ros2 => {
+            env.insert("ROS_VERSION".to_string(), "2".to_string());
+            env.insert("ros_version".to_string(), "2".to_string());
+        }
+    }
+    match index.python_version {
+        PythonVersion::Python2 => {
+            env.insert("ROS_PYTHON_VERSION".to_string(), "2".to_string());
+        }
+        PythonVersion::Python3 => {
+            env.insert("ROS_PYTHON_VERSION".to_string(), "3".to_string());
+        }
+    }
+    env.insert("ROS_DISTRO".to_string(), index.name.clone());
+    sources
+        .iter()
+        .map(|(name, src)| {
+            let span = info_span!("parse_manifest", name = %name);
+            let _enter = span.enter();
+            let xml_str = fs::read_to_string(src.source.path().join("package.xml"))?;
+            let manifest = PackageManifest::parse(&xml_str, &env)?;
+            Ok((name.clone(), manifest))
+        })
+        .collect()
+}
+
 pub async fn generate(cfg: &ConfigRef, report_dst: Option<&Path>) -> Result<()> {
     let distro_index = DistroIndex::fetch(cfg).await?;
     let fetcher = Fetcher::new_arc(cfg, "common");
-    let mut diffs = BTreeMap::new();
+    // let mut diffs = BTreeMap::new();
     for package_index in distro_index.distros.values() {
         if package_index.status == DistroStatus::EndOfLife {
             continue;
@@ -142,23 +185,25 @@ pub async fn generate(cfg: &ConfigRef, report_dst: Option<&Path>) -> Result<()> 
         if !cfg.distributions.contains(&package_index.name) {
             continue;
         }
-        let deps = resolve_dependencies(cfg, &package_index.manifests)?;
         let patched_sources = fetch_sources(cfg, &fetcher, package_index).await?;
-        let prev_versions = nixgen::prev_versions(cfg, &package_index.name)?;
-        let distro_diffs = diff(
-            &prev_versions,
-            &package_index
-                .manifests
-                .iter()
-                .map(|(k, m)| (k.clone(), m.release_version.clone()))
-                .collect(),
-        );
-        diffs.insert(package_index.name.clone(), distro_diffs);
-        nixgen::generate(cfg, package_index, &patched_sources, &deps)?;
+        let manifests = parse_manifests(&patched_sources, cfg, package_index)?;
+        println!("{manifests:#?}");
+        // let deps = resolve_dependencies(cfg, &package_index.manifests)?;
+        // let prev_versions = nixgen::prev_versions(cfg, &package_index.name)?;
+        // let distro_diffs = diff(
+        //     &prev_versions,
+        //     &package_index
+        //         .manifests
+        //         .iter()
+        //         .map(|(k, m)| (k.clone(), m.release_version.clone()))
+        //         .collect(),
+        // );
+        // diffs.insert(package_index.name.clone(), distro_diffs);
+        // nixgen::generate(cfg, package_index, &patched_sources, &deps)?;
     }
-    if let Some(report_dst) = report_dst {
-        write_report(report_dst, &diffs)?;
-    }
+    // if let Some(report_dst) = report_dst {
+    //     write_report(report_dst, &diffs)?;
+    // }
     Ok(())
 }
 

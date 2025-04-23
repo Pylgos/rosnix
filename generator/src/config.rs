@@ -16,6 +16,8 @@ pub struct Config {
     pub out_dir: PathBuf,
     #[serde(default)]
     pub distributions: Vec<String>,
+    #[serde(default = "default_index_rev")]
+    pub index_rev: String,
     #[serde(default)]
     pub env: BTreeMap<String, BTreeMap<String, String>>,
     #[serde(default = "default_max_concurrent_downloads")]
@@ -41,6 +43,9 @@ fn default_cache_dir() -> PathBuf {
 }
 fn default_out_dir() -> PathBuf {
     "generated".into()
+}
+fn default_index_rev() -> String {
+    "master".into()
 }
 fn default_max_concurrent_downloads() -> usize {
     32
@@ -69,6 +74,7 @@ impl Default for Config {
         Self {
             cache_dir: PathBuf::from("cache"),
             out_dir: PathBuf::from("nix/gen"),
+            index_rev: "master".into(),
             distributions: Vec::new(),
             env: BTreeMap::new(),
             max_concurrent_downloads: 32,
