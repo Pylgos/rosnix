@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_ogre_vendor";
-  version = "14.1.8-1";
+  version = "14.1.9-1";
   src = finalAttrs.passthru.sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libfreetype-dev" "libfreetype6" "libglew-dev" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "c9a0c9d25b0d83662f4907c126ca665d6fa701f8";
-        hash = "sha256-mv4XNfTexEGf5R/UiEFrTYyIlJqHY1RpZHnlUfC9DhM=";
+        rev = "9c0f48eb796600b877acd8520d130717f364f035";
+        hash = "sha256-zmuaT6fIRnQ4gIDk2LrzH2vYsUqYd8Nn8i3DNx/FHsQ=";
       };
       substitutions = [
         {
@@ -34,10 +34,23 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "CMakeLists.txt";
+          from = "VCS_URL https://github.com/freetype/freetype.git";
+          to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/freetype"}";
+        }
+        {
+          path = "CMakeLists.txt";
           from = "VCS_URL https://github.com/madler/zlib.git";
           to = "VCS_TYPE path VCS_URL ${sources."rviz_ogre_vendor/zlib"}";
         }
       ];
+    };
+    "rviz_ogre_vendor/freetype" = substituteSource {
+      src = fetchgit {
+        name = "freetype-source";
+        url = "https://github.com/freetype/freetype.git";
+        rev = "3f83daeecb1a78d851b660eed025eeba362c0e4a";
+        hash = "sha256-UEn5Renp7EK9hTNRLiV7sec70zvY8mrLRwJoZ6aUJEE=";
+      };
     };
     "rviz_ogre_vendor/ogre" = substituteSource {
       src = fetchgit {
@@ -47,6 +60,11 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-Z0ixdSmkV93coBBVZ5R3lPLfVMXRfWsFz/RsSyqPWFY=";
       };
       substitutions = [
+        {
+          path = "CMake/Dependencies.cmake";
+          from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
+          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-VER-2-10-1"}";
+        }
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
@@ -79,6 +97,13 @@ buildAmentCmakePackage (finalAttrs: {
         name = "SDL2-2-source";
         url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
         hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
+      };
+    };
+    "rviz_ogre_vendor/ogre/freetype-VER-2-10-1" = substituteSource {
+      src = fetchurl {
+        name = "freetype-VER-2-10-1-source";
+        url = "https://gitlab.freedesktop.org/freetype/freetype/-/archive/VER-2-10-1/freetype-VER-2-10-1.tar.gz";
+        hash = "sha256-/njUj1BrAqMfqF245Hu0IE1498g01OpXO5qAvMFNhUY=";
       };
     };
     "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {

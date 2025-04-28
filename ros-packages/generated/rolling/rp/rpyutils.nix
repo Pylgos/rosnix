@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rpyutils";
-  version = "0.6.2-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."rpyutils";
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rpyutils-source";
         url = "https://github.com/ros2-gbp/rpyutils-release.git";
-        rev = "8895511447b93ec081b3bd9029924ca392c169f0";
-        hash = "sha256-nRQ+DZxAgJ6S5wV3zW545FyPVQDGNgE5Y2n9ONVsaDc=";
+        rev = "62bbdad888d89adbf56087bf366dc0c64470d206";
+        hash = "sha256-qeoOiZ4yfzlNEOeoiAUSyUX/BYaxOj58ohveNZRlzrk=";
       };
     };
   });

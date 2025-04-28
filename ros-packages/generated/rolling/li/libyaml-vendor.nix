@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libyaml_vendor";
-  version = "1.7.1-1";
+  version = "1.8.0-1";
   src = finalAttrs.passthru.sources."libyaml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libyaml_vendor-source";
         url = "https://github.com/ros2-gbp/libyaml_vendor-release.git";
-        rev = "99aea9840cdb1e23d0548348141b6ebb204648cd";
-        hash = "sha256-gJZg56cUCHJqmFknZgCcQML4viRDvTTK0c0NmL/DS8c=";
+        rev = "f7902e6fbe2429a2bdb200791d530e555f1b1e9d";
+        hash = "sha256-b/kftmYXy4b4TMKCPIeVo+Pt8jWAiFaqGjX0jLm2mDI=";
       };
       substitutions = [
         {

@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "liblz4_vendor";
-  version = "0.26.6-1";
+  version = "0.26.7-1";
   src = finalAttrs.passthru.sources."liblz4_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "liblz4" "liblz4-dev" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "liblz4_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "e43c103e8408d88be3e46e9bd49ab5f82914f0bd";
-        hash = "sha256-4TVV4b4jfl5rMPVkfyyuT/EmmC7ukr6lYqTZb6+VDz0=";
+        rev = "36b25f904c707831a9f5c239ffacbc7d5daff431";
+        hash = "sha256-5PrqT2qepue1C1KCPYkPWeEYxe+KtNx9KielZt+0bn4=";
       };
       substitutions = [
         {

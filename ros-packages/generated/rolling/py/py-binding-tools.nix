@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
     "py_binding_tools" = substituteSource {
       src = fetchgit {
         name = "py_binding_tools-source";
-        url = "https://github.com/ros-gbp/py_binding_tools-release.git";
+        url = "https://github.com/ros2-gbp/py_binding_tools-release.git";
         rev = "f84c9aed3b91104b3320e1e3732df4344cd568b7";
         hash = "sha256-ptJcdfTt1QQXFPCJ4R1QqIIcwEOHo+ay+T7OJqwDAYo=";
       };

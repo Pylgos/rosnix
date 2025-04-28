@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rttest";
-  version = "0.18.2-1";
+  version = "0.19.0-1";
   src = finalAttrs.passthru.sources."rttest";
   nativeBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rttest-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
-        rev = "bf6f2e4595b613275a6ad7f01f45f31127d47e9c";
-        hash = "sha256-mQ7u/24fZwA+ru+S2UNfw8ZaBKaS2qAv/CSGhJGx0t8=";
+        rev = "486e95958857317714920afb43fcc77be548d8ef";
+        hash = "sha256-7xBa3ujIIeaidJi149KeV9dEt4G3BYe1kZfvHPuTEFk=";
       };
     };
   });

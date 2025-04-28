@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_gui";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_gui";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_gui-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "2536737e7e314e4156ce18bd70124dad829cdf88";
-        hash = "sha256-lyK48GyXKUq1lzTsoO+F4WUyC3brZRsU5jOJAKO2GY8=";
+        rev = "1d9293a15ca18ef6c00f139b9003272475ae9cc2";
+        hash = "sha256-vebgvHnMxcNoEvvpTtfSCkgZEOQPsOV2pWukaHA7x/0=";
       };
     };
   });

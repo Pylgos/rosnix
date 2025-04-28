@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "python_orocos_kdl_vendor";
-  version = "0.7.0-1";
+  version = "0.8.0-1";
   src = finalAttrs.passthru.sources."python_orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ orocos-kdl-vendor pybind11-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "python_orocos_kdl_vendor-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
-        rev = "97c2f24677475f85f6a30754f8e57f79b6d61461";
-        hash = "sha256-6LTYaqfa5BtH2IzfhVI09xTm1XDJGQfGpr8Zmg0gHcI=";
+        rev = "cf6f9112b66105d8e013b4040acb2361e1ab06c7";
+        hash = "sha256-H1iBNODJiZ4wUMvKRnCS+5vBtVGcmDSlvKWJEBPEYn4=";
       };
       substitutions = [
         {

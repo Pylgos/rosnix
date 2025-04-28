@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_spatem_ts_msgs";
-  version = "3.1.0-1";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_spatem_ts_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_spatem_ts_msgs-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "9386381fd54f37205b60253a8a8f4149f31be550";
-        hash = "sha256-akAIHA0bHrTRYwGeiqwAStTSO2frV0fmNWNhADwwTOA=";
+        rev = "5b0170f809d04102b098b8eecfee1a78be753fb4";
+        hash = "sha256-qg6sFscRoH2yJPqZ7gTLjeYhgr86eI7ccnIhLpL9DMM=";
       };
     };
   });

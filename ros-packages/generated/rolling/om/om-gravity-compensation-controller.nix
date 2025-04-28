@@ -1,25 +1,21 @@
 {
   ament-cmake,
-  ament-cmake-gmock,
   angles,
   backward-ros,
   buildAmentCmakePackage,
   control-msgs,
   control-toolbox,
   controller-interface,
-  controller-manager,
   fetchgit,
   fetchurl,
   fetchzip,
   generate-parameter-library,
   hardware-interface,
-  hardware-interface-testing,
   mkSourceSet,
   pluginlib,
   rclcpp,
   rclcpp-lifecycle,
   realtime-tools,
-  ros2-control-test-assets,
   rosSystemPackages,
   rsl,
   substituteSource,
@@ -28,18 +24,17 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "om_gravity_compensation_controller";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."om_gravity_compensation_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
-  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "om_gravity_compensation_controller" = substituteSource {
       src = fetchgit {
         name = "om_gravity_compensation_controller-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "543d60360d9734f7bce3910e45b417f1e793290f";
-        hash = "sha256-/AyYGCflB93mP2tSGC4bns5OhK+qA7U23wmgqfrzWX4=";
+        rev = "27e348aa92051fbdb49d2021664bdc305c7ec4b1";
+        hash = "sha256-L/2sjPCar0arm/U+OFi+tdmbc5mWSaEJYwL41YRPvBE=";
       };
     };
   });

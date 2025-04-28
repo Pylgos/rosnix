@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_vendor_package";
-  version = "2.5.3-1";
+  version = "2.5.4-1";
   src = finalAttrs.passthru.sources."ament_cmake_vendor_package";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-vcstool" ]; };
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" "python3-vcstool" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_vendor_package-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "643ddd6da96aaa5f25cc0f816fa8d8fe1bdfe3d8";
-        hash = "sha256-CQ1hbXet50GZuokOJCefB3MfsecZ/5m89VvJBntsyuI=";
+        rev = "0994904ed752a18e7778af5f00f0c5fa30453e6b";
+        hash = "sha256-uSPBTC+0WEH9NH20L+BOJnq+1o5eQMt89w7NKQWZwXM=";
       };
     };
   });

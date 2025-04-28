@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "google_benchmark_vendor";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."google_benchmark_vendor";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" ]; };
@@ -18,8 +18,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "google_benchmark_vendor-source";
         url = "https://github.com/ros2-gbp/google_benchmark_vendor-release.git";
-        rev = "fc81faa6ad2799aa02aef60639d26f0c92160e1c";
-        hash = "sha256-UxvzpOmsMyQnyjSFJrQuXHMN12uPIbJCkgyNTW469/4=";
+        rev = "d6692bd49557d0bf740bab0dd134e819ad123b4c";
+        hash = "sha256-gp+2biUR/PgPLpfH4DYXqZAuYFvir1n7MM/N0YNjeCg=";
       };
       substitutions = [
         {

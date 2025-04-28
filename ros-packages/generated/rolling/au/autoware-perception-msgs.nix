@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_perception_msgs";
-  version = "1.6.0-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."autoware_perception_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs unique-identifier-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_perception_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "79f0dbdc958af3aa3fc658b72ea5ec8bca727a7b";
-        hash = "sha256-hZDYVX3G66NetjiC8NXoWF/O/gTHJ1SzylCxX9DuIYQ=";
+        rev = "68a9717e7ed26be08debd1a2ca87f7342eec2ce1";
+        hash = "sha256-OeICr01Y+8QxZZG3Rt4XAgzL9zwyrNoWv/sTlxg6W8I=";
       };
     };
   });

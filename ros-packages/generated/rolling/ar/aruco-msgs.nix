@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
     "aruco_msgs" = substituteSource {
       src = fetchgit {
         name = "aruco_msgs-source";
-        url = "https://github.com/pal-gbp/aruco_ros-release.git";
+        url = "https://github.com/ros2-gbp/aruco_ros-release.git";
         rev = "7938091ebd1c7023cfed193add32d60e10f9d672";
         hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
       };

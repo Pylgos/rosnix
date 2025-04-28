@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pytest";
-  version = "2.7.3-1";
+  version = "2.8.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_pytest";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-test ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_pytest-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "5b914b6be7daa1a7c542e56b45f6ddea9ca415b3";
-        hash = "sha256-lrJvIL4PKt3r/15/4jvtRIL+xWPMs2gHEqJqZ6kpn6Q=";
+        rev = "cf1e1f125131e96ac911e327a2929b047491f78a";
+        hash = "sha256-BbIw9XHchozTM8JAAjgd6GNGNK4LVpiUbPUHwWsgRYI=";
       };
     };
   });

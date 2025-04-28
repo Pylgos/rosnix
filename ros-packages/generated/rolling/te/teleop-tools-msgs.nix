@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "teleop_tools_msgs";
-  version = "1.8.0-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."teleop_tools_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs rosidl-default-runtime ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "teleop_tools_msgs-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "47bfd01749dbaebdcf224fa3df83381faeccb774";
-        hash = "sha256-RajQAX3XW5diggP9TJKXyVgsO2n9sBQ/3Gdgm1Wl4I8=";
+        rev = "d10d3902bb4fa826294252603aa04159cd049f8b";
+        hash = "sha256-7IXRnpY1cnnQJa+DPlUKVDpD5Lv51CLoQaTMhLZoXvA=";
       };
     };
   });

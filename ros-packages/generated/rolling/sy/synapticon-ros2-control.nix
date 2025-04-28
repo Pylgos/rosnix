@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
     "synapticon_ros2_control" = substituteSource {
       src = fetchgit {
         name = "synapticon_ros2_control-source";
-        url = "https://github.com/synapticon/synapticon_ros2_control-release.git";
+        url = "https://github.com/ros2-gbp/synapticon_ros2_control-release.git";
         rev = "722bddb33b7edfa56fe1bebd5b46d76d694207d3";
         hash = "sha256-GbSweNwwtEBvELrBzIzKb1okS4uso+Kg3qVRS2WF7mY=";
       };

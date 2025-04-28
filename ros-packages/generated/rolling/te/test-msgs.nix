@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "test_msgs";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime test-interface-files ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "test_msgs-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
-        rev = "0c9653bb84238a2ad8691949ebb57256309f1574";
-        hash = "sha256-5MSvyhC4DtB1KqNr83KUtDoJ8tuY5lqa9vZ0iFNeWh8=";
+        rev = "7e63d7a60ea0ba873eceb6bcd49afced4609a0fa";
+        hash = "sha256-19xrWgBSUVeVZ5xFEM/MEM9zRliAcI9vrTPsa9tQFNU=";
       };
     };
   });

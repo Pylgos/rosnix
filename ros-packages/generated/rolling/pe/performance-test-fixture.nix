@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "performance_test_fixture";
-  version = "0.3.1-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."performance_test_fixture";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-export-targets ament-cmake-test ];
   propagatedNativeBuildInputs = [ ament-cmake-google-benchmark ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "performance_test_fixture-source";
         url = "https://github.com/ros2-gbp/performance_test_fixture-release.git";
-        rev = "14ec312609f7e0fbdcde3ddf707c4d8ba7a0da2d";
-        hash = "sha256-7eMswbYVShjFOhmDfpu76OC9rz8kiNFGNMpRNPblftI=";
+        rev = "a3bd92c25d46315d84002eb595bc9f8c0a3dfa32";
+        hash = "sha256-SAllXuOLSDFLCtu/HE7ceIL6wev0ROyKy+U95odufLY=";
       };
     };
   });

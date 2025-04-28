@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_base";
-  version = "0.12.0-1";
+  version = "0.13.0-1";
   src = finalAttrs.passthru.sources."ros_base";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry2 kdl-parser robot-state-publisher ros-core rosbag2 urdf ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_base-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "7befe633e7096f8bff78be56e90d35877f0fa541";
-        hash = "sha256-kuc0TVZsPnaaTWwT7Li2FmjTd4TLQcKT24BQtqUsTGQ=";
+        rev = "597a2b2da9b4b9a8e4de0bb7f55d3ab89222aae7";
+        hash = "sha256-XFA3IsalGLKaZrMIM5Jf4DKJ2H/YUV/4l9Wn1GJMK3g=";
       };
     };
   });

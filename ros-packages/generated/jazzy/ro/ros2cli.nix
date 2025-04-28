@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2cli";
-  version = "0.32.3-1";
+  version = "0.32.4-1";
   src = finalAttrs.passthru.sources."ros2cli";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-importlib-metadata" ]; };
   propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-packaging" "python3-pkg-resources" "python3-psutil" ]; };
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2cli-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "6e7a630cfc7f9c1e4e96363840c8cc214d14718d";
-        hash = "sha256-7u2bto9TNUg3VXtE4yrA3UCfokN75TyWz3DFozxgkvQ=";
+        rev = "5d0e481b7d41202295c43937906713350f43ae02";
+        hash = "sha256-H9wlDtR6EAOW6+wpAl26yj+GggRE7zBzo3H3PgsQxF4=";
       };
     };
   });

@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_pipeline";
-  version = "5.0.9-1";
+  version = "5.0.10-1";
   src = finalAttrs.passthru.sources."image_pipeline";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ camera-calibration depth-image-proc image-proc image-publisher image-rotate image-view stereo-image-proc ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_pipeline-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "7f84a451379fccedc4aac13e5e8a79b512961ba4";
-        hash = "sha256-kHV3B9N2NDAcX7UauSaR1cjSmzwuQYnhabGKt41UpU4=";
+        rev = "b349181150ed69e1f4089c4700c9bdbc4309d904";
+        hash = "sha256-e3kY8Mc9joNs4xnvLJ7iyg8/ynw70puqTzBSEB3aShk=";
       };
     };
   });

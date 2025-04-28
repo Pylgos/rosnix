@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_interfaces";
-  version = "0.32.0-1";
+  version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_interfaces-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "295e7b749e6093454c7c41183c59c6e3e1e4169c";
-        hash = "sha256-nPcq3WbRcLhb2qQC3betghh4D5eJ/kyAdAXpbXLcVIU=";
+        rev = "ece47114026cd8942ce144683fb646c31e904437";
+        hash = "sha256-xH9mCuO5OjcibqGzPs5M/pYemsN+LUttihua0jm1ebs=";
       };
     };
   });

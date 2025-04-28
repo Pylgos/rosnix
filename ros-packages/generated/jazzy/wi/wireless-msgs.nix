@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "wireless_msgs";
-  version = "1.1.3-1";
+  version = "1.1.4-1";
   src = finalAttrs.passthru.sources."wireless_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "wireless_msgs-source";
         url = "https://github.com/clearpath-gbp/wireless-release.git";
-        rev = "10df65d0dcffc367a2f74f04541d4717408e6d5a";
-        hash = "sha256-z/UKolna7Ts80pdh/LF4KcqGQyUFMER1/AU9ANL8PiU=";
+        rev = "8c2906108d09fbaba528e20b5579887b174e30ab";
+        hash = "sha256-zqwELnY3cGfUlXYGp0GbnuQybxeKHikRSW52VGnFt4Q=";
       };
     };
   });

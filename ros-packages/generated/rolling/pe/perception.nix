@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "perception";
-  version = "0.12.0-1";
+  version = "0.13.0-1";
   src = finalAttrs.passthru.sources."perception";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-common image-pipeline image-transport-plugins laser-filters laser-geometry perception-pcl ros-base vision-opencv ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "perception-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "39e208b10f4f79977c590de394f89d0a250e7b93";
-        hash = "sha256-fzQKQQPxgGVXz2DC/x6GwXS/92T14febq0DyVaD90uo=";
+        rev = "817303c57da44d5a7d61502c68d37886f6a90884";
+        hash = "sha256-075/P1kIVU7y5dOjarS0UbGqDFmBpRsJgKd90mhSMLc=";
       };
     };
   });

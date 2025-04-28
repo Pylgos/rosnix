@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libstatistics_collector";
-  version = "2.0.1-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."libstatistics_collector";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rcpputils ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libstatistics_collector-source";
         url = "https://github.com/ros2-gbp/libstatistics_collector-release.git";
-        rev = "94b7dd7e7505bd7c6516a4a78c1ac90aa46ee8ce";
-        hash = "sha256-p7JRqvcZxMp4Asp+dQKmo5r6JA3yDcTtCzT4iViw61k=";
+        rev = "bf0eeca7e8b502b337b3f8f72daa83c7f0dc3ae1";
+        hash = "sha256-eKkR2Xc9VYgeyV9qUx9c1RWfU2xDCsx4+OHf939Fhdo=";
       };
     };
   });

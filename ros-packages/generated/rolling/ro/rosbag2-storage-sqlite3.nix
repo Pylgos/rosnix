@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_storage_sqlite3";
-  version = "0.32.0-1";
+  version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_storage_sqlite3";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ rcpputils ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_storage_sqlite3-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "98f829470d328dd89a25a184d069b06c19d13525";
-        hash = "sha256-nyDtneTvLeIGehMQ5eaCi2Ps47mlN14n0jFXewY+Pok=";
+        rev = "abc1665f729753b4c194e61526bc0ae9593f4fe6";
+        hash = "sha256-W9M2bKk7u5NgHyR+0kzR4IPyKNQXl0PybjZC+vh+h04=";
       };
     };
   });

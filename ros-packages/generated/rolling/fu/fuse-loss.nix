@@ -1,4 +1,5 @@
 {
+  ament-cmake,
   ament-cmake-gtest,
   ament-cmake-ros,
   ament-lint-auto,
@@ -8,6 +9,7 @@
   fetchurl,
   fetchzip,
   fuse-core,
+  gtest-vendor,
   mkSourceSet,
   pluginlib,
   rclcpp,
@@ -17,9 +19,10 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_loss";
-  version = "1.2.1-1";
+  version = "1.2.2-1";
   src = finalAttrs.passthru.sources."fuse_loss";
-  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
   propagatedBuildInputs = [ fuse-core pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqwt-qt5-dev" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -27,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_loss-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "7b05d6a1ccd5499886f3496e98369afc3681b637";
-        hash = "sha256-06MhRmCfOfKljgI2ebmY/Rm9fh0ROvWMgpyPxJD/aKs=";
+        rev = "bc704f38c12fffeb00ba8ba2db0588dd8bfeef65";
+        hash = "sha256-kt8HNUoKLSl+AMjjlseSdC/bhT4N6DywLLn+Pcg+LHY=";
       };
     };
   });

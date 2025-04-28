@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "desktop_full";
-  version = "0.12.0-1";
+  version = "0.13.0-1";
   src = finalAttrs.passthru.sources."desktop_full";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ desktop perception ros-gz-sim-demos simulation ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "desktop_full-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "094b48143f90959a5f19560e2256a99ad140bd07";
-        hash = "sha256-+s6z0+4bXLNuEWFO5S3mDwdyz4GTUmJrRTxOwTLQqqI=";
+        rev = "abb63c09df64146a15185018576a05376a2fb419";
+        hash = "sha256-ubSR4qak1PeRtcru0JTtE+H8TMn734/JG7Z09aQAjbg=";
       };
     };
   });

@@ -2,12 +2,14 @@
   ament-cmake,
   ament-cmake-cppcheck,
   ament-cmake-gtest,
+  ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
+  gtest-vendor,
   mkSourceSet,
   rclcpp,
   rclcpp-components,
@@ -18,9 +20,10 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_geometry";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."tuw_geometry";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
   propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -28,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_geometry-source";
         url = "https://github.com/ros2-gbp/tuw_geometry-release.git";
-        rev = "5bde208311d150c82a76f5eb8b1c93ed5128cc1d";
-        hash = "sha256-k0dhAhNxWBW5ANml+dUI6KeVGFk3SHjiBe4k+VoBvd0=";
+        rev = "8e1dce524806d0df82c44b338a4f37726cfa8ca2";
+        hash = "sha256-fkSJlZy6o4aN2oGwkDderv50YYpggMaSuaczkuaJNRM=";
       };
     };
   });

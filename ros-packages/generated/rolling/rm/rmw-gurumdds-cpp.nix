@@ -1,5 +1,6 @@
 {
-  ament-cmake-ros,
+  ament-cmake,
+  ament-cmake-ros-core,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -22,9 +23,9 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_gurumdds_cpp";
-  version = "5.0.0-2";
+  version = "5.0.0-3";
   src = finalAttrs.passthru.sources."rmw_gurumdds_cpp";
-  nativeBuildInputs = [ ament-cmake-ros rosidl-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-ros-core rosidl-cmake ];
   propagatedBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_gurumdds_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_gurumdds-release.git";
-        rev = "085def94504969a914feaee68f4498ee563f6aab";
-        hash = "sha256-TJX8Mi7rXd5+2X83YBNsuDw9673aYlSe/99ZCeJ2IPo=";
+        rev = "5d62ed1665114aa47012b9d8ebccf2fb91ffbdd2";
+        hash = "sha256-4i+rLf+krhQG8RZH5kDZYeBoBC0m8RGWi5+vzb/1KI4=";
       };
     };
   });

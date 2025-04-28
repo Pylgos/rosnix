@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "urdf_parser_plugin";
-  version = "2.12.2-1";
+  version = "2.13.0-1";
   src = finalAttrs.passthru.sources."urdf_parser_plugin";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ urdfdom-headers ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urdf_parser_plugin-source";
         url = "https://github.com/ros2-gbp/urdf-release.git";
-        rev = "86b3ae8cd192ff999428c49e4ee0a5f9ef01c874";
-        hash = "sha256-Pg6ua0G8PcTcvRChGmICvkICEJDRjT2nYuMmDyCffSY=";
+        rev = "cdaeccbc95753514adf9034cd88bfaa12b704575";
+        hash = "sha256-OomlV9JX3vGY9sFMrbcd07Chl+0tA84/WUGBP7wLfWM=";
       };
     };
   });

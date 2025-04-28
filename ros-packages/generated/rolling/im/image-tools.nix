@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_tools";
-  version = "0.35.1-1";
+  version = "0.37.0-1";
   src = finalAttrs.passthru.sources."image_tools";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_tools-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "156e055b31e7b08765202f480ce227100061cad5";
-        hash = "sha256-PtF1T3+KIiksbbE2WV2tNDZVaCUPIMMaFlUbQfM92Ys=";
+        rev = "1df4d97b54260293cdc375a90330abf4d545a31a";
+        hash = "sha256-fStLzBCRbAGuGNBiGdgWGDbXe/25Rpt35JOmm80H9vg=";
       };
     };
   });

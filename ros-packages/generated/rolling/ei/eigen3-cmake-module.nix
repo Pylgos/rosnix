@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "eigen3_cmake_module";
-  version = "0.4.0-1";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."eigen3_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "eigen3_cmake_module-source";
         url = "https://github.com/ros2-gbp/eigen3_cmake_module-release.git";
-        rev = "cc75f807bbc52d044c86fdfc4c7a8e075a1ddf53";
-        hash = "sha256-KQUVSjAi9dDk9itOgrGGMWYE4MHIltisCQbFFcE2ZQE=";
+        rev = "dfef82bb9caa4f4612fbdd54a35aa7d231d19596";
+        hash = "sha256-diQOoh3HJ2nPNPh2TTh1ATVY+fmPa7YS1FDYYZnnPLI=";
       };
     };
   });

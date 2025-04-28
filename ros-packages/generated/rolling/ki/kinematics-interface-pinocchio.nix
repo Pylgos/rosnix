@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
     "kinematics_interface_pinocchio" = substituteSource {
       src = fetchgit {
         name = "kinematics_interface_pinocchio-source";
-        url = "https://github.com/justagist/kinematics_interface_pinocchio-release.git";
+        url = "https://github.com/ros2-gbp/kinematics_interface_pinocchio-release.git";
         rev = "685ba38b166a5fd828fbec3bcd1edc71299ae4d9";
         hash = "sha256-VntQLsQwkoHuDBYRBVq2fGMvoAmpVyFwrLchiRiCABw=";
       };

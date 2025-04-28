@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "console_bridge_vendor";
-  version = "1.8.0-1";
+  version = "1.9.0-1";
   src = finalAttrs.passthru.sources."console_bridge_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" ]; };
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "console_bridge_vendor-source";
         url = "https://github.com/ros2-gbp/console_bridge_vendor-release.git";
-        rev = "c97161d134fcd42931398bc84d983db96ce347f0";
-        hash = "sha256-9CPFQxBlphIp4nGlZ0XgD45yWH2xTww/uLFZgby9D28=";
+        rev = "0ae4cdb8fd105f597b3aebab27018bc7361e67b0";
+        hash = "sha256-D212fLWRxi/ScvT9LwTShlrAkZNLtEhTfxy35Zffp/0=";
       };
       substitutions = [
         {

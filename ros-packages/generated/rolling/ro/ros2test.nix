@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2test";
-  version = "0.8.0-1";
+  version = "0.9.0-1";
   src = finalAttrs.passthru.sources."ros2test";
   propagatedBuildInputs = [ domain-coordinator launch launch-ros launch-testing launch-testing-ros ros2cli ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2test-source";
         url = "https://github.com/ros2-gbp/ros_testing-release.git";
-        rev = "76c33c26b084db0fe1621bdb767456bc4741c4e9";
-        hash = "sha256-Rjb0XZ/AEm0GQQYCvhimXlNeZjAZlyaKWjOb8r0Ap5c=";
+        rev = "e4a26e4cf576f153323cd12648a8035f28d1171f";
+        hash = "sha256-OnuzFiDRPir1GZKGHhx/fOxsOIN72WjAH+B6YCgu3YI=";
       };
     };
   });

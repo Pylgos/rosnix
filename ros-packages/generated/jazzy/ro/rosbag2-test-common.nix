@@ -10,6 +10,7 @@
   mkSourceSet,
   python-cmake-module,
   rclcpp,
+  rcpputils,
   rcutils,
   rosSystemPackages,
   substituteSource,
@@ -17,18 +18,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_test_common";
-  version = "0.26.6-1";
+  version = "0.26.7-1";
   src = finalAttrs.passthru.sources."rosbag2_test_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
-  propagatedBuildInputs = [ rclcpp rcutils test-msgs ];
+  propagatedBuildInputs = [ rclcpp rcpputils rcutils test-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_test_common" = substituteSource {
       src = fetchgit {
         name = "rosbag2_test_common-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "7594568c2dd6ea8e232ff8e9b3d3c33c4d6bb561";
-        hash = "sha256-X8+KJju0I9473noafxX80xVEvvzz8MOWKecx6GXL4OI=";
+        rev = "495677f4f0e35eef80030c5ee98813dc376d5a3b";
+        hash = "sha256-PoFyLDHan/eUc6j9liGOvmsRp7mC7EMTy3rc6dMRbfY=";
       };
     };
   });

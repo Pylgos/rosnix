@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tlsf";
-  version = "0.10.1-1";
+  version = "0.11.0-1";
   src = finalAttrs.passthru.sources."tlsf";
   propagatedNativeBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tlsf-source";
         url = "https://github.com/ros2-gbp/tlsf-release.git";
-        rev = "e531350f83af805ebd943fbdb9441d99f32d9fc2";
-        hash = "sha256-l0n+RSa9S4bvyqWuWXlrzntdecd1y3yxjfRagf8oms8=";
+        rev = "d9015ddbdee3f66acb2e21e76fa5c58c9c2bd71b";
+        hash = "sha256-JQZwolX2AxSjfM4uVTVCh5V5ZH+txxPGU5HSXzg/yHU=";
       };
     };
   });

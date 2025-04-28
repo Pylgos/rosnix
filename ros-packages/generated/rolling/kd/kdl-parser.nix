@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kdl_parser";
-  version = "2.12.1-1";
+  version = "2.13.0-1";
   src = finalAttrs.passthru.sources."kdl_parser";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ orocos-kdl-vendor rcutils urdf urdfdom-headers ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kdl_parser-source";
         url = "https://github.com/ros2-gbp/kdl_parser-release.git";
-        rev = "cdbf9b2a8a2f95a13051dfb795e795b836e5530a";
-        hash = "sha256-k9FAvPXK/EUOGHyUHB+uVIFTU+swbET5SO9mHMP450Y=";
+        rev = "b8d27c864f0a8a3b9cfe72581763ab345e56fd91";
+        hash = "sha256-OlkMT3r3c3utRXLVVLG4i804HMcdmAQE0TgR0gSsd7o=";
       };
     };
   });

@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_compression";
-  version = "0.32.0-1";
+  version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_compression";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rcpputils ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_compression-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "7582e4c718a3f0987d42979b370f915792f4d262";
-        hash = "sha256-XZ9i41cqsAd1oHjq0zCncr9JSp30akSzPpOgOPwBJk4=";
+        rev = "bb3f4fd4b3ea6c0aad072c2ed1c2d7ff07e73c8b";
+        hash = "sha256-3jrT3utoLcdRsePEy2lP//z0JVttLrhAegMI1Dsmgzw=";
       };
     };
   });

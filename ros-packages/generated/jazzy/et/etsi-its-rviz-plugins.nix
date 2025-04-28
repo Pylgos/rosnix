@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_rviz_plugins";
-  version = "3.1.0-1";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "2eaee95499d13612c0b50eb6ba7cf0b8bb6839a2";
-        hash = "sha256-8Eui5G6J+tNgMHyVKQZY1vQwqxvvmE60/5vZgg2vYgg=";
+        rev = "9390c4e8d1b160c832607aada90a0c0163f2ad71";
+        hash = "sha256-evUKvtAMXPGO+H8oq6XYUHMbCJS1yVYpuA4hBMOrKQo=";
       };
     };
   });

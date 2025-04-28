@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_typesupport_interface";
-  version = "4.9.4-1";
+  version = "4.10.0-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_interface";
   nativeBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_typesupport_interface-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "200dd6c7834e9bc189310370d5dcea50a1a3f53e";
-        hash = "sha256-Y7BrTdyEallh1UHS66MYc/6THhnd9x/E6ZayXYUyg3A=";
+        rev = "fc39f9c2722fe102db278097b692ab8168c84d0f";
+        hash = "sha256-JiG7fyW2i+eu8dC3iHeO6dSn4KBR3jAsjzS+HQyFWBs=";
       };
     };
   });
