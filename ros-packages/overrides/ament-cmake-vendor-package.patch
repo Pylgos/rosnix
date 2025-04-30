@@ -25,7 +25,7 @@ index c9b963c..d835495 100644
        list(APPEND PATCH_COMMAND COMMAND ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply --whitespace=nowarn -p1 ${PATCH})
      endforeach()
      list(POP_FRONT PATCH_COMMAND)
-@@ -267,9 +260,16 @@ function(_ament_vendor TARGET_NAME VCS_TYPE VCS_URL VCS_VERSION PATCHES CMAKE_AR
+@@ -267,9 +260,17 @@ function(_ament_vendor TARGET_NAME VCS_TYPE VCS_URL VCS_VERSION PATCHES CMAKE_AR
      if(NOT EXISTS ${VCS_URL})
        message(FATAL_ERROR "ament_vendor() could not find sources path: ${VCS_URL}")
      endif()
@@ -38,7 +38,8 @@ index c9b963c..d835495 100644
 -      SOURCE_DIR ${VCS_URL}
 +      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E rm -rf <SOURCE_DIR> &&
 +      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E make_directory <SOURCE_DIR> &&
-+      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E copy_directory "${VCS_URL}/" <SOURCE_DIR> 
++      DOWNLOAD_COMMAND "${CMAKE_COMMAND}" -E copy_directory "${VCS_URL}/" <SOURCE_DIR> &&
++      DOWNLOAD_COMMAND chmod -R +w <SOURCE_DIR>
 +      SOURCE_SUBDIR ${SOURCE_SUBDIR}
      )
    else()
