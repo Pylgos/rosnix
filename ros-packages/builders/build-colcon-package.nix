@@ -20,6 +20,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
     dontWrapQtApps ? true,
     shellHook ? "",
     passthru ? { },
+    realBuilder ? "${buildPackages.bashInteractive}/bin/bash",
     ...
   }@args:
 
@@ -30,6 +31,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
       dontUseCmakeConfigure
       dontWrapQtApps
       doCheck
+      realBuilder
       ;
 
     nativeBuildInputs =

@@ -6,17 +6,7 @@ _rosnixSetupHook_addSearchPath() {
 }
 
 _rosnixSetupHook_postHook() {
-  local fake_complete
-  if ! type complete > /dev/null 2>&1; then
-    complete() {
-      :
-    }
-    fake_complete=1
-  fi
   source <(@setupHelper@)
-  if [[ -n $fake_complete ]]; then
-    unset -f complete
-  fi
 }
 
 addEnvHooks "$targetOffset" _rosnixSetupHook_addSearchPath
