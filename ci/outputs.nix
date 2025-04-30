@@ -39,7 +39,6 @@ rec {
         rosPkgs.nav2-bringup
         rosPkgs.ros-gz
         rosPkgs.librealsense2
-        rosPkgs.rmw-zenoh-cpp
         pkgs.webots
         rosPkgs.webots-ros2
       ] ++ lib.attrValues tests;
