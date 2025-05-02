@@ -3,6 +3,7 @@
   stdenv,
   buildPackages,
   rosSetupHook,
+  rosSetupHelper,
   mkRosWorkspaceShell,
   mkRecursiveBuilder,
   concatToPolyfillHook,
@@ -96,7 +97,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
 
     shellHook =
       ''
-        ROSNIX_SETUP_DEVEL_ENV=1 _rosnixSetupHook_postHook 2> /dev/null
+        ROSNIX_SETUP_DEVEL_ENV=1 source <(${rosSetupHelper}/bin/setup-helper) 2> /dev/null
       ''
       + shellHook;
 
