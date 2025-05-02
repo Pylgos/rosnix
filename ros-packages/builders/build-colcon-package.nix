@@ -97,7 +97,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
 
     shellHook =
       ''
-        ROSNIX_SETUP_DEVEL_ENV=1 source <(${rosSetupHelper}/bin/setup-helper) 2> /dev/null
+        source <(ROSNIX_SETUP_DEVEL_ENV=1 ${rosSetupHelper}/bin/setup-helper) 2> /dev/null
       ''
       + shellHook;
 
