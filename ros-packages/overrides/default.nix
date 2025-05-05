@@ -68,7 +68,9 @@ in
         }:
         {
           postInstall = ''
-            ln -s $out/opt/libcurl_vendor/lib64 $out/opt/libcurl_vendor/lib
+            if [[ -d $out/opt/libcurl_vendor/lib64 ]]; then
+              ln -s $out/opt/libcurl_vendor/lib64 $out/opt/libcurl_vendor/lib
+            fi
           '';
           propagatedBuildInputs = propagatedBuildInputs ++ [ final.openssl ];
         }
