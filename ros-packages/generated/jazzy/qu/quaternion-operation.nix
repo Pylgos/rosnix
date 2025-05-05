@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.7-5";
   src = finalAttrs.passthru.sources."quaternion_operation";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-auto rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-cmake-auto geometry-msgs rclcpp tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-auto geometry-msgs rclcpp tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gtest ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "quaternion_operation" = substituteSource {

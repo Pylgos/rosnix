@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.36.10-1";
   src = finalAttrs.passthru.sources."tf2_eigen_kdl";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ orocos-kdl-vendor tf2 ];
+  propagatedNativeBuildInputs = [ orocos-kdl-vendor tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ orocos-kdl-vendor tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tf2_eigen_kdl" = substituteSource {
@@ -32,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Conversion functions between: - Eigen and KDL";
+    description = "\n\n     Conversion functions between:\n      - Eigen and KDL\n\n  ";
   };
 })

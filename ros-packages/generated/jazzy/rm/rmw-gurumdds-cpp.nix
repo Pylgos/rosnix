@@ -25,6 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.0-2";
   src = finalAttrs.passthru.sources."rmw_gurumdds_cpp";
   nativeBuildInputs = [ ament-cmake-ros rosidl-cmake ];
+  propagatedNativeBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gurumdds-3.2" ]; };
+  buildInputs = [ ament-cmake-ros rosidl-cmake ];
   propagatedBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

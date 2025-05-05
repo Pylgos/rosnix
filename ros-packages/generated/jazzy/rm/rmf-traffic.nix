@@ -16,8 +16,9 @@ buildCmakePackage (finalAttrs: {
   version = "3.3.3-1";
   src = finalAttrs.passthru.sources."rmf_traffic";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libccd-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libccd-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ eigen3-cmake-module rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libccd-dev" ]; };
   checkInputs = [ ament-cmake-catch2 ament-cmake-uncrustify ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic" = substituteSource {

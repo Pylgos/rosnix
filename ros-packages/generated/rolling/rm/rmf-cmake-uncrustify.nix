@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."rmf_cmake_uncrustify";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-uncrustify ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ament-uncrustify ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_cmake_uncrustify" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ament_cmake_uncrustify with support for parsing a config file.";
+    description = "\n    ament_cmake_uncrustify with support for parsing a config file.\n    ";
   };
 })

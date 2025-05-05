@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.9.2-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-cmake ament-index-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" "libgoogle-glog-dev" "libqt5-concurrent" "libqt5-widgets" "proj" "qtbase5-dev" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ament-index-cpp rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libceres-dev" "libgoogle-glog-dev" "libqt5-concurrent" "libqt5-widgets" "proj" "qtbase5-dev" "yaml-cpp" ]; };
+  propagatedBuildInputs = [ ament-cmake ament-index-cpp rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libceres-dev" "libgoogle-glog-dev" "libqt5-concurrent" "libqt5-widgets" "proj" "qtbase5-dev" "yaml-cpp" ]; };
   checkInputs = [ ament-cmake-uncrustify rmf-utils ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic_editor" = substituteSource {

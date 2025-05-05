@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.7.5-1";
   src = finalAttrs.passthru.sources."qt_gui_app";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ament-index-python qt-gui ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-python qt-gui ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "qt_gui_app provides the main to start an instance of the integrated graphical user interface provided by qt_gui.";
+    description = "\n    qt_gui_app provides the main to start an instance of the integrated graphical user interface provided by qt_gui.\n  ";
   };
 })

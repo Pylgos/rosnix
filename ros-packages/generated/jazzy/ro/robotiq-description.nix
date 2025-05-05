@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-3";
   src = finalAttrs.passthru.sources."robotiq_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

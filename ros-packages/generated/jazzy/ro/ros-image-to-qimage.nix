@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.1-4";
   src = finalAttrs.passthru.sources."ros_image_to_qimage";
   nativeBuildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ cv-bridge python-qt-binding sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python ];
   propagatedBuildInputs = [ cv-bridge python-qt-binding sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

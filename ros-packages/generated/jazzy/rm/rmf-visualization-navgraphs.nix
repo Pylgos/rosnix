@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_navgraphs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp-components rmf-building-map-msgs rmf-fleet-msgs rmf-traffic rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components rmf-building-map-msgs rmf-fleet-msgs rmf-traffic rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp rclcpp-components rmf-building-map-msgs rmf-fleet-msgs rmf-traffic rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common rmf-utils ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_visualization_navgraphs" = substituteSource {

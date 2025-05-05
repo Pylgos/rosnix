@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-4";
   src = finalAttrs.passthru.sources."ublox";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ublox-gps ublox-msgs ublox-serialization ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ublox-gps ublox-msgs ublox-serialization ];
   passthru.sources = mkSourceSet (sources: {
     "ublox" = substituteSource {

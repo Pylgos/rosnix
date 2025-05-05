@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."swri_console_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "swri_console_util" = substituteSource {
       src = fetchgit {
@@ -26,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Utility functions for interacting with console";
+    description = "\n    Utility functions for interacting with console\n  ";
   };
 })

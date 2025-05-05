@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.6.0-1";
   src = finalAttrs.passthru.sources."zbar_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ cv-bridge sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zbar" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge rclcpp sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "zbar" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ cv-bridge rclcpp sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zbar" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "zbar_ros" = substituteSource {
@@ -34,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Lightweight ROS wrapper for Zbar barcode/qrcode reader library (http://zbar.sourceforge .net/)";
+    description = "Lightweight ROS wrapper for Zbar barcode/qrcode reader library (http://zbar.sourceforge\n    .net/)";
   };
 })

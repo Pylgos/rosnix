@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_ts_conversion";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ];
+  propagatedNativeBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ros-environment ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_cam_ts_conversion" = substituteSource {
       src = fetchgit {

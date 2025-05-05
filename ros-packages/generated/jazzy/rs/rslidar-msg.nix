@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.0-1";
   src = finalAttrs.passthru.sources."rslidar_msg";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rclcpp rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces rclcpp rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rslidar_msg" = substituteSource {

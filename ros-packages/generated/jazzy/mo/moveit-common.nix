@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_common";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ backward-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_common" = substituteSource {

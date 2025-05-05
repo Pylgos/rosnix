@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kortex_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ hardware-interface kortex-api pluginlib ];
+  propagatedNativeBuildInputs = [ hardware-interface kortex-api pluginlib rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ hardware-interface kortex-api pluginlib rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "kortex_driver" = substituteSource {
       src = fetchgit {

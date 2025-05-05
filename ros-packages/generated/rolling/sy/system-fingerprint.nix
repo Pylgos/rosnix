@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "system_fingerprint";
   version = "0.7.0-3";
   src = finalAttrs.passthru.sources."system_fingerprint";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ rcl-interfaces ros2action ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-git" ]; };
+  propagatedNativeBuildInputs = [ rcl-interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-git" ]; };
+  propagatedBuildInputs = [ rcl-interfaces rclpy ros2action ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-git" ]; };
   passthru.sources = mkSourceSet (sources: {
     "system_fingerprint" = substituteSource {
       src = fetchgit {

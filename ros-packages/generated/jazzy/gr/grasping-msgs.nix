@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."grasping_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs moveit-msgs rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs moveit-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs moveit-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "grasping_msgs" = substituteSource {
       src = fetchgit {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for describing objects and how to grasp them.";
+    description = "\n    Messages for describing objects and how to grasp them.\n  ";
   };
 })

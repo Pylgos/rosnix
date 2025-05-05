@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."qt_gui_py_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-python python-qt-binding ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "qt_gui_py_common provides common functionality for GUI plugins written in Python.";
+    description = "\n    qt_gui_py_common provides common functionality for GUI plugins written in Python.\n  ";
   };
 })

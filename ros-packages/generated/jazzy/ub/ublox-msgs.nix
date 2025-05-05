@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-4";
   src = finalAttrs.passthru.sources."ublox_msgs";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ sensor-msgs std-msgs ublox-serialization ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators sensor-msgs std-msgs ublox-serialization ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rosidl-default-generators sensor-msgs std-msgs ublox-serialization ];
   passthru.sources = mkSourceSet (sources: {
     "ublox_msgs" = substituteSource {
       src = fetchgit {
@@ -30,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ublox_msgs contains raw messages for u-blox GNSS devices.";
+    description = "\n\n     ublox_msgs contains raw messages for u-blox GNSS devices.\n\n  ";
   };
 })

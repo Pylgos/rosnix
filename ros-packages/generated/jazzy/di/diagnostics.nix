@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.3-1";
   src = finalAttrs.passthru.sources."diagnostics";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ diagnostic-aggregator diagnostic-common-diagnostics diagnostic-updater self-test ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ diagnostic-aggregator diagnostic-common-diagnostics diagnostic-updater self-test ];
   passthru.sources = mkSourceSet (sources: {
     "diagnostics" = substituteSource {

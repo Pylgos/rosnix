@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-2";
   src = finalAttrs.passthru.sources."rc_reason_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ geometry-msgs rc-common-msgs rosidl-default-runtime shape-msgs std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rc-common-msgs rosidl-default-runtime shape-msgs std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

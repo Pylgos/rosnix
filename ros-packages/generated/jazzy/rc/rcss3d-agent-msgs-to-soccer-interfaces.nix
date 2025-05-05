@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.1-4";
   src = finalAttrs.passthru.sources."rcss3d_agent_msgs_to_soccer_interfaces";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rcss3d-agent-msgs soccer-vision-3d-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rcss3d-agent-msgs soccer-vision-3d-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

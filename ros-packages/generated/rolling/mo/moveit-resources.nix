@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."moveit_resources";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher moveit-resources-fanuc-description moveit-resources-fanuc-moveit-config moveit-resources-panda-description moveit-resources-panda-moveit-config moveit-resources-pr2-description robot-state-publisher ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher moveit-resources-fanuc-description moveit-resources-fanuc-moveit-config moveit-resources-panda-description moveit-resources-panda-moveit-config moveit-resources-pr2-description robot-state-publisher ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources" = substituteSource {

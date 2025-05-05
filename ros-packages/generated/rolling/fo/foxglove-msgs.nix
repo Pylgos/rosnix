@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."foxglove_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime visualization-msgs ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "foxglove_msgs" = substituteSource {
@@ -35,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "foxglove_msgs provides visualization messages that are supported by Foxglove.";
+    description = "\n    foxglove_msgs provides visualization messages that are supported by Foxglove.\n  ";
   };
 })

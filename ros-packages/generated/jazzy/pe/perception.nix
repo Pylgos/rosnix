@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.11.0-1";
   src = finalAttrs.passthru.sources."perception";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ image-common image-pipeline image-transport-plugins laser-filters laser-geometry perception-pcl ros-base vision-opencv ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-common image-pipeline image-transport-plugins laser-filters laser-geometry perception-pcl ros-base vision-opencv ];
   passthru.sources = mkSourceSet (sources: {
     "perception" = substituteSource {

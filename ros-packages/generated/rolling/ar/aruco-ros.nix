@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "aruco_ros" = substituteSource {
@@ -40,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ARUCO Library has been developed by the Ava group of the Univeristy of Cordoba(Spain). It provides real-time marker based 3D pose estimation using AR markers.";
+    description = "\n    The ARUCO Library has been developed by the Ava group of the Univeristy of Cordoba(Spain).\n    It provides real-time marker based 3D pose estimation using AR markers.\n  ";
   };
 })

@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_teleop";
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_teleop";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ control-msgs sensor-msgs std-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ control-msgs rclpy sensor-msgs std-msgs trajectory-msgs ];
+  propagatedBuildInputs = [ control-msgs rclpy sensor-msgs std-msgs trajectory-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_teleop" = substituteSource {
       src = fetchgit {

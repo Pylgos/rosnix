@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-8";
   src = finalAttrs.passthru.sources."test_apex_test_tools";
   nativeBuildInputs = [ ament-cmake-auto ];
+  buildInputs = [ ament-cmake-auto ];
   checkInputs = [ ament-lint-auto apex-test-tools ];
   passthru.sources = mkSourceSet (sources: {
     "test_apex_test_tools" = substituteSource {

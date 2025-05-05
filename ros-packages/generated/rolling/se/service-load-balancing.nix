@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.1-2";
   src = finalAttrs.passthru.sources."service_load_balancing";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rosidl-default-runtime rosidl-typesupport-introspection-cpp std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-runtime rosidl-typesupport-introspection-cpp std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rosidl-default-runtime rosidl-typesupport-introspection-cpp std-msgs ];
   checkInputs = [ example-interfaces rclcpp std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "service_load_balancing" = substituteSource {

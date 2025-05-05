@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_pyflakes";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pyflakes ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ament-pyflakes ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_pyflakes" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_pyflakes to check code using pyflakes.";
+    description = "\n    The CMake API for ament_pyflakes to check code using pyflakes.\n  ";
   };
 })

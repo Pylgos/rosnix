@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.6-1";
   src = finalAttrs.passthru.sources."dataspeed_can";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ dataspeed-can-msg-filters dataspeed-can-msgs dataspeed-can-tools dataspeed-can-usb ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dataspeed-can-msg-filters dataspeed-can-msgs dataspeed-can-tools dataspeed-can-usb ];
   passthru.sources = mkSourceSet (sources: {
     "dataspeed_can" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "CAN bus tools using Dataspeed hardware";
+    description = "\n    CAN bus tools using Dataspeed hardware\n  ";
   };
 })

@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.1-1";
   src = finalAttrs.passthru.sources."clearpath_generator_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ clearpath-config clearpath-generator-common cv-bridge ptz-action-server-msgs sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ clearpath-config clearpath-generator-common cv-bridge ptz-action-server-msgs sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."clearpath_desktop";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ clearpath-config-live clearpath-offboard-sensors clearpath-platform-msgs clearpath-viz ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ clearpath-config-live clearpath-offboard-sensors clearpath-platform-msgs clearpath-viz ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_desktop" = substituteSource {

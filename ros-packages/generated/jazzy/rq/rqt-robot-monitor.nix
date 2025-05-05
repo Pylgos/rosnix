@@ -22,8 +22,9 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.6-1";
   src = finalAttrs.passthru.sources."rqt_robot_monitor";
   nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg-modules" ]; };
+  propagatedNativeBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg-modules" ]; };
+  buildInputs = [ rosidl-default-generators ];
+  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg-modules" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_robot_monitor" = substituteSource {
       src = fetchgit {
@@ -35,6 +36,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "rqt_robot_monitor displays diagnostics_agg topics messages that are published by";
+    description = "rqt_robot_monitor displays diagnostics_agg topics messages that\n   are published by ";
   };
 })

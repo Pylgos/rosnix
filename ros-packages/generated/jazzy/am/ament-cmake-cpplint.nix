@@ -32,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_cpplint to lint C / C++ code using cpplint.";
+    description = "\n    The CMake API for ament_cpplint to lint C / C++ code using cpplint.\n  ";
   };
 })

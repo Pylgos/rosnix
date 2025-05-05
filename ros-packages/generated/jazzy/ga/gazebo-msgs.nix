@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.0-1";
   src = finalAttrs.passthru.sources."gazebo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs trajectory-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs trajectory-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Message and service data structures for interacting with Gazebo from ROS2.";
+    description = "\n    Message and service data structures for interacting with Gazebo from ROS2.\n  ";
   };
 })

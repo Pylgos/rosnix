@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-1";
   src = finalAttrs.passthru.sources."rosbag2_storage_broll";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ broll pluginlib rosbag2-cpp rosbag2-storage rosbag2-transport sensor-msgs ];
+  propagatedNativeBuildInputs = [ broll pluginlib rclcpp rosbag2-cpp rosbag2-storage rosbag2-transport sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ broll pluginlib rclcpp rosbag2-cpp rosbag2-storage rosbag2-transport sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_storage_broll" = substituteSource {

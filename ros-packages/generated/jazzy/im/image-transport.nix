@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.1.6-1";
   src = finalAttrs.passthru.sources."image_transport";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ message-filters pluginlib rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_transport" = substituteSource {
@@ -35,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "image_transport should always be used to subscribe to and publish images. It provides transparent support for transporting images in low-bandwidth compressed formats. Examples (provided by separate plugin packages) include JPEG/PNG compression and Theora streaming video.";
+    description = "\n\n     image_transport should always be used to subscribe to and publish images. It provides transparent\n     support for transporting images in low-bandwidth compressed formats. Examples (provided by separate\n     plugin packages) include JPEG/PNG compression and Theora streaming video.\n\n  ";
   };
 })

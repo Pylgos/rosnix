@@ -15,6 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_coverage";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_coverage";
+  propagatedNativeBuildInputs = [ scenario-execution ];
   propagatedBuildInputs = [ scenario-execution ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-pexpect" "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

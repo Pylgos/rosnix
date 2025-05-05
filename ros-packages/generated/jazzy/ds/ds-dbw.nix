@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."ds_dbw";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ds-dbw-can ds-dbw-joystick-demo ds-dbw-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ds-dbw-can ds-dbw-joystick-demo ds-dbw-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ds_dbw" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Interface to the Dataspeed Inc. Drive-By-Wire kits";
+    description = "\n    Interface to the Dataspeed Inc. Drive-By-Wire kits\n  ";
   };
 })

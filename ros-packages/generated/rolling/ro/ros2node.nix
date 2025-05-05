@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2node";
   version = "0.39.0-1";
   src = finalAttrs.passthru.sources."ros2node";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ ros2cli ];
+  propagatedNativeBuildInputs = [ rclpy ros2cli ];
+  propagatedBuildInputs = [ rclpy ros2cli ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros rclpy test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2node" = substituteSource {
@@ -36,6 +36,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The node command for ROS 2 command line tools.";
+    description = "\n    The node command for ROS 2 command line tools.\n  ";
   };
 })

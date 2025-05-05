@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ rclcpp-lifecycle ];
-  propagatedBuildInputs = [ hardware-interface realtime-tools ros2-control-cmake sensor-msgs ];
+  propagatedNativeBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
   checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "controller_interface" = substituteSource {

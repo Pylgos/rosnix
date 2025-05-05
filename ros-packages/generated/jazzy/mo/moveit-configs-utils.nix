@@ -16,6 +16,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "moveit_configs_utils";
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_configs_utils";
+  propagatedNativeBuildInputs = [ ament-index-python launch launch-param-builder launch-ros srdfdom ];
   propagatedBuildInputs = [ ament-index-python launch launch-param-builder launch-ros srdfdom ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_configs_utils" = substituteSource {

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-4";
   src = finalAttrs.passthru.sources."zmqpp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libzmq3-dev" ]; };
+  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libzmq3-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

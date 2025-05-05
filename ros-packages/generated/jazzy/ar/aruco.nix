@@ -14,8 +14,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ cv-bridge ];
+  propagatedNativeBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "aruco" = substituteSource {
       src = fetchgit {
@@ -27,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ARUCO Library has been developed by the Ava group of the Univeristy of Cordoba(Spain). It provides real-time marker based 3D pose estimation using AR markers.";
+    description = "\n    The ARUCO Library has been developed by the Ava group of the Univeristy of Cordoba(Spain).\n    It provides real-time marker based 3D pose estimation using AR markers.\n  ";
   };
 })

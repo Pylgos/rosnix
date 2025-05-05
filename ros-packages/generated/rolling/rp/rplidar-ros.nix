@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.0-3";
   src = finalAttrs.passthru.sources."rplidar_ros";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components sensor-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-srvs ];
+  buildInputs = [ ament-cmake-auto ament-cmake-ros ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "rplidar_ros" = substituteSource {
       src = fetchgit {

@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_runtime";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ moveit-core moveit-planners moveit-plugins moveit-ros-move-group moveit-ros-perception moveit-ros-planning moveit-ros-planning-interface moveit-ros-warehouse ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-core moveit-planners moveit-plugins moveit-ros-move-group moveit-ros-perception moveit-ros-planning moveit-ros-planning-interface moveit-ros-warehouse ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_runtime" = substituteSource {

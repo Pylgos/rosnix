@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-3";
   src = finalAttrs.passthru.sources."ublox_gps";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs rcl-interfaces rclcpp-components sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  propagatedNativeBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ublox_gps" = substituteSource {
       src = fetchgit {
@@ -37,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Driver for u-blox GPS devices.";
+    description = "\n     Driver for u-blox GPS devices.\n  ";
   };
 })

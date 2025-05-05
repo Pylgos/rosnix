@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."raspimouse_gazebo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ controller-manager diff-drive-controller joint-state-broadcaster raspimouse-description raspimouse-fake robot-state-publisher ros-gz ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-manager diff-drive-controller joint-state-broadcaster raspimouse-description raspimouse-fake robot-state-publisher ros-gz ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

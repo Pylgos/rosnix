@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-4";
   src = finalAttrs.passthru.sources."micro_ros_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "micro_ros_msgs" = substituteSource {

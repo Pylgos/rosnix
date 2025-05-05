@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.2-1";
   src = finalAttrs.passthru.sources."fuse_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs gtest-vendor rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ ament-cmake-ros geometry-msgs gtest-vendor rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "fuse_msgs" = substituteSource {
@@ -35,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The fuse_msgs package contains messages capable of holding serialized fuse objects.";
+    description = "\n    The fuse_msgs package contains messages capable of holding serialized fuse objects.\n  ";
   };
 })

@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_description" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "open_manipulator_description ROS 2 package.";
+    description = "\n    open_manipulator_description ROS 2 package.\n  ";
   };
 })

@@ -30,6 +30,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Command line tools for ROS interface generation.";
+    description = "\n    Command line tools for ROS interface generation.\n  ";
   };
 })

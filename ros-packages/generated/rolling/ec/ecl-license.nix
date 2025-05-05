@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.3-4";
   src = finalAttrs.passthru.sources."ecl_license";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_license" = substituteSource {
       src = fetchgit {
@@ -24,6 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Maintains the ecl licenses and also provides an install target for deploying licenses with the ecl libraries.";
+    description = "\n     Maintains the ecl licenses and also provides an install\n     target for deploying licenses with the ecl libraries.\n  ";
   };
 })

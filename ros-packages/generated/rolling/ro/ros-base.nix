@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.13.0-1";
   src = finalAttrs.passthru.sources."ros_base";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ geometry2 kdl-parser robot-state-publisher ros-core rosbag2 urdf ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry2 kdl-parser robot-state-publisher ros-core rosbag2 urdf ];
   passthru.sources = mkSourceSet (sources: {
     "ros_base" = substituteSource {

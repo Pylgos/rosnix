@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "9.2.0-1";
   src = finalAttrs.passthru.sources."yaml_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "yaml_cpp_vendor" = substituteSource {
@@ -41,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it.";
+    description = "\n    Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it.\n  ";
   };
 })

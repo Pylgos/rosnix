@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."pendulum_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "pendulum_msgs" = substituteSource {
       src = fetchgit {

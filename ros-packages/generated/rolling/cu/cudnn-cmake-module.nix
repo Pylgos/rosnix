@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-5";
   src = finalAttrs.passthru.sources."cudnn_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "cudnn_cmake_module" = substituteSource {

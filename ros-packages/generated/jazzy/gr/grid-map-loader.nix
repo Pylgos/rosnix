@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_loader";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ grid-map-cmake-helpers grid-map-msgs grid-map-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ grid-map-cmake-helpers grid-map-msgs grid-map-ros ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

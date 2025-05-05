@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.10-1";
   src = finalAttrs.passthru.sources."tracetools_image_pipeline";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  buildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tracetools_image_pipeline" = substituteSource {
@@ -27,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "LTTng tracing provider wrapper for image_pipeline ROS 2 meta-package.";
+    description = "\n    LTTng tracing provider wrapper for image_pipeline ROS 2 meta-package.\n  ";
   };
 })

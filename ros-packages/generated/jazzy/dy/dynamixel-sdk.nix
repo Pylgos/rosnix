@@ -14,6 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.3-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_sdk" = substituteSource {
       src = fetchgit {
@@ -25,6 +26,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package is wrapping version of ROBOTIS Dynamixel SDK for ROS 2. The ROBOTIS Dynamixel SDK, or SDK, is a software development library that provides Dynamixel control functions for packet communication. The API is designed for Dynamixel actuators and Dynamixel-based platforms.";
+    description = "\n    This package is wrapping version of ROBOTIS Dynamixel SDK for ROS 2. The ROBOTIS Dynamixel SDK, or SDK, is a software development library that provides Dynamixel control functions for packet communication. The API is designed for Dynamixel actuators and Dynamixel-based platforms.\n  ";
   };
 })

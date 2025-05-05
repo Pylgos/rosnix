@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.13.0-1";
   src = finalAttrs.passthru.sources."simulation";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ros-base ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ros-base ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim ];
   passthru.sources = mkSourceSet (sources: {
     "simulation" = substituteSource {

@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.11-1";
   src = finalAttrs.passthru.sources."test_ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ros-gz-bridge ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ros-gz-bridge ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {

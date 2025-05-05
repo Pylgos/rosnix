@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.10.0-1";
   src = finalAttrs.passthru.sources."rosidl_runtime_c";
   nativeBuildInputs = [ ament-cmake-ros-core ];
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rcutils rosidl-typesupport-interface ];
+  propagatedNativeBuildInputs = [ ament-cmake rcutils rosidl-typesupport-interface ];
+  buildInputs = [ ament-cmake-ros-core ];
+  propagatedBuildInputs = [ ament-cmake rcutils rosidl-typesupport-interface ];
   checkInputs = [ ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_runtime_c" = substituteSource {

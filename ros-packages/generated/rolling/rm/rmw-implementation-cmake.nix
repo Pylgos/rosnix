@@ -28,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "CMake functions which can discover and enumerate available implementations.";
+    description = "\n    CMake functions which can discover and enumerate available implementations.\n  ";
   };
 })

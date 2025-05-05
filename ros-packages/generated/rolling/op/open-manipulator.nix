@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator" = substituteSource {
@@ -35,6 +37,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "OpenMANIPULATOR meta ROS 2 package.";
+    description = "\n    OpenMANIPULATOR meta ROS 2 package.\n  ";
   };
 })

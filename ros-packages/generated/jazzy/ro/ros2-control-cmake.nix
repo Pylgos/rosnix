@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.1-1";
   src = finalAttrs.passthru.sources."ros2_control_cmake";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ros2_control_cmake" = substituteSource {

@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.6-4";
   src = finalAttrs.passthru.sources."rtcm_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces ros-environment rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces ros-environment rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rtcm_msgs" = substituteSource {

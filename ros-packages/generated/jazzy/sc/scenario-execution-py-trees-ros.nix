@@ -12,6 +12,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_py_trees_ros";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_py_trees_ros";
+  propagatedNativeBuildInputs = [ py-trees-ros ];
   propagatedBuildInputs = [ py-trees-ros ];
   passthru.sources = mkSourceSet (sources: {
     "scenario_execution_py_trees_ros" = substituteSource {

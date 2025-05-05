@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "7.9.0-1";
   src = finalAttrs.passthru.sources."rmw_security_common";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rcutils rmw ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rcutils rmw ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

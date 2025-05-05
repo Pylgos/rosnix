@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_timer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_minimal_timer" = substituteSource {

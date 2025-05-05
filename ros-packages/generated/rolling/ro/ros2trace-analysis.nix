@@ -18,6 +18,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2trace_analysis";
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."ros2trace_analysis";
+  propagatedNativeBuildInputs = [ ros2cli tracetools-analysis ];
   propagatedBuildInputs = [ ros2cli tracetools-analysis ];
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

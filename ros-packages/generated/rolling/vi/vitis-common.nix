@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.2-3";
   src = finalAttrs.passthru.sources."vitis_common";
   nativeBuildInputs = [ ament-cmake ament-vitis ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "ocl-icd-opencl-dev" "opencl-headers" ]; };
+  buildInputs = [ ament-cmake ament-vitis ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "ocl-icd-opencl-dev" "opencl-headers" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

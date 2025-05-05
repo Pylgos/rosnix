@@ -30,8 +30,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.9-1";
   src = finalAttrs.passthru.sources."automatika_ros_sugar";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-numpy" ]; };
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs lifecycle-msgs nav-msgs rosidl-default-runtime sensor-msgs std-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-msgpack" "python3-opencv" "python3-setproctitle" ]; };
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs lifecycle-msgs nav-msgs rclcpp rclpy rosidl-default-runtime sensor-msgs std-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-msgpack" "python3-numpy" "python3-opencv" "python3-setproctitle" ]; };
+  buildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs lifecycle-msgs nav-msgs rclcpp rclpy rosidl-default-runtime sensor-msgs std-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-jinja2" "python3-msgpack" "python3-numpy" "python3-opencv" "python3-setproctitle" ]; };
   checkInputs = [ ament-cmake-pytest ament-index-python ament-lint-auto launch launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "automatika_ros_sugar" = substituteSource {

@@ -16,6 +16,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.2.1-3";
   src = finalAttrs.passthru.sources."rqt_service_caller";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ rqt-gui rqt-gui-py rqt-py-common ];
   propagatedBuildInputs = [ rqt-gui rqt-gui-py rqt-py-common ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

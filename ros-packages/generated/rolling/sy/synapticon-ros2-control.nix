@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.2-1";
   src = finalAttrs.passthru.sources."synapticon_ros2_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ controller-manager forward-command-controller hardware-interface joint-state-broadcaster joint-trajectory-controller pluginlib robot-state-publisher ros2controlcli ros2launch xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcap-dev" ]; };
+  propagatedNativeBuildInputs = [ controller-manager forward-command-controller hardware-interface joint-state-broadcaster joint-trajectory-controller pluginlib rclcpp rclcpp-lifecycle robot-state-publisher ros2controlcli ros2launch xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcap-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ controller-manager forward-command-controller hardware-interface joint-state-broadcaster joint-trajectory-controller pluginlib rclcpp rclcpp-lifecycle robot-state-publisher ros2controlcli ros2launch xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcap-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "synapticon_ros2_control" = substituteSource {
       src = fetchgit {

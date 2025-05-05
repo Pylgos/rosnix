@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."trac_ik_lib";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "pkg-config" ]; };
-  propagatedBuildInputs = [ geometry-msgs kdl-parser urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libnlopt-cxx-dev" "libnlopt-dev" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "trac_ik_lib" = substituteSource {
       src = fetchgit {
@@ -30,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "TRAC-IK is a faster, significantly more reliable drop-in replacement for KDL's pseudoinverse Jacobian solver. The TRAC-IK library has a very similar API to KDL's IK solver calls, except that the user passes a maximum time instead of a maximum number of search iterations. Additionally, TRAC-IK allows for error tolerances to be set independently for each Cartesian dimension (x,y,z,roll,pitch.yaw).";
+    description = "\n    TRAC-IK is a faster, significantly more reliable drop-in replacement for\n    KDL's pseudoinverse Jacobian solver.\n\n    The TRAC-IK library has a very similar API to KDL's IK solver calls,\n    except that the user passes a maximum time instead of a maximum number of\n    search iterations.  Additionally, TRAC-IK allows for error tolerances to\n    be set independently for each Cartesian dimension (x,y,z,roll,pitch.yaw).\n  ";
   };
 })

@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.6.2-1";
   src = finalAttrs.passthru.sources."perception_pcl";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ pcl-conversions pcl-msgs pcl-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ pcl-conversions pcl-msgs pcl-ros ];
   passthru.sources = mkSourceSet (sources: {
     "perception_pcl" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "PCL (Point Cloud Library) ROS interface stack. PCL-ROS is the preferred bridge for 3D applications involving n-D Point Clouds and 3D geometry processing in ROS.";
+    description = "\n  PCL (Point Cloud Library) ROS interface stack. PCL-ROS is the preferred\n  bridge for 3D applications involving n-D Point Clouds and 3D geometry\n  processing in ROS.\n  ";
   };
 })

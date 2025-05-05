@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."hardware_interface_testing";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp-lifecycle ];
-  propagatedBuildInputs = [ control-msgs hardware-interface lifecycle-msgs pluginlib ros2-control-cmake ros2-control-test-assets ];
+  propagatedNativeBuildInputs = [ control-msgs hardware-interface lifecycle-msgs pluginlib rclcpp-lifecycle ros2-control-cmake ros2-control-test-assets ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ control-msgs hardware-interface lifecycle-msgs pluginlib rclcpp-lifecycle ros2-control-cmake ros2-control-test-assets ];
   checkInputs = [ ament-cmake-gmock ];
   passthru.sources = mkSourceSet (sources: {
     "hardware_interface_testing" = substituteSource {

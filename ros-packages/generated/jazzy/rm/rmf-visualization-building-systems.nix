@@ -19,6 +19,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_visualization_building_systems";
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_building_systems";
+  propagatedNativeBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-door-msgs rmf-lift-msgs rmf-visualization-msgs ];
   propagatedBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-door-msgs rmf-lift-msgs rmf-visualization-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

@@ -26,6 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_geometry";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-containers ecl-exceptions ecl-formatters ecl-license ecl-linear-algebra ecl-math ecl-mpl ecl-type-traits ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-containers ecl-exceptions ecl-formatters ecl-license ecl-linear-algebra ecl-math ecl-mpl ecl-type-traits ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -39,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Any tools relating to mathematical geometry. Primarily featuring polynomials and interpolations.";
+    description = "\n     Any tools relating to mathematical geometry.\n     Primarily featuring polynomials and interpolations.\n  ";
   };
 })

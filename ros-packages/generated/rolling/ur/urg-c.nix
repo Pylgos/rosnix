@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.4001-5";
   src = finalAttrs.passthru.sources."urg_c";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "urg_c" = substituteSource {
       src = fetchgit {

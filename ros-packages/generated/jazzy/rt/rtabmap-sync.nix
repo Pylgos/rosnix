@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.10-1";
   src = finalAttrs.passthru.sources."rtabmap_sync";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ cv-bridge diagnostic-updater image-transport message-filters nav-msgs rclcpp-components rtabmap-conversions rtabmap-msgs sensor-msgs ];
+  propagatedNativeBuildInputs = [ cv-bridge diagnostic-updater image-transport message-filters nav-msgs rclcpp rclcpp-components rtabmap-conversions rtabmap-msgs sensor-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ cv-bridge diagnostic-updater image-transport message-filters nav-msgs rclcpp rclcpp-components rtabmap-conversions rtabmap-msgs sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_sync" = substituteSource {
       src = fetchgit {

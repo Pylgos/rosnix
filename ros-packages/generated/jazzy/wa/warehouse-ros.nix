@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.5-1";
   src = finalAttrs.passthru.sources."warehouse_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs pluginlib std-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libssl-dev" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs pluginlib rclcpp std-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libssl-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs pluginlib rclcpp std-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libssl-dev" ]; };
   checkInputs = [ ament-cmake-copyright ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "warehouse_ros" = substituteSource {

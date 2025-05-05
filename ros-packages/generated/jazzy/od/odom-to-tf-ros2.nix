@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."odom_to_tf_ros2";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp tf2-geometry-msgs tf2-ros ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp tf2-geometry-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "odom_to_tf_ros2" = substituteSource {
       src = fetchgit {

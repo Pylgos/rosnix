@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-5";
   src = finalAttrs.passthru.sources."object_recognition_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs geometry-msgs rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "object_recognition_msgs" = substituteSource {
       src = fetchgit {

@@ -13,6 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.10.0-2";
   src = finalAttrs.passthru.sources."tinyxml_vendor";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "tinyxml" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "tinyxml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tinyxml_vendor" = substituteSource {

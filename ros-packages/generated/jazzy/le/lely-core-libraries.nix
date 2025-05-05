@@ -13,8 +13,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."lely_core_libraries";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-empy" "python3-yaml" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "autoconf" "automake" "libtool" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "autoconf" "automake" "git" "libtool" "python3-empy" "python3-yaml" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "autoconf" "automake" "git" "libtool" "python3-empy" "python3-yaml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lely_core_libraries" = substituteSource {
       src = fetchgit {
@@ -41,6 +42,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS wrapper for lely-core-libraries";
+    description = "\n    ROS wrapper for lely-core-libraries\n  ";
   };
 })

@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.1-1";
   src = finalAttrs.passthru.sources."autoware_lanelet2_extension_python";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake python-cmake-module ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ autoware-lanelet2-extension geometry-msgs lanelet2-core lanelet2-io lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules lanelet2-validation ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-python-dev" ]; };
+  propagatedNativeBuildInputs = [ autoware-lanelet2-extension geometry-msgs lanelet2-core lanelet2-io lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-python-dev" ]; };
+  buildInputs = [ ament-cmake-auto autoware-cmake python-cmake-module ];
+  propagatedBuildInputs = [ autoware-lanelet2-extension geometry-msgs lanelet2-core lanelet2-io lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-python-dev" ]; };
   checkInputs = [ ament-cmake-ros ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_lanelet2_extension_python" = substituteSource {

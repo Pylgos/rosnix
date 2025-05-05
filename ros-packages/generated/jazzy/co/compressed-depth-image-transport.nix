@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.0.4-1";
   src = finalAttrs.passthru.sources."compressed_depth_image_transport";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ cv-bridge image-transport ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cv-bridge image-transport ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Compressed_depth_image_transport provides a plugin to image_transport for transparently sending depth images (raw, floating-point) using PNG compression.";
+    description = "\n    Compressed_depth_image_transport provides a plugin to image_transport for transparently sending\n    depth images (raw, floating-point) using PNG compression.\n  ";
   };
 })

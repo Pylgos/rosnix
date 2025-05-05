@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_testing";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ flexbe-core flexbe-msgs launch-ros ];
+  propagatedNativeBuildInputs = [ flexbe-core flexbe-msgs launch-ros rclpy ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ flexbe-core flexbe-msgs launch-ros rclpy ];
   checkInputs = [ ament-cmake-pytest ament-copyright ament-flake8 ament-pep257 launch-testing std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_testing" = substituteSource {
@@ -38,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "flexbe_testing provides a framework for unit testing states.";
+    description = "\n        flexbe_testing provides a framework for unit testing states.\n    ";
   };
 })

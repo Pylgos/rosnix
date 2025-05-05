@@ -21,8 +21,9 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.1-4";
   src = finalAttrs.passthru.sources."rqt_moveit";
   nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ python-qt-binding rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
+  propagatedNativeBuildInputs = [ python-qt-binding rclpy rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
+  buildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-setuptools" ]; };
+  propagatedBuildInputs = [ python-qt-binding rclpy rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_moveit" = substituteSource {
       src = fetchgit {
@@ -34,6 +35,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "An rqt-based tool that assists monitoring tasks for";
+    description = "\n   An rqt-based tool that assists monitoring tasks\n   for ";
   };
 })

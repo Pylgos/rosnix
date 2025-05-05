@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-3";
   src = finalAttrs.passthru.sources."nao_command_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nao_command_msgs" = substituteSource {

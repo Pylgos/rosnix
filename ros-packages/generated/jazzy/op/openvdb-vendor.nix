@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.5-1";
   src = finalAttrs.passthru.sources."openvdb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "libopenvdb-dev" "tbb" "zlib" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "libopenvdb-dev" "tbb" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "openvdb_vendor" = substituteSource {
@@ -61,6 +63,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around OpenVDB, if not found on the system, will compile from source";
+    description = "\n    Wrapper around OpenVDB, if not found on the system, will compile from source\n  ";
   };
 })

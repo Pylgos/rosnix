@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.4-2";
   src = finalAttrs.passthru.sources."tensorrt_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "tensorrt_cmake_module" = substituteSource {

@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS message definitions for Velodyne 3D LIDARs.";
+    description = "\n    ROS message definitions for Velodyne 3D LIDARs.\n  ";
   };
 })

@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.11.0-1";
   src = finalAttrs.passthru.sources."desktop_full";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ desktop perception ros-gz-sim-demos simulation ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ desktop perception ros-gz-sim-demos simulation ];
   passthru.sources = mkSourceSet (sources: {
     "desktop_full" = substituteSource {

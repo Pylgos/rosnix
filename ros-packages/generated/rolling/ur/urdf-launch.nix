@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.1-2";
   src = finalAttrs.passthru.sources."urdf_launch";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui launch-ros robot-state-publisher rviz2 rviz-common rviz-default-plugins xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui launch-ros robot-state-publisher rviz2 rviz-common rviz-default-plugins xacro ];
   passthru.sources = mkSourceSet (sources: {
     "urdf_launch" = substituteSource {

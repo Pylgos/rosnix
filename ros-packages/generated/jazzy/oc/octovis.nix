@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.10.0-4";
   src = finalAttrs.passthru.sources."octovis";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ octomap ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqglviewer-dev-qt5" "libqglviewer2-qt5" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-opengl-dev" "opengl" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ octomap ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqglviewer-dev-qt5" "libqglviewer2-qt5" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-opengl-dev" "opengl" ]; };
   passthru.sources = mkSourceSet (sources: {
     "octovis" = substituteSource {
@@ -26,6 +28,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "octovis is visualization tool for the OctoMap library based on Qt and libQGLViewer. See http://octomap.github.io for details.";
+    description = "octovis is visualization tool for the OctoMap library based on Qt and libQGLViewer. See\n  http://octomap.github.io for details.";
   };
 })

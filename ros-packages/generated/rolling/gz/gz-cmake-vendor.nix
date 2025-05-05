@@ -48,6 +48,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Vendor package for: gz-cmake4 4.1.1 Gazebo CMake : CMake Modules for Gazebo Projects";
+    description = "\n    Vendor package for: gz-cmake4 4.1.1\n\n    Gazebo CMake : CMake Modules for Gazebo Projects\n  ";
   };
 })

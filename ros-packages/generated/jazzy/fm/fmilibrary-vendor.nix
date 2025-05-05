@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."fmilibrary_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   passthru.sources = mkSourceSet (sources: {
     "fmilibrary_vendor" = substituteSource {
       src = fetchgit {

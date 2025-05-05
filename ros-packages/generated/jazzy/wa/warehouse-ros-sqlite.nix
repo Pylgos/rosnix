@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."warehouse_ros_sqlite";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ class-loader sqlite3-vendor warehouse-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ class-loader rclcpp sqlite3-vendor warehouse-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ class-loader rclcpp sqlite3-vendor warehouse-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "warehouse_ros_sqlite" = substituteSource {
@@ -36,6 +37,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Implementation of warehouse_ros for sqlite";
+    description = "\n    Implementation of warehouse_ros for sqlite\n  ";
   };
 })

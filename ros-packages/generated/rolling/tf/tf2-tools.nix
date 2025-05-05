@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "tf2_tools";
   version = "0.42.0-1";
   src = finalAttrs.passthru.sources."tf2_tools";
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ tf2-msgs tf2-py tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" ]; };
+  propagatedNativeBuildInputs = [ rclpy tf2-msgs tf2-py tf2-ros-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "graphviz" "python3-yaml" ]; };
+  propagatedBuildInputs = [ rclpy tf2-msgs tf2-py tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tf2_tools" = substituteSource {
@@ -33,6 +33,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "tf2_tools";
+    description = "\n    tf2_tools\n  ";
   };
 })

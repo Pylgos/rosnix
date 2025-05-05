@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Interface package, containing message definitions and service definitions for the system modes package.";
+    description = "\n    Interface package, containing message definitions and service definitions\n    for the system modes package.\n  ";
   };
 })

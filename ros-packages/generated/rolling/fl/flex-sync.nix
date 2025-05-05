@@ -23,8 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."flex_sync";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ ament-cmake-clang-format rclcpp-components rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ ament-cmake-clang-format rclcpp rclcpp-components rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-clang-format rclcpp rclcpp-components rosidl-default-runtime ];
   checkInputs = [ ament-clang-format ament-cmake-clang-format ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "flex_sync" = substituteSource {

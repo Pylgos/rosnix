@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-6";
   src = finalAttrs.passthru.sources."micro_ros_diagnostic_bridge";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ diagnostic-msgs micro-ros-diagnostic-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs micro-ros-diagnostic-msgs rclcpp ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ diagnostic-msgs micro-ros-diagnostic-msgs rclcpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common diagnostic-msgs micro-ros-diagnostic-msgs osrf-testing-tools-cpp ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "micro_ros_diagnostic_bridge" = substituteSource {

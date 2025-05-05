@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.12-1";
   src = finalAttrs.passthru.sources."cob_srvs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

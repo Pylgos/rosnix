@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."mrpt_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-cppcheck ament-cpplint ament-lint-auto ament-lint-cmake ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_msgs" = substituteSource {

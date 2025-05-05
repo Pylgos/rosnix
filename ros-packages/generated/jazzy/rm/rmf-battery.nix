@@ -17,8 +17,9 @@ buildCmakePackage (finalAttrs: {
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rmf_battery";
   nativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ rmf-traffic rmf-utils ];
+  propagatedNativeBuildInputs = [ rmf-traffic rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ rmf-traffic rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-catch2 ament-cmake-uncrustify ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_battery" = substituteSource {

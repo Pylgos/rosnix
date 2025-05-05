@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.7.5-1";
   src = finalAttrs.passthru.sources."qt_gui_core";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "qt_gui_core" = substituteSource {
       src = fetchgit {
@@ -24,6 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Integration of the ROS package system and ROS-specific plugins for a Qt-based GUI.";
+    description = "\n    Integration of the ROS package system and ROS-specific plugins for a Qt-based GUI.\n  ";
   };
 })

@@ -15,8 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_autorace_camera";
   version = "1.2.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_autorace_camera";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ cv-bridge sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ cv-bridge rclpy sensor-msgs std-msgs ];
+  propagatedBuildInputs = [ cv-bridge rclpy sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_autorace_camera" = substituteSource {
       src = fetchgit {
@@ -28,6 +28,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 packages for camera calibration and image processing in TurtleBot AutoRace";
+    description = "\n    ROS 2 packages for camera calibration and image processing in TurtleBot AutoRace\n  ";
   };
 })

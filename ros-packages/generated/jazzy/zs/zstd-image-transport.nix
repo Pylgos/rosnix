@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.0.4-1";
   src = finalAttrs.passthru.sources."zstd_image_transport";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ image-transport ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "zlib" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-transport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zlib" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "zstd_image_transport provides a plugin to image_transport for transparently sending images encoded as zstd blobs";
+    description = "\n    zstd_image_transport provides a plugin to image_transport for transparently sending images\n    encoded as zstd blobs\n  ";
   };
 })

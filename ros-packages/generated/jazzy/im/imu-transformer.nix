@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-3";
   src = finalAttrs.passthru.sources."imu_transformer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ message-filters rclcpp-components sensor-msgs tf2-ros tf2-sensor-msgs ];
+  propagatedNativeBuildInputs = [ message-filters rclcpp rclcpp-components sensor-msgs tf2-ros tf2-sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ message-filters rclcpp rclcpp-components sensor-msgs tf2-ros tf2-sensor-msgs ];
   checkInputs = [ geometry-msgs tf2-geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "imu_transformer" = substituteSource {

@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.6.4-1";
   src = finalAttrs.passthru.sources."mola_traj_tools";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ mola-common mrpt-libposes ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mrpt-libposes ];
   passthru.sources = mkSourceSet (sources: {
     "mola_traj_tools" = substituteSource {

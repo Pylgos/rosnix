@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ublox_ubx_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ublox_ubx_interfaces" = substituteSource {

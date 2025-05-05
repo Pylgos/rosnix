@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "demo_nodes_py";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."demo_nodes_py";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces std-msgs ];
+  propagatedNativeBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
+  propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "demo_nodes_py" = substituteSource {
@@ -33,6 +33,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Python nodes which were previously in the ros2/examples repository but are now just used for demo purposes.";
+    description = "\n    Python nodes which were previously in the ros2/examples repository but are now just used for demo purposes.\n  ";
   };
 })

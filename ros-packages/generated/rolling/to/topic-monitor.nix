@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "topic_monitor";
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."topic_monitor";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ launch launch-ros std-msgs ];
+  propagatedNativeBuildInputs = [ launch launch-ros rclpy std-msgs ];
+  propagatedBuildInputs = [ launch launch-ros rclpy std-msgs ];
   checkInputs = [ ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "topic_monitor" = substituteSource {

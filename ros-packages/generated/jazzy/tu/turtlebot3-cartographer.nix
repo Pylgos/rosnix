@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_cartographer";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ cartographer-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cartographer-ros ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_cartographer" = substituteSource {
@@ -26,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 launch scripts for cartographer";
+    description = "\n    ROS 2 launch scripts for cartographer\n  ";
   };
 })

@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.0.1-1";
   src = finalAttrs.passthru.sources."aruco_opencv_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-lint-cmake ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Message definitions for aruco_opencv package.";
+    description = "\n    Message definitions for aruco_opencv package.\n  ";
   };
 })

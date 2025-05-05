@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2bag";
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."ros2bag";
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python ros2cli rosbag2-py ];
+  propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli rosbag2-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python rclpy ros2cli rosbag2-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch-testing launch-testing-ros rosbag2-storage-default-plugins rosbag2-test-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2bag" = substituteSource {
@@ -37,6 +37,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Entry point for rosbag in ROS 2";
+    description = "\n    Entry point for rosbag in ROS 2\n  ";
   };
 })

@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.8-1";
   src = finalAttrs.passthru.sources."marker_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The marker_msgs package contains messages usable to setup a marker/fiducial system. The package distinguishes between two types of messages. First messages to describe the properties of a marker/fiducial detection system and the detected markers. Secondly messages used to represent a map of markers/features with covariances as it would be produced by a SLAM system or published by a map server for self-localization.";
+    description = "\n    The marker_msgs package contains messages usable to setup a marker/fiducial system. \n    The package distinguishes between two types of messages. \n    First messages to describe the properties of a marker/fiducial detection system and the detected markers. \n    Secondly messages used to represent a map of markers/features with covariances as it would be produced by a SLAM system or published by a map server for self-localization.\n  ";
   };
 })

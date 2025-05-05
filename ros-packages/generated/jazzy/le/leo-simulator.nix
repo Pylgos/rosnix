@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."leo_simulator";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ leo-gz-bringup leo-gz-plugins leo-gz-worlds ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo-gz-bringup leo-gz-plugins leo-gz-worlds ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Metapackage for Leo Rover Gazebo simulation in ROS2";
+    description = "\n    Metapackage for Leo Rover Gazebo simulation in ROS2\n  ";
   };
 })

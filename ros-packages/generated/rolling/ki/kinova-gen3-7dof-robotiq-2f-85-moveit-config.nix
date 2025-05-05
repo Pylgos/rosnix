@@ -34,6 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kinova_gen3_7dof_robotiq_2f_85_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
   passthru.sources = mkSourceSet (sources: {
     "kinova_gen3_7dof_robotiq_2f_85_moveit_config" = substituteSource {
@@ -46,6 +48,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "An automatically generated package with all the configuration and launch files for using the gen3 with the MoveIt Motion Planning Framework";
+    description = "\n     An automatically generated package with all the configuration and launch files for using the gen3 with the MoveIt Motion Planning Framework\n  ";
   };
 })

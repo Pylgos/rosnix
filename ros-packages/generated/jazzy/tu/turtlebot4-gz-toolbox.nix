@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."turtlebot4_gz_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-action rcutils ros-gz-interfaces sensor-msgs std-msgs turtlebot4-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-action rcutils ros-gz-interfaces sensor-msgs std-msgs turtlebot4-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rclcpp-action rcutils ros-gz-interfaces sensor-msgs std-msgs turtlebot4-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot4_gz_toolbox" = substituteSource {

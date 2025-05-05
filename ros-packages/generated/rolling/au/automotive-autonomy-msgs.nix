@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.4-5";
   src = finalAttrs.passthru.sources."automotive_autonomy_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ automotive-navigation-msgs automotive-platform-msgs ];
+  propagatedNativeBuildInputs = [ automotive-navigation-msgs automotive-platform-msgs ros-environment ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ automotive-navigation-msgs automotive-platform-msgs ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "automotive_autonomy_msgs" = substituteSource {
       src = fetchgit {

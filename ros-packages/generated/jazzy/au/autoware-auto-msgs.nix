@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-7";
   src = finalAttrs.passthru.sources."autoware_auto_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs geometry-msgs rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ action-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_auto_msgs" = substituteSource {

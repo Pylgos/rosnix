@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.1-3";
   src = finalAttrs.passthru.sources."aws_sdk_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libssl-dev" "zlib" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "zlib" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

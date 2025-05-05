@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "joint_state_publisher";
   version = "2.4.0-2";
   src = finalAttrs.passthru.sources."joint_state_publisher";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ];
+  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ];
   checkInputs = [ ament-copyright ament-xmllint launch-testing launch-testing-ros ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "joint_state_publisher" = substituteSource {
@@ -33,6 +33,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package contains a tool for setting and publishing joint state values for a given URDF.";
+    description = "\n    This package contains a tool for setting and publishing joint state values for a given URDF.\n  ";
   };
 })

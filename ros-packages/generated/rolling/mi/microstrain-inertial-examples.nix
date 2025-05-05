@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.6.1-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ microstrain-inertial-driver rviz2 rviz-imu-plugin sensor-msgs tf2-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ microstrain-inertial-driver rviz2 rviz-imu-plugin sensor-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "microstrain_inertial_examples" = substituteSource {

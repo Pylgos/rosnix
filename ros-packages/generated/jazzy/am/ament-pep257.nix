@@ -27,6 +27,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against the docstring style conventions in PEP 257 and generate xUnit test result files.";
+    description = "\n    The ability to check code against the docstring style conventions in\n    PEP 257 and generate xUnit test result files.\n  ";
   };
 })

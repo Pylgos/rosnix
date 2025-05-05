@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.11.0-1";
   src = finalAttrs.passthru.sources."tlsf";
   propagatedNativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tlsf" = substituteSource {

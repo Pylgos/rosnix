@@ -14,8 +14,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_autorace_detect";
   version = "1.2.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_autorace_detect";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ];
+  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_autorace_detect" = substituteSource {
       src = fetchgit {
@@ -27,6 +27,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 packages for turtlebot3_autorace_detect";
+    description = "\n    ROS 2 packages for turtlebot3_autorace_detect\n  ";
   };
 })

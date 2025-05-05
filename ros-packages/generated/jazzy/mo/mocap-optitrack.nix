@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."mocap_optitrack";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp tf2-ros ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp tf2-ros ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "mocap_optitrack" = substituteSource {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Streaming of OptiTrack mocap data to tf";
+    description = "\n    Streaming of OptiTrack mocap data to tf\n    ";
   };
 })

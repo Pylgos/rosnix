@@ -15,8 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_connextdds";
   version = "1.2.0-2";
   src = finalAttrs.passthru.sources."rmw_connextdds";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rmw-connextdds-common ];
+  propagatedNativeBuildInputs = [ ament-cmake rmw-connextdds-common ];
+  propagatedBuildInputs = [ ament-cmake rmw-connextdds-common ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_connextdds" = substituteSource {

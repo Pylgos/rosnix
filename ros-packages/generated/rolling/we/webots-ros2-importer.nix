@@ -14,8 +14,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_importer";
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_importer";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
-  propagatedBuildInputs = [ builtin-interfaces xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-collada" ]; };
+  propagatedNativeBuildInputs = [ builtin-interfaces xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-collada" "python3-lark-parser" ]; };
+  propagatedBuildInputs = [ builtin-interfaces xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-collada" "python3-lark-parser" ]; };
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-pil" "python3-pycodestyle" "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_importer" = substituteSource {

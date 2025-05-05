@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "1.10.0-4";
   src = finalAttrs.passthru.sources."octomap";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "octomap" = substituteSource {
       src = fetchgit {
@@ -23,6 +24,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The OctoMap library implements a 3D occupancy grid mapping approach, providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See http://octomap.github.io for details.";
+    description = "The OctoMap library implements a 3D occupancy grid mapping approach, providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See\n  http://octomap.github.io for details.";
   };
 })

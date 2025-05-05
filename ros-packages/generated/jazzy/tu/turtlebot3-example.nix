@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_example";
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_example";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclpy sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_example" = substituteSource {
       src = fetchgit {
@@ -31,6 +31,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides four basic examples for TurtleBot3 (i.e., interactive marker, object detection, patrol and position control).";
+    description = "\n    This package provides four basic examples for TurtleBot3 (i.e., interactive marker, object detection, patrol and position control).\n  ";
   };
 })

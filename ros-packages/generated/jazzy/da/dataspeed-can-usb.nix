@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.6-1";
   src = finalAttrs.passthru.sources."dataspeed_can_usb";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ can-msgs lusb rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ can-msgs lusb rclcpp rclcpp-components std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ can-msgs lusb rclcpp rclcpp-components std-msgs ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "dataspeed_can_usb" = substituteSource {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Driver to interface with the Dataspeed Inc. USB CAN Tool";
+    description = "\n    Driver to interface with the Dataspeed Inc. USB CAN Tool\n  ";
   };
 })

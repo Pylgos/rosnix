@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.5-1";
   src = finalAttrs.passthru.sources."log_view";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rcl-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libncurses-dev" "xclip" ]; };
+  propagatedNativeBuildInputs = [ rcl-interfaces rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libncurses-dev" "xclip" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rcl-interfaces rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libncurses-dev" "xclip" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "log_view" = substituteSource {
@@ -31,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The log_view package provides a ncurses based terminal GUI for viewing and filtering published ROS log messages. This is an alternative to rqt_console and swri_console that doesn't depend on qt and can be run directly in a terminal.";
+    description = "\n    The log_view package provides a ncurses based terminal GUI for\n    viewing and filtering published ROS log messages.\n\n    This is an alternative to rqt_console and swri_console that doesn't depend\n    on qt and can be run directly in a terminal.\n  ";
   };
 })

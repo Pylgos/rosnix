@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "0.9.6-1";
   src = finalAttrs.passthru.sources."magic_enum";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "magic_enum" = substituteSource {
       src = fetchgit {
@@ -23,6 +24,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Static reflection for enums (to string, from string, iteration) for modern C++, work with any enum type without any macro or boilerplate code";
+    description = "\n    Static reflection for enums (to string, from string, iteration) for modern C++,\n    work with any enum type without any macro or boilerplate code\n  ";
   };
 })

@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."dynamixel_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "dynamixel_interfaces contains base messages and service useful for controlling Dynamixel.";
+    description = "\n    dynamixel_interfaces contains base messages and service useful for controlling Dynamixel.\n  ";
   };
 })

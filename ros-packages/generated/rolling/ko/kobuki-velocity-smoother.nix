@@ -31,8 +31,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.15.0-3";
   src = finalAttrs.passthru.sources."kobuki_velocity_smoother";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ ecl-build geometry-msgs nav-msgs rcl-interfaces rclcpp-components ];
+  propagatedNativeBuildInputs = [ ecl-build geometry-msgs nav-msgs rcl-interfaces rclcpp rclcpp-components ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ ecl-build geometry-msgs nav-msgs rcl-interfaces rclcpp rclcpp-components ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto launch-testing launch-testing-ament-cmake launch-testing-ros ros2test ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-matplotlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "kobuki_velocity_smoother" = substituteSource {
@@ -45,6 +46,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Bound incoming velocity messages according to robot velocity and acceleration limits.";
+    description = "\n     Bound incoming velocity messages according to robot velocity and acceleration limits.\n  ";
   };
 })

@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ur_client_library";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ur_client_library" = substituteSource {
       src = fetchgit {

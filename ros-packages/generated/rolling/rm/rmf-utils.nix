@@ -14,6 +14,7 @@ buildCmakePackage (finalAttrs: {
   version = "1.7.0-1";
   src = finalAttrs.passthru.sources."rmf_utils";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   checkInputs = [ ament-cmake-catch2 ament-cmake-uncrustify ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_utils" = substituteSource {

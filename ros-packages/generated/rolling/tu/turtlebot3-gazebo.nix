@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_gazebo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs ros-gz-bridge ros-gz-image ros-gz-sim sensor-msgs tf2 ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp ros-gz-bridge ros-gz-image ros-gz-sim sensor-msgs tf2 ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp ros-gz-bridge ros-gz-image ros-gz-sim sensor-msgs tf2 ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_gazebo" = substituteSource {
       src = fetchgit {
@@ -35,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Gazebo simulation package for the TurtleBot3";
+    description = "\n    Gazebo simulation package for the TurtleBot3\n  ";
   };
 })

@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."nav2_minimal_tb3_sim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ robot-state-publisher ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ robot-state-publisher ros-gz-bridge ros-gz-image ros-gz-interfaces ros-gz-sim xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

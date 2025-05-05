@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ecl_eigen";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ecl_eigen" = substituteSource {
       src = fetchgit {
@@ -25,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This provides an Eigen implementation for ecl's linear algebra.";
+    description = "\n     This provides an Eigen implementation for ecl's linear algebra.\n  ";
   };
 })

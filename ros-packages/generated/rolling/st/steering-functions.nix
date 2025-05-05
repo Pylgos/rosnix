@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."steering_functions";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "steering_functions" = substituteSource {
       src = fetchgit {

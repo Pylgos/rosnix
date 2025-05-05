@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."zenoh_bridge_dds";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cargo" "clang" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cargo" "clang" ]; };
   passthru.sources = mkSourceSet (sources: {
     "zenoh_bridge_dds" = substituteSource {
       src = fetchgit {
@@ -25,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Bridge between ROS2/DDS and Eclipse zenoh (https://zenoh.io). It allows the integration of zenoh applications with ROS2, or the tunneling of ROS2 communications between nodes via the zenoh protocol at Internet scale.";
+    description = "\n    Bridge between ROS2/DDS and Eclipse zenoh (https://zenoh.io). It allows the integration of zenoh applications with ROS2,\n    or the tunneling of ROS2 communications between nodes via the zenoh protocol at Internet scale.\n  ";
   };
 })

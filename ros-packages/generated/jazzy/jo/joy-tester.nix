@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "joy_tester";
   version = "0.0.2-4";
   src = finalAttrs.passthru.sources."joy_tester";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tk" ]; };
+  propagatedNativeBuildInputs = [ rclpy sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-tk" ]; };
+  propagatedBuildInputs = [ rclpy sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tk" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "joy_tester" = substituteSource {

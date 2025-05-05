@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2001.1.0-5";
   src = finalAttrs.passthru.sources."avt_vimba_camera";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ camera-info-manager diagnostic-msgs diagnostic-updater image-proc image-transport message-filters rclcpp-components sensor-msgs std-msgs stereo-image-proc ];
+  propagatedNativeBuildInputs = [ camera-info-manager diagnostic-msgs diagnostic-updater image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs std-msgs stereo-image-proc ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ camera-info-manager diagnostic-msgs diagnostic-updater image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs std-msgs stereo-image-proc ];
   passthru.sources = mkSourceSet (sources: {
     "avt_vimba_camera" = substituteSource {
       src = fetchgit {

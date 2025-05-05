@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."leo_teleop";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ joy-linux teleop-twist-joy teleop-twist-keyboard ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joy-linux teleop-twist-joy teleop-twist-keyboard ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Scripts and launch files for Leo Rover teleoperation";
+    description = "\n    Scripts and launch files for Leo Rover teleoperation\n  ";
   };
 })

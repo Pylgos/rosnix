@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.0.7-2";
   src = finalAttrs.passthru.sources."odri_master_board_sdk";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libboost-python-dev" "python3" "python3-numpy" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "libboost-python-dev" "python3" "python3-numpy" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "git" "libboost-python-dev" "python3" "python3-numpy" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "catch2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "odri_master_board_sdk" = substituteSource {
@@ -26,6 +27,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This project contains the sdk for the communication between a computer and the master-board";
+    description = "\n        This project contains the sdk for the communication between a computer\n        and the master-board\n    ";
   };
 })

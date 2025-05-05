@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "1.0.1-2";
   src = finalAttrs.passthru.sources."sick_safevisionary_base";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sick_safevisionary_base" = substituteSource {
       src = fetchgit {

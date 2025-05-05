@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."crane_plus_description";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ gz-ros2-control joint-state-publisher-gui launch robot-state-publisher rviz2 xacro ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ gz-ros2-control joint-state-publisher-gui launch robot-state-publisher rviz2 xacro ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

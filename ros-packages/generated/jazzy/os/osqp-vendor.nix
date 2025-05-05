@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."osqp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
+  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
+  propagatedBuildInputs = [ ros-environment ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "osqp_vendor" = substituteSource {
@@ -44,6 +46,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around osqp that ships with a CMake module";
+    description = "\n    Wrapper around osqp that ships with a CMake module\n  ";
   };
 })

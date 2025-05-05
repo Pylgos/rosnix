@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."imu_complementary_filter";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs message-filters sensor-msgs std-msgs tf2 tf2-ros ];
+  propagatedNativeBuildInputs = [ geometry-msgs message-filters rclcpp sensor-msgs std-msgs tf2 tf2-ros ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs message-filters rclcpp sensor-msgs std-msgs tf2 tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "imu_complementary_filter" = substituteSource {
       src = fetchgit {

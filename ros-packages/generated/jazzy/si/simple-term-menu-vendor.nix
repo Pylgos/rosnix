@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.5.7-1";
   src = finalAttrs.passthru.sources."simple_term_menu_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "simple_term_menu_vendor" = substituteSource {

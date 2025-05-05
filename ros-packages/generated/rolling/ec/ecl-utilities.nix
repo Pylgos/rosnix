@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_utilities";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-concepts ecl-license ecl-mpl ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-concepts ecl-license ecl-mpl ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Includes various supporting tools and utilities for c++ programming.";
+    description = "\n     Includes various supporting tools and utilities for c++ programming.\n  ";
   };
 })

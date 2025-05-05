@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_statistics";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-license ecl-linear-algebra ecl-mpl ecl-type-traits ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-license ecl-linear-algebra ecl-mpl ecl-type-traits ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -35,6 +37,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Common statistical structures and algorithms for control systems.";
+    description = "\n     Common statistical structures and algorithms for control systems.\n  ";
   };
 })

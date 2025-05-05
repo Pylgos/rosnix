@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."octomap_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "octomap_msgs" = substituteSource {
       src = fetchgit {
@@ -30,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides messages and serializations / conversion for the";
+    description = "\n   This package provides messages and serializations / conversion for the ";
   };
 })

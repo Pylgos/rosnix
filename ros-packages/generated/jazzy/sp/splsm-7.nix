@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-4";
   src = finalAttrs.passthru.sources."splsm_7";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "splsm_7" = substituteSource {

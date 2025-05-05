@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_vision_3d_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime soccer-vision-attribute-msgs vision-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime soccer-vision-attribute-msgs vision-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime soccer-vision-attribute-msgs vision-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "soccer_vision_3d_msgs" = substituteSource {

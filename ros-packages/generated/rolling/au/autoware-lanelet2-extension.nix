@@ -29,8 +29,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.1-1";
   src = finalAttrs.passthru.sources."autoware_lanelet2_extension";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ autoware-map-msgs autoware-planning-msgs geometry-msgs lanelet2-core lanelet2-io lanelet2-maps lanelet2-projection lanelet2-routing lanelet2-traffic-rules lanelet2-validation tf2 tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" "pugixml-dev" "range-v3" ]; };
+  propagatedNativeBuildInputs = [ autoware-map-msgs autoware-planning-msgs geometry-msgs lanelet2-core lanelet2-io lanelet2-maps lanelet2-projection lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp tf2 tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" "pugixml-dev" "range-v3" ]; };
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ autoware-map-msgs autoware-planning-msgs geometry-msgs lanelet2-core lanelet2-io lanelet2-maps lanelet2-projection lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp tf2 tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" "pugixml-dev" "range-v3" ]; };
   checkInputs = [ ament-cmake-ros ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_lanelet2_extension" = substituteSource {

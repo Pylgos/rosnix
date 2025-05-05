@@ -14,8 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_demos_maps";
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."rmf_demos_maps";
-  nativeBuildInputs = [ ament-cmake ];
-  buildInputs = [ rmf-building-map-tools ros2run ];
+  nativeBuildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
+  buildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_demos_maps" = substituteSource {
       src = fetchgit {

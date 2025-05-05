@@ -27,6 +27,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against the Google style conventions using cpplint and generate xUnit test result files.";
+    description = "\n    The ability to check code against the Google style conventions using\n    cpplint and generate xUnit test result files.";
   };
 })

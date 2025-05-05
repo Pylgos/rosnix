@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ urdf ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ urdf ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_description" = substituteSource {
@@ -26,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "3D models of the TurtleBot3 for simulation and visualization";
+    description = "\n    3D models of the TurtleBot3 for simulation and visualization\n  ";
   };
 })

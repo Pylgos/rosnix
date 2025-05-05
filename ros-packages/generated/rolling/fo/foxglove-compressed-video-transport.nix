@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.2-1";
   src = finalAttrs.passthru.sources."foxglove_compressed_video_transport";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ ffmpeg-encoder-decoder foxglove-msgs image-transport pluginlib rcutils sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ ffmpeg-encoder-decoder foxglove-msgs image-transport pluginlib rclcpp rcutils sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
+  propagatedBuildInputs = [ ffmpeg-encoder-decoder foxglove-msgs image-transport pluginlib rclcpp rcutils sensor-msgs std-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "foxglove_compressed_video_transport" = substituteSource {
@@ -40,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "foxglove_compressed_video_transport provides a plugin to image_transport for transparently sending an image stream encoded in foxglove compressed video packets.";
+    description = "\n    foxglove_compressed_video_transport provides a plugin to image_transport for\n    transparently sending an image stream encoded in foxglove compressed video packets.\n  ";
   };
 })

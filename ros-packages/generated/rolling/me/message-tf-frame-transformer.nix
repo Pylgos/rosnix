@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."message_tf_frame_transformer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ros-environment ];
-  propagatedBuildInputs = [ geometry-msgs sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "message_tf_frame_transformer" = substituteSource {
       src = fetchgit {

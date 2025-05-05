@@ -28,6 +28,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against style conventions using clang-tidy and generate xUnit test result files.";
+    description = "\n    The ability to check code against style conventions using\n    clang-tidy and generate xUnit test result files.";
   };
 })

@@ -43,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around pybind11.";
+    description = "\n    Wrapper around pybind11.\n  ";
   };
 })

@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly_follow";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs sensor-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dolly_follow" = substituteSource {
@@ -32,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Follow node for Dolly, the robot sheep.";
+    description = "\n    Follow node for Dolly, the robot sheep.\n  ";
   };
 })

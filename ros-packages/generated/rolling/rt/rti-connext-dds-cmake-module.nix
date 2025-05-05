@@ -14,8 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rti_connext_dds_cmake_module";
   version = "1.2.0-2";
   src = finalAttrs.passthru.sources."rti_connext_dds_cmake_module";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "rti-connext-dds-7.3.0" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "rti-connext-dds-7.3.0" ]; };
+  propagatedBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rti-connext-dds-7.3.0" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rti_connext_dds_cmake_module" = substituteSource {

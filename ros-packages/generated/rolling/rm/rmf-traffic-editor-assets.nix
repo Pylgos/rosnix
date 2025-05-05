@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.11.0-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor_assets";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic_editor_assets" = substituteSource {
       src = fetchgit {

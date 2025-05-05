@@ -27,8 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.3-1";
   src = finalAttrs.passthru.sources."diagnostic_aggregator";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ diagnostic-msgs pluginlib rcl-interfaces std-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs pluginlib rcl-interfaces rclcpp rclpy std-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ diagnostic-msgs pluginlib rcl-interfaces rclcpp rclpy std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch-pytest launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "diagnostic_aggregator" = substituteSource {

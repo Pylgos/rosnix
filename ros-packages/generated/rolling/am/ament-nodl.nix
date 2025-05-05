@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-6";
   src = finalAttrs.passthru.sources."ament_nodl";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ament_nodl" = substituteSource {

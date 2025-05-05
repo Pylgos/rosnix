@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-2";
   src = finalAttrs.passthru.sources."robotiq_controllers";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ controller-interface std-srvs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-interface std-srvs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

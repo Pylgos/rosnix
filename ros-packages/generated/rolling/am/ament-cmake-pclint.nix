@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_pclint";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pclint ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ament-pclint ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_pclint" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_pclint to perform static code analysis on C/C++ code using PC-lint.";
+    description = "\n    The CMake API for ament_pclint to perform static code analysis on C/C++\n    code using PC-lint.\n  ";
   };
 })

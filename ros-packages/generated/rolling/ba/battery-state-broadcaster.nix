@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."battery_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ controller-interface pluginlib realtime-tools sensor-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-interface pluginlib realtime-tools sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "battery_state_broadcaster" = substituteSource {

@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."event_camera_msgs";
   nativeBuildInputs = [ ament-cmake ros-environment ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ros-environment ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "event_camera_msgs" = substituteSource {

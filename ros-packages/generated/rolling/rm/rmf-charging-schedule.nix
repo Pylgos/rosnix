@@ -13,8 +13,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_charging_schedule";
   version = "2.9.0-1";
   src = finalAttrs.passthru.sources."rmf_charging_schedule";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ rmf-fleet-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-icecream" ]; };
+  propagatedNativeBuildInputs = [ rclpy rmf-fleet-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-icecream" ]; };
+  propagatedBuildInputs = [ rclpy rmf-fleet-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-icecream" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rmf_charging_schedule" = substituteSource {
       src = fetchgit {

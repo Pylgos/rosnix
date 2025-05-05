@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.42.0-1";
   src = finalAttrs.passthru.sources."tf2_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp-action rclcpp-components tf2 tf2-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp rclcpp-action rclcpp-components tf2 tf2-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp rclcpp-action rclcpp-components tf2 tf2-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rosgraph-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "tf2_ros" = substituteSource {
@@ -40,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package contains the C++ ROS bindings for the tf2 library";
+    description = "\n    This package contains the C++ ROS bindings for the tf2 library\n  ";
   };
 })

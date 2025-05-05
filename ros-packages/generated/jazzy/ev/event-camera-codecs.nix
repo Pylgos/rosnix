@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.5-1";
   src = finalAttrs.passthru.sources."event_camera_codecs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ class-loader event-camera-msgs ];
+  propagatedNativeBuildInputs = [ class-loader event-camera-msgs ros-environment ];
+  buildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
+  propagatedBuildInputs = [ class-loader event-camera-msgs ros-environment ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-gtest ament-lint-auto ament-lint-common rclcpp rosbag2-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "event_camera_codecs" = substituteSource {

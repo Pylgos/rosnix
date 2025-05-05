@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_math";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-license ecl-type-traits ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-license ecl-type-traits ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides simple support to cmath, filling in holes or redefining in a c++ formulation where desirable.";
+    description = "\n    This package provides simple support to cmath, filling in holes\n    or redefining in a c++ formulation where desirable.\n  ";
   };
 })

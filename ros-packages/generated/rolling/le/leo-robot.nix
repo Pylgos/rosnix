@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.1-1";
   src = finalAttrs.passthru.sources."leo_robot";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ leo leo-bringup leo-filters leo-fw ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo leo-bringup leo-filters leo-fw ];
   passthru.sources = mkSourceSet (sources: {
     "leo_robot" = substituteSource {

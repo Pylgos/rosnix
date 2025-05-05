@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_octomap";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ grid-map-cmake-helpers grid-map-core octomap ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ grid-map-cmake-helpers grid-map-core octomap ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

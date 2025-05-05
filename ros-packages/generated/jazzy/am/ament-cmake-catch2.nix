@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_catch2";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_catch2" = substituteSource {
       src = fetchgit {

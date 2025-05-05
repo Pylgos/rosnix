@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."battery_state_rviz_overlay";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
-  propagatedBuildInputs = [ rviz-2d-overlay-msgs sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rviz-2d-overlay-msgs sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rviz-2d-overlay-msgs sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   passthru.sources = mkSourceSet (sources: {
     "battery_state_rviz_overlay" = substituteSource {
       src = fetchgit {

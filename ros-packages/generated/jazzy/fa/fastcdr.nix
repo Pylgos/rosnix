@@ -14,6 +14,7 @@ buildCmakePackage (finalAttrs: {
   version = "2.2.5-1";
   src = finalAttrs.passthru.sources."fastcdr";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   checkInputs = [ ament-cmake ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "fastcdr" = substituteSource {
@@ -26,6 +27,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "*eProsima Fast CDR* is a C++ serialization library implementing the Common Data Representation (CDR) mechanism defined by the Object Management Group (OMG) consortium. CDR is the serialization mechanism used in DDS for the DDS Interoperability Wire Protocol (DDSI-RTPS).";
+    description = "\n    *eProsima Fast CDR* is a C++ serialization library implementing the Common Data Representation (CDR) mechanism defined by the Object Management Group (OMG) consortium. CDR is the serialization mechanism used in DDS for the DDS Interoperability Wire Protocol (DDSI-RTPS).\n  ";
   };
 })

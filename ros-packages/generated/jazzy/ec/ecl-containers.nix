@@ -26,6 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_containers";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-converters ecl-errors ecl-exceptions ecl-formatters ecl-license ecl-mpl ecl-type-traits ecl-utilities ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-converters ecl-errors ecl-exceptions ecl-formatters ecl-license ecl-mpl ecl-type-traits ecl-utilities ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -39,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The containers included here are intended to extend the stl containers. In all cases, these implementations are designed to implement c++ conveniences and safety where speed is not sacrificed. Also includes techniques for memory debugging of common problems such as buffer overruns.";
+    description = "\n    The containers included here are intended to extend the stl containers.\n    In all cases, these implementations are designed to implement\n    c++ conveniences and safety where speed is not sacrificed.\n\n    Also includes techniques for memory debugging of common problems such\n    as buffer overruns.\n  ";
   };
 })

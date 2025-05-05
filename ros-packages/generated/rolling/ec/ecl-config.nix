@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."ecl_config";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-license ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "These tools inspect and describe your system with macros, types and functions.";
+    description = "\n     These tools inspect and describe your system with macros, types\n     and functions.\n  ";
   };
 })

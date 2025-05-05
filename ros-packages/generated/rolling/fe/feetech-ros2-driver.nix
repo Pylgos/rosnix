@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-2";
   src = finalAttrs.passthru.sources."feetech_ros2_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "pkg-config" ]; };
-  propagatedBuildInputs = [ hardware-interface pluginlib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libserial-dev" "range-v3" "spdlog" ]; };
+  propagatedNativeBuildInputs = [ hardware-interface pluginlib rclcpp tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libserial-dev" "pkg-config" "range-v3" "spdlog" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ hardware-interface pluginlib rclcpp tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libserial-dev" "pkg-config" "range-v3" "spdlog" ]; };
   passthru.sources = mkSourceSet (sources: {
     "feetech_ros2_driver" = substituteSource {
       src = fetchgit {

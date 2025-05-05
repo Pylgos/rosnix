@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."marine_acoustic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "marine_acoustic_msgs" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The marine_acoustic_msgs package, including messages for common underwater sensors (DVL, multibeam sonar, imaging sonar)";
+    description = "The marine_acoustic_msgs package, including messages for common\n  underwater sensors (DVL, multibeam sonar, imaging sonar)\n  ";
   };
 })

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."zenoh_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cargo" "clang" "git" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cargo" "clang" "git" ]; };
   passthru.sources = mkSourceSet (sources: {
     "zenoh_cpp_vendor" = substituteSource {
       src = fetchgit {

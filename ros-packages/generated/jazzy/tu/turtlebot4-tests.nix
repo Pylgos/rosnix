@@ -18,6 +18,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot4_tests";
   version = "2.0.1-2";
   src = finalAttrs.passthru.sources."turtlebot4_tests";
+  propagatedNativeBuildInputs = [ irobot-create-msgs sensor-msgs std-msgs turtlebot4-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-psutil" ]; };
   propagatedBuildInputs = [ irobot-create-msgs sensor-msgs std-msgs turtlebot4-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-psutil" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

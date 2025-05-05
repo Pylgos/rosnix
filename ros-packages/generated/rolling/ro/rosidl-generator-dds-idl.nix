@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_generator_dds_idl";
   version = "0.13.0-1";
   src = finalAttrs.passthru.sources."rosidl_generator_dds_idl";
-  propagatedNativeBuildInputs = [ ament-cmake rosidl-cli rosidl-pycommon ];
-  propagatedBuildInputs = [ ament-index-python ];
+  propagatedNativeBuildInputs = [ ament-cmake ament-index-python rosidl-cli rosidl-pycommon ];
+  propagatedBuildInputs = [ ament-cmake ament-index-python rosidl-cli rosidl-pycommon ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_generator_dds_idl" = substituteSource {

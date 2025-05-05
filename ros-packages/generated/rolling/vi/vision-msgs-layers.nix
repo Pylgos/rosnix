@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.0-3";
   src = finalAttrs.passthru.sources."vision_msgs_layers";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ rqt-image-overlay-layer vision-msgs ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ rqt-image-overlay-layer vision-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

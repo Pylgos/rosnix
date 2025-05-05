@@ -20,6 +20,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2launch_security";
   version = "1.0.0-4";
   src = finalAttrs.passthru.sources."ros2launch_security";
+  propagatedNativeBuildInputs = [ ament-index-python nodl-python ros2launch sros2 ];
   propagatedBuildInputs = [ ament-index-python nodl-python ros2launch sros2 ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 demo-nodes-py launch-ros ros2launch sros2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

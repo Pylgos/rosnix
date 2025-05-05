@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."hebi_cpp_api";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "hebi_cpp_api" = substituteSource {
       src = fetchgit {

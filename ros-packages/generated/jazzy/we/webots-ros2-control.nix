@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ros-environment ];
-  propagatedBuildInputs = [ controller-manager hardware-interface pluginlib webots-ros2-driver ];
+  propagatedNativeBuildInputs = [ controller-manager hardware-interface pluginlib rclcpp rclcpp-lifecycle ros-environment webots-ros2-driver ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ controller-manager hardware-interface pluginlib rclcpp rclcpp-lifecycle ros-environment webots-ros2-driver ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_control" = substituteSource {

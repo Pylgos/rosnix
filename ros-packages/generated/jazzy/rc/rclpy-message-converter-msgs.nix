@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-4";
   src = finalAttrs.passthru.sources."rclpy_message_converter_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators ];
   passthru.sources = mkSourceSet (sources: {
     "rclpy_message_converter_msgs" = substituteSource {
       src = fetchgit {

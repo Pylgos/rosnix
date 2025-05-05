@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.6-1";
   src = finalAttrs.passthru.sources."gz_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gz-tools2" "ruby" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-tools2" "ruby" ]; };
+  buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-tools2" "ruby" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_tools_vendor" = substituteSource {
@@ -48,6 +49,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Vendor package for: gz-tools2 2.0.2 Gazebo Tools: Entrypoint to Gazebo's command line interface";
+    description = "\n    Vendor package for: gz-tools2 2.0.2\n\n    Gazebo Tools: Entrypoint to Gazebo's command line interface\n  ";
   };
 })

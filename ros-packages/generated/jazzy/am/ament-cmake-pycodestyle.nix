@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_pycodestyle";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pycodestyle ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ament-pycodestyle ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_pycodestyle" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_pycodestyle to check code against the style conventions in PEP 8.";
+    description = "\n    The CMake API for ament_pycodestyle to check code against the style conventions in\n    PEP 8.\n  ";
   };
 })

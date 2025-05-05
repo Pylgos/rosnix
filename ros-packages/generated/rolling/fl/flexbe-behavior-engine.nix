@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_behavior_engine";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ flexbe-core flexbe-input flexbe-mirror flexbe-msgs flexbe-onboard flexbe-states flexbe-testing flexbe-widget ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ flexbe-core flexbe-input flexbe-mirror flexbe-msgs flexbe-onboard flexbe-states flexbe-testing flexbe-widget ];
   passthru.sources = mkSourceSet (sources: {
     "flexbe_behavior_engine" = substituteSource {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A meta-package to aggregate all the FlexBE packages";
+    description = "\n    A meta-package to aggregate all the FlexBE packages\n  ";
   };
 })

@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-2";
   src = finalAttrs.passthru.sources."urdf_tutorial";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ urdf-launch ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ urdf-launch ];
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {

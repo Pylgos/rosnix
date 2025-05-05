@@ -16,10 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.9.0-1";
   src = finalAttrs.passthru.sources."launch_testing_ament_cmake";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-test ];
+  propagatedNativeBuildInputs = [ ament-cmake-test launch-testing ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-test ];
-  depsTargetTargetPropagated = [ launch-testing ];
+  propagatedBuildInputs = [ ament-cmake-test launch-testing ];
   checkInputs = [ ament-cmake-copyright launch-testing ];
   passthru.sources = mkSourceSet (sources: {
     "launch_testing_ament_cmake" = substituteSource {

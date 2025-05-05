@@ -29,6 +29,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against style conventions using clang-format and generate xUnit test result files.";
+    description = "\n    The ability to check code against style conventions using\n    clang-format and generate xUnit test result files.";
   };
 })

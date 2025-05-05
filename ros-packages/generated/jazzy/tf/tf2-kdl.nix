@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.36.10-1";
   src = finalAttrs.passthru.sources."tf2_kdl";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs orocos-kdl-vendor python-orocos-kdl-vendor tf2 tf2-ros tf2-ros-py ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs orocos-kdl-vendor python-orocos-kdl-vendor tf2 tf2-ros tf2-ros-py ];
   checkInputs = [ ament-cmake-gtest rclcpp ];
   passthru.sources = mkSourceSet (sources: {
@@ -35,6 +37,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "KDL binding for tf2";
+    description = "\n    KDL binding for tf2\n  ";
   };
 })

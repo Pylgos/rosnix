@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."moveit_resources_panda_description";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_panda_description" = substituteSource {
       src = fetchgit {

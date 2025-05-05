@@ -17,6 +17,7 @@ buildCatkinPackage (finalAttrs: {
   version = "1.0.3-3";
   src = finalAttrs.passthru.sources."sick_safevisionary_tests";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ launch launch-ros launch-testing-ament-cmake sick-safevisionary-driver ];
   passthru.sources = mkSourceSet (sources: {
     "sick_safevisionary_tests" = substituteSource {

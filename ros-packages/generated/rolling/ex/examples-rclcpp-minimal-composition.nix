@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_composition";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_minimal_composition" = substituteSource {
@@ -32,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Minimalist examples of composing nodes in the same process";
+    description = "Minimalist examples of composing nodes in the same\n  process";
   };
 })

@@ -13,6 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.3-4";
   src = finalAttrs.passthru.sources."qpoases_vendor";
   nativeBuildInputs = [ ament-cmake-auto ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "subversion" ]; };
+  buildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "subversion" ]; };
   passthru.sources = mkSourceSet (sources: {
     "qpoases_vendor" = substituteSource {
@@ -25,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around qpOASES to make it available to the ROS ecosystem.";
+    description = "\n    Wrapper around qpOASES to make it available to the ROS ecosystem.\n  ";
   };
 })

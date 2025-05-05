@@ -17,6 +17,8 @@ buildCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."foonathan_memory_vendor";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-test ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "foonathan_memory_vendor" = substituteSource {

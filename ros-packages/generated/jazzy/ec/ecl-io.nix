@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_io";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_io" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Most implementations (windows, posix, ...) have slightly different api for low level input-output functions. These are gathered here and re-represented with a cross platform set of functions.";
+    description = "\n     Most implementations (windows, posix, ...) have slightly different api for\n     low level input-output functions. These are gathered here and re-represented\n     with a cross platform set of functions.\n  ";
   };
 })

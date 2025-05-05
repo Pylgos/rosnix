@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.1-1";
   src = finalAttrs.passthru.sources."rmw_stats_shim";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rosgraph-monitor-msgs rosidl-runtime-cpp rosidl-typesupport-cpp ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rosgraph-monitor-msgs rosidl-runtime-cpp rosidl-typesupport-cpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."clearpath_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_common" = substituteSource {

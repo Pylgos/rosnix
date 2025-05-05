@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."clearpath_offboard_sensors";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ image-transport image-transport-plugins velodyne-pointcloud ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-transport image-transport-plugins velodyne-pointcloud ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_offboard_sensors" = substituteSource {

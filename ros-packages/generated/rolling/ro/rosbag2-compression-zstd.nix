@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_compression_zstd";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ pluginlib rcutils rosbag2-compression zstd-vendor ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ pluginlib rcutils rosbag2-compression zstd-vendor ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common rclcpp rosbag2-test-common ];
   passthru.sources = mkSourceSet (sources: {

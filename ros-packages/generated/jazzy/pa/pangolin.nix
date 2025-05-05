@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "0.9.3-1";
   src = finalAttrs.passthru.sources."pangolin";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-dev" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-wheel" "wayland" "wayland-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "catch2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pangolin" = substituteSource {

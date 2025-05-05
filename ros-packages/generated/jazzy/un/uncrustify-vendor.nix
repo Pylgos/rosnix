@@ -43,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around uncrustify, providing nothing but a dependency on uncrustify, on some systems. On others, it provides an ExternalProject build of uncrustify.";
+    description = "\n    Wrapper around uncrustify, providing nothing but a dependency on uncrustify, on some systems.\n    On others, it provides an ExternalProject build of uncrustify.\n  ";
   };
 })

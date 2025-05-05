@@ -29,8 +29,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.24.0-1";
   src = finalAttrs.passthru.sources."imu_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ backward-ros controller-interface hardware-interface pluginlib realtime-tools ros2-control-cmake sensor-msgs ];
+  propagatedNativeBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "imu_sensor_broadcaster" = substituteSource {

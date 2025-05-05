@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.1-3";
   src = finalAttrs.passthru.sources."vision_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for interfacing with various computer vision pipelines, such as object detectors.";
+    description = "\n    Messages for interfacing with various computer vision pipelines, such as\n    object detectors.\n  ";
   };
 })

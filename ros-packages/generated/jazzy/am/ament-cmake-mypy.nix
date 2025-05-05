@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_mypy";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-mypy ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-test ament-mypy ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_mypy" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_mypy to perform static type analysis on python code with mypy.";
+    description = "\n    The CMake API for ament_mypy to perform static type analysis on python code\n    with mypy.\n  ";
   };
 })

@@ -11,8 +11,8 @@ buildCmakePackage (finalAttrs: {
   pname = "libcaer";
   version = "1.0.2-2";
   src = finalAttrs.passthru.sources."libcaer";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "libusb-1.0-dev" "pkg-config" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "libusb-1.0-dev" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libcaer" = substituteSource {
       src = fetchgit {

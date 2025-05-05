@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "0.10.5-2";
   src = finalAttrs.passthru.sources."rc_dynamics_api";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "protobuf" "protobuf-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "protobuf" "protobuf-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "curl" "protobuf" "protobuf-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rc_dynamics_api" = substituteSource {
       src = fetchgit {
@@ -25,6 +26,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The rc_dynamics_api provides an API for easy handling of the dynamic-state data streams provided by Roboception's stereo camera with self-localization. See http://rc-visard.com Dynamic-state estimates of the rc_visard relate to its self-localization and ego-motion estimation. These states refer to rc_visard's current pose, velocity, or acceleration and are published on demand via several data streams. For a complete list and descriptions of these dynamics states and the respective data streams please refer to rc_visard's user manual.";
+    description = "\n      The rc_dynamics_api provides an API for easy handling of the dynamic-state data\n      streams provided by Roboception's stereo camera with self-localization.\n      See http://rc-visard.com\n\n      Dynamic-state estimates of the rc_visard relate to its self-localization and\n      ego-motion estimation. These states refer to rc_visard's current pose,\n      velocity, or acceleration and are published on demand via several data streams.\n      For a complete list and descriptions of these dynamics states and the\n      respective data streams please refer to rc_visard's user manual.\n    ";
   };
 })

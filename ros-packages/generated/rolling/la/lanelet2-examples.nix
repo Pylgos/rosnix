@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-6";
   src = finalAttrs.passthru.sources."lanelet2_examples";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
-  propagatedBuildInputs = [ lanelet2-core lanelet2-io lanelet2-matching lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules ros2cli ];
+  propagatedNativeBuildInputs = [ lanelet2-core lanelet2-io lanelet2-matching lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules mrt-cmake-modules ros2cli ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ lanelet2-core lanelet2-io lanelet2-matching lanelet2-projection lanelet2-python lanelet2-routing lanelet2-traffic-rules mrt-cmake-modules ros2cli ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_examples" = substituteSource {

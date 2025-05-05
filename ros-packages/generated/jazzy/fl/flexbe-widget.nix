@@ -23,8 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_widget";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ flexbe-core flexbe-mirror flexbe-msgs flexbe-onboard launch-ros ];
+  propagatedNativeBuildInputs = [ flexbe-core flexbe-mirror flexbe-msgs flexbe-onboard launch-ros rclpy ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ flexbe-core flexbe-mirror flexbe-msgs flexbe-onboard launch-ros rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_widget" = substituteSource {
@@ -37,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "flexbe_widget implements some smaller scripts for the behavior engine.";
+    description = "\n        flexbe_widget implements some smaller scripts for the behavior engine.\n    ";
   };
 })

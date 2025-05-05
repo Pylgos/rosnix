@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.3-5";
   src = finalAttrs.passthru.sources."ecl_tools";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-license ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ecl-build ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_tools" = substituteSource {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Tools and utilities for ecl development.";
+    description = "\n    Tools and utilities for ecl development.\n  ";
   };
 })

@@ -12,6 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "0.7.0-1";
   src = finalAttrs.passthru.sources."google_benchmark_vendor";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "git" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" ]; };
   passthru.sources = mkSourceSet (sources: {
     "google_benchmark_vendor" = substituteSource {

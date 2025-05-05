@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.22.9102-2";
   src = finalAttrs.passthru.sources."sophus";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" "libceres-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" "libceres-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sophus" = substituteSource {
       src = fetchgit {
@@ -40,6 +41,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "C++ implementation of Lie Groups using Eigen.";
+    description = "\n   C++ implementation of Lie Groups using Eigen.\n  ";
   };
 })

@@ -26,6 +26,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to lint CMake code using cmakelint and generate xUnit test result files.";
+    description = "\n    The ability to lint CMake code using cmakelint and generate xUnit test\n    result files.\n  ";
   };
 })

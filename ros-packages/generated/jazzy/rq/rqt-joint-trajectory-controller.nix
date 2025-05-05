@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "4.24.0-1";
   src = finalAttrs.passthru.sources."rqt_joint_trajectory_controller";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
-  propagatedBuildInputs = [ control-msgs controller-manager-msgs python-qt-binding qt-gui rqt-gui rqt-gui-py trajectory-msgs ];
+  propagatedNativeBuildInputs = [ control-msgs controller-manager-msgs python-qt-binding qt-gui rclpy rqt-gui rqt-gui-py trajectory-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
+  propagatedBuildInputs = [ control-msgs controller-manager-msgs python-qt-binding qt-gui rclpy rqt-gui rqt-gui-py trajectory-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_joint_trajectory_controller" = substituteSource {
       src = fetchgit {

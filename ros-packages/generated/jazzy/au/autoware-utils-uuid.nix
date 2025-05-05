@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_uuid";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedNativeBuildInputs = [ unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" ]; };
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedBuildInputs = [ unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" ]; };
   checkInputs = [ ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {

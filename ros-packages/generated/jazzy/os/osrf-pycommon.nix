@@ -12,6 +12,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2.1.6-1";
   src = finalAttrs.passthru.sources."osrf_pycommon";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-importlib-metadata" ]; };
   passthru.sources = mkSourceSet (sources: {
     "osrf_pycommon" = substituteSource {
       src = fetchgit {

@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."ur_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
   checkInputs = [ ament-cmake-pytest launch-testing-ament-cmake launch-testing-ros xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-tools" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -37,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "URDF description for Universal Robots";
+    description = "\n    URDF description for Universal Robots\n  ";
   };
 })

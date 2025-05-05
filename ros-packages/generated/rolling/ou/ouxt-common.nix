@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.8-4";
   src = finalAttrs.passthru.sources."ouxt_common";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ouxt-lint-common ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ouxt_common" = substituteSource {

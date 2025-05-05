@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_dwb_controller";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ costmap-queue dwb-core dwb-critics dwb-msgs dwb-plugins nav-2d-msgs nav-2d-utils ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ costmap-queue dwb-core dwb-critics dwb-msgs dwb-plugins nav-2d-msgs nav-2d-utils ];
   passthru.sources = mkSourceSet (sources: {
     "nav2_dwb_controller" = substituteSource {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS2 controller (DWB) metapackage";
+    description = "\n    ROS2 controller (DWB) metapackage\n  ";
   };
 })

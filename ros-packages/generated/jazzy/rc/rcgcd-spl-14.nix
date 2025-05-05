@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."rcgcd_spl_14";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rcgcd_spl_14" = substituteSource {

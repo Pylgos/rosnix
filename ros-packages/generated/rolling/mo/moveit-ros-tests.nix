@@ -31,8 +31,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_ros_tests";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ moveit-common ];
+  propagatedNativeBuildInputs = [ moveit-common rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ moveit-common rclcpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto moveit-configs-utils moveit-core moveit-planners-chomp moveit-planners-ompl moveit-planners-stomp moveit-resources-panda-moveit-config moveit-ros-move-group moveit-ros-planning moveit-ros-planning-interface moveit-simple-controller-manager pilz-industrial-motion-planner ros-testing tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_ros_tests" = substituteSource {

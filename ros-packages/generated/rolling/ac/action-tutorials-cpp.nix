@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."action_tutorials_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ example-interfaces rclcpp-action rclcpp-components ];
+  propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-action rclcpp-components ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-action rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "action_tutorials_cpp" = substituteSource {

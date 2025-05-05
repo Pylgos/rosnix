@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.3-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk_examples";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces ];
+  propagatedNativeBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces rclcpp rclpy ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ dynamixel-sdk dynamixel-sdk-custom-interfaces rclcpp rclpy ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_sdk_examples" = substituteSource {

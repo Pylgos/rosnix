@@ -28,8 +28,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.0-5";
   src = finalAttrs.passthru.sources."system_modes_examples";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ launch launch-system-modes ros2launch system-modes system-modes-msgs ];
+  propagatedNativeBuildInputs = [ launch launch-system-modes rclcpp rclcpp-lifecycle ros2launch system-modes system-modes-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ launch launch-system-modes rclcpp rclcpp-lifecycle ros2launch system-modes system-modes-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-gmock ament-cmake-gtest ament-cmake-pep257 ament-cmake-uncrustify ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "system_modes_examples" = substituteSource {
@@ -42,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Example systems and according launch files for the system_modes package.";
+    description = "\n    Example systems and according launch files for the system_modes\n    package.\n  ";
   };
 })

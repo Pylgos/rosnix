@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.6.0-1";
   src = finalAttrs.passthru.sources."moveit_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs geometry-msgs object-recognition-msgs octomap-msgs rosidl-default-runtime sensor-msgs shape-msgs std-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs geometry-msgs object-recognition-msgs octomap-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs trajectory-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs geometry-msgs object-recognition-msgs octomap-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs trajectory-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_msgs" = substituteSource {

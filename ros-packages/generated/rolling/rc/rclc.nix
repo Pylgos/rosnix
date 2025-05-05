@@ -29,8 +29,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.2.0-1";
   src = finalAttrs.passthru.sources."rclc";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcl rcl-action rosidl-generator-c ];
-  propagatedBuildInputs = [ rcutils rosidl-typesupport-c ];
+  propagatedNativeBuildInputs = [ rcl rcl-action rcutils rosidl-generator-c rosidl-typesupport-c ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rcl rcl-action rcutils rosidl-generator-c rosidl-typesupport-c ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces launch-testing osrf-testing-tools-cpp rclcpp rclcpp-action std-msgs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclc" = substituteSource {

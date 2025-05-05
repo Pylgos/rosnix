@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.13.3-1";
   src = finalAttrs.passthru.sources."sros2_cmake";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-test ];
-  propagatedBuildInputs = [ ros2cli sros2 ];
+  propagatedNativeBuildInputs = [ ament-cmake-test ros2cli sros2 ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-test ros2cli sros2 ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "sros2_cmake" = substituteSource {

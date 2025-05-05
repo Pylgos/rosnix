@@ -23,8 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-2";
   src = finalAttrs.passthru.sources."turtlebot4_base";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ irobot-create-msgs rclcpp-action rcutils sensor-msgs std-msgs turtlebot4-msgs turtlebot4-node ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgpiod-dev" ]; };
+  propagatedNativeBuildInputs = [ irobot-create-msgs rclcpp rclcpp-action rcutils sensor-msgs std-msgs turtlebot4-msgs turtlebot4-node ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgpiod-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ irobot-create-msgs rclcpp rclcpp-action rcutils sensor-msgs std-msgs turtlebot4-msgs turtlebot4-node ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgpiod-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot4_base" = substituteSource {

@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.11.6-1";
   src = finalAttrs.passthru.sources."message_filters";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ builtin-interfaces rcutils std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rclcpp rclpy rcutils std-msgs ];
+  buildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ];
+  propagatedBuildInputs = [ builtin-interfaces rclcpp rclpy rcutils std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto rclcpp-lifecycle sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "message_filters" = substituteSource {
@@ -39,6 +40,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A set of ROS 2 message filters which take in messages and may output those messages at a later time, based on the conditions that filter needs met.";
+    description = "\n    A set of ROS 2 message filters which take in messages and may output those messages at a later time, based on the conditions that filter needs met.\n  ";
   };
 })

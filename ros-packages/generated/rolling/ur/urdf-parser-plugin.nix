@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.0-1";
   src = finalAttrs.passthru.sources."urdf_parser_plugin";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ urdfdom-headers ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ urdfdom-headers ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package contains a C++ base class for URDF parsers.";
+    description = "\n    This package contains a C++ base class for URDF parsers.\n  ";
   };
 })

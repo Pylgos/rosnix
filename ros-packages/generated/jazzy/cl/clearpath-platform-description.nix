@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."clearpath_platform_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ robot-state-publisher urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ robot-state-publisher urdf xacro ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_platform_description" = substituteSource {

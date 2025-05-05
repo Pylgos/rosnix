@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.1-1";
   src = finalAttrs.passthru.sources."ur_dashboard_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "ur_dashboard_msgs" = substituteSource {
       src = fetchgit {

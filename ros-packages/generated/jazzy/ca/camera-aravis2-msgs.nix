@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."camera_aravis2_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "camera_aravis2_msgs" = substituteSource {
       src = fetchgit {

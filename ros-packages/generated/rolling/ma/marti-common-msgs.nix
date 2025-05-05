@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.6.1-1";
   src = finalAttrs.passthru.sources."marti_common_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "marti_common_msgs" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "marti_common_msgs";
+    description = "\n\n     marti_common_msgs\n\n  ";
   };
 })

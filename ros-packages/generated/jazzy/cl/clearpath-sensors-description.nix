@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."clearpath_sensors_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ axis-description microstrain-inertial-description realsense2-description velodyne-description ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ axis-description microstrain-inertial-description realsense2-description velodyne-description ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_sensors_description" = substituteSource {

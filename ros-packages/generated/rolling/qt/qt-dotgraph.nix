@@ -18,6 +18,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2.10.0-1";
   src = finalAttrs.passthru.sources."qt_dotgraph";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pydot" "python3-pygraphviz" ]; };
   propagatedBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pydot" "python3-pygraphviz" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +32,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "qt_dotgraph provides helpers to work with dot graphs.";
+    description = "\n    qt_dotgraph provides helpers to work with dot graphs.\n  ";
   };
 })

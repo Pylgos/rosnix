@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "game_controller_spl";
   version = "5.0.0-2";
   src = finalAttrs.passthru.sources."game_controller_spl";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ game-controller-spl-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
+  propagatedNativeBuildInputs = [ game-controller-spl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-construct" ]; };
+  propagatedBuildInputs = [ game-controller-spl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "game_controller_spl" = substituteSource {

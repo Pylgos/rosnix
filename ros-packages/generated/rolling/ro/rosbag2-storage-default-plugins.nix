@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_storage_default_plugins";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rosbag2-storage-mcap rosbag2-storage-sqlite3 ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rosbag2-storage-mcap rosbag2-storage-sqlite3 ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_storage_default_plugins" = substituteSource {

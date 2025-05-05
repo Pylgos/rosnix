@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_playground";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ moveit-ros-planning-interface ];
+  propagatedNativeBuildInputs = [ moveit-ros-planning-interface rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ moveit-ros-planning-interface rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_playground" = substituteSource {
       src = fetchgit {
@@ -29,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides an example for utilizing the MoveIt API with the OpenMANIPULATOR-X, allowing users to practice and experiment freely.";
+    description = "\n    This package provides an example for utilizing the MoveIt API with the OpenMANIPULATOR-X,\n    allowing users to practice and experiment freely.\n  ";
   };
 })

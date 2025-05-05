@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.5-1";
   src = finalAttrs.passthru.sources."rqt_tf_tree";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ python-qt-binding qt-dotgraph rqt-graph rqt-gui rqt-gui-py tf2-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ python-qt-binding qt-dotgraph rclpy rqt-graph rqt-gui rqt-gui-py tf2-msgs tf2-ros ];
+  propagatedBuildInputs = [ python-qt-binding qt-dotgraph rclpy rqt-graph rqt-gui rqt-gui-py tf2-msgs tf2-ros ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-mock" "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_tf_tree" = substituteSource {

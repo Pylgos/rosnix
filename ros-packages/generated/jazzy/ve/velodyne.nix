@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ velodyne-driver velodyne-laserscan velodyne-msgs velodyne-pointcloud ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ velodyne-driver velodyne-laserscan velodyne-msgs velodyne-pointcloud ];
   passthru.sources = mkSourceSet (sources: {
     "velodyne" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Basic ROS support for the Velodyne 3D LIDARs.";
+    description = "\n    Basic ROS support for the Velodyne 3D LIDARs.\n  ";
   };
 })

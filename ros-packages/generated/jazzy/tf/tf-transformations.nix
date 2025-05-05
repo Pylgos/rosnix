@@ -13,8 +13,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "tf_transformations";
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."tf_transformations";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-transforms3d" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-transforms3d" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-transforms3d" ]; };
   checkInputs = [ ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tf_transformations" = substituteSource {
@@ -27,6 +27,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Reimplementation of the tf/transformations.py library for common Python spatial operations";
+    description = "\n      Reimplementation of the tf/transformations.py library for common Python spatial operations\n  ";
   };
 })

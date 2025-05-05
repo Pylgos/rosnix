@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kortex_api";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "kortex_api" = substituteSource {
       src = fetchgit {

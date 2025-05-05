@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_clang_format";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-clang-format ament-cmake-test ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-clang-format ament-cmake-test ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_clang_format" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_clang_format to lint C / C++ code using clang format.";
+    description = "\n    The CMake API for ament_clang_format to lint C / C++ code using clang format.\n  ";
   };
 })

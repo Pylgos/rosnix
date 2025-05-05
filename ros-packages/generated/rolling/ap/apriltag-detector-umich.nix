@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-2";
   src = finalAttrs.passthru.sources."apriltag_detector_umich";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ apriltag apriltag-detector apriltag-msgs pluginlib sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ apriltag apriltag-detector apriltag-msgs pluginlib rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
+  propagatedBuildInputs = [ apriltag apriltag-detector apriltag-msgs pluginlib rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "apriltag_detector_umich" = substituteSource {

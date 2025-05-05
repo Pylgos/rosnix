@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-2";
   src = finalAttrs.passthru.sources."spacenav";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libspnav-dev" "spacenavd" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libspnav-dev" "spacenavd" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libspnav-dev" "spacenavd" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "spacenav" = substituteSource {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS interface to the 3Dconnexion SpaceNavigator 6DOF joystick.";
+    description = "\n    ROS interface to the 3Dconnexion SpaceNavigator 6DOF joystick.\n  ";
   };
 })

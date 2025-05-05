@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.24.0-1";
   src = finalAttrs.passthru.sources."gpio_controllers";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ control-msgs controller-interface hardware-interface pluginlib realtime-tools ros2-control-cmake ];
+  propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "gpio_controllers" = substituteSource {

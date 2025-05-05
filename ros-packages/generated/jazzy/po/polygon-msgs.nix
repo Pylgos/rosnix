@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."polygon_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "polygon_msgs" = substituteSource {
       src = fetchgit {

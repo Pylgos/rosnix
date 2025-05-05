@@ -17,8 +17,9 @@ buildCatkinPackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."axis_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "axis_msgs" = substituteSource {
@@ -31,6 +32,6 @@ buildCatkinPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS messages used by the axis_camera package to control Axis PTZ and fixed cameras";
+    description = "\n    ROS messages used by the axis_camera package to control Axis PTZ and fixed cameras\n  ";
   };
 })

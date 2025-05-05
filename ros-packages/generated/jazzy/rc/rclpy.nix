@@ -40,10 +40,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "7.1.4-1";
   src = finalAttrs.passthru.sources."rclpy";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
-  propagatedNativeBuildInputs = [ pybind11-vendor rcl rcl-action rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rmw-implementation rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedNativeBuildInputs = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs pybind11-vendor rcl rcl-action rcl-interfaces rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rosgraph-msgs rosidl-runtime-c rpyutils unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   buildInputs = [ ament-cmake python-cmake-module ];
-  propagatedBuildInputs = [ pybind11-vendor rcl rcl-action rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rmw-implementation rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
-  depsTargetTargetPropagated = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs rcl-interfaces rcutils rmw rosgraph-msgs rosidl-runtime-c unique-identifier-msgs ];
+  propagatedBuildInputs = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs pybind11-vendor rcl rcl-action rcl-interfaces rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rosgraph-msgs rosidl-runtime-c rpyutils unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rosidl-generator-py test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rclpy" = substituteSource {

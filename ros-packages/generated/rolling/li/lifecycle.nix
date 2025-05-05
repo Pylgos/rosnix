@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."lifecycle";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ lifecycle-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ros-testing ];
   passthru.sources = mkSourceSet (sources: {
     "lifecycle" = substituteSource {

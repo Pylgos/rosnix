@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-9";
   src = finalAttrs.passthru.sources."pcl_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_type_traits";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-license ecl-mpl ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-license ecl-mpl ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Extends c++ type traits and implements a few more to boot.";
+    description = "\n     Extends c++ type traits and implements a few more to boot.\n  ";
   };
 })

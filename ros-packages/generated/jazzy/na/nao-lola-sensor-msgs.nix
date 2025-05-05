@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-2";
   src = finalAttrs.passthru.sources."nao_lola_sensor_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nao_lola_sensor_msgs" = substituteSource {

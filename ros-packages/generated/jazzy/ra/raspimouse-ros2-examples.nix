@@ -32,8 +32,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."raspimouse_ros2_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs hls-lfcd-lds-driver joy-linux nav2-map-server raspimouse raspimouse-msgs rclcpp-components rt-usb-9axisimu-driver sensor-msgs slam-toolbox std-msgs std-srvs usb-cam ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "v4l-utils" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs hls-lfcd-lds-driver joy-linux nav2-map-server raspimouse raspimouse-msgs rclcpp rclcpp-components rclcpp-lifecycle rt-usb-9axisimu-driver sensor-msgs slam-toolbox std-msgs std-srvs usb-cam ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "v4l-utils" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ cv-bridge geometry-msgs hls-lfcd-lds-driver joy-linux nav2-map-server raspimouse raspimouse-msgs rclcpp rclcpp-components rclcpp-lifecycle rt-usb-9axisimu-driver sensor-msgs slam-toolbox std-msgs std-srvs usb-cam ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "v4l-utils" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "raspimouse_ros2_examples" = substituteSource {

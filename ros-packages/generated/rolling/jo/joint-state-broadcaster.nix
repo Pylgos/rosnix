@@ -31,8 +31,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.24.0-1";
   src = finalAttrs.passthru.sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface pluginlib rcutils realtime-tools ros2-control-cmake sensor-msgs urdf ];
+  propagatedNativeBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp rclcpp-lifecycle rcutils realtime-tools ros2-control-cmake sensor-msgs urdf ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp rclcpp-lifecycle rcutils realtime-tools ros2-control-cmake sensor-msgs urdf ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "joint_state_broadcaster" = substituteSource {

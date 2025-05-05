@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-6";
   src = finalAttrs.passthru.sources."lanelet2_projection";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
-  propagatedBuildInputs = [ lanelet2-io ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
+  propagatedNativeBuildInputs = [ lanelet2-io mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" ]; };
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ lanelet2-io mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_projection" = substituteSource {

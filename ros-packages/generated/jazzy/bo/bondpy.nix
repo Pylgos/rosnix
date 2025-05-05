@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "bondpy";
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."bondpy";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ bond smclib ];
+  propagatedNativeBuildInputs = [ bond rclpy smclib ];
+  propagatedBuildInputs = [ bond rclpy smclib ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "bondpy" = substituteSource {
@@ -31,6 +31,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Python implementation of bond, a mechanism for checking when another process has terminated.";
+    description = "\n    Python implementation of bond, a mechanism for checking when\n    another process has terminated.\n  ";
   };
 })

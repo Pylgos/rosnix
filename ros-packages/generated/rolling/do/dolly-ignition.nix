@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly_ignition";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ dolly-follow ros2launch rviz2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ros_ign_bridge" "ros_ign_gazebo" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dolly-follow ros2launch rviz2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ros_ign_bridge" "ros_ign_gazebo" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Launch Ignition simulation with Dolly robot.";
+    description = "\n    Launch Ignition simulation with Dolly robot.\n  ";
   };
 })

@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_manipulators";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-exceptions ecl-formatters ecl-geometry ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-exceptions ecl-formatters ecl-geometry ecl-license ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Deploys various manipulation algorithms, currently just feedforward filters (interpolations).";
+    description = "\n    Deploys various manipulation algorithms, currently just\n    feedforward filters (interpolations).\n  ";
   };
 })

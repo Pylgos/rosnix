@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."rmf_demos_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ gz-sim-vendor launch-xml rmf-building-sim-gz-plugins rmf-demos rmf-robot-sim-gz-plugins ros2launch ros-gz-bridge teleop-twist-keyboard ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ gz-sim-vendor launch-xml rmf-building-sim-gz-plugins rmf-demos rmf-robot-sim-gz-plugins ros2launch ros-gz-bridge teleop-twist-keyboard ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_demos_gz" = substituteSource {

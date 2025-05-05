@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_common";
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_common";
-  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-python rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ launch launch-ros osrf-pycommon ];
+  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-python launch launch-ros osrf-pycommon rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-cmake-core ament-cmake-python launch launch-ros osrf-pycommon rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "nav2_common" = substituteSource {
       src = fetchgit {

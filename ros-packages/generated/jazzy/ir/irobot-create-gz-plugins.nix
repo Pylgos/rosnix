@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ gz-gui-vendor ros-gz ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ gz-gui-vendor ros-gz ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {

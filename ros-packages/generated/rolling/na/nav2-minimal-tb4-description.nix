@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-2";
   src = finalAttrs.passthru.sources."nav2_minimal_tb4_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ joint-state-publisher robot-state-publisher urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher robot-state-publisher urdf xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

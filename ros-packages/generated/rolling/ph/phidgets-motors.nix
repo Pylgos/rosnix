@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."phidgets_motors";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp rclcpp-components std-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp rclcpp-components std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_motors" = substituteSource {
       src = fetchgit {

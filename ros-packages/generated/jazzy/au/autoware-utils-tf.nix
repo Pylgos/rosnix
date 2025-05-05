@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_tf";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ autoware-utils-geometry geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ autoware-utils-geometry geometry-msgs rclcpp tf2-ros ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ autoware-utils-geometry geometry-msgs rclcpp tf2-ros ];
   checkInputs = [ ament-cmake-ros ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_utils_tf" = substituteSource {

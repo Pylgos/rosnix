@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.0-2";
   src = finalAttrs.passthru.sources."jacro";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" ]; };
-  propagatedBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rich" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-rich" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-jinja2" "python3-rich" ]; };
   checkInputs = [ ament-cmake-pytest std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pre-commit" ]; };
   passthru.sources = mkSourceSet (sources: {
     "jacro" = substituteSource {

@@ -30,6 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-3";
   src = finalAttrs.passthru.sources."rqt_common_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ rqt-action rqt-bag rqt-bag-plugins rqt-console rqt-graph rqt-image-view rqt-msg rqt-plot rqt-publisher rqt-py-common rqt-py-console rqt-reconfigure rqt-service-caller rqt-shell rqt-srv rqt-topic ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rqt-action rqt-bag rqt-bag-plugins rqt-console rqt-graph rqt-image-view rqt-msg rqt-plot rqt-publisher rqt-py-common rqt-py-console rqt-reconfigure rqt-service-caller rqt-shell rqt-srv rqt-topic ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_common_plugins" = substituteSource {
@@ -42,6 +44,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "rqt_common_plugins metapackage provides ROS backend graphical tools suite that can be used on/off of robot runtime.";
+    description = "\n    rqt_common_plugins metapackage provides ROS backend graphical tools suite that can be used on/off of robot runtime.";
   };
 })

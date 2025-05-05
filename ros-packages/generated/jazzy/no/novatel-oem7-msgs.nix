@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  buildAmentCmakePackage,
+  buildColconPackage,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -11,11 +11,13 @@
   std-msgs,
   substituteSource,
 }:
-buildAmentCmakePackage (finalAttrs: {
+buildColconPackage (finalAttrs: {
   pname = "novatel_oem7_msgs";
   version = "24.1.0-1";
   src = finalAttrs.passthru.sources."novatel_oem7_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "novatel_oem7_msgs" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for NovAtel Oem7 family of receivers.";
+    description = "\n      Messages for NovAtel Oem7 family of receivers.\n  ";
   };
 })

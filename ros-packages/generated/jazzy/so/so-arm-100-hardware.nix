@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-3";
   src = finalAttrs.passthru.sources."so_arm_100_hardware";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ hardware-interface pluginlib std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ hardware-interface pluginlib rclcpp rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ hardware-interface pluginlib rclcpp rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "so_arm_100_hardware" = substituteSource {

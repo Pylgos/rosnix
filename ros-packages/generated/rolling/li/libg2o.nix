@@ -13,8 +13,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2020.5.29-5";
   src = finalAttrs.passthru.sources."libg2o";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "opengl" "suitesparse" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libg2o" = substituteSource {
       src = fetchgit {
@@ -26,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The libg2o library from http://openslam.org/g2o.html";
+    description = "\n    The libg2o library from http://openslam.org/g2o.html\n  ";
   };
 })

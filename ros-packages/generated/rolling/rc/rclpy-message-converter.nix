@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rclpy_message_converter";
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."rclpy_message_converter";
-  propagatedNativeBuildInputs = [ rclpy rosidl-default-generators rosidl-parser ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
+  propagatedNativeBuildInputs = [ builtin-interfaces rclpy rosidl-default-generators rosidl-parser rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ builtin-interfaces rclpy rosidl-default-generators rosidl-parser rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 geometry-msgs rclpy-message-converter-msgs std-msgs std-srvs tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rclpy_message_converter" = substituteSource {

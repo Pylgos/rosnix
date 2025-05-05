@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."turtlebot4_gz_gui_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ gz-gui-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qml-module-qtquick-extras" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ gz-gui-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qml-module-qtquick-extras" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

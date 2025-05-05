@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.9003-1";
   src = finalAttrs.passthru.sources."cartographer_ros_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS messages for the cartographer_ros package.";
+    description = "\n    ROS messages for the cartographer_ros package.\n  ";
   };
 })

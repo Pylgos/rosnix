@@ -27,8 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosapi";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
   checkInputs = [ ament-cmake-mypy ament-cmake-pytest geometry-msgs rmw-dds-common sensor-msgs shape-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosapi" = substituteSource {
@@ -41,6 +42,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Provides service calls for getting ros meta-information, like list of topics, services, params, etc.";
+    description = "\n    Provides service calls for getting ros meta-information, like list of\n    topics, services, params, etc.\n  ";
   };
 })

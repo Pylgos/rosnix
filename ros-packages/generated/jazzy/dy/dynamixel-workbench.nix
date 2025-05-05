@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.4-1";
   src = finalAttrs.passthru.sources."dynamixel_workbench";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ dynamixel-workbench-toolbox ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dynamixel-workbench-toolbox ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_workbench" = substituteSource {
@@ -26,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Dynamixel-Workbench is dynamixel solution for ROS. This metapackage allows you to easily change the ID, baudrate and operating mode of the Dynamixel. Furthermore, it supports various controllers based on operating mode and Dynamixel SDK. These controllers are commanded by operators.";
+    description = "\n    Dynamixel-Workbench is dynamixel solution for ROS.\n    This metapackage allows you to easily change the ID, baudrate and operating mode of the Dynamixel.\n    Furthermore, it supports various controllers based on operating mode and Dynamixel SDK.\n    These controllers are commanded by operators.\n  ";
   };
 })

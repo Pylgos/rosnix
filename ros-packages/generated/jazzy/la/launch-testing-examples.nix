@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_examples";
   version = "0.19.5-1";
   src = finalAttrs.passthru.sources."launch_testing_examples";
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
-  propagatedBuildInputs = [ demo-nodes-cpp launch launch-ros launch-testing launch-testing-ros rcl-interfaces ros2bag std-msgs ];
+  propagatedNativeBuildInputs = [ demo-nodes-cpp launch launch-ros launch-testing launch-testing-ros rcl-interfaces rclpy ros2bag std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
+  propagatedBuildInputs = [ demo-nodes-cpp launch launch-ros launch-testing launch-testing-ros rcl-interfaces rclpy ros2bag std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ];
   passthru.sources = mkSourceSet (sources: {
     "launch_testing_examples" = substituteSource {

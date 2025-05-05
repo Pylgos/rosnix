@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.3-1";
   src = finalAttrs.passthru.sources."ptz_action_server_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ action-msgs rosidl-default-runtime ];
+  buildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "ptz_action_server_msgs" = substituteSource {

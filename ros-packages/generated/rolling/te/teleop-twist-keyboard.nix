@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "teleop_twist_keyboard";
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."teleop_twist_keyboard";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ geometry-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclpy ];
+  propagatedBuildInputs = [ geometry-msgs rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ];
   passthru.sources = mkSourceSet (sources: {
     "teleop_twist_keyboard" = substituteSource {
@@ -30,6 +30,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A robot-agnostic teleoperation node to convert keyboard commands to Twist messages.";
+    description = "\n    A robot-agnostic teleoperation node to convert keyboard commands to Twist\n    messages.\n  ";
   };
 })

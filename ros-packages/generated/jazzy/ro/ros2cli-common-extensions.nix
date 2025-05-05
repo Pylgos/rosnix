@@ -32,6 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-3";
   src = finalAttrs.passthru.sources."ros2cli_common_extensions";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ launch-xml launch-yaml ros2action ros2cli ros2component ros2doctor ros2interface ros2launch ros2lifecycle ros2multicast ros2node ros2param ros2pkg ros2run ros2service ros2topic sros2 ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ launch-xml launch-yaml ros2action ros2cli ros2component ros2doctor ros2interface ros2launch ros2lifecycle ros2multicast ros2node ros2param ros2pkg ros2run ros2service ros2topic sros2 ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

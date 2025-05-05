@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.1-8";
   src = finalAttrs.passthru.sources."urg_node_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "urg_node_msgs" = substituteSource {

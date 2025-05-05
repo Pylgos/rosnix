@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_geometry_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "soccer_geometry_msgs" = substituteSource {

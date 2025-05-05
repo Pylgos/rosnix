@@ -30,8 +30,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."hardware_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ rclcpp-lifecycle rcpputils ];
-  propagatedBuildInputs = [ backward-ros control-msgs joint-limits lifecycle-msgs pal-statistics pluginlib rcutils realtime-tools ros2-control-cmake sdformat-urdf tinyxml2-vendor urdf ];
+  propagatedNativeBuildInputs = [ backward-ros control-msgs joint-limits lifecycle-msgs pal-statistics pluginlib rclcpp-lifecycle rcpputils rcutils realtime-tools ros2-control-cmake sdformat-urdf tinyxml2-vendor urdf ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  propagatedBuildInputs = [ backward-ros control-msgs joint-limits lifecycle-msgs pal-statistics pluginlib rclcpp-lifecycle rcpputils rcutils realtime-tools ros2-control-cmake sdformat-urdf tinyxml2-vendor urdf ];
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "hardware_interface" = substituteSource {

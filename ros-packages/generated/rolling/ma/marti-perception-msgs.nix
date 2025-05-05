@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.6.1-1";
   src = finalAttrs.passthru.sources."marti_perception_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "marti_perception_msgs" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "marti_perception_msgs";
+    description = "\n\n     marti_perception_msgs\n\n  ";
   };
 })

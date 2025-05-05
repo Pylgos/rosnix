@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."cv_bridge";
   nativeBuildInputs = [ ament-cmake-ros python-cmake-module ];
-  propagatedNativeBuildInputs = [ rclcpp rcpputils ];
-  propagatedBuildInputs = [ ament-index-python sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-numpy" "python3-opencv" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python rclcpp rcpputils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-numpy" "python3-opencv" ]; };
+  buildInputs = [ ament-cmake-ros python-cmake-module ];
+  propagatedBuildInputs = [ ament-index-python rclcpp rcpputils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-numpy" "python3-opencv" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cv_bridge" = substituteSource {
@@ -36,6 +37,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This contains CvBridge, which converts between ROS2 Image messages and OpenCV images.";
+    description = "\n    This contains CvBridge, which converts between ROS2\n    Image messages and OpenCV images.\n  ";
   };
 })

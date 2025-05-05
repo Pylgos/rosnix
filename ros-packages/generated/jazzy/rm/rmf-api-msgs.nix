@@ -13,8 +13,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rmf_api_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "python3-jsonschema" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "python3-jinja2" "python3-jsonschema" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "python3-jinja2" "python3-jsonschema" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rmf_api_msgs" = substituteSource {
       src = fetchgit {

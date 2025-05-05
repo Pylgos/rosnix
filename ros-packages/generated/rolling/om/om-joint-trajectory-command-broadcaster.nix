@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."om_joint_trajectory_command_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp-lifecycle ];
-  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface pluginlib rcutils realtime-tools sensor-msgs trajectory-msgs urdf ];
+  propagatedNativeBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs trajectory-msgs urdf ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs trajectory-msgs urdf ];
   passthru.sources = mkSourceSet (sources: {
     "om_joint_trajectory_command_broadcaster" = substituteSource {
       src = fetchgit {
@@ -38,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Joint Trajectory Command Broadcaster ROS 2 package.";
+    description = "\n    Joint Trajectory Command Broadcaster ROS 2 package.\n  ";
   };
 })

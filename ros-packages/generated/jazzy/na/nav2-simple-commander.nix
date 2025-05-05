@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_simple_commander";
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_simple_commander";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
+  propagatedBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "nav2_simple_commander" = substituteSource {

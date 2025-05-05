@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.4.0-1";
   src = finalAttrs.passthru.sources."twist_mux";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ diagnostic-updater geometry-msgs std-msgs twist-mux-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-updater geometry-msgs rclcpp std-msgs twist-mux-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ diagnostic-updater geometry-msgs rclcpp std-msgs twist-mux-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "twist_mux" = substituteSource {
@@ -40,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Twist multiplexer, which multiplex several velocity commands (topics) and allows to priorize or disable them (locks).";
+    description = "\n      Twist multiplexer, which multiplex several velocity commands (topics) and\n      allows to priorize or disable them (locks).\n  ";
   };
 })

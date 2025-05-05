@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_opencv_util";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ cv-bridge swri-math-util ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cv-bridge swri-math-util ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   passthru.sources = mkSourceSet (sources: {
     "swri_opencv_util" = substituteSource {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A package with commonly used OpenCV functionality.";
+    description = "\n    A package with commonly used OpenCV functionality.\n  ";
   };
 })

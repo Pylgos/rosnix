@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_converters_lite";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-config ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-config ecl-license ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "These are a very simple version of some of the functions in ecl_converters suitable for firmware development. That is, there is no use of new, templates or exceptions.";
+    description = "\n     These are a very simple version of some of the functions in ecl_converters\n     suitable for firmware development. That is, there is no use of new,\n     templates or exceptions.\n  ";
   };
 })

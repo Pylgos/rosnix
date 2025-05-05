@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."clearpath_nav2_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ clearpath-config nav2-bringup slam-toolbox ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ clearpath-config nav2-bringup slam-toolbox ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

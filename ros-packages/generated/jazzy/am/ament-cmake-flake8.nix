@@ -32,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_flake8 to check code syntax and style conventions with flake8.";
+    description = "\n    The CMake API for ament_flake8 to check code syntax and style conventions\n    with flake8.\n  ";
   };
 })

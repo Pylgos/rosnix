@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "1.1.7-2";
   src = finalAttrs.passthru.sources."rcdiscover";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rcdiscover" = substituteSource {
       src = fetchgit {
@@ -23,6 +24,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package contains tools for the discovery of Roboception devices via GigE Vision.";
+    description = "\n        This package contains tools for the discovery of Roboception devices via GigE Vision.\n    ";
   };
 })

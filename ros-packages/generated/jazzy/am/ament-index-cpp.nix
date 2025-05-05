@@ -29,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "C++ API to access the ament resource index.";
+    description = "\n    C++ API to access the ament resource index.\n  ";
   };
 })

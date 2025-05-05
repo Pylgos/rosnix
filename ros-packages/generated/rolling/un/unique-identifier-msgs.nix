@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.0-1";
   src = finalAttrs.passthru.sources."unique_identifier_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-core-generators ];
+  propagatedNativeBuildInputs = [ rosidl-core-runtime ];
+  buildInputs = [ ament-cmake rosidl-core-generators ];
   propagatedBuildInputs = [ rosidl-core-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS messages for universally unique identifiers.";
+    description = "\n    ROS messages for universally unique identifiers.\n  ";
   };
 })

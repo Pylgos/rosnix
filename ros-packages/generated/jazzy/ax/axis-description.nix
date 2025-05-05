@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."axis_description";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "axis_description" = substituteSource {
       src = fetchgit {

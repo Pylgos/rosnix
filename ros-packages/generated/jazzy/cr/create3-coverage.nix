@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_coverage";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ create3-examples-msgs geometry-msgs irobot-create-msgs nav-msgs rclcpp-action tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ create3-examples-msgs geometry-msgs irobot-create-msgs nav-msgs rclcpp rclcpp-action tf2-geometry-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ create3-examples-msgs geometry-msgs irobot-create-msgs nav-msgs rclcpp rclcpp-action tf2-geometry-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "create3_coverage" = substituteSource {

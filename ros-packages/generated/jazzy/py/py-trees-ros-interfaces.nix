@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.1-1";
   src = finalAttrs.passthru.sources."py_trees_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs diagnostic-msgs geometry-msgs rosidl-default-runtime unique-identifier-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs diagnostic-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime unique-identifier-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs diagnostic-msgs geometry-msgs rosidl-default-generators rosidl-default-runtime unique-identifier-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "py_trees_ros_interfaces" = substituteSource {
@@ -34,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Interfaces used by py_trees_ros and py_trees_ros_tutorials.";
+    description = "\n    Interfaces used by py_trees_ros and py_trees_ros_tutorials.\n  ";
   };
 })

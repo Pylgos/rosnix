@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_node";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ dynamixel-sdk geometry-msgs message-filters nav-msgs rcutils sensor-msgs std-msgs std-srvs tf2 tf2-ros turtlebot3-msgs ];
+  propagatedNativeBuildInputs = [ dynamixel-sdk geometry-msgs message-filters nav-msgs rclcpp rcutils sensor-msgs std-msgs std-srvs tf2 tf2-ros turtlebot3-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ dynamixel-sdk geometry-msgs message-filters nav-msgs rclcpp rcutils sensor-msgs std-msgs std-srvs tf2 tf2-ros turtlebot3-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_node" = substituteSource {
       src = fetchgit {
@@ -38,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "TurtleBot3 driver node that include diff drive controller, odometry and tf node";
+    description = "\n    TurtleBot3 driver node that include diff drive controller, odometry and tf node\n  ";
   };
 })

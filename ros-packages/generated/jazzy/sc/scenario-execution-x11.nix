@@ -12,6 +12,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_x11";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_x11";
+  propagatedNativeBuildInputs = [ scenario-execution ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" ]; };
   propagatedBuildInputs = [ scenario-execution ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" ]; };
   passthru.sources = mkSourceSet (sources: {
     "scenario_execution_x11" = substituteSource {

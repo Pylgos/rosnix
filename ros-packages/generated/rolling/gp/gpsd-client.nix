@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."gpsd_client";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ gps-msgs rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgps" ]; };
+  propagatedNativeBuildInputs = [ gps-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgps" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ gps-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgps" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gpsd_client" = substituteSource {
       src = fetchgit {
@@ -30,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "connects to a GPSd server and broadcasts GPS fixes using the NavSatFix message";
+    description = "connects to a GPSd server and broadcasts GPS fixes \n   using the NavSatFix message";
   };
 })

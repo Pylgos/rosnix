@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "2.55.1-1";
   src = finalAttrs.passthru.sources."librealsense2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "dkms" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "udev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "dkms" "git" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "pkg-config" "udev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "dkms" "git" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "pkg-config" "udev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "librealsense2" = substituteSource {
       src = fetchgit {
@@ -143,6 +144,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Library for controlling and capturing data from the Intel(R) RealSense(TM) D400 devices.";
+    description = "\n  Library for controlling and capturing data from the Intel(R) RealSense(TM) D400 devices.\n  ";
   };
 })

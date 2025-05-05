@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."ros2_socketcan_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ros2_socketcan_msgs" = substituteSource {

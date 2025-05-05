@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_lite";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-config ecl-converters-lite ecl-errors ecl-io ecl-sigslots-lite ecl-time-lite ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-config ecl-converters-lite ecl-errors ecl-io ecl-sigslots-lite ecl-time-lite ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_lite" = substituteSource {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Libraries and utilities for embedded and low-level linux development.";
+    description = "\n    Libraries and utilities for embedded and low-level linux development.\n  ";
   };
 })

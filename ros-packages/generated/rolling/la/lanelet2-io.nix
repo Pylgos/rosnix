@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-6";
   src = finalAttrs.passthru.sources."lanelet2_io";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
-  propagatedBuildInputs = [ lanelet2-core ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "pugixml-dev" ]; };
+  propagatedNativeBuildInputs = [ lanelet2-core mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "pugixml-dev" ]; };
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ lanelet2-core mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "pugixml-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_io" = substituteSource {

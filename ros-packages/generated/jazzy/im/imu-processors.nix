@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-3";
   src = finalAttrs.passthru.sources."imu_processors";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp-components sensor-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components sensor-msgs tf2-ros ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components sensor-msgs tf2-ros ];
   checkInputs = [ ament-cmake-cpplint ];
   passthru.sources = mkSourceSet (sources: {
     "imu_processors" = substituteSource {

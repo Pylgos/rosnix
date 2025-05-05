@@ -28,8 +28,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."metavision_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ event-camera-msgs openeb-vendor rclcpp-components std-srvs ];
+  propagatedNativeBuildInputs = [ event-camera-msgs openeb-vendor rclcpp rclcpp-components std-srvs ];
+  buildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
+  propagatedBuildInputs = [ event-camera-msgs openeb-vendor rclcpp rclcpp-components std-srvs ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "metavision_driver" = substituteSource {

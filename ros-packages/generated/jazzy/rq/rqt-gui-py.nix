@@ -17,6 +17,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rqt_gui_py";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ qt-gui rqt-gui ];
   propagatedBuildInputs = [ qt-gui rqt-gui ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.3-3";
   src = finalAttrs.passthru.sources."smach_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-flake8 ament-cmake-pep257 rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-flake8 ament-cmake-pep257 rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-cpplint ament-cmake-uncrustify ament-lint ];
   passthru.sources = mkSourceSet (sources: {
@@ -36,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "this package contains a set of messages that are used by the introspection interfaces for smach.";
+    description = "\n    this package contains a set of messages that are used by the introspection\n    interfaces for smach.\n  ";
   };
 })

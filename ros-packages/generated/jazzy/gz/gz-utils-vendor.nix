@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.5-1";
   src = finalAttrs.passthru.sources."gz_utils_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gz-utils2" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-utils2" ]; };
+  buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-utils2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_utils_vendor" = substituteSource {
@@ -48,6 +49,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Vendor package for: gz-utils2 2.2.1 Gazebo Utils : Classes and functions for robot applications";
+    description = "\n    Vendor package for: gz-utils2 2.2.1\n\n    Gazebo Utils : Classes and functions for robot applications\n  ";
   };
 })

@@ -11,8 +11,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees";
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."py_trees";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pydot" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pydot" "python3-setuptools" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pydot" "python3-setuptools" ]; };
   passthru.sources = mkSourceSet (sources: {
     "py_trees" = substituteSource {
       src = fetchgit {
@@ -24,6 +24,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Pythonic implementation of behaviour trees.";
+    description = "\n    Pythonic implementation of behaviour trees.\n  ";
   };
 })

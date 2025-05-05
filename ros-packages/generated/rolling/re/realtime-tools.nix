@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "realtime_tools";
   version = "4.2.0-1";
   src = finalAttrs.passthru.sources."realtime_tools";
-  propagatedNativeBuildInputs = [ ament-cmake rclcpp ];
-  propagatedBuildInputs = [ rclcpp-action ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libcap-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake rclcpp rclcpp-action ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libcap-dev" ]; };
+  propagatedBuildInputs = [ ament-cmake rclcpp rclcpp-action ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libcap-dev" ]; };
   checkInputs = [ ament-cmake-gmock lifecycle-msgs rclcpp-lifecycle test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "realtime_tools" = substituteSource {
@@ -33,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Contains a set of tools that can be used from a hard realtime thread, without breaking the realtime behavior.";
+    description = "Contains a set of tools that can be used from a hard\n    realtime thread, without breaking the realtime behavior.";
   };
 })

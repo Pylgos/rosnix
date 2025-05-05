@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.1-2";
   src = finalAttrs.passthru.sources."autoware_internal_perception_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ autoware-perception-msgs builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ autoware-perception-msgs builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

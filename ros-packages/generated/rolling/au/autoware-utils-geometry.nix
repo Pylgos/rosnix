@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_geometry";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedNativeBuildInputs = [ autoware-internal-planning-msgs autoware-utils-math tf2 tf2-eigen tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" ]; };
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedBuildInputs = [ autoware-internal-planning-msgs autoware-utils-math tf2 tf2-eigen tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" ]; };
   checkInputs = [ ament-lint-auto autoware-lint-common autoware-utils-system ];
   passthru.sources = mkSourceSet (sources: {

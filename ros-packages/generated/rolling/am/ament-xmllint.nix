@@ -29,6 +29,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check XML files like the package manifest using xmllint and generate xUnit test result files.";
+    description = "\n    The ability to check XML files like the package manifest using xmllint\n    and generate xUnit test result files.\n  ";
   };
 })

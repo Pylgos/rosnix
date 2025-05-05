@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."mola_imu_preintegration";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ mola-common mrpt-libobs ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mrpt-libobs ];
   passthru.sources = mkSourceSet (sources: {
     "mola_imu_preintegration" = substituteSource {

@@ -15,6 +15,8 @@ buildCmakePackage (finalAttrs: {
   version = "0.10.5-1";
   src = finalAttrs.passthru.sources."cyclonedds";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ iceoryx-binding-c iceoryx-hoofs iceoryx-posh ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libssl-dev" "openssl" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ iceoryx-binding-c iceoryx-hoofs iceoryx-posh ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "openssl" ]; };
   passthru.sources = mkSourceSet (sources: {
     "cyclonedds" = substituteSource {

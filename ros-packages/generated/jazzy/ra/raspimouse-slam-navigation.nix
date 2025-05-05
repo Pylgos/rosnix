@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."raspimouse_slam_navigation";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ raspimouse-navigation raspimouse-slam ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ raspimouse-navigation raspimouse-slam ];
   passthru.sources = mkSourceSet (sources: {
     "raspimouse_slam_navigation" = substituteSource {

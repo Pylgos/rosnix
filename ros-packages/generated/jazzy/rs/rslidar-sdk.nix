@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.5.16-1";
   src = finalAttrs.passthru.sources."rslidar_sdk";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rslidar-msg sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcap" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rslidar-msg sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libpcap" "yaml-cpp" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rslidar-msg sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcap" "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rslidar_sdk" = substituteSource {
       src = fetchgit {

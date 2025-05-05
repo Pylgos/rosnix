@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."neo_nav2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ nav2-common navigation2 slam-toolbox ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ nav2-common navigation2 slam-toolbox ];
   passthru.sources = mkSourceSet (sources: {
     "neo_nav2_bringup" = substituteSource {

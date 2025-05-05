@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."yaets";
   propagatedNativeBuildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "yaets" = substituteSource {

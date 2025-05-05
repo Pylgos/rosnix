@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-3";
   src = finalAttrs.passthru.sources."wiimote_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-auto rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages used by wiimote package.";
+    description = "\n    Messages used by wiimote package.\n  ";
   };
 })

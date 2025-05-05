@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.2-1";
   src = finalAttrs.passthru.sources."network_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ pluginlib std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
+  propagatedNativeBuildInputs = [ pluginlib rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
+  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
+  propagatedBuildInputs = [ pluginlib rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "network_bridge" = substituteSource {

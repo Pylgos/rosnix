@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."fuse_doc";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-ros gtest-vendor ];
   passthru.sources = mkSourceSet (sources: {
     "fuse_doc" = substituteSource {
       src = fetchgit {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The fuse_doc package provides documentation and examples for the fuse package.";
+    description = "\n    The fuse_doc package provides documentation and examples for the fuse package.\n  ";
   };
 })

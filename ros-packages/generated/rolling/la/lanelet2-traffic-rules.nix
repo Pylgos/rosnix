@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-6";
   src = finalAttrs.passthru.sources."lanelet2_traffic_rules";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
-  propagatedBuildInputs = [ lanelet2-core ];
+  propagatedNativeBuildInputs = [ lanelet2-core mrt-cmake-modules ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ lanelet2-core mrt-cmake-modules ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_traffic_rules" = substituteSource {

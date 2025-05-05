@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."pybind11_json_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = [ pybind11-vendor ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
+  propagatedNativeBuildInputs = [ pybind11-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = [ pybind11-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pybind11_json_vendor" = substituteSource {
       src = fetchgit {

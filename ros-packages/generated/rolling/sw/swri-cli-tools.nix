@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "swri_cli_tools";
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_cli_tools";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ marti-introspection-msgs rcl-interfaces ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-natsort" ]; };
+  propagatedNativeBuildInputs = [ marti-introspection-msgs rcl-interfaces rclpy ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-natsort" ]; };
+  propagatedBuildInputs = [ marti-introspection-msgs rcl-interfaces rclpy ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-natsort" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "swri_cli_tools" = substituteSource {

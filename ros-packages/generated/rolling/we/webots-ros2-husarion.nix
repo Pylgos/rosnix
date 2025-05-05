@@ -19,6 +19,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_husarion";
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_husarion";
+  propagatedNativeBuildInputs = [ controller-manager diff-drive-controller joint-state-broadcaster laser-filters robot-localization robot-state-publisher webots-ros2-control webots-ros2-driver ];
   propagatedBuildInputs = [ controller-manager diff-drive-controller joint-state-broadcaster laser-filters robot-localization robot-state-publisher webots-ros2-control webots-ros2-driver ];
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_husarion" = substituteSource {

@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.1.6-1";
   src = finalAttrs.passthru.sources."camera_calibration_parsers";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ sensor-msgs yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ rclcpp sensor-msgs yaml-cpp-vendor ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rclcpp sensor-msgs yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "camera_calibration_parsers" = substituteSource {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "camera_calibration_parsers contains routines for reading and writing camera calibration parameters.";
+    description = "\n     camera_calibration_parsers contains routines for reading and writing camera calibration parameters.\n  ";
   };
 })

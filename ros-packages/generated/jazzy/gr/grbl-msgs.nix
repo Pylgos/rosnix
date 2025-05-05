@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-9";
   src = finalAttrs.passthru.sources."grbl_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "grbl_msgs" = substituteSource {

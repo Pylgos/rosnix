@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."turtlebot4_navigation";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ nav2-bringup nav2-simple-commander slam-toolbox ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ nav2-bringup nav2-simple-commander slam-toolbox ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

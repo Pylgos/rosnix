@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."turtlebot4_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ irobot-create-description joint-state-publisher robot-state-publisher urdf ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ irobot-create-description joint-state-publisher robot-state-publisher urdf ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

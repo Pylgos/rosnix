@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.6.5-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_interface";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_typesupport_interface" = substituteSource {
@@ -28,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The interface for rosidl typesupport packages.";
+    description = "\n    The interface for rosidl typesupport packages.\n  ";
   };
 })

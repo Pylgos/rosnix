@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."joint_limits";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ backward-ros pluginlib realtime-tools ros2-control-cmake trajectory-msgs urdf ];
+  propagatedNativeBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  propagatedBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ];
   checkInputs = [ ament-cmake-gmock generate-parameter-library launch-ros launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "joint_limits" = substituteSource {

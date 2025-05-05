@@ -61,6 +61,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around spdlog, providing nothing but a dependency on spdlog, on some systems. On others, it provides an ExternalProject build of spdlog.";
+    description = "\n    Wrapper around spdlog, providing nothing but a dependency on spdlog, on some systems.\n    On others, it provides an ExternalProject build of spdlog.\n  ";
   };
 })

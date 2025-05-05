@@ -15,6 +15,8 @@ buildCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ros_workspace";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-core ament-package ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ament-cmake-core ament-package ];
   passthru.sources = mkSourceSet (sources: {
     "ros_workspace" = substituteSource {
       src = fetchgit {
@@ -26,6 +28,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Provides the prefix level environment files for ROS 2 packages.";
+    description = "\n    Provides the prefix level environment files for ROS 2 packages.\n  ";
   };
 })

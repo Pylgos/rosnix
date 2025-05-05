@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "laser_filters";
   version = "2.0.8-1";
   src = finalAttrs.passthru.sources."laser_filters";
-  propagatedNativeBuildInputs = [ ament-cmake-auto rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ angles filters laser-geometry message-filters pluginlib rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-cmake-auto angles filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
+  propagatedBuildInputs = [ ament-cmake-auto angles filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
   checkInputs = [ ament-cmake-gtest launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "laser_filters" = substituteSource {
@@ -41,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Assorted filters designed to operate on 2D planar laser scanners, which use the sensor_msgs/LaserScan type.";
+    description = "\n    Assorted filters designed to operate on 2D planar laser scanners,\n    which use the sensor_msgs/LaserScan type.\n  ";
   };
 })

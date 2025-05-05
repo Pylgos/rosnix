@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "canopen_utils";
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_utils";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ canopen-interfaces lifecycle-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ canopen-interfaces lifecycle-msgs rclpy std-msgs ];
+  propagatedBuildInputs = [ canopen-interfaces lifecycle-msgs rclpy std-msgs ];
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "canopen_utils" = substituteSource {

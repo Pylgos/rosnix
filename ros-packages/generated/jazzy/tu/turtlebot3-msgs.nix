@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."turtlebot3_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Message and service types: custom messages and services for TurtleBot3 packages for ROS 2";
+    description = "\n    Message and service types: custom messages and services for TurtleBot3 packages for ROS 2\n  ";
   };
 })

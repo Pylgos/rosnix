@@ -28,8 +28,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."nonpersistent_voxel_layer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs laser-geometry map-msgs nav2-costmap-2d nav2-msgs nav2-voxel-grid nav-msgs pluginlib sensor-msgs std-msgs tf2 tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs laser-geometry map-msgs nav2-costmap-2d nav2-msgs nav2-voxel-grid nav-msgs pluginlib rclcpp sensor-msgs std-msgs tf2 tf2-ros visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs laser-geometry map-msgs nav2-costmap-2d nav2-msgs nav2-voxel-grid nav-msgs pluginlib rclcpp sensor-msgs std-msgs tf2 tf2-ros visualization-msgs ];
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "nonpersistent_voxel_layer" = substituteSource {
@@ -42,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "include This package provides an implementation of a 3D costmap that takes in sensor data from the world, builds a 3D occupancy grid of the data for only one iteration.";
+    description = "include\n        This package provides an implementation of a 3D costmap that takes in sensor\n        data from the world, builds a 3D occupancy grid of the data for only one iteration.\n    ";
   };
 })

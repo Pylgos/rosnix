@@ -23,6 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ros2bag rosbag2-compression rosbag2-compression-zstd rosbag2-cpp rosbag2-py rosbag2-storage rosbag2-storage-default-plugins rosbag2-transport ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ros2bag rosbag2-compression rosbag2-compression-zstd rosbag2-cpp rosbag2-py rosbag2-storage rosbag2-storage-default-plugins rosbag2-transport ];
   checkInputs = [ rosbag2-test-common rosbag2-tests ];
   passthru.sources = mkSourceSet (sources: {

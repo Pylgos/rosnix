@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.2-1";
   src = finalAttrs.passthru.sources."fmi_adapter_examples";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ fmi-adapter launch launch-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ fmi-adapter launch launch-ros ];
   passthru.sources = mkSourceSet (sources: {
     "fmi_adapter_examples" = substituteSource {

@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_logging";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ logging-demo ];
+  propagatedNativeBuildInputs = [ logging-demo rclcpp ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ logging-demo rclcpp ];
   checkInputs = [ ament-cmake-ros ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_utils_logging" = substituteSource {

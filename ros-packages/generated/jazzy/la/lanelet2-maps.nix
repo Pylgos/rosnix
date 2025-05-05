@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."lanelet2_maps";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ];
-  propagatedBuildInputs = [ lanelet2-core ];
+  propagatedNativeBuildInputs = [ lanelet2-core mrt-cmake-modules ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ lanelet2-core mrt-cmake-modules ];
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_maps" = substituteSource {
       src = fetchgit {

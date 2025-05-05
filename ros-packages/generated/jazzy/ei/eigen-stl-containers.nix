@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."eigen_stl_containers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "eigen_stl_containers" = substituteSource {
       src = fetchgit {
@@ -25,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides a set of typedef's that allow using Eigen datatypes in STL containers";
+    description = "This package provides a set of typedef's that allow\n  using Eigen datatypes in STL containers";
   };
 })

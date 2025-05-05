@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.0-1";
   src = finalAttrs.passthru.sources."novatel_gps_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "novatel_gps_msgs" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for proprietary (non-NMEA) sentences from Novatel GPS receivers.";
+    description = "\n  Messages for proprietary (non-NMEA) sentences from Novatel GPS receivers.\n  ";
   };
 })

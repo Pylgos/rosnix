@@ -15,6 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "nao_button_sim";
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."nao_button_sim";
+  propagatedNativeBuildInputs = [ nao-lola-sensor-msgs ];
   propagatedBuildInputs = [ nao-lola-sensor-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

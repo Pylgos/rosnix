@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."soccer_interfaces";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ soccer-vision-2d-msgs soccer-vision-3d-msgs soccer-vision-attribute-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ soccer-vision-2d-msgs soccer-vision-3d-msgs soccer-vision-attribute-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "soccer_interfaces" = substituteSource {

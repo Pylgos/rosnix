@@ -14,8 +14,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.0-1";
   src = finalAttrs.passthru.sources."libcurl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "file" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "file" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "curl" "file" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libcurl_vendor" = substituteSource {
       src = fetchgit {
@@ -42,6 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around libcurl, it provides a fixed CMake module and an ExternalProject build of it.";
+    description = "\n    Wrapper around libcurl, it provides a fixed CMake module and an ExternalProject build of it.\n  ";
   };
 })

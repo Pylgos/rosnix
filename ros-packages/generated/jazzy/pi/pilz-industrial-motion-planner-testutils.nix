@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."pilz_industrial_motion_planner_testutils";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp ];
-  propagatedBuildInputs = [ moveit-common moveit-core moveit-msgs tf2-eigen ];
+  propagatedNativeBuildInputs = [ eigen3-cmake-module moveit-common moveit-core moveit-msgs rclcpp tf2-eigen ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ eigen3-cmake-module moveit-common moveit-core moveit-msgs rclcpp tf2-eigen ];
   passthru.sources = mkSourceSet (sources: {
     "pilz_industrial_motion_planner_testutils" = substituteSource {
       src = fetchgit {

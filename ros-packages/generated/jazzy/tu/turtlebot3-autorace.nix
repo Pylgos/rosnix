@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_autorace";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ turtlebot3-autorace-camera turtlebot3-autorace-detect turtlebot3-autorace-mission ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ turtlebot3-autorace-camera turtlebot3-autorace-detect turtlebot3-autorace-mission ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_autorace" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 meta packages for turtlebot3_autorace";
+    description = "\n    ROS 2 meta packages for turtlebot3_autorace\n  ";
   };
 })

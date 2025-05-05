@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."filters";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ pluginlib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" ]; };
+  propagatedNativeBuildInputs = [ pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gtest ament-cmake-uncrustify ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "filters" = substituteSource {
@@ -34,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This library provides a standardized interface for processing data as a sequence of filters. This package contains a base class upon which to build specific implementations as well as an interface which dynamically loads filters based on runtime parameters.";
+    description = "\n    This library provides a standardized interface for processing data as a sequence\n    of filters.  This package contains a base class upon which to build specific implementations\n    as well as an interface which dynamically loads filters based on runtime parameters.\n  ";
   };
 })

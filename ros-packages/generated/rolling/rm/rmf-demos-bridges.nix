@@ -15,8 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_demos_bridges";
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."rmf_demos_bridges";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ rmf-building-map-tools rmf-fleet-msgs rmf-site-map-msgs rmf-traffic-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" ]; };
+  propagatedNativeBuildInputs = [ rmf-building-map-tools rmf-fleet-msgs rmf-site-map-msgs rmf-traffic-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" "python3-yaml" ]; };
+  propagatedBuildInputs = [ rmf-building-map-tools rmf-fleet-msgs rmf-site-map-msgs rmf-traffic-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" "python3-yaml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rmf_demos_bridges" = substituteSource {
       src = fetchgit {

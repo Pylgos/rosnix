@@ -12,6 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.0.7-1";
   src = finalAttrs.passthru.sources."backward_ros";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libdw-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libdw-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "backward_ros" = substituteSource {
@@ -24,6 +26,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The backward_ros package is a ros wrapper of backward-cpp from https://github.com/bombela/backward-cpp";
+    description = "The backward_ros package is a ros wrapper of backward-cpp from https://github.com/bombela/backward-cpp ";
   };
 })

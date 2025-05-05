@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "nodl_to_policy";
   version = "1.0.0-4";
   src = finalAttrs.passthru.sources."nodl_to_policy";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
-  propagatedBuildInputs = [ nodl-python ros2cli ros2nodl ros2run sros2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" ]; };
+  propagatedNativeBuildInputs = [ nodl-python ros2cli ros2nodl ros2run sros2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-lxml" ]; };
+  propagatedBuildInputs = [ nodl-python ros2cli ros2nodl ros2run sros2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" "python3-lxml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-lint-auto ament-mypy ament-pep257 ament-pycodestyle ros-testing test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
   passthru.sources = mkSourceSet (sources: {
     "nodl_to_policy" = substituteSource {

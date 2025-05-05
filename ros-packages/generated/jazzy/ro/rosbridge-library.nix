@@ -33,8 +33,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-pil" ]; };
+  propagatedNativeBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-bson" "python3-pil" ]; };
+  buildInputs = [ ament-cmake ament-cmake-ros ];
+  propagatedBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-pil" ]; };
   checkInputs = [ action-msgs ament-cmake-mypy ament-cmake-pytest builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_library" = substituteSource {
@@ -47,6 +48,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The core rosbridge package, responsible for interpreting JSON andperforming the appropriate ROS action, like subscribe, publish, call service, and interact with params.";
+    description = "\n    The core rosbridge package, responsible for interpreting JSON andperforming\n    the appropriate ROS action, like subscribe, publish, call service, and\n    interact with params.\n  ";
   };
 })

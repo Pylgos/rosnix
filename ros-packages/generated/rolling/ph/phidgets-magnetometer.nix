@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."phidgets_magnetometer";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ launch phidgets-api rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_magnetometer" = substituteSource {
       src = fetchgit {

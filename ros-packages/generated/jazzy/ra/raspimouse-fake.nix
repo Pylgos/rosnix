@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."raspimouse_fake";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ geometry-msgs lifecycle-msgs rclcpp-components sensor-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ geometry-msgs lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-srvs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-srvs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "raspimouse_fake" = substituteSource {

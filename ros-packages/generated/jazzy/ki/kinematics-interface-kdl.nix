@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface_kdl";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ kdl-parser kinematics-interface pluginlib tf2-eigen-kdl ];
+  propagatedNativeBuildInputs = [ kdl-parser kinematics-interface pluginlib tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  buildInputs = [ ament-cmake eigen3-cmake-module ];
+  propagatedBuildInputs = [ kdl-parser kinematics-interface pluginlib tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "kinematics_interface_kdl" = substituteSource {

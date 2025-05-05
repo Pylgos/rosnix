@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_debug";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ autoware-internal-debug-msgs autoware-internal-msgs autoware-utils-system diagnostic-msgs ];
+  propagatedNativeBuildInputs = [ autoware-internal-debug-msgs autoware-internal-msgs autoware-utils-system diagnostic-msgs rclcpp ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ autoware-internal-debug-msgs autoware-internal-msgs autoware-utils-system diagnostic-msgs rclcpp ];
   checkInputs = [ ament-cmake-ros ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_utils_debug" = substituteSource {

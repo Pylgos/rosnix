@@ -13,8 +13,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_teleop";
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_teleop";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ geometry-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclpy ];
+  propagatedBuildInputs = [ geometry-msgs rclpy ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_teleop" = substituteSource {
       src = fetchgit {
@@ -26,6 +26,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Teleoperation node using keyboard for TurtleBot3.";
+    description = "\n    Teleoperation node using keyboard for TurtleBot3.\n  ";
   };
 })

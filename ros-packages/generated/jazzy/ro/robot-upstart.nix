@@ -15,6 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "robot_upstart";
   version = "1.0.4-1";
   src = finalAttrs.passthru.sources."robot_upstart";
+  propagatedNativeBuildInputs = [ ament-index-python ];
   propagatedBuildInputs = [ ament-index-python ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -28,6 +29,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The robot_upstart package provides scripts which may be used to install and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files.";
+    description = "\n    The robot_upstart package provides scripts which may be used to install\n    and uninstall Ubuntu Linux upstart jobs which launch groups of roslaunch files.\n  ";
   };
 })

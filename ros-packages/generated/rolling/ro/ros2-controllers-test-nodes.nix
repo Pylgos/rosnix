@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2_controllers_test_nodes";
   version = "4.24.0-1";
   src = finalAttrs.passthru.sources."ros2_controllers_test_nodes";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ sensor-msgs std-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs trajectory-msgs ];
+  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs trajectory-msgs ];
   checkInputs = [ launch-ros launch-testing-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2_controllers_test_nodes" = substituteSource {

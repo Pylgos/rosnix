@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.1-2";
   src = finalAttrs.passthru.sources."rqt_robot_steering";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ ament-index-python geometry-msgs python-qt-binding rqt-gui rqt-gui-py ];
+  propagatedNativeBuildInputs = [ ament-index-python geometry-msgs python-qt-binding rclpy rqt-gui rqt-gui-py ];
+  propagatedBuildInputs = [ ament-index-python geometry-msgs python-qt-binding rclpy rqt-gui rqt-gui-py ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_robot_steering" = substituteSource {
       src = fetchgit {

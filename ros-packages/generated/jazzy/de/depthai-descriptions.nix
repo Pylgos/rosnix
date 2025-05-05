@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.11.2-1";
   src = finalAttrs.passthru.sources."depthai_descriptions";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ robot-state-publisher xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ robot-state-publisher xacro ];
   passthru.sources = mkSourceSet (sources: {
     "depthai_descriptions" = substituteSource {

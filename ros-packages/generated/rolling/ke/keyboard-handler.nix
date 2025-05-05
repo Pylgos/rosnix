@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."keyboard_handler";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "keyboard_handler" = substituteSource {

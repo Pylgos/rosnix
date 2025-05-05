@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."polygon_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ angles color-util geometry-msgs polygon-msgs polygon-rviz-plugins polygon-utils rviz2 rviz-common rviz-default-plugins ];
+  propagatedNativeBuildInputs = [ angles color-util geometry-msgs polygon-msgs polygon-rviz-plugins polygon-utils rclcpp rviz2 rviz-common rviz-default-plugins ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ angles color-util geometry-msgs polygon-msgs polygon-rviz-plugins polygon-utils rclcpp rviz2 rviz-common rviz-default-plugins ];
   passthru.sources = mkSourceSet (sources: {
     "polygon_demos" = substituteSource {
       src = fetchgit {

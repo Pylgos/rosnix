@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.6.1-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ xacro ];
   passthru.sources = mkSourceSet (sources: {
     "microstrain_inertial_description" = substituteSource {

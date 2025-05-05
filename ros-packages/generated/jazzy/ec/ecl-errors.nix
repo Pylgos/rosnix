@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_errors";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_errors" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This library provides lean and mean error mechanisms. It includes c style error functions as well as a few useful macros. For higher level mechanisms, refer to ecl_exceptions.";
+    description = "\n    This library provides lean and mean error mechanisms.\n    It includes c style error functions as well as a few\n    useful macros. For higher level mechanisms,\n    refer to ecl_exceptions.\n  ";
   };
 })

@@ -23,10 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "10.2.0-1";
   src = finalAttrs.passthru.sources."rcl_yaml_param_parser";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ libyaml-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
+  propagatedNativeBuildInputs = [ libyaml-vendor rcutils rmw ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
   buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ libyaml-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
-  depsTargetTargetPropagated = [ rcutils rmw ];
+  propagatedBuildInputs = [ libyaml-vendor rcutils rmw ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor osrf-testing-tools-cpp performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_yaml_param_parser" = substituteSource {

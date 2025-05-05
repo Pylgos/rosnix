@@ -25,6 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.1-1";
   src = finalAttrs.passthru.sources."ur_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ moveit-configs-utils moveit-kinematics moveit-planners moveit-planners-chomp moveit-ros-move-group moveit-ros-visualization moveit-servo moveit-simple-controller-manager ur-description warehouse-ros-sqlite xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-configs-utils moveit-kinematics moveit-planners moveit-planners-chomp moveit-ros-move-group moveit-ros-visualization moveit-servo moveit-simple-controller-manager ur-description warehouse-ros-sqlite xacro ];
   passthru.sources = mkSourceSet (sources: {
     "ur_moveit_config" = substituteSource {
@@ -37,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "An example package with MoveIt2 configurations for UR robots.";
+    description = "\n     An example package with MoveIt2 configurations for UR robots.\n  ";
   };
 })

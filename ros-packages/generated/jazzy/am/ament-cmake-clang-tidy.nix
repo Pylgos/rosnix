@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_clang_tidy";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-clang-tidy ament-cmake-test ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-clang-tidy ament-cmake-test ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_clang_tidy" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_clang_tidy to lint C / C++ code using clang tidy.";
+    description = "\n    The CMake API for ament_clang_tidy to lint C / C++ code using clang tidy.\n  ";
   };
 })

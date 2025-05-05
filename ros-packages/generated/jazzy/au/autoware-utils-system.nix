@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."autoware_utils_system";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ rclcpp ];
   checkInputs = [ ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_utils_system" = substituteSource {

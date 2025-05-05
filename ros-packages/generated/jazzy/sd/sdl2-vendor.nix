@@ -13,6 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-3";
   src = finalAttrs.passthru.sources."sdl2_vendor";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "sdl2" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "sdl2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sdl2_vendor" = substituteSource {

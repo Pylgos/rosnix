@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2nodl";
   version = "0.3.1-5";
   src = finalAttrs.passthru.sources."ros2nodl";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
-  propagatedBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ];
+  propagatedNativeBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
+  propagatedBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" ]; };
   checkInputs = [ ament-flake8 ament-lint-auto ament-lint-common ament-mypy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-mock" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2nodl" = substituteSource {

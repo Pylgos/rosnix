@@ -37,10 +37,10 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "robot_localization";
   version = "3.8.2-1";
   src = finalAttrs.passthru.sources."robot_localization";
-  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ rclcpp rmw-implementation ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  buildInputs = [ builtin-interfaces ];
-  propagatedBuildInputs = [ angles diagnostic-msgs diagnostic-updater geographic-msgs geometry-msgs message-filters nav-msgs rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-eigen tf2-geometry-msgs tf2-ros yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" "libboost-dev" ]; };
+  nativeBuildInputs = [ ament-cmake builtin-interfaces rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ angles diagnostic-msgs diagnostic-updater geographic-msgs geometry-msgs message-filters nav-msgs rclcpp rmw-implementation rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-eigen tf2-geometry-msgs tf2-ros yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "geographiclib" "libboost-dev" ]; };
+  buildInputs = [ ament-cmake builtin-interfaces rosidl-default-generators ];
+  propagatedBuildInputs = [ angles diagnostic-msgs diagnostic-updater geographic-msgs geometry-msgs message-filters nav-msgs rclcpp rmw-implementation rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-eigen tf2-geometry-msgs tf2-ros yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "geographiclib" "libboost-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common builtin-interfaces launch-ros launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "robot_localization" = substituteSource {

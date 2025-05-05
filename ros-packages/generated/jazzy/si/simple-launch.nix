@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.11.0-1";
   src = finalAttrs.passthru.sources."simple_launch";
   nativeBuildInputs = [ ament-cmake-python ];
+  propagatedNativeBuildInputs = [ ament-index-python launch launch-ros xacro ];
+  buildInputs = [ ament-cmake-python ];
   propagatedBuildInputs = [ ament-index-python launch launch-ros xacro ];
   passthru.sources = mkSourceSet (sources: {
     "simple_launch" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Python helper class for the ROS 2 launch system";
+    description = "\n    Python helper class for the ROS 2 launch system\n  ";
   };
 })

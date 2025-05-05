@@ -14,8 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "gurumdds_cmake_module";
   version = "5.0.0-2";
   src = finalAttrs.passthru.sources."gurumdds_cmake_module";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gurumdds-3.2" ]; };
+  propagatedBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "gurumdds_cmake_module" = substituteSource {

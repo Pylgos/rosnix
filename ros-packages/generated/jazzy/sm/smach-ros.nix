@@ -19,8 +19,9 @@ buildAmentPythonPackage (finalAttrs: {
   version = "3.0.3-3";
   src = finalAttrs.passthru.sources."smach_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ smach smach-msgs std-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ rclpy smach smach-msgs std-msgs std-srvs ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ rclpy smach smach-msgs std-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "smach_ros" = substituteSource {
       src = fetchgit {
@@ -32,6 +33,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The smach_ros package contains extensions for the SMACH library to integrate it tightly with ROS. For example, SMACH-ROS can call ROS services, listen to ROS topics, and integrate with";
+    description = "\n    The smach_ros package contains extensions for the SMACH library to\n    integrate it tightly with ROS.  For example, SMACH-ROS can call\n    ROS services, listen to ROS topics, and integrate\n    with ";
   };
 })

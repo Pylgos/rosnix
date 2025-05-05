@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."autoware_lint_common";
   nativeBuildInputs = [ ament-cmake-export-dependencies ];
   propagatedNativeBuildInputs = [ ament-cmake-copyright ament-cmake-core ament-cmake-cppcheck ament-cmake-lint-cmake ament-cmake-test ament-cmake-xmllint ];
+  buildInputs = [ ament-cmake-export-dependencies ];
+  propagatedBuildInputs = [ ament-cmake-copyright ament-cmake-core ament-cmake-cppcheck ament-cmake-lint-cmake ament-cmake-test ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_lint_common" = substituteSource {
       src = fetchgit {

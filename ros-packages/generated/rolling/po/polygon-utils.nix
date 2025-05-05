@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-1";
   src = finalAttrs.passthru.sources."polygon_utils";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedNativeBuildInputs = [ geometry-msgs polygon-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-shapely" ]; };
+  buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ geometry-msgs polygon-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-shapely" ]; };
   checkInputs = [ ament-cmake-pytest ];
   passthru.sources = mkSourceSet (sources: {

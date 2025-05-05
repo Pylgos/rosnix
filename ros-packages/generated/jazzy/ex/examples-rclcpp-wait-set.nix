@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.19.5-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_wait_set";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ example-interfaces rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-components std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-components std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_wait_set" = substituteSource {

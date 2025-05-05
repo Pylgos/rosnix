@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."clearpath_config_live";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ clearpath-generator-common xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-watchdog" ]; };
+  propagatedNativeBuildInputs = [ clearpath-generator-common rclpy xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-watchdog" ]; };
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ clearpath-generator-common rclpy xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-watchdog" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_config_live" = substituteSource {

@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_examples_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ example-interfaces rosbag2-cpp rosbag2-transport ];
+  propagatedNativeBuildInputs = [ example-interfaces rclcpp rosbag2-cpp rosbag2-transport ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ example-interfaces rclcpp rosbag2-cpp rosbag2-transport ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_examples_cpp" = substituteSource {

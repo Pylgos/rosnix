@@ -27,8 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-5";
   src = finalAttrs.passthru.sources."nmea_hardware_interface";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ controller-interface geographic-msgs hardware-interface nmea-msgs pluginlib quaternion-operation rclcpp-components realtime-tools ros2-control rviz2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "gtk3" ]; };
+  propagatedNativeBuildInputs = [ controller-interface geographic-msgs hardware-interface nmea-msgs pluginlib quaternion-operation rclcpp rclcpp-components realtime-tools ros2-control rviz2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "gtk3" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ controller-interface geographic-msgs hardware-interface nmea-msgs pluginlib quaternion-operation rclcpp rclcpp-components realtime-tools ros2-control rviz2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "gtk3" "pkg-config" ]; };
   checkInputs = [ ament-lint-auto ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nmea_hardware_interface" = substituteSource {

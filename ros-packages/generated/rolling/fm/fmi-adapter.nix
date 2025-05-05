@@ -28,8 +28,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.2-2";
   src = finalAttrs.passthru.sources."fmi_adapter";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ fmilibrary-vendor launch launch-ros rcl-interfaces rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ fmilibrary-vendor launch launch-ros rcl-interfaces rclcpp rclcpp-components rclcpp-lifecycle std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ fmilibrary-vendor launch launch-ros rcl-interfaces rclcpp rclcpp-components rclcpp-lifecycle std-msgs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch-testing rcutils ];
   passthru.sources = mkSourceSet (sources: {
     "fmi_adapter" = substituteSource {

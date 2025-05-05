@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.2-1";
   src = finalAttrs.passthru.sources."compressed_image_transport";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ cv-bridge image-transport ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cv-bridge image-transport ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Compressed_image_transport provides a plugin to image_transport for transparently sending images encoded as JPEG or PNG.";
+    description = "\n    Compressed_image_transport provides a plugin to image_transport for transparently sending images\n    encoded as JPEG or PNG.\n  ";
   };
 })

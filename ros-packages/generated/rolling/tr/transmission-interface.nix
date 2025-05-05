@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."transmission_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  propagatedNativeBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.14.0-1";
   src = finalAttrs.passthru.sources."example_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "example_interfaces" = substituteSource {

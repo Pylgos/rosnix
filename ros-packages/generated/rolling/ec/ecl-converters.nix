@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_converters";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-concepts ecl-config ecl-errors ecl-exceptions ecl-license ecl-mpl ecl-type-traits ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-concepts ecl-config ecl-errors ecl-exceptions ecl-license ecl-mpl ecl-type-traits ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -37,6 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Some fast/convenient type converters, mostly for char strings or strings. These are not really fully fleshed out, alot of them could use the addition for the whole range of fundamental types (e.g. all integers, not just int, unsigned int). They will come as the need arises.";
+    description = "\n     Some fast/convenient type converters, mostly for char strings or strings.\n     These are not really fully fleshed out, alot of them could use the addition for\n     the whole range of fundamental types (e.g. all integers, not just int, unsigned int).\n\n     They will come as the need arises.\n  ";
   };
 })

@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-1";
   src = finalAttrs.passthru.sources."broll";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ rclcpp-components rcutils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rcutils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ament-cmake-ros ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components rcutils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" "pkg-config" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "broll" = substituteSource {

@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."moveit_resources_panda_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ controller-manager gripper-controllers joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-manager gripper-controllers joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_panda_moveit_config" = substituteSource {
@@ -36,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "";
+    description = "\n    ";
   };
 })

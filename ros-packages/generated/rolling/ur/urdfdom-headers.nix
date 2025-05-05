@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "1.1.1-2";
   src = finalAttrs.passthru.sources."urdfdom_headers";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "urdfdom_headers" = substituteSource {
       src = fetchgit {
@@ -23,6 +24,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "C++ headers for URDF.";
+    description = "\n    C++ headers for URDF.\n  ";
   };
 })

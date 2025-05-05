@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_urdf";
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."sdformat_urdf";
-  propagatedNativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ pluginlib rcutils sdformat-vendor tinyxml2-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor tinyxml2-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liburdfdom-headers-dev" ]; };
+  propagatedBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor tinyxml2-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common sdformat-test-files ];
   passthru.sources = mkSourceSet (sources: {
     "sdformat_urdf" = substituteSource {
@@ -36,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "URDF plugin to parse SDFormat XML into URDF C++ DOM objects.";
+    description = "\n    URDF plugin to parse SDFormat XML into URDF C++ DOM objects.\n  ";
   };
 })

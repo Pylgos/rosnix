@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."bond";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A bond allows two processes, A and B, to know when the other has terminated, either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.";
+    description = "\n    A bond allows two processes, A and B, to know when the other has\n    terminated, either cleanly or by crashing.  The bond remains\n    connected until it is either broken explicitly or until a\n    heartbeat times out.\n  ";
   };
 })

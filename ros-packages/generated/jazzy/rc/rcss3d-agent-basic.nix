@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.1-4";
   src = finalAttrs.passthru.sources."rcss3d_agent_basic";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rclcpp-components rcss3d-agent ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp-components rcss3d-agent ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

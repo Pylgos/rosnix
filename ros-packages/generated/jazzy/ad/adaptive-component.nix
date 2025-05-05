@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.1-5";
   src = finalAttrs.passthru.sources."adaptive_component";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "adaptive_component" = substituteSource {
@@ -31,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A composable container for Adaptive ROS 2 Node computations. Allows building Nodes that can select between FPGA, CPU or GPU, at run-time. Stateless by default, can be made stateful to meet use-case specific needs. Refer to examples in README. Technically, provides A ROS 2 Node subclass programmed as a \"Component\" and including its own single threaded executor to build adaptive computations. Adaptive ROS 2 Nodes are able to perform computations in the CPU, the FPGA or the GPU, adaptively. Adaptive behavior is controlled through the \"adaptive\" ROS 2 parameter.";
+    description = "\n    A composable container for Adaptive ROS 2 Node computations.\n    Allows building Nodes that can select between FPGA, CPU or\n    GPU, at run-time. Stateless by default, can be made stateful\n    to meet use-case specific needs. Refer to examples in README.\n\n    Technically, provides A ROS 2 Node subclass programmed as a\n    \"Component\" and including its own single threaded executor\n    to build adaptive computations. Adaptive ROS 2 Nodes are able to\n    perform computations in the CPU, the FPGA or the GPU, adaptively.\n    Adaptive behavior is controlled through the \"adaptive\" ROS 2\n    parameter.\n  ";
   };
 })

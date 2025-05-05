@@ -32,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_uncrustify to check code against styleconventions using uncrustify.";
+    description = "\n    The CMake API for ament_uncrustify to check code against styleconventions\n    using uncrustify.\n  ";
   };
 })

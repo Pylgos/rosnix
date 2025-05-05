@@ -18,6 +18,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_demos_tasks";
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."rmf_demos_tasks";
+  propagatedNativeBuildInputs = [ rmf-dispenser-msgs rmf-fleet-msgs rmf-lift-msgs rmf-task-msgs ];
   propagatedBuildInputs = [ rmf-dispenser-msgs rmf-fleet-msgs rmf-lift-msgs rmf-task-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ];
   passthru.sources = mkSourceSet (sources: {

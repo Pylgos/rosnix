@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.4-1";
   src = finalAttrs.passthru.sources."event_camera_renderer";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ros-environment ];
-  propagatedBuildInputs = [ event-camera-codecs event-camera-msgs image-transport rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ event-camera-codecs event-camera-msgs image-transport rclcpp rclcpp-components ros-environment sensor-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
+  propagatedBuildInputs = [ event-camera-codecs event-camera-msgs image-transport rclcpp rclcpp-components ros-environment sensor-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "event_camera_renderer" = substituteSource {

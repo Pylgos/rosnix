@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.2-1";
   src = finalAttrs.passthru.sources."laser_segmentation";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ rclcpp-components sensor-msgs slg-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs slg-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs slg-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "laser_segmentation" = substituteSource {

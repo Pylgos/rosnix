@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."chomp_motion_planner";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp rsl ];
-  propagatedBuildInputs = [ moveit-common moveit-core trajectory-msgs ];
+  propagatedNativeBuildInputs = [ moveit-common moveit-core rclcpp rsl trajectory-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ moveit-common moveit-core rclcpp rsl trajectory-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "chomp_motion_planner" = substituteSource {
       src = fetchgit {

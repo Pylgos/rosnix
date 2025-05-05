@@ -23,8 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."beluga_amcl";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ beluga beluga-ros bondcpp message-filters rclcpp-components std-srvs ];
+  propagatedNativeBuildInputs = [ beluga beluga-ros bondcpp message-filters rclcpp rclcpp-components rclcpp-lifecycle std-srvs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ beluga beluga-ros bondcpp message-filters rclcpp rclcpp-components rclcpp-lifecycle std-srvs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "beluga_amcl" = substituteSource {

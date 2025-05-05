@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."spinnaker_synchronized_camera_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components spinnaker-camera-driver ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components spinnaker-camera-driver ];
+  buildInputs = [ ament-cmake ament-cmake-ros ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components spinnaker-camera-driver ];
   checkInputs = [ ament-cmake-black ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "spinnaker_synchronized_camera_driver" = substituteSource {

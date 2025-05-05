@@ -12,6 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.0.3-1";
   src = finalAttrs.passthru.sources."sick_safetyscanners_base";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-system-dev" "libboost-thread-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-system-dev" "libboost-thread-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sick_safetyscanners_base" = substituteSource {
@@ -24,6 +26,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Provides an Interface to read the sensor output of a SICK Safety Scanner";
+    description = "Provides an Interface to read the sensor output of a SICK\n  Safety Scanner";
   };
 })

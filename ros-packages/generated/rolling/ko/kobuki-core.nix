@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-3";
   src = finalAttrs.passthru.sources."kobuki_core";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-command-line ecl-config ecl-console ecl-converters ecl-devices ecl-geometry ecl-mobile-robot ecl-sigslots ecl-threads ecl-time ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-command-line ecl-config ecl-console ecl-converters ecl-devices ecl-geometry ecl-mobile-robot ecl-sigslots ecl-threads ecl-time ];
   passthru.sources = mkSourceSet (sources: {
     "kobuki_core" = substituteSource {
@@ -36,6 +38,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Pure C++ driver library for Kobuki.";
+    description = "\n    Pure C++ driver library for Kobuki.\n  ";
   };
 })

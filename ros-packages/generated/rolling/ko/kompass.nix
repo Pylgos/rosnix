@@ -13,6 +13,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "kompass";
   version = "0.2.1-1";
   src = finalAttrs.passthru.sources."kompass";
+  propagatedNativeBuildInputs = [ automatika-ros-sugar kompass-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pykdl" ]; };
   propagatedBuildInputs = [ automatika-ros-sugar kompass-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };
   passthru.sources = mkSourceSet (sources: {
     "kompass" = substituteSource {

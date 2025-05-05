@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.6-1";
   src = finalAttrs.passthru.sources."mapviz_interfaces";
   nativeBuildInputs = [ rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces marti-common-msgs rosidl-default-runtime ];
+  buildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces marti-common-msgs rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "mapviz_interfaces" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS interfaces used by Mapviz";
+    description = "\n     ROS interfaces used by Mapviz\n  ";
   };
 })

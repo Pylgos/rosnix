@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_minimal_client";
   version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclpy_minimal_client";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ example-interfaces std-msgs ];
+  propagatedNativeBuildInputs = [ example-interfaces rclpy std-msgs ];
+  propagatedBuildInputs = [ example-interfaces rclpy std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "examples_rclpy_minimal_client" = substituteSource {

@@ -13,6 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."libphidget22";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libusb-1.0" "libusb-1.0-dev" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0" "libusb-1.0-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libphidget22" = substituteSource {

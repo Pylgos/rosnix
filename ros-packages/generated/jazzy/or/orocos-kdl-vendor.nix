@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.1-2";
   src = finalAttrs.passthru.sources."orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "liborocos-kdl-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liborocos-kdl-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liborocos-kdl-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "orocos_kdl_vendor" = substituteSource {
@@ -46,6 +47,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around orocos_kdl, providing nothing but a dependency on orocos_kdl on some systems. On others, it fetches and builds orocos_kdl locally.";
+    description = "\n    Wrapper around orocos_kdl, providing nothing but a dependency on orocos_kdl on some systems.\n    On others, it fetches and builds orocos_kdl locally.\n  ";
   };
 })

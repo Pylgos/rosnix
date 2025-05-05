@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "mouse_teleop";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."mouse_teleop";
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tk" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-tk" ]; };
+  propagatedBuildInputs = [ geometry-msgs rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-tk" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "mouse_teleop" = substituteSource {

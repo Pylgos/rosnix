@@ -16,8 +16,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.6-1";
   src = finalAttrs.passthru.sources."dataspeed_can_msg_filters";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ can-msgs ];
+  propagatedNativeBuildInputs = [ can-msgs rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ can-msgs rclcpp ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "dataspeed_can_msg_filters" = substituteSource {
@@ -30,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Time synchronize multiple CAN messages to get a single callback";
+    description = "\n    Time synchronize multiple CAN messages to get a single callback\n  ";
   };
 })

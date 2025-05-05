@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."leo_desktop";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ leo leo-viz ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo leo-viz ];
   passthru.sources = mkSourceSet (sources: {
     "leo_desktop" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Metapackage of software for operating Leo Rover from ROS desktop";
+    description = "\n    Metapackage of software for operating Leo Rover from ROS desktop\n  ";
   };
 })

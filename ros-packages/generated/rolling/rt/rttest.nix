@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.19.0-1";
   src = finalAttrs.passthru.sources."rttest";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rttest" = substituteSource {

@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."libnabo";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libnabo" = substituteSource {
       src = fetchgit {
@@ -25,6 +26,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "libnabo is a fast K Nearest Neighbour library for low-dimensional spaces.";
+    description = "\n		libnabo is a fast K Nearest Neighbour library for low-dimensional spaces.\n	";
   };
 })

@@ -16,6 +16,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "clearpath_bt_joy";
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."clearpath_bt_joy";
+  propagatedNativeBuildInputs = [ joy-linux twist-mux ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "bluez" ]; };
   propagatedBuildInputs = [ joy-linux twist-mux ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bluez" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

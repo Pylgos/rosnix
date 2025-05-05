@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.2-7";
   src = finalAttrs.passthru.sources."laser_proc";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ class-loader rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ class-loader rclcpp rclcpp-components sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ class-loader rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "laser_proc" = substituteSource {

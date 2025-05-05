@@ -24,6 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-3";
   src = finalAttrs.passthru.sources."rcss3d_nao";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ geometry-msgs nao-lola-command-msgs nao-lola-sensor-msgs rclcpp-components rcss3d-agent rcss3d-agent-msgs-to-soccer-interfaces sensor-msgs soccer-vision-3d-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geometry-msgs nao-lola-command-msgs nao-lola-sensor-msgs rclcpp-components rcss3d-agent rcss3d-agent-msgs-to-soccer-interfaces sensor-msgs soccer-vision-3d-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

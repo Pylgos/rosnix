@@ -17,7 +17,7 @@ buildAmentCmakePackage (finalAttrs: {
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test gtest-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gtest" ]; };
   buildInputs = [ ament-cmake-core ];
-  propagatedBuildInputs = [ ament-cmake-test gtest-vendor ];
+  propagatedBuildInputs = [ ament-cmake-test gtest-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_gtest" = substituteSource {
       src = fetchgit {

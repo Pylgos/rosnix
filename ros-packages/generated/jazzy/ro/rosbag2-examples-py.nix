@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rosbag2_examples_py";
   version = "0.26.7-1";
   src = finalAttrs.passthru.sources."rosbag2_examples_py";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ example-interfaces rosbag2-py std-msgs ];
+  propagatedNativeBuildInputs = [ example-interfaces rclpy rosbag2-py std-msgs ];
+  propagatedBuildInputs = [ example-interfaces rclpy rosbag2-py std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_examples_py" = substituteSource {

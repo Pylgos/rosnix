@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosapi_msgs";
   nativeBuildInputs = [ ament-cmake-ros rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
+  buildInputs = [ ament-cmake-ros rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "rosapi_msgs" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Provides service calls for getting ros meta-information, like list of topics, services, params, etc.";
+    description = "\n    Provides service calls for getting ros meta-information, like list of\n    topics, services, params, etc.\n  ";
   };
 })

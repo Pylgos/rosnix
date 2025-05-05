@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-3";
   src = finalAttrs.passthru.sources."serial_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ io-context rclcpp-components std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  propagatedNativeBuildInputs = [ io-context rclcpp rclcpp-components rclcpp-lifecycle std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
+  buildInputs = [ ament-cmake-auto asio-cmake-module ];
+  propagatedBuildInputs = [ io-context rclcpp rclcpp-components rclcpp-lifecycle std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "serial_driver" = substituteSource {

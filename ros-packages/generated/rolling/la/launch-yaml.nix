@@ -16,6 +16,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_yaml";
   version = "3.9.0-1";
   src = finalAttrs.passthru.sources."launch_yaml";
+  propagatedNativeBuildInputs = [ launch ];
   propagatedBuildInputs = [ launch ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

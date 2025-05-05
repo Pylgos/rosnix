@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.3-1";
   src = finalAttrs.passthru.sources."ess_imu_driver2";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ess_imu_driver2" = substituteSource {

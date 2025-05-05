@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-3";
   src = finalAttrs.passthru.sources."ublox_serialization";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ublox_serialization" = substituteSource {
       src = fetchgit {
@@ -24,6 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ublox_serialization provides header files for serialization of ROS messages to and from u-blox message format.";
+    description = "\n\n     ublox_serialization provides header files for serialization of ROS messages to and from u-blox message format.\n\n  ";
   };
 })

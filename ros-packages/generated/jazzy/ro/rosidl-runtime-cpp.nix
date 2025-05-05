@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_runtime_cpp";
   version = "4.6.5-1";
   src = finalAttrs.passthru.sources."rosidl_runtime_cpp";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rosidl-runtime-c ];
+  propagatedNativeBuildInputs = [ ament-cmake rosidl-runtime-c ];
+  propagatedBuildInputs = [ ament-cmake rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_runtime_cpp" = substituteSource {

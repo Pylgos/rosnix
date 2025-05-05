@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_onboard";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_onboard";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-states launch-ros ];
+  propagatedNativeBuildInputs = [ flexbe-core flexbe-msgs flexbe-states launch-ros rclpy ];
+  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-states launch-ros rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_onboard" = substituteSource {
@@ -34,6 +34,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "flexbe_onboard implements the robot-side of the behavior engine from where all behaviors are started.";
+    description = "\n        flexbe_onboard implements the robot-side of the behavior engine from where all behaviors are started.\n    ";
   };
 })

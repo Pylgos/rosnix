@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."gps_umd";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ gps-msgs gps-tools gpsd-client ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ gps-msgs gps-tools gpsd-client ];
   passthru.sources = mkSourceSet (sources: {
     "gps_umd" = substituteSource {

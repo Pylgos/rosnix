@@ -14,8 +14,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."libcaer_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "libusb-1.0-dev" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "libusb-1.0-dev" "pkg-config" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libcaer_vendor" = substituteSource {
@@ -43,6 +44,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around libcaer library";
+    description = "\n    Wrapper around libcaer library\n  ";
   };
 })

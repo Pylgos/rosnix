@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.6.1-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ geometry-msgs std-msgs ];
+  buildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ geometry-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "microstrain_inertial_msgs" = substituteSource {

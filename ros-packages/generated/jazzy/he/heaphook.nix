@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.1-3";
   src = finalAttrs.passthru.sources."heaphook";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ tlsf ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ tlsf ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

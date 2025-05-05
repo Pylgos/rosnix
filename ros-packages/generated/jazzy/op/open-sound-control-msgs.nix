@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."open_sound_control_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "open_sound_control_msgs" = substituteSource {
       src = fetchgit {

@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_pytest";
   version = "3.4.4-1";
   src = finalAttrs.passthru.sources."launch_pytest";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
-  propagatedBuildInputs = [ ament-index-python launch launch-testing osrf-pycommon ];
+  propagatedNativeBuildInputs = [ ament-index-python launch launch-testing osrf-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
+  propagatedBuildInputs = [ ament-index-python launch launch-testing osrf-pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 launch ];
   passthru.sources = mkSourceSet (sources: {
     "launch_pytest" = substituteSource {

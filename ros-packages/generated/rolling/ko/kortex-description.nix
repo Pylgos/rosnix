@@ -22,6 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.2-2";
   src = finalAttrs.passthru.sources."kortex_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui joint-trajectory-controller picknik-reset-fault-controller picknik-twist-controller robot-state-publisher robotiq-description rviz2 ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui joint-trajectory-controller picknik-reset-fault-controller picknik-twist-controller robot-state-publisher robotiq-description rviz2 ];
   passthru.sources = mkSourceSet (sources: {
     "kortex_description" = substituteSource {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "";
+    description = "\n    ";
   };
 })

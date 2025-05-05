@@ -14,8 +14,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-1";
   src = finalAttrs.passthru.sources."lanelet2_core";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" ]; };
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "lanelet2_core" = substituteSource {

@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.5-5";
   src = finalAttrs.passthru.sources."ament_download";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ament_download" = substituteSource {
       src = fetchgit {

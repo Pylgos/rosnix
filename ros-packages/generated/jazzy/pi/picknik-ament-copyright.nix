@@ -15,6 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "0.0.2-5";
   src = finalAttrs.passthru.sources."picknik_ament_copyright";
   propagatedNativeBuildInputs = [ ament-copyright ];
+  propagatedBuildInputs = [ ament-copyright ];
   checkInputs = [ ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "picknik_ament_copyright" = substituteSource {
@@ -27,6 +28,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Check PickNik-specific copyright headers.";
+    description = "\n    Check PickNik-specific copyright headers.\n  ";
   };
 })

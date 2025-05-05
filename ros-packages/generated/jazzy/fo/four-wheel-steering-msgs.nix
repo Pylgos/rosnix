@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-6";
   src = finalAttrs.passthru.sources."four_wheel_steering_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "four_wheel_steering_msgs" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS messages for robots using FourWheelSteering.";
+    description = "\n    ROS messages for robots using FourWheelSteering.\n  ";
   };
 })

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."clearpath_msgs";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ clearpath-motor-msgs clearpath-platform-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ clearpath-motor-msgs clearpath-platform-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_msgs" = substituteSource {

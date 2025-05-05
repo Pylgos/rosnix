@@ -31,8 +31,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."demo_nodes_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rcl rclcpp rcpputils ];
-  propagatedBuildInputs = [ example-interfaces launch-ros launch-xml rcl-interfaces rclcpp-components rcutils rmw std-msgs ];
+  propagatedNativeBuildInputs = [ example-interfaces launch-ros launch-xml rcl rcl-interfaces rclcpp rclcpp-components rcpputils rcutils rmw std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ example-interfaces launch-ros launch-xml rcl rcl-interfaces rclcpp rclcpp-components rcpputils rcutils rmw std-msgs ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "demo_nodes_cpp" = substituteSource {
@@ -45,6 +46,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "C++ nodes which were previously in the ros2/examples repository but are now just used for demo purposes.";
+    description = "\n    C++ nodes which were previously in the ros2/examples repository but are now just used for demo purposes.\n  ";
   };
 })

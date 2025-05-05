@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-8";
   src = finalAttrs.passthru.sources."apex_test_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ ament-cmake-gtest ];
-  propagatedBuildInputs = [ osrf-testing-tools-cpp ];
+  propagatedNativeBuildInputs = [ ament-cmake-gtest osrf-testing-tools-cpp ];
+  buildInputs = [ ament-cmake ament-cmake-auto ];
+  propagatedBuildInputs = [ ament-cmake-gtest osrf-testing-tools-cpp ];
   checkInputs = [ ament-cmake-pclint ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "apex_test_tools" = substituteSource {

@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."depth_obstacle_detect_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ cv-bridge depth-obstacle-detect-ros-msgs image-transport rclcpp-components ros2launch sensor-msgs ];
+  propagatedNativeBuildInputs = [ cv-bridge depth-obstacle-detect-ros-msgs image-transport rclcpp rclcpp-components rclpy ros2launch sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ cv-bridge depth-obstacle-detect-ros-msgs image-transport rclcpp rclcpp-components rclpy ros2launch sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "depth_obstacle_detect_ros" = substituteSource {
       src = fetchgit {

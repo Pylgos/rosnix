@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."generate_parameter_library_example_external";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-core rclcpp ];
-  propagatedBuildInputs = [ generate-parameter-library-example rclcpp-components ];
+  propagatedNativeBuildInputs = [ ament-cmake-core generate-parameter-library-example rclcpp rclcpp-components ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-core generate-parameter-library-example rclcpp rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "generate_parameter_library_example_external" = substituteSource {

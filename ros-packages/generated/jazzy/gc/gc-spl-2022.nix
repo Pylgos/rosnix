@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "gc_spl_2022";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."gc_spl_2022";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ rcgcd-spl-14 rcgcd-spl-14-conversion rcgcrd-spl-4 rcgcrd-spl-4-conversion ];
+  propagatedNativeBuildInputs = [ rcgcd-spl-14 rcgcd-spl-14-conversion rcgcrd-spl-4 rcgcrd-spl-4-conversion rclpy ];
+  propagatedBuildInputs = [ rcgcd-spl-14 rcgcd-spl-14-conversion rcgcrd-spl-4 rcgcrd-spl-4-conversion rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gc_spl_2022" = substituteSource {

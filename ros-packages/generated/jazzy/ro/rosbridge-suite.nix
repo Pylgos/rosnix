@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_suite";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rosapi rosbridge-library rosbridge-server ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rosapi rosbridge-library rosbridge-server ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_suite" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Rosbridge provides a JSON API to ROS functionality for non-ROS programs. There are a variety of front ends that interface with rosbridge, including a WebSocket server for web browsers to interact with. Rosbridge_suite is a meta-package containing rosbridge, various front end packages for rosbridge like a WebSocket package, and helper packages.";
+    description = "\n    Rosbridge provides a JSON API to ROS functionality for non-ROS programs.\n    There are a variety of front ends that interface with rosbridge, including\n    a WebSocket server for web browsers to interact with.\n\n    Rosbridge_suite is a meta-package containing rosbridge, various front end\n    packages for rosbridge like a WebSocket package, and helper packages.\n  ";
   };
 })

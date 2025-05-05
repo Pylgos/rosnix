@@ -13,6 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "3.3.3-1";
   src = finalAttrs.passthru.sources."rmf_traffic_examples";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ rmf-traffic ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ rmf-traffic ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic_examples" = substituteSource {

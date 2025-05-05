@@ -25,6 +25,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Reimplementation of the tf/transformations.py library for common Python spatial operations";
+    description = "\n      Reimplementation of the tf/transformations.py library for common Python spatial operations\n  ";
   };
 })

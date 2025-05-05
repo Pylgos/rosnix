@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.2-3";
   src = finalAttrs.passthru.sources."radar_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs std-msgs unique-identifier-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-generators std-msgs unique-identifier-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-generators std-msgs unique-identifier-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "radar_msgs" = substituteSource {
       src = fetchgit {

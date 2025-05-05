@@ -28,6 +28,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Python API to access the ament resource index.";
+    description = "\n    Python API to access the ament resource index.\n  ";
   };
 })

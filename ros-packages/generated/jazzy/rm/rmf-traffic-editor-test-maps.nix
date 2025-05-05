@@ -14,8 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_editor_test_maps";
   version = "1.9.2-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor_test_maps";
-  nativeBuildInputs = [ ament-cmake ];
-  buildInputs = [ rmf-building-map-tools ros2run ];
+  nativeBuildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
+  buildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic_editor_test_maps" = substituteSource {
       src = fetchgit {
@@ -27,6 +27,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Some test maps for traffic_editor and rmf_building_map_tools.";
+    description = "\n    Some test maps for traffic_editor and rmf_building_map_tools.\n  ";
   };
 })

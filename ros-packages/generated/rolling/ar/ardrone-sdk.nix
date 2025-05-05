@@ -13,6 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."ardrone_sdk";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "arsdk3" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "arsdk3" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ardrone_sdk" = substituteSource {

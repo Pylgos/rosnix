@@ -31,8 +31,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-3";
   src = finalAttrs.passthru.sources."pointcloud_to_laserscan";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ laser-geometry launch launch-ros message-filters rclcpp-components sensor-msgs tf2 tf2-ros tf2-sensor-msgs ];
+  propagatedNativeBuildInputs = [ laser-geometry launch launch-ros message-filters rclcpp rclcpp-components sensor-msgs tf2 tf2-ros tf2-sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ laser-geometry launch launch-ros message-filters rclcpp rclcpp-components sensor-msgs tf2 tf2-ros tf2-sensor-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "pointcloud_to_laserscan" = substituteSource {

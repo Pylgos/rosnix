@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "7.9.0-1";
   src = finalAttrs.passthru.sources."rmw";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ament-cmake-version ];
-  propagatedNativeBuildInputs = [ rosidl-dynamic-typesupport ];
-  propagatedBuildInputs = [ rcutils rosidl-runtime-c ];
+  propagatedNativeBuildInputs = [ rcutils rosidl-dynamic-typesupport rosidl-runtime-c ];
+  buildInputs = [ ament-cmake ament-cmake-ros-core ament-cmake-version ];
+  propagatedBuildInputs = [ rcutils rosidl-dynamic-typesupport rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rmw" = substituteSource {

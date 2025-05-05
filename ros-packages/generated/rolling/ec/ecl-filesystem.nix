@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_filesystem";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Cross platform filesystem utilities (until c++11 makes its way in).";
+    description = "\n     Cross platform filesystem utilities (until c++11 makes its way in).\n  ";
   };
 })

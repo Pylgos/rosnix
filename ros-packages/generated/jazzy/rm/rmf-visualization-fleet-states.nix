@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_fleet_states";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components rmf-fleet-msgs rmf-visualization-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rmf-fleet-msgs rmf-visualization-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components rmf-fleet-msgs rmf-visualization-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common rmf-utils ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_visualization_fleet_states" = substituteSource {

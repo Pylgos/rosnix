@@ -14,6 +14,8 @@ buildCatkinPackage (finalAttrs: {
   version = "2.0.0-5";
   src = finalAttrs.passthru.sources."async_web_server_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libssl-dev" ]; };
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libssl-dev" ]; };
   checkInputs = [ launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-websocket" ]; };
   passthru.sources = mkSourceSet (sources: {

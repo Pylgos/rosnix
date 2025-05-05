@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."teleop_tools";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ joy-teleop key-teleop teleop-tools-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joy-teleop key-teleop teleop-tools-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "teleop_tools" = substituteSource {

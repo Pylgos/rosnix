@@ -32,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_xmllint to check XML file using xmmlint.";
+    description = "\n    The CMake API for ament_xmllint to check XML file using xmmlint.\n  ";
   };
 })

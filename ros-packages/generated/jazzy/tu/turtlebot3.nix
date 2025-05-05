@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ turtlebot3-bringup turtlebot3-cartographer turtlebot3-description turtlebot3-example turtlebot3-navigation2 turtlebot3-node turtlebot3-teleop ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ turtlebot3-bringup turtlebot3-cartographer turtlebot3-description turtlebot3-example turtlebot3-navigation2 turtlebot3-node turtlebot3-teleop ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3" = substituteSource {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 packages for TurtleBot3";
+    description = "\n    ROS 2 packages for TurtleBot3\n  ";
   };
 })

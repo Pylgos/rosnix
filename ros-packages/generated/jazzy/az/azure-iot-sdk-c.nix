@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.14.0-1";
   src = finalAttrs.passthru.sources."azure_iot_sdk_c";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "uuid" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "libssl-dev" "uuid" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "curl" "libssl-dev" "uuid" ]; };
   passthru.sources = mkSourceSet (sources: {
     "azure_iot_sdk_c" = substituteSource {
       src = fetchgit {

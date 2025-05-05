@@ -14,6 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.11-1";
   src = finalAttrs.passthru.sources."boost_sml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   passthru.sources = mkSourceSet (sources: {
     "boost_sml_vendor" = substituteSource {
       src = fetchgit {
@@ -45,6 +46,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Vendor package for the Boost SML (State Machine Language)";
+    description = "\n    Vendor package for the Boost SML (State Machine Language)\n  ";
   };
 })

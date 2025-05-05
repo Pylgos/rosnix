@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_api";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ libphidget22 ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ libphidget22 ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_api" = substituteSource {

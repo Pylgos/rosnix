@@ -13,8 +13,9 @@ buildCmakePackage (finalAttrs: {
   version = "0.18.0-9";
   src = finalAttrs.passthru.sources."ifm3d_core";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  propagatedBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libgoogle-glog-dev" "libpcl-all-dev" "libxmlrpc-c++" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "curl" "libgoogle-glog-dev" "libpcl-all-dev" "libxmlrpc-c++" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "curl" "libgoogle-glog-dev" "libpcl-all-dev" "libxmlrpc-c++" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ifm3d_core" = substituteSource {
       src = fetchgit {
@@ -26,6 +27,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Library and Utilities for working with ifm pmd-based 3D ToF Cameras";
+    description = "\n    Library and Utilities for working with ifm pmd-based 3D ToF Cameras\n  ";
   };
 })

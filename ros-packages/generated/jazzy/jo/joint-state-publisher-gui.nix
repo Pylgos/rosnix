@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2.4.0-3";
   src = finalAttrs.passthru.sources."joint_state_publisher_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ joint-state-publisher python-qt-binding ];
+  propagatedNativeBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
+  propagatedBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
   passthru.sources = mkSourceSet (sources: {
     "joint_state_publisher_gui" = substituteSource {
       src = fetchgit {
@@ -29,6 +29,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package contains a GUI tool for setting and publishing joint state values for a given URDF.";
+    description = "\n    This package contains a GUI tool for setting and publishing joint state values for a given URDF.\n  ";
   };
 })

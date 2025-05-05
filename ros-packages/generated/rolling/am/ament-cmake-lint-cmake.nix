@@ -29,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_lint_cmake to lint CMake code using cmakelint.";
+    description = "\n    The CMake API for ament_lint_cmake to lint CMake code using cmakelint.\n  ";
   };
 })

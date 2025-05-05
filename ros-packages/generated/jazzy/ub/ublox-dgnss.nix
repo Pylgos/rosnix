@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.5-3";
   src = finalAttrs.passthru.sources."ublox_dgnss";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ntrip-client-node ublox-dgnss-node ublox-nav-sat-fix-hp-node ublox-ubx-interfaces ublox-ubx-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ntrip-client-node ublox-dgnss-node ublox-nav-sat-fix-hp-node ublox-ubx-interfaces ublox-ubx-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ublox_dgnss" = substituteSource {

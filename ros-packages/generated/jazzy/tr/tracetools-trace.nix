@@ -17,6 +17,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "tracetools_trace";
   version = "8.2.3-1";
   src = finalAttrs.passthru.sources."tracetools_trace";
+  propagatedNativeBuildInputs = [ lttngpy ];
   propagatedBuildInputs = [ lttngpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

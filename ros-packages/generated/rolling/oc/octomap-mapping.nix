@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."octomap_mapping";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ octomap-server ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ octomap-server ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Mapping tools to be used with the";
+    description = "\n    Mapping tools to be used with the ";
   };
 })

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.6-2";
   src = finalAttrs.passthru.sources."geographic_info";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ geodesy geographic-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ geodesy geographic-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "geographic_info" = substituteSource {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Geographic information metapackage. Not needed for wet packages, use only to resolve dry stack dependencies.";
+    description = "\n    Geographic information metapackage.\n\n    Not needed for wet packages, use only to resolve dry stack\n    dependencies.\n  ";
   };
 })

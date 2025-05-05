@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."bond_core";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ bond bondcpp smclib ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ bond bondcpp smclib ];
   passthru.sources = mkSourceSet (sources: {
     "bond_core" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A bond allows two processes, A and B, to know when the other has terminated, either cleanly or by crashing. The bond remains connected until it is either broken explicitly or until a heartbeat times out.";
+    description = "\n    A bond allows two processes, A and B, to know when the other has\n    terminated, either cleanly or by crashing. The bond remains\n    connected until it is either broken explicitly or until a\n    heartbeat times out.\n  ";
   };
 })

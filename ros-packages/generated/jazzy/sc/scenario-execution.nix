@@ -15,8 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ py-trees ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-antlr4" ]; };
+  propagatedNativeBuildInputs = [ py-trees ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-antlr4" "python3-yaml" ]; };
+  propagatedBuildInputs = [ py-trees ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-antlr4" "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "scenario_execution" = substituteSource {

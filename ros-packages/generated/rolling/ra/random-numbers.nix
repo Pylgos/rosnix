@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-4";
   src = finalAttrs.passthru.sources."random_numbers";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-random" "libboost-random-dev" "libboost-thread" "libboost-thread-dev" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-random" "libboost-random-dev" "libboost-thread" "libboost-thread-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This library contains wrappers for generating floating point values, integers, quaternions using boost libraries. The constructor of the wrapper is guaranteed to be thread safe and initialize its random number generator to a random seed. Seeds are obtained using a separate and different random number generator.";
+    description = "\n  This  library contains wrappers for generating floating point values, integers, quaternions using boost libraries.\n\n  The constructor of the wrapper is guaranteed to be thread safe and initialize its random number generator to a random seed.\n  Seeds are obtained using a separate and different random number generator.\n  ";
   };
 })

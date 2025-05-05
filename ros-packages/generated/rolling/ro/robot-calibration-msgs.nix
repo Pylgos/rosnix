@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.10.0-1";
   src = finalAttrs.passthru.sources."robot_calibration_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "robot_calibration_msgs" = substituteSource {
       src = fetchgit {
@@ -32,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for calibrating a robot";
+    description = "\n    Messages for calibrating a robot\n  ";
   };
 })

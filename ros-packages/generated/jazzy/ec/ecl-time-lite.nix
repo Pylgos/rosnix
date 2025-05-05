@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_time_lite";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_time_lite" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Provides a portable set of time functions that are especially useful for porting other code or being wrapped by higher level c++ classes.";
+    description = "\n     Provides a portable set of time functions that are especially useful for\n     porting other code or being wrapped by higher level c++ classes.\n  ";
   };
 })

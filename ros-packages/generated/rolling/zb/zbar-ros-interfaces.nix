@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.0-1";
   src = finalAttrs.passthru.sources."zbar_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime vision-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime vision-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rosidl-default-generators rosidl-default-runtime vision-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "zbar_ros_interfaces" = substituteSource {

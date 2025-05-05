@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.0-1";
   src = finalAttrs.passthru.sources."mimick_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "mimick_vendor" = substituteSource {
@@ -43,6 +44,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around mimick, it provides an ExternalProject build of mimick.";
+    description = "\n    Wrapper around mimick, it provides an ExternalProject build of mimick.\n  ";
   };
 })

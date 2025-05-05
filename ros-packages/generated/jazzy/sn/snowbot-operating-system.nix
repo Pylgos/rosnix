@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.2-5";
   src = finalAttrs.passthru.sources."snowbot_operating_system";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ geometry-msgs pluginlib rviz-common rviz-rendering ];
+  propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs pluginlib rviz-common rviz-rendering ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-ros geometry-msgs pluginlib rviz-common rviz-rendering ];
   checkInputs = [ ament-cmake-clang-format ];
   passthru.sources = mkSourceSet (sources: {
     "snowbot_operating_system" = substituteSource {

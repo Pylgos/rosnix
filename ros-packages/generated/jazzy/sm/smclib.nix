@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."smclib";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "smclib" = substituteSource {
@@ -28,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The State Machine Compiler (SMC) from http://smc.sourceforge.net/ converts a language-independent description of a state machine into the source code to support that state machine. This package contains the libraries that a compiled state machine depends on, but it does not contain the compiler itself.";
+    description = "\n    The State Machine Compiler (SMC) from http://smc.sourceforge.net/\n    converts a language-independent description of a state machine\n    into the source code to support that state machine.\n\n    This package contains the libraries that a compiled state machine\n    depends on, but it does not contain the compiler itself.\n  ";
   };
 })

@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."clearpath_manipulators_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ robot-state-publisher robotiq-description ur-description urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ robot-state-publisher robotiq-description ur-description urdf xacro ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_manipulators_description" = substituteSource {

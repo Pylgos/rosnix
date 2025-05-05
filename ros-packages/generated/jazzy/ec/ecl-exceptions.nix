@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_exceptions";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_exceptions" = substituteSource {
@@ -29,6 +31,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Template based exceptions - these are simple and practical and avoid the proliferation of exception types. Although not syntatactically ideal, it is convenient and eminently practical.";
+    description = "\n     Template based exceptions - these are simple and practical\n     and avoid the proliferation of exception types. Although not\n     syntatactically ideal, it is convenient and eminently practical.\n  ";
   };
 })

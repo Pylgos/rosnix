@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."leo_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui leo-description rviz2 ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui leo-description rviz2 ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
@@ -34,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Visualization launch files and RViz configurations for Leo Rover";
+    description = "\n    Visualization launch files and RViz configurations for Leo Rover\n  ";
   };
 })

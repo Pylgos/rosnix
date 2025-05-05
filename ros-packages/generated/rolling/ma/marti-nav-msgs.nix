@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.6.1-1";
   src = finalAttrs.passthru.sources."marti_nav_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs marti-common-msgs rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs marti-common-msgs rosidl-default-runtime sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "marti_nav_msgs" = substituteSource {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "marti_nav_msgs";
+    description = "\n\n     marti_nav_msgs\n\n  ";
   };
 })

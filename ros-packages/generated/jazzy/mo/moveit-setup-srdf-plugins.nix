@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_setup_srdf_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ moveit-setup-framework pluginlib ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-setup-framework pluginlib ];
   checkInputs = [ ament-cmake-gtest moveit-resources-fanuc-description ];
   passthru.sources = mkSourceSet (sources: {

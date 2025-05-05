@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ moveit-simple-controller-manager ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-simple-controller-manager ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_plugins" = substituteSource {

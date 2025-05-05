@@ -21,6 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."moveit_resources_fanuc_moveit_config";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher moveit-resources-fanuc-description position-controllers robot-state-publisher ros2cli-common-extensions tf2-ros xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-manager joint-state-publisher moveit-resources-fanuc-description position-controllers robot-state-publisher ros2cli-common-extensions tf2-ros xacro ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_fanuc_moveit_config" = substituteSource {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "";
+    description = "\n    ";
   };
 })

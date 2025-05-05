@@ -28,6 +28,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check source files for copyright and license information.";
+    description = "\n    The ability to check source files for copyright and license\n    information.\n  ";
   };
 })

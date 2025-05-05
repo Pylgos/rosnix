@@ -13,6 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.0.5-5";
   src = finalAttrs.passthru.sources."iceoryx_posh";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "git" ]; };
+  propagatedNativeBuildInputs = [ iceoryx-hoofs ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "git" ]; };
   propagatedBuildInputs = [ iceoryx-hoofs ];
   passthru.sources = mkSourceSet (sources: {
     "iceoryx_posh" = substituteSource {

@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.1-4";
   src = finalAttrs.passthru.sources."tracetools_acceleration";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  buildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tracetools_acceleration" = substituteSource {
@@ -27,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "LTTng tracing provider wrapper for ROS 2 packages using hardware acceleration. Fork of tracetools to trace hardware acceleration in ROS 2.";
+    description = "\n    LTTng tracing provider wrapper for ROS 2 packages using hardware acceleration.\n    Fork of tracetools to trace hardware acceleration in ROS 2.\n  ";
   };
 })

@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.1-1";
   src = finalAttrs.passthru.sources."v4l2_camera";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ camera-info-manager cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "v4l2_camera" = substituteSource {

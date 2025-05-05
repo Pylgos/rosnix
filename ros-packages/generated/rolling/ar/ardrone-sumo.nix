@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."ardrone_sumo";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ ardrone-sdk cv-bridge sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ ardrone-sdk cv-bridge rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ardrone-sdk cv-bridge rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ardrone_sumo" = substituteSource {
       src = fetchgit {

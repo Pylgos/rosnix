@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."turtlebot4_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ rqt-robot-monitor rviz2 turtlebot4-description ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rqt-robot-monitor rviz2 turtlebot4-description ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

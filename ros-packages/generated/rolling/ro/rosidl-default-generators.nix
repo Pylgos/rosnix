@@ -19,10 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."rosidl_default_generators";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-core rosidl-core-generators ];
+  propagatedNativeBuildInputs = [ action-msgs ament-cmake-core rosidl-core-generators service-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-core rosidl-core-generators ];
-  depsTargetTargetPropagated = [ action-msgs service-msgs ];
+  propagatedBuildInputs = [ action-msgs ament-cmake-core rosidl-core-generators service-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_default_generators" = substituteSource {

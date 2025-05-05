@@ -20,8 +20,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.3-5";
   src = finalAttrs.passthru.sources."color_names";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rviz2 std-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rviz2 std-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rviz2 std-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "color_names" = substituteSource {

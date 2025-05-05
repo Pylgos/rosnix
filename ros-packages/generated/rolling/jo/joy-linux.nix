@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-2";
   src = finalAttrs.passthru.sources."joy_linux";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater sensor-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp sensor-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "joy_linux" = substituteSource {
@@ -33,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS2 driver for a generic Linux joystick. Will contain a MacOS and Windows version later. The joy package contains joy_node, a node that interfaces a generic Linux joystick to ROS2. This node publishes a \"Joy\" message, which contains the current state of each one of the joystick's buttons and axes.";
+    description = "\n    ROS2 driver for a generic Linux joystick.\n    Will contain a MacOS and Windows version later.\n    The joy package contains joy_node, a node that interfaces a\n    generic Linux joystick to ROS2. This node publishes a \"Joy\"\n    message, which contains the current state of each one of the\n    joystick's buttons and axes.\n  ";
   };
 })

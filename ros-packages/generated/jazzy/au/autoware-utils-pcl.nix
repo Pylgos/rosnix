@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_pcl";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedNativeBuildInputs = [ autoware-utils-tf pcl-conversions pcl-ros ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedBuildInputs = [ autoware-utils-tf pcl-conversions pcl-ros ];
   checkInputs = [ ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {

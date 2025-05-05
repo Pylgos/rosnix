@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.4-2";
   src = finalAttrs.passthru.sources."picknik_reset_fault_controller";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ controller-interface example-interfaces geometry-msgs realtime-tools ];
+  propagatedNativeBuildInputs = [ controller-interface example-interfaces geometry-msgs rclcpp realtime-tools ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ controller-interface example-interfaces geometry-msgs rclcpp realtime-tools ];
   passthru.sources = mkSourceSet (sources: {
     "picknik_reset_fault_controller" = substituteSource {
       src = fetchgit {
@@ -31,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 controller that offers a service to clear faults in a hardware interface";
+    description = "\n    ROS 2 controller that offers a service to clear faults in a hardware interface\n  ";
   };
 })

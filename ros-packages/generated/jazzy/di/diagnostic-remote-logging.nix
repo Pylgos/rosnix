@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.3-1";
   src = finalAttrs.passthru.sources."diagnostic_remote_logging";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  propagatedBuildInputs = [ diagnostic-msgs rclcpp-components ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ diagnostic-msgs rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "diagnostic_remote_logging" = substituteSource {

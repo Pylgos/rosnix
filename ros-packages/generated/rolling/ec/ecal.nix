@@ -12,6 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "5.12.0-4";
   src = finalAttrs.passthru.sources."ecal";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf-dev" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "protobuf-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ecal" = substituteSource {

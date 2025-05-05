@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.6.2-3";
   src = finalAttrs.passthru.sources."rqt_reconfigure";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rqt-console rqt-gui rqt-gui-py rqt-py-common ];
+  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rqt-console rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rqt-console rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_reconfigure" = substituteSource {
@@ -38,6 +38,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This rqt plugin provides a way to view and edit parameters on nodes.";
+    description = "\n    This rqt plugin provides a way to view and edit parameters on nodes.\n  ";
   };
 })

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."velodyne_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ urdf xacro ];
   passthru.sources = mkSourceSet (sources: {
     "velodyne_description" = substituteSource {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "URDF and meshes describing Velodyne laser scanners.";
+    description = "\n    URDF and meshes describing Velodyne laser scanners.\n  ";
   };
 })

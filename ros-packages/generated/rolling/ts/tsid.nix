@@ -16,8 +16,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."tsid";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
-  propagatedBuildInputs = [ eigenpy eiquadprog pinocchio ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "graphviz" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake eigenpy eiquadprog pinocchio ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "git" "graphviz" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ament-cmake eigenpy eiquadprog pinocchio ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "git" "graphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tsid" = substituteSource {
       src = fetchgit {
@@ -29,6 +30,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Efficient Task Space Inverse Dynamics (TSID) based on Pinocchio";
+    description = "\n    Efficient Task Space Inverse Dynamics (TSID) based on Pinocchio\n  ";
   };
 })

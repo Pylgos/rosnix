@@ -17,10 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.0-1";
   src = finalAttrs.passthru.sources."ament_cmake_google_benchmark";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-python ];
-  propagatedNativeBuildInputs = [ ament-cmake-test ];
+  propagatedNativeBuildInputs = [ ament-cmake-test google-benchmark-vendor ];
   buildInputs = [ ament-cmake-core ament-cmake-export-dependencies ament-cmake-python ];
-  propagatedBuildInputs = [ ament-cmake-test ];
-  depsTargetTargetPropagated = [ google-benchmark-vendor ];
+  propagatedBuildInputs = [ ament-cmake-test google-benchmark-vendor ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_google_benchmark" = substituteSource {
       src = fetchgit {

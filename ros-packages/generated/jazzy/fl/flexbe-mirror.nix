@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_mirror";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_mirror";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ flexbe-core flexbe-msgs ];
+  propagatedNativeBuildInputs = [ flexbe-core flexbe-msgs rclpy ];
+  propagatedBuildInputs = [ flexbe-core flexbe-msgs rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_mirror" = substituteSource {
@@ -31,6 +31,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "flexbe_mirror implements functionality to remotely mirror an executed behavior.";
+    description = "\n        flexbe_mirror implements functionality to remotely mirror an executed behavior.\n    ";
   };
 })

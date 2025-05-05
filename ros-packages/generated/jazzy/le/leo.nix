@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."leo";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ leo-description leo-msgs leo-teleop ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo-description leo-msgs leo-teleop ];
   passthru.sources = mkSourceSet (sources: {
     "leo" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Metapackage of software for Leo Rover common to the robot and ROS desktop";
+    description = "\n    Metapackage of software for Leo Rover common to the robot and ROS desktop\n  ";
   };
 })

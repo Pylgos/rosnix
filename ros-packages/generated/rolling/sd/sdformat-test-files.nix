@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."sdformat_test_files";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sdformat_test_files" = substituteSource {
       src = fetchgit {
@@ -23,6 +24,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Example SDFormat XML files for testing tools using hthis format.";
+    description = "\n    Example SDFormat XML files for testing tools using hthis format.\n  ";
   };
 })

@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-7";
   src = finalAttrs.passthru.sources."acado_vendor";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "acado_vendor" = substituteSource {

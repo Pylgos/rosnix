@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.10-1";
   src = finalAttrs.passthru.sources."image_view";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ camera-calibration-parsers cv-bridge image-transport message-filters rclcpp-components sensor-msgs std-srvs stereo-msgs ];
+  propagatedNativeBuildInputs = [ camera-calibration-parsers cv-bridge image-transport message-filters rclcpp rclcpp-components rclpy sensor-msgs std-srvs stereo-msgs ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ camera-calibration-parsers cv-bridge image-transport message-filters rclcpp rclcpp-components rclpy sensor-msgs std-srvs stereo-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_view" = substituteSource {
@@ -39,6 +40,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "A simple viewer for ROS image topics. Includes a specialized viewer for stereo + disparity images.";
+    description = "\n  A simple viewer for ROS image topics. Includes a specialized viewer\n  for stereo + disparity images.\n  ";
   };
 })

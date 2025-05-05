@@ -15,8 +15,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.3-1";
   src = finalAttrs.passthru.sources."ld08_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libudev-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libudev-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libudev-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ld08_driver" = substituteSource {
       src = fetchgit {
@@ -28,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS package for LDS-02(LD08) Lidar. The Lidar sensor sends data to the Host controller for the Simultaneous Localization And Mapping(SLAM).";
+    description = "\n    ROS package for LDS-02(LD08) Lidar.\n    The Lidar sensor sends data to the Host controller for the Simultaneous Localization And Mapping(SLAM).\n  ";
   };
 })

@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.10-1";
   src = finalAttrs.passthru.sources."image_publisher";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rcl-interfaces rclcpp-components ];
+  propagatedNativeBuildInputs = [ camera-info-manager cv-bridge image-transport rcl-interfaces rclcpp rclcpp-components ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rcl-interfaces rclcpp rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_publisher" = substituteSource {
@@ -35,6 +36,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Contains a node publish an image stream from single image file or avi motion file.";
+    description = "\n\n      Contains a node publish an image stream from single image file\n      or avi motion file.\n\n  ";
   };
 })

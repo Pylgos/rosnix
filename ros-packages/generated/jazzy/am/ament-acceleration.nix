@@ -25,6 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "CMake macros and utilities to include hardware acceleration into the ROS 2 build system (ament) and its development flows.";
+    description = "\n    CMake macros and utilities to include hardware acceleration into the ROS 2 build system (ament) and its development flows.\n  ";
   };
 })

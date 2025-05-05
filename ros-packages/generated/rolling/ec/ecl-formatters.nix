@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-4";
   src = finalAttrs.passthru.sources."ecl_formatters";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-converters ecl-exceptions ecl-license ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ ecl-build ecl-config ecl-converters ecl-exceptions ecl-license ];
   passthru.sources = mkSourceSet (sources: {
     "ecl_formatters" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The formatters here simply format various input types to a specified text format. They can be used with most streaming types (including both ecl and stl streams).";
+    description = "\n   The formatters here simply format various input types to a specified\n   text format. They can be used with most streaming types (including both\n   ecl and stl streams).\n  ";
   };
 })

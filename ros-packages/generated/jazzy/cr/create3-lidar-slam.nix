@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_lidar_slam";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ irobot-create-msgs launch-ros rplidar-ros slam-toolbox ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ irobot-create-msgs launch-ros rplidar-ros slam-toolbox ];
   passthru.sources = mkSourceSet (sources: {
     "create3_lidar_slam" = substituteSource {

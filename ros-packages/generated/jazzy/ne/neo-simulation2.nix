@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-5";
   src = finalAttrs.passthru.sources."neo_simulation2";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "neo_simulation2" = substituteSource {

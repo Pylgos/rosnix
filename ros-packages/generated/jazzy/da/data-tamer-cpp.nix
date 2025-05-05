@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.4-4";
   src = finalAttrs.passthru.sources."data_tamer_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor ];
+  propagatedNativeBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "data_tamer_cpp" = substituteSource {
@@ -31,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "DataTamer data logging library";
+    description = "\n  DataTamer data logging library\n  ";
   };
 })

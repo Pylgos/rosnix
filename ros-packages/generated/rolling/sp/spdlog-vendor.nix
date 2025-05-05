@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."spdlog_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "spdlog" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -59,6 +61,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around spdlog, providing nothing but a dependency on spdlog, on some systems. On others, it provides an ExternalProject build of spdlog.";
+    description = "\n    Wrapper around spdlog, providing nothing but a dependency on spdlog, on some systems.\n    On others, it provides an ExternalProject build of spdlog.\n  ";
   };
 })

@@ -26,6 +26,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to perform static code analysis on C/C++ code using PC-lint and generate xUnit test result files.";
+    description = "\n    The ability to perform static code analysis on C/C++ code using PC-lint\n    and generate xUnit test result files.\n  ";
   };
 })

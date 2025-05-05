@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.6.0-3";
   src = finalAttrs.passthru.sources."ros_testing";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies launch-testing-ament-cmake ];
-  propagatedBuildInputs = [ launch-testing launch-testing-ros ros2test ];
+  propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies launch-testing launch-testing-ament-cmake launch-testing-ros ros2test ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-core ament-cmake-export-dependencies launch-testing launch-testing-ament-cmake launch-testing-ros ros2test ];
   passthru.sources = mkSourceSet (sources: {
     "ros_testing" = substituteSource {
       src = fetchgit {

@@ -26,6 +26,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against the style conventions in PEP 8 and generate xUnit test result files.";
+    description = "\n    The ability to check code against the style conventions in PEP 8 and\n    generate xUnit test result files.\n  ";
   };
 })

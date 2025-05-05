@@ -14,6 +14,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.0.5-5";
   src = finalAttrs.passthru.sources."iceoryx_binding_c";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ iceoryx-hoofs iceoryx-posh ];
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ iceoryx-hoofs iceoryx-posh ];
   passthru.sources = mkSourceSet (sources: {
     "iceoryx_binding_c" = substituteSource {

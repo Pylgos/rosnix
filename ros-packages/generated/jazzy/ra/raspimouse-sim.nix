@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-1";
   src = finalAttrs.passthru.sources."raspimouse_sim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ raspimouse-fake raspimouse-gazebo ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ raspimouse-fake raspimouse-gazebo ];
   passthru.sources = mkSourceSet (sources: {
     "raspimouse_sim" = substituteSource {

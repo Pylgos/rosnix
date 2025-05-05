@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.6.0-1";
   src = finalAttrs.passthru.sources."map_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ nav-msgs rosidl-default-runtime sensor-msgs std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ nav-msgs rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package defines messages commonly used in mapping packages.";
+    description = "\n        This package defines messages commonly used in mapping packages.\n    ";
   };
 })

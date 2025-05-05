@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "0.0.7-1";
   src = finalAttrs.passthru.sources."control_box_rst";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "coinor-libipopt-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "coinor-libipopt-dev" "eigen" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "coinor-libipopt-dev" "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "control_box_rst" = substituteSource {
       src = fetchgit {
@@ -66,6 +67,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The control_box_rst package provides C++ libraries for predictive control, direct optimal control, optimization and simulation.";
+    description = "The control_box_rst package provides C++ libraries for predictive control, \n               direct optimal control, optimization and simulation.";
   };
 })

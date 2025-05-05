@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "bno055";
   version = "0.5.0-2";
   src = finalAttrs.passthru.sources."bno055";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ example-interfaces std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" "python3-smbus" ]; };
+  propagatedNativeBuildInputs = [ example-interfaces rclpy std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-serial" "python3-smbus" ]; };
+  propagatedBuildInputs = [ example-interfaces rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" "python3-smbus" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "bno055" = substituteSource {

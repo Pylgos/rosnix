@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.0-1";
   src = finalAttrs.passthru.sources."autoware_utils_visualization";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp visualization-msgs ];
+  buildInputs = [ ament-cmake-auto autoware-cmake ];
+  propagatedBuildInputs = [ rclcpp visualization-msgs ];
   checkInputs = [ ament-lint-auto autoware-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_utils_visualization" = substituteSource {

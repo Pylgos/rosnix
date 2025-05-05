@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ irobot-create-control urdf xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ irobot-create-control urdf xacro ];
   checkInputs = [ ament-cmake-lint-cmake ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {

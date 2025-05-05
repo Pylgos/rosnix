@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."vision_opencv";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ cv-bridge image-geometry ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ cv-bridge image-geometry ];
   passthru.sources = mkSourceSet (sources: {
     "vision_opencv" = substituteSource {

@@ -16,6 +16,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "create3_teleop";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_teleop";
+  propagatedNativeBuildInputs = [ joy launch-ros teleop-twist-joy teleop-twist-keyboard ];
   propagatedBuildInputs = [ joy launch-ros teleop-twist-joy teleop-twist-keyboard ];
   checkInputs = [ ament-cmake-flake8 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {

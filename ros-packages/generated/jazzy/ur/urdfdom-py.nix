@@ -12,8 +12,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "urdfdom_py";
   version = "1.2.1-3";
   src = finalAttrs.passthru.sources."urdfdom_py";
-  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" ]; };
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
+  propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "urdfdom_py" = substituteSource {
       src = fetchgit {

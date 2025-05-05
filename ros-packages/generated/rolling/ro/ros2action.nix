@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2action";
   version = "0.39.0-1";
   src = finalAttrs.passthru.sources."ros2action";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ action-msgs ament-index-python ros2cli rosidl-runtime-py ];
+  propagatedNativeBuildInputs = [ action-msgs ament-index-python rclpy ros2cli rosidl-runtime-py ];
+  propagatedBuildInputs = [ action-msgs ament-index-python rclpy ros2cli rosidl-runtime-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-testing launch-testing-ros test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2action" = substituteSource {
@@ -38,6 +38,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The action command for ROS 2 command line tools.";
+    description = "\n    The action command for ROS 2 command line tools.\n  ";
   };
 })

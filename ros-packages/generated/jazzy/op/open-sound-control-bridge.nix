@@ -15,6 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "open_sound_control_bridge";
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."open_sound_control_bridge";
+  propagatedNativeBuildInputs = [ open-sound-control-msgs std-msgs ];
   propagatedBuildInputs = [ open-sound-control-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

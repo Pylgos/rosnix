@@ -23,8 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ gz-math-vendor ];
+  propagatedNativeBuildInputs = [ gz-math-vendor rclcpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ gz-math-vendor rclcpp ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "irobot_create_toolbox" = substituteSource {

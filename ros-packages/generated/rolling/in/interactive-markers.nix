@@ -27,8 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.0-1";
   src = finalAttrs.passthru.sources."interactive_markers";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclpy rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclpy rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common builtin-interfaces ];
   passthru.sources = mkSourceSet (sources: {
     "interactive_markers" = substituteSource {
@@ -41,6 +42,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "3D interactive marker communication library for RViz and similar tools.";
+    description = "\n     3D interactive marker communication library for RViz and similar tools.\n  ";
   };
 })

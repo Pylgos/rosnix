@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "4.6.1-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_rqt";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rqt-gui rqt-gui-py std-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rclpy rqt-gui rqt-gui-py std-msgs ];
+  propagatedBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rclpy rqt-gui rqt-gui-py std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "microstrain_inertial_rqt" = substituteSource {
       src = fetchgit {

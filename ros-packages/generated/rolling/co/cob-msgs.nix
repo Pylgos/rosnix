@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.12-1";
   src = finalAttrs.passthru.sources."cob_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Messages for representing state information, such as battery information and emergency stop status.";
+    description = "\n    Messages for representing state information, such as battery information and emergency stop status.\n  ";
   };
 })

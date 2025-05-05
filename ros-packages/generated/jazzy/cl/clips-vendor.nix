@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."clips_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "unzip" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "unzip" ]; };
   passthru.sources = mkSourceSet (sources: {
     "clips_vendor" = substituteSource {
       src = fetchgit {

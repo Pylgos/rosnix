@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.0-6";
   src = finalAttrs.passthru.sources."graph_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "graph_msgs" = substituteSource {

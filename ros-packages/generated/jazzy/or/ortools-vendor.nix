@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "9.9.0-6";
   src = finalAttrs.passthru.sources."ortools_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "ortools_vendor" = substituteSource {
@@ -343,6 +344,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Wrapper around ortools, it provides a fixed CMake module and an ExternalProject build of it.";
+    description = "\n    Wrapper around ortools, it provides a fixed CMake module and an ExternalProject build of it.\n  ";
   };
 })

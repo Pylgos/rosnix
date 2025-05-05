@@ -32,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_pep257 to check code against the docstring style conventions in PEP 257.";
+    description = "\n    The CMake API for ament_pep257 to check code against the docstring style conventions in\n    PEP 257.\n  ";
   };
 })

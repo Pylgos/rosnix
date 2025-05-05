@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.11.0-3";
   src = finalAttrs.passthru.sources."test_interface_files";
   nativeBuildInputs = [ ament-cmake-core ];
+  buildInputs = [ ament-cmake-core ];
   passthru.sources = mkSourceSet (sources: {
     "test_interface_files" = substituteSource {
       src = fetchgit {

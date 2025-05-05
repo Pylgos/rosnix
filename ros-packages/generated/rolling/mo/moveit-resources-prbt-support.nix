@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_support";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ xacro ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_prbt_support" = substituteSource {
@@ -26,6 +28,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Mechanical, kinematic and visual description of the Pilz light weight arm PRBT.";
+    description = " Mechanical, kinematic and visual description\n  of the Pilz light weight arm PRBT. ";
   };
 })

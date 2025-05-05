@@ -28,10 +28,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "29.6.0-1";
   src = finalAttrs.passthru.sources."rclcpp_lifecycle";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcl rcl-lifecycle rclcpp ];
+  propagatedNativeBuildInputs = [ lifecycle-msgs rcl rcl-interfaces rcl-lifecycle rclcpp rcutils rmw rosidl-typesupport-cpp ];
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rcl rcl-lifecycle rclcpp ];
-  depsTargetTargetPropagated = [ lifecycle-msgs rcl-interfaces rcutils rmw rosidl-typesupport-cpp ];
+  propagatedBuildInputs = [ lifecycle-msgs rcl rcl-interfaces rcl-lifecycle rclcpp rcutils rmw rosidl-typesupport-cpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rcpputils test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclcpp_lifecycle" = substituteSource {

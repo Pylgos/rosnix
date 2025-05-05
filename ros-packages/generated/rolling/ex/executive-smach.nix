@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.3-2";
   src = finalAttrs.passthru.sources."executive_smach";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ smach smach-msgs smach-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ smach smach-msgs smach-ros ];
   passthru.sources = mkSourceSet (sources: {
     "executive_smach" = substituteSource {
@@ -28,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This metapackage depends on the SMACH library and ROS SMACH integration packages.";
+    description = "\n    This metapackage depends on the SMACH library and ROS SMACH integration\n    packages.\n  ";
   };
 })

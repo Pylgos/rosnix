@@ -15,6 +15,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.3-5";
   src = finalAttrs.passthru.sources."sol_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   checkInputs = [ ament-lint-auto ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "sol_vendor" = substituteSource {

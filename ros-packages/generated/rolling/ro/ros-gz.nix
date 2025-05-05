@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.6-1";
   src = finalAttrs.passthru.sources."ros_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ros-gz-bridge ros-gz-image ros-gz-sim ros-gz-sim-demos ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ros-gz-bridge ros-gz-image ros-gz-sim ros-gz-sim-demos ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Meta-package containing interfaces for using ROS 2 with";
+    description = "Meta-package containing interfaces for using ROS 2 with ";
   };
 })

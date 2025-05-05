@@ -14,6 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.3-1";
   src = finalAttrs.passthru.sources."small_gicp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   passthru.sources = mkSourceSet (sources: {
     "small_gicp_vendor" = substituteSource {
       src = fetchgit {

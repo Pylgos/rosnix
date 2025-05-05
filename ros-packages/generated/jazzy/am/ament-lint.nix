@@ -23,6 +23,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Providing common API for ament linter packages.";
+    description = "\n    Providing common API for ament linter packages.\n  ";
   };
 })

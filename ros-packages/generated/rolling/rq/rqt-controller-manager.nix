@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."rqt_controller_manager";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ controller-manager controller-manager-msgs rqt-gui rqt-gui-py ];
+  propagatedNativeBuildInputs = [ controller-manager controller-manager-msgs rclpy rqt-gui rqt-gui-py ];
+  propagatedBuildInputs = [ controller-manager controller-manager-msgs rclpy rqt-gui rqt-gui-py ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_controller_manager" = substituteSource {
       src = fetchgit {

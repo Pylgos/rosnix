@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."rt_manipulators_examples";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rt-manipulators-cpp ];
+  propagatedNativeBuildInputs = [ rclcpp rt-manipulators-cpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp rt-manipulators-cpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rt_manipulators_examples" = substituteSource {

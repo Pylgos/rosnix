@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.1-2";
   src = finalAttrs.passthru.sources."autoware_internal_metric_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_internal_metric_msgs" = substituteSource {

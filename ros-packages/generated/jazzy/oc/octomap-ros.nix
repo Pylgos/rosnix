@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.4-1";
   src = finalAttrs.passthru.sources."octomap_ros";
   nativeBuildInputs = [ ament-cmake-auto ];
+  propagatedNativeBuildInputs = [ octomap-msgs sensor-msgs tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liboctomap-dev" ]; };
+  buildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ octomap-msgs sensor-msgs tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -32,6 +34,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "octomap_ros provides conversion functions between ROS and OctoMap's native types. This enables a convenvient use of the octomap package in ROS.";
+    description = "\n    octomap_ros provides conversion functions between ROS and OctoMap's native types.\n    This enables a convenvient use of the octomap package in ROS.\n  ";
   };
 })

@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.7.5-1";
   src = finalAttrs.passthru.sources."qt_dotgraph";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pydot" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pydot" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "qt_dotgraph provides helpers to work with dot graphs.";
+    description = "\n    qt_dotgraph provides helpers to work with dot graphs.\n  ";
   };
 })

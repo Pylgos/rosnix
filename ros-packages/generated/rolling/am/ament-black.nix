@@ -29,6 +29,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code against style conventions using black and generate xUnit test result files.";
+    description = "\n    The ability to check code against style conventions using\n    black and generate xUnit test result files.\n  ";
   };
 })

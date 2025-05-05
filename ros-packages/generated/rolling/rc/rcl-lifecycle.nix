@@ -24,10 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "10.2.0-1";
   src = finalAttrs.passthru.sources."rcl_lifecycle";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcl ];
+  propagatedNativeBuildInputs = [ lifecycle-msgs rcl rcutils rmw rosidl-runtime-c tracetools ];
   buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ rcl ];
-  depsTargetTargetPropagated = [ lifecycle-msgs rcutils rmw rosidl-runtime-c tracetools ];
+  propagatedBuildInputs = [ lifecycle-msgs rcl rcutils rmw rosidl-runtime-c tracetools ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_lifecycle" = substituteSource {

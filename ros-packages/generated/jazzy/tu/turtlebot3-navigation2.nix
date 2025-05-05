@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_navigation2";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ nav2-bringup ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ nav2-bringup ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_navigation2" = substituteSource {
@@ -27,6 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "ROS 2 launch scripts for navigation2";
+    description = "\n    ROS 2 launch scripts for navigation2\n  ";
   };
 })

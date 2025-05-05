@@ -12,6 +12,7 @@ buildCmakePackage (finalAttrs: {
   version = "0.5.4-3";
   src = finalAttrs.passthru.sources."ros_industrial_cmake_boilerplate";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cppcheck" "gtest" "iwyu" "lcov" "libclang-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros_industrial_cmake_boilerplate" = substituteSource {

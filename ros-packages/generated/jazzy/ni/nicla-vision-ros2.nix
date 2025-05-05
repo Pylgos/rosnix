@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."nicla_vision_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ cv-bridge image-transport-plugins ros-gz rosidl-default-runtime sensor-msgs std-msgs xacro ];
+  propagatedNativeBuildInputs = [ cv-bridge image-transport-plugins rclpy ros-gz rosidl-default-runtime sensor-msgs std-msgs xacro ];
+  buildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
+  propagatedBuildInputs = [ cv-bridge image-transport-plugins rclpy ros-gz rosidl-default-runtime sensor-msgs std-msgs xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nicla_vision_ros2" = substituteSource {
@@ -40,6 +41,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Integration of the Arduino Nicla Vision board in the ROS2 world. Sensors data from the Nicla Vision is collected and trasmited to the relevant ROS2 topics";
+    description = "\n    Integration of the Arduino Nicla Vision board in the ROS2 world. \n    Sensors data from the Nicla Vision is collected and trasmited to the relevant ROS2 topics\n  ";
   };
 })

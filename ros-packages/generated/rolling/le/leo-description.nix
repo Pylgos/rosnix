@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."leo_description";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ robot-state-publisher xacro ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ robot-state-publisher xacro ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "URDF Description package for Leo Rover";
+    description = "\n    URDF Description package for Leo Rover\n  ";
   };
 })

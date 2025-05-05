@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.25.2-1";
   src = finalAttrs.passthru.sources."ros_babel_fish_test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ros_babel_fish_test_msgs" = substituteSource {

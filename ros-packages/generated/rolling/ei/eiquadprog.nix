@@ -13,8 +13,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.2.9-1";
   src = finalAttrs.passthru.sources."eiquadprog";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "graphviz" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
     "eiquadprog" = substituteSource {
       src = fetchgit {
@@ -26,6 +27,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Eiquadprog a QP solver using active sets";
+    description = "\n    Eiquadprog a QP solver using active sets\n  ";
   };
 })

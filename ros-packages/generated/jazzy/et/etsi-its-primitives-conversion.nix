@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."etsi_its_primitives_conversion";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_primitives_conversion" = substituteSource {
       src = fetchgit {

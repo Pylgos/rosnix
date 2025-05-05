@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."image_geometry";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "python3-deprecated" ]; };
+  buildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-deprecated" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ];
   passthru.sources = mkSourceSet (sources: {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "`image_geometry` contains C++ and Python libraries for interpreting images geometrically. It interfaces the calibration parameters in sensor_msgs/CameraInfo messages with OpenCV functions such as image rectification, much as cv_bridge interfaces ROS sensor_msgs/Image with OpenCV data types.";
+    description = "\n    `image_geometry` contains C++ and Python libraries for interpreting images\n    geometrically. It interfaces the calibration parameters in sensor_msgs/CameraInfo\n    messages with OpenCV functions such as image rectification, much as cv_bridge\n    interfaces ROS sensor_msgs/Image with OpenCV data types.\n  ";
   };
 })

@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components sensor-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "velodyne_laserscan" = substituteSource {
@@ -32,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Extract a single ring of a Velodyne PointCloud2 and publish it as a LaserScan message";
+    description = "\n    Extract a single ring of a Velodyne PointCloud2 and publish it as a LaserScan message\n  ";
   };
 })

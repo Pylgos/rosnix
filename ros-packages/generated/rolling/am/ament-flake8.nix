@@ -25,6 +25,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The ability to check code for style and syntax conventions with flake8.";
+    description = "\n    The ability to check code for style and syntax conventions with flake8.\n  ";
   };
 })

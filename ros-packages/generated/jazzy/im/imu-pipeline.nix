@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-3";
   src = finalAttrs.passthru.sources."imu_pipeline";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ imu-processors imu-transformer ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ imu-processors imu-transformer ];
   passthru.sources = mkSourceSet (sources: {
     "imu_pipeline" = substituteSource {

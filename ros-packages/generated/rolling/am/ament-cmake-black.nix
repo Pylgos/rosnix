@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   src = finalAttrs.passthru.sources."ament_cmake_black";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-black ament-cmake-test ];
+  buildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-black ament-cmake-test ];
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_black" = substituteSource {
@@ -31,6 +33,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_black to lint Python code using black.";
+    description = "\n    The CMake API for ament_black to lint Python code using black.\n  ";
   };
 })

@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-3";
   src = finalAttrs.passthru.sources."color_util";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ std-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ std-msgs ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {

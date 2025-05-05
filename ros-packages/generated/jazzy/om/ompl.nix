@@ -11,8 +11,8 @@ buildCmakePackage (finalAttrs: {
   pname = "ompl";
   version = "1.6.0-1";
   src = finalAttrs.passthru.sources."ompl";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "eigen" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libflann-dev" "opende" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "opende" "pkg-config" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "opende" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ompl" = substituteSource {
       src = fetchgit {

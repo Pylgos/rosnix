@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.1-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_plugins";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ draco-point-cloud-transport point-cloud-interfaces zlib-point-cloud-transport zstd-point-cloud-transport ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ draco-point-cloud-transport point-cloud-interfaces zlib-point-cloud-transport zstd-point-cloud-transport ];
   passthru.sources = mkSourceSet (sources: {
     "point_cloud_transport_plugins" = substituteSource {

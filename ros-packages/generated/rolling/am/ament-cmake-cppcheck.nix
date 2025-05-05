@@ -30,6 +30,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The CMake API for ament_cppcheck to perform static code analysis on C/C++ code using Cppcheck.";
+    description = "\n    The CMake API for ament_cppcheck to perform static code analysis on C/C++\n    code using Cppcheck.\n  ";
   };
 })

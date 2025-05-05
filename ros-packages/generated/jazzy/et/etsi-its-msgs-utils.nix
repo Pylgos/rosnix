@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.0-1";
   src = finalAttrs.passthru.sources."etsi_its_msgs_utils";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ etsi-its-msgs geometry-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
+  propagatedNativeBuildInputs = [ etsi-its-msgs geometry-msgs ros-environment tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ etsi-its-msgs geometry-msgs ros-environment tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_msgs_utils" = substituteSource {
       src = fetchgit {

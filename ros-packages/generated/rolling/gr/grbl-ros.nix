@@ -17,8 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "grbl_ros";
   version = "0.0.16-6";
   src = finalAttrs.passthru.sources."grbl_ros";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ grbl-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
+  propagatedNativeBuildInputs = [ grbl-msgs rclpy std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-serial" ]; };
+  propagatedBuildInputs = [ grbl-msgs rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "grbl_ros" = substituteSource {

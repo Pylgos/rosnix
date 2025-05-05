@@ -15,6 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.2-1";
   src = finalAttrs.passthru.sources."open_sound_control";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ open-sound-control-bridge open-sound-control-msgs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ open-sound-control-bridge open-sound-control-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "open_sound_control" = substituteSource {

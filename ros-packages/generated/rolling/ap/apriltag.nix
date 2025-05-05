@@ -12,8 +12,9 @@ buildCmakePackage (finalAttrs: {
   version = "3.4.3-1";
   src = finalAttrs.passthru.sources."apriltag";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-numpy" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-dev" "python3-numpy" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "apriltag" = substituteSource {

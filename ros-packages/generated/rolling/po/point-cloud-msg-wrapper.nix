@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.7-4";
   src = finalAttrs.passthru.sources."point_cloud_msg_wrapper";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ sensor-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake sensor-msgs ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ ament-cmake sensor-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "point_cloud_msg_wrapper" = substituteSource {

@@ -24,8 +24,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-4";
   src = finalAttrs.passthru.sources."udp_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
-  propagatedBuildInputs = [ io-context lifecycle-msgs rclcpp-components std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  propagatedNativeBuildInputs = [ io-context lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
+  buildInputs = [ ament-cmake-auto asio-cmake-module ];
+  propagatedBuildInputs = [ io-context lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "udp_driver" = substituteSource {

@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_cmake_helpers";
   propagatedNativeBuildInputs = [ ament-cmake-core ];
+  propagatedBuildInputs = [ ament-cmake-core ];
   passthru.sources = mkSourceSet (sources: {
     "grid_map_cmake_helpers" = substituteSource {
       src = fetchgit {

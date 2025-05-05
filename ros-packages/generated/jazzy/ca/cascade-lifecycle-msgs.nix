@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-3";
   src = finalAttrs.passthru.sources."cascade_lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces lifecycle-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces lifecycle-msgs rclcpp rosidl-default-generators ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces lifecycle-msgs rclcpp rosidl-default-generators ];
   passthru.sources = mkSourceSet (sources: {
     "cascade_lifecycle_msgs" = substituteSource {
       src = fetchgit {

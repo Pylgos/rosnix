@@ -19,8 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.3-5";
   src = finalAttrs.passthru.sources."fluent_rviz";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ geometry-msgs std-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp std-msgs visualization-msgs ];
+  buildInputs = [ ament-cmake-auto ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp std-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ouxt-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "fluent_rviz" = substituteSource {

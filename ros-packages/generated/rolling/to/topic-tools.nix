@@ -25,8 +25,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.2-1";
   src = finalAttrs.passthru.sources."topic_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ rclcpp-components ros2cli rosidl-runtime-py topic-tools-interfaces ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rclpy ros2cli rosidl-runtime-py topic-tools-interfaces ];
+  buildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
+  propagatedBuildInputs = [ rclcpp rclcpp-components rclpy ros2cli rosidl-runtime-py topic-tools-interfaces ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rosidl-runtime-py std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "topic_tools" = substituteSource {
@@ -39,6 +40,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Tools for directing, throttling, selecting, and otherwise messing with ROS 2 topics at a meta level.";
+    description = "\n    Tools for directing, throttling, selecting, and otherwise messing with\n    ROS 2 topics at a meta level.\n  ";
   };
 })

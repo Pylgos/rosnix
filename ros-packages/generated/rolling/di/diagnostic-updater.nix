@@ -27,8 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.4.3-1";
   src = finalAttrs.passthru.sources."diagnostic_updater";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy ];
-  propagatedBuildInputs = [ diagnostic-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs rclcpp rclpy std-msgs ];
+  buildInputs = [ ament-cmake ament-cmake-python ament-cmake-ros ];
+  propagatedBuildInputs = [ diagnostic-msgs rclcpp rclpy std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ros rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "diagnostic_updater" = substituteSource {

@@ -16,8 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "wireless_watcher";
   version = "1.1.5-1";
   src = finalAttrs.passthru.sources."wireless_watcher";
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ diagnostic-updater wireless-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "wireless-tools" ]; };
+  propagatedNativeBuildInputs = [ diagnostic-updater rclcpp wireless-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "wireless-tools" ]; };
+  propagatedBuildInputs = [ diagnostic-updater rclcpp wireless-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "wireless-tools" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "wireless_watcher" = substituteSource {

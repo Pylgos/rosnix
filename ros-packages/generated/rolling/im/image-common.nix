@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.2.0-1";
   src = finalAttrs.passthru.sources."image_common";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ camera-calibration-parsers camera-info-manager image-transport ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ camera-calibration-parsers camera-info-manager image-transport ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

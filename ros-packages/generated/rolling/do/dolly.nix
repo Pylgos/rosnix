@@ -19,6 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ dolly-follow dolly-gazebo dolly-ignition ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dolly-follow dolly-gazebo dolly-ignition ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

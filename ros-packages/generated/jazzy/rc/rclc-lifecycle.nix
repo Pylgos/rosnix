@@ -21,8 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.1.0-3";
   src = finalAttrs.passthru.sources."rclc_lifecycle";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcl-lifecycle ];
-  propagatedBuildInputs = [ lifecycle-msgs rclc std-msgs ];
+  propagatedNativeBuildInputs = [ lifecycle-msgs rcl-lifecycle rclc std-msgs ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ lifecycle-msgs rcl-lifecycle rclc std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rclc_lifecycle" = substituteSource {

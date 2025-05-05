@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.11.0-3";
   src = finalAttrs.passthru.sources."kdl_parser";
   nativeBuildInputs = [ ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ orocos-kdl-vendor rcutils urdf urdfdom-headers ];
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ orocos-kdl-vendor rcutils urdf urdfdom-headers ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -33,6 +35,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The Kinematics and Dynamics Library (KDL) defines a tree structure to represent the kinematic and dynamic parameters of a robot mechanism.";
+    description = "\n   The Kinematics and Dynamics Library (KDL) defines a tree structure\n   to represent the kinematic and dynamic parameters of a robot\n   mechanism. ";
   };
 })

@@ -15,8 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_control";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_control";
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ scenario-execution scenario-execution-interfaces std-srvs ];
+  propagatedNativeBuildInputs = [ rclpy scenario-execution scenario-execution-interfaces std-srvs ];
+  propagatedBuildInputs = [ rclpy scenario-execution scenario-execution-interfaces std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "scenario_execution_control" = substituteSource {
       src = fetchgit {

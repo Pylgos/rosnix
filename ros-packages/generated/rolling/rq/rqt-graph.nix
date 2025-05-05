@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."rqt_graph";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rclpy ];
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rqt-gui rqt-gui-py ];
+  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rclpy rqt-gui rqt-gui-py ];
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rclpy rqt-gui rqt-gui-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_graph" = substituteSource {
@@ -37,6 +37,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "rqt_graph provides a GUI plugin for visualizing the ROS computation graph.";
+    description = "rqt_graph provides a GUI plugin for visualizing the ROS\n      computation graph.";
   };
 })

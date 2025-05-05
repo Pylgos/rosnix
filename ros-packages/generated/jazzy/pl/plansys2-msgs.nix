@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rclcpp rosidl-default-generators std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces rclcpp rosidl-default-generators std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_msgs" = substituteSource {
       src = fetchgit {

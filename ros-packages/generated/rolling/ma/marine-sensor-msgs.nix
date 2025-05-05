@@ -18,6 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."marine_sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "marine_sensor_msgs" = substituteSource {
@@ -30,6 +32,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "The marine_sensor_msgs package, meant to contain messages for common underwater sensors (e.g., conductivity, turbidity, dissolved oxygen)";
+    description = "The marine_sensor_msgs package, meant to contain messages for common\n  underwater sensors (e.g., conductivity, turbidity, dissolved oxygen)\n  ";
   };
 })

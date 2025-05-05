@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_ros";
   version = "0.29.0-1";
   src = finalAttrs.passthru.sources."launch_testing_ros";
-  propagatedNativeBuildInputs = [ rclpy rmw-test-fixture-implementation ];
-  propagatedBuildInputs = [ ament-index-python launch-ros launch-testing ];
+  propagatedNativeBuildInputs = [ ament-index-python launch-ros launch-testing rclpy rmw-test-fixture-implementation ];
+  propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy rmw-test-fixture-implementation ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "launch_testing_ros" = substituteSource {

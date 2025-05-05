@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.8-5";
   src = finalAttrs.passthru.sources."ouxt_lint_common";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-copyright ament-cmake-pep257 ament-cmake-xmllint ];
-  propagatedBuildInputs = [ ament-cmake-clang-format ];
+  propagatedNativeBuildInputs = [ ament-cmake-clang-format ament-cmake-copyright ament-cmake-pep257 ament-cmake-xmllint ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-clang-format ament-cmake-copyright ament-cmake-pep257 ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "ouxt_lint_common" = substituteSource {
       src = fetchgit {

@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.15.0-1";
   src = finalAttrs.passthru.sources."rmw_test_fixture";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
+  propagatedNativeBuildInputs = [ rmw ];
   buildInputs = [ ament-cmake ament-cmake-ros-core ];
-  depsTargetTargetPropagated = [ rmw ];
+  propagatedBuildInputs = [ rmw ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_test_fixture" = substituteSource {

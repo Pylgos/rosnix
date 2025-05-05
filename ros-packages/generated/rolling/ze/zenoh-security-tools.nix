@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "zenoh_security_tools";
   version = "0.7.0-1";
   src = finalAttrs.passthru.sources."zenoh_security_tools";
-  propagatedNativeBuildInputs = [ rcpputils ];
-  propagatedBuildInputs = [ rcutils rmw rmw-security-common tinyxml2-vendor zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
+  propagatedNativeBuildInputs = [ rcpputils rcutils rmw rmw-security-common tinyxml2-vendor zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" ]; };
+  propagatedBuildInputs = [ rcpputils rcutils rmw rmw-security-common tinyxml2-vendor zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "zenoh_security_tools" = substituteSource {

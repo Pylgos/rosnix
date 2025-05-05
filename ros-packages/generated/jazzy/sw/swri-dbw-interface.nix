@@ -13,6 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_dbw_interface";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "swri_dbw_interface" = substituteSource {
       src = fetchgit {
@@ -24,6 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "This package provides documentation on common interface conventions for drive-by-wire systems.";
+    description = "\n    This package provides documentation on common interface conventions for\n    drive-by-wire systems.\n  ";
   };
 })

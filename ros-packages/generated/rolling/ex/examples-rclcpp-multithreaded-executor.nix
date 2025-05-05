@@ -17,8 +17,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_multithreaded_executor";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp std-msgs ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rclcpp std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_multithreaded_executor" = substituteSource {

@@ -17,6 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_ik";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ launch phidgets-analog-inputs phidgets-digital-inputs phidgets-digital-outputs ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ launch phidgets-analog-inputs phidgets-digital-inputs phidgets-digital-outputs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_ik" = substituteSource {

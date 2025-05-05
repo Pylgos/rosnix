@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.4-1";
   src = finalAttrs.passthru.sources."irobot_create_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rsl ];
-  propagatedBuildInputs = [ joint-state-broadcaster ros2-controllers ros2launch ];
+  propagatedNativeBuildInputs = [ joint-state-broadcaster ros2-controllers ros2launch rsl ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ joint-state-broadcaster ros2-controllers ros2launch rsl ];
   checkInputs = [ ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "irobot_create_control" = substituteSource {

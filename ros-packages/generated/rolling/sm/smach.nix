@@ -14,6 +14,7 @@ buildAmentPythonPackage (finalAttrs: {
   version = "3.0.3-2";
   src = finalAttrs.passthru.sources."smach";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   passthru.sources = mkSourceSet (sources: {
     "smach" = substituteSource {
       src = fetchgit {
@@ -25,6 +26,6 @@ buildAmentPythonPackage (finalAttrs: {
     };
   });
   meta = {
-    description = "SMACH is a task-level architecture for rapidly creating complex robot behavior. At its core, SMACH is a ROS-independent Python library to build hierarchical state machines. SMACH is a new library that takes advantage of very old concepts in order to quickly create robust robot behavior with maintainable and modular code.";
+    description = "\n    SMACH is a task-level architecture for rapidly creating complex robot\n    behavior. At its core, SMACH is a ROS-independent Python library to build\n    hierarchical state machines. SMACH is a new library that takes advantage of\n    very old concepts in order to quickly create robust robot behavior with\n    maintainable and modular code.\n  ";
   };
 })

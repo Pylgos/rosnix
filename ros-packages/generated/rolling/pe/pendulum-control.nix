@@ -26,8 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."pendulum_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ];
-  propagatedBuildInputs = [ pendulum-msgs rttest tlsf-cpp ];
+  propagatedNativeBuildInputs = [ pendulum-msgs rclcpp rttest tlsf-cpp ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ pendulum-msgs rclcpp rttest tlsf-cpp ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ros2run ];
   passthru.sources = mkSourceSet (sources: {
     "pendulum_control" = substituteSource {

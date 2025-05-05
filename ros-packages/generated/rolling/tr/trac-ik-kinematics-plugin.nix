@@ -22,8 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."trac_ik_kinematics_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp ];
-  propagatedBuildInputs = [ class-loader moveit-core pluginlib tf2-kdl trac-ik-lib urdf ];
+  propagatedNativeBuildInputs = [ class-loader generate-parameter-library moveit-core pluginlib rclcpp tf2-kdl trac-ik-lib urdf ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ class-loader generate-parameter-library moveit-core pluginlib rclcpp tf2-kdl trac-ik-lib urdf ];
   passthru.sources = mkSourceSet (sources: {
     "trac_ik_kinematics_plugin" = substituteSource {
       src = fetchgit {

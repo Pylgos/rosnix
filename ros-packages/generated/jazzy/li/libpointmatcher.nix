@@ -13,8 +13,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.4.2-1";
   src = finalAttrs.passthru.sources."libpointmatcher";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
-  propagatedBuildInputs = [ libnabo ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ libnabo ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "yaml-cpp" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ libnabo ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libpointmatcher" = substituteSource {
       src = fetchgit {
@@ -26,6 +27,6 @@ buildCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "libpointmatcher is a modular ICP library, useful for robotics and computer vision.";
+    description = "\n		libpointmatcher is a modular ICP library, useful for robotics and computer vision.\n	";
   };
 })

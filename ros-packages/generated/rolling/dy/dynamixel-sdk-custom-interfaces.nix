@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.8.3-1";
   src = finalAttrs.passthru.sources."dynamixel_sdk_custom_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_sdk_custom_interfaces" = substituteSource {
