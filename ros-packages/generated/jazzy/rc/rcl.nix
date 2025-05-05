@@ -38,10 +38,10 @@ buildAmentCmakePackage (finalAttrs: {
   version = "9.2.6-1";
   src = finalAttrs.passthru.sources."rcl";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation tracetools ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
+  propagatedNativeBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
   buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
-  depsTargetTargetPropagated = [ rcl-interfaces rcl-logging-noop rcutils rmw rosidl-runtime-c service-msgs type-description-interfaces ];
+  propagatedBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  depsTargetTargetPropagated = [ rcl-interfaces rcl-logging-noop rcutils rmw rosidl-runtime-c service-msgs tracetools type-description-interfaces ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp rmw rmw-implementation-cmake rosidl-runtime-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rcl" = substituteSource {

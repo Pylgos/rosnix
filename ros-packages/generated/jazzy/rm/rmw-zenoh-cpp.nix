@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.3-1";
   src = finalAttrs.passthru.sources."rmw_zenoh_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils tracetools ];
-  propagatedBuildInputs = [ fastcdr rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp zenoh-cpp-vendor ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils ];
+  propagatedBuildInputs = [ fastcdr rcutils rmw rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools zenoh-cpp-vendor ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_zenoh_cpp" = substituteSource {

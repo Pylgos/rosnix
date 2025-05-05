@@ -18,10 +18,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "8.7.0-1";
   src = finalAttrs.passthru.sources."tracetools";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "lttng-tools" ]; };
-  buildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "lttng-tools" ]; };
-  depsTargetTargetPropagated = rosSystemPackages.getPackages { forDepsTargetTarget = [ "liblttng-ust-dev" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ust-dev" "lttng-tools" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tracetools" = substituteSource {

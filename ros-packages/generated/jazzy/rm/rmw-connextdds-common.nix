@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rmw_connextdds_common";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake rcpputils tracetools ];
-  propagatedBuildInputs = [ fastcdr rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module ];
+  propagatedNativeBuildInputs = [ ament-cmake rcpputils ];
+  propagatedBuildInputs = [ fastcdr rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_connextdds_common" = substituteSource {
