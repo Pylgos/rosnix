@@ -23,7 +23,7 @@ use crate::{
     rosindex::{DistroIndex, DistroStatus, PackageIndex},
     source::Fetcher,
 };
-use futures::{future, stream, FutureExt, StreamExt, TryStreamExt};
+use futures::{stream, StreamExt, TryStreamExt};
 use tracing::info_span;
 use tracing::Span;
 use tracing_indicatif::span_ext::IndicatifSpanExt;
@@ -35,7 +35,7 @@ mod config;
 mod deps;
 mod hunter;
 mod manifest;
-// mod nixgen;
+mod nixgen;
 mod rosindex;
 mod source;
 
@@ -177,7 +177,7 @@ pub fn parse_manifests(
 pub async fn generate(cfg: &ConfigRef, report_dst: Option<&Path>) -> Result<()> {
     let distro_index = DistroIndex::fetch(cfg).await?;
     let fetcher = Fetcher::new_arc(cfg, "common");
-    // let mut diffs = BTreeMap::new();
+    let mut diffs = BTreeMap::new();
     for package_index in distro_index.distros.values() {
         if package_index.status == DistroStatus::EndOfLife {
             continue;
@@ -188,22 +188,22 @@ pub async fn generate(cfg: &ConfigRef, report_dst: Option<&Path>) -> Result<()> 
         let patched_sources = fetch_sources(cfg, &fetcher, package_index).await?;
         let manifests = parse_manifests(&patched_sources, cfg, package_index)?;
         println!("{manifests:#?}");
-        // let deps = resolve_dependencies(cfg, &package_index.manifests)?;
-        // let prev_versions = nixgen::prev_versions(cfg, &package_index.name)?;
-        // let distro_diffs = diff(
-        //     &prev_versions,
-        //     &package_index
-        //         .manifests
-        //         .iter()
-        //         .map(|(k, m)| (k.clone(), m.release_version.clone()))
-        //         .collect(),
-        // );
-        // diffs.insert(package_index.name.clone(), distro_diffs);
-        // nixgen::generate(cfg, package_index, &patched_sources, &deps)?;
+        let deps = resolve_dependencies(cfg, &manifests)?;
+        let prev_versions = nixgen::prev_versions(cfg, &package_index.name)?;
+        let distro_diffs = diff(
+            &prev_versions,
+            &package_index
+                .releases
+                .iter()
+                .map(|(k, r)| (k.clone(), r.release_version.clone()))
+                .collect(),
+        );
+        diffs.insert(package_index.name.clone(), distro_diffs);
+        nixgen::generate(cfg, package_index, &patched_sources, &manifests, &deps)?;
     }
-    // if let Some(report_dst) = report_dst {
-    //     write_report(report_dst, &diffs)?;
-    // }
+    if let Some(report_dst) = report_dst {
+        write_report(report_dst, &diffs)?;
+    }
     Ok(())
 }
 

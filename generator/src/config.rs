@@ -1,5 +1,5 @@
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::BTreeMap,
     path::{Path, PathBuf},
     sync::Arc,
 };
@@ -22,18 +22,6 @@ pub struct Config {
     pub env: BTreeMap<String, BTreeMap<String, String>>,
     #[serde(default = "default_max_concurrent_downloads")]
     pub max_concurrent_downloads: usize,
-    #[serde(default)]
-    pub buildtool_packages: BTreeSet<String>,
-    #[serde(default)]
-    pub runtime_packages: BTreeSet<String>,
-    #[serde(default)]
-    pub buildtool_groups: BTreeSet<String>,
-    #[serde(default)]
-    pub runtime_groups: BTreeSet<String>,
-    #[serde(default)]
-    pub hybrid_packages: BTreeSet<String>,
-    #[serde(default)]
-    pub should_runtime_package: BTreeSet<String>,
     #[serde(default)]
     pub auto_patching: AutoPatchingConfig,
 }
@@ -78,12 +66,6 @@ impl Default for Config {
             distributions: Vec::new(),
             env: BTreeMap::new(),
             max_concurrent_downloads: 32,
-            buildtool_packages: Default::default(),
-            runtime_packages: Default::default(),
-            buildtool_groups: Default::default(),
-            runtime_groups: Default::default(),
-            hybrid_packages: Default::default(),
-            should_runtime_package: Default::default(),
             auto_patching: Default::default(),
         }
     }

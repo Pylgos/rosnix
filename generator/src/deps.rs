@@ -1,7 +1,6 @@
 use anyhow::Result;
 use serde::Serialize;
 use std::collections::{BTreeMap, BTreeSet};
-use tracing::warn;
 
 use crate::{
     config::ConfigRef,
@@ -100,35 +99,6 @@ pub fn resolve_dependencies(
     Ok(result)
 }
 
-fn map_dependency_kind(
-    dependency_kind: RosDependencyKind,
-    dependant_is_buildtool: bool,
-    dependency_is_buildtool: bool,
-    dependency_is_hybrid: bool,
-) -> BTreeSet<NixDependencyKind> {
-    use NixDependencyKind::*;
-    use RosDependencyKind::*;
-    if dependency_kind == Test {
-        [Check].into_iter().collect()
-    } else if dependency_is_hybrid {
-        match dependency_kind {
-            Build | BuildExport | Exec => [HostTarget].into_iter().collect(),
-            Buildtool | BuildtoolExport => [BuildHost].into_iter().collect(),
-            Test => unreachable!(),
-        }
-    } else if dependant_is_buildtool {
-        if dependency_is_buildtool {
-            [BuildHost, HostTarget].into_iter().collect()
-        } else {
-            [TargetTarget].into_iter().collect()
-        }
-    } else if dependency_is_buildtool {
-        [BuildHost].into_iter().collect()
-    } else {
-        [HostTarget].into_iter().collect()
-    }
-}
-
 fn is_propagation_required(dependency_kind: RosDependencyKind) -> bool {
     use RosDependencyKind::*;
     matches!(
@@ -138,75 +108,9 @@ fn is_propagation_required(dependency_kind: RosDependencyKind) -> bool {
 }
 
 fn classify_dependencies(
-    cfg: &ConfigRef,
+    _cfg: &ConfigRef,
     manifests: &BTreeMap<String, PackageManifest>,
 ) -> Result<BTreeMap<String, BTreeSet<ClassifiedRosDependency>>> {
-    let mut buildtools_packages = BTreeSet::new();
-    buildtools_packages.extend(cfg.buildtool_packages.iter().map(|s| s.as_str()));
-    buildtools_packages.extend(
-        manifests
-            .values()
-            .filter(|m| {
-                m.member_of_group
-                    .iter()
-                    .any(|g| cfg.buildtool_groups.contains(g.as_str()))
-            })
-            .map(|m| m.name.as_str()),
-    );
-
-    let mut runtime_packages = BTreeSet::new();
-    runtime_packages.extend(cfg.runtime_packages.iter().map(|s| s.as_str()));
-    runtime_packages.extend(
-        manifests
-            .values()
-            .filter(|m| {
-                m.member_of_group
-                    .iter()
-                    .any(|g| cfg.runtime_groups.contains(g.as_str()))
-            })
-            .map(|m| m.name.as_str()),
-    );
-
-    let mut hybrid_packages = BTreeSet::new();
-    hybrid_packages.extend(cfg.hybrid_packages.iter().map(|s| s.as_str()));
-
-    let mut prev_buildtools_len = 0;
-    loop {
-        for manifest in manifests.values() {
-            let deps = &manifest.dependencies.deps;
-            for dep in deps.iter().filter(|d| d.kind.is_buildtool()) {
-                if !runtime_packages.contains(dep.name.as_str()) {
-                    if cfg.should_runtime_package.contains(dep.name.as_str()) {
-                        warn!(
-                            "suspicious: '{}' 's buildtool dependency '{}' is a runtime package",
-                            manifest.name, dep.name
-                        );
-                    }
-                    buildtools_packages.insert(dep.name.as_str());
-                }
-            }
-
-            if buildtools_packages.contains(manifest.name.as_str()) {
-                for dep in deps.iter().filter(|d| d.kind.is_runtime()) {
-                    if !runtime_packages.contains(dep.name.as_str()) {
-                        if cfg.should_runtime_package.contains(dep.name.as_str()) {
-                            warn!(
-                                "suspicious: buildtool package '{}' 's runtime dependency '{}' is a runtime package",
-                                manifest.name, dep.name
-                            );
-                        }
-                        buildtools_packages.insert(dep.name.as_str());
-                    }
-                }
-            }
-        }
-
-        if buildtools_packages.len() == prev_buildtools_len {
-            break;
-        }
-        prev_buildtools_len = buildtools_packages.len();
-    }
-
     let mut groups = BTreeMap::new();
     for manifest in manifests.values() {
         for group in manifest.member_of_group.iter() {
@@ -238,13 +142,18 @@ fn classify_dependencies(
                 .iter()
                 .chain(group_deps.iter())
                 .flat_map(|d| {
-                    map_dependency_kind(
-                        d.kind,
-                        buildtools_packages.contains(m.name.as_str()),
-                        buildtools_packages.contains(d.name.as_str()),
-                        hybrid_packages.contains(d.name.as_str()),
-                    )
-                    .into_iter()
+                    match d.kind {
+                        RosDependencyKind::Build
+                        | RosDependencyKind::BuildExport
+                        | RosDependencyKind::BuildtoolExport
+                        | RosDependencyKind::Exec
+                        | RosDependencyKind::Buildtool => {
+                            [NixDependencyKind::BuildHost, NixDependencyKind::HostTarget].as_slice()
+                        }
+                        RosDependencyKind::Test => &[NixDependencyKind::Check].as_slice(),
+                    }
+                    .iter()
+                    .copied()
                     .map(|kind| ClassifiedRosDependency {
                         name: d.name.clone(),
                         kind,

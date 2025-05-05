@@ -10,18 +10,17 @@ use tracing::warn;
 
 use crate::auto_patching::{PatchedSource, Replacement};
 use crate::deps::{NixDependency, NixDependencyKind};
-use crate::rosindex::BuildType;
+use crate::rosindex::PackageRelease;
 use crate::source::SourceKind;
 use crate::{
-    config::ConfigRef,
-    deps::NixDependencies,
-    rosindex::{PackageIndex, PackageManifest},
+    config::ConfigRef, deps::NixDependencies, manifest::PackageManifest, rosindex::PackageIndex,
 };
 
 struct Ctx<'a> {
     distro_dir: PathBuf,
     package_index: &'a PackageIndex,
     sources: &'a BTreeMap<String, PatchedSource>,
+    manifests: &'a BTreeMap<String, PackageManifest>,
     deps: &'a BTreeMap<String, NixDependencies>,
 }
 
@@ -63,13 +62,14 @@ fn normalize_attr_name(name: &str) -> String {
     name.replace('_', "-")
 }
 
-fn builder_fn(build_type: BuildType) -> &'static str {
+fn builder_fn(build_type: &str) -> &'static str {
     match build_type {
-        BuildType::Catkin => "buildCatkinPackage",
-        BuildType::Cmake => "buildCmakePackage",
-        BuildType::AmentCmake => "buildAmentCmakePackage",
-        BuildType::AmentPython => "buildAmentPythonPackage",
-        BuildType::Meson => "buildMesonPackage",
+        "catkin" => "buildCatkinPackage",
+        "cmake" => "buildCmakePackage",
+        "ament_cmake" => "buildAmentCmakePackage",
+        "ament_python" => "buildAmentPythonPackage",
+        "meson" => "buildMesonPackage",
+        _ => "buildColconPackage",
     }
 }
 
@@ -95,7 +95,7 @@ fn generate_parameters(
         })
         .chain(extra_packages.clone())
         .collect();
-    let build_fn = builder_fn(manifest.build_type);
+    let build_fn = builder_fn(&manifest.build_type);
     params.extend(
         [
             build_fn,
@@ -121,10 +121,11 @@ fn generate_package_body(
     ctx: &Ctx,
     mut dst: impl Write,
     manifest: &PackageManifest,
+    release: &PackageRelease,
     all_srcs: &BTreeMap<String, &PatchedSource>,
 ) -> Result<()> {
     writeln!(dst, "pname = {};", escape(&manifest.name))?;
-    writeln!(dst, "version = {};", escape(&manifest.release_version))?;
+    writeln!(dst, "version = {};", escape(&release.release_version))?;
     writeln!(
         dst,
         "src = finalAttrs.passthru.sources.{};",
@@ -192,7 +193,12 @@ fn generate_package_body(
     Ok(())
 }
 
-fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> Result<()> {
+fn generate_package(
+    ctx: &Ctx,
+    dst_path: &Path,
+    manifest: &PackageManifest,
+    release: &PackageRelease,
+) -> Result<()> {
     let mut dst = String::new();
     let mut all_srcs = BTreeMap::new();
     let mut extra_packages = BTreeSet::new();
@@ -202,9 +208,15 @@ fn generate_package(ctx: &Ctx, dst_path: &Path, manifest: &PackageManifest) -> R
         &ctx.sources[&manifest.name],
     );
     generate_parameters(ctx, &mut dst, manifest, &extra_packages)?;
-    let builder_fn = builder_fn(manifest.build_type);
+    let builder_fn = builder_fn(&manifest.build_type);
     writeln!(dst, "{builder_fn} (finalAttrs: {{")?;
-    generate_package_body(ctx, indented(&mut dst).with_str("  "), manifest, &all_srcs)?;
+    generate_package_body(
+        ctx,
+        indented(&mut dst).with_str("  "),
+        manifest,
+        release,
+        &all_srcs,
+    )?;
     writeln!(dst, "}})")?;
     let mut file = std::fs::File::create(dst_path)?;
     file.write_all(dst.as_bytes())?;
@@ -339,13 +351,18 @@ fn generate_distro(ctx: &Ctx) -> Result<()> {
         )?;
     }
 
-    for (pkg_name, manifest) in ctx.package_index.manifests.iter() {
+    for (pkg_name, manifest) in ctx.manifests.iter() {
         let mangled_name = normalize_attr_name(pkg_name);
         let dir_name = &mangled_name[..2.min(mangled_name.len())];
         let pkg_dir_path = ctx.distro_dir.join(dir_name);
         fs::create_dir_all(&pkg_dir_path)?;
         let pkg_file_path = pkg_dir_path.join(format!("{}.nix", mangled_name));
-        generate_package(ctx, &pkg_file_path, manifest)?;
+        generate_package(
+            ctx,
+            &pkg_file_path,
+            manifest,
+            &ctx.package_index.releases[pkg_name],
+        )?;
     }
     Ok(())
 }
@@ -354,12 +371,14 @@ pub fn generate(
     cfg: &ConfigRef,
     package_index: &PackageIndex,
     sources: &BTreeMap<String, PatchedSource>,
+    manifests: &BTreeMap<String, PackageManifest>,
     deps: &BTreeMap<String, NixDependencies>,
 ) -> Result<()> {
     let distro_dir = cfg.out_dir.join(&package_index.name);
     let ctx = Ctx {
         package_index,
         sources,
+        manifests,
         deps,
         distro_dir,
     };

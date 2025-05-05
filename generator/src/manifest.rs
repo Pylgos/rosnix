@@ -159,7 +159,7 @@ impl PackageManifest {
             .unwrap_or_else(|| "catkin".to_string());
 
         Ok(Self {
-            name: doc.name,
+            name: doc.name.trim().to_string(),
             description: doc.description,
             dependencies: ros_deps,
             member_of_group: doc.member_of_group.into_iter().collect(),

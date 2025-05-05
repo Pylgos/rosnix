@@ -1,30 +1,6 @@
 distributions = ["jazzy", "rolling"]
 out_dir = "ros-packages/generated"
 max_concurrent_downloads = 16
-buildtool_packages = ["ament_lint_common", "gz_cmake_vendor", "cargo"]
-runtime_packages = [
-  "ament_index_python",
-  "google_benchmark_vendor",
-  "gz_math_vendor",
-  "launch_testing",
-  "liblttng-ust-dev",
-  "qt5-qmake",
-  "rcutils",
-  "rmf_building_map_tools",
-  "rmw",
-  "ros2run",
-  "ros2test",
-  "rosidl_typesupport_interface",
-  "tracetools",
-]
-runtime_groups = [
-  "rmw_implementation_packages",
-  "rosidl_interface_packages",
-  "rosidl_runtime_packages",
-  "rosidl_typesupport_c_packages",
-  "rosidl_typesupport_cpp_packages",
-]
-hybrid_packages = ["python3", "gtest"]
 
 [env.humble]
 PAL_DISTRO = ""
