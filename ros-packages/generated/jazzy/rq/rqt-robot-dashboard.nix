@@ -21,7 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "0.6.1-5";
   src = finalAttrs.passthru.sources."rqt_robot_dashboard";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui rclpy rqt-console rqt-gui rqt-gui-py rqt-robot-monitor ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui rqt-console rqt-gui rqt-gui-py rqt-robot-monitor ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_robot_dashboard" = substituteSource {
       src = fetchgit {

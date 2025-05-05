@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_test_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ action-msgs ament-cmake-pytest builtin-interfaces diagnostic-msgs example-interfaces geometry-msgs nav-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_test_msgs" = substituteSource {

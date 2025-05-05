@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "key_teleop";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."key_teleop";
-  propagatedBuildInputs = [ geometry-msgs rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "key_teleop" = substituteSource {

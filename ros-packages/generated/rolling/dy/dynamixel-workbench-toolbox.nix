@@ -15,7 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.4-1";
   src = finalAttrs.passthru.sources."dynamixel_workbench_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ dynamixel-sdk rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ dynamixel-sdk ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_workbench_toolbox" = substituteSource {
       src = fetchgit {

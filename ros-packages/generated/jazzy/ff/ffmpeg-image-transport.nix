@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."ffmpeg_image_transport";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
-  propagatedBuildInputs = [ ffmpeg-encoder-decoder ffmpeg-image-transport-msgs image-transport pluginlib rclcpp rcutils sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ ffmpeg-encoder-decoder ffmpeg-image-transport-msgs image-transport pluginlib rcutils sensor-msgs std-msgs ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ffmpeg_image_transport" = substituteSource {

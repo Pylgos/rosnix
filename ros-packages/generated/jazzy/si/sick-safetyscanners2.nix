@@ -28,7 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.4-1";
   src = finalAttrs.passthru.sources."sick_safetyscanners2";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ diagnostic-updater rclcpp rclcpp-lifecycle robot-state-publisher rviz2 sensor-msgs sick-safetyscanners2-interfaces sick-safetyscanners-base xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ diagnostic-updater robot-state-publisher rviz2 sensor-msgs sick-safetyscanners2-interfaces sick-safetyscanners-base xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch-testing-ament-cmake launch-testing-ros xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-tools" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sick_safetyscanners2" = substituteSource {

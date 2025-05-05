@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.1-2";
   src = finalAttrs.passthru.sources."apriltag_tools";
   nativeBuildInputs = [ ament-cmake ros-environment ];
-  propagatedBuildInputs = [ apriltag-detector apriltag-draw apriltag-msgs rclcpp rosbag2-transport ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ apriltag-detector apriltag-draw apriltag-msgs rosbag2-transport ];
   checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "apriltag_tools" = substituteSource {

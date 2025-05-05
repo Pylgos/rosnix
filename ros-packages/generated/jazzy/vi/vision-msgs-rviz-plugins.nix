@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.1-3";
   src = finalAttrs.passthru.sources."vision_msgs_rviz_plugins";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ pluginlib rclcpp rclpy rviz2 rviz-common rviz-default-plugins rviz-rendering vision-msgs yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ pluginlib rviz2 rviz-common rviz-default-plugins rviz-rendering vision-msgs yaml-cpp-vendor ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "vision_msgs_rviz_plugins" = substituteSource {

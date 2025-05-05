@@ -41,8 +41,10 @@ buildAmentCmakePackage (finalAttrs: {
   version = "9.2.0-1";
   src = finalAttrs.passthru.sources."rclpy";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rcpputils rmw-implementation rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-yaml" ]; };
-  propagatedBuildInputs = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs pybind11-vendor rcl rcl-action rcl-interfaces rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcutils rmw rosgraph-msgs rosidl-runtime-c service-msgs type-description-interfaces unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-typing-extensions" ]; };
+  propagatedNativeBuildInputs = [ pybind11-vendor rcl rcl-action rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rmw-implementation rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-typing-extensions" "python3-yaml" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ pybind11-vendor rcl rcl-action rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rmw-implementation rmw-implementation-cmake rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-dev" "python3-typing-extensions" "python3-yaml" ]; };
+  depsTargetTargetPropagated = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs rcl-interfaces rcutils rmw rosgraph-msgs rosidl-runtime-c service-msgs type-description-interfaces unique-identifier-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rosidl-generator-py test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rclpy" = substituteSource {

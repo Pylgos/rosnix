@@ -13,8 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.4.5-1";
   src = finalAttrs.passthru.sources."hpp-fcl";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
-  propagatedBuildInputs = [ eigenpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "boost" "eigen" "liboctomap-dev" "python3" "python3-lxml" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" "python3-numpy" ]; };
+  propagatedBuildInputs = [ eigenpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp" "boost" "liboctomap-dev" "python3" "python3-lxml" ]; };
   passthru.sources = mkSourceSet (sources: {
     "hpp-fcl" = substituteSource {
       src = fetchgit {

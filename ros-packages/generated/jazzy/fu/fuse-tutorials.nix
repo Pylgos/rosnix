@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."fuse_tutorials";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ fuse-constraints fuse-core fuse-models fuse-optimizers fuse-publishers fuse-variables nav-msgs rclcpp rviz2 sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ fuse-constraints fuse-core fuse-models fuse-optimizers fuse-publishers fuse-variables nav-msgs rviz2 sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "fuse_tutorials" = substituteSource {

@@ -12,8 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "3.5.0-4";
   src = finalAttrs.passthru.sources."visp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "bzip2" "eigen" "libjpeg" "liblapack-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "bzip2" "libjpeg" "liblapack-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "visp" = substituteSource {
       src = fetchgit {

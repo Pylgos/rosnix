@@ -14,8 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-3";
   src = finalAttrs.passthru.sources."rot_conv";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rot_conv" = substituteSource {
       src = fetchgit {

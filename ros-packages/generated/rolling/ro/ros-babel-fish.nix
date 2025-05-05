@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.25.2-1";
   src = finalAttrs.passthru.sources."ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils ];
-  propagatedBuildInputs = [ example-interfaces geometry-msgs rclcpp rclcpp-action rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rcpputils ];
+  propagatedBuildInputs = [ example-interfaces geometry-msgs rclcpp-action rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto geometry-msgs ros-babel-fish-test-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ros_babel_fish" = substituteSource {

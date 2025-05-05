@@ -14,18 +14,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_minimal_service";
-  version = "0.20.4-1";
+  version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_service";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ example-interfaces rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ example-interfaces ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_minimal_service" = substituteSource {
       src = fetchgit {
         name = "examples_rclcpp_minimal_service-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "df00e832915168e5d07b02df42f80e14fe79344e";
-        hash = "sha256-1mzGN4f0ve4lKcsAO/cGbXEPEGkk0t3n4nrd5d3msqk=";
+        rev = "7dc1fdbadf826ec7a736283ef1a0484330a5cc6f";
+        hash = "sha256-F9PllQAMS3id3NQBk0Y0fDqyuUokSdfcXlCCpEqxWx4=";
       };
     };
   });

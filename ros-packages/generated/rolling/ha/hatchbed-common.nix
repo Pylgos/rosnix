@@ -16,7 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.2-1";
   src = finalAttrs.passthru.sources."hatchbed_common";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "hatchbed_common" = substituteSource {

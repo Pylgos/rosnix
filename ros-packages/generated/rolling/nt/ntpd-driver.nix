@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-3";
   src = finalAttrs.passthru.sources."ntpd_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpoco-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpoco-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ntpd_driver" = substituteSource {

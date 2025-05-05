@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rcpputils ];
-  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ];
+  propagatedNativeBuildInputs = [ generate-parameter-library libstatistics-collector rclcpp rcpputils ];
+  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater hardware-interface launch launch-ros pluginlib realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-pytest example-interfaces hardware-interface-testing launch launch-testing launch-testing-ros rclpy robot-state-publisher ros2-control-test-assets sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-coverage" ]; };
   passthru.sources = mkSourceSet (sources: {
     "controller_manager" = substituteSource {

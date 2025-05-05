@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."nao_lola";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ nao-command-msgs nao-sensor-msgs rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ nao-command-msgs nao-sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nao_lola" = substituteSource {

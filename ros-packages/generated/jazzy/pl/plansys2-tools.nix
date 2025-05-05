@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ plansys2-msgs plansys2-problem-expert qt-gui-cpp rclcpp rclcpp-lifecycle rqt-gui rqt-gui-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ plansys2-msgs plansys2-problem-expert qt-gui-cpp rqt-gui rqt-gui-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_tools" = substituteSource {

@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."fuse_core";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ fuse-msgs pluginlib rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libceres-dev" "libgoogle-glog-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ fuse-msgs pluginlib rcl-interfaces rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libceres-dev" "libgoogle-glog-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common geometry-msgs launch launch-pytest rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "fuse_core" = substituteSource {

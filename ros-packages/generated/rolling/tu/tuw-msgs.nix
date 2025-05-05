@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.5-1";
   src = finalAttrs.passthru.sources."tuw_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components tuw-airskin-msgs tuw-geometry-msgs tuw-graph-msgs tuw-multi-robot-msgs tuw-nav-msgs tuw-object-map-msgs tuw-object-msgs tuw-std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components tuw-airskin-msgs tuw-geometry-msgs tuw-graph-msgs tuw-multi-robot-msgs tuw-nav-msgs tuw-object-map-msgs tuw-object-msgs tuw-std-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tuw_msgs" = substituteSource {

@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.12.3-1";
   src = finalAttrs.passthru.sources."moveit_ros_occupancy_map_monitor";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ geometric-shapes moveit-common moveit-core moveit-msgs pluginlib rclcpp tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liboctomap-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ geometric-shapes moveit-common moveit-core moveit-msgs pluginlib tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" ]; };
   checkInputs = [ ament-cmake-gmock ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_ros_occupancy_map_monitor" = substituteSource {

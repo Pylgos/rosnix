@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-4";
   src = finalAttrs.passthru.sources."ublox_gps";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs rcl-interfaces rclcpp-components sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ublox_gps" = substituteSource {
       src = fetchgit {

@@ -29,7 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.3-3";
   src = finalAttrs.passthru.sources."robot_state_publisher";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "robot_state_publisher" = substituteSource {

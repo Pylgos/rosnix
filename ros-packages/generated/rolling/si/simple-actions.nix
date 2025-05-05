@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."simple_actions";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ action-msgs rclcpp rclcpp-action rclpy ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ action-msgs rclcpp-action ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "action_tutorials_interfaces" ]; };
   passthru.sources = mkSourceSet (sources: {
     "simple_actions" = substituteSource {

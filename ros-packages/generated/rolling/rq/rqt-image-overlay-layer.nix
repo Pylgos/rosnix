@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."rqt_image_overlay_layer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rcpputils ];
-  propagatedBuildInputs = [ message-filters pluginlib rclcpp rosidl-runtime-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rcpputils ];
+  propagatedBuildInputs = [ message-filters pluginlib rosidl-runtime-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_image_overlay_layer" = substituteSource {

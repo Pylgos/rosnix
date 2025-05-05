@@ -13,7 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_eigen";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ecl_eigen" = substituteSource {
       src = fetchgit {

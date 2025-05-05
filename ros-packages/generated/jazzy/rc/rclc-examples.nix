@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.1.0-3";
   src = finalAttrs.passthru.sources."rclc_examples";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ example-interfaces lifecycle-msgs rcl rclc rclc-lifecycle rclc-parameter std-msgs ];
+  propagatedNativeBuildInputs = [ rcl ];
+  propagatedBuildInputs = [ example-interfaces lifecycle-msgs rclc rclc-lifecycle rclc-parameter std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclc_examples" = substituteSource {
       src = fetchgit {

@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_system_modes";
   version = "0.9.0-6";
   src = finalAttrs.passthru.sources."launch_system_modes";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python launch osrf-pycommon rclpy system-modes-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python launch osrf-pycommon system-modes-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "launch_system_modes" = substituteSource {

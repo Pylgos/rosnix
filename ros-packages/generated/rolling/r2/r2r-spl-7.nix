@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "r2r_spl_7";
   version = "3.0.1-3";
   src = finalAttrs.passthru.sources."r2r_spl_7";
-  propagatedBuildInputs = [ rclpy splsm-7-conversion ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ splsm-7-conversion ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "r2r_spl_7" = substituteSource {

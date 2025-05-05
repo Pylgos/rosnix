@@ -28,7 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."fuse_publishers";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ fuse-core fuse-msgs fuse-variables geometry-msgs nav-msgs pluginlib rclcpp tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ fuse-core fuse-msgs fuse-variables geometry-msgs nav-msgs pluginlib tf2 tf2-geometry-msgs tf2-ros ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common fuse-constraints fuse-graphs rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "fuse_publishers" = substituteSource {

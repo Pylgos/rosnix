@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."cv_bridge";
   nativeBuildInputs = [ ament-cmake-ros python-cmake-module ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ ament-index-python rclcpp rcpputils sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-opencv" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rcpputils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ ament-index-python sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-opencv" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cv_bridge" = substituteSource {

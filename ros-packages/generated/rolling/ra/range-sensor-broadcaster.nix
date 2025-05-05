@@ -24,18 +24,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "range_sensor_broadcaster";
-  version = "4.23.0-1";
+  version = "4.24.0-1";
   src = finalAttrs.passthru.sources."range_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
+  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ backward-ros controller-interface hardware-interface pluginlib realtime-tools ros2-control-cmake sensor-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "range_sensor_broadcaster" = substituteSource {
       src = fetchgit {
         name = "range_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c63ede6000e94b770d9ce05297b26aac6f352814";
-        hash = "sha256-yGLcoEoWDeAJclYOfeL4FbfVwT710G0TeVDt+zi1gk4=";
+        rev = "bc6a94d0906459a4c3638973c37cae1f809f2da3";
+        hash = "sha256-Q9gEkQKD6BMEvf/VrxS7YCyWSYuKUVbBpE0VxPry9pw=";
       };
     };
   });

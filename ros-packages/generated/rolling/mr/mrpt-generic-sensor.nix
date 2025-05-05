@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.3-1";
   src = finalAttrs.passthru.sources."mrpt_generic_sensor";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common ros-environment ];
-  propagatedBuildInputs = [ mrpt-msgs mrpt-sensorlib rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common rclcpp ros-environment ];
+  propagatedBuildInputs = [ mrpt-msgs mrpt-sensorlib rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_generic_sensor" = substituteSource {
       src = fetchgit {

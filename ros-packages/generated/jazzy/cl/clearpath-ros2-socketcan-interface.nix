@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.1-2";
   src = finalAttrs.passthru.sources."clearpath_ros2_socketcan_interface";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ can-msgs rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "iproute2" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ can-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "iproute2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_ros2_socketcan_interface" = substituteSource {

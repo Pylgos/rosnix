@@ -17,8 +17,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "generate_parameter_module_example";
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."generate_parameter_module_example";
-  propagatedNativeBuildInputs = [ generate-parameter-library-py ];
-  propagatedBuildInputs = [ generate-parameter-library rclpy ];
+  propagatedNativeBuildInputs = [ generate-parameter-library generate-parameter-library-py rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "generate_parameter_module_example" = substituteSource {

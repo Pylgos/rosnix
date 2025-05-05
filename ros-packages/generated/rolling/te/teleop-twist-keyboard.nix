@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "teleop_twist_keyboard";
   version = "2.4.0-1";
   src = finalAttrs.passthru.sources."teleop_twist_keyboard";
-  propagatedBuildInputs = [ geometry-msgs rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ];
   passthru.sources = mkSourceSet (sources: {
     "teleop_twist_keyboard" = substituteSource {

@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "velodyne_laserscan" = substituteSource {

@@ -16,6 +16,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.1-1";
   src = finalAttrs.passthru.sources."ament_index_cpp";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ament_index_cpp" = substituteSource {

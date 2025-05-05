@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.1.6-1";
   src = finalAttrs.passthru.sources."camera_calibration_parsers";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ sensor-msgs yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "camera_calibration_parsers" = substituteSource {

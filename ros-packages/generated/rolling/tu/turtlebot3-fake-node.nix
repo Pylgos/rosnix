@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_fake_node";
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."turtlebot3_fake_node";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp robot-state-publisher sensor-msgs tf2 tf2-msgs turtlebot3-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs robot-state-publisher sensor-msgs tf2 tf2-msgs turtlebot3-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_fake_node" = substituteSource {
       src = fetchgit {

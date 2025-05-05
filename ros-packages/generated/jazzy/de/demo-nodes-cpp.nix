@@ -31,7 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."demo_nodes_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ example-interfaces launch-ros launch-xml rcl rcl-interfaces rclcpp rclcpp-components rcpputils rcutils rmw std-msgs ];
+  propagatedNativeBuildInputs = [ rcl rclcpp rcpputils ];
+  propagatedBuildInputs = [ example-interfaces launch-ros launch-xml rcl-interfaces rclcpp-components rcutils rmw std-msgs ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "demo_nodes_cpp" = substituteSource {

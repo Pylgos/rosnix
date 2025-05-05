@@ -1,6 +1,6 @@
 {
-  ament-cmake,
-  buildAmentCmakePackage,
+  buildAmentPythonPackage,
+  dynamixel-hardware-interface,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -8,6 +8,7 @@
   gz-ros2-control,
   mkSourceSet,
   open-manipulator-description,
+  rclpy,
   robot-state-publisher,
   ros-gz-bridge,
   ros-gz-image,
@@ -20,19 +21,20 @@
   wrapRosQtAppsHook,
   xacro,
 }:
-buildAmentCmakePackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_bringup";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_bringup";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ gripper-controllers gz-ros2-control open-manipulator-description robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
+  nativeBuildInputs = [ wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ dynamixel-hardware-interface gripper-controllers gz-ros2-control open-manipulator-description robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_bringup" = substituteSource {
       src = fetchgit {
         name = "open_manipulator_bringup-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "cbe182cfdcc1a4350314113bf2ac506983ccab23";
-        hash = "sha256-Omnug/1febShCveraEqquN9CddpcLCXzeJVq/POpdgw=";
+        rev = "4108471e0483e26bd9d4a1e4b3df2d16a9371013";
+        hash = "sha256-JZLvzMLmkNmH1hlAcccVdGT5CveTb7u1g6x+hBUCZJc=";
       };
     };
   });

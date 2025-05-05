@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-1";
   src = finalAttrs.passthru.sources."rcl_logging_interface";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rcutils ];
+  buildInputs = [ ament-cmake-ros ];
+  depsTargetTargetPropagated = [ rcutils ];
   checkInputs = [ ament-lint-auto ament-lint-common rcpputils ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_logging_interface" = substituteSource {

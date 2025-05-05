@@ -20,7 +20,10 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.1-1";
   src = finalAttrs.passthru.sources."rcl_logging_spdlog";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rcl-logging-interface rcpputils rcutils spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
+  propagatedNativeBuildInputs = [ rcl-logging-interface rcpputils spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "spdlog" ]; };
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rcl-logging-interface rcpputils spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
+  depsTargetTargetPropagated = [ rcutils ];
   checkInputs = [ ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_logging_spdlog" = substituteSource {

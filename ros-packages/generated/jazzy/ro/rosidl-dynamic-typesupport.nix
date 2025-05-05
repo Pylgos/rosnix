@@ -15,7 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.2-3";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rcutils rosidl-runtime-c ];
+  buildInputs = [ ament-cmake-ros ];
+  depsTargetTargetPropagated = [ rcutils rosidl-runtime-c ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_dynamic_typesupport" = substituteSource {
       src = fetchgit {

@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.1-4";
   src = finalAttrs.passthru.sources."adaptive_component";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "adaptive_component" = substituteSource {

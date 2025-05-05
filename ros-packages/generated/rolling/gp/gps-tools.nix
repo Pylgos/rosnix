@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.4-1";
   src = finalAttrs.passthru.sources."gps_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ gps-msgs nav-msgs rclcpp rclcpp-components rclpy sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ gps-msgs nav-msgs rclcpp-components sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "gps_tools" = substituteSource {
       src = fetchgit {

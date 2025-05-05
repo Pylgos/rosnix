@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-4";
   src = finalAttrs.passthru.sources."boost_geometry_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-lint-auto ouxt-common ];
   passthru.sources = mkSourceSet (sources: {
     "boost_geometry_util" = substituteSource {

@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.4.2-2";
   src = finalAttrs.passthru.sources."pluginlib";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp class-loader rcpputils rcutils tinyxml2-vendor ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils ];
+  propagatedBuildInputs = [ class-loader rcutils tinyxml2-vendor ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "pluginlib" = substituteSource {

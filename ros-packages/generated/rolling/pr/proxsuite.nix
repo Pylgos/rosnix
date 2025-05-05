@@ -12,8 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "0.6.5-1";
   src = finalAttrs.passthru.sources."proxsuite";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3-numpy" "python3-scipy" "simde" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-scipy" "simde" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "matio" ]; };
   passthru.sources = mkSourceSet (sources: {
     "proxsuite" = substituteSource {

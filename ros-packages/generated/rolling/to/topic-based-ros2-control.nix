@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.0-2";
   src = finalAttrs.passthru.sources."topic_based_ros2_control";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles hardware-interface rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ angles hardware-interface sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common picknik-ament-copyright ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "topic_based_ros2_control" = substituteSource {

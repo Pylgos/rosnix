@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."py_binding_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ geometry-msgs pybind11-vendor rclcpp ];
+  propagatedNativeBuildInputs = [ pybind11-vendor rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common rclpy std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "py_binding_tools" = substituteSource {

@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_schedule";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclcpp-components rmf-traffic rmf-traffic-msgs rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libboost-dev" "libssl-dev" "libwebsocketpp-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp-components rmf-traffic rmf-traffic-msgs rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libssl-dev" "libwebsocketpp-dev" ]; };
   checkInputs = [ ament-cmake-uncrustify ament-lint-auto ament-lint-common rmf-utils ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_visualization_schedule" = substituteSource {

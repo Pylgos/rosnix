@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.2-1";
   src = finalAttrs.passthru.sources."fuse_graphs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
-  propagatedBuildInputs = [ fuse-core pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor rclcpp ];
+  propagatedBuildInputs = [ fuse-core pluginlib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "benchmark" ]; };
   passthru.sources = mkSourceSet (sources: {
     "fuse_graphs" = substituteSource {

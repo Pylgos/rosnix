@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.1-1";
   src = finalAttrs.passthru.sources."rc_genicam_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ diagnostic-updater image-transport rc-common-msgs rc-genicam-api rclcpp rclcpp-components sensor-msgs stereo-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-updater image-transport rc-common-msgs rc-genicam-api rclcpp-components sensor-msgs stereo-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "rc_genicam_driver" = substituteSource {

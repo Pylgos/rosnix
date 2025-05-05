@@ -21,19 +21,19 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_reconfigure";
-  version = "1.7.0-1";
+  version = "1.8.0-1";
   src = finalAttrs.passthru.sources."rqt_reconfigure";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rqt-console rqt-gui rqt-gui-py rqt-py-common ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rqt-console rqt-gui rqt-gui-py rqt-py-common ];
   checkInputs = [ ament-copyright ament-flake8 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_reconfigure" = substituteSource {
       src = fetchgit {
         name = "rqt_reconfigure-source";
         url = "https://github.com/ros2-gbp/rqt_reconfigure-release.git";
-        rev = "6c3295518fa31f3dccc64b4b37bf84e2abb0027a";
-        hash = "sha256-ThnCAIGGrmrx8NAdfSMTjsXM8l4EPYJfg9bSORYEL2U=";
+        rev = "e0461c764af67777236ba027c3aae7d3e7fc041b";
+        hash = "sha256-LCGpvPAvdTlr7VWZezYoQquYv/zY4gMDzafnu9ZzVJY=";
       };
     };
   });

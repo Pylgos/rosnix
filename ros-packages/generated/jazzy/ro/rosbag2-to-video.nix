@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rosbag2_to_video";
   version = "1.0.1-1";
   src = finalAttrs.passthru.sources."rosbag2_to_video";
-  propagatedBuildInputs = [ cv-bridge rclpy ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ cv-bridge ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_to_video" = substituteSource {

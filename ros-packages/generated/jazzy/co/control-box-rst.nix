@@ -12,7 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "0.0.7-1";
   src = finalAttrs.passthru.sources."control_box_rst";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "coinor-libipopt-dev" "eigen" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "coinor-libipopt-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "control_box_rst" = substituteSource {
       src = fetchgit {

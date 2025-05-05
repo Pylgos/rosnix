@@ -12,7 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "4.2.0-6";
   src = finalAttrs.passthru.sources."gtsam";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "tbb" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "tbb" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gtsam" = substituteSource {
       src = fetchgit {

@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "29.6.0-1";
   src = finalAttrs.passthru.sources."rclcpp_components";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils ];
-  propagatedBuildInputs = [ class-loader composition-interfaces rclcpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rcpputils ];
+  propagatedBuildInputs = [ class-loader composition-interfaces ];
   checkInputs = [ ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common launch-testing std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclcpp_components" = substituteSource {

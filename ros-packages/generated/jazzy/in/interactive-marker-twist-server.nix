@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.1-1";
   src = finalAttrs.passthru.sources."interactive_marker_twist_server";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs interactive-markers rclcpp tf2 visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs interactive-markers tf2 visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "interactive_marker_twist_server" = substituteSource {

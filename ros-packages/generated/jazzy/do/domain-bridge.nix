@@ -34,7 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-5";
   src = finalAttrs.passthru.sources."domain_bridge";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rcutils rosbag2-cpp rosidl-default-runtime rosidl-typesupport-cpp zstd-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components rcutils rosbag2-cpp rosidl-default-runtime rosidl-typesupport-cpp zstd-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common example-interfaces launch launch-testing launch-testing-ament-cmake rmw-connextdds rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-implementation-cmake rosgraph-msgs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "domain_bridge" = substituteSource {

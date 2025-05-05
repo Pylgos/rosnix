@@ -14,6 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.3-1";
   src = finalAttrs.passthru.sources."pybind11_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "pybind11-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pybind11_vendor" = substituteSource {

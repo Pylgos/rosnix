@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rqt_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_gui" = substituteSource {

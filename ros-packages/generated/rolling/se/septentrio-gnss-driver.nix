@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.2-1";
   src = finalAttrs.passthru.sources."septentrio_gnss_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ diagnostic-msgs geometry-msgs gps-msgs nav-msgs nmea-msgs rclcpp rclcpp-components rosidl-default-runtime sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "geographiclib" "libpcap" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
+  propagatedBuildInputs = [ diagnostic-msgs geometry-msgs gps-msgs nav-msgs nmea-msgs rclcpp-components rosidl-default-runtime sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "geographiclib" "libpcap" ]; };
   passthru.sources = mkSourceSet (sources: {
     "septentrio_gnss_driver" = substituteSource {
       src = fetchgit {

@@ -13,8 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.0.0-15";
   src = finalAttrs.passthru.sources."fields2cover";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "python3-dev" ]; };
-  propagatedBuildInputs = [ ortools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "git" "python3-dev" ]; };
+  propagatedBuildInputs = [ ortools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" "lcov" ]; };
   passthru.sources = mkSourceSet (sources: {
     "fields2cover" = substituteSource {

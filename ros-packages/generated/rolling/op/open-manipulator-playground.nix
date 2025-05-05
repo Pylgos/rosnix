@@ -16,7 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_playground";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ moveit-ros-planning-interface rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ moveit-ros-planning-interface ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_playground" = substituteSource {
       src = fetchgit {

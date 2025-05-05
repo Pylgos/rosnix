@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."ds_dbw_joystick_demo";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ds-dbw-can ds-dbw-msgs joy rclcpp rclcpp-components sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ ds-dbw-can ds-dbw-msgs joy rclcpp-components sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ds_dbw_joystick_demo" = substituteSource {
       src = fetchgit {

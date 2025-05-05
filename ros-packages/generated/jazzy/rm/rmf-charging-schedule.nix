@@ -13,7 +13,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_charging_schedule";
   version = "2.7.2-1";
   src = finalAttrs.passthru.sources."rmf_charging_schedule";
-  propagatedBuildInputs = [ rclpy rmf-fleet-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ rmf-fleet-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_charging_schedule" = substituteSource {
       src = fetchgit {

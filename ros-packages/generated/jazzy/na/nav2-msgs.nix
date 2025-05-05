@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces geographic-msgs geometry-msgs nav2-common nav-msgs rclcpp std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces geographic-msgs geometry-msgs nav2-common nav-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "nav2_msgs" = substituteSource {
       src = fetchgit {

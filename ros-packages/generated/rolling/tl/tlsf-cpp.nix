@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "tlsf_cpp";
   version = "0.19.0-1";
   src = finalAttrs.passthru.sources."tlsf_cpp";
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rmw std-msgs tlsf ];
+  propagatedNativeBuildInputs = [ ament-cmake rclcpp ];
+  propagatedBuildInputs = [ rmw std-msgs tlsf ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rcpputils rmw-implementation-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "tlsf_cpp" = substituteSource {

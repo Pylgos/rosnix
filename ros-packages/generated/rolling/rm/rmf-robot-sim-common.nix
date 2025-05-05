@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.4.1-1";
   src = finalAttrs.passthru.sources."rmf_robot_sim_common";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp rmf-building-map-msgs rmf-dispenser-msgs rmf-fleet-msgs rmf-ingestor-msgs std-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-dispenser-msgs rmf-fleet-msgs rmf-ingestor-msgs std-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_robot_sim_common" = substituteSource {
       src = fetchgit {

@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.0.1-1";
   src = finalAttrs.passthru.sources."zstd_point_cloud_transport";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ pluginlib point-cloud-interfaces point-cloud-transport rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libzstd-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ pluginlib point-cloud-interfaces point-cloud-transport ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libzstd-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "zstd_point_cloud_transport" = substituteSource {

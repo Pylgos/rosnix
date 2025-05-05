@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_utils_vendor";
-  version = "0.2.2-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."gz_utils_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_utils_vendor-source";
         url = "https://github.com/ros2-gbp/gz_utils_vendor-release.git";
-        rev = "f478a76d8f18aa2c8ae215b815611fa8b564de56";
-        hash = "sha256-QEOAu8r9tNsrQnhQO9IDmE6GVSDTRw7r153sZcJOETc=";
+        rev = "25db3b9801287759532d0a1fe64a6e16ae6f4026";
+        hash = "sha256-m0CndMNkoizwjbwykBRAp8jEKMhZDd3DxxQwkcJnkFY=";
       };
       substitutions = [
         {

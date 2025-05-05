@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.6-1";
   src = finalAttrs.passthru.sources."dataspeed_can_usb";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ can-msgs lusb rclcpp rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ can-msgs lusb rclcpp-components std-msgs ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "dataspeed_can_usb" = substituteSource {

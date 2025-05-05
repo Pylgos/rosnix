@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."raspimouse";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs lifecycle-msgs nav-msgs raspimouse-msgs rclcpp rclcpp-components rclcpp-lifecycle std-msgs std-srvs tf2 tf2-ros ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ geometry-msgs lifecycle-msgs nav-msgs raspimouse-msgs rclcpp-components std-msgs std-srvs tf2 tf2-ros ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "raspimouse" = substituteSource {

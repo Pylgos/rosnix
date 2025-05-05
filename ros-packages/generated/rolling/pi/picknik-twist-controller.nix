@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.4-2";
   src = finalAttrs.passthru.sources."picknik_twist_controller";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ controller-interface example-interfaces geometry-msgs rclcpp realtime-tools ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ controller-interface example-interfaces geometry-msgs realtime-tools ];
   passthru.sources = mkSourceSet (sources: {
     "picknik_twist_controller" = substituteSource {
       src = fetchgit {

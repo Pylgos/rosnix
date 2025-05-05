@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "bondpy";
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."bondpy";
-  propagatedBuildInputs = [ bond rclpy smclib ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ bond smclib ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "bondpy" = substituteSource {

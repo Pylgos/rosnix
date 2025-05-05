@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.19.5-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_composition";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_minimal_composition" = substituteSource {

@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "create3_examples_py";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_examples_py";
-  propagatedBuildInputs = [ geometry-msgs irobot-create-msgs rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs irobot-create-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "create3_examples_py" = substituteSource {

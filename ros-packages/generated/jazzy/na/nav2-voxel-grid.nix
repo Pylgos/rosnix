@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_voxel_grid";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ nav2-common rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ nav2-common ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nav2_voxel_grid" = substituteSource {

@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.3-1";
   src = finalAttrs.passthru.sources."tuw_geometry";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tuw_geometry" = substituteSource {

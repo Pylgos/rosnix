@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_storage";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ pluginlib rclcpp rcutils rmw yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ pluginlib rcutils rmw yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common rosbag2-test-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_storage" = substituteSource {

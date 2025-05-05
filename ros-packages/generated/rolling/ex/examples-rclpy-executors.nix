@@ -15,17 +15,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_executors";
-  version = "0.20.4-1";
+  version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclpy_executors";
-  propagatedBuildInputs = [ rclpy std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "examples_rclpy_executors" = substituteSource {
       src = fetchgit {
         name = "examples_rclpy_executors-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "56f7e6870be80a874ac829366e79823a253613df";
-        hash = "sha256-IYlG6xKnep/HobTEk+r+g5VNvZntu5wylILhyF+KkeI=";
+        rev = "e9af124c933d080a0620200b34d95c693f9856ab";
+        hash = "sha256-HMM3lCqZjNEgtENex8YizDvLGuGzE4n3buWKOQ+66G0=";
       };
     };
   });

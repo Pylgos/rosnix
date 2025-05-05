@@ -13,7 +13,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2020.5.29-6";
   src = finalAttrs.passthru.sources."libg2o";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "opengl" "suitesparse" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libg2o" = substituteSource {
       src = fetchgit {

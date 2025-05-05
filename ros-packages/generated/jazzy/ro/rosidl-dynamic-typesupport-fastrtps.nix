@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-3";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
   nativeBuildInputs = [ ament-cmake-ros fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr fastrtps rcutils rosidl-dynamic-typesupport ];
+  propagatedNativeBuildInputs = [ rosidl-dynamic-typesupport ];
+  propagatedBuildInputs = [ fastcdr fastrtps rcutils ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_dynamic_typesupport_fastrtps" = substituteSource {
       src = fetchgit {

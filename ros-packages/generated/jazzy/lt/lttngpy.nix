@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "8.2.3-1";
   src = finalAttrs.passthru.sources."lttngpy";
   nativeBuildInputs = [ ament-cmake python-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ rpyutils ];
-  propagatedBuildInputs = [ pybind11-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" ]; };
+  propagatedNativeBuildInputs = [ pybind11-vendor rpyutils ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "lttngpy" = substituteSource {

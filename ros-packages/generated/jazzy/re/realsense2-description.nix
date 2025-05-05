@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.55.1-3";
   src = finalAttrs.passthru.sources."realsense2_description";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ launch-ros rclcpp rclcpp-components realsense2-camera-msgs xacro ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch-ros rclcpp-components realsense2-camera-msgs xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "realsense2_description" = substituteSource {

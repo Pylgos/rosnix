@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_high_speed_encoder";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp-components sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_high_speed_encoder" = substituteSource {
       src = fetchgit {

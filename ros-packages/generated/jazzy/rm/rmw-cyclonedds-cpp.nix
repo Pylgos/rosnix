@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.3-1";
   src = finalAttrs.passthru.sources."rmw_cyclonedds_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ cyclonedds iceoryx-binding-c rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedNativeBuildInputs = [ rcpputils tracetools ];
+  propagatedBuildInputs = [ cyclonedds iceoryx-binding-c rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_cyclonedds_cpp" = substituteSource {

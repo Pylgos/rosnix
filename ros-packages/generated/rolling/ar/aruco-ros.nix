@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "aruco_ros" = substituteSource {

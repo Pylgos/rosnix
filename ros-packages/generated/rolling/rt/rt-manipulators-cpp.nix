@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-3";
   src = finalAttrs.passthru.sources."rt_manipulators_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ dynamixel-sdk yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ dynamixel-sdk yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rt_manipulators_cpp" = substituteSource {

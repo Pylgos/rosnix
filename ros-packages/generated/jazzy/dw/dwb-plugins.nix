@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."dwb_plugins";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles dwb-core nav2-common nav2-util nav-2d-msgs nav-2d-utils pluginlib rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ angles dwb-core nav2-common nav2-util nav-2d-msgs nav-2d-utils pluginlib ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dwb_plugins" = substituteSource {

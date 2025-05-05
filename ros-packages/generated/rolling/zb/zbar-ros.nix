@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.0-1";
   src = finalAttrs.passthru.sources."zbar_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cv-bridge rclcpp sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zbar" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ cv-bridge sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "zbar" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "zbar_ros" = substituteSource {

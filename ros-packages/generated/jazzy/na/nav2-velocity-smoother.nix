@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_velocity_smoother";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs nav2-common nav2-util rclcpp rclcpp-components ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs nav2-common nav2-util rclcpp-components ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "nav2_velocity_smoother" = substituteSource {

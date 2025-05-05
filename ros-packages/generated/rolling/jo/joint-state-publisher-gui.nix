@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2.4.0-2";
   src = finalAttrs.passthru.sources."joint_state_publisher_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ joint-state-publisher python-qt-binding ];
   passthru.sources = mkSourceSet (sources: {
     "joint_state_publisher_gui" = substituteSource {
       src = fetchgit {

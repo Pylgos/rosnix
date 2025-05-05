@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "laser_filters";
   version = "2.0.8-1";
   src = finalAttrs.passthru.sources."laser_filters";
-  propagatedNativeBuildInputs = [ ament-cmake-auto ];
-  propagatedBuildInputs = [ angles filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-cmake-auto rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ angles filters laser-geometry message-filters pluginlib rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
   checkInputs = [ ament-cmake-gtest launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "laser_filters" = substituteSource {

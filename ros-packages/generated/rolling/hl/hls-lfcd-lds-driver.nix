@@ -15,7 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."hls_lfcd_lds_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "hls_lfcd_lds_driver" = substituteSource {
       src = fetchgit {

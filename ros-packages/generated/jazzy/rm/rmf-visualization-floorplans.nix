@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_floorplans";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components rmf-building-map-msgs rmf-visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ geometry-msgs nav-msgs rclcpp-components rmf-building-map-msgs rmf-visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common rmf-utils ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_visualization_floorplans" = substituteSource {

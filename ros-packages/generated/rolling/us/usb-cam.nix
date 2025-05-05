@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.8.1-1";
   src = finalAttrs.passthru.sources."usb_cam";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ builtin-interfaces camera-info-manager cv-bridge image-transport image-transport-plugins rclcpp rclcpp-components rosidl-default-runtime sensor-msgs std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" "v4l-utils" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ros-environment ];
+  propagatedBuildInputs = [ builtin-interfaces camera-info-manager cv-bridge image-transport image-transport-plugins rclcpp-components rosidl-default-runtime sensor-msgs std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" "v4l-utils" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "usb_cam" = substituteSource {

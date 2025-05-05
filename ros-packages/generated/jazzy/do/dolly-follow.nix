@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-6";
   src = finalAttrs.passthru.sources."dolly_follow";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dolly_follow" = substituteSource {

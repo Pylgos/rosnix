@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.3-2";
   src = finalAttrs.passthru.sources."motion_capture_tracking";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ motion-capture-tracking-interfaces rclcpp sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ motion-capture-tracking-interfaces sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcl-all-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "motion_capture_tracking" = substituteSource {

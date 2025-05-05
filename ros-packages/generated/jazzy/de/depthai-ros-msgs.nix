@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.11.2-1";
   src = finalAttrs.passthru.sources."depthai_ros_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp sensor-msgs std-msgs vision-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs sensor-msgs std-msgs vision-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "depthai_ros_msgs" = substituteSource {
       src = fetchgit {

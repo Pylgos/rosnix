@@ -14,7 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_console_util";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "swri_console_util" = substituteSource {
       src = fetchgit {

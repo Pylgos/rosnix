@@ -1,33 +1,30 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
-  control-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   moveit-ros-planning-interface,
   rclcpp,
-  rclpy,
   rosSystemPackages,
-  sensor-msgs,
   substituteSource,
-  trajectory-msgs,
   wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_playground";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_playground";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ control-msgs moveit-ros-planning-interface rclcpp rclpy sensor-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ moveit-ros-planning-interface ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_playground" = substituteSource {
       src = fetchgit {
         name = "open_manipulator_playground-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "4ae43d689fadc2f63822a3333594876419786ce8";
-        hash = "sha256-onW9rjr5SMQzp0Lo6wQR6PR7UBYNApLxbpGSRGw1XP8=";
+        rev = "d7d8fc9f437665e563fad6b51307599a364daaee";
+        hash = "sha256-WFyyerIqLyeXaQid1J3U43Peh0wqlMgR6CZJD5BIhxQ=";
       };
     };
   });

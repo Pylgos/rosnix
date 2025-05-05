@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_fake_slaves";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ lely-core-libraries lifecycle-msgs rclcpp rclcpp-lifecycle ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ lely-core-libraries lifecycle-msgs ];
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "canopen_fake_slaves" = substituteSource {

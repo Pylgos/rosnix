@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.9003-1";
   src = finalAttrs.passthru.sources."cartographer_rviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ cartographer cartographer-ros cartographer-ros-msgs pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libabsl-dev" "libboost-iostreams-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ cartographer cartographer-ros cartographer-ros-msgs pluginlib rviz-common rviz-ogre-vendor rviz-rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libabsl-dev" "libboost-iostreams-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "cartographer_rviz" = substituteSource {
       src = fetchgit {

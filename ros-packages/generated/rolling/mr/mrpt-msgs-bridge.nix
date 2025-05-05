@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ros-environment ];
-  propagatedBuildInputs = [ geometry-msgs mrpt-libobs mrpt-libros-bridge mrpt-msgs rclcpp tf2 ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto rclcpp ros-environment ];
+  propagatedBuildInputs = [ geometry-msgs mrpt-libobs mrpt-libros-bridge mrpt-msgs tf2 ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_msgs_bridge" = substituteSource {
       src = fetchgit {

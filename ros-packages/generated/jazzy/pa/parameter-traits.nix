@@ -20,6 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."parameter_traits";
   nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rclcpp rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

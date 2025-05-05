@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.1-1";
   src = finalAttrs.passthru.sources."catch_ros2";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp ros2launch std-srvs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ ros2launch std-srvs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "catch_ros2" = substituteSource {

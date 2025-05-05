@@ -15,7 +15,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.3-1";
   src = finalAttrs.passthru.sources."ld08_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libudev-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libudev-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ld08_driver" = substituteSource {
       src = fetchgit {

@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.3-1";
   src = finalAttrs.passthru.sources."topic_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rclpy ros2cli rosidl-runtime-py topic-tools-interfaces ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ rclcpp-components ros2cli rosidl-runtime-py topic-tools-interfaces ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rosidl-runtime-py std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "topic_tools" = substituteSource {

@@ -18,7 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "soccer_vision_3d_rviz_markers";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."soccer_vision_3d_rviz_markers";
-  propagatedBuildInputs = [ rclpy soccer-vision-3d-msgs soccer-vision-attribute-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ soccer-vision-3d-msgs soccer-vision-attribute-msgs visualization-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "soccer_vision_3d_rviz_markers" = substituteSource {

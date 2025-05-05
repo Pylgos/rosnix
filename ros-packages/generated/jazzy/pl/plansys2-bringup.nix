@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ launch-ros plansys2-domain-expert plansys2-executor plansys2-lifecycle-manager plansys2-planner plansys2-problem-expert rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch-ros plansys2-domain-expert plansys2-executor plansys2-lifecycle-manager plansys2-planner plansys2-problem-expert ];
   checkInputs = [ ament-lint-auto ament-lint-common launch launch-testing ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_bringup" = substituteSource {

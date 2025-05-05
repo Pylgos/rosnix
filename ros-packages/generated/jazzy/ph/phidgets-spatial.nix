@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_spatial";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs std-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch phidgets-api rclcpp-components sensor-msgs std-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_spatial" = substituteSource {
       src = fetchgit {

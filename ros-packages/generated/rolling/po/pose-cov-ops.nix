@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.13-1";
   src = finalAttrs.passthru.sources."pose_cov_ops";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs mrpt-libposes mrpt-libros-bridge nav-msgs rclcpp sensor-msgs std-msgs stereo-msgs tf2 ];
+  propagatedNativeBuildInputs = [ ament-cmake-xmllint rclcpp ros-environment ];
+  propagatedBuildInputs = [ cv-bridge geometry-msgs mrpt-libposes mrpt-libros-bridge nav-msgs sensor-msgs std-msgs stereo-msgs tf2 ];
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pose_cov_ops" = substituteSource {

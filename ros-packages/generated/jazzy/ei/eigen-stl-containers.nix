@@ -13,7 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-1";
   src = finalAttrs.passthru.sources."eigen_stl_containers";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "eigen_stl_containers" = substituteSource {
       src = fetchgit {

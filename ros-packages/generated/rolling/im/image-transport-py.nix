@@ -18,19 +18,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport_py";
-  version = "6.1.0-1";
+  version = "6.2.0-1";
   src = finalAttrs.passthru.sources."image_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
-  propagatedBuildInputs = [ image-transport pybind11-vendor rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ pybind11-vendor rclcpp rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
+  propagatedBuildInputs = [ image-transport sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_transport_py" = substituteSource {
       src = fetchgit {
         name = "image_transport_py-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "bebb947556fdbada87f686bc541a68dfd55623cd";
-        hash = "sha256-srnHNwVP4ZaGJseDs/Ogw4ashrbQ01sQSNkSPONy++k=";
+        rev = "e346616dd83a0c6c9c5be66b29a30d6a891603bd";
+        hash = "sha256-wQXYcgcVdyAYJUGNIGm87RHqoyYdQ9vFN52CV270tf4=";
       };
     };
   });

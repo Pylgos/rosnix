@@ -14,7 +14,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.5-1";
   src = finalAttrs.passthru.sources."aruco";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ cv-bridge ];
   passthru.sources = mkSourceSet (sources: {
     "aruco" = substituteSource {
       src = fetchgit {

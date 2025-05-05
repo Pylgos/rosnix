@@ -21,7 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "0.0.3-1";
   src = finalAttrs.passthru.sources."rqt_gauges";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rqt-gui rqt-gui-py ];
   checkInputs = [ ament-flake8 ament-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_gauges" = substituteSource {

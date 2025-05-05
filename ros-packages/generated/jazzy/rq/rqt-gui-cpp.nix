@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rqt_gui_cpp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ pluginlib qt-gui-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ pluginlib qt-gui-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_gui_cpp" = substituteSource {
       src = fetchgit {

@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."imu_filter_madgwick";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs nav-msgs rclcpp rclcpp-action rclcpp-lifecycle sensor-msgs tf2-geometry-msgs tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs nav-msgs rclcpp-action sensor-msgs tf2-geometry-msgs tf2-ros visualization-msgs ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "imu_filter_madgwick" = substituteSource {

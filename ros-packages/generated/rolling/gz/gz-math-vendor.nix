@@ -17,19 +17,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_math_vendor";
-  version = "0.2.3-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."gz_math_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor ];
-  propagatedBuildInputs = [ gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "gz-math8" "pybind11-dev" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "pybind11-dev" ]; };
+  propagatedBuildInputs = [ gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-math8" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gz_math_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_math_vendor-source";
         url = "https://github.com/ros2-gbp/gz_math_vendor-release.git";
-        rev = "ed2fda6ec748a27efc198647d76e0f25edcadc8e";
-        hash = "sha256-vxxMErd1Cvxr5us8mTnXoSE3eDIyVZmWnIAeqw+vswk=";
+        rev = "13e4d78dad73d0587d5b3f80b2e3ac724379f4e1";
+        hash = "sha256-9GsV9HkSuKFBP5OpcsoTkoD25KNs3s3q2O0NHizegL8=";
       };
       substitutions = [
         {

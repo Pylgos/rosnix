@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.5-1";
   src = finalAttrs.passthru.sources."log_view";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rcl-interfaces rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libncurses-dev" "xclip" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rcl-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libncurses-dev" "xclip" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "log_view" = substituteSource {

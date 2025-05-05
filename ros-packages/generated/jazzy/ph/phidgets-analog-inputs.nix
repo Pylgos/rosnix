@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_analog_inputs";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch phidgets-api rclcpp-components std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_analog_inputs" = substituteSource {
       src = fetchgit {

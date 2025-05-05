@@ -14,6 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.2-4";
   src = finalAttrs.passthru.sources."tcb_span";
   nativeBuildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "tcb_span" = substituteSource {

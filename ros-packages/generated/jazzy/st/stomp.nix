@@ -13,7 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "0.1.2-4";
   src = finalAttrs.passthru.sources."stomp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ros-industrial-cmake-boilerplate ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libconsole-bridge-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ ros-industrial-cmake-boilerplate ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "stomp" = substituteSource {

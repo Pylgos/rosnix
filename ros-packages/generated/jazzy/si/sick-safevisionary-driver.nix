@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.3-3";
   src = finalAttrs.passthru.sources."sick_safevisionary_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ cv-bridge lifecycle-msgs sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sick_safevisionary_driver" = substituteSource {
       src = fetchgit {

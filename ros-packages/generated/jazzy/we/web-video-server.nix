@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."web_video_server";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ async-web-server-cpp cv-bridge image-transport rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ async-web-server-cpp cv-bridge image-transport sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-cpplint ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "web_video_server" = substituteSource {

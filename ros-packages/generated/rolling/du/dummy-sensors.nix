@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."dummy_sensors";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ sensor-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dummy_sensors" = substituteSource {

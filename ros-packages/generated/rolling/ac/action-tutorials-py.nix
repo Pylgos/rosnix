@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "action_tutorials_py";
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."action_tutorials_py";
-  propagatedBuildInputs = [ example-interfaces rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ example-interfaces ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "action_tutorials_py" = substituteSource {

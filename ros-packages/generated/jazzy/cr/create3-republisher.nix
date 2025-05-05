@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."create3_republisher";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs irobot-create-msgs nav-msgs rclcpp rclcpp-action sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs irobot-create-msgs nav-msgs rclcpp-action sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "create3_republisher" = substituteSource {

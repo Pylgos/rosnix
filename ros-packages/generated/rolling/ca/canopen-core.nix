@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_core";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ canopen-interfaces lely-core-libraries lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ canopen-interfaces lely-core-libraries lifecycle-msgs rclcpp-components yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "canopen_core" = substituteSource {

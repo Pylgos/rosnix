@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_setup_controllers";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-index-cpp ];
-  propagatedBuildInputs = [ moveit-setup-framework pluginlib rclcpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ];
+  propagatedBuildInputs = [ moveit-setup-framework pluginlib ];
   checkInputs = [ ament-cmake-gtest moveit-configs-utils moveit-resources-fanuc-moveit-config moveit-resources-panda-moveit-config ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_setup_controllers" = substituteSource {

@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.1-1";
   src = finalAttrs.passthru.sources."octomap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ octomap-msgs rclcpp rviz-common rviz-default-plugins rviz-rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ octomap-msgs rviz-common rviz-default-plugins rviz-rendering ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liboctomap-dev" "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "octomap_rviz_plugins" = substituteSource {

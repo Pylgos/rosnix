@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.36.10-1";
   src = finalAttrs.passthru.sources."tf2_py";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
-  propagatedNativeBuildInputs = [ rpyutils ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy tf2 ];
+  propagatedNativeBuildInputs = [ rclpy rpyutils ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs tf2 ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tf2_py" = substituteSource {

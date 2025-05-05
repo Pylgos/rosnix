@@ -15,8 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "launch_param_builder";
   version = "0.1.1-3";
   src = finalAttrs.passthru.sources."launch_param_builder";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python rclpy xacro ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python xacro ];
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "launch_param_builder" = substituteSource {

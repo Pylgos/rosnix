@@ -1,4 +1,6 @@
 {
+  ament-lint-auto,
+  ament-lint-common,
   buildAmentCmakePackage,
   diagnostic-updater,
   fetchgit,
@@ -12,16 +14,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "wireless_watcher";
-  version = "1.1.4-1";
+  version = "1.1.5-1";
   src = finalAttrs.passthru.sources."wireless_watcher";
-  propagatedBuildInputs = [ diagnostic-updater rclcpp wireless-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "wireless-tools" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-updater wireless-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "wireless-tools" ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "wireless_watcher" = substituteSource {
       src = fetchgit {
         name = "wireless_watcher-source";
         url = "https://github.com/clearpath-gbp/wireless-release.git";
-        rev = "7e998f04cdbfe2e6034af508a8df85e00d5b7e82";
-        hash = "sha256-k3oVG7NKXQCvUUwsbBvkD3j19onzXH2wu+IUbpF1ZJ0=";
+        rev = "df17b68f37deb6bf1b3c453505fdf06998ff1090";
+        hash = "sha256-lj0B0i9lH8OuEiKwrHPAyJmeyzfdow0iBYtsJAd2z6c=";
       };
     };
   });

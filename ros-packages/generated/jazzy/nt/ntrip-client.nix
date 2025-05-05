@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ntrip_client";
   version = "1.4.1-1";
   src = finalAttrs.passthru.sources."ntrip_client";
-  propagatedBuildInputs = [ nmea-msgs rclpy rtcm-msgs sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ nmea-msgs rtcm-msgs sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ntrip_client" = substituteSource {
       src = fetchgit {

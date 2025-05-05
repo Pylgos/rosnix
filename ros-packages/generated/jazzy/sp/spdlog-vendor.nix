@@ -16,6 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.6.1-1";
   src = finalAttrs.passthru.sources."spdlog_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "spdlog" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "spdlog" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {

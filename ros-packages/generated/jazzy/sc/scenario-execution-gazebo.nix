@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_gazebo";
   version = "1.2.0-5";
   src = finalAttrs.passthru.sources."scenario_execution_gazebo";
-  propagatedBuildInputs = [ py-trees rclpy scenario-execution-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-transforms3d" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ py-trees scenario-execution-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-transforms3d" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "scenario_execution_gazebo" = substituteSource {

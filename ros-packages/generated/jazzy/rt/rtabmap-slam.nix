@@ -28,7 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.10-1";
   src = finalAttrs.passthru.sources."rtabmap_slam";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs nav-msgs rclcpp rclcpp-components rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ cv-bridge geometry-msgs nav-msgs rclcpp-components rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_slam" = substituteSource {
       src = fetchgit {

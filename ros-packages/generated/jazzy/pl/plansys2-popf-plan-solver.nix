@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_popf_plan_solver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp plansys2-core pluginlib popf rclcpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ];
+  propagatedBuildInputs = [ plansys2-core pluginlib popf ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ros2run ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_popf_plan_solver" = substituteSource {

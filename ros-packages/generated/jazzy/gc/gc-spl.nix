@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "gc_spl";
   version = "4.1.0-1";
   src = finalAttrs.passthru.sources."gc_spl";
-  propagatedBuildInputs = [ gc-spl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ gc-spl-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gc_spl" = substituteSource {

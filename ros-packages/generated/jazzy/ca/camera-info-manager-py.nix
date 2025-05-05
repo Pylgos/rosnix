@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "camera_info_manager_py";
   version = "5.1.6-1";
   src = finalAttrs.passthru.sources."camera_info_manager_py";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python rclpy sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python sensor-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "camera_info_manager_py" = substituteSource {

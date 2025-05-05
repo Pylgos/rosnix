@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-2";
   src = finalAttrs.passthru.sources."phidgets_accelerometer";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch phidgets-api rclcpp-components sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_accelerometer" = substituteSource {
       src = fetchgit {

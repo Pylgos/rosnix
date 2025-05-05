@@ -12,8 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.0.9003-2";
   src = finalAttrs.passthru.sources."cartographer";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "google-mock" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "gtest" "libabsl-dev" "libboost-iostreams-dev" "libcairo2-dev" "libceres-dev" "libgflags-dev" "libgoogle-glog-dev" "lua5.2-dev" "protobuf-dev" "python3-sphinx" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "git" "google-mock" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" "libabsl-dev" "libboost-iostreams-dev" "libcairo2-dev" "libceres-dev" "libgflags-dev" "libgoogle-glog-dev" "lua5.2-dev" "protobuf-dev" "python3-sphinx" ]; };
   passthru.sources = mkSourceSet (sources: {
     "cartographer" = substituteSource {
       src = fetchgit {

@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.1-1";
   src = finalAttrs.passthru.sources."trac_ik_lib";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "pkg-config" ]; };
+  propagatedBuildInputs = [ geometry-msgs kdl-parser urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libnlopt-cxx-dev" "libnlopt-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "trac_ik_lib" = substituteSource {
       src = fetchgit {

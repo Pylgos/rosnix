@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.7.1-2";
   src = finalAttrs.passthru.sources."find_object_2d";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces cv-bridge geometry-msgs image-transport message-filters rclcpp rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" "zlib" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ros-environment rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces cv-bridge geometry-msgs image-transport message-filters rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "find_object_2d" = substituteSource {
       src = fetchgit {

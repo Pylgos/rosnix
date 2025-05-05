@@ -20,6 +20,7 @@
   rmw-fastrtps-dynamic-cpp,
   rmw-gurumdds-cpp,
   rmw-implementation-cmake,
+  rmw-stats-shim,
   rmw-zenoh-cpp,
   rosSystemPackages,
   substituteSource,
@@ -32,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
   propagatedNativeBuildInputs = [ ament-index-cpp rcpputils rmw-implementation-cmake ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-cpp rcpputils rmw-implementation-cmake ];
-  depsTargetTargetPropagated = [ rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-desert rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-zenoh-cpp ];
+  depsTargetTargetPropagated = [ rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-desert rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-stats-shim rmw-zenoh-cpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_implementation" = substituteSource {

@@ -16,7 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_system_util";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-gtest ament-index-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "swri_system_util" = substituteSource {

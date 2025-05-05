@@ -16,7 +16,8 @@ buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_fleet_adapter_python";
   version = "2.9.0-1";
   src = finalAttrs.passthru.sources."rmf_fleet_adapter_python";
-  propagatedBuildInputs = [ pybind11-json-vendor pybind11-vendor rclpy rmf-fleet-adapter ];
+  propagatedNativeBuildInputs = [ pybind11-vendor rclpy ];
+  propagatedBuildInputs = [ pybind11-json-vendor rmf-fleet-adapter ];
   checkInputs = [ ament-cmake-pytest ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_fleet_adapter_python" = substituteSource {

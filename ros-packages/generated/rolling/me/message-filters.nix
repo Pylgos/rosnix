@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "7.1.0-1";
   src = finalAttrs.passthru.sources."message_filters";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
-  propagatedBuildInputs = [ builtin-interfaces rclcpp rclpy rcutils std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces rcutils std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common rclcpp-lifecycle sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "message_filters" = substituteSource {

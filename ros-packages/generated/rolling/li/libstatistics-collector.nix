@@ -26,8 +26,10 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.0-1";
   src = finalAttrs.passthru.sources."libstatistics_collector";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcpputils ];
-  propagatedBuildInputs = [ builtin-interfaces rcl rmw statistics-msgs ];
+  propagatedNativeBuildInputs = [ rcl rcpputils ];
+  buildInputs = [ ament-cmake-ros ];
+  propagatedBuildInputs = [ rcl rcpputils ];
+  depsTargetTargetPropagated = [ builtin-interfaces rmw statistics-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture rcutils rosidl-default-generators rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "libstatistics_collector" = substituteSource {

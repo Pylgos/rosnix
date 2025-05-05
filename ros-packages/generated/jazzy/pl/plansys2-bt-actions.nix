@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_bt_actions";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ action-msgs behaviortree-cpp plansys2-executor rclcpp rclcpp-action rclcpp-lifecycle ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ action-msgs behaviortree-cpp plansys2-executor rclcpp-action ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs plansys2-msgs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_bt_actions" = substituteSource {

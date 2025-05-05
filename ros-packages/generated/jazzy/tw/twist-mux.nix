@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.4.0-1";
   src = finalAttrs.passthru.sources."twist_mux";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ diagnostic-updater geometry-msgs rclcpp std-msgs twist-mux-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-updater geometry-msgs std-msgs twist-mux-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "twist_mux" = substituteSource {

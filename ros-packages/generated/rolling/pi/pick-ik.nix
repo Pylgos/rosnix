@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."pick_ik";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp rsl tf2-geometry-msgs tf2-kdl tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "range-v3" ]; };
+  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rsl tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ moveit-core pluginlib tf2-geometry-msgs tf2-kdl ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "range-v3" ]; };
   checkInputs = [ moveit-resources-panda-moveit-config ];
   passthru.sources = mkSourceSet (sources: {
     "pick_ik" = substituteSource {

@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ geometry-msgs pluginlib rclcpp rclpy sensor-msgs std-msgs tf2-geometry-msgs tf2-ros tinyxml2-vendor vision-msgs webots-ros2-importer webots-ros2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclpy ros-environment ];
+  propagatedBuildInputs = [ geometry-msgs pluginlib sensor-msgs std-msgs tf2-geometry-msgs tf2-ros tinyxml2-vendor vision-msgs webots-ros2-importer webots-ros2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_driver" = substituteSource {

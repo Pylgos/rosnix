@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.6.3-1";
   src = finalAttrs.passthru.sources."teleop_twist_joy";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs joy rclcpp rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs joy rclcpp-components sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "teleop_twist_joy" = substituteSource {

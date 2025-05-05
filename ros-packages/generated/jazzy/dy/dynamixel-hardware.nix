@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."dynamixel_hardware";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ dynamixel-workbench-toolbox hardware-interface lifecycle-msgs pluginlib rclcpp rclcpp-lifecycle ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ dynamixel-workbench-toolbox hardware-interface lifecycle-msgs pluginlib ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_hardware" = substituteSource {

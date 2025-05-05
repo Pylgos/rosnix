@@ -24,7 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_turtlebot";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller joint-state-broadcaster robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_turtlebot" = substituteSource {

@@ -19,7 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "3.0.3-2";
   src = finalAttrs.passthru.sources."smach_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ rclpy smach smach-msgs std-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ smach smach-msgs std-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "smach_ros" = substituteSource {
       src = fetchgit {

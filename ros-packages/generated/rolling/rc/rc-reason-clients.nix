@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "rc_reason_clients";
   version = "0.4.0-2";
   src = finalAttrs.passthru.sources."rc_reason_clients";
-  propagatedBuildInputs = [ geometry-msgs rc-reason-msgs rclpy ros2pkg tf2-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-requests" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs rc-reason-msgs ros2pkg tf2-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-requests" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rc_reason_clients" = substituteSource {

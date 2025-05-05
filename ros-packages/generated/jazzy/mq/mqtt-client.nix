@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mqtt_client";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ mqtt-client-interfaces rclcpp rclcpp-components rcpputils std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libpaho-mqtt-dev" "libpaho-mqttpp-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rcpputils ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ mqtt-client-interfaces rclcpp-components std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpaho-mqtt-dev" "libpaho-mqttpp-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mqtt_client" = substituteSource {
       src = fetchgit {

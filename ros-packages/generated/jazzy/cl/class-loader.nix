@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.7.0-3";
   src = finalAttrs.passthru.sources."class_loader";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedBuildInputs = [ console-bridge-vendor rcpputils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" ]; };
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ console-bridge-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "class_loader" = substituteSource {

@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.6-1";
   src = finalAttrs.passthru.sources."swri_console";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ rcl-interfaces rclcpp rosbag2-storage-mcap rosbag2-transport rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-thread-dev" "libqt5-core" "libqt5-gui" "libqt5-opengl-dev" "libqt5-widgets" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rcl-interfaces rosbag2-storage-mcap rosbag2-transport rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-thread-dev" "libqt5-core" "libqt5-gui" "libqt5-opengl-dev" "libqt5-widgets" ]; };
   passthru.sources = mkSourceSet (sources: {
     "swri_console" = substituteSource {
       src = fetchgit {

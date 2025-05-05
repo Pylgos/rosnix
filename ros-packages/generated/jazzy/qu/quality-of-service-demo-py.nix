@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "quality_of_service_demo_py";
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."quality_of_service_demo_py";
-  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ sensor-msgs std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "quality_of_service_demo_py" = substituteSource {

@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.1.0-3";
   src = finalAttrs.passthru.sources."rclc_parameter";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ builtin-interfaces rcl rcl-interfaces rclc rcutils rosidl-runtime-c ];
+  propagatedNativeBuildInputs = [ rcl ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclc rcutils rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common example-interfaces osrf-testing-tools-cpp rclcpp std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclc_parameter" = substituteSource {

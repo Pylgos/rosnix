@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.1.2-2";
   src = finalAttrs.passthru.sources."plotjuggler_ros";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ plotjuggler rclcpp rcpputils rosbag2 rosbag2-transport tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-svg-dev" "libqt5-websockets-dev" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rcpputils ros-environment ];
+  propagatedBuildInputs = [ plotjuggler rosbag2 rosbag2-transport tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-svg-dev" "libqt5-websockets-dev" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "plotjuggler_ros" = substituteSource {
       src = fetchgit {

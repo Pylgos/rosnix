@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_ikfast_manipulator_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl ];
+  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp ];
+  propagatedBuildInputs = [ moveit-core pluginlib tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_prbt_ikfast_manipulator_plugin" = substituteSource {
       src = fetchgit {

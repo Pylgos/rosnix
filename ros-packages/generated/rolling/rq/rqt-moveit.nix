@@ -21,7 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.1-4";
   src = finalAttrs.passthru.sources."rqt_moveit";
   nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedBuildInputs = [ python-qt-binding rclpy rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ python-qt-binding rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_moveit" = substituteSource {
       src = fetchgit {

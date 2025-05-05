@@ -19,7 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "ros2controlcli";
   version = "4.28.1-1";
   src = finalAttrs.passthru.sources."ros2controlcli";
-  propagatedBuildInputs = [ controller-manager controller-manager-msgs rcl-interfaces rclpy ros2cli ros2node ros2param rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ controller-manager controller-manager-msgs rcl-interfaces ros2cli ros2node ros2param rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2controlcli" = substituteSource {
       src = fetchgit {

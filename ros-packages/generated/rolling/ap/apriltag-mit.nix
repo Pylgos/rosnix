@@ -12,8 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.0.3-1";
   src = finalAttrs.passthru.sources."apriltag_mit";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-tidy" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libboost-dev" "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-tidy" "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "apriltag_mit" = substituteSource {
       src = fetchgit {

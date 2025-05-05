@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_fuel_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor ];
-  propagatedBuildInputs = [ gz-common-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-fuel_tools10" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libyaml-dev" "libzip-dev" "tinyxml2" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libyaml-dev" ]; };
+  propagatedBuildInputs = [ gz-common-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-fuel_tools10" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libzip-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_fuel_tools_vendor" = substituteSource {

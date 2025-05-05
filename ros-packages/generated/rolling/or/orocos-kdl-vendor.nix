@@ -17,8 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.8.0-1";
   src = finalAttrs.passthru.sources."orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liborocos-kdl-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "liborocos-kdl-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "orocos_kdl_vendor" = substituteSource {

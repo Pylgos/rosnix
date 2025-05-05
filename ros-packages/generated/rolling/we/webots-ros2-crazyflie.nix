@@ -18,7 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_crazyflie";
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_crazyflie";
-  propagatedBuildInputs = [ builtin-interfaces rclpy tf-transformations webots-ros2-driver ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces tf-transformations webots-ros2-driver ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_crazyflie" = substituteSource {

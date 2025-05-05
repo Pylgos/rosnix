@@ -16,7 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tesla";
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_tesla";
-  propagatedBuildInputs = [ ackermann-msgs builtin-interfaces rclpy webots-ros2-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-opencv" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ ackermann-msgs builtin-interfaces webots-ros2-driver ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-opencv" ]; };
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_tesla" = substituteSource {

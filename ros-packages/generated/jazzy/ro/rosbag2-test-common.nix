@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.26.7-1";
   src = finalAttrs.passthru.sources."rosbag2_test_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
-  propagatedBuildInputs = [ rclcpp rcpputils rcutils test-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rcpputils ];
+  propagatedBuildInputs = [ rcutils test-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_test_common" = substituteSource {

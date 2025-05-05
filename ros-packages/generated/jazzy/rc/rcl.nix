@@ -35,18 +35,21 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl";
-  version = "9.2.5-1";
+  version = "9.2.6-1";
   src = finalAttrs.passthru.sources."rcl";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ libyaml-vendor rcl-interfaces rcl-logging-interface rcl-logging-noop rcl-logging-spdlog rcl-yaml-param-parser rcutils rmw rmw-implementation rosidl-runtime-c service-msgs tracetools type-description-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  propagatedNativeBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation tracetools ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
+  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
+  propagatedBuildInputs = [ libyaml-vendor rcl-logging-interface rcl-logging-spdlog rcl-yaml-param-parser rmw-implementation tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  depsTargetTargetPropagated = [ rcl-interfaces rcl-logging-noop rcutils rmw rosidl-runtime-c service-msgs type-description-interfaces ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp rmw rmw-implementation-cmake rosidl-runtime-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rcl" = substituteSource {
       src = fetchgit {
         name = "rcl-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "46c01374836c4b7721964788b7a0ce17ac1d6031";
-        hash = "sha256-LqcZpDMfM9Wsy3v56PIN/XiVL6mG6xbccDmN3hM730w=";
+        rev = "ebed92d7556fb7e4d9a75877f838d1573a0ebd8b";
+        hash = "sha256-FVcNeBtzx3uHUNV3DJ/aISYPTpoe6xteT29wwZ/4haM=";
       };
     };
   });

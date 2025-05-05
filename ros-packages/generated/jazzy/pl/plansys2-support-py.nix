@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_support_py";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
-  propagatedBuildInputs = [ lifecycle-msgs plansys2-msgs rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ lifecycle-msgs plansys2-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "plansys2_support_py" = substituteSource {

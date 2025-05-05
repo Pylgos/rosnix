@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees_ros";
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."py_trees_ros";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedBuildInputs = [ geometry-msgs py-trees py-trees-ros-interfaces rcl-interfaces rclpy ros2topic sensor-msgs std-msgs std-srvs tf2-ros-py unique-identifier-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  propagatedBuildInputs = [ geometry-msgs py-trees py-trees-ros-interfaces rcl-interfaces ros2topic sensor-msgs std-msgs std-srvs tf2-ros-py unique-identifier-msgs ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "py_trees_ros" = substituteSource {

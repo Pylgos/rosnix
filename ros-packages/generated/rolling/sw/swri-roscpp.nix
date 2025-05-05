@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.7.4-1";
   src = finalAttrs.passthru.sources."swri_roscpp";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ ros-environment rosidl-cmake ];
-  propagatedBuildInputs = [ diagnostic-updater marti-common-msgs nav-msgs rclcpp rosidl-default-runtime std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ros-environment rosidl-cmake ];
+  propagatedBuildInputs = [ diagnostic-updater marti-common-msgs nav-msgs rosidl-default-runtime std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "swri_roscpp" = substituteSource {

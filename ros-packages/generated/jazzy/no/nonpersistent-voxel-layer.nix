@@ -28,7 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.0-1";
   src = finalAttrs.passthru.sources."nonpersistent_voxel_layer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs laser-geometry map-msgs nav2-costmap-2d nav2-msgs nav2-voxel-grid nav-msgs pluginlib rclcpp sensor-msgs std-msgs tf2 tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs laser-geometry map-msgs nav2-costmap-2d nav2-msgs nav2-voxel-grid nav-msgs pluginlib sensor-msgs std-msgs tf2 tf2-ros visualization-msgs ];
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "nonpersistent_voxel_layer" = substituteSource {

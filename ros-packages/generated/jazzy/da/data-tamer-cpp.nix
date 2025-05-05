@@ -17,7 +17,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.4-4";
   src = finalAttrs.passthru.sources."data_tamer_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "data_tamer_cpp" = substituteSource {

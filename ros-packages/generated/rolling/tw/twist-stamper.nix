@@ -17,7 +17,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "twist_stamper";
   version = "0.0.5-1";
   src = finalAttrs.passthru.sources."twist_stamper";
-  propagatedBuildInputs = [ geometry-msgs rclpy std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "twist_stamper" = substituteSource {

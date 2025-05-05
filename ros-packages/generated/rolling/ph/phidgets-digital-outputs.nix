@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.3.3-1";
   src = finalAttrs.passthru.sources."phidgets_digital_outputs";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp-components std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "phidgets_digital_outputs" = substituteSource {
       src = fetchgit {

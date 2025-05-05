@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.0.4-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros python-cmake-module ];
-  propagatedNativeBuildInputs = [ rpyutils ];
-  propagatedBuildInputs = [ pluginlib point-cloud-transport pybind11-vendor rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ pybind11-vendor rclcpp rpyutils ];
+  propagatedBuildInputs = [ pluginlib point-cloud-transport sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "point_cloud_transport_py" = substituteSource {
       src = fetchgit {

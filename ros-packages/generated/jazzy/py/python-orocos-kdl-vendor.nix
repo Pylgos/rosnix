@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.5.1-2";
   src = finalAttrs.passthru.sources."python_orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
-  propagatedBuildInputs = [ orocos-kdl-vendor pybind11-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };
+  propagatedNativeBuildInputs = [ pybind11-vendor ];
+  propagatedBuildInputs = [ orocos-kdl-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "python_orocos_kdl_vendor" = substituteSource {

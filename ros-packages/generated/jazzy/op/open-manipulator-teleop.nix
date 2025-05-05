@@ -1,32 +1,34 @@
 {
-  ament-cmake,
-  buildAmentCmakePackage,
+  buildAmentPythonPackage,
+  control-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  rclcpp,
   rclpy,
   rosSystemPackages,
+  sensor-msgs,
+  std-msgs,
   substituteSource,
+  trajectory-msgs,
 }:
-buildAmentCmakePackage (finalAttrs: {
+buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_teleop";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_teleop";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ control-msgs sensor-msgs std-msgs trajectory-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_teleop" = substituteSource {
       src = fetchgit {
         name = "open_manipulator_teleop-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "c7a8981cc387d24d98d9cf609156baf4a512cd83";
-        hash = "sha256-pQylwqpek9NCsKiNoNy02a8fQnn+Kp+sRhJNu8gHgOc=";
+        rev = "816485b8bfbfa3892d9e7c869a71a8f3e209a34b";
+        hash = "sha256-csabnS5fyGq/m06e5xnCV0tjC1SjlV0BRILQgs67zLw=";
       };
     };
   });
   meta = {
-    description = "OpenMANIPULATOR teleop ROS 2 package.";
+    description = "OpenManipulator teleoperation package";
   };
 })

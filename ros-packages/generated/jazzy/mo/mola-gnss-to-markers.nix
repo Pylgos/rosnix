@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.1.0-1";
   src = finalAttrs.passthru.sources."mola_gnss_to_markers";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ mrpt-libobs mrpt-nav-interfaces rclcpp std-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ mrpt-libobs mrpt-nav-interfaces std-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "mola_gnss_to_markers" = substituteSource {

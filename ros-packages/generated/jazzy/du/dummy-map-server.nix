@@ -18,7 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."dummy_map_server";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ nav-msgs rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ nav-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dummy_map_server" = substituteSource {

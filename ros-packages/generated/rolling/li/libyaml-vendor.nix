@@ -18,8 +18,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.8.0-1";
   src = finalAttrs.passthru.sources."libyaml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libyaml" "libyaml-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libyaml" "libyaml-dev" "pkg-config" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libyaml" "libyaml-dev" "pkg-config" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "libyaml_vendor" = substituteSource {

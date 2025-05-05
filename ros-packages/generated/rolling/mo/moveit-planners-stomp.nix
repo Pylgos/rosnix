@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_planners_stomp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ generate-parameter-library moveit-common moveit-core rsl std-msgs stomp tf2-eigen visualization-msgs ];
+  propagatedNativeBuildInputs = [ generate-parameter-library rsl ];
+  propagatedBuildInputs = [ moveit-common moveit-core std-msgs stomp tf2-eigen visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_planners_stomp" = substituteSource {
       src = fetchgit {

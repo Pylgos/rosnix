@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.3-1";
   src = finalAttrs.passthru.sources."self_test";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ros-environment ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "self_test" = substituteSource {

@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosapi";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rclpy ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces ros2node ros2service ros2topic rosapi-msgs rosbridge-library ];
   checkInputs = [ ament-cmake-mypy ament-cmake-pytest geometry-msgs rmw-dds-common sensor-msgs shape-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosapi" = substituteSource {

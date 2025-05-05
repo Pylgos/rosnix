@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_lifecycle_manager";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ lifecycle-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_lifecycle_manager" = substituteSource {

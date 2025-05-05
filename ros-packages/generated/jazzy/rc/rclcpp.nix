@@ -42,7 +42,10 @@ buildAmentCmakePackage (finalAttrs: {
   version = "28.1.9-1";
   src = finalAttrs.passthru.sources."rclcpp";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
-  propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
+  propagatedNativeBuildInputs = [ ament-index-cpp libstatistics-collector rcl rcl-logging-interface rcl-yaml-param-parser rcpputils rosidl-dynamic-typesupport tracetools ];
+  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
+  propagatedBuildInputs = [ ament-index-cpp libstatistics-collector rcl rcl-logging-interface rcl-yaml-param-parser rcpputils rosidl-dynamic-typesupport tracetools ];
+  depsTargetTargetPropagated = [ builtin-interfaces rcl-interfaces rcutils rmw rosgraph-msgs rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs ];
   checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclcpp" = substituteSource {

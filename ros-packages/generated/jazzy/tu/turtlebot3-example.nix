@@ -18,7 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_example";
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_example";
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_example" = substituteSource {
       src = fetchgit {

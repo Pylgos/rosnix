@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_app";
-  version = "2.9.0-1";
+  version = "2.10.0-1";
   src = finalAttrs.passthru.sources."qt_gui_app";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ ament-index-python qt-gui ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qt_gui_app-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "40f0cb7959401d2d7ada5b7a3d9dad3a7fb4dd21";
-        hash = "sha256-FhMy31srqWI6HS4i/g5DBxcQw6R8GxFDMv55TRLcTEs=";
+        rev = "be292114829f68d5564afdfb2d31aebe06de9a54";
+        hash = "sha256-hWYxQbXB6sBte6oqttjzK3AKwQGQ+MIbWucdqQNL7uo=";
       };
     };
   });

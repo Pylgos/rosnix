@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-2";
   src = finalAttrs.passthru.sources."wiimote";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs std-srvs wiimote-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cwiid" "cwiid-dev" "libbluetooth" "libbluetooth-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp-components sensor-msgs std-msgs std-srvs wiimote-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cwiid" "cwiid-dev" "libbluetooth" "libbluetooth-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "wiimote" = substituteSource {

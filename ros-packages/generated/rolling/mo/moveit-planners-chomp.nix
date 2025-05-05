@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_planners_chomp";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ chomp-motion-planner moveit-common moveit-core pluginlib rclcpp ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ chomp-motion-planner moveit-common moveit-core pluginlib ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_planners_chomp" = substituteSource {
       src = fetchgit {

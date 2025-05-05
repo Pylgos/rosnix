@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."om_spring_actuator_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp rclcpp-lifecycle rsl tl-expected ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface hardware-interface pluginlib realtime-tools urdf ];
   passthru.sources = mkSourceSet (sources: {
     "om_spring_actuator_controller" = substituteSource {
       src = fetchgit {

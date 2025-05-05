@@ -18,8 +18,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.2.1-1";
   src = finalAttrs.passthru.sources."grid_map_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs grid-map-cmake-helpers rclcpp std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rosidl-default-generators ];
+  propagatedBuildInputs = [ geometry-msgs grid-map-cmake-helpers std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "grid_map_msgs" = substituteSource {
       src = fetchgit {

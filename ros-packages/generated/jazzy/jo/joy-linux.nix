@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-3";
   src = finalAttrs.passthru.sources."joy_linux";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "joy_linux" = substituteSource {

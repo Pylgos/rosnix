@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.0.10-1";
   src = finalAttrs.passthru.sources."image_publisher";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rcl-interfaces rclcpp rclcpp-components ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ camera-info-manager cv-bridge image-transport rcl-interfaces rclcpp-components ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_publisher" = substituteSource {

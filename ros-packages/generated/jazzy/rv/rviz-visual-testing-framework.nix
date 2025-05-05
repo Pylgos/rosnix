@@ -28,19 +28,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_visual_testing_framework";
-  version = "14.1.9-1";
+  version = "14.1.10-1";
   src = finalAttrs.passthru.sources."rviz_visual_testing_framework";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-cmake-gtest ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp rcutils rviz-common rviz-ogre-vendor rviz-rendering std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-gtest rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs rcutils rviz-common rviz-ogre-vendor rviz-rendering std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gmock ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "rviz_visual_testing_framework" = substituteSource {
       src = fetchgit {
         name = "rviz_visual_testing_framework-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "f8dc88da75832abefe804176d57a75519ec78ed6";
-        hash = "sha256-d2/qgdkfueXZdvQubEqe+b7SnyTZ54brPp5e6hTynnE=";
+        rev = "e1b0a2de521f5e54710e8743788b3d21fc98884d";
+        hash = "sha256-2tjZp2nwrcGe2N5FNmKM/vPJ3nLX+s1WVmbSLY1SrBk=";
       };
     };
   });

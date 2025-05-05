@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.10-1";
   src = finalAttrs.passthru.sources."rtabmap_conversions";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs image-geometry laser-geometry pcl-conversions rclcpp rclcpp-components rtabmap rtabmap-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ros-environment ];
+  propagatedBuildInputs = [ cv-bridge geometry-msgs image-geometry laser-geometry pcl-conversions rclcpp-components rtabmap rtabmap-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_conversions" = substituteSource {
       src = fetchgit {

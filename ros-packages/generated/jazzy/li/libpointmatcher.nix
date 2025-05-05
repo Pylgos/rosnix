@@ -13,7 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.4.2-1";
   src = finalAttrs.passthru.sources."libpointmatcher";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ libnabo ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ libnabo ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "libpointmatcher" = substituteSource {
       src = fetchgit {

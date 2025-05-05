@@ -12,7 +12,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.22.9102-2";
   src = finalAttrs.passthru.sources."sophus";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" "libceres-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libceres-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sophus" = substituteSource {
       src = fetchgit {
@@ -33,8 +34,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "bc4a66dff0464d0c87291b00a3688999fea5bedc";
-        hash = "sha256-j9t3cz/C6aoM/6ct6sqE99TPkONRtLEXM1MKxq8uUY8=";
+        rev = "c630e22c1cb90251ac5316e508dde38545a4bdd2";
+        hash = "sha256-uvesEjFeLzfJNcXvbXXiZOporYchIt2ViBAdzriVQPk=";
       };
     };
   });

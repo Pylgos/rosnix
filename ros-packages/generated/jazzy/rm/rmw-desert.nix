@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.2-1";
   src = finalAttrs.passthru.sources."rmw_desert";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake rosidl-cmake ];
-  propagatedBuildInputs = [ rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
+  propagatedNativeBuildInputs = [ ament-cmake rcpputils rosidl-cmake ];
+  propagatedBuildInputs = [ rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_desert" = substituteSource {
       src = fetchgit {

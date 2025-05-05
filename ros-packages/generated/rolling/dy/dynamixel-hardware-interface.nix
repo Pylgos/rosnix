@@ -22,7 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.4.3-1";
   src = finalAttrs.passthru.sources."dynamixel_hardware_interface";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ dynamixel-interfaces dynamixel-sdk hardware-interface pluginlib rclcpp realtime-tools std-srvs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ dynamixel-interfaces dynamixel-sdk hardware-interface pluginlib realtime-tools std-srvs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_hardware_interface" = substituteSource {

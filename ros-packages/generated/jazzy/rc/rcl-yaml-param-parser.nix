@@ -20,18 +20,21 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_yaml_param_parser";
-  version = "9.2.5-1";
+  version = "9.2.6-1";
   src = finalAttrs.passthru.sources."rcl_yaml_param_parser";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ libyaml-vendor rcutils rmw ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  propagatedNativeBuildInputs = [ libyaml-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
+  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
+  propagatedBuildInputs = [ libyaml-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
+  depsTargetTargetPropagated = [ rcutils rmw ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor osrf-testing-tools-cpp performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_yaml_param_parser" = substituteSource {
       src = fetchgit {
         name = "rcl_yaml_param_parser-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "3eba0951cbd1eeca9da257483c3cc9b8e97c3db2";
-        hash = "sha256-Xhmlj1paAcT/fOHaSyWYqNiyvrcA+hq7gBb3CSJVH6U=";
+        rev = "18ea27d30c90ca36fb10291f6d6de48564131404";
+        hash = "sha256-OaQM8mLrY7yaeBZuCKjzXrWHp62fPsI1epFSnDS8iQ0=";
       };
     };
   });

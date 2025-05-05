@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.26.7-1";
   src = finalAttrs.passthru.sources."rosbag2_storage_sqlite3";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ pluginlib rcpputils rcutils rosbag2-storage sqlite3-vendor yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ rcpputils ];
+  propagatedBuildInputs = [ pluginlib rcutils rosbag2-storage sqlite3-vendor yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common rosbag2-test-common std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_storage_sqlite3" = substituteSource {

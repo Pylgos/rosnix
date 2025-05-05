@@ -19,7 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "examples_tf2_py";
   version = "0.36.10-1";
   src = finalAttrs.passthru.sources."examples_tf2_py";
-  propagatedBuildInputs = [ geometry-msgs launch-ros rclpy sensor-msgs tf2-ros-py ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs launch-ros sensor-msgs tf2-ros-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "examples_tf2_py" = substituteSource {

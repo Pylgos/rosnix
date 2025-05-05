@@ -15,6 +15,8 @@ buildCatkinPackage (finalAttrs: {
   version = "1.1.0-3";
   src = finalAttrs.passthru.sources."rsl";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "doxygen" ]; };
   propagatedBuildInputs = [ rclcpp tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "clang-tidy" "git" "range-v3" ]; };
   passthru.sources = mkSourceSet (sources: {

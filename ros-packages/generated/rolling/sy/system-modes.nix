@@ -30,7 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.9.0-5";
   src = finalAttrs.passthru.sources."system_modes";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces launch-ros rclcpp rclcpp-lifecycle system-modes-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ builtin-interfaces launch-ros system-modes-msgs ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-gmock ament-cmake-gtest ament-cmake-pep257 ament-cmake-uncrustify ament-index-python ament-lint-auto launch-testing-ament-cmake launch-testing-ros ros2run ];
   passthru.sources = mkSourceSet (sources: {
     "system_modes" = substituteSource {

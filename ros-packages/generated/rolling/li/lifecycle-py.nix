@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "lifecycle_py";
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."lifecycle_py";
-  propagatedBuildInputs = [ lifecycle-msgs rclpy std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ lifecycle-msgs std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint lifecycle ros-testing ];
   passthru.sources = mkSourceSet (sources: {
     "lifecycle_py" = substituteSource {

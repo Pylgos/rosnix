@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.11.2-1";
   src = finalAttrs.passthru.sources."rcpputils";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros ];
-  propagatedBuildInputs = [ rcutils ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros ];
+  depsTargetTargetPropagated = [ rcutils ];
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "rcpputils" = substituteSource {

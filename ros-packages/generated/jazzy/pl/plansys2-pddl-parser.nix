@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.0.18-1";
   src = finalAttrs.passthru.sources."plansys2_pddl_parser";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ plansys2-msgs rclcpp std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ plansys2-msgs std-msgs ];
   checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "plansys2_pddl_parser" = substituteSource {

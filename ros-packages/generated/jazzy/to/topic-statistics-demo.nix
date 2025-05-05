@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.5-1";
   src = finalAttrs.passthru.sources."topic_statistics_demo";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rcutils sensor-msgs statistics-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rcutils sensor-msgs statistics-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "topic_statistics_demo" = substituteSource {

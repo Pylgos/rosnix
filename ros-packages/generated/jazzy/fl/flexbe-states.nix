@@ -19,7 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_states";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_states";
-  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-testing rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-testing ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_states" = substituteSource {

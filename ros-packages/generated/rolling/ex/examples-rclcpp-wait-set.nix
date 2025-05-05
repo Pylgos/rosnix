@@ -16,18 +16,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_wait_set";
-  version = "0.20.4-1";
+  version = "0.21.0-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_wait_set";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-components std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ example-interfaces rclcpp-components std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "examples_rclcpp_wait_set" = substituteSource {
       src = fetchgit {
         name = "examples_rclcpp_wait_set-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "f4da5e1e45bb25ffbaec4b4aef9d2c218d1e4ccd";
-        hash = "sha256-WZkLG3LxZkd7NZysLMBM24+lcrkErAupu74rsS5qr8g=";
+        rev = "366465a3ea7d454a1ad32d712da802dda234edec";
+        hash = "sha256-iYlvraJ/c7U2g3hV1ILmlXAQR6pBrixH+QdLT/wZ9/c=";
       };
     };
   });

@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-3";
   src = finalAttrs.passthru.sources."joy";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components sdl2-vendor sensor-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ rclcpp-components sdl2-vendor sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "joy" = substituteSource {

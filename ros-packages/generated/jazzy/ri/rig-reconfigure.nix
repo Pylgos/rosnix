@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-index-cpp,
+  backward-ros,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -12,17 +13,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rig_reconfigure";
-  version = "1.5.0-1";
+  version = "1.6.0-1";
   src = finalAttrs.passthru.sources."rig_reconfigure";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglfw3-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ];
+  propagatedBuildInputs = [ backward-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglfw3-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rig_reconfigure" = substituteSource {
       src = fetchgit {
         name = "rig_reconfigure-source";
         url = "https://github.com/ros2-gbp/rig_reconfigure-release.git";
-        rev = "59ad0f7a3677a7c7a1c8c52ecf7ac06730528198";
-        hash = "sha256-5YdUtLc8CL42MhHlX2/Y0rbBFdE1G5GAIWBqj0NfIRY=";
+        rev = "41716529bc5bdceb0766d8c545a2afe999e6258d";
+        hash = "sha256-r8yyqZaHFFs02E9nL3MCznOqNCzN6AzuOe0Ndbh2saw=";
       };
       substitutions = [
         {

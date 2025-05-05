@@ -14,7 +14,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "kinematics_interface" = substituteSource {
       src = fetchgit {

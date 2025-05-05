@@ -13,18 +13,18 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pinocchio";
-  version = "3.4.0-2";
+  version = "3.5.0-1";
   src = finalAttrs.passthru.sources."pinocchio";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
-  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" "python3-numpy" ]; };
-  propagatedBuildInputs = [ eigenpy hpp-fcl urdfdom ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "python3" ]; };
+  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" "python3-numpy" ]; };
+  propagatedBuildInputs = [ eigenpy hpp-fcl urdfdom ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "python3" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pinocchio" = substituteSource {
       src = fetchgit {
         name = "pinocchio-source";
         url = "https://github.com/ros2-gbp/pinocchio-release.git";
-        rev = "1e9be14ab09e28ee5868bcdcd5ed3c73881de9a0";
-        hash = "sha256-HyLjifuhkperqjWOklOYL+KWWXQEM/RavkFvw8wCj/Q=";
+        rev = "34a6436152dc1b8b4b358504c18b084b0b109b04";
+        hash = "sha256-/eXvCHzJ6GT3d5+y9ZReFd4TXcEPeFPrJ+SNC0LyJGQ=";
       };
     };
   });

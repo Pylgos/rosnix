@@ -32,7 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "6.0.10-1";
   src = finalAttrs.passthru.sources."stereo_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedBuildInputs = [ cv-bridge image-geometry image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs stereo-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ cv-bridge image-geometry image-proc image-transport message-filters rclcpp-components sensor-msgs stereo-msgs ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-ros launch-testing launch-testing-ament-cmake python-cmake-module rclpy ros-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" ]; };
   passthru.sources = mkSourceSet (sources: {
     "stereo_image_proc" = substituteSource {

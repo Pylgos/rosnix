@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.10-1";
   src = finalAttrs.passthru.sources."image_view";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedBuildInputs = [ camera-calibration-parsers cv-bridge image-transport message-filters rclcpp rclcpp-components rclpy sensor-msgs std-srvs stereo-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ camera-calibration-parsers cv-bridge image-transport message-filters rclcpp-components sensor-msgs std-srvs stereo-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "image_view" = substituteSource {

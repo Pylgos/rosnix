@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.11.1-6";
   src = finalAttrs.passthru.sources."ouster_ros";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
-  propagatedBuildInputs = [ geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "spdlog" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "eigen" "spdlog" ]; };
+  propagatedBuildInputs = [ geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp-components rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ouster_ros" = substituteSource {

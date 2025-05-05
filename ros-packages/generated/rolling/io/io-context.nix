@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.2.0-3";
   src = finalAttrs.passthru.sources."io_context";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
-  propagatedBuildInputs = [ rclcpp std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "io_context" = substituteSource {

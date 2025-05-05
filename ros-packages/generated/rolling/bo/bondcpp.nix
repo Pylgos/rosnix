@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."bondcpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ bond rclcpp rclcpp-lifecycle smclib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "uuid" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedBuildInputs = [ bond smclib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "uuid" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "bondcpp" = substituteSource {

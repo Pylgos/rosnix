@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.3.0-1";
   src = finalAttrs.passthru.sources."rcl_logging_noop";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
-  propagatedBuildInputs = [ rcl-logging-interface rcutils ];
+  propagatedNativeBuildInputs = [ rcl-logging-interface ];
+  propagatedBuildInputs = [ rcutils ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common launch-testing ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_logging_noop" = substituteSource {

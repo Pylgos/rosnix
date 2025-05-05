@@ -26,17 +26,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joy_teleop";
-  version = "1.8.0-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."joy_teleop";
-  propagatedBuildInputs = [ control-msgs rclpy rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ control-msgs rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint example-interfaces geometry-msgs launch-ros launch-testing std-msgs std-srvs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "joy_teleop" = substituteSource {
       src = fetchgit {
         name = "joy_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "430fe1279a9638556853110e26e2471bb1a516e1";
-        hash = "sha256-O4GnrwrjP5ZL3qGVuajf17oyedXxUTxLpL12ykKzMRo=";
+        rev = "bdcad82bb360d96be1606557882ab9f017547651";
+        hash = "sha256-00KOv5oiaDBFWgJXzXUr7GF7AT8jy2M9XNpUJvmVW6w=";
       };
     };
   });

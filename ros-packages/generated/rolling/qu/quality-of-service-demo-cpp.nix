@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."quality_of_service_demo_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rmw-implementation-cmake ];
-  propagatedBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils rmw sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rmw-implementation-cmake ];
+  propagatedBuildInputs = [ example-interfaces launch-ros rclcpp-components rcutils rmw sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common launch launch-testing ];
   passthru.sources = mkSourceSet (sources: {
     "quality_of_service_demo_cpp" = substituteSource {

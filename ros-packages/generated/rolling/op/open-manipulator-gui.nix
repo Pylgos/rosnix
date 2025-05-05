@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_gui";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ geometry-msgs moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp ];
+  propagatedBuildInputs = [ geometry-msgs moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_gui" = substituteSource {
       src = fetchgit {

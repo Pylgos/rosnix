@@ -24,18 +24,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_toolbox";
-  version = "5.2.0-1";
+  version = "5.3.1-1";
   src = finalAttrs.passthru.sources."control_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ generate-parameter-library rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ control-msgs filters geometry-msgs pluginlib rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ];
   checkInputs = [ ament-cmake-gmock rclcpp-lifecycle ];
   passthru.sources = mkSourceSet (sources: {
     "control_toolbox" = substituteSource {
       src = fetchgit {
         name = "control_toolbox-source";
         url = "https://github.com/ros2-gbp/control_toolbox-release.git";
-        rev = "fc3f027a19036eee7079274fd6db61b6caa28d07";
-        hash = "sha256-F13bvr2nrsbEbFZAaH17A6n0Mgr1EWai01eca+rXtyo=";
+        rev = "7794bc3e5d2409b073ab99c3fb5e066edd160b4b";
+        hash = "sha256-IZ+Gv8nPHjYlna6IetW1sTlJVNrqS6aoeXo2vfH9OuM=";
       };
     };
   });

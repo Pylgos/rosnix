@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.4-2";
   src = finalAttrs.passthru.sources."interactive_markers";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclpy rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common builtin-interfaces ];
   passthru.sources = mkSourceSet (sources: {
     "interactive_markers" = substituteSource {

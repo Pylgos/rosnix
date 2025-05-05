@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "demo_nodes_py";
   version = "0.37.0-1";
   src = finalAttrs.passthru.sources."demo_nodes_py";
-  propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "demo_nodes_py" = substituteSource {

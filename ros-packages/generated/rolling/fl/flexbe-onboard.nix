@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_onboard";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_onboard";
-  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-states launch-ros rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ flexbe-core flexbe-msgs flexbe-states launch-ros ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_onboard" = substituteSource {

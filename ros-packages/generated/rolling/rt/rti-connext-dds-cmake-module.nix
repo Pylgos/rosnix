@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rti_connext_dds_cmake_module";
-  version = "1.2.0-1";
+  version = "1.2.0-2";
   src = finalAttrs.passthru.sources."rti_connext_dds_cmake_module";
   propagatedNativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "rti-connext-dds-7.3.0" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rti_connext_dds_cmake_module-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "1055599d2a8374bf4e89d33f8f5f49ab8b52e966";
+        rev = "b508c7dd5ed32db5f11f782be4c80323897778ef";
         hash = "sha256-ZNlQF+CPs/eyJVapgYznmwVmg4s2Y7VsYwtSgXYxSu4=";
       };
     };

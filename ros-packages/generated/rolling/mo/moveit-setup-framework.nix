@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.13.2-1";
   src = finalAttrs.passthru.sources."moveit_setup_framework";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-index-cpp ];
-  propagatedBuildInputs = [ moveit-common moveit-core moveit-ros-planning moveit-ros-visualization pluginlib rclcpp rviz-common rviz-rendering srdfdom urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ moveit-common moveit-core moveit-ros-planning moveit-ros-visualization pluginlib rviz-common rviz-rendering srdfdom urdf ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_setup_framework" = substituteSource {
       src = fetchgit {

@@ -16,8 +16,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "nmea_navsat_driver";
   version = "2.0.1-3";
   src = finalAttrs.passthru.sources."nmea_navsat_driver";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ geometry-msgs nmea-msgs rclpy sensor-msgs tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ geometry-msgs nmea-msgs sensor-msgs tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "nmea_navsat_driver" = substituteSource {

@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.21.10-1";
   src = finalAttrs.passthru.sources."rtabmap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ pcl-conversions pluginlib rclcpp rtabmap-conversions rtabmap-msgs rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs tf2 ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ pcl-conversions pluginlib rtabmap-conversions rtabmap-msgs rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs tf2 ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_rviz_plugins" = substituteSource {
       src = fetchgit {

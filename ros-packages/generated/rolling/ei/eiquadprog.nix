@@ -13,8 +13,8 @@ buildCmakePackage (finalAttrs: {
   version = "1.2.9-1";
   src = finalAttrs.passthru.sources."eiquadprog";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "graphviz" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "graphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
     "eiquadprog" = substituteSource {
       src = fetchgit {

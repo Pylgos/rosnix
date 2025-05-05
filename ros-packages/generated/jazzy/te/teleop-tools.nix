@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "teleop_tools";
-  version = "1.8.0-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."teleop_tools";
   nativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joy-teleop key-teleop teleop-tools-msgs ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "teleop_tools-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "7d5959cb76e3e66b9553c9623b43c3951feef166";
-        hash = "sha256-O1fu/PGJZzFLVfLuU6wBQB37QJypyJj308TNlgeNiD4=";
+        rev = "0d1e9aacb6e757db95c2aa73d11440b576f18164";
+        hash = "sha256-+JE2IDErv6bUSUBjfAW2y+maxrMFHvHuyK/zpUhH9CE=";
       };
     };
   });

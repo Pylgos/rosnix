@@ -17,7 +17,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."cmake_generate_parameter_module_example";
   nativeBuildInputs = [ ament-cmake-python ];
-  propagatedBuildInputs = [ generate-parameter-library rclpy ];
+  propagatedNativeBuildInputs = [ generate-parameter-library rclpy ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cmake_generate_parameter_module_example" = substituteSource {

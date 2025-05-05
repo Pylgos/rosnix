@@ -28,7 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "joy_teleop";
   version = "2.0.0-1";
   src = finalAttrs.passthru.sources."joy_teleop";
-  propagatedBuildInputs = [ control-msgs rclpy rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ control-msgs rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint example-interfaces geometry-msgs launch-ros launch-testing std-msgs std-srvs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "joy_teleop" = substituteSource {

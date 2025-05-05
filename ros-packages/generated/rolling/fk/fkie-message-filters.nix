@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.0-1";
   src = finalAttrs.passthru.sources."fkie_message_filters";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ image-transport rclcpp sensor-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ image-transport sensor-msgs tf2-ros ];
   checkInputs = [ ament-cmake-gtest ament-cmake-ros rclcpp-lifecycle std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "fkie_message_filters" = substituteSource {

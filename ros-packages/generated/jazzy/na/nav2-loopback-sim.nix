@@ -19,7 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_loopback_sim";
   version = "1.3.6-1";
   src = finalAttrs.passthru.sources."nav2_loopback_sim";
-  propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy tf2-ros tf-transformations ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs tf2-ros tf-transformations ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "nav2_loopback_sim" = substituteSource {

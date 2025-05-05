@@ -18,18 +18,19 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_topic";
-  version = "1.8.0-1";
+  version = "1.9.0-1";
   src = finalAttrs.passthru.sources."rqt_topic";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ python-qt-binding rclpy ros2topic rqt-gui rqt-gui-py rqt-py-common ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ python-qt-binding ros2topic rqt-gui rqt-gui-py rqt-py-common ];
   checkInputs = [ ament-flake8 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_topic" = substituteSource {
       src = fetchgit {
         name = "rqt_topic-source";
         url = "https://github.com/ros2-gbp/rqt_topic-release.git";
-        rev = "419526bbc11fbf3b356f16b7c468fcbf97c9e414";
-        hash = "sha256-lyP4T37OAoevlCYiDxVNxAmDVtKMrlANBUt4YEvvQHI=";
+        rev = "eb9bee94defdeaa975a1f9dc4e4985e8bde686c5";
+        hash = "sha256-CuUqaINGh6xR/fTZDzLKJRWUtLmcmXcQJJs3JYH9c+E=";
       };
     };
   });

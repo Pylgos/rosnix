@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.2-1";
   src = finalAttrs.passthru.sources."rosx_introspection";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rapidjson-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ];
+  propagatedBuildInputs = [ fastcdr rosbag2-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rapidjson-dev" ]; };
   checkInputs = [ geometry-msgs sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosx_introspection" = substituteSource {

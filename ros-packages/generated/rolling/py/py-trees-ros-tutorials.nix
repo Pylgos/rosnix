@@ -29,8 +29,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "2.3.0-1";
   src = finalAttrs.passthru.sources."py_trees_ros_tutorials";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
-  propagatedBuildInputs = [ action-msgs geometry-msgs launch launch-ros py-trees py-trees-ros py-trees-ros-interfaces rcl-interfaces rclpy ros2launch ros2param ros2run ros2service ros2topic sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pyqt5-dev-tools" "python3-qt5-bindings" "qttools5-dev-tools" ]; };
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  propagatedBuildInputs = [ action-msgs geometry-msgs launch launch-ros py-trees py-trees-ros py-trees-ros-interfaces rcl-interfaces ros2launch ros2param ros2run ros2service ros2topic sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pyqt5-dev-tools" "python3-qt5-bindings" "qttools5-dev-tools" ]; };
   checkInputs = [ action-msgs py-trees py-trees-ros rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "py_trees_ros_tutorials" = substituteSource {

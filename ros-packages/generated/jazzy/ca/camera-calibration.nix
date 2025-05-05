@@ -20,7 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "camera_calibration";
   version = "5.0.10-1";
   src = finalAttrs.passthru.sources."camera_calibration";
-  propagatedBuildInputs = [ cv-bridge image-geometry message-filters rclpy sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" "python3-semver" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ cv-bridge image-geometry message-filters sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" "python3-semver" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-requests" ]; };
   passthru.sources = mkSourceSet (sources: {
     "camera_calibration" = substituteSource {

@@ -15,7 +15,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_mavic";
   version = "2025.0.0-1";
   src = finalAttrs.passthru.sources."webots_ros2_mavic";
-  propagatedBuildInputs = [ builtin-interfaces rclpy webots-ros2-driver ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ builtin-interfaces webots-ros2-driver ];
   checkInputs = [ ament-copyright ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "webots_ros2_mavic" = substituteSource {

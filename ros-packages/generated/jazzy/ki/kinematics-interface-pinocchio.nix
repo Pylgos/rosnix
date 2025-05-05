@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.0.1-1";
   src = finalAttrs.passthru.sources."kinematics_interface_pinocchio";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ];
-  propagatedBuildInputs = [ kinematics-interface pinocchio pluginlib ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ kinematics-interface pinocchio pluginlib ];
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "kinematics_interface_pinocchio" = substituteSource {

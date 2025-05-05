@@ -20,7 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-3";
   src = finalAttrs.passthru.sources."depthimage_to_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ image-geometry rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ image-geometry rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "depthimage_to_laserscan" = substituteSource {

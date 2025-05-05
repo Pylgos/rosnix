@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.33.0-1";
   src = finalAttrs.passthru.sources."rosbag2_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils rmw-implementation ];
-  propagatedBuildInputs = [ pluginlib rclcpp rcutils rmw rosbag2-storage rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rcpputils rmw-implementation ];
+  propagatedBuildInputs = [ pluginlib rcutils rmw rosbag2-storage rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
   checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common rmw-implementation-cmake rosbag2-storage-default-plugins rosbag2-test-common rosbag2-test-msgdefs std-msgs test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbag2_cpp" = substituteSource {

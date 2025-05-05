@@ -24,7 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."apriltag_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ apriltag apriltag-msgs cv-bridge image-transport rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ apriltag apriltag-msgs cv-bridge image-transport rclcpp-components sensor-msgs tf2-ros ];
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "apriltag_ros" = substituteSource {

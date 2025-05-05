@@ -27,7 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.5.1-1";
   src = finalAttrs.passthru.sources."velodyne_pointcloud";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles diagnostic-updater geometry-msgs message-filters rclcpp rclcpp-components sensor-msgs tf2 tf2-ros velodyne-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ angles diagnostic-updater geometry-msgs message-filters rclcpp-components sensor-msgs tf2 tf2-ros velodyne-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libpcl-all-dev" "yaml-cpp" ]; };
   checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "velodyne_pointcloud" = substituteSource {

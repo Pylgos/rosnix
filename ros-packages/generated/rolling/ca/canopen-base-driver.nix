@@ -23,7 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.3.0-1";
   src = finalAttrs.passthru.sources."canopen_base_driver";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ canopen-core canopen-interfaces diagnostic-updater lely-core-libraries rclcpp rclcpp-components rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ canopen-core canopen-interfaces diagnostic-updater lely-core-libraries rclcpp-components std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   checkInputs = [ ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "canopen_base_driver" = substituteSource {

@@ -21,7 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.1.0-3";
   src = finalAttrs.passthru.sources."vrpn_mocap";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp std-msgs tf2 vrpn ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ geometry-msgs std-msgs tf2 vrpn ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "vrpn_mocap" = substituteSource {

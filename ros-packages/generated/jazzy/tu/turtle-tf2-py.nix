@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."turtle_tf2_py";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ geometry-msgs launch launch-ros rclpy tf2-ros turtlesim ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ geometry-msgs launch launch-ros tf2-ros turtlesim ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "turtle_tf2_py" = substituteSource {

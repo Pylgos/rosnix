@@ -13,7 +13,7 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.12.3-1";
   src = finalAttrs.passthru.sources."hebi_cpp_api";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "hebi_cpp_api" = substituteSource {
       src = fetchgit {

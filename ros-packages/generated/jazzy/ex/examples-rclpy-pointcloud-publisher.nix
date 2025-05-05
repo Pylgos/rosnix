@@ -18,8 +18,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_pointcloud_publisher";
   version = "0.19.5-1";
   src = finalAttrs.passthru.sources."examples_rclpy_pointcloud_publisher";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ rclpy sensor-msgs sensor-msgs-py std-msgs ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ sensor-msgs sensor-msgs-py std-msgs ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "examples_rclpy_pointcloud_publisher" = substituteSource {

@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_moveit_config";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager open-manipulator-description robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_moveit_config-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "12c5fa089ba2b397f628217bc17327ed215ea4a0";
-        hash = "sha256-aglUR2JnmNHipJFJYoaeq6ds3oOhkiXf8MrX9VBpVgg=";
+        rev = "5b6ff9649cb43f1b438c1781479df3b1c51a1c6c";
+        hash = "sha256-Lkds4pIpcvYxfVCLvqMsC4kMo87mKHyJK3pmk+19AeI=";
       };
     };
   });

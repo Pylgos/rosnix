@@ -25,7 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."crane_plus_control";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ controller-manager crane-plus-description dynamixel-sdk hardware-interface pluginlib rclcpp ros2-controllers ros2controlcli xacro ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ controller-manager crane-plus-description dynamixel-sdk hardware-interface pluginlib ros2-controllers ros2controlcli xacro ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "crane_plus_control" = substituteSource {

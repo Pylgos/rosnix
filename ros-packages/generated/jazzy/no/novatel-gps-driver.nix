@@ -30,7 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "4.2.0-1";
   src = finalAttrs.passthru.sources."novatel_gps_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater gps-msgs nav-msgs novatel-gps-msgs rclcpp rclcpp-components sensor-msgs std-msgs swri-math-util swri-roscpp swri-serial-util tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libpcap" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ diagnostic-msgs diagnostic-updater gps-msgs nav-msgs novatel-gps-msgs rclcpp-components sensor-msgs std-msgs swri-math-util swri-roscpp swri-serial-util tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "libpcap" ]; };
   checkInputs = [ ament-cmake-gtest ament-index-cpp ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "novatel_gps_driver" = substituteSource {

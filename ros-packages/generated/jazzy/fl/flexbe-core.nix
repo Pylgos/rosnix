@@ -21,7 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_core";
   version = "3.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_core";
-  propagatedBuildInputs = [ flexbe-msgs rclpy std-msgs std-srvs tf2-ros-py ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ flexbe-msgs std-msgs std-srvs tf2-ros-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 launch-ros launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "flexbe_core" = substituteSource {

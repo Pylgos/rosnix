@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.7.0-3";
   src = finalAttrs.passthru.sources."laser_geometry";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ rclcpp rclpy sensor-msgs sensor-msgs-py tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-numpy" ]; };
+  propagatedBuildInputs = [ sensor-msgs sensor-msgs-py tf2 ];
   checkInputs = [ ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-pytest ament-cmake-uncrustify python-cmake-module ];
   passthru.sources = mkSourceSet (sources: {
     "laser_geometry" = substituteSource {

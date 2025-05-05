@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.0-1";
   src = finalAttrs.passthru.sources."yasmin_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ ros-environment ];
-  propagatedBuildInputs = [ rclcpp rclcpp-action rclpy yasmin ];
+  propagatedNativeBuildInputs = [ rclcpp rclpy ros-environment ];
+  propagatedBuildInputs = [ rclcpp-action yasmin ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-cov" ]; };
   passthru.sources = mkSourceSet (sources: {
     "yasmin_ros" = substituteSource {

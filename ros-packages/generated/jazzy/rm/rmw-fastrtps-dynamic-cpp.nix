@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "8.4.2-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_dynamic_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module ];
-  propagatedBuildInputs = [ fastcdr fastrtps rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
+  propagatedNativeBuildInputs = [ ament-cmake fastrtps-cmake-module rcpputils ];
+  propagatedBuildInputs = [ fastcdr fastrtps rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_dynamic_cpp" = substituteSource {

@@ -15,7 +15,7 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_guard_conditions";
   version = "0.19.5-1";
   src = finalAttrs.passthru.sources."examples_rclpy_guard_conditions";
-  propagatedBuildInputs = [ rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "examples_rclpy_guard_conditions" = substituteSource {

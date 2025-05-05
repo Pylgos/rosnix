@@ -26,7 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.42.0-1";
   src = finalAttrs.passthru.sources."tf2_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp rclcpp-action rclcpp-components tf2 tf2-msgs ];
+  propagatedNativeBuildInputs = [ rclcpp ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs message-filters rcl-interfaces rclcpp-action rclcpp-components tf2 tf2-msgs ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rosgraph-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "tf2_ros" = substituteSource {

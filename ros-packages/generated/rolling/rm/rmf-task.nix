@@ -16,7 +16,8 @@ buildCmakePackage (finalAttrs: {
   version = "2.7.0-1";
   src = finalAttrs.passthru.sources."rmf_task";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ rmf-battery rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "nlohmann-json-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ rmf-battery rmf-utils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" ]; };
   checkInputs = [ ament-cmake-catch2 ament-cmake-uncrustify ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_task" = substituteSource {

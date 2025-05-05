@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.7.2-2";
   src = finalAttrs.passthru.sources."rqt_publisher";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common ];
+  propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common ];
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_publisher" = substituteSource {

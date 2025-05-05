@@ -19,7 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.0.0-1";
   src = finalAttrs.passthru.sources."rt_usb_9axisimu_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
+  propagatedBuildInputs = [ rclcpp-components sensor-msgs std-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "rt_usb_9axisimu_driver" = substituteSource {
       src = fetchgit {

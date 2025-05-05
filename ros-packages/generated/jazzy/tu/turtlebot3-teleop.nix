@@ -13,7 +13,8 @@ buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_teleop";
   version = "2.2.9-1";
   src = finalAttrs.passthru.sources."turtlebot3_teleop";
-  propagatedBuildInputs = [ geometry-msgs rclpy ];
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "turtlebot3_teleop" = substituteSource {
       src = fetchgit {

@@ -22,7 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "1.0.6-1";
   src = finalAttrs.passthru.sources."rqt_robot_monitor";
   nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ];
-  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg-modules" ]; };
+  propagatedNativeBuildInputs = [ rclpy ];
+  propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg-modules" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_robot_monitor" = substituteSource {
       src = fetchgit {

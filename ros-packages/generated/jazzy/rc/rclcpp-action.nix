@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
   version = "28.1.9-1";
   src = finalAttrs.passthru.sources."rclcpp_action";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ action-msgs rcl rcl-action rclcpp rcpputils rosidl-runtime-c ];
+  propagatedNativeBuildInputs = [ ament-cmake rcl rcl-action rclcpp rcpputils ];
+  propagatedBuildInputs = [ action-msgs rosidl-runtime-c ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rclcpp_action" = substituteSource {
