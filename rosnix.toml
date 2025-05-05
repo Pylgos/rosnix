@@ -15,6 +15,7 @@ runtime_packages = [
   "ros2run",
   "ros2test",
   "rosidl_typesupport_interface",
+  "tracetools",
 ]
 runtime_groups = [
   "rmw_implementation_packages",
