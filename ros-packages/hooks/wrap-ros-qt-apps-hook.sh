@@ -10,7 +10,7 @@ wrapRosQtAppsHook() {
     [ -z "$wrapRosQtAppsHookHasRun" ] || return 0
     wrapRosQtAppsHookHasRun=1
 
-    local targetDirs=( "$prefix/bin" "$prefix/lib" )
+    local targetDirs=( "$prefix/colcon-prefix/bin" "$prefix/colcon-prefix/lib" )
     echo "wrapping Qt applications in ${targetDirs[@]}"
 
     for targetDir in "${targetDirs[@]}"

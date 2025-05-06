@@ -57,7 +57,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
           local colconFlagsArray=(
             --paths .
             --merge-install
-            --install-base "$out"
+            --install-base "$out/colcon-prefix"
             --executor sequential
           )
           concatTo colconFlagsArray colconFlags buildFlags buildFlagsArray
@@ -85,7 +85,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
 
           local colconFlagsArray=(
             --merge-install
-            --install-base "$out"
+            --install-base "$out/colcon-prefix"
           )
 
           colcon test "''${colconFlagsArray[@]}"
