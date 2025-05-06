@@ -187,7 +187,6 @@ pub async fn generate(cfg: &ConfigRef, report_dst: Option<&Path>) -> Result<()> 
         }
         let patched_sources = fetch_sources(cfg, &fetcher, package_index).await?;
         let manifests = parse_manifests(&patched_sources, cfg, package_index)?;
-        println!("{manifests:#?}");
         let deps = resolve_dependencies(cfg, &manifests)?;
         let prev_versions = nixgen::prev_versions(cfg, &package_index.name)?;
         let distro_diffs = diff(
