@@ -39,8 +39,7 @@ impl Package {
         let mut packages = HashMap::new();
         let pkg_dir = search_path
             .join("share")
-            .join("ament_index")
-            .join("resource_index")
+            .join("colcon-core")
             .join("packages");
         for entry in std::fs::read_dir(pkg_dir).into_iter().flatten() {
             let Ok(entry) = entry else {
