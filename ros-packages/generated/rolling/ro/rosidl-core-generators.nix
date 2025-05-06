@@ -10,16 +10,8 @@
   mkSourceSet,
   rosSystemPackages,
   rosidl-cmake,
-  rosidl-generator-c,
-  rosidl-generator-cpp,
-  rosidl-generator-py,
-  rosidl-generator-type-description,
   rosidl-typesupport-c,
   rosidl-typesupport-cpp,
-  rosidl-typesupport-fastrtps-c,
-  rosidl-typesupport-fastrtps-cpp,
-  rosidl-typesupport-introspection-c,
-  rosidl-typesupport-introspection-cpp,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
@@ -27,9 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."rosidl_core_generators";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-core rosidl-cmake rosidl-generator-c rosidl-generator-cpp rosidl-generator-py rosidl-generator-type-description rosidl-typesupport-c rosidl-typesupport-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
+  propagatedNativeBuildInputs = [ ament-cmake-core rosidl-cmake rosidl-typesupport-c rosidl-typesupport-cpp ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-core rosidl-cmake rosidl-generator-c rosidl-generator-cpp rosidl-generator-py rosidl-generator-type-description rosidl-typesupport-c rosidl-typesupport-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
+  propagatedBuildInputs = [ ament-cmake-core rosidl-cmake rosidl-typesupport-c rosidl-typesupport-cpp ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_core_generators" = substituteSource {

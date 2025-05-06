@@ -18,7 +18,6 @@
   rosidl-generator-c,
   rosidl-pycommon,
   rosidl-runtime-c,
-  rosidl-typesupport-fastrtps-c,
   rosidl-typesupport-interface,
   rosidl-typesupport-introspection-c,
   substituteSource,
@@ -28,9 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_c";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake-core ament-index-python rcpputils rcutils rosidl-cli rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-fastrtps-c rosidl-typesupport-interface rosidl-typesupport-introspection-c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-core ament-index-python rcpputils rcutils rosidl-cli rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-interface rosidl-typesupport-introspection-c ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-cmake-core ament-index-python rcpputils rcutils rosidl-cli rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-fastrtps-c rosidl-typesupport-interface rosidl-typesupport-introspection-c ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
+  propagatedBuildInputs = [ ament-cmake-core ament-index-python rcpputils rcutils rosidl-cli rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-interface rosidl-typesupport-introspection-c ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_typesupport_c" = substituteSource {

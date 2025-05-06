@@ -14,7 +14,6 @@
   rmw-implementation,
   rmw-implementation-cmake,
   rmw-test-fixture,
-  rmw-zenoh-cpp,
   rosSystemPackages,
   rpyutils,
   substituteSource,
@@ -24,9 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.15.0-1";
   src = finalAttrs.passthru.sources."rmw_test_fixture_implementation";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
-  propagatedNativeBuildInputs = [ rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rmw-test-fixture rmw-zenoh-cpp rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
+  propagatedNativeBuildInputs = [ rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rmw-test-fixture rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
   buildInputs = [ ament-cmake ament-cmake-ros-core ];
-  propagatedBuildInputs = [ rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rmw-test-fixture rmw-zenoh-cpp rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-dev" ]; };
+  propagatedBuildInputs = [ rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rmw-test-fixture rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_test_fixture_implementation" = substituteSource {

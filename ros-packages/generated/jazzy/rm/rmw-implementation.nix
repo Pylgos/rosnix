@@ -15,13 +15,9 @@
   rmw,
   rmw-connextdds,
   rmw-cyclonedds-cpp,
-  rmw-desert,
   rmw-fastrtps-cpp,
   rmw-fastrtps-dynamic-cpp,
-  rmw-gurumdds-cpp,
   rmw-implementation-cmake,
-  rmw-stats-shim,
-  rmw-zenoh-cpp,
   rosSystemPackages,
   substituteSource,
 }:
@@ -30,9 +26,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.15.5-1";
   src = finalAttrs.passthru.sources."rmw_implementation";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-desert rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-implementation-cmake rmw-stats-shim rmw-zenoh-cpp ];
+  propagatedNativeBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-implementation-cmake ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-desert rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-gurumdds-cpp rmw-implementation-cmake rmw-stats-shim rmw-zenoh-cpp ];
+  propagatedBuildInputs = [ ament-index-cpp rcpputils rcutils rmw rmw-connextdds rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-fastrtps-dynamic-cpp rmw-implementation-cmake ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_implementation" = substituteSource {
