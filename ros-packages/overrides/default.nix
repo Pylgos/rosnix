@@ -68,8 +68,8 @@ in
         }:
         {
           postInstall = ''
-            if [[ -d $out/opt/libcurl_vendor/lib64 ]]; then
-              ln -s $out/opt/libcurl_vendor/lib64 $out/opt/libcurl_vendor/lib
+            if [[ -d $out/colcon-prefix/opt/libcurl_vendor/lib64 ]]; then
+              ln -s $out/colcon-prefix/opt/libcurl_vendor/lib64 $out/opt/libcurl_vendor/lib
             fi
           '';
           propagatedBuildInputs = propagatedBuildInputs ++ [ final.openssl ];
@@ -122,7 +122,7 @@ in
           postInstall =
             postInstall
             + ''
-              patchelf $out/opt/gz_gui_vendor/lib64/gz-gui-*/plugins/libGrid3D.so --set-rpath ""
+              patchelf $out/colcon-prefix/opt/gz_gui_vendor/lib64/gz-gui-*/plugins/libGrid3D.so --set-rpath ""
             '';
         }
       );
@@ -163,7 +163,7 @@ in
             qtxmlpatterns
           ];
           postFixup = ''
-            wrapQtApp "$out/opt/gz_tools_vendor/bin/gz"
+            wrapQtApp "$out/colcon-prefix/opt/gz_tools_vendor/bin/gz"
           '';
         }
       );
