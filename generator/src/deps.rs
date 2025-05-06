@@ -111,36 +111,12 @@ fn classify_dependencies(
     _cfg: &ConfigRef,
     manifests: &BTreeMap<String, PackageManifest>,
 ) -> Result<BTreeMap<String, BTreeSet<ClassifiedRosDependency>>> {
-    let mut groups = BTreeMap::new();
-    for manifest in manifests.values() {
-        for group in manifest.member_of_group.iter() {
-            groups
-                .entry(group.clone())
-                .or_insert_with(BTreeSet::new)
-                .insert(manifest.name.clone());
-        }
-    }
-
     Ok(manifests
         .values()
         .map(|m| {
             let deps = &m.dependencies.deps;
-            let group_deps: Vec<_> = m
-                .dependencies
-                .group_deps
-                .iter()
-                .flat_map(|group| {
-                    groups.get(group).into_iter().flat_map(|members| {
-                        members.iter().map(|d| RosDependency {
-                            name: d.clone(),
-                            kind: RosDependencyKind::Exec,
-                        })
-                    })
-                })
-                .collect();
             let res: BTreeSet<ClassifiedRosDependency> = deps
                 .iter()
-                .chain(group_deps.iter())
                 .flat_map(|d| {
                     match d.kind {
                         RosDependencyKind::Build
