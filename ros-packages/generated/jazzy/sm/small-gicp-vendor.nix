@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "small_gicp-source";
         url = "https://github.com/koide3/small_gicp.git";
-        rev = "2c5e9e6092f06bd8b4a0c618c9714e39e4b315dc";
-        hash = "sha256-YLDCl81LKFigWVn+niG5BBdiOPKyYmFXdhzYOvua4Sc=";
+        rev = "08bc50beff6d77b7f663e57632b5a33e167d0905";
+        hash = "sha256-rZnB+5i0bEUwWtGFjlEfbsbGQw3uurrwd45Gsb5lssc=";
       };
     };
   });

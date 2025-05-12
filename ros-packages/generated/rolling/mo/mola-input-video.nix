@@ -5,29 +5,30 @@
   fetchzip,
   mkSourceSet,
   mola-kernel,
+  mrpt-libhwdrivers,
   mrpt-libobs,
   rosSystemPackages,
   substituteSource,
 }:
 buildCmakePackage (finalAttrs: {
-  pname = "mola_input_rawlog";
+  pname = "mola_input_video";
   version = "1.7.0-1";
-  src = finalAttrs.passthru.sources."mola_input_rawlog";
+  src = finalAttrs.passthru.sources."mola_input_video";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ mola-kernel mrpt-libobs ];
+  propagatedNativeBuildInputs = [ mola-kernel mrpt-libhwdrivers mrpt-libobs ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ mola-kernel mrpt-libobs ];
+  propagatedBuildInputs = [ mola-kernel mrpt-libhwdrivers mrpt-libobs ];
   passthru.sources = mkSourceSet (sources: {
-    "mola_input_rawlog" = substituteSource {
+    "mola_input_video" = substituteSource {
       src = fetchgit {
-        name = "mola_input_rawlog-source";
+        name = "mola_input_video-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "22c7b22b07c546db247fc45ce82a1a4dde9f770d";
-        hash = "sha256-1UVq6CV9GAnSp2u0erKTBGulPFOkoBB3Q0TTrunKc+Q=";
+        rev = "c072f80a8c8b467c961e72563eef37700201c326";
+        hash = "sha256-+t/ZYy7DYcIHJiDyQ8N8bACvCaZ4thWZbT8mKYBZr/4=";
       };
     };
   });
   meta = {
-    description = "Offline RawDataSource from MRPT rawlog datasets";
+    description = "RawDataSource from live or offline video sources";
   };
 })

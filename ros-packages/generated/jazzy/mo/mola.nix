@@ -18,6 +18,7 @@
   mola-input-paris-luco-dataset,
   mola-input-rawlog,
   mola-input-rosbag2,
+  mola-input-video,
   mola-kernel,
   mola-launcher,
   mola-metric-maps,
@@ -31,20 +32,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola";
-  version = "1.6.4-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."mola";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
+  propagatedNativeBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-input-video mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
+  propagatedBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-input-video mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "mola" = substituteSource {
       src = fetchgit {
         name = "mola-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "283c08a163763b14fa34a25ec4e37bf47c12d769";
-        hash = "sha256-gtKhWraahJPukKQf5q/yjdaWN+zrxYv4u4Jp2CRAi+4=";
+        rev = "95758c50f822452bd81eba53e60eefad78cfb781";
+        hash = "sha256-rW5h6F10IsM/Fha+Ejx/f63qdHoaN2J6yh6rBZbZJnM=";
       };
     };
   });

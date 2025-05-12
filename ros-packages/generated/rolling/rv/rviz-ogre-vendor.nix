@@ -13,20 +13,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_ogre_vendor";
-  version = "14.4.4-1";
+  version = "15.1.1-1";
   src = finalAttrs.passthru.sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libfreetype-dev" "libfreetype6" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libfreetype-dev" "libfreetype6" "libglew-dev" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libfreetype-dev" "libfreetype6" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libfreetype-dev" "libfreetype6" "libglew-dev" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "rviz_ogre_vendor" = substituteSource {
       src = fetchgit {
         name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "5b3d576c3a9e4578081cb7df12de41c8e1fa6e0d";
-        hash = "sha256-XLJ/jd0vKYH88YtJTZBUPd4VbQS/eyfLAq3c6bs8D+A=";
+        rev = "2f0818167075180564cc9b02da32578be29e0527";
+        hash = "sha256-ZqX0RjGol9RpE1WJoxeRFXqTAroSv9h+foyoPFjIXsU=";
       };
       substitutions = [
         {
