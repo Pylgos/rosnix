@@ -270,21 +270,47 @@ in
         }:
         let
           zenoh-c-src = passthru.sources."zenoh_cpp_vendor/zenoh-c";
+          mainCargoDeps = final.rustPlatform.fetchCargoVendor {
+            src = zenoh-c-src;
+            hash = import ./${distro}/cargo-hashes/zenoh-cpp-vendor.nix;
+          };
+          opaqueTypesCargoDeps = final.rustPlatform.fetchCargoVendor {
+            src = "${zenoh-c-src}/build-resources/opaque-types";
+            hash = "sha256-u04MKD6mfgtCE9uegl+F7E7P4/CR0PFhaatTGizOq8s=";
+          };
+          mergeCargoDeps =
+            a: b:
+            final.runCommand "merged-cargo-deps" { } ''
+              mkdir $out
+              echo "copying a"
+              cp -r ${a}/* $out
+              echo "copying b"
+              cp -r ${b}/* $out
+              echo "copying Cargo.lock"
+              cp ${b}/Cargo.lock tmp.lock
+              substitututeInPlace $out/Cargo.lock \
+                --replace-fail 'version = 3' ""
+              cat ${a}/Cargo.lock tmp.lock > $out/Cargo.toml
+            '';
         in
         {
-          postPatch =
-            postPatch
-            + ''
-              cp ${zenoh-c-src}/Cargo.lock .
-            '';
+          # postPatch =
+          #   postPatch
+          #   + ''
+          #     cp ${zenoh-c-src}/Cargo.lock .
+          #   '';
           nativeBuildInputs = nativeBuildInputs ++ [
             final.cargo
             final.rustPlatform.cargoSetupHook
           ];
-          cargoDeps = final.rustPlatform.fetchCargoVendor {
-            src = zenoh-c-src;
-            hash = import ./${distro}/cargo-hashes/zenoh-cpp-vendor.nix;
-          };
+          cargoDeps = mergeCargoDeps mainCargoDeps opaqueTypesCargoDeps;
+          # preBuild = ''
+          #   export HOME="$(mktemp -d)"
+          # '';
+          # CARGO_HTTP_CAINFO = "${final.cacert}/etc/ssl/certs/ca-bundle.crt";
+          # outputHash = lib.fakeHash;
+          # outputHashAlgo = null;
+          # outputHashMode = "recursive";
         }
       );
       webots-ros2-driver = rosPrev.webots-ros2-driver.overrideAttrs (
