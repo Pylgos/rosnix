@@ -174,6 +174,7 @@ in
     clang = [ final.clang ];
     clang-format = [ final.clang ];
     clang-tidy = [ final.clang ];
+    cli11 = [ final.cli11 ];
     cmake = [
       final.cmake
       final.pkg-config
@@ -703,6 +704,7 @@ in
     python3-docutils = [ final.rosPythonPackages.docutils ];
     python3-empy = [ final.rosPythonPackages.empy ];
     python3-ezdxf = [ final.rosPythonPackages.ezdxf ];
+    python3-filelock = [ final.rosPythonPackages.filelock ];
     python3-fiona = [ final.rosPythonPackages.fiona ];
     python3-flake8 = [ final.rosPythonPackages.flake8 ];
     python3-flake8-builtins = [ final.rosPythonPackages.flake8-builtins ];
