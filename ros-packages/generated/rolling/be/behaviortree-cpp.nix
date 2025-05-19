@@ -14,11 +14,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "behaviortree_cpp";
-  version = "4.7.0-1";
+  version = "4.7.1-1";
   src = finalAttrs.passthru.sources."behaviortree_cpp";
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libsqlite3-dev" "libzmq3-dev" ]; };
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   propagatedBuildInputs = [ ament-index-cpp rclcpp ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libsqlite3-dev" "libzmq3-dev" ]; };
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "behaviortree_cpp-source";
         url = "https://github.com/ros2-gbp/behaviortree_cpp_v4-release.git";
-        rev = "2e12a0c84cbd1577f4443d9f65fd7dfd501c3339";
-        hash = "sha256-AQnjWnZyxwb4yIyTkPYmtX+foy1XhK5HbRCQBrYfoB4=";
+        rev = "20bd2d0f90eb8cdffa4f5aed2e750fa8cbe01cfa";
+        hash = "sha256-Jm4Jk/hwJA4sWHjC1VQ1D4iHUu0DZwnVkrGiLxkJeZQ=";
       };
     };
   });

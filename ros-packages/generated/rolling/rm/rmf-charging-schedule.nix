@@ -11,17 +11,17 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_charging_schedule";
-  version = "2.9.0-1";
+  version = "2.10.1-1";
   src = finalAttrs.passthru.sources."rmf_charging_schedule";
-  propagatedNativeBuildInputs = [ rclpy rmf-fleet-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-icecream" ]; };
-  propagatedBuildInputs = [ rclpy rmf-fleet-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-icecream" ]; };
+  propagatedNativeBuildInputs = [ rclpy rmf-fleet-msgs ];
+  propagatedBuildInputs = [ rclpy rmf-fleet-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_charging_schedule" = substituteSource {
       src = fetchgit {
         name = "rmf_charging_schedule-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
-        rev = "9f5385290e685fad890ee032033f5d0bc9cc7c41";
-        hash = "sha256-bgppuQqlMEhk1gzEL70pHOXlpeMn7Ul70qzbCyyUGkM=";
+        rev = "87335b5f4ed33797fa15b20def649912bb443520";
+        hash = "sha256-kHCIkRybAhqH19n/dzaE1HHojfx/co0qnZOf6GxllrY=";
       };
     };
   });

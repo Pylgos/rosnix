@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_common_diagnostics";
-  version = "4.4.3-1";
+  version = "4.4.4-1";
   src = finalAttrs.passthru.sources."diagnostic_common_diagnostics";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ diagnostic-updater rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "lm-sensors" "python3-ntplib" "python3-psutil" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "diagnostic_common_diagnostics-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
-        rev = "a76ebbf0a49bc6ba499dfa9b8ab0222726b21416";
-        hash = "sha256-870qz7VzfQUw2OCq9/QeMAoarKNYGTWDAuDY4/B2aqs=";
+        rev = "d561b4a68b427d9a28efdb1103f81408eef21110";
+        hash = "sha256-NXLW0hD+8bSvAA0++/DPU+Ei5aJshvtw939CrRefEtU=";
       };
     };
   });

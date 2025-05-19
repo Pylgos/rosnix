@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_complementary_filter";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."imu_complementary_filter";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs message-filters rclcpp sensor-msgs std-msgs tf2 tf2-ros ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_complementary_filter-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "f71e98063619c9fac2606354ce9ad4c88b7021b5";
-        hash = "sha256-mp1e1vKWtoEnUp5HKzmeDesS3x6oCbGylokG14wOlGA=";
+        rev = "e52987f52c01012ef0cbaf8fa63606ee00a57a04";
+        hash = "sha256-j1i0JBdK7dU2R1IBm1CePXjUAKZHA6mJIsXhq8wv6cE=";
       };
     };
   });

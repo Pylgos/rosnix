@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "message_filters";
-  version = "7.1.0-1";
+  version = "7.2.1-1";
   src = finalAttrs.passthru.sources."message_filters";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ builtin-interfaces rclcpp rclpy rcutils std-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "message_filters-source";
         url = "https://github.com/ros2-gbp/ros2_message_filters-release.git";
-        rev = "92141f66e107bb987145c8238ca6aa1e688afac5";
-        hash = "sha256-TgC28xZge7XwiVdhkfi9nXdj7ISRcm0R8ATHFQ1oKNs=";
+        rev = "71ac5e71ea710a6a328ece6b3d8a84c4fe458180";
+        hash = "sha256-S5Csfk0vsPX/KXd8tITcLJ6v9epEpLMv7RUEwl1Rv0M=";
       };
     };
   });

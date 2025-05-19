@@ -15,25 +15,25 @@
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "rmf_obstacle_msgs";
-  version = "3.5.0-1";
-  src = finalAttrs.passthru.sources."rmf_obstacle_msgs";
+  pname = "simulation_interfaces";
+  version = "1.0.0-3";
+  src = finalAttrs.passthru.sources."simulation_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
-    "rmf_obstacle_msgs" = substituteSource {
+    "simulation_interfaces" = substituteSource {
       src = fetchgit {
-        name = "rmf_obstacle_msgs-source";
-        url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "1006b618701a40148e767b99a24c5ef4c81d5d9f";
-        hash = "sha256-6UyYvwxWf+ARToDPFdwhYIVL1hLDBchqPk0L85rQKXU=";
+        name = "simulation_interfaces-source";
+        url = "https://github.com/ros2-gbp/simulation_interfaces-release.git";
+        rev = "766bb1b5b020d7e3d7de18899fbef72e494aae6f";
+        hash = "sha256-AR5fXetnUbJNFmcJMzWtABwDfWO5FpLhqYpfWfxqu5w=";
       };
     };
   });
   meta = {
-    description = "A package containing messages for describing obstacles in the environment";
+    description = "A package containing simulation interfaces including messages, services and actions";
   };
 })

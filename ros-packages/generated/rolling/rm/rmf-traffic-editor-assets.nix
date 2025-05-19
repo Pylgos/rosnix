@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_editor_assets";
-  version = "1.11.0-1";
+  version = "1.12.0-1";
   src = finalAttrs.passthru.sources."rmf_traffic_editor_assets";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_traffic_editor_assets-source";
         url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
-        rev = "ef784fff4137ff9d3d5ec45d9b74ba5b1019649a";
-        hash = "sha256-6snUEK6eGBT95t4RlgbSpjeVwTBEi64kyHQo8uKKAhU=";
+        rev = "619c62624c75da1e2bb01c626bc21d39eb0c7e7c";
+        hash = "sha256-0MhEU+/v8990xt6F9q4cfkDHp0C2Kmhkh9mKZXSIxuA=";
       };
     };
   });

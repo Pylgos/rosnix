@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_eigen_kdl";
-  version = "0.42.0-1";
+  version = "0.42.1-1";
   src = finalAttrs.passthru.sources."tf2_eigen_kdl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ orocos-kdl-vendor tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_eigen_kdl-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "1f9a5ddb4b991128284b82e09bfedac9a7c9a4db";
-        hash = "sha256-uDhfJlhC4lRlfCFymmT53Yaiw6kB7vtVnNqcClqxo9E=";
+        rev = "685ebcf206494a1200ffb9f9145a8c42602c67ad";
+        hash = "sha256-N8XfVSqdW7n54+BpAhc3XjflsrNZ5PajCxWPzDsTdac=";
       };
     };
   });

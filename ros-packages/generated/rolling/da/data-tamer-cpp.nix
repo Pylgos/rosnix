@@ -6,28 +6,29 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  gtest-vendor,
   mcap-vendor,
   mkSourceSet,
   rclcpp,
+  rclcpp-lifecycle,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_cpp";
-  version = "0.9.4-3";
+  version = "1.0.2-1";
   src = finalAttrs.passthru.sources."data_tamer_cpp";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
+  propagatedNativeBuildInputs = [ ament-cmake-gtest data-tamer-msgs gtest-vendor mcap-vendor rclcpp rclcpp-lifecycle ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ data-tamer-msgs mcap-vendor rclcpp ];
-  checkInputs = [ ament-cmake-gtest ];
+  propagatedBuildInputs = [ ament-cmake-gtest data-tamer-msgs gtest-vendor mcap-vendor rclcpp rclcpp-lifecycle ];
   passthru.sources = mkSourceSet (sources: {
     "data_tamer_cpp" = substituteSource {
       src = fetchgit {
         name = "data_tamer_cpp-source";
         url = "https://github.com/ros2-gbp/data_tamer-release.git";
-        rev = "fbf9cbcb7bc45fe016d6428d6366f9cd556456de";
-        hash = "sha256-2AzGQXKFYJAAluNZytnO9/Or37ZYidTyDew6IkPUyos=";
+        rev = "4c571e179917443e5fb8f7b4145b25e9e19bd7bf";
+        hash = "sha256-eoO2hcUt/A3cm8/dB0lSGtd+nhaLdazWUZ6u5gznp4E=";
       };
     };
   });

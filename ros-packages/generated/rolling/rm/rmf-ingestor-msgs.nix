@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_ingestor_msgs";
-  version = "3.4.1-1";
+  version = "3.5.0-1";
   src = finalAttrs.passthru.sources."rmf_ingestor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rmf-dispenser-msgs rosidl-default-runtime ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_ingestor_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "a287ffdea18d746e8a22769de8cc6daa8fdf4fde";
-        hash = "sha256-VeVTPl/U694TpuftNXnWGUrBooRsfEC0QhIPd7mLs78=";
+        rev = "f8bc9c40b1ec918454f889cc5a5b0d681251fa9b";
+        hash = "sha256-eCOrvSO8P2w41PbvRPxNYcanE+Zi43F/RQPCyhKc9G4=";
       };
     };
   });

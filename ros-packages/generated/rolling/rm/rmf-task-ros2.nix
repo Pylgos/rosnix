@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_task_ros2";
-  version = "2.9.0-1";
+  version = "2.10.1-1";
   src = finalAttrs.passthru.sources."rmf_task_ros2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros nlohmann-json-schema-validator-vendor rclcpp rmf-api-msgs rmf-task-msgs rmf-traffic rmf-traffic-ros2 rmf-utils rmf-websocket ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "nlohmann-json-dev" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_task_ros2-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
-        rev = "02070cdb92c100498e67d6b2c1d48a8cbc367315";
-        hash = "sha256-K3n7zpdYOo4Vt/o98CSbgbgUXwjiO2ZDL+VB9SUXgRc=";
+        rev = "e02c8971b155e1583d4e182542c2512327efe822";
+        hash = "sha256-DqtAqtt1dgSYY3fkxj5lB4kiZ9Ictg1MyM7FoCChcYY=";
       };
     };
   });

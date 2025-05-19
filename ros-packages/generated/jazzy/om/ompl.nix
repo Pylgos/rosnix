@@ -9,17 +9,17 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ompl";
-  version = "1.6.0-1";
+  version = "1.7.0-2";
   src = finalAttrs.passthru.sources."ompl";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "opende" "pkg-config" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "opende" "pkg-config" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "pkg-config" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ompl" = substituteSource {
       src = fetchgit {
         name = "ompl-source";
         url = "https://github.com/ros2-gbp/ompl-release.git";
-        rev = "fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd";
-        hash = "sha256-Dst2FtQsK0+EzvSm7GEESWOU8QfMPzhSNNYEIlTNfc0=";
+        rev = "93a7d7a7d2d7f0c93962629d5994d3f5e1e750b9";
+        hash = "sha256-Dgz+MG+eZ+gJri8KGw4hcBo7pXz5PpnP5CcIfcHwhRQ=";
       };
     };
   });

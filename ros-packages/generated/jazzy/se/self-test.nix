@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "self_test";
-  version = "4.2.3-1";
+  version = "4.2.4-1";
   src = finalAttrs.passthru.sources."self_test";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-msgs diagnostic-updater rclcpp ros-environment ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "self_test-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
-        rev = "ff76e0f4dbfe1d6be8b10fa104d1dfaf70140cc8";
-        hash = "sha256-+oc5thUmqxWi4Wl8L5CwBdlGA1Y1xMrhgWBNu5AevKw=";
+        rev = "e5b28e1edbe341c17f579111ab40c3b859c89192";
+        hash = "sha256-YqWUUfCKzXkhXp/YU5R8EJ1Wy2D5mDFFNUc1ZhzDPjo=";
       };
     };
   });

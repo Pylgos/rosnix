@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_tools";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."imu_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ imu-complementary-filter imu-filter-madgwick rviz-imu-plugin ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_tools-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "8a41ced25e631717e56c24cfa375edff7d68ad20";
-        hash = "sha256-RYtGkmyCnleRNM/JSK+PXSSNuFKByBaAj7lGoDv8zl8=";
+        rev = "9c2ef29972248dba76cc2dad9c4c6da908df25ee";
+        hash = "sha256-d0nISebFCokUb1Svs9PjWIDLhxSDi5sIiOHkxhZpsZ8=";
       };
     };
   });

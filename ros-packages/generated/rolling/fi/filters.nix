@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "filters";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."filters";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "filters-source";
         url = "https://github.com/ros2-gbp/filters-release.git";
-        rev = "274f585f7969512b6e6960f4f82419c711f94b44";
-        hash = "sha256-XM2sLQ/1SukSvA+4SmC34GP9u5mr61R3+yiwJOwOoBY=";
+        rev = "63aa50b20521544a7ab46646fb902a1a84fd4afc";
+        hash = "sha256-JZmd5VbuAuiP4PhA/Q2/9L2R3D3XvipGUjXCGSgiM+0=";
       };
     };
   });

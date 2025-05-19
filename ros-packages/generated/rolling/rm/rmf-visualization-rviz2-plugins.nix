@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_rviz2_plugins";
-  version = "2.4.1-1";
+  version = "2.4.2-1";
   src = finalAttrs.passthru.sources."rmf_visualization_rviz2_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ pluginlib rclcpp resource-retriever rmf-door-msgs rmf-lift-msgs rmf-traffic-ros2 rmf-visualization-msgs rviz-common rviz-default-plugins rviz-rendering ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_rviz2_plugins-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "331871422276d7828b62b69cc986a71090d035c1";
-        hash = "sha256-ADRDVVQ+w2iaV10tSSDWDRbz0wwzrCcnPRykD9LN9qM=";
+        rev = "80bce51e29085ee5937ba56ea4ac6bb72b515211";
+        hash = "sha256-zWxUT2ZwRBMHQR8cwlG0bsjbWu3H3nconl6Y/nD9G6M=";
       };
     };
   });

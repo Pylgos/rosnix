@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_geometry";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."autoware_utils_geometry";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ autoware-internal-planning-msgs autoware-utils-math tf2 tf2-eigen tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_geometry-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "402212918bf3a2b62e07ffb91742907941ff0b4b";
-        hash = "sha256-POJmwMO6eMWdLQ0JKu2EPbGsK8fZox7+kaYXriKnPeU=";
+        rev = "9a69a7637bbbd25fa529c8a48a64fb46a00b8620";
+        hash = "sha256-7CTzv86cDDtz5sFGTWJaam8O0Rd2eJE+hxYtETa9iwE=";
       };
     };
   });
