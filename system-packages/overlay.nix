@@ -16,6 +16,7 @@ in
   };
 
   webots = final.callPackage ./webots { };
+  lichtblick = final.callPackage ./lichtblick { };
 
   rosPython = rosPy // {
     pkgs = rosPy.pkgs.overrideScope (
