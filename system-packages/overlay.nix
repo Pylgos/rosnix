@@ -661,8 +661,8 @@ in
     powertop = [ final.powertop ];
     procps = [ final.procps ];
     proj = [ final.proj ];
-    protobuf = [ final.protobuf ];
-    protobuf-dev = [ final.protobuf ];
+    protobuf = [ final.protobuf_28 ];
+    protobuf-dev = [ final.protobuf_28 ];
     pstoedit = [ final.pstoedit ];
     psutils = [ final.psutils ];
     pugixml-dev = [ final.pugixml ];
@@ -762,7 +762,7 @@ in
     python3-prettytable = [ final.rosPythonPackages.prettytable ];
     python3-progressbar = [ final.rosPythonPackages.progressbar ];
     python3-protobuf = [
-      final.rosPythonPackages.protobuf
+      (final.rosPythonPackages.protobuf.override { protobuf = final.protobuf_28; })
     ];
     python3-psutil = [ final.rosPythonPackages.psutil ];
     python3-pyaudio = [ final.rosPythonPackages.pyaudio ];
