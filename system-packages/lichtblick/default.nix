@@ -1,8 +1,11 @@
 {
+  lib,
   stdenv,
   fetchFromGitHub,
   nodejs,
   yarn-berry_3,
+  electron,
+  makeWrapper,
 }:
 let
   yarn-berry = yarn-berry_3;
@@ -21,6 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
     nodejs
     yarn-berry
     yarn-berry.yarnBerryConfigHook
+    makeWrapper
   ];
 
   offlineCache = yarn-berry.fetchYarnBerryDeps {
@@ -30,20 +34,50 @@ stdenv.mkDerivation (finalAttrs: {
 
   missingHashes = ./missing-hashes.json;
 
+  makeCacheWritable = true;
+
   postPatch = ''
-    shopt -s globstar
-    for file in **/package.json; do
-      echo "Patching $file"
-      substituteInPlace "$file" --replace-warn '"packageManager": "yarn@3.6.3",' ""
-    done
-    cat package.json
+    # Disable corepack
+    substituteInPlace "package.json" --replace-fail '"packageManager": "yarn@3.6.3",' ""
+    substituteInPlace .yarnrc.yml --replace-fail 'yarnPath: .yarn/yarn-wrapper.js' ""
+
+    # Patch electron-builder config
+    substituteInPlace packages/suite-desktop/src/electronBuilderConfig.js --replace-fail \
+      'electronVersion,' \
+      'electronVersion: "${electron.version}", electronDist: "${electron.dist}",'
+    substituteInPlace packages/suite-desktop/src/electronBuilderConfig.js --replace-fail \
+          'target: [
+            {
+              target: "deb",
+              arch: ["x64", "arm64"],
+            },
+            {
+              target: "tar.gz",
+              arch: ["x64", "arm64"],
+            },
+          ],' \
+      'target: [{target: "dir", arch: ["x64"]}],'
   '';
+
+  env = {
+    ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
+    NODE_OPTIONS = "--max_old_space_size=6144";
+  };
 
   buildPhase = ''
     yarn run desktop:build:prod
     yarn run package:linux
   '';
 
-  # COREPACK_ENABLE_STRICT = "0";
-  COREPACK_ENABLE = "0";
+  installPhase = ''
+    mkdir -p $out/share/lichtblick
+    pushd dist/linux-unpacked
+    cp -r locales resources{,.pak} $out/share/lichtblick
+    popd
+    makeWrapper ${lib.getExe electron} $out/bin/lichtblick \
+      --add-flags $out/share/lichtblick/resources/app.asar \
+      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
+      --set ELECTRON_FORCE_IS_PACKAGED=1 \
+      --inherit-argv0
+  '';
 })
