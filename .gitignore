@@ -1,6 +1,5 @@
 # For rosnix-generator
 /cache
-/result
 /generator-report.md
 
 # For some rust packages
@@ -8,3 +7,7 @@ target
 
 # Do not commit flake.lock in examples
 /examples/**/flake.lock
+
+# For nix
+result
+result-*
