@@ -227,7 +227,12 @@ in
     "g++-static" = [ ];
     gawk = [ final.gawk ];
     gdal-bin = [ final.gdal ];
-    geographiclib = [ final.geographiclib ];
+    geographiclib = [
+      (final.geographiclib.overrideAttrs {
+        # Someone "modernized" this package without testing and broke it.
+        outputs = [ "out" ];
+      })
+    ];
     geos = [ final.geos ];
     gettext-base = [ final.gettext ];
     gforth = [ final.gforth ];
