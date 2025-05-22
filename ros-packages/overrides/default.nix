@@ -250,6 +250,9 @@ in
         }:
         {
           patches = patches ++ [ nav2-costmap-2d-patch ];
+          NIX_CFLAGS_COMPILE = [
+            "-Wno-error"
+          ];
         }
       );
       nav2-rviz-plugins = rosPrev.nav2-rviz-plugins.overrideAttrs (
