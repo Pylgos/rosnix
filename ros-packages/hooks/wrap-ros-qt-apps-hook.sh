@@ -40,6 +40,7 @@ wrapRosQtAppsHook() {
                 rm "$file"
                 makeQtWrapper "$target" "$file"
             fi
+            wrapProgram "$file" --unset QT_PLUGIN_PATH
         done
     done
 }
