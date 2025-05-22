@@ -32,14 +32,15 @@ rec {
     pkgs.stdenv.mkDerivation {
       name = "rosnix-ci-${distro}-check-pkgs";
       deps = [
-        rosPkgs.desktop
-        rosPkgs.cartographer
         (rosPkgs.slam-toolbox or null)
-        rosPkgs.navigation2
-        rosPkgs.nav2-bringup
-        rosPkgs.ros-gz
-        rosPkgs.librealsense2
+        pkgs.lichtblick
         pkgs.webots
+        rosPkgs.cartographer
+        rosPkgs.desktop
+        rosPkgs.librealsense2
+        rosPkgs.nav2-bringup
+        rosPkgs.navigation2
+        rosPkgs.ros-gz
         rosPkgs.webots-ros2
       ] ++ lib.attrValues tests;
       phases = [ "installPhase" ];
