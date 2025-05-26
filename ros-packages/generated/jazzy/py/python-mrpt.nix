@@ -18,7 +18,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "python_mrpt";
-  version = "2.14.8-1";
+  version = "2.14.9-1";
   src = finalAttrs.passthru.sources."python_mrpt";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake cv-bridge mrpt-libapps mrpt-libgui mrpt-libnav mrpt-libslam rclcpp ros-environment rosbag2-storage ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
@@ -29,8 +29,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "python_mrpt-source";
         url = "https://github.com/ros2-gbp/python_mrpt_ros-release.git";
-        rev = "f74894bed7ebdbebe5196b13fd64a4a896741abf";
-        hash = "sha256-snxj0ENccoJDMotB/KFMs70ZCqQLwE6DBFoxr3ZYOk0=";
+        rev = "0c728d491364326527d67c309f95869ccd812236";
+        hash = "sha256-4ZJi5vMtIK8OJdOxLme8M5HgHPFc5EMwkJAihzBPB/s=";
       };
       substitutions = [
         {
@@ -44,8 +44,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "fe56a84186e602e097effa239fc7981edd0764fa";
-        hash = "sha256-8o45kmIfR8USWbOVjcgHpKXjCCMmUPmALn/OLJ/5dJQ=";
+        rev = "8eddf55bae8b684ca9dadf20b212ea24abc14c8d";
+        hash = "sha256-e/49Gtdgg2Yq30YEnLbVavafmorPeNpdf9tCAv9bOaQ=";
       };
       substitutions = [
         {

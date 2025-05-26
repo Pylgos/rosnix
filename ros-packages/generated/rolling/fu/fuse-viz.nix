@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_viz";
-  version = "1.2.2-1";
+  version = "1.2.3-1";
   src = finalAttrs.passthru.sources."fuse_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-cmake-ros fuse-constraints fuse-core fuse-msgs fuse-variables geometry-msgs gtest-vendor rviz-common rviz-rendering tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "qtbase5-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_viz-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "14dce5959e456f65b05340f3a14e58730048336b";
-        hash = "sha256-v7aepVgoFBRoxo5HX+9PNzk2Y2j0Mgvsb8JjV9f73gY=";
+        rev = "5ba25167087bac7df034d91e78f8285ea3632bef";
+        hash = "sha256-4ogsX3Q/xouNCX02AKiPejQZG3rYqi6GXDTAQnm4OdQ=";
       };
     };
   });

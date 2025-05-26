@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_constraints";
-  version = "1.2.2-1";
+  version = "1.2.3-1";
   src = finalAttrs.passthru.sources."fuse_constraints";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros fuse-core fuse-graphs fuse-variables geometry-msgs gtest-vendor pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libceres-dev" "suitesparse" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_constraints-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "6f1372711b0e2b8ee92c2ff0e77bac0902f4f1cf";
-        hash = "sha256-ptHl7bBEU7ixwn8PPbn0iVOiHKUDdZQ93zpVA6oip0Q=";
+        rev = "78184b99689ab7a785ccd964b8b3167ce44e4125";
+        hash = "sha256-/3cMDjGuOOpGYacWV7Zqar8IiDG9KRrQutpcASDVEiU=";
       };
     };
   });

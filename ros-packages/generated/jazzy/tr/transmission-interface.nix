@@ -16,20 +16,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "transmission_interface";
-  version = "4.29.0-1";
+  version = "4.31.0-1";
   src = finalAttrs.passthru.sources."transmission_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ];
+  propagatedNativeBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
   buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ];
+  propagatedBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "transmission_interface" = substituteSource {
       src = fetchgit {
         name = "transmission_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "73971da7e787f8c519a66f5b8ec9506a7254e396";
-        hash = "sha256-hnxLlEIY+6c9ycOhxZWp8LbxqD+thXNx9qiCR5M3VZs=";
+        rev = "1dcc49d877cf407b5ef45f6abe34b3b4fe07e615";
+        hash = "sha256-mv5ygWFMibenPxFyRS5qsxUDeK/VvYrp2tS1BPn9dzQ=";
       };
     };
   });

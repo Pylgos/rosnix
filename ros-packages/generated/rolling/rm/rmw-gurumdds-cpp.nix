@@ -20,23 +20,24 @@
   rosidl-typesupport-introspection-c,
   rosidl-typesupport-introspection-cpp,
   substituteSource,
+  tracetools,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_gurumdds_cpp";
-  version = "5.0.0-3";
+  version = "6.0.1-2";
   src = finalAttrs.passthru.sources."rmw_gurumdds_cpp";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros-core rosidl-cmake ];
-  propagatedNativeBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gurumdds-3.2" ]; };
+  propagatedNativeBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gurumdds-3.2" ]; };
   buildInputs = [ ament-cmake ament-cmake-ros-core rosidl-cmake ];
-  propagatedBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
+  propagatedBuildInputs = [ gurumdds-cmake-module rcutils rmw rmw-dds-common rosidl-generator-dds-idl rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gurumdds-3.2" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_gurumdds_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_gurumdds_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_gurumdds-release.git";
-        rev = "5d62ed1665114aa47012b9d8ebccf2fb91ffbdd2";
-        hash = "sha256-4i+rLf+krhQG8RZH5kDZYeBoBC0m8RGWi5+vzb/1KI4=";
+        rev = "0fac26fde195083d106cae85eb40786d3a1d95a2";
+        hash = "sha256-GmH9SRS838PjvH/o+qb1uzm+ZyEc/bt0a0z9/lz4nx0=";
       };
     };
   });

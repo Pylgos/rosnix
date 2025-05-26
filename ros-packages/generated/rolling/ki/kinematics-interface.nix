@@ -6,24 +6,25 @@
   fetchzip,
   mkSourceSet,
   rclcpp-lifecycle,
+  ros2-control-cmake,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinematics_interface";
-  version = "2.0.0-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ rclcpp-lifecycle ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp-lifecycle ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ rclcpp-lifecycle ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   passthru.sources = mkSourceSet (sources: {
     "kinematics_interface" = substituteSource {
       src = fetchgit {
         name = "kinematics_interface-source";
         url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
-        rev = "126541b656eee700c6579f453d8f28fd00848a6c";
-        hash = "sha256-VMomZtBW+WIn6Zvn8yEV0Xvqq9NUBBMOLLjg3uzDGlU=";
+        rev = "d8f78fd58e96c258c09dd46cdccbf06c6333929d";
+        hash = "sha256-BNlaEx+cuKnup1O9Ne2KFve98mJ9BqLk/9ADT0f+Nhg=";
       };
     };
   });

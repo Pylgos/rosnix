@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "odom_to_tf_ros2";
-  version = "1.0.5-2";
+  version = "1.0.6-1";
   src = finalAttrs.passthru.sources."odom_to_tf_ros2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp tf2-geometry-msgs tf2-ros ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "odom_to_tf_ros2-source";
         url = "https://github.com/ros2-gbp/odom_to_tf_ros2-release.git";
-        rev = "73061750ed9bc07b3e33544a1494103ddc4c0dc2";
-        hash = "sha256-f/G8He9L+mH9rkDay95ERtdcWDWXtJt+rJi0k0ZODjU=";
+        rev = "7f22a791a22a9082ffda73c4f40cb74444ce1a60";
+        hash = "sha256-0XxOcZQ4mNoE8w3RV/dCyfn9xxDUBDBfGVjh8764Uog=";
       };
     };
   });

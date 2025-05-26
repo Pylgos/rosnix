@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gps_umd";
-  version = "2.0.4-1";
+  version = "2.0.5-1";
   src = finalAttrs.passthru.sources."gps_umd";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ gps-msgs gps-tools gpsd-client ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gps_umd-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
-        rev = "027018a369f1cb324ff3cd7937456247e6b3620b";
-        hash = "sha256-57CxBkAd2u2S/EZrm8p1C0JPGoFAlEsVq2jYjMWBz5U=";
+        rev = "acf7b74a3aa34be610d971fd3008cf013fc0d858";
+        hash = "sha256-Q/DPDZfY2ix/W27srXYqhx0kGpSA0T7Lw/L2DjumrZs=";
       };
     };
   });

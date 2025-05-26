@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "openni2_camera";
-  version = "2.2.2-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."openni2_camera";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces camera-info-manager depth-image-proc image-transport rclcpp rclcpp-components rosidl-default-runtime sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopenni2-dev" "pkg-config" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "openni2_camera-source";
         url = "https://github.com/ros2-gbp/openni2_camera-release.git";
-        rev = "32a91a081983de487a72a9b92d8d8d5ee3161a5d";
-        hash = "sha256-CSYqk5PiDxVyyGakTWJCE4KM4z/tKVAPGLvPgx506rM=";
+        rev = "e030bfa5947276f263a0921a665e6df701beab7a";
+        hash = "sha256-/VEKHElP7GIl8yCwyXUKoQokvncs9MhQnSxHbwE5uMg=";
       };
     };
   });

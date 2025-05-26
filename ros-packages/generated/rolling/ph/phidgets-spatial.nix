@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_spatial";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."phidgets_spatial";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs std-msgs std-srvs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_spatial-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "5d15528ce95e1cb59abb2919a5bec0b1b8647562";
-        hash = "sha256-My63osp4yOvSPXWqo60ZVvGbG6cF/ApGd5AegiOUg/M=";
+        rev = "3d74240bc114467b791cbaef72ca33fcb0755a8b";
+        hash = "sha256-+C+4cfF92B+XPVhIQfn0B+YTwH0a9Hcz+fUqvT69jHc=";
       };
     };
   });

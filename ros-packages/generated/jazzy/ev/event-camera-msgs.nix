@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "event_camera_msgs";
-  version = "1.3.6-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."event_camera_msgs";
   nativeBuildInputs = [ ament-cmake ros-environment ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "event_camera_msgs-source";
         url = "https://github.com/ros2-gbp/event_camera_msgs-release.git";
-        rev = "91ad63afda709d4e566d992476ed002309af2f20";
-        hash = "sha256-1ZtF5SndbEknqRZ9evnMI25GzONA2ezHKphMlwhsk0g=";
+        rev = "e0c5ea14b14d85ae24d08287b29fc3b6ac180bc9";
+        hash = "sha256-0pY3R7oCla7OUPQSD3KXGzZaicYu5kw2wHGYKgFQcz4=";
       };
     };
   });

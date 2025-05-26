@@ -23,20 +23,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_limits";
-  version = "4.29.0-1";
+  version = "5.1.0-1";
   src = finalAttrs.passthru.sources."joint_limits";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ];
+  propagatedNativeBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
   buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ];
+  propagatedBuildInputs = [ backward-ros pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake trajectory-msgs urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   checkInputs = [ ament-cmake-gmock generate-parameter-library launch-ros launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "joint_limits" = substituteSource {
       src = fetchgit {
         name = "joint_limits-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "2cec0ac26e51fa80e5605514f2786c978a8b63e2";
-        hash = "sha256-fhtOlhdeD7eIO6gkZUcA2WCs4uprBpy+YRlK+ynhUnw=";
+        rev = "007aadf3f58be7ef6a561cdd81bf3044e8cde4a6";
+        hash = "sha256-W4FdiOKyyKwP6No30HkM3AIghzV11mJzsQBlSpZtxmI=";
       };
     };
   });

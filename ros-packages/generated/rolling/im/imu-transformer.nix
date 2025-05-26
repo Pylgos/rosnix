@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_transformer";
-  version = "0.5.1-1";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."imu_transformer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ message-filters rclcpp rclcpp-components sensor-msgs tf2-ros tf2-sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_transformer-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
-        rev = "cf1bad6b1f2c292bc278d6ce87a201ac2bae71c7";
-        hash = "sha256-ZYeYSxM5GmmK7wtqGJS7jyVNaPMJnGPwEa12oEf/GxM=";
+        rev = "f5c8cd7861061c6542f5478f84efd6ed5c1107f5";
+        hash = "sha256-H3rDOYmhj0NvEjWAU1CPNQRrnWq1lwC0K02sy+AT3Fk=";
       };
     };
   });

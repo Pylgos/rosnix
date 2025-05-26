@@ -1,5 +1,4 @@
 {
-  actionlib-msgs,
   ament-cmake,
   ament-lint-auto,
   ament-lint-common,
@@ -24,20 +23,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "common_interfaces";
-  version = "5.5.0-1";
+  version = "5.7.0-1";
   src = finalAttrs.passthru.sources."common_interfaces";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ actionlib-msgs builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ actionlib-msgs builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
+  propagatedBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "common_interfaces" = substituteSource {
       src = fetchgit {
         name = "common_interfaces-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "f426a8825288bd5c9d8af137ae4eecce541dfb68";
-        hash = "sha256-7R3Q5rNUHDnPdjw9qmpfO5GFhXuaxcoRip1EbvUKhD0=";
+        rev = "3712049410e3f2c4a9c173ef07411fa7a85f419d";
+        hash = "sha256-L8gE3OJFyElQcED1dkLHFv0vCmzcXoMbag2xNFN//BM=";
       };
     };
   });

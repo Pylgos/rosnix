@@ -5,7 +5,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gripper-controllers,
   joint-state-publisher,
   joint-state-publisher-gui,
   mkSourceSet,
@@ -24,9 +23,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.1.0-1";
   src = finalAttrs.passthru.sources."moveit_resources_panda_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ controller-manager gripper-controllers joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ];
+  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gripper_controllers" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ controller-manager gripper-controllers joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ];
+  propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description position-controllers robot-state-publisher ros2cli-common-extensions topic-tools xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gripper_controllers" ]; };
   passthru.sources = mkSourceSet (sources: {
     "moveit_resources_panda_moveit_config" = substituteSource {
       src = fetchgit {

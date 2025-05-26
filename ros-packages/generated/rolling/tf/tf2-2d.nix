@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_2d";
-  version = "1.0.1-3";
+  version = "1.3.2-1";
   src = finalAttrs.passthru.sources."tf2_2d";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libboost-dev" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_2d-source";
         url = "https://github.com/ros2-gbp/tf2_2d-release.git";
-        rev = "b51411b00ce51735ebf5fca39ff90ffea39e6b78";
-        hash = "sha256-4ty09wIhIUq3vI2s5th/54iRL5jTzcYeDumtwzLqeVk=";
+        rev = "5b688950be33fb8fd52237708faf954b63ecb22d";
+        hash = "sha256-DGO0TJvl7Dyb4kz8nPfftm5ed25jloTRW8UOix9g6xs=";
       };
     };
   });

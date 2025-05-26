@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_msgs";
-  version = "1.0.2-1";
+  version = "1.0.3-1";
   src = finalAttrs.passthru.sources."data_tamer_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "data_tamer_msgs-source";
         url = "https://github.com/ros2-gbp/data_tamer-release.git";
-        rev = "f46d15a97833695b60a18e94ebba19671ed390da";
-        hash = "sha256-icGvCY4Gn0i71N4xTOszVa9E0eBYvH5C+x7LpCXdpYw=";
+        rev = "110d997bbb0c73d879b90f329e7d63beb115b636";
+        hash = "sha256-DiNndorlR5AppYdAFG+TXQE1gcdZwaGbTHBfAVPenx8=";
       };
     };
   });

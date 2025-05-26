@@ -4,7 +4,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gripper-controllers,
   gz-ros2-control,
   mkSourceSet,
   open-manipulator-description,
@@ -26,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
   version = "3.2.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_bringup";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ dynamixel-hardware-interface gripper-controllers gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
-  propagatedBuildInputs = [ dynamixel-hardware-interface gripper-controllers gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
+  propagatedNativeBuildInputs = [ dynamixel-hardware-interface gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gripper_controllers" ]; };
+  propagatedBuildInputs = [ dynamixel-hardware-interface gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gripper_controllers" ]; };
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_bringup" = substituteSource {
       src = fetchgit {

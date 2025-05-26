@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "urg_node";
-  version = "1.1.1-3";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."urg_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-updater laser-proc rclcpp rclcpp-components rosidl-default-generators sensor-msgs std-srvs urdf urg-c urg-node-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urg_node-source";
         url = "https://github.com/ros2-gbp/urg_node-release.git";
-        rev = "ebab3358cbd4ace0a537f30cdc416dcd738e5837";
-        hash = "sha256-hz6upepfbgI1ToUr7XupzHvWBA7oKZk4QZTKCZwbMRI=";
+        rev = "34b79320dcb13f89127feea291429365d1dde9d6";
+        hash = "sha256-CSk67xMhCE8x4dBhR1R348gAyhcKmCHNF0NkL7nQKrU=";
       };
     };
   });

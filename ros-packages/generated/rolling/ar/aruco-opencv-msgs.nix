@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_opencv_msgs";
-  version = "6.0.1-1";
+  version = "6.0.2-1";
   src = finalAttrs.passthru.sources."aruco_opencv_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco_opencv_msgs-source";
         url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
-        rev = "447a1e7b8f67eac20c3bf6fcbf89fa8a927be379";
-        hash = "sha256-dP2eRoPV3R8Okt63Wb5WW9MsbCpOeZ/3ti0YVxYtkKU=";
+        rev = "58bdf50fda55cb306c3c0a3467923f0199ac10f3";
+        hash = "sha256-NuM0TRBvvHtOxUncnIN0yODaj1srerS2W2OYDnZ+JbM=";
       };
     };
   });

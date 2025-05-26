@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_msgs";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."phidgets_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_msgs-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "c44be5c46e76ad890399c4d473cbbe1aeed297ac";
-        hash = "sha256-IenMv0kesMXll/udluqu/FKfShQu8sd0QaGFr+rW4/E=";
+        rev = "c38905aa693db14befe44094102871325e83264d";
+        hash = "sha256-+dM6bMfq8KHFEiSlSnGCd2zw7/sJRL5MzUlybJ+ZpWA=";
       };
     };
   });

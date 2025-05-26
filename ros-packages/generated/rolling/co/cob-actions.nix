@@ -1,6 +1,5 @@
 {
   action-msgs,
-  actionlib-msgs,
   ament-cmake,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -20,9 +19,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "2.8.12-1";
   src = finalAttrs.passthru.sources."cob_actions";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ action-msgs actionlib-msgs builtin-interfaces geometry-msgs rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "actionlib_msgs" ]; };
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs actionlib-msgs builtin-interfaces geometry-msgs rosidl-default-runtime ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "actionlib_msgs" ]; };
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cob_actions" = substituteSource {

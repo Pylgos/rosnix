@@ -1,6 +1,7 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
+  eigen3-cmake-module,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,19 +15,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "trac_ik_lib";
-  version = "2.0.1-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."trac_ik_lib";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ eigen3-cmake-module geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libnlopt-cxx-dev" "pkg-config" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" "pkg-config" ]; };
+  propagatedBuildInputs = [ eigen3-cmake-module geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libnlopt-cxx-dev" "pkg-config" ]; };
   passthru.sources = mkSourceSet (sources: {
     "trac_ik_lib" = substituteSource {
       src = fetchgit {
         name = "trac_ik_lib-source";
         url = "https://github.com/ros2-gbp/trac_ik-release.git";
-        rev = "f05b24476d03bb7879a7a95b49c9820463c89bf9";
-        hash = "sha256-RHtJG5zWq6hgg1ylgO5tkkidAlHTg7G+wMzeoB8s6p8=";
+        rev = "456e1344df6253280c2bbd2dbcc0f6b23d8a2abc";
+        hash = "sha256-knkaJlvrANRu+sM2eA2EHRD+A12Djp3g5Gb/C9oaksE=";
       };
     };
   });

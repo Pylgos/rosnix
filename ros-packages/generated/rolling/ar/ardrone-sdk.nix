@@ -10,19 +10,31 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ardrone_sdk";
-  version = "1.0.0-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."ardrone_sdk";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "arsdk3" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "arsdk3" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ardrone_sdk" = substituteSource {
       src = fetchgit {
         name = "ardrone_sdk-source";
         url = "https://github.com/ros2-gbp/ardrone_ros-release.git";
-        rev = "dd56f96cfe7966bd0ddfe790e89e976e654d57e2";
-        hash = "sha256-IfL+QAZ1apfao2PSwgLcKWf1qei85KFKuO8ol4eJL68=";
+        rev = "74a7de9f6e7d5c84448bc68fdf1eb027b56bc361";
+        hash = "sha256-KIdw4cNcKpqwLjSY8nySDwv7r5ycqm5rnzoO/qjawW0=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "URL https://github.com/vtalpaert/ardrone-sdk-native/releases/download/arsdk-native-samples-x64-master/arsdk-native-samples-x64-master.tar.gz";
+          to = "URL ${sources."ardrone_sdk/arsdk-native-samples-x64-master"}";
+        }
+      ];
+    };
+    "ardrone_sdk/arsdk-native-samples-x64-master" = substituteSource {
+      src = fetchzip {
+        name = "arsdk-native-samples-x64-master-source";
+        url = "https://github.com/vtalpaert/ardrone-sdk-native/releases/download/arsdk-native-samples-x64-master/arsdk-native-samples-x64-master.tar.gz";
+        hash = "sha256-S0T5v1LSPmB1txGv0J6leMJgwtduJgcrdAee7Her/6s=";
       };
     };
   });

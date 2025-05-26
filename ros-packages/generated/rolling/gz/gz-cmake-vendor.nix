@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_cmake_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_cmake_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-cmake4" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_cmake_vendor-source";
         url = "https://github.com/ros2-gbp/gz_cmake_vendor-release.git";
-        rev = "6a388cca4653c64f3bf201b2cc423223f39f050d";
-        hash = "sha256-isXT9VteeyeGhzKwx4379sMx1HxkP8gUqrfbDywVIjE=";
+        rev = "7f567a9fd8a4fc9cd06c84bd7ac80d92a6783ac0";
+        hash = "sha256-temUQSDAIURlBUftDm1hFSoWnkRwsLI3AxjU2vtKswc=";
       };
       substitutions = [
         {
@@ -42,12 +42,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-cmake-source";
         url = "https://github.com/gazebosim/gz-cmake.git";
-        rev = "1c65374c074268ec93df72be4a2d21722920e62a";
-        hash = "sha256-BWgRm+3UW65Cu7TqXtFFG05JlYF52dbpAsIE8aDnJM0=";
+        rev = "7be12424abce48a5790ca89eba25c87c1d89f60f";
+        hash = "sha256-+bMOcGWfcwPhxR9CBp4iH02CZC4oplCjsTDpPDsDnSs=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-cmake4 4.1.1\n\n    Gazebo CMake : CMake Modules for Gazebo Projects\n  ";
+    description = "\n    Vendor package for: gz-cmake4 4.2.0\n\n    Gazebo CMake : CMake Modules for Gazebo Projects\n  ";
   };
 })

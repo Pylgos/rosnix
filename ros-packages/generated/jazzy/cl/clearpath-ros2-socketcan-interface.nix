@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_ros2_socketcan_interface";
-  version = "2.1.1-2";
+  version = "2.1.3-1";
   src = finalAttrs.passthru.sources."clearpath_ros2_socketcan_interface";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ can-msgs rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "iproute2" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_ros2_socketcan_interface-source";
         url = "https://github.com/clearpath-gbp/clearpath_ros2_socketcan_interface-release.git";
-        rev = "802e652d590b9ced257c3b939bc346d8002d2340";
-        hash = "sha256-VnpXy5ko/MCYyOupTcws2/1yhX4OZctqqobUtiC29Aw=";
+        rev = "89f8a19d3a200ce0cbd47cda2920826a4ab5bc70";
+        hash = "sha256-0t28MwTNO1ObiEmIgYeQdqQuucvWKNxiae910w72Wec=";
       };
     };
   });

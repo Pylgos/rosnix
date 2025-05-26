@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_magnetometer";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."phidgets_magnetometer";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_magnetometer-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "8e83bb7b78c9b6b9125857a2d323bfa178ac0c4e";
-        hash = "sha256-3Ggm9kmzc70h+9ehA3T5rBXPWdUFeWN5ptgZJMeh+sk=";
+        rev = "6de8490be4217b0ff86d48a7b823c2ceb149327e";
+        hash = "sha256-YkqN9I0YJVx8P50wY2u8dmGZDE1z3h6RSncqP2OUvXw=";
       };
     };
   });

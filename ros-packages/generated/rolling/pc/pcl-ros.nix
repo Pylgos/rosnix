@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pcl_ros";
-  version = "2.7.1-1";
+  version = "2.7.2-1";
   src = finalAttrs.passthru.sources."pcl_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs pcl-conversions rclcpp rclcpp-components rosbag2-transport sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pcl_ros-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
-        rev = "e92aade482dc50cbd2b5ab9a0a322e144989e7fd";
-        hash = "sha256-SS8/bO09vVDLneN0ghOSqSkxRP2gcfoBAsJU4VEb6A8=";
+        rev = "f992d9b1d3b9a29a5e431cc6bc62c2da6317656f";
+        hash = "sha256-A/XSmWU1o0SRpuLBSJW2e24xOX9i0vdlSk/zcboHo0c=";
       };
     };
   });

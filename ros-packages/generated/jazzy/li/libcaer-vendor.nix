@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libcaer_vendor";
-  version = "1.3.0-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."libcaer_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "libusb-1.0-dev" "pkg-config" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libcaer_vendor-source";
         url = "https://github.com/ros2-gbp/libcaer_vendor-release.git";
-        rev = "0424ca45235d713578a786c73480717ad9b316d6";
-        hash = "sha256-qbXJBtbU/GC6K5vEd6Dt1V5gnwyiWAhWD/mya3K/z40=";
+        rev = "f4f6c6afcbd60168a3f43b101406dc9cfd643c62";
+        hash = "sha256-HtuphIa4w16z6QzYlcrJiqQJTmrArdczkZkvu3ezjZg=";
       };
       substitutions = [
         {
