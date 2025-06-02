@@ -4,6 +4,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geometry-msgs,
   marti-common-msgs,
   marti-nav-msgs,
   mkSourceSet,
@@ -19,19 +20,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_route_util";
-  version = "3.7.5-1";
+  version = "3.8.1-1";
   src = finalAttrs.passthru.sources."swri_route_util";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "swri_route_util" = substituteSource {
       src = fetchgit {
         name = "swri_route_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "4ea03be1399ee9a857a137dba37ee494e0f54d9b";
-        hash = "sha256-ceffFI2DvrPzseaVITVeh+4vmhj90ExjVWFm3HR79NI=";
+        rev = "93e806b0fb78827d3c83d70af04027208615d609";
+        hash = "sha256-uhqTDT3FBatdYbzURin0cLfmPwtS6kjNykUn4oOCiAI=";
       };
     };
   });

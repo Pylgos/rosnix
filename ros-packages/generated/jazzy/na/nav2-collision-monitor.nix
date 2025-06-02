@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_collision_monitor";
-  version = "1.3.6-1";
+  version = "1.3.7-1";
   src = finalAttrs.passthru.sources."nav2_collision_monitor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav2-common nav2-costmap-2d nav2-msgs nav2-util rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_collision_monitor-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "2223f19ad62a4ddb95d7e3bfeb75ca23a8225591";
-        hash = "sha256-IHsqxn1aw28DtDtzPlIQN0VpK3P5UpY7CUq50gs6yi8=";
+        rev = "6a3d0efda623d861950e780d0a83511f5cdec5b0";
+        hash = "sha256-bng/qYs4UM9GxWN4x61kqSyjjHfyqfg3Oux5pP3FclM=";
       };
     };
   });

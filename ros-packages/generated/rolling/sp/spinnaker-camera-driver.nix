@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_camera_driver";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."spinnaker_camera_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ camera-info-manager flir-camera-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "dpkg" "ffmpeg" "libusb-1.0-dev" "python3-distro" "yaml-cpp" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "spinnaker_camera_driver-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "252d1092dd28e018acde744f6050edd9f4e9ef18";
-        hash = "sha256-nZ+V4IZhdhdQ71ZqVX0lHcuKLtAaA8v6UE+1XMsBa/o=";
+        rev = "7dcea3941ddcfadf6da6a3f27e8b419ff0e602ff";
+        hash = "sha256-bUAI0uIpma0ciHGKtonV7FL27Fyk0JgRiz4Qi5ftpwI=";
       };
     };
   });

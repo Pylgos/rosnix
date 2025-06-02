@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_cartographer";
-  version = "2.2.9-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."turtlebot3_cartographer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cartographer-ros ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_cartographer-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "669f7a053cab1e81987c61a1f168ffab0a5f5690";
-        hash = "sha256-peXFWpGfol1N02vDSK9Tiyr+dBawuHzUsWlg1rjJD/8=";
+        rev = "500ce74971730bd8f99fa12af16b3efc2e8ae50a";
+        hash = "sha256-N9JNWHh08d8n1eRolpVu+ERIGZLUpQNnKvGRuUY1hj8=";
       };
     };
   });

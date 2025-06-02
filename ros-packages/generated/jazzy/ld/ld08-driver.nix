@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ld08_driver";
-  version = "1.1.3-1";
+  version = "1.1.4-1";
   src = finalAttrs.passthru.sources."ld08_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libudev-dev" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ld08_driver-source";
         url = "https://github.com/ros2-gbp/ld08_driver-release.git";
-        rev = "c6f43db382d34c62ce562892efbe5a613142c5b2";
-        hash = "sha256-J13f9eQcZNX5WtvJwY+3h/6q+TFaLFAkqROAquApRlM=";
+        rev = "56ed27b88a056b5a1169b5de82942b358b8f8c3b";
+        hash = "sha256-C+gZEw2ZbEV31Zvt/zo3/MTKJo0jmWKqk0pfcGx1aT4=";
       };
     };
   });

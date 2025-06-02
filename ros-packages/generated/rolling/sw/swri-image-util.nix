@@ -14,6 +14,7 @@
   message-filters,
   mkSourceSet,
   nav-msgs,
+  rcl-interfaces,
   rclcpp,
   rclcpp-components,
   rclpy,
@@ -28,20 +29,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_image_util";
-  version = "3.7.5-1";
+  version = "3.8.1-1";
   src = finalAttrs.passthru.sources."swri_image_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ ament-index-cpp camera-calibration-parsers cv-bridge geometry-msgs image-geometry image-transport message-filters nav-msgs rclcpp rclcpp-components rclpy std-msgs swri-geometry-util swri-math-util swri-opencv-util swri-roscpp tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp camera-calibration-parsers cv-bridge geometry-msgs image-geometry image-transport message-filters nav-msgs rcl-interfaces rclcpp rclcpp-components rclpy std-msgs swri-geometry-util swri-math-util swri-opencv-util swri-roscpp tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ ament-index-cpp camera-calibration-parsers cv-bridge geometry-msgs image-geometry image-transport message-filters nav-msgs rclcpp rclcpp-components rclpy std-msgs swri-geometry-util swri-math-util swri-opencv-util swri-roscpp tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" ]; };
+  propagatedBuildInputs = [ ament-index-cpp camera-calibration-parsers cv-bridge geometry-msgs image-geometry image-transport message-filters nav-msgs rcl-interfaces rclcpp rclcpp-components rclpy std-msgs swri-geometry-util swri-math-util swri-opencv-util swri-roscpp tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "swri_image_util" = substituteSource {
       src = fetchgit {
         name = "swri_image_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "8d7f113520c4bb10f9d4c064fbcb7bddcb241828";
-        hash = "sha256-8XoodjuEfveEwA+r6EytuNZaHip3sHVgBg7rVOKrQrQ=";
+        rev = "1e2db9e433feea08f90e041ec6aeb09b06e79e15";
+        hash = "sha256-/xbG+Z+SAQ6OOVzMNySLiXvRnLhFHNS7rIo4+p+3rFk=";
       };
     };
   });

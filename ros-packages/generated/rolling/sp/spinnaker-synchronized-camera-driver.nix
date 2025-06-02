@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "spinnaker_synchronized_camera_driver";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."spinnaker_synchronized_camera_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components spinnaker-camera-driver ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "spinnaker_synchronized_camera_driver-source";
         url = "https://github.com/ros2-gbp/flir_camera_driver-release.git";
-        rev = "7586e148606f6cefbf8816a921c395ca9b6fb1ac";
-        hash = "sha256-S16HGH5cLrqaXU/m+6+6B5lMaD7HY4ZLGx64OovhNsw=";
+        rev = "272f871145b67bd2e0cae358a202d35c16d16fba";
+        hash = "sha256-0j4SVHZwkP6shuwNJBrvgZbH/P7Si30n+KrvCV0RjTk=";
       };
     };
   });

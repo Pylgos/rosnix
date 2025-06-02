@@ -32,7 +32,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_sim";
-  version = "1.0.12-1";
+  version = "1.0.14-1";
   src = finalAttrs.passthru.sources."ros_gz_sim";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ ament-index-python builtin-interfaces geometry-msgs gz-math-vendor gz-msgs-vendor gz-sim-vendor gz-transport-vendor launch launch-ros rclcpp rclcpp-components rcpputils ros-gz-interfaces std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cli11" "libgflags-dev" ]; };
@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz_sim-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "56ea53042012a163a213ff451534f6f207d4b337";
-        hash = "sha256-JPZSQb7LHsWPctYKhyisiizK3aKiJK/XMiOQA2RFRas=";
+        rev = "2062f12690bfa87f9dd4ad54f2602711ef6adbc0";
+        hash = "sha256-gwsTpHS617xldocX0/g9vXWYYgq4jPSGZ1JI+lnTXGE=";
       };
     };
   });

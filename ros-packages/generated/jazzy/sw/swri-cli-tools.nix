@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "swri_cli_tools";
-  version = "3.7.6-1";
+  version = "3.8.1-1";
   src = finalAttrs.passthru.sources."swri_cli_tools";
   propagatedNativeBuildInputs = [ marti-introspection-msgs rcl-interfaces rclpy ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-natsort" ]; };
   propagatedBuildInputs = [ marti-introspection-msgs rcl-interfaces rclpy ros2cli ros2node ros2param ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-natsort" ]; };
@@ -30,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "swri_cli_tools-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "07c5f9c16bf8c6e585c3f23b2b1aae35745ad44c";
-        hash = "sha256-2QdKx8IuGuYO0/k9h32kQz9jNi7/egpMkCCgdxZgac8=";
+        rev = "90e7315ddaf18b6b1466f441757da4a62872dde0";
+        hash = "sha256-faQ0YlowHa/ntCO+/OxqVqkfq8ZCqsA1okxL4L1UuvY=";
       };
     };
   });

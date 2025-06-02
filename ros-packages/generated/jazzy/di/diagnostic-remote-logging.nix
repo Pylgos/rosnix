@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diagnostic_remote_logging";
-  version = "4.2.4-1";
+  version = "4.2.6-1";
   src = finalAttrs.passthru.sources."diagnostic_remote_logging";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-msgs rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "diagnostic_remote_logging-source";
         url = "https://github.com/ros2-gbp/diagnostics-release.git";
-        rev = "d333daa6eaf8b87b43f0e9af57d43bf5108ce2e2";
-        hash = "sha256-0Gz5psm2Z1UCfcoe7FxVX5VVM7Dw9DqfDUBS29rpmXA=";
+        rev = "f69d934036f152fb2b4519a943bb623774e9d935";
+        hash = "sha256-ezGA+cjZbvbqpMzr0BfH+zW9fZayVPkQwWgTChHa3fU=";
       };
     };
   });

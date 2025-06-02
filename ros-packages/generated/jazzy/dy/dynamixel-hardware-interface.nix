@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_hardware_interface";
-  version = "1.4.3-1";
+  version = "1.4.6-1";
   src = finalAttrs.passthru.sources."dynamixel_hardware_interface";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dynamixel-interfaces dynamixel-sdk hardware-interface pluginlib rclcpp realtime-tools std-srvs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_hardware_interface-source";
         url = "https://github.com/ros2-gbp/dynamixel_hardware_interface-release.git";
-        rev = "93d7ac58f1e4a5d14f0e6dd6959f03853c180e45";
-        hash = "sha256-IcT/zZnSwklFHEe4bfOGk+QH7ZM4HQRsuQpLZm+yups=";
+        rev = "863367fa3ddd811f9db7032c5ca929056bb80b38";
+        hash = "sha256-c73m80HGbQr/r/YCyefvjmeFMWd+WxbBS23/asMzWAc=";
       };
     };
   });

@@ -10,19 +10,17 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_serial_util";
-  version = "3.7.6-1";
+  version = "3.8.1-1";
   src = finalAttrs.passthru.sources."swri_serial_util";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
   passthru.sources = mkSourceSet (sources: {
     "swri_serial_util" = substituteSource {
       src = fetchgit {
         name = "swri_serial_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "edd76d1fae144dac9ecfcf4ad6e2f807c85283ba";
-        hash = "sha256-hgb9PSJkmGPniJTYovbC/dIh5Jwitj0D+NwTxgZUr+M=";
+        rev = "da8a5e8886426605e5d2df2e71b220d959880e3a";
+        hash = "sha256-Z3dwaV/zvJhzoaxgFP2LG3Ah0L2tOQ0zmoFdHyoumpw=";
       };
     };
   });

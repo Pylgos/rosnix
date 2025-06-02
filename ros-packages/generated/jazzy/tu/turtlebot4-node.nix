@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_node";
-  version = "2.0.1-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."turtlebot4_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ irobot-create-msgs rclcpp rclcpp-action rcutils sensor-msgs std-msgs std-srvs turtlebot4-msgs ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot4_node-source";
         url = "https://github.com/ros2-gbp/turtlebot4-release.git";
-        rev = "0be5e29b81e3aa797dfc9f7631336960ed2a66ab";
-        hash = "sha256-GrJ7FKrgpc0hJWDIvcvyIKAR9f1LaCkTIpqzA2IncgM=";
+        rev = "17b311b449c1f3df2ff81347a69ad0c2b3edf95d";
+        hash = "sha256-nC++1wRYDf2f64s9MhFMjijp4tBTChvzoTMsVOMJXuI=";
       };
     };
   });

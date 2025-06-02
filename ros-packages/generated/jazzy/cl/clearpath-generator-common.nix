@@ -7,6 +7,7 @@
   clearpath-config,
   clearpath-control,
   clearpath-description,
+  clearpath-diagnostics,
   clearpath-manipulators,
   fetchgit,
   fetchurl,
@@ -19,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_generator_common";
-  version = "2.3.2-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."clearpath_generator_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ clearpath-config clearpath-control clearpath-description clearpath-manipulators moveit-setup-srdf-plugins ];
+  propagatedNativeBuildInputs = [ clearpath-config clearpath-control clearpath-description clearpath-diagnostics clearpath-manipulators moveit-setup-srdf-plugins ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ clearpath-config clearpath-control clearpath-description clearpath-manipulators moveit-setup-srdf-plugins ];
+  propagatedBuildInputs = [ clearpath-config clearpath-control clearpath-description clearpath-diagnostics clearpath-manipulators moveit-setup-srdf-plugins ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_generator_common" = substituteSource {
       src = fetchgit {
         name = "clearpath_generator_common-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "0251867d6194a0d06d3dddced64a6a18777d92fe";
-        hash = "sha256-zHPCsegq2CymVv9ZnqM1wltswzDYwET+nWCwr/QoN3k=";
+        rev = "ceaf543510fdc26a3591930d62b147c6701a5e1d";
+        hash = "sha256-PAaZ0bMUCC0DvET1GpROO+M4jWbmTHYAuLphDUsX9/4=";
       };
     };
   });

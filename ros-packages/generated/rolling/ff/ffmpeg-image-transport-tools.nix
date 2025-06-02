@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffmpeg_image_transport_tools";
-  version = "2.1.1-1";
+  version = "2.1.2-1";
   src = finalAttrs.passthru.sources."ffmpeg_image_transport_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ cv-bridge ffmpeg-encoder-decoder ffmpeg-image-transport-msgs rclcpp rosbag2-cpp rosbag2-storage sensor-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffmpeg_image_transport_tools-source";
         url = "https://github.com/ros2-gbp/ffmpeg_image_transport_tools-release.git";
-        rev = "fafbc483fff9e7d49e6f36887c349e44b86294c3";
-        hash = "sha256-Zmf1uyLR7szbG77lW736pYMuZpbTgZl4y2e/ZqXfVZY=";
+        rev = "c62080450c204719e1e7aceb89f87269a282985f";
+        hash = "sha256-JfqZoNHSYEY4aU0YjcJ3QsmuAgZ5jWOz4SUtNi13wIk=";
       };
     };
   });

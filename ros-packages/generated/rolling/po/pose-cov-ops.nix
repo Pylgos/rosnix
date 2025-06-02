@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pose_cov_ops";
-  version = "0.3.13-1";
+  version = "0.3.14-1";
   src = finalAttrs.passthru.sources."pose_cov_ops";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint cv-bridge geometry-msgs mrpt-libposes mrpt-libros-bridge nav-msgs rclcpp ros-environment sensor-msgs std-msgs stereo-msgs tf2 ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pose_cov_ops-source";
         url = "https://github.com/ros2-gbp/pose_cov_ops-release.git";
-        rev = "0fb300e86e3226a4501a0b2b0966d51eb2eb1aee";
-        hash = "sha256-WCVQfOvBWgHCzt+CebDkO3z2LXoE4E2kgaNHKGNp02M=";
+        rev = "3c0c9899cf60cbf62946a7f67e066714bb3a26a9";
+        hash = "sha256-McJKSV8TtRXK96u0B3BbnMEBDRHhy3ajTw+GPNu3ZJ4=";
       };
     };
   });

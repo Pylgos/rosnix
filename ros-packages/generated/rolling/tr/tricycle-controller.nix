@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_controller";
-  version = "5.0.1-1";
+  version = "5.0.2-1";
   src = finalAttrs.passthru.sources."tricycle_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ackermann-msgs backward-ros builtin-interfaces controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake std-srvs tf2 tf2-msgs ];
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tricycle_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "b66b9bce658f0b8295d08b6a98ba3672d8b6b0b4";
-        hash = "sha256-t44d/q5Op1h4p03F7+Ub2rHqgcbYhJph+w2527kAUxo=";
+        rev = "689daee2c8c663cdebecddde8f4b0ce1ece0c3cf";
+        hash = "sha256-nq7tmQ+v0fVJQSG1zSdXNQ4d6sZDkqUfVSPkcl2hpCE=";
       };
     };
   });

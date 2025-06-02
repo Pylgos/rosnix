@@ -16,7 +16,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_relocalization";
-  version = "1.7.0-1";
+  version = "1.8.0-1";
   src = finalAttrs.passthru.sources."mola_relocalization";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mola-pose-list mp2p-icp mrpt-libmaps mrpt-libobs mrpt-libslam ];
@@ -28,8 +28,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_relocalization-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "8ee58d21151baa9365660406e12c5d63df467629";
-        hash = "sha256-NPnbXQZ+4vyp2NHyT+oWlUR5vaYT23evUBm1mBV9wCg=";
+        rev = "2226c038aa58d02a45729ef571edd8112727f4ba";
+        hash = "sha256-7qL9NAXUuDgRXXLJTus2qxYuTMZhn+79yGn9nAeSxfQ=";
       };
     };
   });

@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-copyright,
   ament-lint-auto,
   ament-lint-cmake,
   buildAmentCmakePackage,
@@ -12,20 +13,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "random_numbers";
-  version = "2.0.1-4";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."random_numbers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-random" "libboost-random-dev" "libboost-thread" "libboost-thread-dev" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-random" "libboost-random-dev" "libboost-thread" "libboost-thread-dev" ]; };
-  checkInputs = [ ament-lint-auto ament-lint-cmake ];
+  checkInputs = [ ament-cmake-copyright ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "random_numbers" = substituteSource {
       src = fetchgit {
         name = "random_numbers-source";
         url = "https://github.com/ros2-gbp/random_numbers-release.git";
-        rev = "76e3073d3b6ff781466beaad1449c578e124efb0";
-        hash = "sha256-hQN9n+tLK1rKA+wXOXW/TfT4RzrXxvaIfDlzgV+LJnU=";
+        rev = "b9e33ebbdc441fbd7a995fbc70df5d6a923838b4";
+        hash = "sha256-Y/Vwy4Ma3k7fRnUAfzeEfBKbXhBNTmyWtJ5cIGYA0z0=";
       };
     };
   });

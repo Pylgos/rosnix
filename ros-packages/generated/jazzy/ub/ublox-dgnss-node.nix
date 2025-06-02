@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_dgnss_node";
-  version = "0.5.5-3";
+  version = "0.5.7-1";
   src = finalAttrs.passthru.sources."ublox_dgnss_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libusb-1.0-dev" "pkg-config" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_dgnss_node-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "15939c7f69f5742237ef77d96d8dd3359cca07c7";
-        hash = "sha256-3XIcJA0/gWGwpkW5x8zj5skm11PEmx8xSPuR+ngPqCg=";
+        rev = "7bc769fa587323da27a0d3a37818874ea8978bbc";
+        hash = "sha256-nOzb1ysFTxYFNfaJfE/YmjmS1vnCphbWXNKCuWxjjt4=";
       };
     };
   });

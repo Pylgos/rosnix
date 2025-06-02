@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_plugins";
-  version = "1.3.6-1";
+  version = "1.3.7-1";
   src = finalAttrs.passthru.sources."dwb_plugins";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles dwb-core nav2-common nav2-util nav-2d-msgs nav-2d-utils pluginlib rclcpp ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dwb_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "e77a0fb6ec77315a3e0300b925b6f483a1e250f9";
-        hash = "sha256-QyWqZzHP1JnqWolW9blcBxX+ucw1MKjR3BuvS2gAiO0=";
+        rev = "30bc546a53448dce5f21ac699e67d3c729396919";
+        hash = "sha256-H8XKwh/NxiJU3RnXN65uSAosiQztAZuR+gI008GLqi8=";
       };
     };
   });

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zed_msgs";
-  version = "5.0.0-1";
+  version = "5.0.1-1";
   src = finalAttrs.passthru.sources."zed_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-auto builtin-interfaces geometry-msgs rosidl-default-generators rosidl-default-runtime shape-msgs std-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zed_msgs-source";
         url = "https://github.com/ros2-gbp/zed-ros2-interfaces-release.git";
-        rev = "b39ad6279cbe10a001a2c81db939c38b5f57ba9f";
-        hash = "sha256-ozdB4mla08UJFHvV+UdpLvmmqXX2sIbAAw3QaRiOS7s=";
+        rev = "fc1e69692e831c3c9806a390ab6871297d816fe7";
+        hash = "sha256-zi/Zzi60tKl2zYUBqEAxynUAszgRTMgk/FNaeHV6zTQ=";
       };
     };
   });

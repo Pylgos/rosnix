@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "behaviortree_cpp";
-  version = "4.7.1-1";
+  version = "4.7.2-1";
   src = finalAttrs.passthru.sources."behaviortree_cpp";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ament-index-cpp rclcpp ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libsqlite3-dev" "libzmq3-dev" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "behaviortree_cpp-source";
         url = "https://github.com/ros2-gbp/behaviortree_cpp_v4-release.git";
-        rev = "20bd2d0f90eb8cdffa4f5aed2e750fa8cbe01cfa";
-        hash = "sha256-Jm4Jk/hwJA4sWHjC1VQ1D4iHUu0DZwnVkrGiLxkJeZQ=";
+        rev = "9ee455b23a4f23609ac587ed684b502f860d4902";
+        hash = "sha256-5o1PCui08DRssx8nQ1p5AqvIcdne+fXPxfwyrmNIeO4=";
       };
     };
   });

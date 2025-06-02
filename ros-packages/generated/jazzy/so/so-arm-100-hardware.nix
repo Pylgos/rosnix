@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "so_arm_100_hardware";
-  version = "0.1.0-3";
+  version = "0.1.1-1";
   src = finalAttrs.passthru.sources."so_arm_100_hardware";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ hardware-interface pluginlib rclcpp rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "so_arm_100_hardware-source";
         url = "https://github.com/brukg/so_arm_100_hardware-release.git";
-        rev = "b8706845ef8aef9e46e5604153a1d0fe2577c368";
-        hash = "sha256-2bR9OEW1Ol2WHkIS9M0g6z36B5/QQs76cYqAaYvMvfI=";
+        rev = "42a4368898d80091bd7752345e1dfdda34383570";
+        hash = "sha256-YZZ38dDp8tNPh5oAXsBbP4SNYLjZn387RkFDioQ1S0s=";
       };
     };
   });

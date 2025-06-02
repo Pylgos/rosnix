@@ -19,6 +19,7 @@
   nav-msgs,
   pose-cov-ops,
   rclcpp,
+  rclcpp-components,
   rosSystemPackages,
   sensor-msgs,
   std-msgs,
@@ -28,20 +29,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pf_localization";
-  version = "2.2.1-1";
+  version = "2.2.2-1";
   src = finalAttrs.passthru.sources."mrpt_pf_localization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
   checkInputs = [ mrpt-tutorials ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_pf_localization" = substituteSource {
       src = fetchgit {
         name = "mrpt_pf_localization-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "18afee59a56a42d6f4feaef0fed31cc989e7563a";
-        hash = "sha256-Yi3h3maLv5E/CFVLc5Olx6VqKsLsFbBVyxjoqzNsYag=";
+        rev = "6af68fd5e5de1f26f16b7d46eee8111e12142fb1";
+        hash = "sha256-3O7QUa6mX3nuFOhldtGE+ZjwwFnKXLaGFWe2sJyCLl8=";
       };
     };
   });

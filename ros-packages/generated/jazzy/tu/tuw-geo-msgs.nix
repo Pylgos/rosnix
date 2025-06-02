@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_geo_msgs";
-  version = "0.2.5-1";
+  version = "0.2.6-1";
   src = finalAttrs.passthru.sources."tuw_geo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs rosidl-default-runtime std-msgs ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_geo_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "a27bb7ef8fd30e3e236b7b40e67732c83c24cc71";
-        hash = "sha256-xxgIPZjpRA+M4k3VIAszIyJxMRH4lUCJTkeS4EE3ft0=";
+        rev = "a79c53d3e671b0d56687df9aa7acfde4111386ca";
+        hash = "sha256-0UH7mTKROUCVCVsUf+ER9Hgr119reuwR9Oz32GPg5y4=";
       };
     };
   });

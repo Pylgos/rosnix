@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control";
-  version = "1.2.12-1";
+  version = "1.2.13-1";
   src = finalAttrs.passthru.sources."gz_ros2_control";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle yaml-cpp-vendor ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_ros2_control-source";
         url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "9c19ccab16b1f5abb83133fcac95165b3e11e676";
-        hash = "sha256-4Qotg7/Pb4XMs57ReBQ/fL33KEhS4LiaDN6FmDs0EXE=";
+        rev = "a477ae7dd40e61d0d774dd38f9bf7479765df2f3";
+        hash = "sha256-Z/pcYoOWgYttR3uMdy2zv0YkYwCbyM9VvbDbqlr6+pA=";
       };
     };
   });

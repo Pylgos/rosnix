@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffmpeg_encoder_decoder";
-  version = "2.0.0-1";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."ffmpeg_encoder_decoder";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ cv-bridge rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" "libavdevice-dev" "libopencv-imgproc-dev" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffmpeg_encoder_decoder-source";
         url = "https://github.com/ros2-gbp/ffmpeg_encoder_decoder-release.git";
-        rev = "b4d371036faddc4afce3f794815251867d31ab50";
-        hash = "sha256-MXeEyYNAAZhLTjPBJMy4jhsO+QAr0BhEOoWjU5YcnFE=";
+        rev = "bece0dee4380af5c32f1d9390394c06dde78d0f8";
+        hash = "sha256-cAfBKi4D2UYa7aLn62WwdfwRqv+Owgc2a7JXlYomtOs=";
       };
     };
   });

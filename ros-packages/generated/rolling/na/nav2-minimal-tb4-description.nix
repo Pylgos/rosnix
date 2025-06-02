@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_minimal_tb4_description";
-  version = "1.1.0-2";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."nav2_minimal_tb4_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher robot-state-publisher urdf xacro ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_minimal_tb4_description-source";
         url = "https://github.com/ros2-gbp/nav2_minimal_turtlebot_simulation-release.git";
-        rev = "e05bc5517a9fc3665b495e56f30cc552788ad73a";
-        hash = "sha256-o+TYnuw3ct/k3c1bbWm15Vr+N7zlg9OOXn2czrfE9VY=";
+        rev = "dd857f796dbc9de74e34470d8d525c9caaa3f54a";
+        hash = "sha256-ph6mZPKZtZq0oZab62PQfIFX92/ylTHf6I3HZ5PUeag=";
       };
     };
   });

@@ -44,7 +44,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_robot_driver";
-  version = "4.0.0-1";
+  version = "4.0.1-1";
   src = finalAttrs.passthru.sources."ur_robot_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ backward-ros controller-manager controller-manager-msgs force-torque-sensor-broadcaster geometry-msgs hardware-interface joint-state-broadcaster joint-state-publisher joint-trajectory-controller launch launch-ros pluginlib pose-broadcaster position-controllers rclcpp rclcpp-lifecycle rclpy robot-state-publisher ros2-controllers-test-nodes rviz2 std-msgs std-srvs tf2-geometry-msgs ur-client-library ur-controllers ur-dashboard-msgs ur-description ur-msgs urdf velocity-controllers xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "socat" ]; };
@@ -56,8 +56,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_robot_driver-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "9958a87b1994dce871fb69efa71c94002ba57cea";
-        hash = "sha256-vozWQwx0rzfSLDxBZdUTkedEiYkcwep/yaZTyncMKh8=";
+        rev = "1c7b83f278b6d5d4d72a70ac5d4250e7b1c3b21c";
+        hash = "sha256-arV0ECGcFQHd08oAhFikQ+WIrXGAcsNlZKivdTLYWcc=";
       };
     };
   });

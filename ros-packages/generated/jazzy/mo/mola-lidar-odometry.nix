@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_lidar_odometry";
-  version = "0.7.2-1";
+  version = "0.7.3-1";
   src = finalAttrs.passthru.sources."mola_lidar_odometry";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint mola-common mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-kernel mola-launcher mola-pose-list mola-state-estimation-simple mola-viz mp2p-icp mrpt-libmaps mrpt-libtclap ros-environment ];
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_lidar_odometry-source";
         url = "https://github.com/ros2-gbp/mola_lidar_odometry-release.git";
-        rev = "d75677c5c248495088094fc30c279877363666a2";
-        hash = "sha256-7u+/Vt1+ispaUOXM1oFaRDeAZM8BI0QI6FD0T3lyLXk=";
+        rev = "34dfc3a7beb7b279cd9841daa3640d217fba3803";
+        hash = "sha256-ECJCNjs25p4c2G3IgOsW4eGmqo7t9P8685VGg4IC1DU=";
       };
     };
   });

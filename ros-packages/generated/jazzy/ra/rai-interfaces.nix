@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rai_interfaces";
-  version = "0.2.2-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."rai_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs nav2-msgs nav2-simple-commander rosidl-default-runtime sensor-msgs std-msgs tf-transformations vision-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "portaudio19-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rai_interfaces-source";
         url = "https://github.com/ros2-gbp/rai_interfaces-release.git";
-        rev = "1936ef9a7e387d3567ea387891b8f34c16bbe543";
-        hash = "sha256-Kyfzkqs9juz7WjSQ3Jc9z3+0VwGwk0LbyKKBqBKdhgE=";
+        rev = "e3b2787603358c552382abdb390fafeba7b86146";
+        hash = "sha256-BFoIVYmP5NdjkhaoiFhLp5lACCEM4/nBLXvt8hh7yPk=";
       };
     };
   });

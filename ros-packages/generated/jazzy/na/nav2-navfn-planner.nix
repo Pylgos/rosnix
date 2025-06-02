@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_navfn_planner";
-  version = "1.3.6-1";
+  version = "1.3.7-1";
   src = finalAttrs.passthru.sources."nav2_navfn_planner";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util nav-msgs pluginlib rclcpp rclcpp-action rclcpp-lifecycle tf2-ros visualization-msgs ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_navfn_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "72ba8e79320a4b420dd83ef236400ccb779f1772";
-        hash = "sha256-ahuEBr51kmRAvHdYcZ5mRH/PeeSYOBDFRLdRXNpqeLI=";
+        rev = "103e8100ce0e61848ef246c3d4ee4ca07d714f61";
+        hash = "sha256-YXpVwJyDnr8wjs9mRZiTmHvkNNigB5Z8TTy6EzQy2PM=";
       };
     };
   });
