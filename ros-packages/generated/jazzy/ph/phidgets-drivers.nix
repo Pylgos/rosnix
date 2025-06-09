@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_drivers";
-  version = "2.3.4-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."phidgets_drivers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ libphidget22 phidgets-accelerometer phidgets-analog-inputs phidgets-api phidgets-digital-inputs phidgets-digital-outputs phidgets-gyroscope phidgets-high-speed-encoder phidgets-ik phidgets-magnetometer phidgets-motors phidgets-msgs phidgets-spatial phidgets-temperature ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_drivers-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "ee7fbf3b18e6e5938dbad107474eba894679a97e";
-        hash = "sha256-dp+xVPXCMquZQec8fFPd8HpuMt/pzHS+cWbeo3VCjsU=";
+        rev = "dfcad77fa4a570cf07481fb8b61724fd622081c3";
+        hash = "sha256-eBT3ygxZ0RNNuBXJyU3n0zi5qcb6aDIETko3eAo+tNc=";
       };
     };
   });

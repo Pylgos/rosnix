@@ -13,26 +13,25 @@
   substituteSource,
   swri-geometry-util,
   swri-math-util,
-  swri-roscpp,
   swri-transform-util,
   tf2-geometry-msgs,
   visualization-msgs,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_route_util";
-  version = "3.8.1-1";
+  version = "3.8.3-1";
   src = finalAttrs.passthru.sources."swri_route_util";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-transform-util tf2-geometry-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-roscpp swri-transform-util tf2-geometry-msgs visualization-msgs ];
+  propagatedBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-transform-util tf2-geometry-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "swri_route_util" = substituteSource {
       src = fetchgit {
         name = "swri_route_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "8805bc381683f0331cefe8dd9a03dc3e636ac4d6";
-        hash = "sha256-uhqTDT3FBatdYbzURin0cLfmPwtS6kjNykUn4oOCiAI=";
+        rev = "710b8bdf15fc1e88a861fa0326a099f1a04564c9";
+        hash = "sha256-BJDYvB93rZXlqkXxaHORSgQLJGdRe6Q7r9NAJKnSZug=";
       };
     };
   });

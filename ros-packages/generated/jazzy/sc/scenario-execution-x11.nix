@@ -10,7 +10,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_x11";
-  version = "1.2.0-5";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_x11";
   propagatedNativeBuildInputs = [ scenario-execution ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" ]; };
   propagatedBuildInputs = [ scenario-execution ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ffmpeg" ]; };
@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_x11-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "ec458a7cd5080966954b83a647c708d4c5d27434";
-        hash = "sha256-0mfaHzBK0uJhe/roxrY6H3jr2gcfXAMHYFTuv/H7Mb4=";
+        rev = "70bb206edb54929195762c37f27a98a4fdb8cb25";
+        hash = "sha256-Ys7Kg+5tj47iYuSBT+ZC2sDWA3eLTItEeUa7if/1Kxk=";
       };
     };
   });

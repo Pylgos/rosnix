@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_geometry";
-  version = "0.1.3-1";
+  version = "0.1.4-1";
   src = finalAttrs.passthru.sources."tuw_geometry";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros gtest-vendor rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_geometry-source";
         url = "https://github.com/ros2-gbp/tuw_geometry-release.git";
-        rev = "bf3b7a3433eeaed1f13e23e5e760e6106f065826";
-        hash = "sha256-fkSJlZy6o4aN2oGwkDderv50YYpggMaSuaczkuaJNRM=";
+        rev = "0098542f3b0dd3c2f245e80249c23bf2a43b60eb";
+        hash = "sha256-APCB9uAzQsHUqfl+WdjHRgHY357VAi8rPg6LV070C5g=";
       };
     };
   });

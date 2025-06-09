@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_examples";
-  version = "4.6.1-1";
+  version = "4.7.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ microstrain-inertial-driver rviz2 rviz-imu-plugin sensor-msgs tf2-ros ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_examples-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "0a14a8d816817dc97d935cf3ce831b0aee1174cd";
-        hash = "sha256-alCkd8SfcUq3YiB6ccX/j8ch7IFo5maWqEnVYFP209M=";
+        rev = "90707cf0bb29cd9cd14c21e6733dd354c1ac6c43";
+        hash = "sha256-md3vhaoqvWTuh2RRlqpE0XOqXqzmTbhGtQzbj+mkt84=";
       };
     };
   });

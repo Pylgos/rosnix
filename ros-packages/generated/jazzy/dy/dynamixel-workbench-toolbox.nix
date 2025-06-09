@@ -6,25 +6,24 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  rclcpp,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_workbench_toolbox";
-  version = "2.2.4-1";
+  version = "2.2.5-1";
   src = finalAttrs.passthru.sources."dynamixel_workbench_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ dynamixel-sdk rclcpp ];
+  propagatedNativeBuildInputs = [ dynamixel-sdk ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ dynamixel-sdk rclcpp ];
+  propagatedBuildInputs = [ dynamixel-sdk ];
   passthru.sources = mkSourceSet (sources: {
     "dynamixel_workbench_toolbox" = substituteSource {
       src = fetchgit {
         name = "dynamixel_workbench_toolbox-source";
         url = "https://github.com/ros2-gbp/dynamixel_workbench-release.git";
-        rev = "9d7d56d88532a77935004d138d3c2b9c0e3fb3fb";
-        hash = "sha256-KbjWZzyMJ+scoH0brGwKVmYAblYTEQGhXJsuqZQm9rc=";
+        rev = "1a54aae353181e78df8aab0ffec866e47002addf";
+        hash = "sha256-X71HPKbFUoex2mIm9l5WvT1zmEHrB1+t3dtqpYyf0cw=";
       };
     };
   });

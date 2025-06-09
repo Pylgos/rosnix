@@ -1,10 +1,6 @@
 {
   ament-cmake,
-  angles,
-  backward-ros,
   buildAmentCmakePackage,
-  control-msgs,
-  control-toolbox,
   controller-interface,
   fetchgit,
   fetchurl,
@@ -15,28 +11,25 @@
   pluginlib,
   rclcpp,
   rclcpp-lifecycle,
-  realtime-tools,
   rosSystemPackages,
-  rsl,
   substituteSource,
-  tl-expected,
   urdf,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_spring_actuator_controller";
-  version = "1.0.5-1";
+  version = "1.0.8-1";
   src = finalAttrs.passthru.sources."ffw_spring_actuator_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedNativeBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle urdf ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle urdf ];
   passthru.sources = mkSourceSet (sources: {
     "ffw_spring_actuator_controller" = substituteSource {
       src = fetchgit {
         name = "ffw_spring_actuator_controller-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "22dff12f50e03e9eaeaec1eba38d0871a4b28244";
-        hash = "sha256-b5Ut6qK5VTeDpYNpq9/K84CoNfTOcpQ5Ct0zn/Io/Hc=";
+        rev = "414fc938d99fe09420594c9927f8988ca89d4864";
+        hash = "sha256-sMgYlEMUsT1AnxBNrSyg0LWiGGjbeL9ZKVC09dRnS9I=";
       };
     };
   });

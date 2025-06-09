@@ -9,15 +9,15 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ffw_bringup";
-  version = "1.0.5-1";
+  version = "1.0.8-1";
   src = finalAttrs.passthru.sources."ffw_bringup";
   passthru.sources = mkSourceSet (sources: {
     "ffw_bringup" = substituteSource {
       src = fetchgit {
         name = "ffw_bringup-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "1b5dd96a40e685c783a482642de5ea123d5b4284";
-        hash = "sha256-osG7ZB41POCHOSzEoqj99IVvYScNdqZcfBAsxaTaKj8=";
+        rev = "3e6538e5ec089f2a9ce559a02590c9a52b2e74b6";
+        hash = "sha256-DuzDgDQYQ1mnYHmXc9oHzSAg/kQbhVm6y2vyn3Vs+FY=";
       };
     };
   });

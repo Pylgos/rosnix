@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_transform_util";
-  version = "3.8.1-1";
+  version = "3.8.3-1";
   src = finalAttrs.passthru.sources."swri_transform_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ cv-bridge diagnostic-msgs diagnostic-updater geographic-msgs geometry-msgs gps-msgs marti-nav-msgs rcl-interfaces rclcpp rclcpp-components rclpy sensor-msgs swri-math-util swri-roscpp tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" "geos" "proj" "python3-numpy" "python3-yaml" "yaml-cpp" ]; };
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_transform_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "2df932e2f82af8ddf346ff3a2d334e5cd1ea0b7c";
-        hash = "sha256-U8ErbeWNbYPWR1QXLlgS9TJq0YDqVtyrw/hM4puKZAE=";
+        rev = "a0862aaa4fb3c4088cc05072e023aaa8f2ba8b77";
+        hash = "sha256-S80XvI8J/jKWLVZVMxP4t9CxsOB5jIVkDalp97S78mU=";
       };
     };
   });

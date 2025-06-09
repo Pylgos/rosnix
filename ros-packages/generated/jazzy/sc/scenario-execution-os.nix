@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_os";
-  version = "1.2.0-5";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_os";
   propagatedNativeBuildInputs = [ scenario-execution ];
   propagatedBuildInputs = [ scenario-execution ];
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_os-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "1ec61eb0d2bad321094e024283ada9ddbe0a3bac";
-        hash = "sha256-NwNn16y/rXnUEWkjW1R08ZehDwss9ZO84nHqvLgYUTM=";
+        rev = "2f916e0c58e350cb280296405cd3f78b8c1daa06";
+        hash = "sha256-1tczTgtjMH4GSyB8pW1w0Zno0pwX3U2jboqK477IlRI=";
       };
     };
   });

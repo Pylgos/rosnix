@@ -13,24 +13,23 @@
   swri-math-util,
   swri-transform-util,
   tf2,
-  tf2-ros,
   wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tile_map";
-  version = "2.5.0-1";
+  version = "2.5.5-1";
   src = finalAttrs.passthru.sources."tile_map";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qt5-qmake" ]; };
-  propagatedNativeBuildInputs = [ mapviz pluginlib rclcpp swri-math-util swri-transform-util tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libglew-dev" "libjsoncpp" "libjsoncpp-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ mapviz pluginlib rclcpp swri-math-util swri-transform-util tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libglew-dev" "libjsoncpp" "libjsoncpp-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "yaml-cpp" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt5-qmake" ]; };
-  propagatedBuildInputs = [ mapviz pluginlib rclcpp swri-math-util swri-transform-util tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglew-dev" "libjsoncpp" "libjsoncpp-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "yaml-cpp" ]; };
+  propagatedBuildInputs = [ mapviz pluginlib rclcpp swri-math-util swri-transform-util tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libglew-dev" "libjsoncpp" "libjsoncpp-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tile_map" = substituteSource {
       src = fetchgit {
         name = "tile_map-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "a837ed730cac3d2bde0e8cfe876ecfe4758f3b32";
-        hash = "sha256-qkQnjQsFh42iICXa4yI9ttVrPt0YyF/GGMXAcDNZV4A=";
+        rev = "4d4688e7c63791c6080d0e7f988ec1e09fbe77ab";
+        hash = "sha256-TNoF3R2czbCaYaq7sLI7X2+iEMn1Ri2tlg266eHGKVk=";
       };
     };
   });

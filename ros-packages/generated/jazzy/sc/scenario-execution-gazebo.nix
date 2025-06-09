@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_gazebo";
-  version = "1.2.0-5";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_gazebo";
   propagatedNativeBuildInputs = [ py-trees rclpy scenario-execution-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-defusedxml" "python3-transforms3d" ]; };
   propagatedBuildInputs = [ py-trees rclpy scenario-execution-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-defusedxml" "python3-transforms3d" ]; };
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_gazebo-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "d722e4dd777f40f821eca09758fe56d5e047aac3";
-        hash = "sha256-jzgSo2mMBkttGaQFSROZqXETnDmtgNcbDO2z0NWByAs=";
+        rev = "6ba80ed73ec0322a28874467f2c25ea57decacfb";
+        hash = "sha256-4eDmx+xB6YYombXfLxfwhuKHTt7tH9jw+scVQfynD54=";
       };
     };
   });

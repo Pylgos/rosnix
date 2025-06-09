@@ -4,7 +4,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gripper-controllers,
   gz-ros2-control,
   mkSourceSet,
   open-manipulator-description,
@@ -23,18 +22,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_bringup";
-  version = "3.2.2-1";
+  version = "3.2.4-1";
   src = finalAttrs.passthru.sources."open_manipulator_bringup";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ dynamixel-hardware-interface gripper-controllers gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
-  propagatedBuildInputs = [ dynamixel-hardware-interface gripper-controllers gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
+  propagatedNativeBuildInputs = [ dynamixel-hardware-interface gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
+  propagatedBuildInputs = [ dynamixel-hardware-interface gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_bringup" = substituteSource {
       src = fetchgit {
         name = "open_manipulator_bringup-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "4108471e0483e26bd9d4a1e4b3df2d16a9371013";
-        hash = "sha256-JZLvzMLmkNmH1hlAcccVdGT5CveTb7u1g6x+hBUCZJc=";
+        rev = "12ad6ed91a31307e165354bf42fb4b9be14bc32f";
+        hash = "sha256-nQWz1dVoECDqEmDMfgkaKncWTEDbCKMQs9wGUsccQe8=";
       };
     };
   });
