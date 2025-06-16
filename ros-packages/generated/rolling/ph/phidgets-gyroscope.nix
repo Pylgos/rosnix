@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_gyroscope";
-  version = "2.3.4-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."phidgets_gyroscope";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs std-msgs std-srvs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_gyroscope-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "c99502cae445ac67e33a4be58c092c59c2652786";
-        hash = "sha256-BeLAY/xcSwxua6J4yGssCfoS2+yJUfZxpn0nET6O3cw=";
+        rev = "0c864214f3fc9c09f1cd5051bd81b8afd13ba063";
+        hash = "sha256-9aLRhiutZEI1lMdnuHGVdYgTSyAExLFCOecaVNmlI5Q=";
       };
     };
   });

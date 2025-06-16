@@ -1,5 +1,4 @@
 {
-  ament-cmake,
   buildCmakePackage,
   fetchgit,
   fetchurl,
@@ -18,19 +17,19 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mp2p_icp";
-  version = "1.6.7-1";
+  version = "1.7.0-1";
   src = finalAttrs.passthru.sources."mp2p_icp";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mrpt-libbase mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libposes mrpt-libtclap ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "tbb" ]; };
-  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ mola-common mrpt-libbase mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libposes mrpt-libtclap ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "tbb" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mp2p_icp" = substituteSource {
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "0ca35a8eeef31e8c7d8ece3a10eaf994df1d1fc3";
-        hash = "sha256-7q/X/TdiF35H8Y4bgiDKRd9tbXbSG51qE5ky5a1Ew5Q=";
+        rev = "aba8036a78c6b25b6027331acb4e4413a54adbeb";
+        hash = "sha256-b+xPl2+0cUlZGSaq3bKzlLl8eVbK0mGlV+JYElxS6xQ=";
       };
     };
   });

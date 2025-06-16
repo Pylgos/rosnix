@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_interfaces";
-  version = "1.0.14-1";
+  version = "1.0.15-1";
   src = finalAttrs.passthru.sources."ros_gz_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rcl-interfaces rosidl-default-runtime std-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz_interfaces-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "ad5d81da8e742c9b98af222d094d923ffadf0b65";
-        hash = "sha256-tsNQd60ft6/oCQFweomr2ietqoBFAnbN/S58IiZTLKk=";
+        rev = "43dbb83657ebbc9bb2df658a10cb2010e48e0577";
+        hash = "sha256-r6aqlyMFwQEpScP4Z/mA1GLmDDNaNQ067VaF3eb2eAc=";
       };
     };
   });

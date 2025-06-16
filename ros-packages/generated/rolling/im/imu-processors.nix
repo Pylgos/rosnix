@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_processors";
-  version = "0.6.0-1";
+  version = "0.6.1-1";
   src = finalAttrs.passthru.sources."imu_processors";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components sensor-msgs tf2-ros ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_processors-source";
         url = "https://github.com/ros2-gbp/imu_pipeline-release.git";
-        rev = "7957246e846cc38456a43b29d5fd4202e4d353ad";
-        hash = "sha256-ostbDvthj76bEQ7wkhla2OqT36rf90mapxwhnsm2C3I=";
+        rev = "8d3ccab60009d2ff245f378b1da9b942fafdedda";
+        hash = "sha256-DYDqfN0Mph8tZJLOS5ufF3jNG8jpo5H5goeq++qk5fQ=";
       };
     };
   });

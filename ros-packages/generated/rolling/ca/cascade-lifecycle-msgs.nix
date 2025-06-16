@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-lint-common,
   buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
@@ -7,26 +8,27 @@
   fetchzip,
   lifecycle-msgs,
   mkSourceSet,
-  rclcpp,
   rosSystemPackages,
   rosidl-default-generators,
+  rosidl-default-runtime,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cascade_lifecycle_msgs";
-  version = "2.0.0-1";
+  version = "2.0.4-1";
   src = finalAttrs.passthru.sources."cascade_lifecycle_msgs";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ builtin-interfaces lifecycle-msgs rclcpp rosidl-default-generators ];
-  buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces lifecycle-msgs rclcpp rosidl-default-generators ];
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces lifecycle-msgs rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces lifecycle-msgs rosidl-default-runtime ];
+  checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cascade_lifecycle_msgs" = substituteSource {
       src = fetchgit {
         name = "cascade_lifecycle_msgs-source";
         url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-        rev = "7ad0edb701febd76972bf734e2a8c57c66391308";
-        hash = "sha256-vr1h9TdjCkXvrxYIYrmyyXpL/IO9M0hByXfdsHA2FO4=";
+        rev = "4d9181445ad6380c5e982bbe90fe0239808cac9f";
+        hash = "sha256-dSN04MLPNKTxfvpT2Wul+ln6Ans91RxqYXtxZjzOgjI=";
       };
     };
   });

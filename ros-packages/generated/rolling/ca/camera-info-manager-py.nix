@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "camera_info_manager_py";
-  version = "6.2.0-1";
+  version = "6.2.1-1";
   src = finalAttrs.passthru.sources."camera_info_manager_py";
   propagatedNativeBuildInputs = [ ament-index-python rclpy sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "camera_info_manager_py-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "d3f1cce8ee5ab13465246bc35c6e088cbc325022";
-        hash = "sha256-dg3FVWIkqf8FFQToY//k3qdxOQPOTRW/Qwb4iezFO+o=";
+        rev = "2c8f727d61cabf89f4c991b0902e2a94e9224c40";
+        hash = "sha256-PQYesuaVBiqzO+24VMFG4OHVe7ZQZzW7wRgDLLezMLM=";
       };
     };
   });

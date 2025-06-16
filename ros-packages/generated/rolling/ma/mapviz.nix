@@ -1,14 +1,12 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
-  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
   geometry-msgs,
   image-transport,
   mapviz-interfaces,
-  marti-common-msgs,
   mkSourceSet,
   pluginlib,
   rclcpp,
@@ -19,7 +17,6 @@
   std-srvs,
   substituteSource,
   swri-math-util,
-  swri-route-util,
   swri-transform-util,
   tf2,
   tf2-geometry-msgs,
@@ -28,19 +25,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz";
-  version = "2.5.0-1";
+  version = "2.5.6-1";
   src = finalAttrs.passthru.sources."mapviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "qt5-qmake" ]; };
-  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs image-transport mapviz-interfaces marti-common-msgs pluginlib rclcpp ros-environment rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-route-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs image-transport mapviz-interfaces pluginlib rclcpp ros-environment rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glut" "libglew-dev" "libopencv-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" "qt5-qmake" ]; };
-  propagatedBuildInputs = [ cv-bridge geometry-msgs image-transport mapviz-interfaces marti-common-msgs pluginlib rclcpp ros-environment rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-route-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
+  propagatedBuildInputs = [ geometry-msgs image-transport mapviz-interfaces pluginlib rclcpp ros-environment rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "glut" "libglew-dev" "libopencv-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mapviz" = substituteSource {
       src = fetchgit {
         name = "mapviz-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "ea390c60ca094ea9999c97ddecf9f442f0de9e3b";
-        hash = "sha256-WZtPxoZ/LVcAvEkrp5ZQz1B9iu7WWLGyhvF6mPoaSxc=";
+        rev = "6f95b5cef9c8a573eb51f906c3c0d24000ec3d7c";
+        hash = "sha256-Jb2c/eQYFWaBBSxfAic7FskB0oZQssZ7tNAaUjfu8cc=";
       };
     };
   });

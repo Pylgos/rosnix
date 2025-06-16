@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_high_speed_encoder";
-  version = "2.3.4-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."phidgets_high_speed_encoder";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ launch phidgets-api phidgets-msgs rclcpp rclcpp-components sensor-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_high_speed_encoder-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "734d1755e8f2f93854276b492e4f059044f57011";
-        hash = "sha256-BsKtXnknHFWNDONpeR9799qgpdOztu+HycudQA7CTPU=";
+        rev = "79181c2e437de5a427309f91eb38bc22e3b7224f";
+        hash = "sha256-zYbhjgmNTaodmBvsarF2DKNu4HVunYciUxNHzwhf9xM=";
       };
     };
   });

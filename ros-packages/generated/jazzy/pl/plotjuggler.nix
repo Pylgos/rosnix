@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler";
-  version = "3.10.5-1";
+  version = "3.10.6-1";
   src = finalAttrs.passthru.sources."plotjuggler";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lua-dev" "lz4" "mosquittopp-dev" "nlohmann-json-dev" "protobuf-dev" "qtbase5-dev" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plotjuggler-source";
         url = "https://github.com/ros2-gbp/plotjuggler-release.git";
-        rev = "b8bb342a16935d8402dc6c4e42aaed850feeaee3";
-        hash = "sha256-8Z6A1NMC1GAhY9seuWu3YQTJ4vmPal6oJVTobVvHLNw=";
+        rev = "5e86549062e77e6330d440753056877a41bb0b8c";
+        hash = "sha256-PEkQVYV0iU7f+yTKvNknATN5EkXbqt4Y05Lj5LYDqmc=";
       };
     };
   });

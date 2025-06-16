@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2controlcli";
-  version = "5.1.0-1";
+  version = "5.2.0-1";
   src = finalAttrs.passthru.sources."ros2controlcli";
   propagatedNativeBuildInputs = [ controller-manager controller-manager-msgs rcl-interfaces rclpy ros2cli ros2node ros2param rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pygraphviz" ]; };
   propagatedBuildInputs = [ controller-manager controller-manager-msgs rcl-interfaces rclpy ros2cli ros2node ros2param rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pygraphviz" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2controlcli-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "759d9e1b57d7074c2628934dc60f3eb0dc9cb318";
-        hash = "sha256-omnla5VAqYBmUeOZAC5Wma4n1aWoRTgIl9ZNvpa+VfE=";
+        rev = "70b2e14da286775ab254caf9da97a66f0e32cb9e";
+        hash = "sha256-KD5RPdXnTfdHaSABQMVHE45B7yI0g5QcIh8ne00LcK8=";
       };
     };
   });

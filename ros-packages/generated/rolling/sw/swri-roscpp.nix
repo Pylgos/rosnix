@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_roscpp";
-  version = "3.8.1-1";
+  version = "3.8.4-1";
   src = finalAttrs.passthru.sources."swri_roscpp";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ diagnostic-msgs diagnostic-updater marti-common-msgs nav-msgs rclcpp ros-environment rosidl-cmake rosidl-default-runtime std-msgs std-srvs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_roscpp-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "e44c31229d5fbf1428aaa0f6374677ee9cd94b75";
-        hash = "sha256-3650RqheqlvJ59HfWqmSs8DEOeRaKD+LGB/nWA4pZk4=";
+        rev = "f3319ceb46da5addab0b0c73478b0210276d304b";
+        hash = "sha256-gJfwFefo1A4DUED0vY8I/C4JBKLiUUqMQtYswiqA+04=";
       };
     };
   });

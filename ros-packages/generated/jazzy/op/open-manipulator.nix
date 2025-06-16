@@ -9,6 +9,7 @@
   om-joint-trajectory-command-broadcaster,
   om-spring-actuator-controller,
   open-manipulator-bringup,
+  open-manipulator-collision,
   open-manipulator-description,
   open-manipulator-gui,
   open-manipulator-moveit-config,
@@ -20,19 +21,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator";
-  version = "3.2.4-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."open_manipulator";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
+  propagatedNativeBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-collision open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
+  propagatedBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-collision open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator" = substituteSource {
       src = fetchgit {
         name = "open_manipulator-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "d8d17a1f522333af4ac73b53212035cd516007fe";
-        hash = "sha256-4tcIM6TIKfdPPYpOdj8VB4EE9PC4dH9UGMNsPln7V2I=";
+        rev = "c2feb1f423d71a22faa6207241368eae1976db88";
+        hash = "sha256-5zk3eqDqRJg1zAwXpdelr/CtTFKyBlFbw9DpEEbf9Oc=";
       };
     };
   });

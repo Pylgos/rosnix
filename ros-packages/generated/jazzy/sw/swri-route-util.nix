@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_route_util";
-  version = "3.8.3-1";
+  version = "3.8.4-1";
   src = finalAttrs.passthru.sources."swri_route_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs marti-common-msgs marti-nav-msgs rclcpp swri-geometry-util swri-math-util swri-transform-util tf2-geometry-msgs visualization-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_route_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "710b8bdf15fc1e88a861fa0326a099f1a04564c9";
-        hash = "sha256-BJDYvB93rZXlqkXxaHORSgQLJGdRe6Q7r9NAJKnSZug=";
+        rev = "428df63f90c1bb815ac420d8ce22e5ebf7072e48";
+        hash = "sha256-72NwYJ1bXwcY1dyLR0Vql1w5zGaCQc05rA0IuFvvm60=";
       };
     };
   });

@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_api";
-  version = "2.3.4-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."phidgets_api";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ libphidget22 ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_api-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "066222aa97a40a77394d22313f40b68ca0cc9fc2";
-        hash = "sha256-39iZHN6Ey1Pyk8u5jd1ucp1h4lE3Wr5R1GnZmnBNKv0=";
+        rev = "f88525f8ededae43beaf33e9aa82aea10a722d01";
+        hash = "sha256-K1PNmWPOjzvj9QBICOyH+eGF07F5Iz1Xg2bmJLxw0ZE=";
       };
     };
   });

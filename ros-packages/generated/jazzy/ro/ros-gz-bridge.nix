@@ -35,7 +35,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_bridge";
-  version = "1.0.14-1";
+  version = "1.0.15-1";
   src = finalAttrs.passthru.sources."ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ actuator-msgs geometry-msgs gps-msgs gz-msgs-vendor gz-transport-vendor launch launch-ros nav-msgs rclcpp rclcpp-components ros-gz-interfaces rosgraph-msgs sensor-msgs std-msgs tf2-msgs trajectory-msgs vision-msgs yaml-cpp-vendor ];
@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz_bridge-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "8620e4b6e201f5fae63f02d19732aa4cf4bc448b";
-        hash = "sha256-AdqhyheOHMxT0vfhdcOZbscEVEDd06U6tcYir5iBKB0=";
+        rev = "464e29ddf02a4e0025df90ee104caf3260f1e375";
+        hash = "sha256-zjTTKs+DBXm9cH7Eawp92qNd282qX/jlvW1+v+OL1EY=";
       };
     };
   });

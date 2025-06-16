@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mavros_msgs";
-  version = "2.10.0-1";
+  version = "2.10.1-1";
   src = finalAttrs.passthru.sources."mavros_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geographic-msgs geometry-msgs rcl-interfaces rosidl-default-runtime sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mavros_msgs-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "eb464504c3385aa58a540377d864b6d97160ece3";
-        hash = "sha256-1jVBSA322/QDZfzQjfsrHg+X8R9ajjVTWfnkJ4acP9U=";
+        rev = "538ecca5ea9a362b8794e81fa344c8a52231b353";
+        hash = "sha256-QDk4wo7hnzXcdJqjhm/SHFVCGBSo+Bd34hpYZBRulK8=";
       };
     };
   });

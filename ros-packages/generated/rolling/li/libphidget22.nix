@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libphidget22";
-  version = "2.3.4-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."libphidget22";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "file" "libusb-1.0" "libusb-1.0-dev" ]; };
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libphidget22-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "a880e32c93ab4f18b1328db05eaa085b44d213ae";
-        hash = "sha256-Hg2QLxoSq73ubW4SxyZyOYjjf+Qyn/GFUurF4OZcIeI=";
+        rev = "97ee85c48321fea36bd8685ac2c7f29ff290743f";
+        hash = "sha256-6dWYaCzPNG55gMbFha1Zitoz7v2SiJyHaORTqBE7RJg=";
       };
       substitutions = [
         {

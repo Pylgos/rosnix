@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "om_gravity_compensation_controller";
-  version = "3.2.4-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."om_gravity_compensation_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface kdl-parser pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "om_gravity_compensation_controller-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "f10c576b074b5df89e981a5f393c90e43b054eb1";
-        hash = "sha256-cnW/E8ZsrI2dCfOeQb0XE/kEZe85Mhsb8s865znMpIc=";
+        rev = "ae8cc52e8496d77ec801e9178dde63d3a36b658f";
+        hash = "sha256-XIcMgbaiyxD9yifzlvHcSsW97q5qadbOB9QsMyYS+98=";
       };
     };
   });

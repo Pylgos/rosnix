@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dynamixel_workbench";
-  version = "2.2.4-1";
+  version = "2.2.5-1";
   src = finalAttrs.passthru.sources."dynamixel_workbench";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dynamixel-workbench-toolbox ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dynamixel_workbench-source";
         url = "https://github.com/ros2-gbp/dynamixel_workbench-release.git";
-        rev = "a670be65fb27fab0835b747118a9b411ceee5d23";
-        hash = "sha256-G32ySwBv5HwsQ0YpXWmRMRIJP1P2ZJBSbdnzGxDxW+c=";
+        rev = "76158a80e91c1d7378fc4e54054861fbc9c7ad91";
+        hash = "sha256-zYHGURpkmWFDESYlCZmLaq6iUdSmTny4NgXtZCJjar4=";
       };
     };
   });

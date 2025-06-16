@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_teleop";
-  version = "3.2.2-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_teleop";
   propagatedNativeBuildInputs = [ control-msgs rclpy sensor-msgs std-msgs trajectory-msgs ];
   propagatedBuildInputs = [ control-msgs rclpy sensor-msgs std-msgs trajectory-msgs ];
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_teleop-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "9769634438ba2f1caa7cd93681ddbb325fc8ef27";
-        hash = "sha256-csabnS5fyGq/m06e5xnCV0tjC1SjlV0BRILQgs67zLw=";
+        rev = "41d288a691c57f19836504da467a63d6ab28a290";
+        hash = "sha256-oFE9r+oZXl7RV5O6vXPGJNbp/4CCb0QPOfc2RE4flMM=";
       };
     };
   });

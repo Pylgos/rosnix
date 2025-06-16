@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "random_numbers";
-  version = "2.0.2-1";
+  version = "2.0.4-1";
   src = finalAttrs.passthru.sources."random_numbers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-random" "libboost-random-dev" "libboost-thread" "libboost-thread-dev" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "random_numbers-source";
         url = "https://github.com/ros2-gbp/random_numbers-release.git";
-        rev = "b9e33ebbdc441fbd7a995fbc70df5d6a923838b4";
-        hash = "sha256-Y/Vwy4Ma3k7fRnUAfzeEfBKbXhBNTmyWtJ5cIGYA0z0=";
+        rev = "b574800d4ef2cc7dcaed850ebae02a466a779cec";
+        hash = "sha256-uWaMR7VdUqK4r3mm2t8wZZY+yoDl/6FL1I94j1Lg0ZY=";
       };
     };
   });

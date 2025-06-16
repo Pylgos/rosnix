@@ -11,6 +11,7 @@
   fetchzip,
   generate-parameter-library,
   hardware-interface,
+  kdl-parser,
   mkSourceSet,
   pluginlib,
   rclcpp,
@@ -24,19 +25,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "om_gravity_compensation_controller";
-  version = "3.2.2-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."om_gravity_compensation_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface kdl-parser pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface kdl-parser pluginlib rclcpp rclcpp-lifecycle realtime-tools rsl tl-expected urdf ];
   passthru.sources = mkSourceSet (sources: {
     "om_gravity_compensation_controller" = substituteSource {
       src = fetchgit {
         name = "om_gravity_compensation_controller-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "27e348aa92051fbdb49d2021664bdc305c7ec4b1";
-        hash = "sha256-L/2sjPCar0arm/U+OFi+tdmbc5mWSaEJYwL41YRPvBE=";
+        rev = "8f3dbd9bc6915fa373600330f1063c8824f19c9a";
+        hash = "sha256-XIcMgbaiyxD9yifzlvHcSsW97q5qadbOB9QsMyYS+98=";
       };
     };
   });

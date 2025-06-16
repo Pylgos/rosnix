@@ -39,7 +39,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
-  version = "5.1.0-1";
+  version = "5.2.0-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
   propagatedNativeBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "python3-filelock" ]; };
@@ -51,8 +51,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "20901788c2bc86f0cc2e0f0bf3e409565712a40f";
-        hash = "sha256-xFeFeQM5vG5BqIcxv7fLc4M8cjFj/EtDU6AaKo0Ebw4=";
+        rev = "25e73c329099522c81866bf2cfd1daddfb870d2b";
+        hash = "sha256-jPgU0wmFtgQfNlg69x7RaJUj2aaeZY1lM+2Oluy0m0k=";
       };
     };
   });
