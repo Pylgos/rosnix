@@ -239,7 +239,7 @@ in
             postPatch
             + ''
               substituteInPlace launch/gz_sim.launch.py.in \
-                --replace-fail 'ruby $(which gz) sim' 'gz sim'
+                --replace-fail "'ruby ' + get_executable_path('gz') + ' sim'" '"gz sim"'
             '';
         }
       );
