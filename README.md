@@ -19,7 +19,6 @@ While `rosnix` is heavily inspired by `nix-ros-overlay`, it offers several uniqu
 
 - **📦 Uses `colcon`**: Employs `colcon` for streamlined builds and environment configuration, tailored for ROS 2.
 - **🛠 Automatic Vendor Patching**: Automatically parses CMake files to apply necessary patches, minimizing manual intervention.
-- **🔍 Precise Dependency Management**: Offers advanced dependency classification for `nativeBuildInputs` and `buildInputs`, enabling better support for cross-compilation.
 - **⚙️ System Package Overrides**: Customize system packages flexibly with the `rosSystemPackages` attribute.
 - **📁 Per-Distribution Overlays**: Easily manage multiple ROS 2 distributions with specific overlays for each version.
 
