@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "neo_nav2_bringup";
-  version = "1.3.0-1";
+  version = "1.3.1-1";
   src = finalAttrs.passthru.sources."neo_nav2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ nav2-common navigation2 slam-toolbox ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "neo_nav2_bringup-source";
         url = "https://github.com/ros2-gbp/neo_nav2_bringup-release.git";
-        rev = "21909124082b13151eeaa87d9396a733f822d50a";
-        hash = "sha256-OR5lP0VCH4/nDhPyyI4FbC1yDHOYDp5OxZGI0QVeb8k=";
+        rev = "fa56a3274e0473fe7fbd0cef2d2f9345b1212678";
+        hash = "sha256-4TneDUFoLo4siJaKo3SLlokp1aIa3fsxXcnEarJAbwg=";
       };
     };
   });

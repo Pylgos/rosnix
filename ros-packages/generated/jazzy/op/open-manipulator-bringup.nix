@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "open_manipulator_bringup";
-  version = "3.3.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_bringup";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ dynamixel-hardware-interface gz-ros2-control open-manipulator-description rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_bringup-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "7bcaa6dda67be8a1c1f43919b9b903084f3d5c44";
-        hash = "sha256-bEAVCv9G9ISVrpvSiAja5tpsA7mPxwASpU+UUD7qO5I=";
+        rev = "942f812aa50c56170433f74e29bfbbf6ba0a102d";
+        hash = "sha256-/WkjtDk1GbndvOkZoV5x202IZ04R54Ptad977TK/aKo=";
       };
     };
   });

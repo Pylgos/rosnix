@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_diagnostics";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."clearpath_diagnostics";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ clearpath-platform-msgs diagnostic-aggregator diagnostic-updater rclcpp ros2launch sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_diagnostics-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "7b68789beebdb9af2b9de13ccdcfe1da7223d194";
-        hash = "sha256-nnFa6Uenv9sE3wPaNsWSVox7/XkFop992+m1K4CECPw=";
+        rev = "fda332c3de1e02b538ba306566e71e65786bf861";
+        hash = "sha256-A9gsJ3+UpyxYnPpVpNeC3B2CTNZrrd8zlJFaQrC9hLA=";
       };
     };
   });

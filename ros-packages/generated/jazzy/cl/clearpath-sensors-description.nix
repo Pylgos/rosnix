@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_sensors_description";
-  version = "2.5.0-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."clearpath_sensors_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ axis-description microstrain-inertial-description realsense2-description velodyne-description ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_sensors_description-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "7c963609055c448df80f950c2fa6b8c864b657ac";
-        hash = "sha256-MGh+QoUMrEJAnelCI7s7lr5F1IF61xunNv+6o59V1YQ=";
+        rev = "467b449258fac02a49275b90e761090f49a6b69e";
+        hash = "sha256-AOkFldb0ZcYO9rQixgsS8QSiUVl7XrAJrDi8fIVqXlM=";
       };
     };
   });

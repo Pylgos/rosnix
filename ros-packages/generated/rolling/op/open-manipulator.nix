@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator";
-  version = "3.3.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."open_manipulator";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ om-gravity-compensation-controller om-joint-trajectory-command-broadcaster om-spring-actuator-controller open-manipulator-bringup open-manipulator-collision open-manipulator-description open-manipulator-gui open-manipulator-moveit-config open-manipulator-playground open-manipulator-teleop ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "7bdac2a346e83d5e5f42fd174c93b2e03e195855";
-        hash = "sha256-5zk3eqDqRJg1zAwXpdelr/CtTFKyBlFbw9DpEEbf9Oc=";
+        rev = "d195d12bc04f23bd66a53cb5a8ef72032ac4573f";
+        hash = "sha256-zDEJ+LXpUDljfjuiwFXVf1m+PXUdauuc67nDpdtF7OY=";
       };
     };
   });

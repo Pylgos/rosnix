@@ -9,7 +9,7 @@
 }:
 buildMesonPackage (finalAttrs: {
   pname = "libcamera";
-  version = "0.5.0-1";
+  version = "0.5.1-1";
   src = finalAttrs.passthru.sources."libcamera";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "meson" "pkg-config" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libatomic" "libssl-dev" "libudev-dev" "openssl" "pybind11-dev" "python3" "python3-jinja2" "python3-ply" "python3-yaml" "yaml" ]; };
@@ -20,8 +20,8 @@ buildMesonPackage (finalAttrs: {
       src = fetchgit {
         name = "libcamera-source";
         url = "https://github.com/ros2-gbp/libcamera-release.git";
-        rev = "e4d8623115ac17a215c7a69d32943d21352630d2";
-        hash = "sha256-3EbU1EY3bVRc4rSUOo0nFdYKFSvO5ERRxJb5/QxkeDA=";
+        rev = "26d408907546e61cbcf2d0ff2e99cd6378148ae7";
+        hash = "sha256-A/5B9sl0RhKma0DzU9Ruw9cpt9pBDAuvBdqAVrfz/bY=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_playground";
-  version = "3.3.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_playground";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ moveit-ros-planning-interface rclcpp ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_playground-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "ca8e6360ca7b2af15ce74dca7d0ce8de6479ab08";
-        hash = "sha256-lUkKDhCV5cSKg8ykYK9DIBWR2PhU30CzdIh3rsPOEQs=";
+        rev = "ee8a959a9a806dda2b70fc6bd60341af6ed97f03";
+        hash = "sha256-DP58jfI+KPbl4IRRaim47Q80SXjigyJ+OQTZkanQGPs=";
       };
     };
   });

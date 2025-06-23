@@ -16,23 +16,23 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_collision";
-  version = "3.3.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_collision";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ kdl-parser rclcpp sensor-msgs std-msgs urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libfcl" ]; };
+  propagatedNativeBuildInputs = [ kdl-parser rclcpp sensor-msgs std-msgs urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libfcl-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ kdl-parser rclcpp sensor-msgs std-msgs urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libfcl" ]; };
+  propagatedBuildInputs = [ kdl-parser rclcpp sensor-msgs std-msgs urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libfcl-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "open_manipulator_collision" = substituteSource {
       src = fetchgit {
         name = "open_manipulator_collision-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "3a66d62d50f48a1c700ab28f4c7e3c9287a261ec";
-        hash = "sha256-6oJ3pcGSvi7rt4S/fcaoovm2KCHeGNHC4KuRyossUWk=";
+        rev = "e8d3fadaeb6d0ad050812656e3fe0b65a82c0f1c";
+        hash = "sha256-37cd3Y4uh3TtbAMrmY2utAf7lh82RntT1GZ0TsG/AWs=";
       };
     };
   });
   meta = {
-    description = "\n    This package implements a self-collision detection system for the follower robot during\n    follow-the-leader teleoperation. Its primary purpose is to enhance safety by detecting\n    potential self-collisions in real time while the robot is being remotely operated.  ";
+    description = "\n    This package implements a self-collision detection system for the follower robot during\n    leader-follower teleoperation. Its primary purpose is to enhance safety by detecting\n    potential self-collisions in real time while the robot is being remotely operated.  ";
   };
 })

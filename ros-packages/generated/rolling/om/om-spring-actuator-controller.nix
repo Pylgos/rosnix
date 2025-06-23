@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "om_spring_actuator_controller";
-  version = "3.3.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."om_spring_actuator_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle urdf ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "om_spring_actuator_controller-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "18e968c8c1a4f6ae770c32b62633d7b2927ca440";
-        hash = "sha256-QXNnoF+fD0ruY5l7+86HSrj+tnMtYnC2OVSsqM/cnhU=";
+        rev = "aeea3104f6f266895ae9e6d5aa4d899a356a0d95";
+        hash = "sha256-9rVacSp1cmWTLckC8ohZIHQlUYZiJtGiJ+GXojtyMkM=";
       };
     };
   });

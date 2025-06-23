@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_markers_msgs";
-  version = "0.0.2-1";
+  version = "0.0.4-1";
   src = finalAttrs.passthru.sources."aruco_markers_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco_markers_msgs-source";
         url = "https://github.com/namo-robotics/aruco_markers-release.git";
-        rev = "d94eb3d6fcdb8fe5bbb54378c4acc1ac8f4276b6";
-        hash = "sha256-MwlnEGsH+ijDiS+H/7QBE2dIYqQdyCa1HjfNWiC8AYg=";
+        rev = "e0eea71516c69ad604407fc032cf8f69ead8f329";
+        hash = "sha256-rUr/3vDcDarlupYWbk/DIJS59TjiMhQqNXVTyJcYOVM=";
       };
     };
   });

@@ -44,8 +44,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "482d21f33b5748c6dbb6eb1a0ec9dfca489b6c2f";
-        hash = "sha256-Z7L7dBqQaRpMdPrLDnt4x2efEsEBwIERSQVzUS4KK3I=";
+        rev = "fb262d7295e2c2d40d6908ae48fda035a4a4dc7d";
+        hash = "sha256-6VcgggaQPGTG1J6ra8e8LHYfrGGYC735hk4OPzFDUKM=";
       };
       substitutions = [
         {
