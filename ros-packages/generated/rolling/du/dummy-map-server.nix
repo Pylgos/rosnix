@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_map_server";
-  version = "0.37.0-1";
+  version = "0.37.1-1";
   src = finalAttrs.passthru.sources."dummy_map_server";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nav-msgs rclcpp ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dummy_map_server-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "dcd18cd348c9e67295e70b7e36c3f7592a258128";
-        hash = "sha256-INrYlwuUD9HjXC1fZrVeZCzEHDl8Jp5LXKV1ZZgaVRE=";
+        rev = "309890bc0d5fcf0fd6329f64c5ac301456ec1aff";
+        hash = "sha256-m9h7TO/LE6Uss5Q5YjJaPPfgx1/8YJxt5Zncy9j5GGM=";
       };
     };
   });

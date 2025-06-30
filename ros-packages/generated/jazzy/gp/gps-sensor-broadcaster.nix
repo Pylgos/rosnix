@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gps_sensor_broadcaster";
-  version = "4.26.0-1";
+  version = "4.27.0-1";
   src = finalAttrs.passthru.sources."gps_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gps_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "b2bc23e56360550ad48969399b37519246d8e229";
-        hash = "sha256-7E8sHSyRcdPuMJ+L6v4931nRO6bjSPB0xjsEq6S7vIU=";
+        rev = "ab088a736b6d8d5359d8d4b85fb1dcf23d6f7ca1";
+        hash = "sha256-zjBxeE0T5hHhoGFwc8K2nIgdYXEX/qvKe7t59Le1xb4=";
       };
     };
   });

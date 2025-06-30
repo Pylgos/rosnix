@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_aruco_tracker";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."turtlebot3_aruco_tracker";
   propagatedNativeBuildInputs = [ cv-bridge geometry-msgs rclpy sensor-msgs tf2-ros ];
   propagatedBuildInputs = [ cv-bridge geometry-msgs rclpy sensor-msgs tf2-ros ];
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_aruco_tracker-source";
         url = "https://github.com/ros2-gbp/turtlebot3_applications-release.git";
-        rev = "8968b77b7415d424ea312af78b49d37b7f4abe0f";
-        hash = "sha256-wWxmZvqQN5UBkudclXcH2pmg4FzEd35B4WRb5En0Tds=";
+        rev = "9788ac74b150088564531581738cc049a52b7c6a";
+        hash = "sha256-KxnHC49E41p+CGI+5hZE/s8JB6APDVtIkH7hIALW2dw=";
       };
     };
   });

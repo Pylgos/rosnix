@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_yaml_param_parser";
-  version = "9.2.6-1";
+  version = "9.2.7-1";
   src = finalAttrs.passthru.sources."rcl_yaml_param_parser";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedNativeBuildInputs = [ libyaml-vendor rcutils rmw ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcl_yaml_param_parser-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "18ea27d30c90ca36fb10291f6d6de48564131404";
-        hash = "sha256-OaQM8mLrY7yaeBZuCKjzXrWHp62fPsI1epFSnDS8iQ0=";
+        rev = "64c5e82d2e65a01b7fbe312bd078fd841cc36f9c";
+        hash = "sha256-rpHw0yBXLxPptu+i977yfgAos/6Z3bh56utV2wTdZtM=";
       };
     };
   });

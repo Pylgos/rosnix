@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_yolo_object_detection";
-  version = "1.3.2-1";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."turtlebot3_yolo_object_detection";
   propagatedNativeBuildInputs = [ compressed-image-transport cv-bridge image-transport rclpy sensor-msgs std-msgs ];
   propagatedBuildInputs = [ compressed-image-transport cv-bridge image-transport rclpy sensor-msgs std-msgs ];
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_yolo_object_detection-source";
         url = "https://github.com/ros2-gbp/turtlebot3_applications-release.git";
-        rev = "094d0e09d7cd161b30dafa33b3a201221106067b";
-        hash = "sha256-GcQEt+ToBVvYc6LUu2pUH0XR9AArwiK8TJNOLruFFRw=";
+        rev = "427db8f30746cbd40be0bc1baa49c067332e1da4";
+        hash = "sha256-LyLcXx3HdRs6q9ocvbhqo1URQGUMHCKQcJJmQYmEFlY=";
       };
     };
   });

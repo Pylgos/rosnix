@@ -14,19 +14,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler";
-  version = "3.10.7-1";
+  version = "3.9.2-1";
   src = finalAttrs.passthru.sources."plotjuggler";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lua-dev" "lz4" "mosquittopp-dev" "nlohmann-json-dev" "protobuf-dev" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lz4" "protobuf-dev" "qtbase5-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lua-dev" "lz4" "mosquittopp-dev" "nlohmann-json-dev" "protobuf-dev" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ ament-index-cpp fastcdr rclcpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "boost" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lz4" "protobuf-dev" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "plotjuggler" = substituteSource {
       src = fetchgit {
         name = "plotjuggler-source";
         url = "https://github.com/ros2-gbp/plotjuggler-release.git";
-        rev = "389d71d2a4d72d7424e9d9fad516043fdb463588";
-        hash = "sha256-R0WNG1sf1p0Dm55C/z7sVbxortJ4wjTptEJQ8D+FoUY=";
+        rev = "243d8c1cf472c0d6cac26cc2ab34fad9f2bb0622";
+        hash = "sha256-btYnAV/G2I+WURDeN8C6WfMHh79M4e4l5Ix9Zx7srrs=";
       };
     };
   });

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_opencv_util";
-  version = "3.8.4-1";
+  version = "3.8.5-1";
   src = finalAttrs.passthru.sources."swri_opencv_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge swri-math-util ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_opencv_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "aaa4921a28400ab5342760ee460d5d2f9c682425";
-        hash = "sha256-qkX1c/vApcJjREhTQ8MLt+QEYfoDUUsxQIRn/gbvEi8=";
+        rev = "2a8113618c5dcbf97d122f6e25a998477daaef63";
+        hash = "sha256-ZIiGAmKG/fWYxi0H8tC7SX+5FKB56L3JHRtN3Ilbtg0=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pendulum_msgs";
-  version = "0.37.0-1";
+  version = "0.37.1-1";
   src = finalAttrs.passthru.sources."pendulum_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pendulum_msgs-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "9015da4035272574d7034d5ac93a5c91a3657894";
-        hash = "sha256-B0CvDR9AkrwrNCTzci3+3z8qh5bTBK+kMRqQOOUtg2c=";
+        rev = "974c328b6a2123208f2251b369758faee9c58b89";
+        hash = "sha256-ja06DV2sAvRWAh3lSItTzkSm/pkk/CSNNSZ99E7Ugxo=";
       };
     };
   });
