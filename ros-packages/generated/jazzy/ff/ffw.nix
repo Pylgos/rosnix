@@ -10,6 +10,7 @@
   ffw-joystick-controller,
   ffw-moveit-config,
   ffw-spring-actuator-controller,
+  ffw-swerve-drive-controller,
   ffw-teleop,
   mkSourceSet,
   rosSystemPackages,
@@ -18,19 +19,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw";
-  version = "1.0.9-1";
+  version = "1.1.5-1";
   src = finalAttrs.passthru.sources."ffw";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ffw-bringup ffw-description ffw-joint-trajectory-command-broadcaster ffw-joystick-controller ffw-moveit-config ffw-spring-actuator-controller ffw-teleop ];
+  propagatedNativeBuildInputs = [ ffw-bringup ffw-description ffw-joint-trajectory-command-broadcaster ffw-joystick-controller ffw-moveit-config ffw-spring-actuator-controller ffw-swerve-drive-controller ffw-teleop ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ffw-bringup ffw-description ffw-joint-trajectory-command-broadcaster ffw-joystick-controller ffw-moveit-config ffw-spring-actuator-controller ffw-teleop ];
+  propagatedBuildInputs = [ ffw-bringup ffw-description ffw-joint-trajectory-command-broadcaster ffw-joystick-controller ffw-moveit-config ffw-spring-actuator-controller ffw-swerve-drive-controller ffw-teleop ];
   passthru.sources = mkSourceSet (sources: {
     "ffw" = substituteSource {
       src = fetchgit {
         name = "ffw-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "10f48b3eed1730a2ca3f8ec3288a65ab8fa7c4cc";
-        hash = "sha256-3QVRU2rWAJqYZkV6qF0zeDofhbvPwAC9pylZ4uYHVYE=";
+        rev = "4d3ccaa348045a9298c40019994ddb9bef720887";
+        hash = "sha256-dE5PjNF/AOjgMq/CORYnKI2d+10PChEdYHEtzq7+Szc=";
       };
     };
   });

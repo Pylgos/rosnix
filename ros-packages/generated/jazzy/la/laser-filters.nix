@@ -3,6 +3,8 @@
   ament-cmake-gtest,
   angles,
   buildAmentCmakePackage,
+  diagnostic-msgs,
+  diagnostic-updater,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -25,18 +27,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "laser_filters";
-  version = "2.0.8-1";
+  version = "2.0.9-1";
   src = finalAttrs.passthru.sources."laser_filters";
-  propagatedNativeBuildInputs = [ ament-cmake-auto angles filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
-  propagatedBuildInputs = [ ament-cmake-auto angles filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-cmake-auto angles diagnostic-msgs diagnostic-updater filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
+  propagatedBuildInputs = [ ament-cmake-auto angles diagnostic-msgs diagnostic-updater filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
   checkInputs = [ ament-cmake-gtest launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "laser_filters" = substituteSource {
       src = fetchgit {
         name = "laser_filters-source";
         url = "https://github.com/ros2-gbp/laser_filters-release.git";
-        rev = "9027226428db0efb963e57af7fd2ae1682457134";
-        hash = "sha256-Bc1cNUQrKbt8+u8y1570r5HxdO+y5v+XtllestWocm8=";
+        rev = "e6103c13434611379d1b44979bc72a7d7470ae77";
+        hash = "sha256-4rWrVW3Ja6NM4l1reRGUulmKVUdyEn0ZD3Tiin/Fs9s=";
       };
     };
   });

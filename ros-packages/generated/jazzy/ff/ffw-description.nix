@@ -4,28 +4,32 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  joint-state-publisher,
+  joint-state-publisher-gui,
   mkSourceSet,
-  realsense2-description,
+  robot-state-publisher,
   rosSystemPackages,
+  rviz2,
   substituteSource,
   urdf,
+  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_description";
-  version = "1.0.9-1";
+  version = "1.1.5-1";
   src = finalAttrs.passthru.sources."ffw_description";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ realsense2-description urdf xacro ];
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 urdf xacro ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ realsense2-description urdf xacro ];
+  propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 urdf xacro ];
   passthru.sources = mkSourceSet (sources: {
     "ffw_description" = substituteSource {
       src = fetchgit {
         name = "ffw_description-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "8921220b8b06002f0ced56165d3a1b3555168428";
-        hash = "sha256-Ki8WSrp8HWH2EL1+WMiD6rB/r8+BHoO/rN9JAJEGzCQ=";
+        rev = "c1fb34f2de19d674ba6f04274dbfcba89351c356";
+        hash = "sha256-U6w9fJCgOizGQeHEG6BpP51pbOsf2Iml+JaFc9MGpoc=";
       };
     };
   });

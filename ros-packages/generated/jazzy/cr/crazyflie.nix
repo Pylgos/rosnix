@@ -12,6 +12,7 @@
   mkSourceSet,
   motion-capture-tracking-interfaces,
   rclcpp,
+  ros-environment,
   rosSystemPackages,
   sensor-msgs,
   std-srvs,
@@ -21,20 +22,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "crazyflie";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."crazyflie";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ crazyflie-interfaces geometry-msgs motion-capture-tracking-interfaces rclcpp sensor-msgs std-srvs tf2-ros tf-transformations ];
+  propagatedNativeBuildInputs = [ crazyflie-interfaces geometry-msgs motion-capture-tracking-interfaces rclcpp ros-environment sensor-msgs std-srvs tf2-ros tf-transformations ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libusb-1.0-dev" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ crazyflie-interfaces geometry-msgs motion-capture-tracking-interfaces rclcpp sensor-msgs std-srvs tf2-ros tf-transformations ];
+  propagatedBuildInputs = [ crazyflie-interfaces geometry-msgs motion-capture-tracking-interfaces rclcpp ros-environment sensor-msgs std-srvs tf2-ros tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "eigen" "libusb-1.0-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "crazyflie" = substituteSource {
       src = fetchgit {
         name = "crazyflie-source";
         url = "https://github.com/ros2-gbp/crazyswarm2-release.git";
-        rev = "b384eb5cd52791561f02d750248585b78bb61a2b";
-        hash = "sha256-0fus6iBymGG4KJTBDaClPg6qQPDggeUi9PuwrL9Ac5Q=";
+        rev = "6701a1101ccb6f6b52c3cdefac62b5865447f4df";
+        hash = "sha256-jyuVHKEicR+GQJ+A6x/fZdIqm/DPdmegNPpDfKJYLSc=";
       };
       substitutions = [
         {

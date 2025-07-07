@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "urdfdom_headers";
-  version = "1.1.1-2";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."urdfdom_headers";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -18,8 +18,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urdfdom_headers-source";
         url = "https://github.com/ros2-gbp/urdfdom_headers-release.git";
-        rev = "f2c0b8fbd6da6446b55c5da6583ceeffc7818fca";
-        hash = "sha256-TpmzYPZ+36H+OGt00z8kZqNs+L3JOcpDoVCAtONyQHw=";
+        rev = "9a5899c9f437b0f4317759111eddc9de6543e9bd";
+        hash = "sha256-K05pVi+s3x7trzQRPHLuxSMK5FRnmcPArkDsZ19BwWo=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "sensor_msgs_py";
-  version = "5.7.0-1";
+  version = "5.8.1-1";
   src = finalAttrs.passthru.sources."sensor_msgs_py";
   propagatedNativeBuildInputs = [ sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "sensor_msgs_py-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "144a9ec40d72b764da0cd098f08d4c8b0884d60b";
-        hash = "sha256-2r+2rfkkMaAxfjltgouxdCy3eYzRT3lgkzecktRl3ms=";
+        rev = "01eb9a466b24e8824e1a4af4262beecf33ca0e42";
+        hash = "sha256-rXYM53Hv1Vdin256saCX+tohGQbOCJzhYuZCsJBovRQ=";
       };
     };
   });

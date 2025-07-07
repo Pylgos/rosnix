@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_platform_msgs";
-  version = "2.4.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."clearpath_platform_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_platform_msgs-source";
         url = "https://github.com/clearpath-gbp/clearpath_msgs-release.git";
-        rev = "65dc741ec6dbed83b222001fc39ee7233bbc9495";
-        hash = "sha256-ZpR+JBFbBWH415LPvHnxH2B2Bm09CmDBuwX10Cmx9V8=";
+        rev = "2a4c0951744b4b71348b5d28f7d2530e91a7c021";
+        hash = "sha256-/fbf14ELV2p+/npfFMgQoRoPbNQlz2MxBhWrwkpQw3Q=";
       };
     };
   });

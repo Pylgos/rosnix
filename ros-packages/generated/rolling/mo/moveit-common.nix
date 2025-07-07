@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_common";
-  version = "2.13.2-1";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."moveit_common";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_common-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "3976bbef62fd83a8eee59c484933be4b32c66019";
-        hash = "sha256-fPoJlRYlShZULF5JW3Nm2RYs6A4GRk7mvCareDtEWOU=";
+        rev = "f8a046d91112d04bd64f54c77c97e09ada95f57f";
+        hash = "sha256-ar3SeYcdetxI12NQm95mSKd9Z2ANfl/3MB6dHtPH8lU=";
       };
     };
   });

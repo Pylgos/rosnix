@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_wait_set";
-  version = "0.21.0-1";
+  version = "0.21.1-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_wait_set";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-components std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclcpp_wait_set-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "366465a3ea7d454a1ad32d712da802dda234edec";
-        hash = "sha256-iYlvraJ/c7U2g3hV1ILmlXAQR6pBrixH+QdLT/wZ9/c=";
+        rev = "dc28ca67f61edad9075b45a7fb7b4f6258239c3b";
+        hash = "sha256-p+5kUgWGSMbi+lPx2dBFB4G3ee1160DhXvfpOO+5RBk=";
       };
     };
   });

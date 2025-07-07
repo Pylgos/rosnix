@@ -38,20 +38,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_servo";
-  version = "2.13.2-1";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."moveit_servo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gripper_controllers" ]; };
+  propagatedNativeBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gripper_controllers" ]; };
+  propagatedBuildInputs = [ control-msgs controller-manager generate-parameter-library geometry-msgs joint-state-broadcaster joint-trajectory-controller joy launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization pluginlib realtime-tools robot-state-publisher sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs ];
   checkInputs = [ ament-cmake-gtest moveit-resources-panda-moveit-config ros-testing ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_servo" = substituteSource {
       src = fetchgit {
         name = "moveit_servo-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "133a91cf6285965c6dc6895af43151f26b420827";
-        hash = "sha256-G7jR7Jc1iEfahVtfPwBtSapicljtx46/m4cJ0Iadwno=";
+        rev = "662b3a228063223b73352cb10c8a1a76ab2998b1";
+        hash = "sha256-YhGA/2lSUzbeo2FLhiIAJM5c1HYB3z81mIYbYY+PumU=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_serial_util";
-  version = "3.8.4-1";
+  version = "3.8.5-1";
   src = finalAttrs.passthru.sources."swri_serial_util";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_serial_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "e0aec1e51d88d681efd22da7464ae61cc366b6fa";
-        hash = "sha256-BkPSo8MFlzf6zg3u2fsCKYc1hCxsR6/fn53Nle6NHH8=";
+        rev = "b31bf197c5e10ffcecb092ef12b8d7121b51b8eb";
+        hash = "sha256-tRTccxV1FQD7NPGldsk2nCvpOsD8KhYhFxf/RRpIDBI=";
       };
     };
   });

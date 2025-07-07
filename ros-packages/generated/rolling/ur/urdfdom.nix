@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "urdfdom";
-  version = "4.0.0-2";
+  version = "5.0.2-1";
   src = finalAttrs.passthru.sources."urdfdom";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ console-bridge-vendor tinyxml2-vendor urdfdom-headers ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libconsole-bridge-dev" "tinyxml2" ]; };
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urdfdom-source";
         url = "https://github.com/ros2-gbp/urdfdom-release.git";
-        rev = "219e7797dce15141726018c46fc5e22c4b49a23a";
-        hash = "sha256-g0ad4Vg+l8H2Pv4suUdF6WseUIeSWbeHIXY+Z5il3hc=";
+        rev = "07e16c5bffbb1d2ebab0c82bec7556a8dff0de16";
+        hash = "sha256-DPS45A3qJbJ+fOpzPNFmrRXEv+w6/nBjotFpcsrj5eo=";
       };
     };
   });

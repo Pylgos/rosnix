@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "examples_rclpy_executors";
-  version = "0.21.0-1";
+  version = "0.21.1-1";
   src = finalAttrs.passthru.sources."examples_rclpy_executors";
   propagatedNativeBuildInputs = [ rclpy std-msgs ];
   propagatedBuildInputs = [ rclpy std-msgs ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclpy_executors-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "e9af124c933d080a0620200b34d95c693f9856ab";
-        hash = "sha256-HMM3lCqZjNEgtENex8YizDvLGuGzE4n3buWKOQ+66G0=";
+        rev = "7773e52497a38335b93cd461233ce03db97f9527";
+        hash = "sha256-aRJ3/0cbDjsae4YFc6c75CRoNVthlFhK2kr6hDXWNCs=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "crazyflie_py";
-  version = "1.0.0-1";
+  version = "1.0.1-1";
   src = finalAttrs.passthru.sources."crazyflie_py";
   propagatedNativeBuildInputs = [ crazyflie-interfaces rclpy ];
   propagatedBuildInputs = [ crazyflie-interfaces rclpy ];
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "crazyflie_py-source";
         url = "https://github.com/ros2-gbp/crazyswarm2-release.git";
-        rev = "77f7e9ac9539641cb444fde621c75e0e5bdb5bfd";
-        hash = "sha256-mdssM6k0iCzkfIFeqAqOlBSplCb8ixgZb7+M6mB3qB8=";
+        rev = "a02a6deecfdcff2ac46add3b44886583f19149e4";
+        hash = "sha256-Ol1fnWzuXPMSvgJ1kOyBB5kYWw9Hg7WwHCaKzDkJS7U=";
       };
     };
   });

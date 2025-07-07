@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_fuel_tools_vendor";
-  version = "0.2.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."gz_fuel_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-fuel_tools10" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libyaml-dev" "libzip-dev" "tinyxml2" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_fuel_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_fuel_tools_vendor-release.git";
-        rev = "52b3fe497ef701459a74b62617371ee9697892fe";
-        hash = "sha256-KG72owcVroJv0BU2mgbj9lk1js0lhA+6dC/qKDhmns4=";
+        rev = "58e549598d23358beae257ea72b060a12021405b";
+        hash = "sha256-uywLxXEHiGyCpesj4UkDBMSdGQUqWIjSTdiVwZQubjY=";
       };
       substitutions = [
         {
@@ -48,12 +48,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-fuel-tools-source";
         url = "https://github.com/gazebosim/gz-fuel-tools.git";
-        rev = "84842609463393207786494b22cea539b8f159c3";
-        hash = "sha256-/Xfhec6kpv6srSp+hudqBaK4dKFn0QK45aGqxzNyytw=";
+        rev = "dd5b306bde5ac0d38e28a39a1a631739bba7842e";
+        hash = "sha256-ONo0zmKHSu1i6GAouDzFD5T2PUNXJ4IjhgPSoORRzao=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-fuel_tools10 10.0.1\n\n    Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel\n  ";
+    description = "\n    Vendor package for: gz-fuel_tools10 10.1.0\n\n    Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel\n  ";
   };
 })

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "console_bridge_vendor";
-  version = "1.9.0-1";
+  version = "1.9.1-1";
   src = finalAttrs.passthru.sources."console_bridge_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libconsole-bridge-dev" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "console_bridge_vendor-source";
         url = "https://github.com/ros2-gbp/console_bridge_vendor-release.git";
-        rev = "0ae4cdb8fd105f597b3aebab27018bc7361e67b0";
-        hash = "sha256-D212fLWRxi/ScvT9LwTShlrAkZNLtEhTfxy35Zffp/0=";
+        rev = "fc7fd34a15338c36da5d20e5897af6df2efed35d";
+        hash = "sha256-vrAC1/YLl/S1rnAhapp3GonPLHO+2CfXBWXYpkDMjKs=";
       };
       substitutions = [
         {
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "console_bridge-source";
         url = "https://github.com/ros/console_bridge.git";
-        rev = "0828d846f2d4940b4e2b5075c6c724991d0cd308";
-        hash = "sha256-M3GocT0hodw3Sc2NHcFDiPVZ1XN7BqIUuYLW8OaXMqM=";
+        rev = "81ec67f6daf3cd19ef506e00f02efb1645597b9c";
+        hash = "sha256-Se8w+4XIEuWhJDk4Xy4RbfFtGcnXrurzwmcr1kuA/to=";
       };
     };
   });

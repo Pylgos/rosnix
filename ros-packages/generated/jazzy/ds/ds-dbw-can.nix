@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ds_dbw_can";
-  version = "2.3.3-1";
+  version = "2.3.5-1";
   src = finalAttrs.passthru.sources."ds_dbw_can";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ can-msgs dataspeed-can-msg-filters dataspeed-can-usb ds-dbw-msgs rclcpp rclcpp-components sensor-msgs std-msgs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ds_dbw_can-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
-        rev = "e38f817610c3e2e1ef4431ed8f16c8e3c1a94837";
-        hash = "sha256-tqOV92CziWGNIEG7alml6fZAybpR2QA1Mn1B/RKoNbg=";
+        rev = "fc07a73e28413d5baabb19bd2be5a00e4abcfc21";
+        hash = "sha256-0c146zJJvRojAiqDB1kRcHwV+Equz/Wox3TrEqfK+sc=";
       };
     };
   });

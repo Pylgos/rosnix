@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pilz_industrial_motion_planner_testutils";
-  version = "2.13.2-1";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."pilz_industrial_motion_planner_testutils";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module moveit-common moveit-core moveit-msgs rclcpp tf2-eigen ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pilz_industrial_motion_planner_testutils-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "39419480c885ff0c2a1e941af0bbe02e9cc2bf43";
-        hash = "sha256-Ji6aXp0Yyus5PvyVms472fsvkXDhv6FYI/pOO8NaGM8=";
+        rev = "f3103f9c063db8b1ea21cc84d98b8de1594c37d3";
+        hash = "sha256-VRbRGTysEJzpGd3Wg9CF5C0fhFRn4KiHTv3VjWBg5vg=";
       };
     };
   });

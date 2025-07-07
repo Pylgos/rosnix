@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2trace";
-  version = "8.7.0-1";
+  version = "8.8.0-1";
   src = finalAttrs.passthru.sources."ros2trace";
   propagatedNativeBuildInputs = [ ros2cli tracetools-trace ];
   propagatedBuildInputs = [ ros2cli tracetools-trace ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2trace-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "dbf4ef1ec7bb04d7d7b9919bfd338a41db205eb5";
-        hash = "sha256-DW5RJUzTQVntwmqe30aL/9KA2Kw5BdT/n19s8xYBVU8=";
+        rev = "f8a0336baecec952ed36423a7027fd56c580b713";
+        hash = "sha256-GGWWGip+uCFVhAp5j2Y8Q28Bm3UfIEV4d6rhkvFCchc=";
       };
     };
   });

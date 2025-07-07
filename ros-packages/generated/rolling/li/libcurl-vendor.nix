@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libcurl_vendor";
-  version = "3.8.1-1";
+  version = "3.8.2-1";
   src = finalAttrs.passthru.sources."libcurl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "file" "pkg-config" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libcurl_vendor-source";
         url = "https://github.com/ros2-gbp/resource_retriever-release.git";
-        rev = "ac0065081fdb8dedb606fd5741d9d5d611f36dc4";
-        hash = "sha256-Mt0/dmHDE1rF5Kqzs9qRHImqT3Nc0PlOIFqDa2JeEzM=";
+        rev = "470b397c2aff04bcd53519044977292f2b41c3c8";
+        hash = "sha256-ud5hoJ8uyld+j7ltDcLGsioMV3CVSHVo3zdDumFvRpc=";
       };
       substitutions = [
         {
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "curl-source";
         url = "https://github.com/curl/curl.git";
-        rev = "801bd5138ce31aa0d906fa4e2eabfc599d74e793";
-        hash = "sha256-4w15NHw3D+YBuK02ZIZqvGaWgyQVc61MZ34pkLu0Oug=";
+        rev = "7161cb17c01dcff1dc5bf89a18437d9d729f1ecd";
+        hash = "sha256-LyUtbu4EqdcXpDmIVZdtxXzSJF5QCY5TsttAD9z0Xu4=";
       };
     };
   });

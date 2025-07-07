@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_environment";
-  version = "4.4.0-1";
+  version = "4.4.1-1";
   src = finalAttrs.passthru.sources."ros_environment";
   nativeBuildInputs = [ ament-cmake-core ];
   buildInputs = [ ament-cmake-core ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_environment-source";
         url = "https://github.com/ros2-gbp/ros_environment-release.git";
-        rev = "25b0984c19675455cd3214fa4584c495c1751750";
-        hash = "sha256-YdMytjZgzS8YTMkVwVaCnTH0Ua9VbKQdiuipG7fq3JM=";
+        rev = "60097074dfc09f295cbc7929e1288b26cb1dfb6d";
+        hash = "sha256-/YGesEix790JcZiNJcUCL3o6/hof3VmcJpjrip+4G/I=";
       };
     };
   });

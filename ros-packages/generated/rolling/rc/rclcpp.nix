@@ -39,11 +39,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp";
-  version = "29.6.1-1";
+  version = "30.0.0-1";
   src = finalAttrs.passthru.sources."rclcpp";
-  nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "python3-empy" ]; };
   propagatedNativeBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
-  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
+  buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" "python3-empy" ]; };
   propagatedBuildInputs = [ ament-index-cpp builtin-interfaces libstatistics-collector rcl rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rosgraph-msgs rosidl-dynamic-typesupport rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-c rosidl-typesupport-cpp statistics-msgs tracetools ];
   checkInputs = [ ament-cmake-gmock ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common mimick-vendor performance-test-fixture rmw rmw-implementation-cmake rosidl-default-generators test-msgs ];
   passthru.sources = mkSourceSet (sources: {
@@ -51,8 +51,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclcpp-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "9284cf431af6a9eb4a6e1cc44dde19c628a7e15d";
-        hash = "sha256-8UDbw4cSP9vtGYuBftmf6Bb5Y/rxbke0pGZgvYGnJCk=";
+        rev = "84b515b72fe449f5d389df9231add67aa66336d9";
+        hash = "sha256-/MyiBoDxoQqnDfiIaJA2rVw6toLEssMRi55yhA7Hux8=";
       };
     };
   });
