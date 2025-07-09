@@ -17,7 +17,7 @@ in
         pkgs.poetry
       ];
       text = ''
-        set -eu
+        set -euo pipefail
         DONT_COMMIT=''${DONT_COMMIT:-}
 
         pushd system-packages/poetry
@@ -46,12 +46,12 @@ in
       name = "rosnix-ci-build";
       runtimeInputs = [ pkgs.cachix ];
       text = ''
-        set -eu
+        set -euo pipefail
         distro=$1
         attr=".#ci.${system}.check.$distro"
         res=$(nix build "$attr" --dry-run 2> >(tee >(cat 1>&2)))
         if grep -q 'will be built:' <<< "$res"; then
-          cachix watch-exec rosnix -- nix build "$attr" -L
+          cachix watch-exec rosnix -- nix build "$attr" -L -j1
         else
           echo "$attr is already built or cached. skipping..."
         fi
@@ -63,12 +63,12 @@ in
       name = "rosnix-ci-build-all";
       runtimeInputs = [ pkgs.cachix ];
       text = ''
-        set -eu
+        set -euo pipefail
         distro=$1
         attr=".#ci.${system}.all.$distro"
         res=$(nix build "$attr" --dry-run 2> >(tee >(cat 1>&2)))
         if grep -q 'will be built:' <<< "$res"; then
-          cachix watch-exec rosnix -- nix build "$attr" -L --keep-going || true
+          cachix watch-exec rosnix -- nix build "$attr" -L --keep-going -j1 || true
         else
           echo "$attr is already built or cached. skipping..."
         fi
@@ -80,7 +80,7 @@ in
       name = "rosnix-ci-build-generator";
       runtimeInputs = [ pkgs.cachix ];
       text = ''
-        set -eu
+        set -euo pipefail
         attr=".#generator"
         res=$(nix build "$attr" --dry-run 2> >(tee >(cat 1>&2)))
         if grep -q 'will be built:' <<< "$res"; then
