@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "crazyflie_sim";
-  version = "1.0.1-1";
+  version = "1.0.3-1";
   src = finalAttrs.passthru.sources."crazyflie_sim";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ crazyflie-interfaces rclpy ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "crazyflie_sim-source";
         url = "https://github.com/ros2-gbp/crazyswarm2-release.git";
-        rev = "64a6cfc9cfd7dbd52706c5f4cc30c93cfd85e682";
-        hash = "sha256-z4s31/0CMl5czsOCrw8WwUh4krBwP1f3UoRv8A5snQ0=";
+        rev = "5aa89466f5eada73fad2755030adb0ac92d1aa2c";
+        hash = "sha256-OZfOAJbk8hBEID4NRGi9XDDA8oO4ZJXctBOmsVBzI5A=";
       };
     };
   });

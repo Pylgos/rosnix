@@ -17,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "automatika_embodied_agents";
-  version = "0.4.0-1";
+  version = "0.4.1-1";
   src = finalAttrs.passthru.sources."automatika_embodied_agents";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
   propagatedNativeBuildInputs = [ automatika-ros-sugar builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-httpx" "python3-platformdirs" "python3-tqdm" ]; };
   buildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
   propagatedBuildInputs = [ automatika-ros-sugar builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-httpx" "python3-platformdirs" "python3-tqdm" ]; };
-  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python-attrs-pip" "python-numpy-quaternion-pip" "python3-pytest" ]; };
+  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "automatika_embodied_agents" = substituteSource {
       src = fetchgit {
         name = "automatika_embodied_agents-source";
         url = "https://github.com/ros2-gbp/automatika_embodied_agents-release.git";
-        rev = "8dcc0f609ae8cbb360d047ef9cfc6640bff34b65";
-        hash = "sha256-MTIUNRXJstx+vJKZmgpgBd3UaBQRL0zDt7IpnT5Dpfk=";
+        rev = "25446515eb3db21d04ce1042c11f9645a2feced9";
+        hash = "sha256-XiV4GI/STr5U2fwcJ79PN3SLHAPiA+DsjBYwNFIw3jw=";
       };
     };
   });

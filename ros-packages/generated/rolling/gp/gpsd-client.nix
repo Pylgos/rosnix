@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gpsd_client";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."gpsd_client";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ gps-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgps" "pkg-config" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gpsd_client-source";
         url = "https://github.com/ros2-gbp/gps_umd-release.git";
-        rev = "5537e0b980c25a2a9f0408b37763cb9c42af3e89";
-        hash = "sha256-D5ekFgey/fX2d1wdyO8u4qhDuJsJmLZeb1XNtx4def4=";
+        rev = "15d0588a70724a078302ba4e44c71899eaca3efb";
+        hash = "sha256-3N3U9vyX5K++LJTglnixfuc+loqywm+9y7yFtIOs50w=";
       };
     };
   });

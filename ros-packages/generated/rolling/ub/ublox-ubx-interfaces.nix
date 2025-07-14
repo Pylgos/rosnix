@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_ubx_interfaces";
-  version = "0.5.7-1";
+  version = "0.5.8-1";
   src = finalAttrs.passthru.sources."ublox_ubx_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_ubx_interfaces-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "a5d23d97c21bd4374b8b0d3a1b09fcbe21f89511";
-        hash = "sha256-SLH5J0W7MomOUx6QOUjvjhFS5EIvna4ouatocHaNjLo=";
+        rev = "738107af2dcd98c22c3854c0accd7d04bc3aea52";
+        hash = "sha256-PyYTnyxNrD9BTPMuRA3ak6l/lRVTShSHsDhhG1ncUsk=";
       };
     };
   });

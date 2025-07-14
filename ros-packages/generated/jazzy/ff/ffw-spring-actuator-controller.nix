@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_spring_actuator_controller";
-  version = "1.1.5-1";
+  version = "1.1.7-1";
   src = finalAttrs.passthru.sources."ffw_spring_actuator_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle urdf ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_spring_actuator_controller-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "e28123077226af0f975a203b49b261ade64e2eea";
-        hash = "sha256-Bsh9qm3wMK1d5wZVK8jn3xbc2nfW+AwArfmoFqgVji4=";
+        rev = "6697f8f10c8c1f82d49375c21ef4341af14b5bf0";
+        hash = "sha256-2Bfm7uB6sciSc5VTBqeVBBRRB2IOV7vUXSRTi1f+dHU=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "compressed_image_transport";
-  version = "5.0.3-1";
+  version = "6.0.0-1";
   src = finalAttrs.passthru.sources."compressed_image_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge image-transport ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "compressed_image_transport-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "e14354d7f01867e349a247640f2c37f8f9013210";
-        hash = "sha256-WOjPjJ/ajsDENb3z3dKmihWYDlRGN8qAR6e56cxnHTc=";
+        rev = "5dd3d6416621e5754cce8985a8627a3f4a7aec45";
+        hash = "sha256-jzR0ib9PQELKnsTlxXrc5vg5gFZnDpoUEZ8CLox0wws=";
       };
     };
   });

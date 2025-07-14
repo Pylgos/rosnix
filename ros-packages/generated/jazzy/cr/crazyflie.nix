@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "crazyflie";
-  version = "1.0.1-1";
+  version = "1.0.3-1";
   src = finalAttrs.passthru.sources."crazyflie";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ crazyflie-interfaces geometry-msgs motion-capture-tracking-interfaces rclcpp ros-environment sensor-msgs std-srvs tf2-ros tf-transformations ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libusb-1.0-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "crazyflie-source";
         url = "https://github.com/ros2-gbp/crazyswarm2-release.git";
-        rev = "6701a1101ccb6f6b52c3cdefac62b5865447f4df";
-        hash = "sha256-jyuVHKEicR+GQJ+A6x/fZdIqm/DPdmegNPpDfKJYLSc=";
+        rev = "b6be69e410d4711613625bd29c7d4db99be4aeb7";
+        hash = "sha256-1XQmwlOZM20nVQDc8QAVFJJbeQp4vdBhkYHeGM4Zd0Y=";
       };
       substitutions = [
         {

@@ -23,7 +23,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ffw_bringup";
-  version = "1.1.5-1";
+  version = "1.1.7-1";
   src = finalAttrs.passthru.sources."ffw_bringup";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ dynamixel-hardware-interface ffw-description gz-ros2-control image-transport-plugins rclpy robot-state-publisher ros2-control ros2-controllers ros-gz-bridge ros-gz-image ros-gz-sim rviz2 xacro ];
@@ -33,8 +33,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_bringup-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "69df346e4342dbe2084332b3746db9abaaa78b09";
-        hash = "sha256-DYeP0fxO9j4Aq1+v90BfTuoIfTKgTtY9XESLrxQtydw=";
+        rev = "0a149b4b04d1312299e1f63abe857a3f8e4df3ea";
+        hash = "sha256-O348moJBnXJxSDHv56lEsGe5KKZUGJeC54QgxlIRKbs=";
       };
     };
   });
