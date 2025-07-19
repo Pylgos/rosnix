@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-distributions=(jazzy rolling)
+distributions=($(ls ros-packages/generated))
 
 for distro in "${distributions[@]}"; do
   rosPackages="(import ./default.nix).outputs.legacyPackages.x86_64-linux.$distro.rosPackages"

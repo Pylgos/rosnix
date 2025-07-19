@@ -13,6 +13,7 @@ let
         rosPython =
           {
             jazzy = final.python312;
+            kilted = final.python312;
             rolling = final.python312;
           }
           .${finalConfig.distro};

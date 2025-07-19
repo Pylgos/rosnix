@@ -286,7 +286,11 @@ in
           ];
           cargoDeps = final.rustPlatform.fetchCargoVendor {
             src = zenoh-c-src;
-            hash = import ./${distro}/cargo-hashes/zenoh-cpp-vendor.nix;
+            hash =
+              let
+                path = ./${distro}/cargo-hashes/zenoh-cpp-vendor.nix;
+              in
+              if builtins.pathExists path then import path else lib.fakeHash;
           };
         }
       );
@@ -302,7 +306,6 @@ in
               substituteInPlace webots_ros2_driver/webots_launcher.py \
                 --replace-fail 'shutil.copy2(world_path, self.__world_copy.name)' 'shutil.copyfile(world_path, self.__world_copy.name)'
             '';
-
         }
       );
     })
