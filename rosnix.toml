@@ -1,4 +1,4 @@
-distributions = ["jazzy", "rolling"]
+distributions = ["jazzy", "kilted", "rolling"]
 out_dir = "ros-packages/generated"
 max_concurrent_downloads = 16
 
@@ -16,6 +16,13 @@ GZ_VERSION = "fortress"
 IGNITION_VERSION = "fortress"
 
 [env.jazzy]
+GZ_BUILD_FROM_SOURCE = "1"
+RMF_ENABLE_FAILOVER = ""
+BUILD_WITH_LDMRS_SUPPORT = ""
+GZ_VERSION = "harmonic"
+IGNITION_VERSION = "harmonic"
+
+[env.kilted]
 GZ_BUILD_FROM_SOURCE = "1"
 RMF_ENABLE_FAILOVER = ""
 BUILD_WITH_LDMRS_SUPPORT = ""
