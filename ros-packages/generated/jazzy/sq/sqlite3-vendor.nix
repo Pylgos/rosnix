@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sqlite3_vendor";
-  version = "0.26.7-1";
+  version = "0.26.8-1";
   src = finalAttrs.passthru.sources."sqlite3_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libsqlite3-dev" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sqlite3_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "ba46d3af273ef7e5253b2279d7553f3b62e1f98f";
-        hash = "sha256-whj7y7ixp/5PEd4AHrWaX87BQaGeZkb13t/DM6Fi2rQ=";
+        rev = "a74cccc0e041c86d5ed078867268673bde253194";
+        hash = "sha256-iWvFuCTIINJJ+x/Zogyk/Z/rDHbEiSnZiVpwexT12dE=";
       };
       substitutions = [
         {

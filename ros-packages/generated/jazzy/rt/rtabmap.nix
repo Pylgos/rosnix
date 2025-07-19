@@ -15,7 +15,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rtabmap";
-  version = "0.22.0-1";
+  version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rtabmap";
   nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ cv-bridge gtsam libg2o libpointmatcher qt-gui-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" "libsqlite3-dev" "proj" "tbb" "zlib" ]; };
@@ -26,8 +26,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtabmap-source";
         url = "https://github.com/ros2-gbp/rtabmap-release.git";
-        rev = "00968c94b59466881e9ec562510d75749e4b3221";
-        hash = "sha256-K43KSbIVBa1NyqPBPu0ekADPuaCk6QiaqpONukxlCqE=";
+        rev = "313af4e17a77cb85cfcb1645be2aa390ece03676";
+        hash = "sha256-DLDdf9NZYriC9BT2QH6414nMSHFKMaqnFloCH3XUYzg=";
       };
     };
   });

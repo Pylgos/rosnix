@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_crazyflie";
-  version = "2025.0.0-1";
+  version = "2025.0.1-1";
   src = finalAttrs.passthru.sources."webots_ros2_crazyflie";
   propagatedNativeBuildInputs = [ builtin-interfaces rclpy tf-transformations webots-ros2-driver ];
   propagatedBuildInputs = [ builtin-interfaces rclpy tf-transformations webots-ros2-driver ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_crazyflie-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "b2078241a9b6dea6d2735e499b94d47eef1cb872";
-        hash = "sha256-pjEWty+sNV0fQp0BuD1rXLzGUbujhnkVAoUABsVECH4=";
+        rev = "caf071a1c0a78e285b79bd9eae5893a784249e4e";
+        hash = "sha256-RmuUxCv6BztMcgBF4m11bhWSPRWK7At7cdyNsn67z3A=";
       };
     };
   });

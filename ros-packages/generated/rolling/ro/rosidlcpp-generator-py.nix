@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidlcpp_generator_py";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."rosidlcpp_generator_py";
   propagatedNativeBuildInputs = [ ament-cmake ament-index-python python-cmake-module rmw rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-c rosidl-typesupport-interface rosidlcpp-generator-core rosidlcpp-parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "nlohmann-json-dev" ]; };
   propagatedBuildInputs = [ ament-cmake ament-index-python python-cmake-module rmw rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-typesupport-c rosidl-typesupport-interface rosidlcpp-generator-core rosidlcpp-parser ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "nlohmann-json-dev" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidlcpp_generator_py-source";
         url = "https://github.com/ros2-gbp/rosidlcpp-release.git";
-        rev = "cd3a7c63522b1eae88ad567beb74a2907b4afd94";
-        hash = "sha256-/KH+13GaLXfKh8B1fPqvR9j8ty49m/5AjPX7TGWd1KE=";
+        rev = "d4fed1797a212fcc8e8c1cbcb566637325953e6a";
+        hash = "sha256-pKP/SRNt7Jml3aW2YhD39QmfFWuDvGi3vZrU3KhRcbU=";
       };
     };
   });

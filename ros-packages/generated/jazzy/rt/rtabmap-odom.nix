@@ -15,6 +15,7 @@
   pluginlib,
   rclcpp,
   rclcpp-components,
+  ros-environment,
   rosSystemPackages,
   rtabmap-conversions,
   rtabmap-msgs,
@@ -26,19 +27,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_odom";
-  version = "0.22.0-1";
+  version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rtabmap_odom";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ cv-bridge image-geometry laser-geometry message-filters nav-msgs pcl-conversions pcl-ros pluginlib rclcpp rclcpp-components rtabmap-conversions rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs ];
+  propagatedNativeBuildInputs = [ cv-bridge image-geometry laser-geometry message-filters nav-msgs pcl-conversions pcl-ros pluginlib rclcpp rclcpp-components ros-environment rtabmap-conversions rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs ];
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ cv-bridge image-geometry laser-geometry message-filters nav-msgs pcl-conversions pcl-ros pluginlib rclcpp rclcpp-components rtabmap-conversions rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs ];
+  propagatedBuildInputs = [ cv-bridge image-geometry laser-geometry message-filters nav-msgs pcl-conversions pcl-ros pluginlib rclcpp rclcpp-components ros-environment rtabmap-conversions rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_odom" = substituteSource {
       src = fetchgit {
         name = "rtabmap_odom-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "9fce9478c3bf7f19ba85fe251a2ed2fa8eceb7fb";
-        hash = "sha256-6kWnVbLAeW5EjIlktb+r7gRP+jzcdH4YqFAnyOzPjL4=";
+        rev = "f8e79a725a11b02a152eddc824486c3e8eaad842";
+        hash = "sha256-tNOs86SH4dDVOGNEQjWXDPKIAdz+H32WHwpajWuFRAA=";
       };
     };
   });

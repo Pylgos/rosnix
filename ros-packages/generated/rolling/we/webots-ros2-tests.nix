@@ -31,7 +31,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_tests";
-  version = "2025.0.0-1";
+  version = "2025.0.1-1";
   src = finalAttrs.passthru.sources."webots_ros2_tests";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rclpy ros2bag rosbag2-storage-default-plugins webots-ros2-driver ];
@@ -42,8 +42,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_tests-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "3433caf7e592a40cb138445996767d46aa2965e5";
-        hash = "sha256-45jnbD/5NsR0k/YXvgPXTKo583Pm0KAPFQkqCL0T0Cc=";
+        rev = "ffa9c4180ce57724ced9713a5ae3859ca2eb4e3e";
+        hash = "sha256-nfx7yqQ0tTICH1yZ3in2zLGgeUbPInVhJhUuzmjE7/E=";
       };
     };
   });

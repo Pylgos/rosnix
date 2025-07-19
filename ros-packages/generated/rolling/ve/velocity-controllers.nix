@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "velocity_controllers";
-  version = "5.2.0-1";
+  version = "5.3.0-1";
   src = finalAttrs.passthru.sources."velocity_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ros2-control-cmake ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "velocity_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "1523334b41b461b8f006cbfd9d655862e471ecc2";
-        hash = "sha256-jKbgSobFgIJYXusSeuRS4DdW6YET/7vKMaQMAWVG2p8=";
+        rev = "19edc3a25c8aa8ea8d1430dddea4840cd7a4356e";
+        hash = "sha256-qccd5umXUhXcY4dz2h8yfXpMgxeW4sx7EYRbHopqPRM=";
       };
     };
   });

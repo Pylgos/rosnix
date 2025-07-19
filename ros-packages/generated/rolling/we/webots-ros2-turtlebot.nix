@@ -21,7 +21,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "webots_ros2_turtlebot";
-  version = "2025.0.0-1";
+  version = "2025.0.1-1";
   src = finalAttrs.passthru.sources."webots_ros2_turtlebot";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ builtin-interfaces controller-manager diff-drive-controller joint-state-broadcaster rclpy robot-state-publisher rviz2 tf2-ros webots-ros2-control webots-ros2-driver ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_turtlebot-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "9a297091fcb81f5caa2e26c7848bd19cd7e05fdb";
-        hash = "sha256-+oucEIpIUb1sFbiaAKWfSkgctwZS8ZE2NF+opqgGf1I=";
+        rev = "737b1a3ed9d5279d59f1ad7b61b32e94eb8f16d9";
+        hash = "sha256-QPWGTFMNhzhXTqhjPu5Bxh34EW7q7hfprMuES5//uZw=";
       };
     };
   });

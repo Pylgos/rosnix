@@ -7,6 +7,7 @@
   fetchzip,
   geometry-msgs,
   mkSourceSet,
+  ros-environment,
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
@@ -17,19 +18,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_msgs";
-  version = "0.22.0-1";
+  version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rtabmap_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-runtime sensor-msgs std-msgs std-srvs ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs std-srvs ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-runtime sensor-msgs std-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_msgs" = substituteSource {
       src = fetchgit {
         name = "rtabmap_msgs-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "7daee78f17df014af6566c16b30d110a09ae2c4c";
-        hash = "sha256-P0CelbrDK4cEiRM+DiUjgP+09IlLDVKgRsHpXnrqifY=";
+        rev = "be19784dfe003d8615e10b4050de34198f483da5";
+        hash = "sha256-MDSjeP7/8mqjEpdYsCTYhH1s//Lkal/hRhXRLGW7/+A=";
       };
     };
   });

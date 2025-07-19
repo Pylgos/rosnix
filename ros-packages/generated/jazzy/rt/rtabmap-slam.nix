@@ -1,6 +1,8 @@
 {
   ament-cmake-ros,
   apriltag-msgs,
+  aruco-msgs,
+  aruco-opencv-msgs,
   buildAmentCmakePackage,
   cv-bridge,
   fetchgit,
@@ -12,6 +14,7 @@
   nav2-msgs,
   rclcpp,
   rclcpp-components,
+  ros-environment,
   rosSystemPackages,
   rtabmap-msgs,
   rtabmap-sync,
@@ -27,19 +30,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_slam";
-  version = "0.22.0-1";
+  version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rtabmap_slam";
   nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ apriltag-msgs cv-bridge geometry-msgs nav2-msgs nav-msgs rclcpp rclcpp-components rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ apriltag-msgs aruco-msgs aruco-opencv-msgs cv-bridge geometry-msgs nav2-msgs nav-msgs rclcpp rclcpp-components ros-environment rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ apriltag-msgs cv-bridge geometry-msgs nav2-msgs nav-msgs rclcpp rclcpp-components rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
+  propagatedBuildInputs = [ apriltag-msgs aruco-msgs aruco-opencv-msgs cv-bridge geometry-msgs nav2-msgs nav-msgs rclcpp rclcpp-components ros-environment rtabmap-msgs rtabmap-sync rtabmap-util sensor-msgs std-msgs std-srvs tf2 tf2-ros visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rtabmap_slam" = substituteSource {
       src = fetchgit {
         name = "rtabmap_slam-source";
         url = "https://github.com/introlab/rtabmap_ros-release.git";
-        rev = "6f5318c604c9d1e6c9836843b0cf6066729c3d70";
-        hash = "sha256-TeFJEaZeAeTRE3JMnbLIFmoCZfXVaz9Q3Gwbw15+9TA=";
+        rev = "c8101c238bfb562eab7dfc3d00b5821b4436edfb";
+        hash = "sha256-VPqHsLXxEsnE4/b9LR+VeaXorlEp1fOrHqTYqw7/cY8=";
       };
     };
   });
