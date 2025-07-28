@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_obstacle_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_obstacle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_obstacle_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "1006b618701a40148e767b99a24c5ef4c81d5d9f";
-        hash = "sha256-6UyYvwxWf+ARToDPFdwhYIVL1hLDBchqPk0L85rQKXU=";
+        rev = "4b907ca4c15b204a1097a5e9f38d430fb76972e1";
+        hash = "sha256-UKEHuwdggws/eMLuAjvyufa1SRMwAuuU1ULSPLoPC8Y=";
       };
     };
   });

@@ -6,7 +6,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry-msgs,
   mkSourceSet,
   rmf-dispenser-msgs,
   rosSystemPackages,
@@ -16,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_ingestor_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_ingestor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rmf-dispenser-msgs rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rmf-dispenser-msgs rosidl-default-runtime ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rmf-dispenser-msgs rosidl-default-runtime ];
+  propagatedBuildInputs = [ builtin-interfaces rmf-dispenser-msgs rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_ingestor_msgs" = substituteSource {
       src = fetchgit {
         name = "rmf_ingestor_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "f8bc9c40b1ec918454f889cc5a5b0d681251fa9b";
-        hash = "sha256-eCOrvSO8P2w41PbvRPxNYcanE+Zi43F/RQPCyhKc9G4=";
+        rev = "e331dcfa83772ecd5f3a72ed152dc98a66913f5c";
+        hash = "sha256-jM/NUq7+9LalTjZaIUrgVe0wXVThJK5BxBTM/wq+l1M=";
       };
     };
   });

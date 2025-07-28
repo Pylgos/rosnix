@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_websocket";
-  version = "2.10.1-1";
+  version = "2.11.1-1";
   src = finalAttrs.passthru.sources."rmf_websocket";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nlohmann-json-schema-validator-vendor rclcpp rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libwebsocketpp-dev" "nlohmann-json-dev" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_websocket-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
-        rev = "21f0e9a1e8b7728ccbcaaf24b8a3885df9b8769e";
-        hash = "sha256-VFgJTSYP3lY4qnhSddd6Y9j93CLNR9bb2Q68WCa4KEk=";
+        rev = "d2dd389c786abac5a905e865a15d98a4cd0acb67";
+        hash = "sha256-Yc9vn/a7Bcv5il33GKaJ2y2sA6conwEQz0irFi1Z4hc=";
       };
     };
   });

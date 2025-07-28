@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "theora_image_transport";
-  version = "6.0.0-1";
+  version = "6.1.0-1";
   src = finalAttrs.passthru.sources."theora_image_transport";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ cv-bridge image-transport pluginlib rclcpp rcutils rosidl-default-runtime sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libogg" "libopencv-imgproc-dev" "libtheora" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "theora_image_transport-source";
         url = "https://github.com/ros2-gbp/image_transport_plugins-release.git";
-        rev = "2aa2664f0ecb73af2aad800c36aeef3968d6fe0c";
-        hash = "sha256-IKHGvQQDBPvBYFhiugv7kREeCvooPC+4oJhE71R7Wnc=";
+        rev = "7ec87d04e5e849b2281b07a4e8e05805161131f8";
+        hash = "sha256-kC6WBPCxPmaswdyfp6yTsRbE8foC7+l2biKIvlDknqA=";
       };
     };
   });

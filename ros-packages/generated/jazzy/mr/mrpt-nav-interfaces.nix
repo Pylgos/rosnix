@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_nav_interfaces";
-  version = "2.2.1-1";
+  version = "2.2.3-1";
   src = finalAttrs.passthru.sources."mrpt_nav_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs mrpt-msgs nav-msgs rosidl-default-runtime ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_nav_interfaces-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "c3f9086615dd75bc23761f6f69b21dcae305e0ce";
-        hash = "sha256-8KTKjf4wojCWJyyCLAjYtgfTkudf2BASMVhT9gy9+1M=";
+        rev = "cc227f539233c5847ac196ce8ab95d7ba9d6e4a9";
+        hash = "sha256-Cyvk77Nvl+u4dPNj877zySlSOlqk2A+Y+L0YZVbGD8k=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_task_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_task_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rmf-dispenser-msgs rosidl-default-runtime ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_task_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "41f90ee86e21693589705577f53ecef97a7ba625";
-        hash = "sha256-vKrBsMVxXhTnA5GXxo71etEpPcO3JAwYax++eCu+cnc=";
+        rev = "a6bc788a799604f17535bbebca1c4927b6b9c84f";
+        hash = "sha256-F3UjmvnkbZKqGVGpAcdm6Prle+G230fBEbSJ6ZIr/oc=";
       };
     };
   });

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_robot_interaction";
-  version = "2.14.0-1";
+  version = "2.13.2-2";
   src = finalAttrs.passthru.sources."moveit_ros_robot_interaction";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ interactive-markers moveit-common moveit-core moveit-ros-planning rclcpp tf2 tf2-eigen tf2-geometry-msgs tf2-ros ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_robot_interaction-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "34389acb57d507f8df08a2068233825fb618b760";
-        hash = "sha256-JOMqlg7dMIuhyYnVNXyFiR+PqVpgvieNYMa1yGrW4Og=";
+        rev = "0ad15ffa06ce7deb7ef7d8c99e0ac2b660ab953e";
+        hash = "sha256-xAkolTJAz2LTPKUMsvzj3NAqw6CGRPvKOmzIs9IUIL8=";
       };
     };
   });

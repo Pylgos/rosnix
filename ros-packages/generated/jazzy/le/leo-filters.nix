@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_filters";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."leo_filters";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ generate-parameter-library geometry-msgs nav-msgs rclcpp rclcpp-components sensor-msgs std-srvs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_filters-source";
         url = "https://github.com/ros2-gbp/leo_robot-release.git";
-        rev = "c30c956aeb4cfd4ca2299bb57dbbb433df30424d";
-        hash = "sha256-QbfMStMGFdyKgJqlrPAzjfv8JQD4zWhbone2YNrCW6k=";
+        rev = "d6eca996dc2ff05053810033a435e88b1153b7a3";
+        hash = "sha256-e2JQUkRaOr/lyglqX9ZNI7hKxPTrSGmFGmuoRbthqqE=";
       };
     };
   });

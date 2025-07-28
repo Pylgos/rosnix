@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_toolbox";
-  version = "4.5.0-1";
+  version = "4.6.0-1";
   src = finalAttrs.passthru.sources."control_toolbox";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "control_toolbox-source";
         url = "https://github.com/ros2-gbp/control_toolbox-release.git";
-        rev = "a3826d6907acc523fffdd18df7ac721d74235fc6";
-        hash = "sha256-ZU31Colp4lyf2MeKDt7UYzW4ioQ5ZYc/RFsOc2P/cMo=";
+        rev = "472fc13b38c5d90e6f8a0921affb58aae625b970";
+        hash = "sha256-HZ0fh9cAXiUxNBc+2XGzCqsYzYE1uO4aOAPKHML4CdM=";
       };
     };
   });

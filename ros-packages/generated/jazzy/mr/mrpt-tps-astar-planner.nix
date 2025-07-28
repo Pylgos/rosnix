@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_tps_astar_planner";
-  version = "2.2.1-1";
+  version = "2.2.3-1";
   src = finalAttrs.passthru.sources."mrpt_tps_astar_planner";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mrpt-libgui mrpt-libmaps mrpt-libnav mrpt-libros-bridge mrpt-msgs mrpt-nav-interfaces mrpt-path-planning nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_tps_astar_planner-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "0fc036ccaaafb6bd13bd24e44dce430f1cbb7bc8";
-        hash = "sha256-Ks13fdjdQxTBr9f9vORbnJAHopRtziGX+H2mqFiv0uM=";
+        rev = "a5b66a3506548c77f709eb251c727e76624dcb4c";
+        hash = "sha256-qxEOsdHe2TkkWQBQPopajXiatJ+SMYg7DJjg1L7SF9U=";
       };
     };
   });

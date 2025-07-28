@@ -1,9 +1,11 @@
 {
   ament-cmake,
   ament-cmake-gtest,
+  ament-cmake-lint-cmake,
+  ament-cmake-pep257,
+  ament-cmake-uncrustify,
   ament-cmake-xmllint,
   ament-lint-auto,
-  ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -15,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_test_datasets";
-  version = "0.4.0-2";
+  version = "0.4.2-1";
   src = finalAttrs.passthru.sources."mola_test_datasets";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
+  propagatedNativeBuildInputs = [ ros-environment ];
   buildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake-xmllint ros-environment ];
-  checkInputs = [ ament-lint-auto ament-lint-common ];
+  propagatedBuildInputs = [ ros-environment ];
+  checkInputs = [ ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "mola_test_datasets" = substituteSource {
       src = fetchgit {
         name = "mola_test_datasets-source";
         url = "https://github.com/ros2-gbp/mola_test_datasets-release.git";
-        rev = "d37d2599c35441c23fef46abf0e700e16213973b";
-        hash = "sha256-1n0ByrTtI44KL2C1Y+Ym/s1EWGV5lFFjuuXclW2YS/E=";
+        rev = "bc41702ba5b8fbc00effb4a34197e1f89ff9f743";
+        hash = "sha256-Hoq4/CRTRBbNH97jdPG1ais54BJwkHykwnB/PFEs8FE=";
       };
     };
   });

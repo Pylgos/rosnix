@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_building_map_tools";
-  version = "1.12.0-1";
+  version = "1.14.0-1";
   src = finalAttrs.passthru.sources."rmf_building_map_tools";
   propagatedNativeBuildInputs = [ ament-index-python gz-fuel-tools-vendor rclpy rmf-building-map-msgs rmf-site-map-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-fiona" "python3-pyproj" "python3-requests" "python3-rtree" "python3-shapely" "python3-yaml" "sqlite3" "yaml-cpp" ]; };
   propagatedBuildInputs = [ ament-index-python gz-fuel-tools-vendor rclpy rmf-building-map-msgs rmf-site-map-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-fiona" "python3-pyproj" "python3-requests" "python3-rtree" "python3-shapely" "python3-yaml" "sqlite3" "yaml-cpp" ]; };
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_building_map_tools-source";
         url = "https://github.com/ros2-gbp/rmf_traffic_editor-release.git";
-        rev = "43cc64f4165e2479507513e04664c0d25aed2673";
-        hash = "sha256-qjqRwUKF6KIN9TiQAO0HbUNzQl4iBlc3tEGfZeBxFKU=";
+        rev = "ac1dccf192637978cd9a1553942e60cdd46ccf3e";
+        hash = "sha256-wOBTFM+6elwBJKn37cIHOVrkxubtoWPu2HJMVPuw16E=";
       };
     };
   });

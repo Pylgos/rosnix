@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager_msgs";
-  version = "4.33.0-1";
+  version = "4.34.0-1";
   src = finalAttrs.passthru.sources."controller_manager_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces lifecycle-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "controller_manager_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "72590a78234bd3694152326dd15c4b33e84a4e3f";
-        hash = "sha256-Bl5uQqXg76PX7O0QcWJi+fWT5UOwXkiaNoArmL+jIME=";
+        rev = "35e33aee8f003313de5b2bf3c72540594d897db4";
+        hash = "sha256-CabjM927F4Dtiy6SQFVe45gH43E7Jz3eQVeuPL5M4mM=";
       };
     };
   });

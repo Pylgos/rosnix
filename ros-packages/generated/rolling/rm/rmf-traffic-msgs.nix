@@ -6,7 +6,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  geometry-msgs,
   mkSourceSet,
   rosSystemPackages,
   rosidl-default-generators,
@@ -15,20 +14,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_traffic_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_traffic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmf_traffic_msgs" = substituteSource {
       src = fetchgit {
         name = "rmf_traffic_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "737d833e69c013a026d5184e40993e750bf2231a";
-        hash = "sha256-8UEJ3B1tNBBL6iHzcX9Y4PDM7iI5Gb1eIwPflJv+q5s=";
+        rev = "c08a5e881f1d3478274e83717d67575c83decfbe";
+        hash = "sha256-ufUlJNdMupqSBtnKob2fQlA9WwjcLdh75IqaSSqizeE=";
       };
     };
   });

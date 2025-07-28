@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_door_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_door_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_door_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "e2ad1d0f211a85ca877c49e4ed89e1e0794ee799";
-        hash = "sha256-lB2vH+z8SCezFtNc9Tjak4S7Myv4jlaGwl9nT1DaJlU=";
+        rev = "7d312b56509cae83affb39e21d5528c4b05a5f4b";
+        hash = "sha256-Toynt3TiWYWZIYOm+iV8sOQqJwHXxr3urbmffk+7ogQ=";
       };
     };
   });

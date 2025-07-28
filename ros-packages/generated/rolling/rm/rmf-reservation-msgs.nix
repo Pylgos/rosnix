@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_reservation_msgs";
-  version = "3.5.0-1";
+  version = "4.0.0-1";
   src = finalAttrs.passthru.sources."rmf_reservation_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_reservation_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "d64fb4187cf631f34867907cbbc781f1d94b89af";
-        hash = "sha256-sZ5bLAk4ieaTpG5rfXEUu4goCVPDiwXH9Ef+pDvGEDo=";
+        rev = "bd4686451ee1960a635168801a9431b1b1b93dd2";
+        hash = "sha256-ex1wxgGDenPKcsKm7dSWmLLRPlWz2tvbPOy6qRhKXGw=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_tutorials";
-  version = "2.2.2-1";
+  version = "2.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_tutorials";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mvsim teleop-twist-keyboard ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_tutorials-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "97298f358d461d9fe6b60f7cd85a18e7c6965b93";
-        hash = "sha256-oZA7/6THnRkCWlSK24rgY4KgGcj6Yp+89B83Sn7VaHc=";
+        rev = "c7e312c6c29365da963d92970e14c563617c3c01";
+        hash = "sha256-XjtnTZhEQWhBLMN3CKn0AQb82GZsviB8lOZ/Kj9ck6o=";
       };
     };
   });

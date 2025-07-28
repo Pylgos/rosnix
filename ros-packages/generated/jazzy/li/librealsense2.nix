@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "librealsense2";
-  version = "2.55.1-1";
+  version = "2.56.4-1";
   src = finalAttrs.passthru.sources."librealsense2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "dkms" "git" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "pkg-config" "udev" ]; };
@@ -19,9 +19,9 @@ buildCmakePackage (finalAttrs: {
     "librealsense2" = substituteSource {
       src = fetchgit {
         name = "librealsense2-source";
-        url = "https://github.com/IntelRealSense/librealsense2-release.git";
-        rev = "9b999a96567dc0721be20811b3f715c0c33227d1";
-        hash = "sha256-tI3pz5+/WaOQ2PifY/4auyUraj3cReWbBOFBn7k6Hok=";
+        url = "https://github.com/ros2-gbp/librealsense2-release.git";
+        rev = "2fd1a119424b7205347a6a6ce6269c44b9025c9b";
+        hash = "sha256-QQLepsGGcNjQ6ZEocJLVNafC5T6HMj7313k4JV6lW8s=";
       };
       substitutions = [
         {
@@ -46,13 +46,8 @@ buildCmakePackage (finalAttrs: {
         }
         {
           path = "CMake/external_libusb.cmake";
-          from = "GIT_REPOSITORY \"https://github.com/ev-mp/libusb.git\"";
-          to = "URL ${sources."librealsense2/libusb"}";
-        }
-        {
-          path = "CMake/json-download.cmake.in";
-          from = "GIT_REPOSITORY \"https://github.com/nlohmann/json.git\"";
-          to = "URL ${sources."librealsense2/json"}";
+          from = "GIT_REPOSITORY \"https://github.com/libusb/libusb-cmake.git\"";
+          to = "URL ${sources."librealsense2/libusb-cmake"}";
         }
         {
           path = "CMake/pybind11-download.cmake.in";
@@ -83,8 +78,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "Fast-DDS-source";
         url = "https://github.com/eProsima/Fast-DDS.git";
-        rev = "ff71eabb0f054a50837638d8b669f1db17243b46";
-        hash = "sha256-H1Unfwhu0fWMzck85fEUWOrCPWUHKxbWZEF8ay0Wtak=";
+        rev = "3118cba80c7b0db2c9bd0ede8671e3d31785cbda";
+        hash = "sha256-lDbo5DOvqf5qko1C2kHfltANpPqekWia3CaunWps4wU=";
       };
     };
     "librealsense2/MobileNetSSD_deploy" = substituteSource {
@@ -98,24 +93,16 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "curl-source";
         url = "https://github.com/curl/curl.git";
-        rev = "2f33be817cbce6ad7a36f27dd7ada9219f13584c";
-        hash = "sha256-sR4Pv5YWcS5/zWUff5f9ASFkx7Fv75WdtpnxiKG4Ulc=";
+        rev = "fd567d4f06857f4fc8e2f64ea727b1318f76ad33";
+        hash = "sha256-MjB6k8mDJypyuh6BN2hxy2My7/DfImjw+5iI729snBg=";
       };
     };
-    "librealsense2/json" = substituteSource {
+    "librealsense2/libusb-cmake" = substituteSource {
       src = fetchgit {
-        name = "json-source";
-        url = "https://github.com/nlohmann/json.git";
-        rev = "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03";
-        hash = "sha256-7F0Jon+1oWL7uqet5i1IgHX0fUw/+z0QwEcA3zs5xHg=";
-      };
-    };
-    "librealsense2/libusb" = substituteSource {
-      src = fetchgit {
-        name = "libusb-source";
-        url = "https://github.com/ev-mp/libusb.git";
-        rev = "2a7372db54094a406a755f0b8548b614ba8c78ec";
-        hash = "sha256-KYM8Aaz4kV7GFiQVy+dgFk6tPvDlJI6iPY5ddt4+OIE=";
+        name = "libusb-cmake-source";
+        url = "https://github.com/libusb/libusb-cmake.git";
+        rev = "cec1e49eec481a6333c218726ecaba8e4f447a07";
+        hash = "sha256-Kqe3uIZEwFarVJixMPT72dB2Jx8pWk55XBqDkGhzuqM=";
       };
     };
     "librealsense2/memory" = substituteSource {
@@ -130,16 +117,16 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "0bd8896a4010f2d91b2340570c24fa08606ec406";
-        hash = "sha256-Rlr6Ec6BEujTxQkQ9UP+6u0cYeFsJlj7U346MtRM6QM=";
+        rev = "a2e59f0e7065404b44dfe92a28aca47ba1378dc4";
+        hash = "sha256-SNLdtrOjaC3lGHN9MAqTf51U9EzNKQLyTMNPe0GcdrU=";
       };
     };
     "librealsense2/pybind11_json" = substituteSource {
       src = fetchgit {
         name = "pybind11_json-source";
         url = "https://github.com/pybind/pybind11_json.git";
-        rev = "b02a2ad597d224c3faee1f05a56d81d4c4453092";
-        hash = "sha256-Kl/QflV2bBoH72/LW03K8JDlhBF+DYYXL47A5s1nmTw=";
+        rev = "32043f433ed987b2c2ce99d689ec337bcbd4ba95";
+        hash = "sha256-e9mBvSg8mIuYO1x2yJhejY3iP0TPIiQXwzxy5asf9tk=";
       };
     };
   });

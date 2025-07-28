@@ -32,7 +32,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_controllers";
-  version = "5.3.0-1";
+  version = "5.4.0-1";
   src = finalAttrs.passthru.sources."ros2_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ackermann-steering-controller admittance-controller bicycle-steering-controller diff-drive-controller effort-controllers force-torque-sensor-broadcaster forward-command-controller gpio-controllers gps-sensor-broadcaster imu-sensor-broadcaster joint-state-broadcaster joint-trajectory-controller mecanum-drive-controller parallel-gripper-controller pid-controller pose-broadcaster position-controllers range-sensor-broadcaster steering-controllers-library tricycle-controller tricycle-steering-controller velocity-controllers ];
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "94c7262e0a0687b767513b9627c78e50f3feb46d";
-        hash = "sha256-m7JIrygyj9uwdXU7PY0nouy4ciGYWN6R//lxXx9dakM=";
+        rev = "1ea7ea306cb4ab0862dd1f57ecef0c91a5ffa1e2";
+        hash = "sha256-ZpKzRYgQCffAqfA1Ct4C0Z8t1taNFQ1JSFR7N1lDH20=";
       };
     };
   });

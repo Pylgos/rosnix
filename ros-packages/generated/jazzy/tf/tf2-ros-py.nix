@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "tf2_ros_py";
-  version = "0.36.12-1";
+  version = "0.36.13-1";
   src = finalAttrs.passthru.sources."tf2_ros_py";
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rclpy sensor-msgs std-msgs tf2-msgs tf2-py ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy sensor-msgs std-msgs tf2-msgs tf2-py ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_ros_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "92bb0a97b88f4cf53a68b0364605c40c9d614b11";
-        hash = "sha256-IEvn7sXPdK8eyNlCM6QWn5L/VkIVIP7/13dB3J9Rb7c=";
+        rev = "1b346059c3481bb3abe9efe9c7e71ccba4a4fe98";
+        hash = "sha256-vHD5g/hM+GWCntrEvikLXtV9Sxo/iogZddPs8NAm3bc=";
       };
     };
   });

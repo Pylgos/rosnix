@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_common";
-  version = "6.2.2-1";
+  version = "6.3.0-1";
   src = finalAttrs.passthru.sources."image_common";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ camera-calibration-parsers camera-info-manager image-transport ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_common-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "f90860f8582c4ff0831c4383fa79d1fe73ba0ce2";
-        hash = "sha256-3WX+QmxfJr+ahEjFPKe4KNVMSFuuRzUnPGC/1pqAdmw=";
+        rev = "758a1e49c77acdf7b9f22fd80eebc79f07d33358";
+        hash = "sha256-CPT4qnNtuEAOkwsjoK3DvG73USGsWPvMygKo86aWiZA=";
       };
     };
   });

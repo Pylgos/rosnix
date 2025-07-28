@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pointcloud_pipeline";
-  version = "2.2.1-2";
+  version = "2.2.3-1";
   src = finalAttrs.passthru.sources."mrpt_pointcloud_pipeline";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libros-bridge nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_pointcloud_pipeline-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "f07b4eb52ed847cc053653c66eaf89dc4f592351";
-        hash = "sha256-hH6KSVz/+YaNavnGjVMvwUFlv8kvWfa65nrsD9cpfuI=";
+        rev = "4eeff20b20aa8426d9e3a6f1e018278981940483";
+        hash = "sha256-YGl12RXzqd+A8vBhUU7T5Eq6w17T0F+q3WGY8KBnL3M=";
       };
     };
   });
