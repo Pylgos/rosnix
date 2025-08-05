@@ -13,7 +13,7 @@ extern {
 
 pub Condition: bool = {
     #[precedence(level="0")]
-    "(" <Condition> ")" => <>,
+    <Term> => <>,
     #[precedence(level="1")]
     <a:Value> "<" <b:Value> => a < b,
     #[precedence(level="1")]
@@ -30,6 +30,10 @@ pub Condition: bool = {
     <a:Condition> "and" <b:Condition> => a && b,
     #[precedence(level="3")] #[assoc(side="left")]
     <a:Condition> "or" <b:Condition> => a || b,
+}
+
+Term: bool = {
+  "(" <Condition> ")" => <>,
 }
 
 Value: String = {

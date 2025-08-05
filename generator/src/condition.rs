@@ -43,3 +43,29 @@ fn unquote(s: &str) -> Result<String> {
     }
     Ok(result)
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_unquote() {
+        assert_eq!(unquote(r#""hello""#).unwrap(), "hello");
+        assert_eq!(unquote(r#""hello\nworld""#).unwrap(), "hello\nworld");
+        assert_eq!(unquote(r#""hello\tworld""#).unwrap(), "hello\tworld");
+        assert_eq!(unquote(r#""hello\"world""#).unwrap(), "hello\"world");
+        assert!(unquote(r#""unterminated"#).is_err());
+        assert!(unquote(r#""invalid\c"#).is_err());
+    }
+
+    #[test]
+    fn test_eval_condition() {
+        let mut env = BTreeMap::new();
+        env.insert("CONDA_PREFIX".to_string(), "".to_string());
+        env.insert("HOMEBREW_PREFIX".to_string(), "".to_string());
+
+        assert!(
+            eval_condition("($CONDA_PREFIX == '') and ($HOMEBREW_PREFIX == '')", &env).unwrap()
+        );
+    }
+}

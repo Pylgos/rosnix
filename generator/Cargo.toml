@@ -23,7 +23,7 @@ futures = "0.3.30"
 futures-io = "0.3.30"
 indenter = "0.3.3"
 indicatif = "0.17.8"
-lalrpop-util = { version = "0.22.0", features = ["lexer"] }
+lalrpop-util = { version = "0.22.2", features = ["lexer"] }
 num_cpus = "1.16.0"
 octocrate = { version = "2.0.1", features = ["repos"] }
 regex = "1.10.6"
@@ -44,4 +44,4 @@ walkdir = "2.5.0"
 yaml-rust2 = "0.9.0"
 
 [build-dependencies]
-lalrpop = "0.22.0"
+lalrpop = "0.22.2"

@@ -4,7 +4,7 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use crate::{
     config::ConfigRef,
-    manifest::{PackageManifest, RosDependency, RosDependencyKind},
+    manifest::{PackageManifest, RosDependencyKind},
 };
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, PartialOrd, Ord, Serialize)]

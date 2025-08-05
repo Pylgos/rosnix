@@ -1,19 +1,17 @@
 use core::str;
 use std::{
-    collections::{BTreeMap, BTreeSet, HashSet},
+    collections::BTreeMap,
     fmt::{Debug, Display},
     fs::File,
     io::{Read, Write},
 };
 
-use anyhow::{bail, Context, Result};
+use anyhow::Result;
 use reqwest::{IntoUrl, Url};
-use serde::Deserialize;
-use serde_roxmltree::Options;
 use tracing::{debug, info, info_span};
 use yaml_rust2::YamlLoader;
 
-use crate::{condition::eval_condition, config::ConfigRef};
+use crate::config::ConfigRef;
 
 #[derive(Debug, Clone)]
 pub struct DistroIndex {
@@ -118,27 +116,6 @@ impl DistroIndex {
                 _ => unimplemented!(),
             };
 
-            // let mut env = cfg.env.get(name).cloned().unwrap_or_default();
-            // match ros_version {
-            //     RosVersion::Ros1 => {
-            //         env.insert("ROS_VERSION".to_string(), "1".to_string());
-            //         env.insert("ros_version".to_string(), "1".to_string());
-            //     }
-            //     RosVersion::Ros2 => {
-            //         env.insert("ROS_VERSION".to_string(), "2".to_string());
-            //         env.insert("ros_version".to_string(), "2".to_string());
-            //     }
-            // }
-            // match python_version {
-            //     PythonVersion::Python2 => {
-            //         env.insert("ROS_PYTHON_VERSION".to_string(), "2".to_string());
-            //     }
-            //     PythonVersion::Python3 => {
-            //         env.insert("ROS_PYTHON_VERSION".to_string(), "3".to_string());
-            //     }
-            // }
-            // env.insert("ROS_DISTRO".to_string(), name.clone());
-
             let mut releases = BTreeMap::new();
             for rel_yaml_path in distro_yaml_paths {
                 let url = base_url.join(rel_yaml_path).unwrap();
@@ -219,22 +196,4 @@ fn parse_distro_releases(
         }
     }
     Ok(())
-}
-
-#[cfg(test)]
-mod test {
-    use tracing::level_filters::LevelFilter;
-
-    use super::*;
-    use crate::config::Config;
-
-    #[tokio::test]
-    async fn test_fetch_distro_index() {
-        let _ = tracing_subscriber::fmt()
-            .with_max_level(LevelFilter::DEBUG)
-            .try_init();
-        let cfg = Config::default().into_ref();
-        cfg.create_directories().unwrap();
-        let _index = DistroIndex::fetch(&cfg).await.unwrap();
-    }
 }

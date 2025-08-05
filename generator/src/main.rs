@@ -1,6 +1,5 @@
 use anyhow::Result;
 use clap::Parser;
-use indicatif::ProgressStyle;
 use manifest::PackageManifest;
 use rosindex::{PythonVersion, RosVersion};
 use std::fmt::Write as _;
@@ -11,6 +10,7 @@ use std::{collections::BTreeMap, sync::Arc};
 use tokio::{process::Command, select};
 use tracing::error;
 use tracing::level_filters::LevelFilter;
+use tracing_indicatif::style::ProgressStyle;
 use tracing_indicatif::IndicatifLayer;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::util::SubscriberInitExt;
