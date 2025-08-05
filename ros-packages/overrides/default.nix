@@ -119,11 +119,9 @@ in
           };
           nativeBuildInputs = nativeBuildInputs ++ [ final.patchelf ];
           # Why is this necessary ???????
-          postInstall =
-            postInstall
-            + ''
-              patchelf $out/colcon-prefix/opt/gz_gui_vendor/lib64/gz-gui-*/plugins/libGrid3D.so --set-rpath ""
-            '';
+          postInstall = postInstall + ''
+            patchelf $out/colcon-prefix/opt/gz_gui_vendor/lib64/gz-gui-*/plugins/libGrid3D.so --set-rpath ""
+          '';
         }
       );
       gz-tools-vendor = rosPrev.gz-tools-vendor.overrideAttrs (
@@ -199,13 +197,20 @@ in
       );
       librealsense2 = rosPrev.librealsense2.overrideAttrs (
         {
+          postPatch ? "",
           nativeBuildInputs ? [ ],
+          buildInputs ? [ ],
           patches ? [ ],
           ...
         }:
         {
           nativeBuildInputs = nativeBuildInputs ++ [ final.autoPatchelfHook ];
+          buildInputs = buildInputs ++ [ final.nlohmann_json ];
           patches = patches ++ [ ./librealsense2-install-presets.patch ];
+          postPatch = postPatch + ''
+            substituteInPlace third-party/CMakeLists.txt \
+              --replace-fail 'include(CMake/external_json.cmake)' ""
+          '';
         }
       );
       cartographer = rosPrev.cartographer.overrideAttrs (
@@ -235,12 +240,10 @@ in
           ...
         }:
         {
-          postPatch =
-            postPatch
-            + ''
-              substituteInPlace launch/gz_sim.launch.py.in \
-                --replace-fail "'ruby ' + get_executable_path('gz') + ' sim'" '"gz sim"'
-            '';
+          postPatch = postPatch + ''
+            substituteInPlace launch/gz_sim.launch.py.in \
+              --replace-fail "'ruby ' + get_executable_path('gz') + ' sim'" '"gz sim"'
+          '';
         }
       );
       nav2-costmap-2d = rosPrev.nav2-costmap-2d.overrideAttrs (
@@ -275,11 +278,9 @@ in
           zenoh-c-src = passthru.sources."zenoh_cpp_vendor/zenoh-c";
         in
         {
-          postPatch =
-            postPatch
-            + ''
-              cp ${zenoh-c-src}/Cargo.lock .
-            '';
+          postPatch = postPatch + ''
+            cp ${zenoh-c-src}/Cargo.lock .
+          '';
           nativeBuildInputs = nativeBuildInputs ++ [
             final.cargo
             final.rustPlatform.cargoSetupHook
@@ -300,12 +301,10 @@ in
           ...
         }:
         {
-          postPatch =
-            postPatch
-            + ''
-              substituteInPlace webots_ros2_driver/webots_launcher.py \
-                --replace-fail 'shutil.copy2(world_path, self.__world_copy.name)' 'shutil.copyfile(world_path, self.__world_copy.name)'
-            '';
+          postPatch = postPatch + ''
+            substituteInPlace webots_ros2_driver/webots_launcher.py \
+              --replace-fail 'shutil.copy2(world_path, self.__world_copy.name)' 'shutil.copyfile(world_path, self.__world_copy.name)'
+          '';
         }
       );
     })
