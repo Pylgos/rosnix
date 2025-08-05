@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sros2_cmake";
-  version = "0.16.1-1";
+  version = "0.16.2-1";
   src = finalAttrs.passthru.sources."sros2_cmake";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-test ros2cli sros2 ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sros2_cmake-source";
         url = "https://github.com/ros2-gbp/sros2-release.git";
-        rev = "b21ac8f3108136627e76bb53d1f77dd397d6222e";
-        hash = "sha256-7wrqXJR7Pi3BOXv/8B6k/NGWSy3HsCCsdBb0QPOLVG0=";
+        rev = "7ca13bf52ca2b55fcc3cefc3f7b33722962e2ad9";
+        hash = "sha256-NMUg7lt5xvnQWhNEAPB/m3fuwpT3iSNwNoP5kXjhnk8=";
       };
     };
   });

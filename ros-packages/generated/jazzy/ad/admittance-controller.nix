@@ -35,7 +35,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "admittance_controller";
-  version = "4.29.0-1";
+  version = "4.30.1-1";
   src = finalAttrs.passthru.sources."admittance_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface kinematics-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-eigen tf2-geometry-msgs tf2-kdl tf2-ros trajectory-msgs ];
@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "admittance_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "435a7851860a9ee8f1e4df2b8752f81d0255e7b2";
-        hash = "sha256-foxTfR+eXaUe+LHVl8NENabJvLv6+ZZiB9246CCGnm0=";
+        rev = "d6ae542b884c9e68dabf538bd07dc04a5068c462";
+        hash = "sha256-6wswC+/79GGMbxGA4P62CBcjbbpknh29GNdaha+HMIE=";
       };
     };
   });

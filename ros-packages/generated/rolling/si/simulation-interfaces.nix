@@ -1,4 +1,5 @@
 {
+  action-msgs,
   ament-cmake,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -16,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simulation_interfaces";
-  version = "1.0.0-3";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."simulation_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "simulation_interfaces" = substituteSource {
       src = fetchgit {
         name = "simulation_interfaces-source";
         url = "https://github.com/ros2-gbp/simulation_interfaces-release.git";
-        rev = "766bb1b5b020d7e3d7de18899fbef72e494aae6f";
-        hash = "sha256-AR5fXetnUbJNFmcJMzWtABwDfWO5FpLhqYpfWfxqu5w=";
+        rev = "d3aed891c2cd3be0f1e1f6bfbcf91f1054c053b2";
+        hash = "sha256-hkPX8X16ZGnsdTQD9oCct3EjdrDcV8MwmFiH2HHb8q0=";
       };
     };
   });

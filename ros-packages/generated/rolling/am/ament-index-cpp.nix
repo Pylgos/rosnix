@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_index_cpp";
-  version = "1.12.0-1";
+  version = "1.12.1-1";
   src = finalAttrs.passthru.sources."ament_index_cpp";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_index_cpp-source";
         url = "https://github.com/ros2-gbp/ament_index-release.git";
-        rev = "79fa8b2a932668a8caee93984e0299ca19797a84";
-        hash = "sha256-Rrjc02wMsfoASV5lEkhXEBS8N2hhJcpYa+Z2VFR3seo=";
+        rev = "c7b339133b05c5103d5f2ecb3d33ea2c05306af5";
+        hash = "sha256-xAuKXOlSYOkTVJwmQAeQdq7IEOzqL12fW53+hZJgfaU=";
       };
     };
   });

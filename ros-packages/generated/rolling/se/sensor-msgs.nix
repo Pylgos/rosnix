@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sensor_msgs";
-  version = "5.8.1-1";
+  version = "5.8.2-1";
   src = finalAttrs.passthru.sources."sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sensor_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "d66fc2766795547452a95fd64e76b13f17c89b51";
-        hash = "sha256-bS/TcgcCS+jMRNbvHulLSX8GeTtXr8bKmH7UoovcrEU=";
+        rev = "ac70ae8bf89901f834e5e0b3bd7aa799882c2a96";
+        hash = "sha256-x7OkosGA7I/WtYWMM9pCgvGJgzCJii7X932Ts6Ks95A=";
       };
     };
   });

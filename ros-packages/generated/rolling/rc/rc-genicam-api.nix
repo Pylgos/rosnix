@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rc_genicam_api";
-  version = "2.6.5-1";
+  version = "2.8.1-1";
   src = finalAttrs.passthru.sources."rc_genicam_api";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libncurses-dev" "libpng-dev" "libusb-1.0" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rc_genicam_api-source";
         url = "https://github.com/ros2-gbp/rc_genicam_api-release.git";
-        rev = "71681af0a8b4ba1871e5da13cfe4208ed92394e4";
-        hash = "sha256-MadM+JVLeVj6ATzpAl5cZN5+iBRhVXF4yg1qwk7tHRA=";
+        rev = "ddc69957f6071d5964c3d3a9baf9c5f252dd4703";
+        hash = "sha256-9B2fFivHo4iJBemS7JJqExVs/QsXZC4w+x3PyC4ujlc=";
       };
     };
   });

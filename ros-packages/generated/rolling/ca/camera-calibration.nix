@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "camera_calibration";
-  version = "7.0.0-1";
+  version = "7.1.0-1";
   src = finalAttrs.passthru.sources."camera_calibration";
   propagatedNativeBuildInputs = [ cv-bridge image-geometry message-filters rclpy sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-opencv" "python3-semver" ]; };
   propagatedBuildInputs = [ cv-bridge image-geometry message-filters rclpy sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-opencv" "python3-semver" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "camera_calibration-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "efbb5a9f9a7cf708c783eba37f777abdc707bfd0";
-        hash = "sha256-/Em5AmBsgiXIVMeJxT9tSyH1uZmWXxGjFOV6OwrY0wY=";
+        rev = "eb8abf5bacf61767b642b8073f9863a06a81b585";
+        hash = "sha256-GFkWn0nm/kw1GTW6TO2LmDd+40EfacJwC1E7ljFnxhM=";
       };
     };
   });

@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2";
-  version = "0.41.1-1";
+  version = "0.41.2-1";
   src = finalAttrs.passthru.sources."tf2";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rcutils rosidl-runtime-cpp ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "5c51cd12ee874946dfbebf88681bfddf010e2985";
-        hash = "sha256-1KF1VFE2G57pr+y1pkaWVmyvyw0a1YiqIJitsHPsOs0=";
+        rev = "f1eea797558d934e1a6a606578c0341af14c98be";
+        hash = "sha256-YfupUj1MMnjyhHz43ouFUsBDTIQgw4rWH8ujCS9bFlg=";
       };
     };
   });

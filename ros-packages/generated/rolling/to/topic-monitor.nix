@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "topic_monitor";
-  version = "0.37.1-1";
+  version = "0.37.2-1";
   src = finalAttrs.passthru.sources."topic_monitor";
   propagatedNativeBuildInputs = [ launch launch-ros rclpy std-msgs ];
   propagatedBuildInputs = [ launch launch-ros rclpy std-msgs ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "topic_monitor-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "a6bb92e7b22b66eb9d6b37d7abb2bc9f55b2f196";
-        hash = "sha256-/2MUw+KFMFV4G9IKMckQ25BrEXTWKmLBzko1+OoW4pI=";
+        rev = "eb2b2ae0e1c917fdf99ec1064d9c4c32a32e363b";
+        hash = "sha256-DSwaXFFqCZBh1EslIimXhN5yBFzAaOA7XNkeVfDPTvU=";
       };
     };
   });

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_nav_sat_fix_hp_node";
-  version = "0.5.8-1";
+  version = "0.6.1-1";
   src = finalAttrs.passthru.sources."ublox_nav_sat_fix_hp_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components sensor-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_nav_sat_fix_hp_node-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "2ad3992e397b5d758d306480e4e52326727e805d";
-        hash = "sha256-8jTiZ5hWStWA6t9Yki5BDLv4Pz86Hvx3fULbsd+Bayo=";
+        rev = "1167dcb8f8d959dc09068a29ecc6217b6a21c282";
+        hash = "sha256-x8g7yxOtQbvbq+qGT9VIWFGCOzPD+mmE8w9ahB84+ZU=";
       };
     };
   });

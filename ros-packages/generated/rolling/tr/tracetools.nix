@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tracetools";
-  version = "8.8.0-1";
+  version = "8.8.1-1";
   src = finalAttrs.passthru.sources."tracetools";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "liblttng-ust-dev" "lttng-tools" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tracetools-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "65d680a7ee03ee8528f3b4dea6cfd71b6f1e85a8";
-        hash = "sha256-M2h7IPqPbt0VwQ0/5sH1CjFgCdwBTyeK3LmFXOpsIMQ=";
+        rev = "385a7ab7fe5302dd36e1f67af5966b9ce204c1dc";
+        hash = "sha256-dIGsqFR50NePcHvVatJUiznGNZ70HUqcDJKL54bdpQk=";
       };
     };
   });

@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pf_localization";
-  version = "2.2.3-1";
+  version = "2.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_pf_localization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_pf_localization-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "f8542767b9ddeb546e5688c2d511ae92d83dcc17";
-        hash = "sha256-pH/N/D8SkGmCr4kqXgilRn/gp3PFx1l1u1+3jeM4cRU=";
+        rev = "c1576ccf114cf09a98de911e063505dd40154f63";
+        hash = "sha256-yz7cC8ZS5m09JLBuO3pI0XNZ5RgBFHRjFEPatzpT6WA=";
       };
     };
   });

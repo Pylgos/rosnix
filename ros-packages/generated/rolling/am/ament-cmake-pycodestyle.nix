@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pycodestyle";
-  version = "0.20.1-1";
+  version = "0.20.2-1";
   src = finalAttrs.passthru.sources."ament_cmake_pycodestyle";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pycodestyle ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_pycodestyle-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "3e5341baab5dea2c359edbf5769f574a7099590f";
-        hash = "sha256-JZlaXn4JdD73WF0BI43JchbMhQ/660faKS28TGxHeXM=";
+        rev = "c68dc69baf4629c3d9a47a5c84fc751949dbec7c";
+        hash = "sha256-Ib+ggu+J+fYZ87nuQZLKIW4gFgizX/JC6Ei9puClZWA=";
       };
     };
   });

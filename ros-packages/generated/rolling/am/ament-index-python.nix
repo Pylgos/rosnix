@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_index_python";
-  version = "1.12.0-1";
+  version = "1.12.1-1";
   src = finalAttrs.passthru.sources."ament_index_python";
   checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_index_python-source";
         url = "https://github.com/ros2-gbp/ament_index-release.git";
-        rev = "bf15ddd9347cae117b481ec8930e62f3e3e68c17";
-        hash = "sha256-1BGG8rCzTbwQuVteiQweSyU1ns3ENrXaxnUe247VSQM=";
+        rev = "473065e30c7c2fddb8c7196b463f5a3283fc537a";
+        hash = "sha256-0ak5j53XuELIP5++kr2LEYFf1fZQCQlEhxt4lENrQVM=";
       };
     };
   });

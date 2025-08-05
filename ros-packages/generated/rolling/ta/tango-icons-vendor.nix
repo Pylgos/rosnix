@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tango_icons_vendor";
-  version = "0.5.0-1";
+  version = "0.5.1-1";
   src = finalAttrs.passthru.sources."tango_icons_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "tango-icon-theme" ]; };
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tango_icons_vendor-source";
         url = "https://github.com/ros2-gbp/tango_icons_vendor-release.git";
-        rev = "17d4fa8f9744e552bc6377a89d4bbdcc034bd6bb";
-        hash = "sha256-AR7odoiueJBcWLzye3meUQS2HzG2u91bTOl/B4YaJQE=";
+        rev = "42d56cf225f1baa03ebfb13333f7c504e0c612de";
+        hash = "sha256-8q6lh+GaVoDDMp/1FRL9nWgo/7n4tYifCORXxPEzfJc=";
       };
     };
   });

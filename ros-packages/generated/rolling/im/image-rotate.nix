@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_rotate";
-  version = "7.0.0-1";
+  version = "7.1.0-1";
   src = finalAttrs.passthru.sources."image_rotate";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ class-loader cv-bridge geometry-msgs image-transport rcl-interfaces rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_rotate-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "68484a4e73b029e92942e457ba23cf3d993b9d33";
-        hash = "sha256-1619ITlIb760RKneGw41fNZqy2PEEBiAKGm3ZimiJsI=";
+        rev = "0bebb584bc3768b0d9695a17e7686a81e5da0297";
+        hash = "sha256-xQ7Nsu3tbN22zNZ6mkwQQOJ7EH+ie5FdqQumyciEeVc=";
       };
     };
   });

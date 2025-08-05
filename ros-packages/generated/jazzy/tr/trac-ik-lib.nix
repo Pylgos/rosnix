@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "trac_ik_lib";
-  version = "2.0.1-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."trac_ik_lib";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs kdl-parser rclcpp urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libnlopt-cxx-dev" "libnlopt-dev" "pkg-config" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "trac_ik_lib-source";
         url = "https://github.com/ros2-gbp/trac_ik-release.git";
-        rev = "7caceeb979beee59aa99202a48575b16fc72918c";
-        hash = "sha256-RHtJG5zWq6hgg1ylgO5tkkidAlHTg7G+wMzeoB8s6p8=";
+        rev = "2163455ad8f661f39e6f72233ced85c8be546be7";
+        hash = "sha256-kVzhOU5uMs+GYQBCkxvuso7pa02q3nrWTCiYbXWEBgg=";
       };
     };
   });

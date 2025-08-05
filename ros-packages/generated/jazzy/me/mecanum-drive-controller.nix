@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mecanum_drive_controller";
-  version = "4.29.0-1";
+  version = "4.30.1-1";
   src = finalAttrs.passthru.sources."mecanum_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mecanum_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "f2d74b1c9588a2abfb1307c7a1e1cd77cc85a0dc";
-        hash = "sha256-0bCKTcQk04D/cZT9pfYfEM0g1tyCeFFuL8+e1bM9yNk=";
+        rev = "7408b096337be544f09bd91b6b9fa7883796618b";
+        hash = "sha256-/X5XxyDbKD+VnzUMC9a7QH8RZw5+IoKmN3CdQ5Wxyps=";
       };
     };
   });

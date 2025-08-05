@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "diff_drive_controller";
-  version = "5.4.0-1";
+  version = "5.5.0-2";
   src = finalAttrs.passthru.sources."diff_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros control-toolbox controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake tf2 tf2-msgs ];
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "diff_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "07fc37177f5f36cc5f8b966d9d49fd1a853d136d";
-        hash = "sha256-dhAMxMUIRyfUdXHPjsVi7NOeQkPNSCV77SXs0NeCytg=";
+        rev = "f7cd3f12d63424e14118d079fc6913e48f20b3ab";
+        hash = "sha256-eQZkjjoq393IniImZspH8hKDgDD1xNxzIGL+eYAskWQ=";
       };
     };
   });

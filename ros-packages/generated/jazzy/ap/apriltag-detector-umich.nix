@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_detector_umich";
-  version = "3.0.2-1";
+  version = "3.0.3-1";
   src = finalAttrs.passthru.sources."apriltag_detector_umich";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ apriltag apriltag-detector apriltag-msgs pluginlib rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "apriltag_detector_umich-source";
         url = "https://github.com/ros2-gbp/apriltag_detector-release.git";
-        rev = "ae08fffc279b2f509aa087ebc98a7e7f940e6498";
-        hash = "sha256-Svio5ycg9DQlQZU1G7RrWLqjLBV4OwWRTj9WnbM126Q=";
+        rev = "54d797b6780f96f0e5c5309b117c95c52316d89c";
+        hash = "sha256-ziDfP8Ki1/SZ3LHBVu3wcNW7Dsbvd5FWzWcKFWQfPn4=";
       };
     };
   });

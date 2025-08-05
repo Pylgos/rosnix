@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pyflakes";
-  version = "0.20.1-1";
+  version = "0.20.2-1";
   src = finalAttrs.passthru.sources."ament_cmake_pyflakes";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pyflakes ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_pyflakes-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "64a81265d79a690943eae25b2bcc628728fcabce";
-        hash = "sha256-2nhOK3MGwLKbIN2xgD8WDZyggkhhweIfDjb6Z4/BXOo=";
+        rev = "d6c8d36f93488c234d38e91e265e76417842b683";
+        hash = "sha256-q3XXC3Y+zak4UZHH5NeR3dAP3lZ+wB4f4dV8rslcAUg=";
       };
     };
   });

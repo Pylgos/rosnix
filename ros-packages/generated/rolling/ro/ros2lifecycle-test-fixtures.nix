@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2lifecycle_test_fixtures";
-  version = "0.39.2-1";
+  version = "0.40.0-1";
   src = finalAttrs.passthru.sources."ros2lifecycle_test_fixtures";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-lifecycle ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2lifecycle_test_fixtures-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "7082c6b5a7c2b2509f966b327fce9f5bfdcbcd90";
-        hash = "sha256-8MCXSJe/n5yMoWBCTtbd809VTu1J2VHpARySG1sORJ0=";
+        rev = "bb449381860efeb0a664e18572c9391083bf561c";
+        hash = "sha256-e5Xyio1UmxQOiPjvwONNtT1ixikWef1z1P22IfApM8s=";
       };
     };
   });

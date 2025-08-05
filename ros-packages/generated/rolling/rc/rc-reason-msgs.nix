@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rc_reason_msgs";
-  version = "0.4.0-2";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."rc_reason_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rc-common-msgs rosidl-default-runtime shape-msgs std-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rc_reason_msgs-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
-        rev = "d8ac46af0adb4d828a3f3b293871a4c978e72cd1";
-        hash = "sha256-P8ovKBUpAcX6Vgdu5eENt0kWdRw73g5+UuFDNlhsJxY=";
+        rev = "9ce272098a6c3c85c4d9d9c9cd1de12427ca8c2f";
+        hash = "sha256-Jr9heGRmkFOqX4qHLnDIhEqn48qOz1hj67J2GPJ+EIo=";
       };
     };
   });

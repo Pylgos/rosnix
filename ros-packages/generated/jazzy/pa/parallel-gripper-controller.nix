@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "parallel_gripper_controller";
-  version = "4.29.0-1";
+  version = "4.30.1-1";
   src = finalAttrs.passthru.sources."parallel_gripper_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action realtime-tools ros2-control-cmake ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "parallel_gripper_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "25fca791b92d741bc6a8aa80fba401b5ad81471e";
-        hash = "sha256-9SUlhPu3OpNSR3I3sGDoQ+pd1gNO9gXM2zhU/bVvYjE=";
+        rev = "4532789e64b26be609e692629b51e95b357fe0f1";
+        hash = "sha256-s6r4i/49o1fPK8utEQqjzXgNXLshtZbWpOYV6iYYKqI=";
       };
     };
   });

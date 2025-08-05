@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "clearpath_bt_joy";
-  version = "2.6.3-1";
+  version = "2.6.4-1";
   src = finalAttrs.passthru.sources."clearpath_bt_joy";
   propagatedNativeBuildInputs = [ joy-linux twist-mux ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "bluez" ]; };
   propagatedBuildInputs = [ joy-linux twist-mux ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "bluez" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_bt_joy-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "28dc517185022d30ff189f78185567a18c3710c3";
-        hash = "sha256-qEi2dkGAjSasn/WMxRUWQXQTmE1Wm37DSyBBrc6CM6E=";
+        rev = "08d8e03f1a594772485d6e5f4467ee2df95ecd4d";
+        hash = "sha256-SD5qi5W6MGSSn3gDaxMVtJJMU+MiDg81x4IMbvpml9Y=";
       };
     };
   });

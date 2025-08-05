@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rc_reason_clients";
-  version = "0.4.0-3";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."rc_reason_clients";
   propagatedNativeBuildInputs = [ geometry-msgs rc-reason-msgs rclpy ros2pkg tf2-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-requests" ]; };
   propagatedBuildInputs = [ geometry-msgs rc-reason-msgs rclpy ros2pkg tf2-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-requests" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rc_reason_clients-source";
         url = "https://github.com/ros2-gbp/rc_reason_clients-release.git";
-        rev = "a39365cb8f1edd5c5febd5206e6da5c9eff00e26";
-        hash = "sha256-WI+zIg/6kZyvcTtK5zKnMl0PWGu5udO8YXCI3C1rY3E=";
+        rev = "2328e7e299a663e273b94e00c4913116477bcfb7";
+        hash = "sha256-iGBpQF/HasB8G26gmzZJ3rjXC5Q4U/do0qWGIaEzDDA=";
       };
     };
   });
