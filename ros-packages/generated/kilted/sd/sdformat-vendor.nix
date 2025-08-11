@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.2.4-2";
+  version = "0.2.6-1";
   src = finalAttrs.passthru.sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor gz-utils-vendor urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "sdformat15" "tinyxml2" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "d0f07235bc17eeab5c3276294f24338f42ffa3e0";
-        hash = "sha256-nKTwO0+qy8OM1nbUPgsQ2ulGIPyht6uHwQ3xovA1kho=";
+        rev = "d35b9aba0d83ae065cee2b789b74587b81834c2d";
+        hash = "sha256-mzofcJu2CkzWtFYnTYsdDqAUW3LX1q9cC7LwC3Y4bL4=";
       };
       substitutions = [
         {
@@ -47,12 +47,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat-source";
         url = "https://github.com/gazebosim/sdformat.git";
-        rev = "7ea246dd2ccba74831c7049898d80832a1e8d976";
-        hash = "sha256-RarpOKoJ9w+yJw5HU5exZYjx1zVdtkE05+8PBADhOwY=";
+        rev = "02e30ddf750fe2eceaee7d84c46ee9dd24cf69fb";
+        hash = "sha256-5EGAypmWiUHvGpAXTIWJi8ChWkafK1li1C0/C1GIfkA=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: sdformat15 15.2.0\n\n    SDFormat is an XML file format that describes environments, objects, and robots\nin a manner suitable for robotic applications\n  ";
+    description = "\n    Vendor package for: sdformat15 15.3.0\n\n    SDFormat is an XML file format that describes environments, objects, and robots\nin a manner suitable for robotic applications\n  ";
   };
 })

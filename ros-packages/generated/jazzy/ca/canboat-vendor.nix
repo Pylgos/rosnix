@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "canboat_vendor";
-  version = "0.0.4-1";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."canboat_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "canboat_vendor-source";
         url = "https://github.com/ros2-gbp/canboat_vendor-release.git";
-        rev = "64cbf6730aaae70e393357fd22bf35d2bbe2e2ad";
-        hash = "sha256-FKvxutnWBlX6dMt8QqgcwcIkPqN+w0CmS8bmjYhmdvM=";
+        rev = "1e1844f1ff497b47f5e2ea57a58d0ccbb6986134";
+        hash = "sha256-EAY1urI69YtnbefgWuflaBJ8P/4nrPk3lBl6so6qMpg=";
       };
       substitutions = [
         {

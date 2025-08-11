@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fastrtps_cmake_module";
-  version = "3.6.1-1";
+  version = "3.6.2-1";
   src = finalAttrs.passthru.sources."fastrtps_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fastrtps_cmake_module-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
-        rev = "db24729c8071186a27a6a0f1fe3de4ef3864bf50";
-        hash = "sha256-aDCbgTpuUcR0a3kfAhknt2WKC/GHD3OyCF8GVZYq/2Q=";
+        rev = "4beb013ba722ebbc7e00afd03ce1ab92bb57f9b1";
+        hash = "sha256-4Gd/Kq+txwB9UrFcmsCAWZaIIruL8tHdPcuyu8h9boE=";
       };
     };
   });

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_sensor_msgs";
-  version = "0.36.13-1";
+  version = "0.36.14-1";
   src = finalAttrs.passthru.sources."tf2_sensor_msgs";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module geometry-msgs sensor-msgs sensor-msgs-py std-msgs tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-numpy" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "0b2a037ea359e131988ae6c2fbda29378ef74138";
-        hash = "sha256-1+AXmXmUpRF16ctKx73uc1ze9sog9GbthQLDetgNY5c=";
+        rev = "0db322dc7434a7f22333f770ef0d74373da0d562";
+        hash = "sha256-ZnZPAyq15sSYu6IbOgVzBKhNLPsDKzBcXq5Aas6xYDk=";
       };
     };
   });

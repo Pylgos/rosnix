@@ -5,25 +5,22 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_spatem_ts_coding";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_spatem_ts_coding";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_spatem_ts_coding" = substituteSource {
       src = fetchgit {
         name = "etsi_its_spatem_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "a2e4bb604f3750e0faac5884371c338d76ea911c";
-        hash = "sha256-kNPFXsHOnKSQ4q9Zfc8axJnpdA6NtXEWUi5sc67Uz6k=";
+        rev = "0c074c1d69e7dc216534aa85c84a6c3206afbd39";
+        hash = "sha256-xZsUG8Q7HAjanhcQGp/ZuB9QNiWnQmEDAxdXrst/0kk=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "axis_description";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."axis_description";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "axis_description-source";
         url = "https://github.com/clearpath-gbp/axis_camera-release.git";
-        rev = "3207100f372595fd369764e804a25804aec87db2";
-        hash = "sha256-U9CV11QUxiy/lv4tQhScpzmo9f0gymbQKyprQRNfYYE=";
+        rev = "20e026b8701d78ec9729a6df05f1629e6f6f5ff3";
+        hash = "sha256-OtqWA5iOH7MNjeqKUQBmTpb3/G1D6C+i9UYjrbOKmyc=";
       };
     };
   });

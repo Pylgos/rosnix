@@ -14,6 +14,7 @@
   mkSourceSet,
   rclpy,
   ros2cli,
+  ros2topic,
   rosSystemPackages,
   rosidl-runtime-py,
   substituteSource,
@@ -21,18 +22,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2service";
-  version = "0.32.4-1";
+  version = "0.32.5-1";
   src = finalAttrs.passthru.sources."ros2service";
-  propagatedNativeBuildInputs = [ rclpy ros2cli rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
-  propagatedBuildInputs = [ rclpy ros2cli rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
+  propagatedNativeBuildInputs = [ rclpy ros2cli ros2topic rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
+  propagatedBuildInputs = [ rclpy ros2cli ros2topic rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2service" = substituteSource {
       src = fetchgit {
         name = "ros2service-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "0f43a302fcb6ab78c4fa58df0b2a71f3855bafc9";
-        hash = "sha256-YbEkEsdy0tnRox/9b/klMDw4qD9jPblU7PbdLSfKwAs=";
+        rev = "ebc4be32ebfb58ee1428dd94241f0f47cd6e5eab";
+        hash = "sha256-28Tz7RkvqqRdiU+BumvI6bBNCagvbPqssHbZBpIIKTQ=";
       };
     };
   });

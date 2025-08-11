@@ -5,25 +5,22 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_ts_coding";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_ts_coding";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_cam_ts_coding" = substituteSource {
       src = fetchgit {
         name = "etsi_its_cam_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "84f9906ee835c5710920a6a742ee2c64a871f907";
-        hash = "sha256-qVfHy9cAvtIQnj3AWgmKOJ+fLr2tqaPfNkDtqt7zSdo=";
+        rev = "1c2711114403b49905366a31e422e93f87f6cd0e";
+        hash = "sha256-+pr/aWZ02RqPqyEjuxeQ3yew15RmZAHAxj7Y6LmS7t4=";
       };
     };
   });

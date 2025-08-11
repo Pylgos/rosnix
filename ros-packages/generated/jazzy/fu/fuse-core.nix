@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_core";
-  version = "1.1.2-1";
+  version = "1.1.3-1";
   src = finalAttrs.passthru.sources."fuse_core";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ fuse-msgs pluginlib rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libceres-dev" "libgoogle-glog-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_core-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "8dfea061a3a4476944319ee0dc6e5e813309507b";
-        hash = "sha256-jWbbXcAEKV2CSxHT2GTVOFcMy09f5PcjwLKBXTaYV/w=";
+        rev = "fcb7a0bff8d7dbaf09e5653df029f0c9ba34a2be";
+        hash = "sha256-9CPd91cEmL5ne4xjv7HWscfLgOLmTEmy6VRoHtdzwhM=";
       };
     };
   });

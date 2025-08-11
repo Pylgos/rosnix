@@ -21,7 +21,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_examples";
-  version = "0.19.5-1";
+  version = "0.19.6-1";
   src = finalAttrs.passthru.sources."launch_testing_examples";
   propagatedNativeBuildInputs = [ demo-nodes-cpp launch launch-ros launch-testing launch-testing-ros rcl-interfaces rclpy ros2bag std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   propagatedBuildInputs = [ demo-nodes-cpp launch launch-ros launch-testing launch-testing-ros rcl-interfaces rclpy ros2bag std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -31,8 +31,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_testing_examples-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "97701a8eb927facf430382b3ffcf2c11e73c6c7d";
-        hash = "sha256-BKipqivEn8GFkyx5ja/XUyzAAGaQxJ7L8N2fvkE9BYM=";
+        rev = "1d734b9e0100019da76fb7e0807f6e7e0be1fb6e";
+        hash = "sha256-T26xX09/0L8T1KWhxkSVhlW4bzxoHAwpuoMCreSt/t0=";
       };
     };
   });

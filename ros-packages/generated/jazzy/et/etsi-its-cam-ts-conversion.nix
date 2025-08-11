@@ -8,25 +8,24 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_ts_conversion";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_ts_conversion";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ros-environment ];
+  propagatedNativeBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ros-environment ];
+  propagatedBuildInputs = [ etsi-its-cam-ts-coding etsi-its-cam-ts-msgs etsi-its-primitives-conversion ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_cam_ts_conversion" = substituteSource {
       src = fetchgit {
         name = "etsi_its_cam_ts_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "c34481be35d536eec2268242f8f8b6f780940f5e";
-        hash = "sha256-N/5TuJt5B/qYALiSjtsiZXgIo458Wmkwj31rYNW1pjY=";
+        rev = "6c4c304e5d42a05007c50731b0480b65d651f30d";
+        hash = "sha256-frM3fPvuaoG4YjiXcofki4KzK9FnRZ7MBmSTM5ZIZb0=";
       };
     };
   });

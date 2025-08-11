@@ -5,25 +5,22 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_mapem_ts_coding";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_mapem_ts_coding";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_mapem_ts_coding" = substituteSource {
       src = fetchgit {
         name = "etsi_its_mapem_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "95f18d29981059c1a1a20c594c843d5623ccbb93";
-        hash = "sha256-Kb4ZvSthPzr169ZCAD/JhibaJljEu46o5OyLP4+hII8=";
+        rev = "a4dadde97bd78929d7173adaa377b712318f265d";
+        hash = "sha256-gXm1vC5Ibwwq7nT/1ofjx4pz5w1CWDrAn8O5y5sDCH0=";
       };
     };
   });

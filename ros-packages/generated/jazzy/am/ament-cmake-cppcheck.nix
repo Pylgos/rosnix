@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_cppcheck";
-  version = "0.17.2-1";
+  version = "0.17.3-1";
   src = finalAttrs.passthru.sources."ament_cmake_cppcheck";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cppcheck ];
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-test ament-cppcheck ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_cppcheck-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "f44424874f9df888567536afbb624d29a3a2e617";
-        hash = "sha256-MPYewcVGdRBbn2NSr1HjC43jyvh3hw5B10hEGoTVaVE=";
+        rev = "b165a25c468bc63cec8652cdf044cd57530076f8";
+        hash = "sha256-/aPrszBWK8CSrTPB9afKabXAlVpURfXBlucSehSE5x4=";
       };
     };
   });

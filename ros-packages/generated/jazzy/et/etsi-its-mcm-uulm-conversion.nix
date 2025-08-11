@@ -8,25 +8,24 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_mcm_uulm_conversion";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_mcm_uulm_conversion";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ etsi-its-mcm-uulm-coding etsi-its-mcm-uulm-msgs etsi-its-primitives-conversion ros-environment ];
+  propagatedNativeBuildInputs = [ etsi-its-mcm-uulm-coding etsi-its-mcm-uulm-msgs etsi-its-primitives-conversion ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ etsi-its-mcm-uulm-coding etsi-its-mcm-uulm-msgs etsi-its-primitives-conversion ros-environment ];
+  propagatedBuildInputs = [ etsi-its-mcm-uulm-coding etsi-its-mcm-uulm-msgs etsi-its-primitives-conversion ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_mcm_uulm_conversion" = substituteSource {
       src = fetchgit {
         name = "etsi_its_mcm_uulm_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "8a7bf0523ce161058f0570089f7b873fb1b39235";
-        hash = "sha256-3g7BTEKlObNpfwvMqf/36j8bhMVwasGNLkrROUtXKUE=";
+        rev = "6d4d992a09f3582793ab54aabca418b2d1bbcd6a";
+        hash = "sha256-2NOT5wF8vQGCClrJTCBJIG5VotLg9Q+yFOi8QLHWV1s=";
       };
     };
   });

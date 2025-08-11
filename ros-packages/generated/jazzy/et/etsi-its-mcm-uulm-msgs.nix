@@ -4,7 +4,6 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  ros-environment,
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
@@ -13,19 +12,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_mcm_uulm_msgs";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_mcm_uulm_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ ros-environment rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
   buildInputs = [ rosidl-default-generators ];
-  propagatedBuildInputs = [ ros-environment rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ rosidl-default-runtime std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_mcm_uulm_msgs" = substituteSource {
       src = fetchgit {
         name = "etsi_its_mcm_uulm_msgs-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "09c97cd0c31a765cc774eddc5c54e3fc68cb487f";
-        hash = "sha256-Z5ggT4G2G8vpyeTOgpjydMj8gGwYehAjoq8j+9YYqwo=";
+        rev = "78fae54c1a3364f97a00228d0c3508371f9b5d14";
+        hash = "sha256-myDghaPxabQABXxukg9uZOKBDW/+nXT2EvrqNV1JASk=";
       };
     };
   });

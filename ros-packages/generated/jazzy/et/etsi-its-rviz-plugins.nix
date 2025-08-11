@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_rviz_plugins";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ etsi-its-cam-msgs etsi-its-cpm-ts-msgs etsi-its-denm-msgs etsi-its-mapem-ts-msgs etsi-its-msgs-utils etsi-its-spatem-ts-msgs pluginlib rclcpp ros-environment rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering rviz-satellite tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "python3-pyproj" "qtbase5-dev" ]; };
@@ -40,12 +40,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "502093d6f2201608bb991afdf81a207a3edcab80";
-        hash = "sha256-NuQYCPoVWvFhDJbacU/0xiv/CnynUp5VujfOdKfNQTk=";
+        rev = "6ea27dce2ee077b2c8a13de276a6e0b009d96968";
+        hash = "sha256-35WGqu9Q9xgr7ih2qE1Wh2VyL314zt8306KM4qNAMAM=";
       };
     };
   });
   meta = {
-    description = "RViz plugin for ROS 2 messages based on ETSI ITS messages";
+    description = "RViz plugins for etsi_its_messages";
   };
 })

@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "axis_camera";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."axis_camera";
   propagatedNativeBuildInputs = [ axis-msgs camera-info-manager-py ptz-action-server-msgs sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-requests" ]; };
   propagatedBuildInputs = [ axis-msgs camera-info-manager-py ptz-action-server-msgs sensor-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-requests" ]; };
@@ -27,8 +27,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "axis_camera-source";
         url = "https://github.com/clearpath-gbp/axis_camera-release.git";
-        rev = "c4df8d85c07341d22b310448e99753f7c76d1613";
-        hash = "sha256-RzyoNvrHu8ffc47l/9ILyKtL7D1MlH2exaekfjMzSz4=";
+        rev = "06bc30dd3665083d3ee3e83407a58b79cf188dae";
+        hash = "sha256-+nYxR6OI/+pXUJ4t4jBmOQ9QOymGpa8HADip+ayI5ak=";
       };
     };
   });

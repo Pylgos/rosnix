@@ -37,7 +37,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclpy";
-  version = "7.1.4-1";
+  version = "7.1.5-1";
   src = finalAttrs.passthru.sources."rclpy";
   nativeBuildInputs = [ ament-cmake python-cmake-module ];
   propagatedNativeBuildInputs = [ action-msgs ament-index-python builtin-interfaces lifecycle-msgs pybind11-vendor rcl rcl-action rcl-interfaces rcl-lifecycle rcl-logging-interface rcl-yaml-param-parser rcpputils rcutils rmw rmw-implementation rmw-implementation-cmake rosgraph-msgs rosidl-runtime-c rpyutils unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclpy-source";
         url = "https://github.com/ros2-gbp/rclpy-release.git";
-        rev = "e5d976d9ffb3af3fa67d068a6de36073771215b4";
-        hash = "sha256-EGsMlG6rhezGoT5rFWIJZrV5zxDmVPeJnulBQeBjrQg=";
+        rev = "2385e11239c4bacd7e7a0d8c6978e3c1bd392224";
+        hash = "sha256-WAvIhLSMKLrtjIPl9hsgaq8bjw/0Tm49CbPqnxl427U=";
       };
     };
   });
