@@ -19,126 +19,77 @@ in
   lichtblick = final.callPackage ./lichtblick { };
 
   rosPython = rosPy // {
-    pkgs =
+    pkgs = rosPy.pkgs.overrideScope (
+      pyFinal: pyPrev:
       let
-        disableNumpyCheckOverlay = pyFinal: pyPrev: {
-          # チェックが重いパッケージのチェックを無効化
-          numpy = pyPrev.numpy.overridePythonAttrs (oldAttrs: {
-            doCheck = false;
-          });
-        };
-        disableScipyCheckOverlay = pyFinal: pyPrev: {
-          # チェックが重いパッケージのチェックを無効化
-          scipy = pyPrev.scipy.overridePythonAttrs (oldAttrs: {
-            doCheck = false;
-          });
-        };
-        poetryOverlay =
-          pyFinal: pyPrev:
-          let
-            pkgList =
-              (final.poetry2nix.mkPoetryPackages {
-                projectDir = ./poetry;
-                python = final.rosPython;
-                overrides =
-                  let
-                    pkgsFromNixpkgsOverlay = final: prev: {
-                      # Use nixpkgs packages instead of poetry2nix packages
-                      inherit (pyFinal)
-                        argcomplete
-                        certifi
-                        charset-normalizer
-                        colorama
-                        coloredlogs
-                        coverage
-                        dateutil
-                        distlib
-                        distro
-                        docutils
-                        flake8
-                        humanfriendly
-                        idna
-                        iniconfig
-                        mccabe
-                        networkx
-                        notify2
-                        packaging
-                        pluggy
-                        pycodestyle
-                        pyflakes
-                        pyparsing
-                        pyreadline3
-                        pytest
-                        pytest-cov
-                        pytest-repeat
-                        pytest-rerunfailures
-                        python-dateutil
-                        pyyaml
-                        requests
-                        setuptools
-                        six
-                        urllib3
-                        ;
-                    };
-                    fixBuildOverlay = final: prev: {
-                      # Override build inputs to use hatchling
-                      flake8-builtins = prev.flake8-builtins.overridePythonAttrs (oldAttrs: {
-                        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.hatchling ];
-                      });
-                      openmdao = prev.openmdao.overridePythonAttrs (oldAttrs: {
-                        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.hatchling ];
-                      });
-                      dymos = prev.dymos.overridePythonAttrs (oldAttrs: {
-                        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.hatchling ];
-                      });
-                    };
-                  in
-                  final.poetry2nix.overrides.withDefaults (
-                    lib.composeManyExtensions [
-                      pkgsFromNixpkgsOverlay
-                      fixBuildOverlay
-                    ]
-                  );
-              }).poetryPackages;
-            pkgsByName = lib.listToAttrs (
-              map (drv: {
-                name = drv.pname;
-                value = drv;
-              }) pkgList
+        pkgList =
+          (final.poetry2nix.mkPoetryPackages {
+            projectDir = ./poetry;
+            python = rosPy;
+            overrides = final.poetry2nix.overrides.withDefaults (
+              final: prev: {
+                inherit (pyFinal)
+                  argcomplete
+                  colorama
+                  coloredlogs
+                  coverage
+                  dateutil
+                  distlib
+                  distro
+                  docutils
+                  flake8
+                  humanfriendly
+                  iniconfig
+                  mccabe
+                  notify2
+                  packaging
+                  pluggy
+                  pycodestyle
+                  pyflakes
+                  pyparsing
+                  pyreadline3
+                  pytest
+                  pytest-cov
+                  pytest-repeat
+                  pytest-rerunfailures
+                  python-dateutil
+                  pyyaml
+                  setuptools
+                  six
+                  ;
+                flake8-builtins = prev.flake8-builtins.overridePythonAttrs (oldAttras: {
+                  nativeBuildInputs = oldAttras.nativeBuildInputs ++ [ final.hatchling ];
+                });
+              }
             );
-          in
-          {
-            # Add these packages to the rosPython packages
-            inherit (pkgsByName)
-              catkin-pkg
-              colcon-bash
-              colcon-cd
-              colcon-cmake
-              colcon-common-extensions
-              colcon-core
-              colcon-library-path
-              colcon-metadata
-              colcon-ros
-              colcon-zsh
-              dymos
-              empy
-              flake8-builtins
-              flake8-comprehensions
-              flake8-quotes
-              numpy # TODO: remove this
-              openmdao
-              rosdistro
-              scipy # TODO: remove this
-              ;
-          };
+          }).poetryPackages;
+        pkgsByName = lib.listToAttrs (
+          map (drv: {
+            name = drv.pname;
+            value = drv;
+          }) pkgList
+        );
       in
-      rosPy.pkgs.overrideScope (
-        lib.composeManyExtensions [
-          disableNumpyCheckOverlay
-          disableScipyCheckOverlay
-          poetryOverlay
-        ]
-      );
+      {
+        inherit (pkgsByName)
+          catkin-pkg
+          colcon-bash
+          colcon-cd
+          colcon-cmake
+          colcon-common-extensions
+          colcon-core
+          colcon-library-path
+          colcon-metadata
+          colcon-ros
+          colcon-zsh
+          empy
+          flake8-builtins
+          flake8-comprehensions
+          flake8-quotes
+          rosdistro
+          ;
+      }
+    );
   };
   rosPythonPackages = final.rosPython.pkgs;
 
