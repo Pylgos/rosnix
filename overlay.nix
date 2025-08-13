@@ -1,6 +1,5 @@
 {
   lib,
-  poetry2nix,
   config,
 }:
 
@@ -28,7 +27,6 @@ let
   overrides = import ./ros-packages/overrides { inherit lib; };
 in
 lib.composeManyExtensions [
-  poetry2nix.overlays.default
   configOverlay
   systemPackagesOverlay
   rosPackagesOverlay

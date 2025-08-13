@@ -20,74 +20,9 @@ in
 
   rosPython = rosPy // {
     pkgs = rosPy.pkgs.overrideScope (
-      pyFinal: pyPrev:
-      let
-        pkgList =
-          (final.poetry2nix.mkPoetryPackages {
-            projectDir = ./poetry;
-            python = rosPy;
-            overrides = final.poetry2nix.overrides.withDefaults (
-              final: prev: {
-                inherit (pyFinal)
-                  argcomplete
-                  colorama
-                  coloredlogs
-                  coverage
-                  dateutil
-                  distlib
-                  distro
-                  docutils
-                  flake8
-                  humanfriendly
-                  iniconfig
-                  mccabe
-                  notify2
-                  packaging
-                  pluggy
-                  pycodestyle
-                  pyflakes
-                  pyparsing
-                  pyreadline3
-                  pytest
-                  pytest-cov
-                  pytest-repeat
-                  pytest-rerunfailures
-                  python-dateutil
-                  pyyaml
-                  setuptools
-                  six
-                  ;
-                flake8-builtins = prev.flake8-builtins.overridePythonAttrs (oldAttras: {
-                  nativeBuildInputs = oldAttras.nativeBuildInputs ++ [ final.hatchling ];
-                });
-              }
-            );
-          }).poetryPackages;
-        pkgsByName = lib.listToAttrs (
-          map (drv: {
-            name = drv.pname;
-            value = drv;
-          }) pkgList
-        );
-      in
-      {
-        inherit (pkgsByName)
-          catkin-pkg
-          colcon-bash
-          colcon-cd
-          colcon-cmake
-          colcon-common-extensions
-          colcon-core
-          colcon-library-path
-          colcon-metadata
-          colcon-ros
-          colcon-zsh
-          empy
-          flake8-builtins
-          flake8-comprehensions
-          flake8-quotes
-          rosdistro
-          ;
+      import ./uv/overlay.nix {
+        inherit lib;
+        inherit (final) fetchurl;
       }
     );
   };

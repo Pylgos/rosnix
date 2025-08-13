@@ -14,18 +14,18 @@ in
       runtimeInputs = [
         generator
         pkgs.nurl
-        pkgs.poetry
+        pkgs.uv
       ];
       text = ''
         set -euo pipefail
         DONT_COMMIT=''${DONT_COMMIT:-}
 
-        pushd system-packages/poetry
-        poetry update --lock
+        pushd system-packages/uv
+        uv lock --update
         if [[ -z $DONT_COMMIT ]]; then
-          git add ./poetry.lock
-          if ! git diff --quiet --cached ./poetry.lock; then
-            git commit -m "system-packages/poetry/poetry.lock: Update"
+          git add ./uv.lock
+          if ! git diff --quiet --cached ./uv.lock; then
+            git commit -m "system-packages/uv/uv.lock: Update"
           fi
         fi
         popd

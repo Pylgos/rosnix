@@ -11,7 +11,15 @@
     flake-utils.url = "github:numtide/flake-utils";
     nix-filter.url = "github:numtide/nix-filter";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    poetry2nix.url = "github:nix-community/poetry2nix";
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,8 +30,9 @@
       flake-utils,
       nix-filter,
       nixpkgs,
-      poetry2nix,
-      ...
+      pyproject-nix,
+      uv2nix,
+      flake-compat,
     }:
     let
       lib =
@@ -32,6 +41,8 @@
         // builtins
         // {
           devshell-apps = devshell-apps.lib;
+          pyproject-nix = pyproject-nix.lib;
+          uv2nix = uv2nix.lib;
         };
     in
     (lib.eachDefaultSystem (
@@ -85,7 +96,7 @@
           // {
             default = self.lib.configs.jazzy;
           };
-        mkOverlay = config: import ./overlay.nix { inherit lib poetry2nix config; };
+        mkOverlay = config: import ./overlay.nix { inherit lib config; };
       };
       overlays = lib.mapAttrs (name: config: self.lib.mkOverlay config) self.lib.configs;
     };

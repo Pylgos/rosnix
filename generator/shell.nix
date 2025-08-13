@@ -10,6 +10,7 @@
   rustc,
   rustfmt,
   yarn-berry_3,
+  uv,
 }:
 mkShell {
   nativeBuildInputs = [
@@ -21,7 +22,9 @@ mkShell {
     rust-analyzer
     rustc
     rustfmt
+    uv
     yarn-berry_3.yarn-berry-fetcher
+
   ];
   buildInputs = [
     openssl
