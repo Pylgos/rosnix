@@ -7,9 +7,11 @@ requires-python = ">=3.12"
 dependencies = [
   "catkin-pkg>=1.0.0",
   "colcon-common-extensions>=0.3.0",
+  "dymos>=1.14.0",
   "empy>=4.2",
   "flake8-builtins>=2.5.0",
   "flake8-comprehensions>=3.16.0",
   "flake8-quotes>=3.4.0",
+  "openmdao>=3.39.0",
   "rosdistro>=1.0.1",
 ]
