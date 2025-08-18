@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_msgs";
-  version = "2.6.0-1";
+  version = "2.7.1-1";
   src = finalAttrs.passthru.sources."moveit_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs object-recognition-msgs octomap-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs shape-msgs std-msgs trajectory-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_msgs-source";
         url = "https://github.com/ros2-gbp/moveit_msgs-release.git";
-        rev = "0daba4a04b95f58faeb7fecc078126948195df1f";
-        hash = "sha256-eWWWhKKdKRwr1U0N2bGllNmgC2EzT0l5DNKFFjjXAYI=";
+        rev = "b03fc38269a6735d1418d1df07a56a4d83c3f412";
+        hash = "sha256-LEurAkzbvp8tc194UoDBTRKDYYySPySIcwepCn2mpII=";
       };
     };
   });

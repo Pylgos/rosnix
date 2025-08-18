@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_clips_env_manager";
-  version = "0.1.1-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."cx_clips_env_manager";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ bond bondcpp clips-vendor cx-msgs cx-plugin lifecycle-msgs pluginlib rclcpp rclcpp-components rclcpp-lifecycle ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_clips_env_manager-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "9455dd911edb07257f1379b9c4eb77a271bb27ef";
-        hash = "sha256-KoOHafFkOeVYL6kTuyHEmDnOJUVtqgvJyC7DOdN5sVY=";
+        rev = "13a8787e3c6323b95d9445369a41c2efbd144b85";
+        hash = "sha256-7yT+H/jNbwtXlZsFmDKKgNYao3iEx6ixJefcKCKeBzM=";
       };
     };
   });
