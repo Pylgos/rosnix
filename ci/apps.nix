@@ -21,7 +21,7 @@ in
         DONT_COMMIT=''${DONT_COMMIT:-}
 
         pushd system-packages/uv
-        uv lock --update
+        uv lock --upgrade
         if [[ -z $DONT_COMMIT ]]; then
           git add ./uv.lock
           if ! git diff --quiet --cached ./uv.lock; then
