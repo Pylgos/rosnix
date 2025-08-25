@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "opennav_docking_bt";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."opennav_docking_bt";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ behaviortree-cpp geometry-msgs nav2-behavior-tree nav2-common nav2-core nav2-msgs nav2-util nav-msgs rclcpp rclcpp-action ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "opennav_docking_bt-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "548b54eecfc3dcaf381579734991e6e12d437df6";
-        hash = "sha256-001sBEOpUj0TrCpn4SBbsRJMIbZE/aGuHM767HklUbM=";
+        rev = "690ac3881b2ba24bfd483400d8a9bf64eb645624";
+        hash = "sha256-ybKT7MGlQKia8ayw58iDL/FqcRON/EARbFz+7eLlkCo=";
       };
     };
   });

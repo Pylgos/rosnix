@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav_2d_utils";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."nav_2d_utils";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav2-common nav2-msgs nav2-util nav-2d-msgs nav-msgs std-msgs tf2 tf2-geometry-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav_2d_utils-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "bc94d50be286d94d8902a30d7c748e5f43642158";
-        hash = "sha256-iPwFd1S+6y1NKOmxc+kgLwoW9WcJ4FhjoY7t3TXm9wk=";
+        rev = "c1170316f66d91de0b999898763532c4ce70ad96";
+        hash = "sha256-nvD4qyFuDaLN9x+RR9VdIpgR/UeW3CtKjj9zweCOoE4=";
       };
     };
   });

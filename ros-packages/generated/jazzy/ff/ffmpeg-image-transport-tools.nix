@@ -1,6 +1,8 @@
 {
   ament-cmake,
+  ament-cmake-black,
   ament-cmake-clang-format,
+  ament-cmake-gtest,
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
@@ -13,6 +15,7 @@
   ffmpeg-image-transport-msgs,
   mkSourceSet,
   rclcpp,
+  rcutils,
   ros-environment,
   rosSystemPackages,
   rosbag2-cpp,
@@ -22,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffmpeg_image_transport_tools";
-  version = "2.1.2-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."ffmpeg_image_transport_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
-  propagatedNativeBuildInputs = [ cv-bridge ffmpeg-encoder-decoder ffmpeg-image-transport-msgs rclcpp rosbag2-cpp rosbag2-storage sensor-msgs ];
+  propagatedNativeBuildInputs = [ cv-bridge ffmpeg-encoder-decoder ffmpeg-image-transport-msgs rclcpp rcutils rosbag2-cpp rosbag2-storage sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-imgproc-dev" ]; };
   buildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
-  propagatedBuildInputs = [ cv-bridge ffmpeg-encoder-decoder ffmpeg-image-transport-msgs rclcpp rosbag2-cpp rosbag2-storage sensor-msgs ];
-  checkInputs = [ ament-cmake-clang-format ament-lint-auto ament-lint-common ];
+  propagatedBuildInputs = [ cv-bridge ffmpeg-encoder-decoder ffmpeg-image-transport-msgs rclcpp rcutils rosbag2-cpp rosbag2-storage sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-imgproc-dev" ]; };
+  checkInputs = [ ament-cmake-black ament-cmake-clang-format ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ffmpeg_image_transport_tools" = substituteSource {
       src = fetchgit {
         name = "ffmpeg_image_transport_tools-source";
         url = "https://github.com/ros2-gbp/ffmpeg_image_transport_tools-release.git";
-        rev = "7f010520d7b15e00ae410f565c89e3cb19d63b1e";
-        hash = "sha256-JfqZoNHSYEY4aU0YjcJ3QsmuAgZ5jWOz4SUtNi13wIk=";
+        rev = "98e6ecebbb6d009233ce366db358be0e86144fbf";
+        hash = "sha256-TOwE1+DayfIv/VSV5EeOGhmJv92wU6IScPxrbhT/f64=";
       };
     };
   });

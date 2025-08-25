@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_joint_trajectory_command_broadcaster";
-  version = "1.1.9-1";
+  version = "1.1.10-1";
   src = finalAttrs.passthru.sources."ffw_joint_trajectory_command_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs trajectory-msgs urdf ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_joint_trajectory_command_broadcaster-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "f24e0d7061edaa91b720c9e8c86f2e04eea3eca6";
-        hash = "sha256-r9yfuNaoMXJqcNvGglcO5c+RjeGqnkLeIxglTnBYMgU=";
+        rev = "6bacc53f043152d0ed1c33ddaf07ba18b87d36e8";
+        hash = "sha256-MjLhdo56VR8OaFpp957rISKV5VMjFvvuwTjqaFOmbys=";
       };
     };
   });

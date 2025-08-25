@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_kinematics";
-  version = "2.13.2-2";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."moveit_kinematics";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ class-loader generate-parameter-library moveit-common moveit-core moveit-msgs moveit-ros-planning orocos-kdl-vendor pluginlib rsl tf2 tf2-kdl urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-lxml" ]; };
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_kinematics-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "374d1261817f167bbc77a4e0d4260240e3f6464b";
-        hash = "sha256-0S70RdiTNsBkYYrDI5vNnU0hjaNm7uTUzJa0BQog2+8=";
+        rev = "81de37785726a7dd40b51100432a22055dcbe29d";
+        hash = "sha256-gaTSrVUqqTajyoAwE7uAWZIVAshiD6gWYSzpMlEU2p4=";
       };
     };
   });

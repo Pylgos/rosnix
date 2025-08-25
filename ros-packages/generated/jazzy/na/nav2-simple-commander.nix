@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_simple_commander";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."nav2_simple_commander";
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
   propagatedBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
@@ -27,8 +27,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_simple_commander-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "030ce094b8330fd6974b846c843fed662493e6a5";
-        hash = "sha256-tR8f6VCkhljbV/kOalvD530nnbgiwCDIYfst+DcGBMY=";
+        rev = "2eb40862c2eb92625525df80af6ea6260e1b5e11";
+        hash = "sha256-Sx2BNJeNTvvkF0k0Jp0D4qE6zV40oLG2tyUObWMg23E=";
       };
     };
   });

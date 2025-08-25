@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_waypoint_follower";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."nav2_waypoint_follower";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge geographic-msgs image-transport nav2-common nav2-core nav2-msgs nav2-util nav-msgs pluginlib rclcpp rclcpp-action rclcpp-lifecycle robot-localization tf2-ros ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_waypoint_follower-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "85d6533eb37748cac372704a3d99d694f51ce187";
-        hash = "sha256-Vv8ncVuqzYKL0oC6aA3/5ikDF+iIPatcYR5X1pu8sA8=";
+        rev = "1def530ed390178d80fc17dba93212510f470812";
+        hash = "sha256-vWDr4hdWM3etkpYFDU20kdtSDApQND1YiK+mV7wMa34=";
       };
     };
   });

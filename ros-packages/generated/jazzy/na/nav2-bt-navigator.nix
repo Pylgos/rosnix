@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_bt_navigator";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."nav2_bt_navigator";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ behaviortree-cpp geometry-msgs nav2-behavior-tree nav2-common nav2-core nav2-msgs nav2-util nav-msgs pluginlib rclcpp rclcpp-action rclcpp-lifecycle std-msgs std-srvs tf2-ros ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_bt_navigator-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "255bab48c217a68141c8183d8c206246b65ba150";
-        hash = "sha256-/E7uckq754onKACvulQUY9tuxiV6vPs3jA2Ie9HuXjI=";
+        rev = "ab29f95c4eb1b93b763c53b5c6f16aef856a58e9";
+        hash = "sha256-48e3yAdLXIVQgbsXGn1evfBqFAxnK/6HeJiq9D/+4IM=";
       };
     };
   });

@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_zenoh_cpp";
-  version = "0.6.2-1";
+  version = "0.6.3-1";
   src = finalAttrs.passthru.sources."rmw_zenoh_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp fastcdr rcpputils rcutils rmw rmw-test-fixture rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_zenoh_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_zenoh-release.git";
-        rev = "9f59ccdf0319936917d5948c81013ba9054cb575";
-        hash = "sha256-zlleV2gtrcd3jOFdPA7y6ZKhi733pvS79ghArW3EuZI=";
+        rev = "0c10b55c212741e8087ec61c608d8c22cea16598";
+        hash = "sha256-VUloY+KRuJ3D4fRGZ0Zl1CutKzOs0qMHAUJjPgmpaXc=";
       };
     };
   });

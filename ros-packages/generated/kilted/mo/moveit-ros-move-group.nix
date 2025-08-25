@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_move_group";
-  version = "2.13.2-2";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."moveit_ros_move_group";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ moveit-common moveit-core moveit-kinematics moveit-ros-occupancy-map-monitor moveit-ros-planning pluginlib rclcpp rclcpp-action std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_move_group-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "cfb44de24c15f2bfbb48027d2ce95b9fc218290d";
-        hash = "sha256-7O4fub8E5rscuYdR6eER7uXa0HGNCyiISnRJSkke5zw=";
+        rev = "ede50242e4a44b61bfcdaf1b30f93870e92b5092";
+        hash = "sha256-fTUAJYaNSCOYhpuv7btQ4ArBRjplmfHdtDIhHJYnFlE=";
       };
     };
   });

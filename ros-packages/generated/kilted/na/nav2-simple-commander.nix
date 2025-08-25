@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nav2_simple_commander";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_simple_commander";
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
   propagatedBuildInputs = [ action-msgs geometry-msgs lifecycle-msgs nav2-msgs rclpy ];
@@ -27,8 +27,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_simple_commander-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "41b72472b16ea7865387e98409bf30882b7f8a5e";
-        hash = "sha256-tlqElDgNweKXyVD9n+JclpM5v0NbIYssj+nXk2PXLnU=";
+        rev = "ebe0a3c19529c119c35b64ce4f4238447c36c71c";
+        hash = "sha256-7pCIz2+ynIrVJnonvlqSkVZwipb2sluK7BGuQDDKO/E=";
       };
     };
   });

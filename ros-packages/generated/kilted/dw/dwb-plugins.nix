@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dwb_plugins";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."dwb_plugins";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dwb-core dwb-msgs geometry-msgs nav2-common nav2-util nav-2d-msgs nav-2d-utils pluginlib rcl-interfaces rclcpp ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dwb_plugins-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "2556739da29f727a11404070cceb432be2c25988";
-        hash = "sha256-i5JctoyFA8kgXJJ8WDJJU4eU8lUcFHtExD06t7y26Jc=";
+        rev = "9212063326d1ea32148b43ae85a9c7484da0b517";
+        hash = "sha256-eH0kFvlsEed6eg5YGLbU87pxBr5JQufGOg3jJLdiT18=";
       };
     };
   });

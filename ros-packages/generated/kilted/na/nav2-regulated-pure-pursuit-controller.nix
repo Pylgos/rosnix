@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_regulated_pure_pursuit_controller";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_regulated_pure_pursuit_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rcl-interfaces rclcpp rclcpp-lifecycle std-msgs tf2 tf2-ros ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_regulated_pure_pursuit_controller-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "84754c6ec2b3a8f4e54ca517d9cc93f5636bab8c";
-        hash = "sha256-teq4CWCNlwbOibWMDbPYJxKzd8gujNK2+s543StywnU=";
+        rev = "b5d7be389fa83309d153c7d1dcc01f090c0efee8";
+        hash = "sha256-4Ix1xlRKkY4j5ugVSB0VvzRIZ4KuVANX613p81DhpPw=";
       };
     };
   });

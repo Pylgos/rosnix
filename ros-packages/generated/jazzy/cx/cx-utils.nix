@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_utils";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."cx_utils";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ clips-vendor rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "spdlog" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_utils-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "2b132f8cd3bddd3d5c0eb05f6a6b3ca32614b25c";
-        hash = "sha256-VF224DvkuxKFNMfE6DksHENxWEa/1imyuwXk0wOM0rk=";
+        rev = "ad1454614d2090d54107c24423ae7f608ccfd6bb";
+        hash = "sha256-v/wAy+Ehy7a8Ec/CcfRysikYa4Mbe1IpSLwD15zqRXE=";
       };
     };
   });

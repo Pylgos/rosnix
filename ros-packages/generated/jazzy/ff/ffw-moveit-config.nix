@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_moveit_config";
-  version = "1.1.9-1";
+  version = "1.1.10-1";
   src = finalAttrs.passthru.sources."ffw_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-setup-assistant moveit-simple-controller-manager robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_moveit_config-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "9015a24a25d7e659b7725ece8b96a1347921d593";
-        hash = "sha256-J/9BgciexRBMjB1z1pmhtzIn0eS/jfTGaXCVsEjF8j0=";
+        rev = "a6b1b07b3026e06ddcf00e84b91192234dde092b";
+        hash = "sha256-Fk8HjMFECLziz4yBCllSj94KcyDLkrZ0ecioUw80GlU=";
       };
     };
   });

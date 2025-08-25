@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "trac_ik";
-  version = "2.1.1-1";
+  version = "2.1.1-2";
   src = finalAttrs.passthru.sources."trac_ik";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ trac-ik-kinematics-plugin trac-ik-lib ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "trac_ik-source";
         url = "https://github.com/ros2-gbp/trac_ik-release.git";
-        rev = "28b44c13a4a3076d340b521847a05fd146a7bf1c";
+        rev = "5a34cae95c7f6a88876f1897bdc0022ae40551d3";
         hash = "sha256-VBvVVZOulaGJYK+MFI+VzTeQUutLgsf3i/taRwh/UJA=";
       };
     };

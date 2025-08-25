@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smoother";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_smoother";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util nav-2d-utils pluginlib rclcpp rclcpp-components rclcpp-lifecycle tf2 tf2-ros ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_smoother-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "3425541cc226db6afde1efcae9b76a9c115737f8";
-        hash = "sha256-bHFzzN820Jm/vIBHp6063hmWGZ5BmwXQ8HnCYs1FI8w=";
+        rev = "d94f60a8311636eeac727805fd9a99576a912af1";
+        hash = "sha256-nd9l9J1wet/ottWqHjmU8xX2jK75tgAvYl7xEMvM9zQ=";
       };
     };
   });

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_theta_star_planner";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."nav2_theta_star_planner";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp rclcpp-action rclcpp-lifecycle tf2-ros ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_theta_star_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "84d0607652a4005670700e0441df6359a68aa4cd";
-        hash = "sha256-wk1U6VQ/7pPDGpgRwZAOG5Gc8PDZQspeXUBbQC6CIDY=";
+        rev = "8a8c6e34f796a2a224f6d19a8a265f620d90c9d3";
+        hash = "sha256-cW7gBvh2EKGN8iyTa0lN+bL2Sd2GMrC5b+vaeBN6UV4=";
       };
     };
   });

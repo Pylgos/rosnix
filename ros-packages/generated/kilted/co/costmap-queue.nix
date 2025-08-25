@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "costmap_queue";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."costmap_queue";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nav2-common nav2-costmap-2d ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "costmap_queue-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "0da798ed0400e4bad0dd9f464d8e840cd62b98c7";
-        hash = "sha256-rHIeUWxlVUAP2CGbp7GgaVdAfGJ/H/VE2f1MPlK3za8=";
+        rev = "9027a54ce62fe3f0bf0e52e3b29583610c289941";
+        hash = "sha256-u2QJjgKBb7TByPXJgoQvizVwjX51NZYCMXUSnwdU0IM=";
       };
     };
   });

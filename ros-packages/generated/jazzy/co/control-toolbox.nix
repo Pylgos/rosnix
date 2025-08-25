@@ -24,20 +24,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_toolbox";
-  version = "4.6.0-1";
+  version = "4.7.0-1";
   src = finalAttrs.passthru.sources."control_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
   checkInputs = [ ament-cmake-gmock rclcpp-lifecycle ];
   passthru.sources = mkSourceSet (sources: {
     "control_toolbox" = substituteSource {
       src = fetchgit {
         name = "control_toolbox-source";
         url = "https://github.com/ros2-gbp/control_toolbox-release.git";
-        rev = "472fc13b38c5d90e6f8a0921affb58aae625b970";
-        hash = "sha256-HZ0fh9cAXiUxNBc+2XGzCqsYzYE1uO4aOAPKHML4CdM=";
+        rev = "2372b2ba03287f22bd61dee3a430b8d995aa38b0";
+        hash = "sha256-bTH4B1lRWIxM4PnwVs/1iFqBEOc9oXn+HEYp9pXVuV8=";
       };
     };
   });

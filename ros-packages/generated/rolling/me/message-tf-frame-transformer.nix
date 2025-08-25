@@ -7,7 +7,6 @@
   geometry-msgs,
   mkSourceSet,
   rclcpp,
-  ros-environment,
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
@@ -18,19 +17,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "message_tf_frame_transformer";
-  version = "1.1.1-1";
+  version = "1.1.3-1";
   src = finalAttrs.passthru.sources."message_tf_frame_transformer";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
+  propagatedBuildInputs = [ geometry-msgs rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "message_tf_frame_transformer" = substituteSource {
       src = fetchgit {
         name = "message_tf_frame_transformer-source";
         url = "https://github.com/ros2-gbp/message_tf_frame_transformer-release.git";
-        rev = "8365d8e62c09180ae085e4e225e5f2fb90d0439b";
-        hash = "sha256-lYSUvKIMjeyVNRJsf7Qj8XGausPw6UVLCKmHL7D1St8=";
+        rev = "483ee478cd6d852fdb4fc2839047c8c0dc6022c9";
+        hash = "sha256-E/pOoAS/inHYZ6ddA0bz7xZR1G+hiY5w0cpB9O21DV4=";
       };
     };
   });

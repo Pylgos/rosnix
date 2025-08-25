@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_msgs";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."cx_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_msgs-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "375e1fbbd98444941bac4e1b86b9ed4f18b7384e";
-        hash = "sha256-pXgIj7K3a1BaZ5QaPE5o6SfGdG8z+heo4cPn7t+9U8M=";
+        rev = "2b9045dfd6a5f38bb1a4917a1b96aa24f16d48c9";
+        hash = "sha256-pdVpeYCQVgtiMg2FYwUhYPUjllL+ylr6Z1TRDLx8s1E=";
       };
     };
   });

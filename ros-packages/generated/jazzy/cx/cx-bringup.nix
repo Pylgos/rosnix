@@ -25,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_bringup";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."cx_bringup";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ cx-ament-index-plugin cx-clips-env-manager cx-config-plugin cx-example-plugin cx-executive-plugin cx-file-load-plugin cx-protobuf-plugin cx-ros-comm-gen cx-ros-msgs-plugin example-interfaces launch-ros std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ cx-ament-index-plugin cx-clips-env-manager cx-config-plugin cx-example-plugin cx-executive-plugin cx-file-load-plugin cx-protobuf-plugin cx-ros-comm-gen cx-ros-msgs-plugin example-interfaces launch-ros std-msgs std-srvs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cx-ament-index-plugin cx-clips-env-manager cx-config-plugin cx-example-plugin cx-executive-plugin cx-file-load-plugin cx-protobuf-plugin cx-ros-comm-gen cx-ros-msgs-plugin example-interfaces launch-ros std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
+  propagatedBuildInputs = [ cx-ament-index-plugin cx-clips-env-manager cx-config-plugin cx-example-plugin cx-executive-plugin cx-file-load-plugin cx-protobuf-plugin cx-ros-comm-gen cx-ros-msgs-plugin example-interfaces launch-ros std-msgs std-srvs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cx_bringup" = substituteSource {
       src = fetchgit {
         name = "cx_bringup-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "2294264316be2ac5618a8b3fe498e81d34850e40";
-        hash = "sha256-qqeQJeeAkDpQCb41IFeC3sPVegJhvj6j/GOwU/AGXIw=";
+        rev = "fef517e0e53142af2ec5b0ef81e27e0e45b8184e";
+        hash = "sha256-YIyDWP5yjlKN3Ri+hxzri40XdhamU4s8l9/5mq76Qlw=";
       };
     };
   });

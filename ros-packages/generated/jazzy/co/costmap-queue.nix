@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "costmap_queue";
-  version = "1.3.7-1";
+  version = "1.3.8-1";
   src = finalAttrs.passthru.sources."costmap_queue";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nav2-common nav2-costmap-2d rclcpp ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "costmap_queue-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "a0cc4768b18a1e2c8e902e2d25dfe1890c402757";
-        hash = "sha256-R9YKirV7yi1fI50BQyIenZVSpGHXp5R264p3imBrmao=";
+        rev = "8a6a367efc95b78a4e4b9608926c525dd3490fba";
+        hash = "sha256-7LQ3K8bFJBlRiJqJCDpiRx/1BjkvdATf9FEm8fmZMoU=";
       };
     };
   });

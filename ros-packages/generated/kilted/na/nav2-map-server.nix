@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_map_server";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_map_server";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-ros launch-testing lifecycle-msgs nav2-common nav2-msgs nav2-util nav-msgs rclcpp rclcpp-lifecycle std-msgs tf2 yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "graphicsmagick" ]; };
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_map_server-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "10773108495fa0c96319571a02deaf0b951eea4f";
-        hash = "sha256-AUC+tC/NZ92mfLJ+D1LDMCMLMA6MdEA6dVFDJFDsxRU=";
+        rev = "2d7d01bbd6c4713b866590a69b2f17cb0ef1cf4d";
+        hash = "sha256-fIy6vhu+VJt7J3rCHLygE2HNtYnA/Ud6POR7shqKDoE=";
       };
     };
   });

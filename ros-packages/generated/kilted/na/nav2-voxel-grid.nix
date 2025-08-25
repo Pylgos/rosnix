@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_voxel_grid";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_voxel_grid";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nav2-common rclcpp ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_voxel_grid-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "77aa257b198a5bbd001aa7ede55aa8a5f4da36a8";
-        hash = "sha256-dX++jqJI/zWmCL3E6PYG5d5gF2/XpAZkc4Z588O9/7k=";
+        rev = "6b50174adc814da4207e1a32aaf9ed5401e9d504";
+        hash = "sha256-/wlA5dumtbrW00wmlqSVR9gbR9kMFlgu60x8KW+CTEU=";
       };
     };
   });

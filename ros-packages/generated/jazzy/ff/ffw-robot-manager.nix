@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_robot_manager";
-  version = "1.1.9-1";
+  version = "1.1.10-1";
   src = finalAttrs.passthru.sources."ffw_robot_manager";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface dynamixel-hardware-interface dynamixel-interfaces generate-parameter-library hardware-interface pluginlib rclcpp ros2-control-cmake std-srvs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_robot_manager-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "5152a09cb0b309dda130b2772a1732411fca63fd";
-        hash = "sha256-txlFzQ/ksGTiBet6YHzU73nGZqFcCvY+oGc/+bpWWAY=";
+        rev = "f0bf06fc4b74dfbbf248970daa8e696b11318a31";
+        hash = "sha256-JrEbTMECIr6JYJaGf0YqoLpz8tl0SWWzhXGbpOiZPP0=";
       };
     };
   });

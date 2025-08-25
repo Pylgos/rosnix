@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_mppi_controller";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."nav2_mppi_controller";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ angles eigen3-cmake-module geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-util nav-msgs pluginlib rclcpp rclcpp-lifecycle std-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libomp-dev" ]; };
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_mppi_controller-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "a36e3ccc7022cae075c284db45d6288b1f8fa78b";
-        hash = "sha256-U3b8OvPY+nmX2ilDmN4o+urpMnFeUdpLFYRGOFSL1io=";
+        rev = "cd9463639794f741aa39d50d0f10ce449ce2deb7";
+        hash = "sha256-WpMS2Gsjojn3fixf//Bno9QV4HaQPfrn66sl0w+pxQk=";
       };
     };
   });
