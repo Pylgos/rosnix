@@ -272,6 +272,15 @@ in
           '';
         }
       );
+      nav2-costmap-2d = rosPrev.nav2-costmap-2d.overrideAttrs (
+        {
+          NIX_CFLAGS_COMPILE ? "",
+          ...
+        }:
+        {
+          NIX_CFLAGS_COMPILE = "${NIX_CFLAGS_COMPILE} -Wno-error";
+        }
+      );
     })
   );
 }
