@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_offboard_sensors";
-  version = "2.0.0-1";
+  version = "2.7.0-2";
   src = finalAttrs.passthru.sources."clearpath_offboard_sensors";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ image-transport image-transport-plugins velodyne-pointcloud ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_offboard_sensors-source";
         url = "https://github.com/clearpath-gbp/clearpath_desktop-release.git";
-        rev = "04f877510b804b3d9ad07ba32f7ff32069f77e83";
-        hash = "sha256-i9PKhySsUJGYrrJ+1AGgsa+GTuAcc7B/uXMpH37O7fI=";
+        rev = "827a23ec460f7b4c1844c0136c51a6887927e890";
+        hash = "sha256-aJcIMaiBwkiZRW6DlqspoGmgHD59c7UfR8NdlwvF/sY=";
       };
     };
   });

@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinematics_interface_kdl";
-  version = "1.4.0-1";
+  version = "1.5.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface_kdl";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ kdl-parser kinematics-interface pluginlib ros2-control-cmake tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kinematics_interface_kdl-source";
         url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
-        rev = "0a8a0b4ad5aa9717059fc4823654c255efda5efb";
-        hash = "sha256-aI4r2fehJ2nBvtM0c40s/tkBs+dxHvOCV0fwedGEtAI=";
+        rev = "1ce4d1661e7a3e1fa1375b12a8937797e523579a";
+        hash = "sha256-Q9Fapxq6q3/YD3PYak68EfQ9w05PYJHhI44ScKRjkgQ=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."yasmin";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   buildInputs = [ ament-cmake ament-cmake-python ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "22db7998306890908a280a27352c601c9a179323";
-        hash = "sha256-WrDBl+VSmUbzvg4rvYA2P12sbkEalU6j+WInuahR7E8=";
+        rev = "af8529dd0f8228a0aa4225c25d916e57bca3b5dd";
+        hash = "sha256-6OD1WCLBnymhE3NPMoLEPynZ7Hwy2oUJJlL+XQAt/ss=";
       };
     };
   });

@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "bicycle_steering_controller";
-  version = "5.5.0-2";
+  version = "5.6.0-1";
   src = finalAttrs.passthru.sources."bicycle_steering_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake std-srvs steering-controllers-library ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "bicycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "3425d926ed653c4b826bfe3d3aba812f5c596eb3";
-        hash = "sha256-UZXPlBLPYcCrJb9uoawFLeZdx7LAaxULy0pAtVOusU0=";
+        rev = "36af805bb8720eb8409dc5bb945ee4248645d2cf";
+        hash = "sha256-KIXInXG1pkl1IitZBlm7yqK5JSHO7gSGHO+DI2iTo5U=";
       };
     };
   });

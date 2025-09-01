@@ -2,12 +2,12 @@
   ament-cmake,
   ament-cmake-gmock,
   buildAmentCmakePackage,
-  control-msgs,
   controller-interface,
   controller-manager,
   fetchgit,
   fetchurl,
   fetchzip,
+  filters,
   generate-parameter-library,
   hardware-interface,
   hardware-interface-testing,
@@ -15,32 +15,31 @@
   pluginlib,
   rclcpp,
   rclcpp-lifecycle,
-  realtime-tools,
   ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "gpio_controllers";
-  version = "4.31.0-1";
-  src = finalAttrs.passthru.sources."gpio_controllers";
+  pname = "chained_filter_controller";
+  version = "5.6.0-1";
+  src = finalAttrs.passthru.sources."chained_filter_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
+  propagatedNativeBuildInputs = [ controller-interface filters generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
+  propagatedBuildInputs = [ controller-interface filters generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
-    "gpio_controllers" = substituteSource {
+    "chained_filter_controller" = substituteSource {
       src = fetchgit {
-        name = "gpio_controllers-source";
+        name = "chained_filter_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "22dda7536e2afd7af8befba27fe5d2d68cc9bff8";
-        hash = "sha256-c0h+rhUsuHtyaXvBK8iNloRyl/cQ08G7E9VOx4gzxR4=";
+        rev = "9c5af8df26f93cd612f92a1b3d879f96d2a1696a";
+        hash = "sha256-ERVx5/wC5FkdydSJ29d6vrTT5XFPaUa8N03BhRkEcEQ=";
       };
     };
   });
   meta = {
-    description = "Controllers to interact with gpios.";
+    description = "ros2_controller for configuring filter chains";
   };
 })

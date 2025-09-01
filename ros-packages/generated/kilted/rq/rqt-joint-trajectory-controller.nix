@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_joint_trajectory_controller";
-  version = "5.5.0-2";
+  version = "5.6.0-1";
   src = finalAttrs.passthru.sources."rqt_joint_trajectory_controller";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ control-msgs controller-manager-msgs python-qt-binding qt-gui rclpy rqt-gui rqt-gui-py trajectory-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "15a5a9e4cdd9fd9dea89e9748d9cf63f9fc6b5e0";
-        hash = "sha256-+G9ey7isaezXdhZ8AwuHA4H6QvQzGKBFArj487ubveA=";
+        rev = "68f0cb3dfde1aed25e5b2e1c3566fe2215591b79";
+        hash = "sha256-VJhnG8c07EXad4j8kJ2IYaM7KtrxKXia2ESzmrKze3I=";
       };
     };
   });
