@@ -4,6 +4,13 @@ let
   rosPy = final.rosConfig.rosPython;
 in
 {
+  opencv4 = prev.opencv4.override {
+    enableGtk2 = true;
+    enableGtk3 = true;
+    enablePython = true;
+    pythonPackages = final.rosPythonPackages;
+  };
+
   # nav2_mppi_controller breaks in xsimd 13.0.0 (direction of cmd_vel is reversed for some reason)
   xsimd = prev.xsimd.overrideAttrs rec {
     version = "12.1.1";
@@ -407,8 +414,8 @@ in
     libomp-dev = [ final.llvmPackages.openmp ];
     libopenal-dev = [ final.openal ];
     libopenblas-dev = [ final.openblas ];
-    libopencv-dev = [ final.opencv ];
-    libopencv-imgproc-dev = [ final.opencv ];
+    libopencv-dev = [ final.opencv4 ];
+    libopencv-imgproc-dev = [ final.opencv4 ];
     libopenexr-dev = [ final.openexr ];
     libopenscenegraph = [ final.openscenegraph ];
     libopenvdb = [ final.openvdb ];
@@ -740,7 +747,8 @@ in
     python3-requests-oauthlib = [ final.rosPythonPackages.requests_oauthlib ];
     python3-retrying = [ final.rosPythonPackages.retrying ];
     python3-rosdistro-modules = [ final.rosPythonPackages.rosdistro ];
-    python3-ruamel.yaml = [ final.rosPythonPackages.ruamel_yaml ];
+    python3-rospkg = [ final.rosPythonPackages.rospkg ];
+    "python3-ruamel.yaml" = [ final.rosPythonPackages.ruamel_yaml ];
     python3-schedule = [ final.rosPythonPackages.schedule ];
     python3-schema = [ final.rosPythonPackages.schema ];
     python3-scipy = [ final.rosPythonPackages.scipy ];
