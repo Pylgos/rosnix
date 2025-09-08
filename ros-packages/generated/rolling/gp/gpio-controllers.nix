@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gpio_controllers";
-  version = "5.5.0-1";
+  version = "5.6.1-1";
   src = finalAttrs.passthru.sources."gpio_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gpio_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "5a9e99ac59f5f017e8417b3fb5c6080539ebea77";
-        hash = "sha256-aC/X5WMRw48FCCoWZpCDVBhgogsnUw+XrTSV0wQfmlc=";
+        rev = "6b2af42dc8fab3ff7476c050c80b08a6646f077f";
+        hash = "sha256-rlfPaUovmE+ArA9HsrPNc9+BjmkmTxwHMUYdOXc981I=";
       };
     };
   });

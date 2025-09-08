@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_swerve_drive_controller";
-  version = "1.1.10-1";
+  version = "1.1.11-1";
   src = finalAttrs.passthru.sources."ffw_swerve_drive_controller";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools sensor-msgs std-srvs tf2 tf2-geometry-msgs tf2-msgs visualization-msgs ];
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_swerve_drive_controller-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "75d192aca67519967b3151329592dbe15febcafd";
-        hash = "sha256-hoZtHmYtdpoqBSLu0et1cslv55hqZUJKWMYO99Z1alc=";
+        rev = "e01b443b39764dc10bd2e7ef33a68e7e53b0e5c2";
+        hash = "sha256-gu3p8e7qvyI2p4mNMd4p7KQC+OiLKRGcYVCAcYjemiE=";
       };
     };
   });

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_compressed_video_transport";
-  version = "3.0.0-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."foxglove_compressed_video_transport";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ ffmpeg-encoder-decoder foxglove-msgs image-transport pluginlib rclcpp rcutils sensor-msgs std-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_compressed_video_transport-source";
         url = "https://github.com/ros2-gbp/foxglove_compressed_video_transport-release.git";
-        rev = "e2e0460014db0115373209be12e1beee35de3fb0";
-        hash = "sha256-saVuPtk3Jfk/X+cUo26zJLTBlnUTkniqLCgVVZx61+s=";
+        rev = "b25d649039230dd121c977e2e2c91cfada7d284d";
+        hash = "sha256-Q0QI9jHHfegIv42XLawPlwgoVS0vyKXGiQbLb+xtPbo=";
       };
     };
   });

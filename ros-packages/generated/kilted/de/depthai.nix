@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
-  version = "3.0.3-1";
+  version = "3.0.4-1";
   src = finalAttrs.passthru.sources."depthai";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai-source";
         url = "https://github.com/luxonis/depthai-core-release.git";
-        rev = "5cf57d2ea7505b7fb18a045c49dcd442f62cc560";
-        hash = "sha256-qqRkNvGpEi/tgz8UfCAywyU6cNXR2f59LtMCs/SIAzY=";
+        rev = "bb2178658fb6b4d5227f20d7ad2bc5e536eaaa10";
+        hash = "sha256-N12x918uXhwdzhARk9YHcvm0ktZ77JQ7Qeol/22BzLs=";
       };
       substitutions = [
         {
@@ -62,8 +62,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "XLink-source";
         url = "https://github.com/luxonis/XLink.git";
-        rev = "87785828fabdb1718760bb0a044405d5bbfbb3a2";
-        hash = "sha256-8vPmkQ7FDunXICATtd+2T4oTF0rxIzOoOb2cDiUHgpc=";
+        rev = "8afcfeea9638c683c8e9d75700224ef0fa8aa72f";
+        hash = "sha256-P8YRgB/U57/sRWnpC6C35K3PE37EAj4nVAlzAlGgVZI=";
       };
     };
     "depthai/benchmark" = substituteSource {

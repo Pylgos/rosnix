@@ -11,7 +11,7 @@
 }:
 buildCatkinPackage (finalAttrs: {
   pname = "async_web_server_cpp";
-  version = "2.0.0-6";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."async_web_server_cpp";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libssl-dev" ]; };
@@ -23,8 +23,8 @@ buildCatkinPackage (finalAttrs: {
       src = fetchgit {
         name = "async_web_server_cpp-source";
         url = "https://github.com/ros2-gbp/async_web_server_cpp-release.git";
-        rev = "82946dd9a58d8c6a924ae3464004272d467e5f63";
-        hash = "sha256-bz0je03yD60CjR08T++F1rGD5GhfXZJWAbL6L5rINbo=";
+        rev = "f5bda6adb4ab1b5c1f9039e37bc55c2c3f152d80";
+        hash = "sha256-ketLbXV9bdIyWx1waknk3IXQhZ2LwIgfe575dL2es4Y=";
       };
     };
   });

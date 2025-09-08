@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "steering_controllers_library";
-  version = "5.5.0-1";
+  version = "5.6.1-1";
   src = finalAttrs.passthru.sources."steering_controllers_library";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "steering_controllers_library-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "a1b9a2f7a53062bdba8d17a43362496ae3179bd4";
-        hash = "sha256-orIY3Vctomb91VREm+4wf7HmwjkjydO3bKW95mOVAyg=";
+        rev = "4dbf6c7826c69b7b7c140004e2beee1ab737acc9";
+        hash = "sha256-RPeDNJdhTWR0Y91aufpXU432S8Kbqq/eC41A57VFW1E=";
       };
     };
   });

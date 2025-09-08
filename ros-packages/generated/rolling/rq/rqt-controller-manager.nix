@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_controller_manager";
-  version = "5.5.0-1";
+  version = "5.6.0-1";
   src = finalAttrs.passthru.sources."rqt_controller_manager";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager controller-manager-msgs rclpy rqt-gui rqt-gui-py ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "93971b82b015be19a17ba09c6fb57137dbb23189";
-        hash = "sha256-4k2i5TeyRE0OFxVPHvSzuI3wF7khbVFFcjiUhgkHbp8=";
+        rev = "07c452cf7532c1248eac312e6d4fcd4645f30452";
+        hash = "sha256-/LoIDqpdDoe9sew6O1GQtMHGjMprtZNqHiYVoB53TeY=";
       };
     };
   });

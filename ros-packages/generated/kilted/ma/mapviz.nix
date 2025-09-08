@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz";
-  version = "2.5.9-1";
+  version = "2.5.10-1";
   src = finalAttrs.passthru.sources."mapviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "qt5-qmake" ]; };
   propagatedNativeBuildInputs = [ geometry-msgs image-transport mapviz-interfaces pluginlib rclcpp ros-environment rqt-gui rqt-gui-cpp std-srvs swri-math-util swri-transform-util tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glut" "libglew-dev" "libopencv-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" "libxi-dev" "libxmu-dev" "yaml-cpp" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mapviz-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "06a9ce7e249809fa46d457f3fc51223c77a1b4b4";
-        hash = "sha256-lLtQInqRAWV6h+nha1V9z7GQcvAwZ6N7hIcAT1PTgyo=";
+        rev = "0f7230ba80193f15f0cc8fe7cdb641ea86682b0c";
+        hash = "sha256-bYsj+6oY1BPDYGviyniz0vXGZZQPw8mIK1vuGhGO16s=";
       };
     };
   });

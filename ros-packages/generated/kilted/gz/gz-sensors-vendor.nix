@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sensors_vendor";
-  version = "0.2.1-2";
+  version = "0.2.3-1";
   src = finalAttrs.passthru.sources."gz_sensors_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-sensors9" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_sensors_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sensors_vendor-release.git";
-        rev = "88e3fbfd66940764781aef71a2b7f9cfd5b272d3";
-        hash = "sha256-kmMVTdTebKt5VZgrnCEj/bsgMnXZp0A8zVcKig2yiDI=";
+        rev = "de9d79c0f6f48bfa7e43da619599e5d7e652d705";
+        hash = "sha256-doQrWk/G03/UjZP1PZy6BwAJB/SdAkz91t6k0VUznr0=";
       };
       substitutions = [
         {
@@ -50,12 +50,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-sensors-source";
         url = "https://github.com/gazebosim/gz-sensors.git";
-        rev = "6bfff2bd47916e5e4a937b6ffbd9e26fc74c05e1";
-        hash = "sha256-dMqJqp5229r/mKjBzUJD/tEbsYZANAFNycHYc7CIkz8=";
+        rev = "aa520011672583c434f9e01706c6b45b57352dc8";
+        hash = "sha256-Vxl3xdmh8ybRbjDxNGt8qgQOP9ctAcYAoVwWeytAglc=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-sensors9 9.1.0\n\n    Gazebo Sensors : Sensor models for simulation\n  ";
+    description = "\n    Vendor package for: gz-sensors9 9.2.0\n\n    Gazebo Sensors : Sensor models for simulation\n  ";
   };
 })

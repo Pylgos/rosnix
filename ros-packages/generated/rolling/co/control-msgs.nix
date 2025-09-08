@@ -5,6 +5,7 @@
   ament-lint-common,
   buildAmentCmakePackage,
   builtin-interfaces,
+  diagnostic-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -20,20 +21,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_msgs";
-  version = "6.4.0-1";
+  version = "6.5.0-1";
   src = finalAttrs.passthru.sources."control_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
+  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces diagnostic-msgs geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
+  propagatedBuildInputs = [ action-msgs builtin-interfaces diagnostic-msgs geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "control_msgs" = substituteSource {
       src = fetchgit {
         name = "control_msgs-source";
         url = "https://github.com/ros2-gbp/control_msgs-release.git";
-        rev = "3a3337a81e6a1b48bc33c819a8ba82b758f7b647";
-        hash = "sha256-fsfE4yCjdfH6syx36UhyyrQQ/gdorpf917QaDxACfZo=";
+        rev = "4be6d25efaef188dc94fe846be1809e958e5d5bf";
+        hash = "sha256-yxhI56L2RO2ihH5gOhXW36zTqsnO1Pa7dPP2MbFGVNU=";
       };
     };
   });

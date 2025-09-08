@@ -6,11 +6,14 @@
   apriltag,
   apriltag-msgs,
   buildAmentCmakePackage,
+  camera-ros,
   cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
+  image-proc,
   image-transport,
+  image-transport-plugins,
   mkSourceSet,
   rclcpp,
   rclcpp-components,
@@ -21,20 +24,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_ros";
-  version = "3.2.2-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."apriltag_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ apriltag apriltag-msgs cv-bridge image-transport rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ apriltag apriltag-msgs camera-ros cv-bridge image-proc image-transport image-transport-plugins rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ apriltag apriltag-msgs cv-bridge image-transport rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
-  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-lint-auto ];
+  propagatedBuildInputs = [ apriltag apriltag-msgs camera-ros cv-bridge image-proc image-transport image-transport-plugins rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-lint-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "clang-format" ]; };
   passthru.sources = mkSourceSet (sources: {
     "apriltag_ros" = substituteSource {
       src = fetchgit {
         name = "apriltag_ros-source";
         url = "https://github.com/ros2-gbp/apriltag_ros-release.git";
-        rev = "de4b420c4311d350268c7e03a850accf7e164218";
-        hash = "sha256-1BAPfaLgYZ+JV3LFidzL5IOnM4wd7fvcXNRkAzCyZU4=";
+        rev = "27c89b450c42af6cbefa01e2a1f49383fe646ef9";
+        hash = "sha256-1QnwKFz7U3tyRSiWEZfp8VrKNFgD0ivenI4JOLcIP6g=";
       };
     };
   });

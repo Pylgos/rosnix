@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "force_torque_sensor_broadcaster";
-  version = "5.6.0-1";
+  version = "5.6.1-1";
   src = finalAttrs.passthru.sources."force_torque_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "force_torque_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "2437bad1e410ea4b0ce5c23a6261ba8fc0f5358f";
-        hash = "sha256-cBxecUjYo3HIg3m6LR4eJ8IphHjxOocU4hVH57qnsG0=";
+        rev = "ad7ad6459fce91f9b05e88774b362c8b98c52259";
+        hash = "sha256-RiT1wY7xGMFVoR6wNQL79p4ViD5KDwtqAf8poheKFkg=";
       };
     };
   });
