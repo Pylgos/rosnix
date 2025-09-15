@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "launch_testing_ament_cmake";
-  version = "3.8.2-1";
+  version = "3.8.3-1";
   src = finalAttrs.passthru.sources."launch_testing_ament_cmake";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-test launch-testing ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "launch_testing_ament_cmake-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
-        rev = "113733ddec152b25da69729c1779013fe4eb8214";
-        hash = "sha256-72khS3j0Vq/WKv+EfNq77L11WQgzuTf7YNOFnTawvI4=";
+        rev = "38b3e329847719636dea05fcad4129c747e05c8b";
+        hash = "sha256-kfJpJgyqQC2gglp476oUYP85NU2lLHaurCjjdZWNXEQ=";
       };
     };
   });

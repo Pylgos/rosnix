@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "catch_ros2";
-  version = "0.2.2-1";
+  version = "0.2.3-1";
   src = finalAttrs.passthru.sources."catch_ros2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ros2launch std-srvs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "catch_ros2-source";
         url = "https://github.com/ros2-gbp/catch_ros2-release.git";
-        rev = "6ec2ef0a472b046ed78010373adf9b6458e0c275";
-        hash = "sha256-gYwng5weuw1aZP9m/QrBDElMUZIiLWZrtDvHPebWVpk=";
+        rev = "b4543af2ad5e036a23f1a30dac41797d8d91d311";
+        hash = "sha256-VItF/fteuNMuilpC6mXHUCohGA1NyzA6VqW0u+LfzYU=";
       };
     };
   });

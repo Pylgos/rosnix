@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidlcpp_generator_cpp";
-  version = "0.3.0-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."rosidlcpp_generator_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-core rcutils rosidl-cmake rosidl-generator-type-description rosidl-typesupport-interface rosidlcpp-generator-core rosidlcpp-parser ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "nlohmann-json-dev" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidlcpp_generator_cpp-source";
         url = "https://github.com/ros2-gbp/rosidlcpp-release.git";
-        rev = "1e254945b31ad8e6f6de398ea1bf072bf56e1f48";
-        hash = "sha256-/TMfcaDTFkMyjOeSxeQYTVYcLvESnkO8Osnl7onDl4M=";
+        rev = "54894cb15c62a6416384dceb0817234c293b22bd";
+        hash = "sha256-oVa+EnK5KfnFGlTZEs/NmVNsFFwAfMshMGVTVWsHpfo=";
       };
     };
   });

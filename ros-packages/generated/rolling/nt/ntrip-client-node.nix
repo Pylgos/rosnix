@@ -9,7 +9,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  libcurl-vendor,
   mkSourceSet,
   rclcpp,
   rclcpp-components,
@@ -23,9 +22,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.6.1-1";
   src = finalAttrs.passthru.sources."ntrip_client_node";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ libcurl-vendor rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcurl_vendor" "pkg-config" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ libcurl-vendor rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
+  propagatedBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcurl_vendor" "pkg-config" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-uncrustify ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ntrip_client_node" = substituteSource {

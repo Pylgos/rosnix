@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit";
-  version = "2.14.0-1";
+  version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ moveit-core moveit-planners moveit-plugins moveit-ros moveit-setup-assistant ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "e33814f94143fccdf8fac5bd78216618736b6878";
-        hash = "sha256-RpaBD0STRtOJly7gMhfuOEfuRzWBKD2UVt/b2WACi5M=";
+        rev = "a6187ebebba2923e5c74d51fc69b1eacbac26980";
+        hash = "sha256-Jq2GheQwC0dModkkL562uZg5HgUDBWktvDKHEMQIBmw=";
       };
     };
   });

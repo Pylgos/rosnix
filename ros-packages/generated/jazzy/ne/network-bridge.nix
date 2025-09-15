@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "network_bridge";
-  version = "1.0.2-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."network_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ pluginlib rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "network_bridge-source";
         url = "https://github.com/ros2-gbp/network_bridge-release.git";
-        rev = "c625bfef13c67072a1a39f37fc3859d5f3cfb27b";
-        hash = "sha256-Gfm+jv0L73LlZMytVTDOCyqyBGqctp6URffWJU/opmk=";
+        rev = "821c0ee2db78b0995752a01e5ae5dceb3abeae42";
+        hash = "sha256-rFjL5VY6uo+XC4OnNxiML8DRWGDhIjnCQyKk/O+bMyA=";
       };
     };
   });

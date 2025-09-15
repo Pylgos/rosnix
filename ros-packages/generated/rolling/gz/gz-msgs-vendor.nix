@@ -18,20 +18,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_msgs_vendor";
-  version = "0.2.3-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."gz_msgs_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-msgs11" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-msgs" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
   buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-msgs11" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-msgs" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gz_msgs_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_msgs_vendor-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
-        rev = "eb0d9f5669415b69049a56a0217fe11aa01957b9";
-        hash = "sha256-J3TqLFAmIJTKEIr22puvgftLwKgViaFQM37uXzloo9M=";
+        rev = "a66ac2e20150ed685d9be56a970fbe4e052b1a1b";
+        hash = "sha256-9lCderpDjmVJ3U9Y0KWS06sUHkJZtFIB7m7gjZqktFo=";
       };
       substitutions = [
         {
@@ -45,12 +45,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-msgs-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "1f5f19e44faaaa8ece97903eb09b685b4640dea1";
-        hash = "sha256-M/rzUrL6uzpaRNLWJsGViY6Jk0bLtooEe+0eEEPS7PA=";
+        rev = "b6c10a70266314181baea9aafc31ec0ace874b2d";
+        hash = "sha256-f6J47zNdOGy1nYNnLOaYx4fr4kLl7diZPdSdbHkDROs=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-msgs11 11.1.0\n\n    Gazebo Messages: Protobuf messages and functions for robot applications\n  ";
+    description = "\n    Vendor package for: gz-msgs 12.0.0\n\n    Gazebo Messages: Protobuf messages and functions for robot applications\n  ";
   };
 })

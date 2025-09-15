@@ -18,20 +18,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_plugin_vendor";
-  version = "0.2.2-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."gz_plugin_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-plugin3" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-plugin" ]; };
   buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-plugin3" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-plugin" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_plugin_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_plugin_vendor-source";
         url = "https://github.com/ros2-gbp/gz_plugin_vendor-release.git";
-        rev = "3a8a569d9af9584364c9bc01d9851a6e512552d3";
-        hash = "sha256-xYBVdaYxD092WT/jqEKbGIn7gCTSWBJ/oDUah0ZVCn4=";
+        rev = "fed97be5687d0b90695c0bd0fc65aa1e8cd6d757";
+        hash = "sha256-id97qCs7ycB/Wr1oTApwzBKlOb7bfAD3rLySRHfU8s8=";
       };
       substitutions = [
         {
@@ -45,12 +45,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-plugin-source";
         url = "https://github.com/gazebosim/gz-plugin.git";
-        rev = "4341e1bc4d5d5479048f3f7cf5e371f6cd182a08";
-        hash = "sha256-3La9TqxljV1Lko6ju+b8CCspDbhXGPLOGMivqYElTXM=";
+        rev = "f8b4f327546c7b778cf7ff1e6aadcc7403b40155";
+        hash = "sha256-/T0Gav0b9BG39qm8v8J7qnpYdLSwsRZVar4i5zUyF5M=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-plugin3 3.1.0\n\n    Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.\n  ";
+    description = "\n    Vendor package for: gz-plugin 4.0.0\n\n    Gazebo Plugin : Cross-platform C++ library for dynamically loading plugins.\n  ";
   };
 })

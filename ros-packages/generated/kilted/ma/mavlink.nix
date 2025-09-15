@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mavlink";
-  version = "2025.6.6-1";
+  version = "2025.9.9-1";
   src = finalAttrs.passthru.sources."mavlink";
   nativeBuildInputs = [ ament-cmake ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-future" "python3-lxml" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mavlink-source";
         url = "https://github.com/ros2-gbp/mavlink-gbp-release.git";
-        rev = "d08960e14c5874d94a17cc4e37595bd27ea0cddd";
-        hash = "sha256-JSFX+rz69W0suqC993iidyHpU6182rdiwTndEkwvnsg=";
+        rev = "5493c5768178feb6b7fb84b840cf822eb8e5fcdf";
+        hash = "sha256-KoivdOW7nhVtsFtoJ8lwsZfCEJ9/L4dyXn0GTwmKiUM=";
       };
     };
   });

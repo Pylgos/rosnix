@@ -10,27 +10,26 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  libcurl-vendor,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "resource_retriever";
-  version = "3.8.2-1";
+  version = "3.9.0-1";
   src = finalAttrs.passthru.sources."resource_retriever";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-index-cpp ament-index-python libcurl-vendor ];
+  propagatedNativeBuildInputs = [ ament-index-cpp ament-index-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcurl-dev" ]; };
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-index-cpp ament-index-python libcurl-vendor ];
+  propagatedBuildInputs = [ ament-index-cpp ament-index-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcurl-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "resource_retriever" = substituteSource {
       src = fetchgit {
         name = "resource_retriever-source";
         url = "https://github.com/ros2-gbp/resource_retriever-release.git";
-        rev = "e140f8c2fdf299db1c5e63c9ce0dfb43adc4c6e7";
-        hash = "sha256-5WMZmyACdi8isY0rB0r0pY/QSNhTgTLVxQfBpxhw3qA=";
+        rev = "57c28fd002ec8bfe32cd2e0e3ec6d8c3b4ad6823";
+        hash = "sha256-BE9aPTxvd6UKPOA9btsessMEk80toXTj6Z0XmrgWWN8=";
       };
     };
   });

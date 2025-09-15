@@ -25,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_launch_vendor";
-  version = "0.2.1-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."gz_launch_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-sim-vendor gz-tools-vendor gz-transport-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "gz-launch8" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-sim-vendor gz-tools-vendor gz-transport-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "gz-launch" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
   buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-sim-vendor gz-tools-vendor gz-transport-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "gz-launch8" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-sim-vendor gz-tools-vendor gz-transport-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "binutils" "gz-launch" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "xvfb" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gz_launch_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_launch_vendor-source";
         url = "https://github.com/ros2-gbp/gz_launch_vendor-release.git";
-        rev = "183c6918eb8574d41ddfc866d132787ccbaf1b47";
-        hash = "sha256-WeQuYRTl9OkL4SLc5Sj5KOhCq1gNLvFZ25hqlyL12GU=";
+        rev = "e7b8f013f6a2faf826df2d47b5a10462a05d966b";
+        hash = "sha256-2+THmoEBWQMad6p3GS/beXbP7E4dr0Tih3XnxZcZACs=";
       };
       substitutions = [
         {
@@ -52,12 +52,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-launch-source";
         url = "https://github.com/gazebosim/gz-launch.git";
-        rev = "55b382ccde601ad9d44dea9ce5ff1320dd9d778c";
-        hash = "sha256-el+4sVBOmeBj8VJqKut8pIhVJeyEyodrt6titunbBF0=";
+        rev = "f9aa744932ff91861d51af2d31d9b9de1e905ce6";
+        hash = "sha256-x5PTz6KIT7zD6peNBUUkBld8LbFgL2myVrcUeEwJp+8=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-launch8 8.0.1\n\n    Gazebo Launch : Run and manage programs and plugins\n  ";
+    description = "\n    Vendor package for: gz-launch 9.0.0\n\n    Gazebo Launch : Run and manage programs and plugins\n  ";
   };
 })

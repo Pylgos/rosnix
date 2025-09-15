@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "om_joint_trajectory_command_broadcaster";
-  version = "4.0.7-1";
+  version = "4.0.8-1";
   src = finalAttrs.passthru.sources."om_joint_trajectory_command_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp-lifecycle rcutils realtime-tools sensor-msgs trajectory-msgs urdf ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "om_joint_trajectory_command_broadcaster-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "a70a03da145428af9717cf54082b9a7f24707909";
-        hash = "sha256-nUSCalnIqWfk3wdcQ9yy/qopk5ZcrnOoi5M3ysff3/8=";
+        rev = "0e7f522121a4053da58b27293f07fd0bb7a3798d";
+        hash = "sha256-GJ8/RGTor++sWjWyyRBB8lf7KwLFtzIKGQtwHv8uf3M=";
       };
     };
   });

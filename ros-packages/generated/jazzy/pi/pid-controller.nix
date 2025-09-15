@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pid_controller";
-  version = "4.31.0-1";
+  version = "4.32.0-1";
   src = finalAttrs.passthru.sources."pid_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface parameter-traits pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pid_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "0ef4a470f3d5e8cfa48b55d72bba6c1ab220e4d7";
-        hash = "sha256-aTLkdcovHxTFubj/9EGHKUfQoQAQU6O7Oz5YDg3qooo=";
+        rev = "3d98919ac5d274b25f065be2dbcc0da7b8f79665";
+        hash = "sha256-qzIWGjzKR8tGd+LOI0YUZFGJA6P1F0ak6a0BdDoPXEs=";
       };
     };
   });

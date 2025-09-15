@@ -11,30 +11,30 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  launch-testing,
   mkSourceSet,
+  rcl-interfaces,
   rclcpp,
   rcpputils,
+  rmw,
   rosSystemPackages,
-  std-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_components";
-  version = "30.1.0-1";
+  version = "30.1.1-1";
   src = finalAttrs.passthru.sources."rclcpp_components";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-index-cpp class-loader composition-interfaces rclcpp rcpputils ];
+  propagatedNativeBuildInputs = [ ament-index-cpp class-loader composition-interfaces rcl-interfaces rclcpp rcpputils rmw ];
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-index-cpp class-loader composition-interfaces rclcpp rcpputils ];
-  checkInputs = [ ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common launch-testing std-msgs ];
+  propagatedBuildInputs = [ ament-index-cpp class-loader composition-interfaces rcl-interfaces rclcpp rcpputils rmw ];
+  checkInputs = [ ament-cmake-google-benchmark ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rclcpp_components" = substituteSource {
       src = fetchgit {
         name = "rclcpp_components-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "aa2a49d4373e9b3e1580077d7b5e14606ef1adcd";
-        hash = "sha256-1nBFdWSkAMqStQ9swzVzrhHQV6mG3tP3dk58h5nVtHo=";
+        rev = "e02563453747e9d4a61d59b75ee0a45ac4451635";
+        hash = "sha256-Uz7BJj2rHBh2jOOH74X7n8KzolPOCruP5ZhgONzmlK4=";
       };
     };
   });

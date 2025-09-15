@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_description";
-  version = "2.7.0-1";
+  version = "2.7.2-1";
   src = finalAttrs.passthru.sources."clearpath_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ clearpath-manipulators-description clearpath-mounts-description clearpath-platform-description clearpath-sensors-description ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_description-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "f6659ee5785aad9569b5c87666aae7970a7750c2";
-        hash = "sha256-uY4bW1B/n2gds/3CcUouajRTUaMu2kroS7zISzBB/CU=";
+        rev = "b2aa236d2eab45edcd54601f3476d1f02de18338";
+        hash = "sha256-BbNMLxd38FN6Qkoqri4a26GsYjQT0uiagV2WNYYKODA=";
       };
     };
   });

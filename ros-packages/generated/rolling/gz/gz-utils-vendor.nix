@@ -17,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_utils_vendor";
-  version = "0.3.0-1";
+  version = "0.4.0-2";
   src = finalAttrs.passthru.sources."gz_utils_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-utils3" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cli11" "gz-utils" ]; };
   buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-utils3" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cli11" "gz-utils" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "gz_utils_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_utils_vendor-source";
         url = "https://github.com/ros2-gbp/gz_utils_vendor-release.git";
-        rev = "25db3b9801287759532d0a1fe64a6e16ae6f4026";
-        hash = "sha256-m0CndMNkoizwjbwykBRAp8jEKMhZDd3DxxQwkcJnkFY=";
+        rev = "ab1743628c7a202f1a327f6d3eca1b039c9dbcd3";
+        hash = "sha256-EN/nmfwBgQCwKui/z3HqFy5qP3GKaHKJKWPfU839sNE=";
       };
       substitutions = [
         {
@@ -44,12 +44,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-utils-source";
         url = "https://github.com/gazebosim/gz-utils.git";
-        rev = "fd0a40c09be4fd7b2a40d877bb56d2fa1c7607e3";
-        hash = "sha256-fYzysdB608jfMb/EbqiGD4hXmPxcaVTUrt9Wx0dBlto=";
+        rev = "5c075daab7bddd42615c8aa8df5f57a45e643c15";
+        hash = "sha256-UZh4d+WngOWFJepHGD3JLWtf1hz8yWJ5EaQ/1iXlZc0=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-utils3 3.1.1\n\n    Gazebo Utils : Classes and functions for robot applications\n  ";
+    description = "\n    Vendor package for: gz-utils 4.0.0\n\n    Gazebo Utils : Classes and functions for robot applications\n  ";
   };
 })

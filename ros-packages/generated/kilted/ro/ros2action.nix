@@ -15,6 +15,7 @@
   mkSourceSet,
   rclpy,
   ros2cli,
+  ros2topic,
   rosSystemPackages,
   rosidl-runtime-py,
   substituteSource,
@@ -22,18 +23,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2action";
-  version = "0.38.0-1";
+  version = "0.38.1-1";
   src = finalAttrs.passthru.sources."ros2action";
-  propagatedNativeBuildInputs = [ action-msgs ament-index-python rclpy ros2cli rosidl-runtime-py ];
-  propagatedBuildInputs = [ action-msgs ament-index-python rclpy ros2cli rosidl-runtime-py ];
+  propagatedNativeBuildInputs = [ action-msgs ament-index-python rclpy ros2cli ros2topic rosidl-runtime-py ];
+  propagatedBuildInputs = [ action-msgs ament-index-python rclpy ros2cli ros2topic rosidl-runtime-py ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-testing launch-testing-ros test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2action" = substituteSource {
       src = fetchgit {
         name = "ros2action-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "9afe5db6d9987d6aa023efee5a424e866dc7b64a";
-        hash = "sha256-sjblYuJ52Sk9HB9rPPBR9py7QV0tbHmyu7E5Pt76NSo=";
+        rev = "0f86dea6a24c6bf5fd8184b95366c76dbd123ffd";
+        hash = "sha256-DPwiYtVUKkSnc4hbvFKjdqXacIgtkKGZqf1QMIffUHU=";
       };
     };
   });

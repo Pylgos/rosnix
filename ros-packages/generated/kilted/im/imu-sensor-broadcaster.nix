@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_sensor_broadcaster";
-  version = "5.6.1-1";
+  version = "5.7.0-1";
   src = finalAttrs.passthru.sources."imu_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "bb7835ccdb48b33e30d02ef518694c1d6b84ea2d";
-        hash = "sha256-8aIUL+3Oe2h3IYpnHaLUgMyo9E504JTR6srJ1IL2H8U=";
+        rev = "9cc36e8b2786c01d2cd079609e04ceab8e4d01f3";
+        hash = "sha256-G9Hu34ukR+ynSJLAwsdX/+0yndS/06x+/wsXOZK5v44=";
       };
     };
   });

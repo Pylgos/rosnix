@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot4_navigation";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."turtlebot4_navigation";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ nav2-bringup nav2-simple-commander slam-toolbox ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot4_navigation-source";
         url = "https://github.com/ros2-gbp/turtlebot4-release.git";
-        rev = "923b9b61a3e2023fff799c058ad7a2beaccb4c39";
-        hash = "sha256-fKYnFuTb6guDKlSTqx6Ogf8akO2tH1CgrWOdcN59oHA=";
+        rev = "3c7bdfc8d23587735141f287ba295584c96dc56b";
+        hash = "sha256-+QxSoPBYIE3bRloRrRhN2bXGHKQHo+TrWC8Eeo22nhk=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_common";
-  version = "0.5.0-1";
+  version = "0.5.1-1";
   src = finalAttrs.passthru.sources."mola_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint ros-environment ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_common-source";
         url = "https://github.com/ros2-gbp/mola_common-release.git";
-        rev = "b4532bf4641d449310b756af227d783c3a63870e";
-        hash = "sha256-DpwHXWgcqsrCq5Lg2XSTqv9uo3fFhiUHUbHxAQWx1HI=";
+        rev = "94fd5b751c2836eea8a8764b38cc2cec60cfbc91";
+        hash = "sha256-CZlPRrpOSKzCAQmqt+gY962ZSzCXdo0f5pGPhjnLovk=";
       };
     };
   });

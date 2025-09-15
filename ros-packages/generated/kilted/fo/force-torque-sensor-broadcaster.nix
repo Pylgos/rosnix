@@ -8,6 +8,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  filters,
   generate-parameter-library,
   geometry-msgs,
   hardware-interface,
@@ -24,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "force_torque_sensor_broadcaster";
-  version = "5.6.1-1";
+  version = "5.7.0-1";
   src = finalAttrs.passthru.sources."force_torque_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
+  propagatedNativeBuildInputs = [ backward-ros controller-interface filters generate-parameter-library geometry-msgs hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library geometry-msgs hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
+  propagatedBuildInputs = [ backward-ros controller-interface filters generate-parameter-library geometry-msgs hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "force_torque_sensor_broadcaster" = substituteSource {
       src = fetchgit {
         name = "force_torque_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "ad7ad6459fce91f9b05e88774b362c8b98c52259";
-        hash = "sha256-RiT1wY7xGMFVoR6wNQL79p4ViD5KDwtqAf8poheKFkg=";
+        rev = "b71c50cf68b5ccdfc3c33625506c7a7d57cb6c05";
+        hash = "sha256-LCirHZGH67xR/0w5ijAsvhHZrr2u5In9hbnXuycBYHc=";
       };
     };
   });
