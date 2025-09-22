@@ -25,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "novatel_oem7_driver";
-  version = "24.1.0-1";
+  version = "24.2.0-1";
   src = finalAttrs.passthru.sources."novatel_oem7_driver";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedNativeBuildInputs = [ gps-msgs nav-msgs nmea-msgs novatel-oem7-msgs pluginlib rclcpp rclcpp-components sensor-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "geographiclib" ]; };
+  propagatedNativeBuildInputs = [ gps-msgs nav-msgs nmea-msgs novatel-oem7-msgs pluginlib rclcpp rclcpp-components sensor-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" "libboost-dev" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = [ gps-msgs nav-msgs nmea-msgs novatel-oem7-msgs pluginlib rclcpp rclcpp-components sensor-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "geographiclib" ]; };
+  propagatedBuildInputs = [ gps-msgs nav-msgs nmea-msgs novatel-oem7-msgs pluginlib rclcpp rclcpp-components sensor-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "geographiclib" "libboost-dev" ]; };
   checkInputs = [ launch-testing launch-testing-ament-cmake launch-testing-ros rclpy rosbag2 rosidl-runtime-py ];
   passthru.sources = mkSourceSet (sources: {
     "novatel_oem7_driver" = substituteSource {
       src = fetchgit {
         name = "novatel_oem7_driver-source";
         url = "https://github.com/novatel-gbp/novatel_oem7_driver-release.git";
-        rev = "20aff52b8d2e58e37116965e2c8f49d7a8f58819";
-        hash = "sha256-Px9Amgu3N9WQph9LyYHognGo/bpsPUdlmeWLDarz7Fg=";
+        rev = "2934d85a74bbca291d807a9f0693d45db15e056b";
+        hash = "sha256-NO5KEupmTTm4HmSn5FtZiAr/zsvs/88J4DuCnFpLdVs=";
       };
       substitutions = [
         {

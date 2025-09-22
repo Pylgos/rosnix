@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "topic_statistics_demo";
-  version = "0.33.6-1";
+  version = "0.33.7-1";
   src = finalAttrs.passthru.sources."topic_statistics_demo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rcutils sensor-msgs statistics-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "topic_statistics_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "e1b083603190a7cd88ad723e60a2bbfcf90f8ee1";
-        hash = "sha256-mgVo4NeHsxHCSJY7xyOvSwM3AcMqEI4uq7ZERy0hu7o=";
+        rev = "72a7e265f15432da21d95ede6654ae5006601c4f";
+        hash = "sha256-rhIS6mdEs4diMCMBnt6NR1AfLxWQMsxeE09NgZ/zLlE=";
       };
     };
   });

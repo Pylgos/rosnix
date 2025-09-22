@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simulation_interfaces";
-  version = "1.0.0-1";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."simulation_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "simulation_interfaces-source";
         url = "https://github.com/ros2-gbp/simulation_interfaces-release.git";
-        rev = "9feb19683c2a34ed18d05f42ebd22bb9575f0b90";
-        hash = "sha256-AR5fXetnUbJNFmcJMzWtABwDfWO5FpLhqYpfWfxqu5w=";
+        rev = "a63e8cd237af994b245b89a486d8d9e587ce5477";
+        hash = "sha256-07YEjDhpgk9zS+r+K3/nT4JFHdVy47BFhHjRCblda3U=";
       };
     };
   });

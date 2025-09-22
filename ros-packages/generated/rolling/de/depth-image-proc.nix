@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depth_image_proc";
-  version = "7.1.1-1";
+  version = "7.1.2-1";
   src = finalAttrs.passthru.sources."depth_image_proc";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ class-loader cv-bridge image-geometry image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs stereo-msgs tf2 tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depth_image_proc-source";
         url = "https://github.com/ros2-gbp/image_pipeline-release.git";
-        rev = "e31d4aca804ea1fe7e2f499548f988a165201edb";
-        hash = "sha256-JLa9wwJRKlF9PJCGoYVLqZfFTlI530zQLEGjXsAwYTA=";
+        rev = "b94026455a27913cea5157fc58e274bc54099288";
+        hash = "sha256-ovxqK8I7T3Lgax+cIkThmKUNS4IX8Nf/oaFfzfT7PuY=";
       };
     };
   });

@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "quality_of_service_demo_cpp";
-  version = "0.33.6-1";
+  version = "0.33.7-1";
   src = finalAttrs.passthru.sources."quality_of_service_demo_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils rmw rmw-implementation-cmake sensor-msgs std-msgs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "quality_of_service_demo_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "d6913fe48c8ffbaff4ca834e730d845648c9c35d";
-        hash = "sha256-7Aq4Z1RE17ajQG0T9fuMfqnLc1LlklCrrO1HOIDV/8E=";
+        rev = "ffad220eb6dac8b846e3c93400960abda3ec7b01";
+        hash = "sha256-NWdnSi08FRjFbzfFqzBKG9h0Z6WFltpIRbfsjOeXBaM=";
       };
     };
   });

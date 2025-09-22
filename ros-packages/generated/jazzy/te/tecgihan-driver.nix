@@ -15,18 +15,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "tecgihan_driver";
-  version = "0.1.1-1";
+  version = "0.1.2-1";
   src = finalAttrs.passthru.sources."tecgihan_driver";
-  propagatedNativeBuildInputs = [ geometry-msgs rclpy xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python-is-python3" "python3-serial" ]; };
-  propagatedBuildInputs = [ geometry-msgs rclpy xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python-is-python3" "python3-serial" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs rclpy xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-serial" ]; };
+  propagatedBuildInputs = [ geometry-msgs rclpy xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "tecgihan_driver" = substituteSource {
       src = fetchgit {
         name = "tecgihan_driver-source";
         url = "https://github.com/tecgihan/tecgihan_driver-release.git";
-        rev = "a8cbb2c65f0a5480ff93057c120e1b4ebdc599e6";
-        hash = "sha256-qUK7haQeSAe6Ju1wtTdUr8vATIoNB8/Z1UFWZ47AOqE=";
+        rev = "04c1645b354569a757b2dc1b3864f9167d303745";
+        hash = "sha256-mu9E2FEaTfQQHE+G/R5FRwcjWvWgDKxrWNIpEhkHxAg=";
       };
     };
   });

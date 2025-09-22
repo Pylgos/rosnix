@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libmavconn";
-  version = "2.11.0-1";
+  version = "2.12.0-1";
   src = finalAttrs.passthru.sources."libmavconn";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ mavlink ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" "libconsole-bridge-dev" "python3-empy" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libmavconn-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "0b9e92c09d1122747cece744f0fd347a7c2c28df";
-        hash = "sha256-itZdMbt/c/yX9+CuT5woplh+y+VcOFeO6M7kD563Ww8=";
+        rev = "1eb46544700c3f6e0fd6362b1be9e7e3a0658031";
+        hash = "sha256-L2vG1/nvk6x5XDoiRQfDAH52shCl5AHH8IKBgF5f97M=";
       };
     };
   });
