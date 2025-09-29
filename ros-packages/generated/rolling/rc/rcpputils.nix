@@ -3,11 +3,9 @@
   ament-cmake-copyright,
   ament-cmake-cppcheck,
   ament-cmake-cpplint,
-  ament-cmake-flake8,
   ament-cmake-gen-version-h,
   ament-cmake-gtest,
   ament-cmake-lint-cmake,
-  ament-cmake-pep257,
   ament-cmake-ros-core,
   ament-cmake-uncrustify,
   ament-cmake-xmllint,
@@ -22,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcpputils";
-  version = "2.14.2-1";
+  version = "2.14.3-1";
   src = finalAttrs.passthru.sources."rcpputils";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ rcutils ];
   buildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ];
   propagatedBuildInputs = [ rcutils ];
-  checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ];
+  checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "rcpputils" = substituteSource {
       src = fetchgit {
         name = "rcpputils-source";
         url = "https://github.com/ros2-gbp/rcpputils-release.git";
-        rev = "bed010d34490c4e7496dbd3a93f9d0d579c4458f";
-        hash = "sha256-5ewgyeJffbcxx7W2jO0tjb/DuiWQ/UKdE7Oew7g7nFY=";
+        rev = "25a2028d0ce2f910a04d66cd26ae41318efc95ed";
+        hash = "sha256-TRrZxg70urlhmkn3m+MO1ptFBGXukgmz+tVUA/gJIOI=";
       };
     };
   });

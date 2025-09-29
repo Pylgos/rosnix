@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_rendering_vendor";
-  version = "0.4.0-1";
+  version = "0.4.1-1";
   src = finalAttrs.passthru.sources."gz_rendering_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-ogre-next-vendor gz-plugin-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glut" "gz-rendering" "libfreeimage-dev" "libglew-dev" "libogre-dev" "libvulkan-dev" "libxi-dev" "libxmu-dev" "uuid" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_rendering_vendor-source";
         url = "https://github.com/ros2-gbp/gz_rendering_vendor-release.git";
-        rev = "3a05390a5098e20c65607b5bad5b82e3cdca0118";
-        hash = "sha256-KGoPPoce0BrfpLf128PsS2OQzbaa4Xtm2fSHh7W7aGA=";
+        rev = "28628e84fe1413ba9a0623cad1c30a5ce0f462e2";
+        hash = "sha256-hg02UZf2LkdWabYaBNr0SRT4R9DqCzMnU3msXhKJXLU=";
       };
       substitutions = [
         {

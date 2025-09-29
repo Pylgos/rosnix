@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mqtt_client_interfaces";
-  version = "2.4.1-1";
+  version = "2.4.1-2";
   src = finalAttrs.passthru.sources."mqtt_client_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mqtt_client_interfaces-source";
         url = "https://github.com/ros2-gbp/mqtt_client-release.git";
-        rev = "7bdf687f2c83901a7296dc8a67f9067b376a3a1f";
+        rev = "d562185aa57b4dd418568fcb78d02f3bcd8e6bda";
         hash = "sha256-npS7oPm75qFKVzqPM0mi+HbsqcFK4rxZlf3IAQU3K78=";
       };
     };

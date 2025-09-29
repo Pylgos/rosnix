@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_msgs_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_msgs_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-msgs" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_msgs_vendor-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
-        rev = "a66ac2e20150ed685d9be56a970fbe4e052b1a1b";
-        hash = "sha256-9lCderpDjmVJ3U9Y0KWS06sUHkJZtFIB7m7gjZqktFo=";
+        rev = "d8c3adf4b71f6b6f596b53b0f0e6758d7d6ef652";
+        hash = "sha256-huTWLt1qi17AjobOqIf4wubrBTyQNfj4AVJDQKBcoYE=";
       };
       substitutions = [
         {

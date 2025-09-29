@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_rendering_vendor";
-  version = "0.2.4-1";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."gz_rendering_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-ogre-next-vendor gz-plugin-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glut" "gz-rendering9" "libfreeimage-dev" "libglew-dev" "libogre-dev" "libvulkan-dev" "libxi-dev" "libxmu-dev" "uuid" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_rendering_vendor-source";
         url = "https://github.com/ros2-gbp/gz_rendering_vendor-release.git";
-        rev = "121c3cafb8af6ef55d80aac215df884b6806c2d0";
-        hash = "sha256-oqF81BQ1H3qRk65BjXod7M6Lho+GkPCHtUD1lB6TTy0=";
+        rev = "bde93cbdc52e9709e585f3ca75c6b422889e22aa";
+        hash = "sha256-h1L9+y/XjM3x5KEDWNtjpq5uKpFcRMM8ZAu903C85gY=";
       };
       substitutions = [
         {
@@ -48,12 +48,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-rendering-source";
         url = "https://github.com/gazebosim/gz-rendering.git";
-        rev = "b73d2965e5a0221b7f47b6748364f8a618fdccbd";
-        hash = "sha256-mNDjqp54Y13BzZQdKvIfZkxXPq2Kn26sO9Gf+/aCaPk=";
+        rev = "aae5297537aae68718b52a9adbcda4f15f11f9a9";
+        hash = "sha256-IRtFRjjSm6u15EhpG0hnC4IOv2f5uyOhkAriSbhONgk=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-rendering9 9.3.0\n\n    Gazebo Rendering: Rendering library for robot applications\n  ";
+    description = "\n    Vendor package for: gz-rendering9 9.4.0\n\n    Gazebo Rendering: Rendering library for robot applications\n  ";
   };
 })

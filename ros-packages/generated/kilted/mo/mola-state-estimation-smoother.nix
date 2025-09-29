@@ -6,7 +6,6 @@
   gtsam,
   mkSourceSet,
   mola-common,
-  mola-imu-preintegration,
   mola-kernel,
   mrpt-libobs,
   rosSystemPackages,
@@ -17,9 +16,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.10.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_smoother";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gtsam mola-common mola-imu-preintegration mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
+  propagatedNativeBuildInputs = [ gtsam mola-common mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" "mola_imu_preintegration" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gtsam mola-common mola-imu-preintegration mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
+  propagatedBuildInputs = [ gtsam mola-common mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" "mola_imu_preintegration" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mola_state_estimation_smoother" = substituteSource {
       src = fetchgit {

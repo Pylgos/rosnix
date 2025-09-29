@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_msgs";
-  version = "1.4.1-1";
+  version = "1.4.2-1";
   src = finalAttrs.passthru.sources."nav2_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geographic-msgs geometry-msgs nav2-common nav-msgs rclcpp rosidl-default-generators std-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_msgs-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "c19480cc23eae9d5f6dc5ec2f8973cb459da11b8";
-        hash = "sha256-iK4YUNEXB54dqGDT0v9JWBieM4SYjGv07GVzV9kPTk4=";
+        rev = "5c2592fce64d47bdfdd18b5c2e13002b501c9113";
+        hash = "sha256-iTROC2SguiJr4r81ni160F/ZNWAlTeV6b6Afycrxkjw=";
       };
     };
   });

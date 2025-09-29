@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_behavior_tree";
-  version = "1.4.1-1";
+  version = "1.4.2-1";
   src = finalAttrs.passthru.sources."nav2_behavior_tree";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs behaviortree-cpp geometry-msgs nav2-common nav2-msgs nav2-util nav-msgs rclcpp rclcpp-action rclcpp-lifecycle sensor-msgs std-msgs std-srvs tf2 tf2-ros ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_behavior_tree-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "06e80ebd889ffc5629b9478c576ddfdf8dded818";
-        hash = "sha256-pGsMR9blTwYdLWfY3mKlDPS8Sqbf3fk2fTc6fgXwJvA=";
+        rev = "f05cd2d6439e764f05bc4e7b7b34e7e552059dc7";
+        hash = "sha256-cqcCRq0y4oXCTNh1silEQCceD9MXd3R8fqE8kyr9Ty4=";
       };
     };
   });

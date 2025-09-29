@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_physics_vendor";
-  version = "0.4.0-1";
+  version = "0.4.1-1";
   src = finalAttrs.passthru.sources."gz_physics_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-dartsim-vendor gz-math-vendor gz-plugin-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" "bullet" "eigen" "gz-physics" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_physics_vendor-source";
         url = "https://github.com/ros2-gbp/gz_physics_vendor-release.git";
-        rev = "5bcb69932259e935e881244a6aaf5df6ffb9536f";
-        hash = "sha256-0AIIMkzbzz8Mw8iAtuBYlMDbS8Xikj1ez6hTUAXNKUY=";
+        rev = "e5f7913c80b5755e645aa593553b249525b1b65e";
+        hash = "sha256-7nL3OQ2jrrGnLUj/DkWVYSkXy/ndXWcAHfIhpnxOdro=";
       };
       substitutions = [
         {

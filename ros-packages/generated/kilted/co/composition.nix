@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "composition";
-  version = "0.36.1-1";
+  version = "0.36.2-1";
   src = finalAttrs.passthru.sources."composition";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ example-interfaces launch-ros rclcpp rclcpp-components rcutils std-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "composition-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "11456c9e1fa61d3c56ee7f28f0c0c04a27d53bfb";
-        hash = "sha256-mPfetGFlngri7z59FzDvs/hrzcO0XDI1jjrQ1VYrYgQ=";
+        rev = "6fa4fcfc4efe0c6c95717ba76df283f2d0727740";
+        hash = "sha256-ephGrwxJ50QHi1gvrzb7D0OUwV/ly/MTgCOg5zcAN8o=";
       };
     };
   });

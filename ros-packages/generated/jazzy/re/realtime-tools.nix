@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "realtime_tools";
-  version = "3.8.0-1";
+  version = "3.9.0-1";
   src = finalAttrs.passthru.sources."realtime_tools";
   propagatedNativeBuildInputs = [ ament-cmake rclcpp rclcpp-action ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libcap-dev" ]; };
   propagatedBuildInputs = [ ament-cmake rclcpp rclcpp-action ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libcap-dev" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "realtime_tools-source";
         url = "https://github.com/ros2-gbp/realtime_tools-release.git";
-        rev = "bbccd3bf59594a6a12df5023b25d390d805d9972";
-        hash = "sha256-WlnK1U4a6bwujK/O/l5WJYh8CeFxc/fMbcQ15D1WLU8=";
+        rev = "7ba1bd323f8174c3827ced430125fc5aa22aa841";
+        hash = "sha256-bKT65hDYuf9ix4vCzCWHTWtMQx3fMnBQ9FH1k7/+Q8M=";
       };
     };
   });

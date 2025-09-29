@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ackermann_nlmpc_msgs";
-  version = "1.0.2-1";
+  version = "1.0.3-1";
   src = finalAttrs.passthru.sources."ackermann_nlmpc_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ackermann_nlmpc_msgs-source";
         url = "https://github.com/ros2-gbp/ackmerann_nlmpc-release.git";
-        rev = "c300ba400d170ddf74982e17fa03f60c5ee4e145";
-        hash = "sha256-7r9uWjTCGHFc8PBQH3yQamzhXFUs+itLLpbqPSy4eoo=";
+        rev = "adecf95eee3fadc93c6772d496e76a833cffb0b6";
+        hash = "sha256-xdq99GA4hTOvf2CYTIMrfJUGVlYch23uYNPESYHgnZc=";
       };
     };
   });

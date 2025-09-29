@@ -5,7 +5,6 @@
   fetchzip,
   mkSourceSet,
   mola-common,
-  mola-imu-preintegration,
   mola-kernel,
   mrpt-libobs,
   rosSystemPackages,
@@ -16,9 +15,9 @@ buildCmakePackage (finalAttrs: {
   version = "1.10.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_simple";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ mola-common mola-imu-preintegration mola-kernel mrpt-libobs ];
+  propagatedNativeBuildInputs = [ mola-common mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mola_imu_preintegration" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ mola-common mola-imu-preintegration mola-kernel mrpt-libobs ];
+  propagatedBuildInputs = [ mola-common mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mola_imu_preintegration" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mola_state_estimation_simple" = substituteSource {
       src = fetchgit {

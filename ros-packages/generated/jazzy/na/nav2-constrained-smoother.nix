@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_constrained_smoother";
-  version = "1.3.8-1";
+  version = "1.3.9-1";
   src = finalAttrs.passthru.sources."nav2_constrained_smoother";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libceres-dev" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_constrained_smoother-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "5509e80c3472b9134c3b8d7e735a6466eeb74cdb";
-        hash = "sha256-eQeztHsgerPXvq/nZ2Z5TZjokdpKkjgqZJD+g6hJNEk=";
+        rev = "ba1636c58ea949ea9a27e9b50b65514ee75ca27b";
+        hash = "sha256-o7BtoXNn+iA+hBeu8U9R4CumMJJSutT7EBBz3P1JDiU=";
       };
     };
   });

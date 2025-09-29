@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "demo_nodes_py";
-  version = "0.37.2-1";
+  version = "0.37.3-1";
   src = finalAttrs.passthru.sources."demo_nodes_py";
   propagatedNativeBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
   propagatedBuildInputs = [ ament-index-python example-interfaces rcl-interfaces rclpy std-msgs ];
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "demo_nodes_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "503ba3db33675b0f5f1499b5f0927c6955e6cd1b";
-        hash = "sha256-VnUroLddgHn+u5RHIWuyghFp64ZmzxfkDaiF5VOv9oU=";
+        rev = "5f20b6eb37d927f79901ef7236cc1a167d22d541";
+        hash = "sha256-BAwc+8me42TSJAahHXarh6TfEFHvet1nbjWce1hSCg0=";
       };
     };
   });

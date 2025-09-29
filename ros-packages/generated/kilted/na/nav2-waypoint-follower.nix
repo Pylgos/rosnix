@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_waypoint_follower";
-  version = "1.4.1-1";
+  version = "1.4.2-1";
   src = finalAttrs.passthru.sources."nav2_waypoint_follower";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge geographic-msgs geometry-msgs image-transport nav2-common nav2-core nav2-msgs nav2-util nav-msgs pluginlib rclcpp rclcpp-action rclcpp-components rclcpp-lifecycle robot-localization sensor-msgs std-msgs tf2-ros ];
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_waypoint_follower-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "02b59737127c3332426ab3f134f3810fbfbf3f04";
-        hash = "sha256-9jeWG2h05feyycXMbmNAJ3qv4eiLluhH3m6xn4xwsB0=";
+        rev = "13f2ec8d4273408af8be1f885ff8b110dda88c43";
+        hash = "sha256-PZkgZ9PuZUB/izoHgxKwwYGD6e76tLq+6jpOdkQbCBU=";
       };
     };
   });

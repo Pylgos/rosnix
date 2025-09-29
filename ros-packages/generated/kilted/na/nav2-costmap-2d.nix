@@ -39,7 +39,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_costmap_2d";
-  version = "1.4.1-1";
+  version = "1.4.2-1";
   src = finalAttrs.passthru.sources."nav2_costmap_2d";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles geometry-msgs laser-geometry map-msgs message-filters nav2-common nav2-msgs nav2-util nav2-voxel-grid nav-msgs pluginlib rclcpp rclcpp-lifecycle rmw sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs visualization-msgs ];
@@ -51,8 +51,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_costmap_2d-source";
         url = "https://github.com/ros2-gbp/navigation2-release.git";
-        rev = "4dc67dbae9bea5455bec91df1c444d96896236ad";
-        hash = "sha256-aFdYWVeEnXOy2eph7ZKBQXm3H8+RI90/uxAuB5IrfFQ=";
+        rev = "587bd29b60710149c351328589c7866c9cb7cd13";
+        hash = "sha256-Xx0TXLP80MHT5n9B6kOqpnNyKL3sNulY17I75aUbNLI=";
       };
     };
   });

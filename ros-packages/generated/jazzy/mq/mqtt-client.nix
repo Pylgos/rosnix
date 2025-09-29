@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mqtt_client";
-  version = "2.4.1-1";
+  version = "2.4.1-2";
   src = finalAttrs.passthru.sources."mqtt_client";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ mqtt-client-interfaces rclcpp rclcpp-components rcpputils std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libpaho-mqtt-dev" "libpaho-mqttpp-dev" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mqtt_client-source";
         url = "https://github.com/ros2-gbp/mqtt_client-release.git";
-        rev = "3ecf0b2e8d65801f53899e9129ed10181dc4992b";
+        rev = "24c7114959604b406991daf87a59dddd577faa8f";
         hash = "sha256-4ImiMhycRm1L7KGBZe6yMmyRO4SpCLVAm4AHsMCXRiE=";
       };
     };
