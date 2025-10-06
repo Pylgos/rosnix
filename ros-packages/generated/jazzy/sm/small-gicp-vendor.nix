@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "small_gicp_vendor";
-  version = "2.0.3-1";
+  version = "2.0.4-1";
   src = finalAttrs.passthru.sources."small_gicp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   buildInputs = [ ament-cmake ament-cmake-vendor-package ];
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "small_gicp_vendor-source";
         url = "https://github.com/ros2-gbp/multisensor_calibration-release.git";
-        rev = "a0027651cc21f6f10625bde37938ad4e4d3de57b";
-        hash = "sha256-TeNONnJtxiTaTWQ27DlkwgdB5S0Knh3HB0C3bQmLyoc=";
+        rev = "676fabded0b10f8626a4a2798a68d69091a129d7";
+        hash = "sha256-NxiRm+M9G1OID4YOwwQbBJHaB5KN5hZu2IIyD5espfM=";
       };
       substitutions = [
         {

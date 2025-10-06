@@ -48,8 +48,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-rendering-source";
         url = "https://github.com/gazebosim/gz-rendering.git";
-        rev = "aae5297537aae68718b52a9adbcda4f15f11f9a9";
-        hash = "sha256-IRtFRjjSm6u15EhpG0hnC4IOv2f5uyOhkAriSbhONgk=";
+        rev = "3a907a79965bdc30d16b96fd159a368c439e3ca1";
+        hash = "sha256-LP7/Y07ahy6Qt3dx9ziLWque2o0EJvSEmioSBMlJK28=";
       };
     };
   });

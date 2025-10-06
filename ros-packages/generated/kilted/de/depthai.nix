@@ -11,19 +11,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
-  version = "3.0.5-1";
+  version = "3.0.6-1";
   src = finalAttrs.passthru.sources."depthai";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
+  propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "gfortran" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
+  propagatedBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "gfortran" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
   passthru.sources = mkSourceSet (sources: {
     "depthai" = substituteSource {
       src = fetchgit {
         name = "depthai-source";
         url = "https://github.com/luxonis/depthai-core-release.git";
-        rev = "ab2e31f36d361e735014bf93699256e5d82a72de";
-        hash = "sha256-XJ3UI0AWWZNfc+126sxtKYXJBUoPoONVZTkakV0UARg=";
+        rev = "ce123542077843a0321ba6a6592a7c4dba05175a";
+        hash = "sha256-s9o7ujlfea7PKaeCWMwGXFGAQ55M86I3rkJFm3eXwGM=";
       };
       substitutions = [
         {
@@ -62,8 +62,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "XLink-source";
         url = "https://github.com/luxonis/XLink.git";
-        rev = "8afcfeea9638c683c8e9d75700224ef0fa8aa72f";
-        hash = "sha256-P8YRgB/U57/sRWnpC6C35K3PE37EAj4nVAlzAlGgVZI=";
+        rev = "13790284ce12969c169940f88aad755bd91146db";
+        hash = "sha256-Sf4KsMBLw9A9C0tPqTEGvYho+arAgZl/f0CKlswjIMY=";
       };
     };
     "depthai/benchmark" = substituteSource {

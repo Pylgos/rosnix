@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_gui_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_gui_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-gui" "libqt6svg6" "protobuf-dev" "qml6-module-qt-labs-folderlistmodel" "qml6-module-qt-labs-platform" "qml6-module-qt-labs-settings" "qml6-module-qt5compat-graphicaleffects" "qml6-module-qtcharts" "qml6-module-qtcore" "qml6-module-qtpositioning" "qml6-module-qtqml" "qml6-module-qtqml-models" "qml6-module-qtqml-workerscript" "qml6-module-qtquick" "qml6-module-qtquick-controls" "qml6-module-qtquick-dialogs" "qml6-module-qtquick-layouts" "qml6-module-qtquick-templates" "qml6-module-qtquick-window" "qt6-5compat-dev" "qt6-base-dev" "qt6-base-private-dev" "qt6-declarative-dev" "qt6-declarative-private-dev" "tinyxml2" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_gui_vendor-source";
         url = "https://github.com/ros2-gbp/gz_gui_vendor-release.git";
-        rev = "ad07acc4ac946fab5afb20ace573868253770024";
-        hash = "sha256-SLRZgtVVrTfjXseWN6hMui5eLDaQWoNp9YOoXAfmrW0=";
+        rev = "79c11b7413756d65e37dbcf663d1651fc96ef7a7";
+        hash = "sha256-I7EbH+LE7kzMlJ6/NIAYQHtCvfJJchveihDqH4SY85o=";
       };
       substitutions = [
         {

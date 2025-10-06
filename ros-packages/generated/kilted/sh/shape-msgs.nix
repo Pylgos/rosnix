@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "shape_msgs";
-  version = "5.5.0-2";
+  version = "5.5.1-1";
   src = finalAttrs.passthru.sources."shape_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "shape_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "cc20afc201d32980d274a0a7c3b2883d945b3933";
-        hash = "sha256-2mSg0FiFpmcsYZANM/XjeGxLR2SZVzg2Y4DTU47ITgY=";
+        rev = "ef5fed1f5678a55362b26bb2848e2c85fc4117f5";
+        hash = "sha256-B4xlwzfN1vnXpTwCodTYGWECwrOAYfVIqsbDl4O5mMc=";
       };
     };
   });

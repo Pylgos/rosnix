@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_transport_vendor";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."gz_transport_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-transport" "libsqlite3-dev" "libzmq3-dev" "pkg-config" "protobuf-dev" "pybind11-dev" "python3-dev" "python3-psutil" "python3-pytest" "uuid" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_transport_vendor-source";
         url = "https://github.com/ros2-gbp/gz_transport_vendor-release.git";
-        rev = "268524d9ef0ea794f3aa3059cb14965d8b23b39d";
-        hash = "sha256-sI+F8gVIG/NxfzBlEbKuGpCWwpbuwZH9BukRK35T+D0=";
+        rev = "59caed46eddcf60fd9c09b1769c4b73dd94bed86";
+        hash = "sha256-xFjK5jDBflJEh2VsPanbK/YcJL35H/cS7Qhzra0K12k=";
       };
       substitutions = [
         {
@@ -48,8 +48,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-transport-source";
         url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "b462b3f08f88cbdee47daad70472da74ddd6d28f";
-        hash = "sha256-BEuz/3YYMpCxYWbmmoqurvFeM5aaIiTECfLgcEtY1e4=";
+        rev = "7dcb6eb3f5d577572658749b210ae4aae6320195";
+        hash = "sha256-kPJTg+w3PFU/EIhiYL6v4WQTfRIr8tsHNU3pXAAiHM4=";
       };
     };
   });

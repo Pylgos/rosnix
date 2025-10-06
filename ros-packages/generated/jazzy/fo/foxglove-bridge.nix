@@ -21,20 +21,34 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_bridge";
-  version = "0.8.5-1";
+  version = "3.2.1-1";
   src = finalAttrs.passthru.sources."foxglove_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever ros-environment rosgraph-msgs rosx-introspection ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" "libssl-dev" "libwebsocketpp-dev" "nlohmann-json-dev" "openssl" "zlib" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever ros-environment rosgraph-msgs rosx-introspection ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" "nlohmann-json-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever ros-environment rosgraph-msgs rosx-introspection ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" "libssl-dev" "libwebsocketpp-dev" "nlohmann-json-dev" "openssl" "zlib" ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto std-msgs std-srvs ];
+  propagatedBuildInputs = [ ament-index-cpp rclcpp rclcpp-components resource-retriever ros-environment rosgraph-msgs rosx-introspection ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "asio" "nlohmann-json-dev" ]; };
+  checkInputs = [ ament-cmake-gtest ament-lint-auto std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libssl-dev" "libwebsocketpp-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "foxglove_bridge" = substituteSource {
       src = fetchgit {
         name = "foxglove_bridge-source";
         url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
-        rev = "50371d4884daf4e73d27e00d991f2a6f3d7a956e";
-        hash = "sha256-LP4TM0ZyXEfijtj4kXjHEQdsAm5FgsdWnW1x9MXYYww=";
+        rev = "b727723d730b112b3e331baa4ce21cb709fe87c7";
+        hash = "sha256-Cz3cOEcWtTBQD6rf8/SX3x9Q+n/JY9xq3b8oAOztUQI=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "URL \${FOXGLOVE_SDK_URL}";
+          to = "URL ${sources."foxglove_bridge/foxglove-v0"}";
+        }
+      ];
+    };
+    "foxglove_bridge/foxglove-v0" = substituteSource {
+      src = fetchzip {
+        name = "foxglove-v0-source";
+        url = "https://github.com/foxglove/foxglove-sdk/releases/download/sdk%2Fv0.14.2/foxglove-v0.14.2-cpp-x86_64-unknown-linux-gnu.zip";
+        hash = "sha256-XRvnaC7SQ507g1GZTXW+7WqnDLfVIzqXQhxwi4vUzzs=";
       };
     };
   });

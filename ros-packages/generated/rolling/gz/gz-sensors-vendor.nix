@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sensors_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_sensors_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-sensors" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_sensors_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sensors_vendor-release.git";
-        rev = "2460f5a7af49fce9b04fd2ce2ac67b70b31f0196";
-        hash = "sha256-zEVwhzLUPAdX6jRm9+aUQs07H194iPfWYjIyKTFNCX0=";
+        rev = "b65dfc781f88f84dfc0f5011771e7fe31473371d";
+        hash = "sha256-p8oJblFm4HCoZ+iJrCFo+oz1RjBsUsnF7EGsZg3cn2c=";
       };
       substitutions = [
         {

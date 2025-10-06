@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "multisensor_calibration";
-  version = "2.0.3-1";
+  version = "2.0.4-1";
   src = finalAttrs.passthru.sources."multisensor_calibration";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ cv-bridge geometry-msgs image-transport multisensor-calibration-interface pcl-conversions pcl-ros rclcpp rclcpp-components rviz-common sensor-msgs small-gicp-vendor std-msgs tf2 tf2-ros urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-widgets" "qt5-qmake" "qtbase5-dev" "tinyxml2" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "multisensor_calibration-source";
         url = "https://github.com/ros2-gbp/multisensor_calibration-release.git";
-        rev = "7c887ba2afae013c3f309f2f0f1bd72a2a2f2efb";
-        hash = "sha256-9lIrfB4xFkjFcP50QbKde2GDQJlSwt658hRRwDl9f0k=";
+        rev = "8b9c0182e5e2edb02aad8eaac122a3ad3772f8d9";
+        hash = "sha256-O20kQGUkPGc1d8gxKgYBXBUWmpw++XAcZivY4cJ9MLg=";
       };
     };
   });

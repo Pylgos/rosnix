@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gmock,
+  backward-ros,
   buildAmentCmakePackage,
   eigen3-cmake-module,
   fetchgit,
@@ -18,20 +19,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinematics_interface_kdl";
-  version = "2.2.0-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."kinematics_interface_kdl";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedNativeBuildInputs = [ kdl-parser kinematics-interface pluginlib ros2-control-cmake tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ backward-ros kdl-parser kinematics-interface pluginlib ros2-control-cmake tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake eigen3-cmake-module ];
-  propagatedBuildInputs = [ kdl-parser kinematics-interface pluginlib ros2-control-cmake tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ backward-ros kdl-parser kinematics-interface pluginlib ros2-control-cmake tf2-eigen-kdl ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gmock ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "kinematics_interface_kdl" = substituteSource {
       src = fetchgit {
         name = "kinematics_interface_kdl-source";
         url = "https://github.com/ros2-gbp/kinematics_interface-release.git";
-        rev = "8fd930da55e74990c7663a0e923ac22b2d15b97f";
-        hash = "sha256-aaR0jiqXA54tDLUOZbsAHGxnYrbYtimII9NsW4oweT0=";
+        rev = "d5708177b2cc0be7790059b03e8e826b29edbb0d";
+        hash = "sha256-OhQViu/Jh6TgrFQZfqw7j4CK1TT6Dmp2lP+GbVyJtSM=";
       };
     };
   });

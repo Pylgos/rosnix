@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_fuel_tools_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_fuel_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-fuel_tools" "libcurl-dev" "libgflags-dev" "libjsoncpp-dev" "libyaml-dev" "libzip-dev" "tinyxml2" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_fuel_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_fuel_tools_vendor-release.git";
-        rev = "deb8c3d8eb794ef10640fa9af63ceb0a4f6bb4ac";
-        hash = "sha256-7c8MmC+rUmq6OXH1RKuTlmsaY1OFTFjAGGKnh3eWo2U=";
+        rev = "f85400140b6537a93b5e624d705c421c02f903d4";
+        hash = "sha256-JmufVMaYAImyLlC3+jwPxh4IvNBdUUXB8T4aU2n79yE=";
       };
       substitutions = [
         {

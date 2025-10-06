@@ -14,24 +14,25 @@
   ros2-control-cmake,
   rosSystemPackages,
   sensor-msgs,
+  std-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
-  version = "5.6.0-1";
+  version = "5.7.0-1";
   src = finalAttrs.passthru.sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedNativeBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedNativeBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
   buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
-  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
-  checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs ];
+  propagatedBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  checkInputs = [ ament-cmake-gmock geometry-msgs sensor-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "controller_interface" = substituteSource {
       src = fetchgit {
         name = "controller_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "9de47ae2ca8510cd78f8bfd1fb25e13aaa9ba58e";
-        hash = "sha256-orftRoTXvwh5B/Cq5jZsl9YN3njoGDuEEbBUczTfA2w=";
+        rev = "6a3b8b34700bb2bf78f139a11f765867f18ae335";
+        hash = "sha256-4Ms0qHOM+uWvut//93t6uMshe150CqNHe3aYaWwdT90=";
       };
     };
   });

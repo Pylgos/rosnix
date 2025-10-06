@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_launch_vendor";
-  version = "0.3.0-1";
+  version = "0.3.1-1";
   src = finalAttrs.passthru.sources."gz_launch_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-sim-vendor gz-tools-vendor gz-transport-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "gz-launch" "libgflags-dev" "libwebsockets-dev" "libxi-dev" "libxmu-dev" "libyaml-dev" "tinyxml2" "uuid" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_launch_vendor-source";
         url = "https://github.com/ros2-gbp/gz_launch_vendor-release.git";
-        rev = "e7b8f013f6a2faf826df2d47b5a10462a05d966b";
-        hash = "sha256-2+THmoEBWQMad6p3GS/beXbP7E4dr0Tih3XnxZcZACs=";
+        rev = "0295103a56cfc8c510cb841db60ae08b64c55fed";
+        hash = "sha256-J0PVhc0nSN07n/65y2ZD3YyM5Bb28IwxVGdUBQ7cCYg=";
       };
       substitutions = [
         {

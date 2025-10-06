@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_resource_interfaces";
-  version = "15.1.9-1";
+  version = "15.1.10-1";
   src = finalAttrs.passthru.sources."rviz_resource_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_resource_interfaces-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "3160167b94c538da4812ac564de68f09f75ffd8d";
-        hash = "sha256-98ksPOyBL8MhdUs+jGeZBCqMbRYdib4riWAVRKT9jIo=";
+        rev = "63f5f46fc73a4d58f3ce7d7f10adcc1faba55dfc";
+        hash = "sha256-GCV/pCcNAis4aRnuJRYgdiaUltloQGDyYcFZzCbUSXY=";
       };
     };
   });

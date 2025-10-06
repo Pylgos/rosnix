@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-gmock,
   angles,
   buildAmentCmakePackage,
   controller-manager,
@@ -26,20 +27,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_topic_hardware_interface";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."joint_state_topic_hardware_interface";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles hardware-interface rclcpp ros2-control-cmake sensor-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ angles hardware-interface rclcpp ros2-control-cmake sensor-msgs ];
-  checkInputs = [ controller-manager joint-state-broadcaster joint-trajectory-controller launch launch-ros launch-testing rclpy robot-state-publisher ros2-control-test-assets ros-testing xacro ];
+  checkInputs = [ ament-cmake-gmock controller-manager joint-state-broadcaster joint-trajectory-controller launch launch-ros launch-testing rclpy robot-state-publisher ros2-control-test-assets ros-testing xacro ];
   passthru.sources = mkSourceSet (sources: {
     "joint_state_topic_hardware_interface" = substituteSource {
       src = fetchgit {
         name = "joint_state_topic_hardware_interface-source";
         url = "https://github.com/ros2-gbp/topic_based_hardware-release.git";
-        rev = "25e9f73a8bb851242da38157ba30354967dd656d";
-        hash = "sha256-xNEkvhz5U2hZ1SF7km4W7ZkqZXzFA+Dr9uXN+XFzVpI=";
+        rev = "b817e9158fb4757f8c2c1ff3a1554ced7271f1b8";
+        hash = "sha256-WgGTWu1/+ZhnSFWhEliy7Ks5q6eSSOCuZDhWeOvlbXc=";
       };
     };
   });

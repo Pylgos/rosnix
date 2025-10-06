@@ -4,6 +4,7 @@
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,24 +15,23 @@
   rosidl-default-generators,
   rosidl-default-runtime,
   substituteSource,
-  visualization-msgs,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_msgs";
-  version = "3.1.0-2";
+  version = "3.2.1-1";
   src = finalAttrs.passthru.sources."foxglove_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime visualization-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime visualization-msgs ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime ];
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "foxglove_msgs" = substituteSource {
       src = fetchgit {
         name = "foxglove_msgs-source";
-        url = "https://github.com/ros2-gbp/ros_foxglove_msgs-release.git";
-        rev = "d4fcf9f921bdf0e30564a167c784695228210bc5";
-        hash = "sha256-CIKqPni/xU+9ZW2HO5tiDdBYvnvpDmmr/IOp6BXAwVI=";
+        url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
+        rev = "b9545c5b4033ce6718754ee79321b1f992f74b8f";
+        hash = "sha256-cD3lhJp38244aFwRCXxSmCPH9JutDjBrE0MwiF1MREs=";
       };
     };
   });

@@ -1,6 +1,5 @@
 {
   ament-cmake-gen-version-h,
-  ament-cmake-gtest,
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
@@ -33,20 +32,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl";
-  version = "10.2.3-1";
+  version = "10.2.4-1";
   src = finalAttrs.passthru.sources."rcl";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedNativeBuildInputs = [ libyaml-vendor rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcutils rmw rmw-implementation rosidl-runtime-c service-msgs tracetools type-description-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml" ]; };
   buildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedBuildInputs = [ libyaml-vendor rcl-interfaces rcl-logging-interface rcl-yaml-param-parser rcutils rmw rmw-implementation rosidl-runtime-c service-msgs tracetools type-description-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml" ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp rmw rmw-implementation-cmake rosidl-runtime-cpp test-msgs ];
+  checkInputs = [ ament-cmake-ros ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp rmw rmw-implementation-cmake rosidl-runtime-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rcl" = substituteSource {
       src = fetchgit {
         name = "rcl-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "861097ee185e99005afbcdf8d09486e8f899a341";
-        hash = "sha256-7DBkeDzs8tsEH9UC5rXuta29g2/im+q1BTATHlUMHYQ=";
+        rev = "f6baa57abb78d408cfaaa2a4b69739bbf3e67be6";
+        hash = "sha256-O3/FoCRa7A6i/4jM++W3xiMd7O5qHXjAsqqGZ2NQ+GY=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_serialization";
-  version = "2.3.0-3";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."ublox_serialization";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_serialization-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
-        rev = "591d184ed50d806361cb1d527cc1d48943b06cc7";
-        hash = "sha256-b2kP01irILk8Ct0RNRYsczUU7sgdAugMNejSpNFPdGE=";
+        rev = "24a2543e09162c9d6833ea4e716f79c4bb5320a3";
+        hash = "sha256-gNH4L8UR3sKJtrrpn2N1gJIkUW+Vk9Feq1WysReGKgQ=";
       };
     };
   });
