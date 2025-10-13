@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt";
-  version = "1.9.0-2";
+  version = "1.9.1-1";
   src = finalAttrs.passthru.sources."rqt";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rqt-gui rqt-gui-cpp rqt-gui-py rqt-py-common ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
-        rev = "ae0b5ee6c484e072554b15984093f4bbc1ae8946";
-        hash = "sha256-5YuNCFezXmaCO05sC/LrHo/8kdLdmytEMBqEWOU89bg=";
+        rev = "bdd635a1556c6df0b75cb6bccb36bf9f8f94d7d2";
+        hash = "sha256-nGRa8MCjUnvvxE2kKudyoN0MKK5j8TwVKJU3OrEHl9I=";
       };
     };
   });

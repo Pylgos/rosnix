@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "chained_filter_controller";
-  version = "4.32.0-1";
+  version = "4.33.0-1";
   src = finalAttrs.passthru.sources."chained_filter_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface filters generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "chained_filter_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "8e8994a5ba7960c2216e13e41f85e5476eec8962";
-        hash = "sha256-i/+xvf1aO9XBBgw33OqGw2zX7JA+WEp+dmG+GX7x3hE=";
+        rev = "3012504e65796200f6efa8657600eab9a110e810";
+        hash = "sha256-tcRwIn0i348XBiGG/R9cXloa5uBO9OkNENiXhV6GbpY=";
       };
     };
   });

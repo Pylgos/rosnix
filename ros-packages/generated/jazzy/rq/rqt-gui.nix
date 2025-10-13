@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_gui";
-  version = "1.6.0-2";
+  version = "1.6.1-1";
   src = finalAttrs.passthru.sources."rqt_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-gui rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
@@ -27,8 +27,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_gui-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
-        rev = "8eec9c6a8d6951524a0d1fe98f9640ef8ef40267";
-        hash = "sha256-nY0zbmJ/xPK7ZekKh0ONOV+us66g03mWsFQeC42Wx7Y=";
+        rev = "feb696abe3b4314985437e8936202bffd0b6cbb0";
+        hash = "sha256-z1hIL78cB0jjFsdllD4v0J86W5pCGegg67paJ6Jglvo=";
       };
     };
   });

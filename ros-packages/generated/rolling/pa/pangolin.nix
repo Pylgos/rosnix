@@ -9,20 +9,20 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pangolin";
-  version = "0.9.3-1";
+  version = "0.9.4-1";
   src = finalAttrs.passthru.sources."pangolin";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libjpeg" "libpng-dev" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libpng-dev" "libturbojpeg" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libjpeg" "libpng-dev" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "catch2" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pangolin" = substituteSource {
       src = fetchgit {
         name = "pangolin-source";
         url = "https://github.com/ros2-gbp/Pangolin-release.git";
-        rev = "9f0ab9b6a93ec8465516ec25e488448bbb540b7f";
-        hash = "sha256-ezFSxZftarl5QZZJdtU6VAyRAUQrPiLdGQ8hkoc0cCY=";
+        rev = "24bf0224e4cae6ae522a46324fe0b8899480fc72";
+        hash = "sha256-0qedtftu0wocEmGRfQVT7uj9zSXbEmjwdMnbvSmTV7U=";
       };
     };
   });

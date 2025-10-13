@@ -11,7 +11,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "kompass";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."kompass";
   propagatedNativeBuildInputs = [ automatika-ros-sugar kompass-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pykdl" ]; };
   propagatedBuildInputs = [ automatika-ros-sugar kompass-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pykdl" ]; };
@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "kompass-source";
         url = "https://github.com/ros2-gbp/kompass-release.git";
-        rev = "d7d5802b8b9737a4d643830fd8a64365630e5d27";
-        hash = "sha256-HvzaS27Ge55zZKIjT1IaNaWfzqQMiV1zvN2o89e8b3k=";
+        rev = "f543c173a5cbb9b72bd3494a3a86693c702bdee0";
+        hash = "sha256-mhd515G3+9vbrPgP7KiOESeDZecZIB3ecjT+3VzewP8=";
       };
     };
   });

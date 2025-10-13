@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtle_nest";
-  version = "1.2.0-1";
+  version = "1.2.1-1";
   src = finalAttrs.passthru.sources."turtle_nest";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ tinyxml2-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "black" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-svg-dev" "libqt5-widgets" "pybind11-dev" "python3-dev" "qtbase5-dev" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtle_nest-source";
         url = "https://github.com/ros2-gbp/turtle_nest-release.git";
-        rev = "f914e9ea9b09e78845e73c19c0a3975d6b976df9";
-        hash = "sha256-9zyNcmDjlEle8DFyhgTe+Czpfcp3VoD0ISMXfQRH8Gw=";
+        rev = "a1d6da11047e4edcac7092d509b0cc06b335d9bc";
+        hash = "sha256-hg8JYC+Cb5FMLoW5hRIiwOLtryWNXpshFsNi+a3pZg0=";
       };
     };
   });

@@ -8,7 +8,6 @@
   depthai,
   depthai-bridge,
   depthai-descriptions,
-  depthai-examples,
   depthai-ros-msgs,
   diagnostic-msgs,
   diagnostic-updater,
@@ -16,10 +15,12 @@
   fetchurl,
   fetchzip,
   ffmpeg-image-transport-msgs,
+  geometry-msgs,
   image-pipeline,
   image-transport,
   image-transport-plugins,
   mkSourceSet,
+  nav-msgs,
   pluginlib,
   rclcpp,
   rclcpp-components,
@@ -28,24 +29,24 @@
   std-msgs,
   std-srvs,
   substituteSource,
+  tf2-ros,
   vision-msgs,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_ros_driver";
-  version = "3.0.5-1";
+  version = "3.0.7-1";
   src = finalAttrs.passthru.sources."depthai_ros_driver";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-cmake-auto camera-calibration camera-info-manager cv-bridge depthai depthai-bridge depthai-descriptions depthai-examples depthai-ros-msgs diagnostic-msgs diagnostic-updater ffmpeg-image-transport-msgs image-pipeline image-transport image-transport-plugins pluginlib rclcpp rclcpp-components sensor-msgs std-msgs std-srvs vision-msgs ];
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ament-cmake-auto camera-calibration camera-info-manager cv-bridge depthai depthai-bridge depthai-descriptions depthai-ros-msgs diagnostic-msgs diagnostic-updater ffmpeg-image-transport-msgs geometry-msgs image-pipeline image-transport image-transport-plugins nav-msgs pluginlib rclcpp rclcpp-components sensor-msgs std-msgs std-srvs tf2-ros vision-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-auto camera-calibration camera-info-manager cv-bridge depthai depthai-bridge depthai-descriptions depthai-examples depthai-ros-msgs diagnostic-msgs diagnostic-updater ffmpeg-image-transport-msgs image-pipeline image-transport image-transport-plugins pluginlib rclcpp rclcpp-components sensor-msgs std-msgs std-srvs vision-msgs ];
+  propagatedBuildInputs = [ ament-cmake-auto camera-calibration camera-info-manager cv-bridge depthai depthai-bridge depthai-descriptions depthai-ros-msgs diagnostic-msgs diagnostic-updater ffmpeg-image-transport-msgs geometry-msgs image-pipeline image-transport image-transport-plugins nav-msgs pluginlib rclcpp rclcpp-components sensor-msgs std-msgs std-srvs tf2-ros vision-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "depthai_ros_driver" = substituteSource {
       src = fetchgit {
         name = "depthai_ros_driver-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "b57eb9b10fcb93c4eb11c116a60c99b264a66b4a";
-        hash = "sha256-/9/owxRRqAjNlBZKUi0s8ocqpt5FTqlWNI0StkCXVjQ=";
+        rev = "28353bd55c35fce692eb5746872db37e6b8057d4";
+        hash = "sha256-jvSSR6Z0zLj7c5rXYEI2Xo+BG79SQb963iK2ztzDkH0=";
       };
     };
   });

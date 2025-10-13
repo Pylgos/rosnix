@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
-  version = "3.0.6-1";
+  version = "3.0.7-1";
   src = finalAttrs.passthru.sources."depthai";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "gfortran" "libopencv-dev" "libudev-dev" "libusb-1.0-dev" "nlohmann-json-dev" "tar" "unzip" "zip" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai-source";
         url = "https://github.com/luxonis/depthai-core-release.git";
-        rev = "ce123542077843a0321ba6a6592a7c4dba05175a";
-        hash = "sha256-s9o7ujlfea7PKaeCWMwGXFGAQ55M86I3rkJFm3eXwGM=";
+        rev = "c07f8f0a0fc7bc9d88e03be03a78ab12c574148f";
+        hash = "sha256-Q0xKxuzu+RAL7f4edEPmLQl7JvgZdot6tZiIu/m9ebg=";
       };
       substitutions = [
         {

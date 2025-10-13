@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "laser_geometry";
-  version = "2.10.1-1";
+  version = "2.10.2-1";
   src = finalAttrs.passthru.sources."laser_geometry";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module rclcpp rclpy sensor-msgs sensor-msgs-py tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-numpy" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "laser_geometry-source";
         url = "https://github.com/ros2-gbp/laser_geometry-release.git";
-        rev = "f07a2907f52e5cabd514ed6ef2e63fb331f086a7";
-        hash = "sha256-ikO2LklYJKPiGyVSuHHH9OCZndygFyaV1+yvIIkX/WM=";
+        rev = "b5ae1c1914bebb992e16178cecad536205101a83";
+        hash = "sha256-UyGOPiVGHnZZ6cy69Jn9yp6sGuJlOTVN2iEnrPVnMPQ=";
       };
     };
   });

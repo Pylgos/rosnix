@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_py_common";
-  version = "1.10.0-1";
+  version = "1.10.1-1";
   src = finalAttrs.passthru.sources."rqt_py_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ python-qt-binding qt-gui rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_py_common-source";
         url = "https://github.com/ros2-gbp/rqt-release.git";
-        rev = "b94177005765ce9101b724a21d852f252368f589";
-        hash = "sha256-vDildLFpWh9ER4+MzVzvroHysK/ei1bEVZqW/e8Etsk=";
+        rev = "341b5722aedf8f92b114054e52cabb881a7fe1a3";
+        hash = "sha256-/c3QC/+7NJ76B/S/FaXv+dju94MdRDFt6rwsk5Iz63M=";
       };
     };
   });

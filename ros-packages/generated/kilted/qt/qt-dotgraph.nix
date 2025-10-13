@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "qt_dotgraph";
-  version = "2.9.1-1";
+  version = "2.9.2-1";
   src = finalAttrs.passthru.sources."qt_dotgraph";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pydot" "python3-pygraphviz" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "qt_dotgraph-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "30115362a4cf3a4964420de5800ff6bfe12523a6";
-        hash = "sha256-F93dofkUmp+QZ++B5LOMSU/cxjLJUfy6FW+L9SisnpA=";
+        rev = "263f9ac03ea67640ebb1666778caf7e6e6b968c7";
+        hash = "sha256-fHGTKNbjOwJs7IdsjuVD3aC+ltabBykWO4sv87w4B5w=";
       };
     };
   });

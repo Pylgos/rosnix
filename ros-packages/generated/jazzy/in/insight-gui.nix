@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "insight_gui";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."insight_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rclpy ros2cli ros2launch tf2-ros tf-transformations turtlesim ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "adwaita-icon-theme" "gtk4" "libadwaita-dev" "libgirepository-dev" "libglib-dev" "python3-gi" "python3-gi-cairo" "python3-networkx" "python3-pygraphviz" ]; };
@@ -30,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "insight_gui-source";
         url = "https://github.com/ros2-gbp/insight_gui-release.git";
-        rev = "97a89617d39d329f06fa2e200af9b097c82c6861";
-        hash = "sha256-SjpdkaknPgIDfJyaPrP6Mwvw3Sj31+JJAHvmC+VJPS0=";
+        rev = "929617c1f8c4632966108397a4bdb7713fa6aef3";
+        hash = "sha256-vugmpCJM2cQvFviCdXGSN/fznsBk6gIBQbFn0HEGiJg=";
       };
     };
   });

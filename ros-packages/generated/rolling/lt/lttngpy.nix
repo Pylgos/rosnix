@@ -9,27 +9,26 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  pybind11-vendor,
   rosSystemPackages,
   rpyutils,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lttngpy";
-  version = "8.8.1-1";
+  version = "8.9.0-1";
   src = finalAttrs.passthru.sources."lttngpy";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ pybind11-vendor rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liblttng-ctl-dev" "python3-dev" ]; };
+  propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liblttng-ctl-dev" "pybind11-dev" "python3-dev" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ pybind11-vendor rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" "python3-dev" ]; };
+  propagatedBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liblttng-ctl-dev" "pybind11-dev" "python3-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "lttngpy" = substituteSource {
       src = fetchgit {
         name = "lttngpy-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "1c8b2f38277f54ccfbdae5d51bd5f6de6d414b14";
-        hash = "sha256-MUr2pU7Tt8IMnhLUp2wcRJZ1RtdsbYU6LaiYA9AHZos=";
+        rev = "54ade2a029d9c79020d84c79fa8f282003b272c6";
+        hash = "sha256-qDfWoRNf7eakiJkuPOUm63Q714tY4hddu9y/AqJzC8o=";
       };
     };
   });

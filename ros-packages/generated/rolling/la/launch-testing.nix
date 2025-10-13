@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing";
-  version = "3.9.2-1";
+  version = "3.9.3-1";
   src = finalAttrs.passthru.sources."launch_testing";
   propagatedNativeBuildInputs = [ ament-index-python launch osrf-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
   propagatedBuildInputs = [ ament-index-python launch osrf-pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_testing-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
-        rev = "8abb8b2abba0e69c18d6ba94c8662c5803fe1c4a";
-        hash = "sha256-qSMLWF38ncb0mef5AyLcuTKj21RiglnNeiQK++D1LHs=";
+        rev = "5562d4505ab6faebcfc52cedeca43f18a624a998";
+        hash = "sha256-7wxj94Ks9H9zFw1O+keumuadgfRqxSH0M0Lq3huXllE=";
       };
     };
   });

@@ -8,7 +8,6 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  mola-imu-preintegration,
   mola-state-estimation-simple,
   mola-state-estimation-smoother,
   rosSystemPackages,
@@ -16,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_state_estimation";
-  version = "1.10.0-1";
+  version = "1.11.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ mola-imu-preintegration mola-state-estimation-simple mola-state-estimation-smoother ];
+  propagatedNativeBuildInputs = [ mola-state-estimation-simple mola-state-estimation-smoother ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ mola-imu-preintegration mola-state-estimation-simple mola-state-estimation-smoother ];
+  propagatedBuildInputs = [ mola-state-estimation-simple mola-state-estimation-smoother ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "mola_state_estimation" = substituteSource {
       src = fetchgit {
         name = "mola_state_estimation-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "011b5b08ce9ed53181222d1395dd5a3c832e1fee";
-        hash = "sha256-KVk9dqgXdBzqzDCbz70JKsMi7y2R4/6pkHE4qGKkXM8=";
+        rev = "eef179e699cbae5b23466e2f9c0666cb57c5dd66";
+        hash = "sha256-WlVagJG/SgFGKi4DAmu+ucKVJlSTKNp1piBuP3JM3mI=";
       };
     };
   });
