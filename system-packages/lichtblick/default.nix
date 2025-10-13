@@ -12,12 +12,12 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "lichtblick";
-  version = "1.13.0";
+  version = "1.20.0";
   src = fetchFromGitHub {
     owner = "lichtblick-suite";
     repo = "lichtblick";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-CdK25ShmZt18to4ZxGJ3b4mIQTgDhPJO6+DPa3rBllA=";
+    hash = "sha256-nXhg236NnAGDKg9MQ/+sNyL3TvCvqCYowBHQXkGp7zE=";
   };
 
   nativeBuildInputs = [
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   offlineCache = yarn-berry.fetchYarnBerryDeps {
     inherit (finalAttrs) src missingHashes;
-    hash = "sha256-rxGKRzzCDaZuAJwOStDzdZDLxg++/aAUXwaoYemKx7Y=";
+    hash = builtins.readFile ./offline-cache-hash.txt;
   };
 
   missingHashes = ./missing-hashes.json;
