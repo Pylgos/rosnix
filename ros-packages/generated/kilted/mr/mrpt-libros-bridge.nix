@@ -21,7 +21,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libros_bridge";
-  version = "2.14.15-1";
+  version = "2.14.16-1";
   src = finalAttrs.passthru.sources."mrpt_libros_bridge";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake cv-bridge geometry-msgs mrpt-libmaps nav-msgs rclcpp ros-environment rosbag2-storage sensor-msgs std-msgs stereo-msgs tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
@@ -32,8 +32,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "29b7af03985a98a44826c38ff805581fdb5328f6";
-        hash = "sha256-i1qFh+uMVMSz1i0HIuq4a0E7Vj6SvpusQ2LeGL4KzWU=";
+        rev = "10c44ea86e8c53911ed2a1edce2ea8a3ab9253d4";
+        hash = "sha256-mZ+5OSuqt2PsCnlm/qPRPyboFZ0gIoIBYHzSUASqQUM=";
       };
     };
   });

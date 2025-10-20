@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rclpy_cascade_lifecycle";
-  version = "2.0.2-1";
+  version = "2.0.4-1";
   src = finalAttrs.passthru.sources."rclpy_cascade_lifecycle";
   propagatedNativeBuildInputs = [ cascade-lifecycle-msgs lifecycle-msgs rclcpp rclcpp-lifecycle ];
   propagatedBuildInputs = [ cascade-lifecycle-msgs lifecycle-msgs rclcpp rclcpp-lifecycle ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rclpy_cascade_lifecycle-source";
         url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-        rev = "201eb45b59fbc9e0afa8d8dcaa9140342755d81f";
-        hash = "sha256-hZcnZgvk2luh8P1VvT++ZjdqbZhgqJTZS81f+lwSff8=";
+        rev = "a8020a1e8536fdedfc04a6290a829faf5f7f622d";
+        hash = "sha256-g2T3Fr0XgoFOCz28fL/y0Int6y3DkRR/PP9CUSXqRxY=";
       };
     };
   });

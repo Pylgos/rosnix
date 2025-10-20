@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "coal";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."coal";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ eigenpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp" "boost" "doxygen" "eigen" "git" "liboctomap-dev" "python3" "python3-lxml" "python3-numpy" ]; };
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "coal-source";
         url = "https://github.com/ros2-gbp/coal-release.git";
-        rev = "43a5dd48b315704785ce8fa2b6031cee3771d29d";
-        hash = "sha256-klt06os3Y8hiqkw++qE2OSX5PtbPTaIxO6DvLYxwjoM=";
+        rev = "c41293e4953e990675f3f5f2741cc612d921db7d";
+        hash = "sha256-SyBS3IyEAsE/NP/TPt+XzrfGk/UdqTmtr8TGbL/6w10=";
       };
     };
   });

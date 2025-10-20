@@ -19,6 +19,7 @@
   rviz-default-plugins,
   rviz-ogre-vendor,
   rviz-rendering,
+  rviz-satellite,
   rviz2,
   substituteSource,
   tf2,
@@ -28,19 +29,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_rviz_plugins";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ etsi-its-cam-msgs etsi-its-cpm-ts-msgs etsi-its-denm-msgs etsi-its-mapem-ts-msgs etsi-its-msgs-utils etsi-its-spatem-ts-msgs pluginlib rclcpp ros-environment rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "python3-pyproj" "qtbase5-dev" ]; };
+  propagatedNativeBuildInputs = [ etsi-its-cam-msgs etsi-its-cpm-ts-msgs etsi-its-denm-msgs etsi-its-mapem-ts-msgs etsi-its-msgs-utils etsi-its-spatem-ts-msgs pluginlib rclcpp ros-environment rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering rviz-satellite tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "python3-pyproj" "qtbase5-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ etsi-its-cam-msgs etsi-its-cpm-ts-msgs etsi-its-denm-msgs etsi-its-mapem-ts-msgs etsi-its-msgs-utils etsi-its-spatem-ts-msgs pluginlib rclcpp ros-environment rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "python3-pyproj" "qtbase5-dev" ]; };
+  propagatedBuildInputs = [ etsi-its-cam-msgs etsi-its-cpm-ts-msgs etsi-its-denm-msgs etsi-its-mapem-ts-msgs etsi-its-msgs-utils etsi-its-spatem-ts-msgs pluginlib rclcpp ros-environment rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering rviz-satellite tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "python3-pyproj" "qtbase5-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "etsi_its_rviz_plugins" = substituteSource {
       src = fetchgit {
         name = "etsi_its_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "b1f5b165a42cb707ec32d0319ba9b8a5e338f58a";
-        hash = "sha256-35WGqu9Q9xgr7ih2qE1Wh2VyL314zt8306KM4qNAMAM=";
+        rev = "7fe61ca462a428654fd240361257b29c549e6ee2";
+        hash = "sha256-+d6znUwP7VRhfzgqROMkj34dIQGC6FsZr4t5yp00D3c=";
       };
     };
   });

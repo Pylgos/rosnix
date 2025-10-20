@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "v4l2_camera";
-  version = "0.7.1-1";
+  version = "0.8.0-1";
   src = finalAttrs.passthru.sources."v4l2_camera";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ camera-info-manager cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "v4l2_camera-source";
         url = "https://github.com/ros2-gbp/ros2_v4l2_camera-release.git";
-        rev = "e61c389ceb5ed83ae6b99ffd97f1b3dddb2a471e";
-        hash = "sha256-OaSGrGK1Lj3ZocwVMqc8WO1+T6jU/Ky2u2UwIpRHqwY=";
+        rev = "8a225657a751c322296e70bf06f9ec219a8512e3";
+        hash = "sha256-S7cVCHqNlQWviD0kxowVHhQ1Df2i6Ni0u1PqvH7uZ20=";
       };
     };
   });

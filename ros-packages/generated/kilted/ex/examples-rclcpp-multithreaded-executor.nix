@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_multithreaded_executor";
-  version = "0.20.5-1";
+  version = "0.20.6-2";
   src = finalAttrs.passthru.sources."examples_rclcpp_multithreaded_executor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclcpp_multithreaded_executor-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "0bf84b0c2e6b9f4023b8a75e44274a12f61b4485";
-        hash = "sha256-lZRYsIbxEfXswc+viq0oRrl87HoccoovwKPPU3hiw3Y=";
+        rev = "14a441dc7806da31dc18d92e12877d29c7b0813f";
+        hash = "sha256-YWKRde/MxBibP87GK2DMGxgEmueZvXIK/Js8PTymL3w=";
       };
     };
   });

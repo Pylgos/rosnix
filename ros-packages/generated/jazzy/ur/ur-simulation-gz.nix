@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_simulation_gz";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."ur_simulation_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ gz-ros2-control joint-state-publisher launch launch-ros ros-gz-bridge ros-gz-sim rviz2 ur-controllers ur-description ur-moveit-config urdf xacro ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_simulation_gz-source";
         url = "https://github.com/ros2-gbp/ur_simulation_gz-release.git";
-        rev = "a7bacdd5c2cdb50a598aec6bcedb2a38889ef1f3";
-        hash = "sha256-FVicMxrV3hKXahLlucQm9wKO3qK0LEfoYNMn9SxAhzY=";
+        rev = "d56de8c4f175b1628215be11d49b34b3d8e660f3";
+        hash = "sha256-86YkampGigarMyGIOFDpfmMPi5XBUT3umQGsrJiFCWs=";
       };
     };
   });

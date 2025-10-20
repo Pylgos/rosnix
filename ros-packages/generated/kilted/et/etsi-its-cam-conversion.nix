@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_conversion";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_conversion";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ etsi-its-cam-coding etsi-its-cam-msgs etsi-its-primitives-conversion ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_cam_conversion-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "b9b78d483662b78b07c88db34e7b43f4020ca517";
-        hash = "sha256-W1r1JD8jbJ5z+QBrAVDNmipTkrfglG0Ha4uNao21EHI=";
+        rev = "9e41facf23bdcc2b273897e89f30705b27b85b82";
+        hash = "sha256-H1/Rfk1WUcilO9tiRFHhEO6SZ3Z+yZNtXiY08sk4CDE=";
       };
     };
   });

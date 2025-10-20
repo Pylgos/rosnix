@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_cam_msgs";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_cam_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_cam_msgs-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "a2fd2796801edf4d022c19d6272a869bcec0c8ab";
-        hash = "sha256-7J27URQFxOWwiTpcapmwmWxwyZaQwGZJR9xB8e6ALpQ=";
+        rev = "51be710dddae27fc92aa961feb115e8cc4104ae5";
+        hash = "sha256-SwD8hkdFrMDQ811ug7oCgjrADuemYAapXRuCRiDXwvQ=";
       };
     };
   });

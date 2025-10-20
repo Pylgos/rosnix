@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "class_loader";
-  version = "2.8.0-2";
+  version = "2.8.1-1";
   src = finalAttrs.passthru.sources."class_loader";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ console-bridge-vendor rcpputils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libconsole-bridge-dev" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "class_loader-source";
         url = "https://github.com/ros2-gbp/class_loader-release.git";
-        rev = "cad0b31f932bd479ddd83147636eb053e980878d";
-        hash = "sha256-V+6oUSK7M95ihfg1lxWWhZG258UL04cmtUGoh/eQqOI=";
+        rev = "f3c0ab5f4250ad2427b28bc4aa1419bbc3e90079";
+        hash = "sha256-n6nMqmshMiiMxRL8dGGGXAaoBxWb52skc0EDA2256mA=";
       };
     };
   });

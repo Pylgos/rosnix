@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin_demos";
-  version = "3.4.0-1";
+  version = "3.5.0-1";
   src = finalAttrs.passthru.sources."yasmin_demos";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ example-interfaces nav-msgs rclcpp rclpy ros-environment yasmin yasmin-ros yasmin-viewer ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin_demos-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "32b4aec047c1fef9dddf045dbce011df8aa4f5de";
-        hash = "sha256-70beeaN3bjHDVfPV3J/011x3qhZgiCY2NezAciZjWuk=";
+        rev = "8b6e372c8f1da9f64fec79de19b1f55ff8b55b93";
+        hash = "sha256-Ki5QySq9Cd+bHWuEdrxh5KRn/mieH7CoCiw7vQl6BQE=";
       };
     };
   });

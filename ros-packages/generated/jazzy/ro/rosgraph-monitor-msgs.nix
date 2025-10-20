@@ -1,11 +1,16 @@
 {
   ament-cmake,
+  ament-cmake-gtest,
+  ament-lint-auto,
+  ament-lint-common,
   buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rcl-interfaces,
+  rclcpp,
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
@@ -13,19 +18,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosgraph_monitor_msgs";
-  version = "0.1.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."rosgraph_monitor_msgs";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
-  buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rclcpp ];
   passthru.sources = mkSourceSet (sources: {
     "rosgraph_monitor_msgs" = substituteSource {
       src = fetchgit {
         name = "rosgraph_monitor_msgs-source";
         url = "https://github.com/ros2-gbp/graph_monitor-release.git";
-        rev = "1347cb927f8f7eb71f3c16a1169074b48155170b";
-        hash = "sha256-spJdQ70zAkdbr/xCL8Qzx/NFeNe+5loVtMqnUN5slYY=";
+        rev = "7a2c63e44730f4c363013c86b6ac04429d612fc3";
+        hash = "sha256-s+FlRcHE6+zJqtLM7c7jOokbWBQKnUarXRpHA+q7iOY=";
       };
     };
   });

@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw";
-  version = "1.1.12-1";
+  version = "1.1.14-1";
   src = finalAttrs.passthru.sources."ffw";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ffw-bringup ffw-description ffw-joint-trajectory-command-broadcaster ffw-joystick-controller ffw-moveit-config ffw-robot-manager ffw-spring-actuator-controller ffw-swerve-drive-controller ffw-teleop ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "999369abd6cb19ddac664314c2fb0271f5e655ce";
-        hash = "sha256-h89BBcLkMVnvFgdBDZsuLkFVC4jO3Q3H6Orm9vy8c/s=";
+        rev = "98f8b98dc8453c37193fe45b6e9a7c95507eb078";
+        hash = "sha256-ZrMTVn1lmGa6uq2ESSMDGkg27BBumNn/2rF2rCEaFG4=";
       };
     };
   });

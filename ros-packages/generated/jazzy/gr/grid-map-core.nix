@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_core";
-  version = "2.2.1-1";
+  version = "2.2.2-2";
   src = finalAttrs.passthru.sources."grid_map_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ grid-map-cmake-helpers ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_core-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "5e13872806c4477dcca299a9f0abe847586d0d4a";
-        hash = "sha256-MQzhSJtTh5JkExs9POo7hQyfObZpTUqL4ntUqjU3xZw=";
+        rev = "a583346c7f6b3cccb4774bcf90b77eda78f599c8";
+        hash = "sha256-nNLJwTtY1PdI06JUICuTMQYolZNIZJkJz8hmOD5+2+g=";
       };
     };
   });

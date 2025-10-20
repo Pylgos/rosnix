@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_demos";
-  version = "2.2.1-1";
+  version = "2.2.2-2";
   src = finalAttrs.passthru.sources."grid_map_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ cv-bridge geometry-msgs grid-map-cmake-helpers grid-map-core grid-map-cv grid-map-filters grid-map-loader grid-map-msgs grid-map-octomap grid-map-ros grid-map-rviz-plugin grid-map-visualization octomap-msgs octomap-rviz-plugins octomap-server rclcpp rclpy rviz2 sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-opencv" ]; };
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_demos-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "bf90f26f2f8fa1ac3490be05293f3b0f4ea2bdc8";
-        hash = "sha256-wWSHCexHzWX6UliU4cDMWmGy0QGQZmUDu7LruWVPzxk=";
+        rev = "ce8556edd6bf2436ef56072568e3bcbf58d673cc";
+        hash = "sha256-BmU34dVmvE7aNfcfJgm1vst4puw/cVSpTeT7R3h2ViI=";
       };
     };
   });

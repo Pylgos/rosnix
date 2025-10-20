@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_spatem_ts_coding";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_spatem_ts_coding";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_spatem_ts_coding-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "0c074c1d69e7dc216534aa85c84a6c3206afbd39";
-        hash = "sha256-xZsUG8Q7HAjanhcQGp/ZuB9QNiWnQmEDAxdXrst/0kk=";
+        rev = "7507ca7f9b46dbfa4abf15641522a49fa29cc2f9";
+        hash = "sha256-/DowO7eRHtx0gblwk+Ox89GAZJZv7wsILZto2NXWFMc=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "eiquadprog";
-  version = "1.2.9-2";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."eiquadprog";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "eiquadprog-source";
         url = "https://github.com/ros2-gbp/eiquadprog-release.git";
-        rev = "f29a4786fa1664a5c341601d6e0312a63ad1dc47";
-        hash = "sha256-YYuPzbSrQfNzyXalOhhqfAUteYtSoTD4gIp16O3sLl4=";
+        rev = "669d90a335ff973004cac0488873f789377fc322";
+        hash = "sha256-66/c6KnJLaSXeaEj+/nDirY+F+q/rShl2qFHRjJU9PM=";
       };
     };
   });

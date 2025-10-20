@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_visualization";
-  version = "2.2.1-1";
+  version = "2.2.2-2";
   src = finalAttrs.passthru.sources."grid_map_visualization";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ grid-map-cmake-helpers grid-map-core grid-map-msgs grid-map-ros nav-msgs rclcpp sensor-msgs visualization-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_visualization-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "1706f2928051ed1451478c8eaea355fea24aa11e";
-        hash = "sha256-GAlUcewovmDQEA8nW5XdO2vRigYrKcYjNluS/x5GUPY=";
+        rev = "cf3eaf5bd5eec8e918e3980fbebd7b413e567b8c";
+        hash = "sha256-0EwAG1G/dtIRPeZaoUxrkSMn8kgUfD0OSfYTbv4Ie18=";
       };
     };
   });

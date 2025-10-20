@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_stats_shim";
-  version = "0.1.2-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."rmw_stats_shim";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosgraph-monitor-msgs rosidl-runtime-cpp rosidl-typesupport-cpp ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_stats_shim-source";
         url = "https://github.com/ros2-gbp/graph_monitor-release.git";
-        rev = "ba0ae89b75c9db2bf006c0ce956899dcc278f5fe";
-        hash = "sha256-PkQxgaEjjiSUoceVuCNwantTCKNgn3XZ4ccoqnf2HYQ=";
+        rev = "8a9f88c6f0b2ba96c0280dc94179bd66f7dafc9e";
+        hash = "sha256-bNfcCBjvXkczPSrTCBKxsSrG2sINvYKGfO/8kRwhWvE=";
       };
     };
   });

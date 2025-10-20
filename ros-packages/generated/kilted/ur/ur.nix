@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur";
-  version = "4.2.0-1";
+  version = "4.3.0-1";
   src = finalAttrs.passthru.sources."ur";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ur-calibration ur-controllers ur-dashboard-msgs ur-moveit-config ur-robot-driver ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "ffd86cd2b877a957fdf9be9ce9ae96a15fa88fce";
-        hash = "sha256-VHIfpHr4uTchE1qYj8eF4C/2qtKfCWdVBOrjanRYQqw=";
+        rev = "21eada3e59d2a3ddd4d1d0b20357fa1c817a6129";
+        hash = "sha256-yiuGRwlrf+fq/HHxNU22I3dcagzS9sRirycuQdTIDwc=";
       };
     };
   });

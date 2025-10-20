@@ -6,6 +6,7 @@
   buildAmentCmakePackage,
   diagnostic-aggregator,
   diagnostic-msgs,
+  diagnostic-updater,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -13,29 +14,30 @@
   launch-ros,
   launch-testing-ament-cmake,
   mkSourceSet,
-  pluginlib,
   rclcpp,
   rclcpp-components,
+  rmw-implementation,
+  rmw-stats-shim,
   rosSystemPackages,
   rosgraph-monitor-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosgraph_monitor";
-  version = "0.1.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."rosgraph_monitor";
   nativeBuildInputs = [ ament-cmake generate-parameter-library ];
-  propagatedNativeBuildInputs = [ diagnostic-aggregator diagnostic-msgs pluginlib rclcpp rclcpp-components rosgraph-monitor-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-aggregator diagnostic-msgs diagnostic-updater rclcpp rclcpp-components rosgraph-monitor-msgs ];
   buildInputs = [ ament-cmake generate-parameter-library ];
-  propagatedBuildInputs = [ diagnostic-aggregator diagnostic-msgs pluginlib rclcpp rclcpp-components rosgraph-monitor-msgs ];
-  checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake ];
+  propagatedBuildInputs = [ diagnostic-aggregator diagnostic-msgs diagnostic-updater rclcpp rclcpp-components rosgraph-monitor-msgs ];
+  checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake rmw-implementation rmw-stats-shim ];
   passthru.sources = mkSourceSet (sources: {
     "rosgraph_monitor" = substituteSource {
       src = fetchgit {
         name = "rosgraph_monitor-source";
         url = "https://github.com/ros2-gbp/graph_monitor-release.git";
-        rev = "f280df2f26d76e4ef480616ef258b6d96bed9ff5";
-        hash = "sha256-CpCd6vyjSogfz6Rmr/x4NAq/mF2VHtBBE+rQDQByz7c=";
+        rev = "420810d6c2f19b668c2edb0b8ec37de7d9447dc4";
+        hash = "sha256-a6UD71XCYxQPlhg9+qrFGcDkNtD9A+4e4ooF2Vs3C5M=";
       };
     };
   });

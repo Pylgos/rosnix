@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "tsid";
-  version = "1.8.0-1";
+  version = "1.9.0-1";
   src = finalAttrs.passthru.sources."tsid";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake eigenpy eiquadprog pinocchio ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "git" "graphviz" ]; };
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tsid-source";
         url = "https://github.com/ros2-gbp/tsid-release.git";
-        rev = "2ecf6fbcde5c93e53ea0986fa9d8b6c210f00a68";
-        hash = "sha256-3lO8liDhPzs6qXCgJPB7KSMoAcC9II7IF/Tmkqqjr6s=";
+        rev = "4015c80851c3b4e26f3a35a3426d1db1659c19f7";
+        hash = "sha256-gw+gl+yFjjZJJUZzN5UIx4FrcFDwGgARYxZCc6CYCuc=";
       };
     };
   });

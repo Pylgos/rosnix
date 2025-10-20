@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_description";
-  version = "3.3.1-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."ur_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_description-source";
         url = "https://github.com/ros2-gbp/ur_description-release.git";
-        rev = "37629211a05edb54753cb7f13e64c7b4ac39ef0b";
-        hash = "sha256-MC+1ePoXI+YjEAD2McaFDUgjdC31r5zNkB7HxTQBPlk=";
+        rev = "ee14444a8da7af28fd4dedda13bfb66629f34b22";
+        hash = "sha256-6XhUfTCAbwqfAKqCqQpTtE0nh57ffbDGC0dn9CGiveM=";
       };
     };
   });

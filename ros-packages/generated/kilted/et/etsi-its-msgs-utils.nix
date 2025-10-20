@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_msgs_utils";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_msgs_utils";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ etsi-its-msgs geometry-msgs tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_msgs_utils-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "1170305bd2b60300966209a41774a8d44b12b79d";
-        hash = "sha256-MgOZnuI8GGUhS31dfPt7wXvHci3nj6wx785wf3nh6BA=";
+        rev = "387bae8a76e9ac45462fb293b767c4f4b329e09c";
+        hash = "sha256-H+X6tJVdmW0UBT8Y5uYCxgZRGQF/KAKlgWfowM5imJg=";
       };
     };
   });

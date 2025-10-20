@@ -13,6 +13,7 @@
   ffmpeg-image-transport-msgs,
   image-transport,
   mkSourceSet,
+  nav-msgs,
   rclcpp,
   robot-state-publisher,
   ros-environment,
@@ -29,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_bridge";
-  version = "3.0.7-1";
+  version = "3.0.9-1";
   src = finalAttrs.passthru.sources."depthai_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport nav-msgs rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
+  propagatedBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport nav-msgs rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "depthai_bridge" = substituteSource {
       src = fetchgit {
         name = "depthai_bridge-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "a25acc60308597c84b2b0b0ed33ef821243929c6";
-        hash = "sha256-I+W5BWnQUxJFx1JU8fQrNgalHEamqseAPNNZzeHagLY=";
+        rev = "33b0802634d794df335a0f5faab82e2352862910";
+        hash = "sha256-p5D5SX7UOz4dFx4UZFLLtPXJ8KMMMzEb3dEsCzLr7eY=";
       };
     };
   });

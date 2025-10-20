@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "fastcdr";
-  version = "2.3.2-1";
+  version = "2.3.3-1";
   src = finalAttrs.passthru.sources."fastcdr";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fastcdr-source";
         url = "https://github.com/ros2-gbp/fastcdr-release.git";
-        rev = "100831b469059a7bb80011b26c3c50da884f3950";
-        hash = "sha256-rELWihx9K2FSpAW36W49CcMo/XDBtFwbDRW2SCFYsOM=";
+        rev = "e560c554da0d12da0fba587e3dad1291a3d16db6";
+        hash = "sha256-qsOR24TGWPFk4jTuEAGFlNd/+gs0GiY9dsi0zwpyhVg=";
       };
     };
   });

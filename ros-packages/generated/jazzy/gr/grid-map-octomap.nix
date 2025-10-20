@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grid_map_octomap";
-  version = "2.2.1-1";
+  version = "2.2.2-2";
   src = finalAttrs.passthru.sources."grid_map_octomap";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ grid-map-cmake-helpers grid-map-core octomap ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grid_map_octomap-source";
         url = "https://github.com/ros2-gbp/grid_map-release.git";
-        rev = "e418cf2566bf803d7cc2fd6a775bc28e2f9c58b6";
-        hash = "sha256-CqHI6uBAp7MEYqaD9cPIfDAreYsSleAWuF0AjZyROCI=";
+        rev = "61be4b62033e0023239e9a19b303975c424737eb";
+        hash = "sha256-acU/63ZCiVbjvkgxT3bKyqB3SwCmg3A9GUWFRIh+NNM=";
       };
     };
   });

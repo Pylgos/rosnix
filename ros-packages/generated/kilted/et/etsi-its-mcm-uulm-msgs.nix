@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "etsi_its_mcm_uulm_msgs";
-  version = "3.3.0-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."etsi_its_mcm_uulm_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "etsi_its_mcm_uulm_msgs-source";
         url = "https://github.com/ros2-gbp/etsi_its_messages-release.git";
-        rev = "2d4eea17702f3b3634ddef307fcbacbc6c48350b";
-        hash = "sha256-myDghaPxabQABXxukg9uZOKBDW/+nXT2EvrqNV1JASk=";
+        rev = "053589d5a0ae56759ae4b0e8d770d5b122c068ea";
+        hash = "sha256-h8xODa3k/ob/h+nfzST8wBhEhyoIUeo7syObYcrCuo4=";
       };
     };
   });
