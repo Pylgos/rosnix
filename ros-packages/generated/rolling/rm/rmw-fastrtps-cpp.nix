@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_cpp";
-  version = "9.4.2-1";
+  version = "9.4.3-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_cpp";
   nativeBuildInputs = [ ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ ament-cmake fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-dynamic-typesupport rosidl-dynamic-typesupport-fastrtps rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp tracetools ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_fastrtps_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "f0c8c83d80bb0e252b58b8aa87704897ecab16f5";
-        hash = "sha256-LSUv5R0lf3QgWDRMy1QygBO2WNgNDrtea7ITMY4gTQA=";
+        rev = "40cb07b1547a114f453a1efc5aad13897a621e54";
+        hash = "sha256-w6mK4dKheaYDkv0vgU8M6TGG+I88MtQ2C0gfBBbCUmI=";
       };
     };
   });

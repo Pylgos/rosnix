@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_common";
-  version = "1.3.9-1";
+  version = "1.3.10-1";
   src = finalAttrs.passthru.sources."nav2_common";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-python launch launch-ros osrf-pycommon rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-python launch launch-ros osrf-pycommon rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_common-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "b6d979a509acf4d3962719291012617d7e75dc1e";
-        hash = "sha256-9AFcrXlt2CRuaMgk6hJ08dCZ4ZG+5Orf96uMyFdFDvc=";
+        rev = "c7a879e7b6af17e22581eb9651e1a0274ccff0e6";
+        hash = "sha256-zYMXyj6gh9li5sNSnmcnhhBmAkrc4RMyaUfjvVEsJz8=";
       };
     };
   });

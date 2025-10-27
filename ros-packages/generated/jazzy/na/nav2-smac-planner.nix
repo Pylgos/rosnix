@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_smac_planner";
-  version = "1.3.9-1";
+  version = "1.3.10-1";
   src = finalAttrs.passthru.sources."nav2_smac_planner";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles builtin-interfaces eigen3-cmake-module geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util nav-msgs ompl pluginlib rclcpp rclcpp-action rclcpp-lifecycle tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "nlohmann-json-dev" ]; };
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_smac_planner-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "ec357f1211b8bede2d1959f228109fa8946918f3";
-        hash = "sha256-xPhJwAyGrsditNXN5VyCEWkJLK3ai7q/TcDi/ZZeTh0=";
+        rev = "42bca8c8a65b73a5dbfb9709262c52d767607f7f";
+        hash = "sha256-7UTa8yoo3wotIii+uh2jPxCmhGPvjRnvtqihagWKdDE=";
       };
     };
   });

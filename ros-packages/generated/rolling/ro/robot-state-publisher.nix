@@ -13,7 +13,6 @@
   launch-ros,
   launch-testing-ament-cmake,
   mkSourceSet,
-  orocos-kdl-vendor,
   rcl-interfaces,
   rclcpp,
   rclcpp-components,
@@ -22,24 +21,25 @@
   std-msgs,
   substituteSource,
   tf2-ros,
+  tf2-ros-py,
   urdf,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_state_publisher";
-  version = "3.5.2-1";
+  version = "3.5.3-1";
   src = finalAttrs.passthru.sources."robot_state_publisher";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
+  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liborocos-kdl" "liborocos-kdl-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser orocos-kdl-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ];
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake ];
+  propagatedBuildInputs = [ builtin-interfaces geometry-msgs kdl-parser rcl-interfaces rclcpp rclcpp-components sensor-msgs std-msgs tf2-ros urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liborocos-kdl" "liborocos-kdl-dev" ]; };
+  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing-ament-cmake tf2-ros-py ];
   passthru.sources = mkSourceSet (sources: {
     "robot_state_publisher" = substituteSource {
       src = fetchgit {
         name = "robot_state_publisher-source";
         url = "https://github.com/ros2-gbp/robot_state_publisher-release.git";
-        rev = "7bbf5f73e0caea1df22ce28f033d50b673d5bd64";
-        hash = "sha256-V2pK9ISipod3q4LxlLxuqrCbW4nz72AeMVCtFG8AG/w=";
+        rev = "374991d3f20877d049cadbef6abf2e528bbf101d";
+        hash = "sha256-DtkaV4ArpcQlGQqxmy/KefBijbwx48OwxBSMMi+c/vw=";
       };
     };
   });

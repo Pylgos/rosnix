@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_msgs";
-  version = "4.7.0-1";
+  version = "4.8.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_msgs";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs std-msgs ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_msgs-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "6a3d41dda9ecaaeb3cc1f4643b3f0fe77ba56a15";
-        hash = "sha256-F1b+dDc+M1lJpff+mYGvDhtPCVuSbpdiIx4MbPRBLek=";
+        rev = "f1f77f7eb3a46de6ad9d52d9e3a9e15699e630ee";
+        hash = "sha256-cFg0GIQiJGuZZ9rdMbUiLgZeqs6LY/D2V/6LUzCTLzg=";
       };
     };
   });

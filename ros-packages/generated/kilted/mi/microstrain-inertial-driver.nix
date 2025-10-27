@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_driver";
-  version = "4.7.0-1";
+  version = "4.8.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_driver";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-target-dependencies diagnostic-aggregator diagnostic-updater geometry-msgs lifecycle-msgs microstrain-inertial-msgs nav-msgs nmea-msgs rclcpp-lifecycle ros-environment rosidl-default-runtime rtcm-msgs sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "geographiclib" ]; };
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_driver-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "ad751c40acd188b0c2e7d866c0fafa2c58882199";
-        hash = "sha256-IgR0CsSrVU4guKcHxcCpeRnGGveJYyZNGsjK2IsZWqc=";
+        rev = "7f786356cfe7642007db8a6c5951e142df54f2de";
+        hash = "sha256-z2rC9a4zVy9ROiUxqt47t8f9hbYS/DmhUJ6onTHqvH4=";
       };
     };
   });

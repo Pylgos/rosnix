@@ -11,24 +11,23 @@
   launch,
   launch-testing,
   mkSourceSet,
-  osrf-pycommon,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_pytest";
-  version = "3.9.3-1";
+  version = "3.9.4-1";
   src = finalAttrs.passthru.sources."launch_pytest";
-  propagatedNativeBuildInputs = [ ament-index-python launch launch-testing osrf-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pytest" ]; };
-  propagatedBuildInputs = [ ament-index-python launch launch-testing osrf-pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python launch launch-testing ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-osrf-pycommon" "python3-pytest" ]; };
+  propagatedBuildInputs = [ ament-index-python launch launch-testing ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-osrf-pycommon" "python3-pytest" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ];
   passthru.sources = mkSourceSet (sources: {
     "launch_pytest" = substituteSource {
       src = fetchgit {
         name = "launch_pytest-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
-        rev = "248412ff49236e31e1ba58ebf511d3b571540477";
-        hash = "sha256-lHbo3eMAvwnX3a1jFg5qimN0CjYy5CZ96h1FqsGwPB4=";
+        rev = "f991d4fa7f5dd7218ebfdd001ae4c6a6005e3eaa";
+        hash = "sha256-X9m4QGtsL3ugNz9zbpJPKG57EYDyL62YiGOf6keBqCU=";
       };
     };
   });

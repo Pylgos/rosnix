@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "microstrain_inertial_description";
-  version = "4.7.0-1";
+  version = "4.8.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ xacro ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_description-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "c1847cbd2bb8a813912ccaca9db297623cd0d1d1";
-        hash = "sha256-BRrGyg50+SKkbeb/x1dRLZ/+vt/Rhlj892yJrxZPn4g=";
+        rev = "be88ff9e121bce1e9f6e404f1769d495145fd4e9";
+        hash = "sha256-CBTJCzK7So+BgagCmEL1xZCVA1WaacEaGYcItzjjWao=";
       };
     };
   });

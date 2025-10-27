@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_yaml";
-  version = "2.0.0-1";
+  version = "2.1.0-2";
   src = finalAttrs.passthru.sources."mola_yaml";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mrpt-libbase ];
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_yaml-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "43722dd1944a83856e98b9871d8d32d7bf4a4c50";
-        hash = "sha256-eeRrKREe6yzqFQSY72CnzUvm+13POT3EFRa/nnWkZeY=";
+        rev = "9c4a47c54785c4e65e2513674a00d4eadc409cc8";
+        hash = "sha256-p5MlW1twU7JlH1LLYjIjLeRYP6JJzliKeiAk8GVZ5C0=";
       };
     };
   });

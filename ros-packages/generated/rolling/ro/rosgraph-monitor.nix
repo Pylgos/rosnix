@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosgraph_monitor";
-  version = "0.2.2-2";
+  version = "0.2.3-1";
   src = finalAttrs.passthru.sources."rosgraph_monitor";
   nativeBuildInputs = [ ament-cmake generate-parameter-library ];
   propagatedNativeBuildInputs = [ diagnostic-aggregator diagnostic-msgs diagnostic-updater rclcpp rclcpp-components rosgraph-monitor-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosgraph_monitor-source";
         url = "https://github.com/ros2-gbp/graph_monitor-release.git";
-        rev = "6ac91f67d5af7790d36294388b896c1e8e10800e";
-        hash = "sha256-a6UD71XCYxQPlhg9+qrFGcDkNtD9A+4e4ooF2Vs3C5M=";
+        rev = "2e71639055addc1a095b3caa9842972de0b37631";
+        hash = "sha256-7nuZuLVei7bEf9EyzzIYEOwHylO77ajrqDNsMnBOeZ8=";
       };
     };
   });

@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_sim_vendor";
-  version = "0.0.8-1";
+  version = "0.0.9-1";
   src = finalAttrs.passthru.sources."gz_sim_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-fuel-tools-vendor gz-gui-vendor gz-math-vendor gz-msgs-vendor gz-physics-vendor gz-plugin-vendor gz-rendering-vendor gz-sensors-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor sdformat-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "benchmark" "glut" "gz-sim8" "libfreeimage-dev" "libglew-dev" "libxi-dev" "libxmu-dev" "protobuf-dev" "pybind11-dev" "qml-module-qt-labs-folderlistmodel" "qml-module-qt-labs-settings" "qml-module-qtgraphicaleffects" "qml-module-qtquick-controls" "qml-module-qtquick-controls2" "qml-module-qtquick-dialogs" "qml-module-qtquick-layouts" "qml-module-qtquick2" "qtbase5-dev" "qtdeclarative5-dev" "tinyxml2" "uuid" ]; };
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_sim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_sim_vendor-release.git";
-        rev = "c70492cae31c0660bd2b8a40c71b4a4929357015";
-        hash = "sha256-sv9sH9amOGuBzLmyxGiEcKIQjbByKMsI3V+ik7luqB0=";
+        rev = "b66c83a0d06983cc72d02674de04e16f8829a43d";
+        hash = "sha256-FiD1use6rqHJfJIiyTHc78PK7akKszT7y/i3NObazBo=";
       };
       substitutions = [
         {
@@ -57,12 +57,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-sim-source";
         url = "https://github.com/gazebosim/gz-sim.git";
-        rev = "49670c95d2cab9e1c4f993fb675a31ca97452805";
-        hash = "sha256-hvhq2XBzcIoupJdJyJzk38LDXoEnd9iBCCiXvPZsPqY=";
+        rev = "83a6331a892ff02f4538415089f8f030f68c80a0";
+        hash = "sha256-JD23esARJdCDSNGv/83V01JTtMVH+lwoJ9+69LSqbkw=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-sim8 8.9.0\n\n    Gazebo Sim : A Robotic Simulator\n  ";
+    description = "\n    Vendor package for: gz-sim8 8.10.0\n\n    Gazebo Sim : A Robotic Simulator\n  ";
   };
 })

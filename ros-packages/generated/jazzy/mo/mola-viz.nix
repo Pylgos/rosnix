@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_viz";
-  version = "2.0.0-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."mola_viz";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-kernel mrpt-libgui mrpt-libmaps mrpt-libopengl ];
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_viz-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "f72e1a63d118c33536df0c24cc6ad3bc38e90050";
-        hash = "sha256-/C/Ep5dQKKooSw3L5emnZiUk3UmGOLEC9ObYndI0zJQ=";
+        rev = "077077453452be6207c9612b3be4913945407621";
+        hash = "sha256-qUKMVHZSpvlZaWjTAy5AVIeeobdRo0M6drbeOst42x0=";
       };
     };
   });

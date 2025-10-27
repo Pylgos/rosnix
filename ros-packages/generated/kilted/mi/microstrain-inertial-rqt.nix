@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "microstrain_inertial_rqt";
-  version = "4.7.0-1";
+  version = "4.8.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_rqt";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rclpy rqt-gui rqt-gui-py std-msgs ];
@@ -27,8 +27,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "microstrain_inertial_rqt-source";
         url = "https://github.com/ros2-gbp/microstrain_inertial-release.git";
-        rev = "2a19283b55c98ad86f3f952e3e02dd51c475ee48";
-        hash = "sha256-ki8Ax/YoS18XsUpaHLRtqUVztcBFhVGwwhzch+UuNho=";
+        rev = "8a1ef722dc63a7ed8ea174f6693a70c7943ac572";
+        hash = "sha256-qoISzFZFLgoD9EwXSddptPdu/GyeERCnTkObkb5qKic=";
       };
     };
   });

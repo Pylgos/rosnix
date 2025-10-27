@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_transport_vendor";
-  version = "0.0.6-1";
+  version = "0.0.7-1";
   src = finalAttrs.passthru.sources."gz_transport_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-transport13" "libsqlite3-dev" "libzmq3-dev" "pkg-config" "protobuf-dev" "pybind11-dev" "python3-dev" "python3-psutil" "python3-pytest" "uuid" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_transport_vendor-source";
         url = "https://github.com/ros2-gbp/gz_transport_vendor-release.git";
-        rev = "4f33dac3ec8ae1aa73bbc2b96f0d2fc6c4ccb574";
-        hash = "sha256-c0Srhd2bD4PuK+jYiuyMKfizxfgDybBtIxC4XDuyn94=";
+        rev = "78468ba11ff878eb3f3bb1ff43dbbe0879955aa2";
+        hash = "sha256-RloPJ0p4O0P/d54nKDbfFgC/wYLG87zOZ/FL2iHH5CQ=";
       };
       substitutions = [
         {
@@ -47,12 +47,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-transport-source";
         url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "c571f73f4829ecbaea6d944494aac3dd21483246";
-        hash = "sha256-hCP+yVoyl1c3KNmQ5jKrYvPT1IlAy9JkCh0c0mOF+KM=";
+        rev = "815b417ee9308fab9bb50eaa22bfd990e1f09679";
+        hash = "sha256-hhR74eZh+c86kxWoxOJF7Gqs8xvi0w5U6JRfyZGrTMg=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-transport13 13.4.1\n\n    Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.\n  ";
+    description = "\n    Vendor package for: gz-transport13 13.5.0\n\n    Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.\n  ";
   };
 })

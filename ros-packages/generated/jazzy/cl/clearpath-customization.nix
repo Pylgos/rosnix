@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_customization";
-  version = "2.7.4-1";
+  version = "2.8.0-1";
   src = finalAttrs.passthru.sources."clearpath_customization";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_customization-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "66e52cba8abbc758199bcb364fce13f89d246743";
-        hash = "sha256-PdGOnAlXZw/CdIfdAVi1Qz1XKq+fiGRpgxUeb7OvJGY=";
+        rev = "9711cfd2b24ed420b8502c5fef57aa6a745460c5";
+        hash = "sha256-3Ur4+68JINgGddQFt4hLqDl8+rolA6i9ZaxnxbvEeww=";
       };
     };
   });

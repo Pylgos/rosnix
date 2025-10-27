@@ -1,6 +1,4 @@
 {
-  ament-cmake-gmock,
-  ament-cmake-gtest,
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
@@ -8,7 +6,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  launch-testing,
   mkSourceSet,
   rcl-logging-interface,
   rcutils,
@@ -17,20 +14,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_logging_noop";
-  version = "3.3.0-1";
+  version = "3.3.1-1";
   src = finalAttrs.passthru.sources."rcl_logging_noop";
-  nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-empy" ]; };
+  nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rcl-logging-interface rcutils ];
-  buildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-empy" ]; };
+  buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ rcl-logging-interface rcutils ];
-  checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common launch-testing ];
+  checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rcl_logging_noop" = substituteSource {
       src = fetchgit {
         name = "rcl_logging_noop-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
-        rev = "896fe1ef132395ed0f7c3a2c4df945dad38f46e6";
-        hash = "sha256-tZLsa7XEEbE3CfHZ/aNn4N4Xp4wPOjfKRDDZ/B37yFQ=";
+        rev = "2d7da54dbbe885bb4c2bb95a62140d863211bd07";
+        hash = "sha256-WVzPpB/d7DsgwXV1IE0vj3k48Z07tlR/x+EzggwqPzQ=";
       };
     };
   });

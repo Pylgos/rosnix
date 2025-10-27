@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_ogre_vendor";
-  version = "15.0.7-1";
+  version = "15.0.8-1";
   src = finalAttrs.passthru.sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libfreetype-dev" "libfreetype6" "libglew-dev" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "a308750644df5ce08dbb2799c4a6d135e0d2a6d8";
-        hash = "sha256-5KiYsXJgQmslhgVeDSrPrjIbEsQMt5SL3ywt6c1wp/c=";
+        rev = "0d3b60419dd26f82eac6fa09591ae6f67e1adbf5";
+        hash = "sha256-sWBok43A9hN1oRvBInqbnvzD8VZiBXV9cy/fsmfPHLM=";
       };
       substitutions = [
         {

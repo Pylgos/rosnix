@@ -8,27 +8,26 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
-  orocos-kdl-vendor,
   rosSystemPackages,
   substituteSource,
   tf2,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_eigen_kdl";
-  version = "0.45.0-1";
+  version = "0.45.1-1";
   src = finalAttrs.passthru.sources."tf2_eigen_kdl";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ orocos-kdl-vendor tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ orocos-kdl-vendor tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "tf2_eigen_kdl" = substituteSource {
       src = fetchgit {
         name = "tf2_eigen_kdl-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "0f37c71d1038d3b8cde6e9392ab66e73031b8347";
-        hash = "sha256-77tKmY9EapjxMPJqVe4bkHQXWCgyRmYGJCG4oW0eZUk=";
+        rev = "4c3756c9024267545bba321e1ed855f6e72168d6";
+        hash = "sha256-H64J6D5o0S9X2/6/JRZh/INlWoIeozNCoZRWE/UD6ng=";
       };
     };
   });

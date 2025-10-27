@@ -4,11 +4,11 @@
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
+  eigen3-cmake-module,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
-  orocos-kdl-vendor,
   rcutils,
   rosSystemPackages,
   substituteSource,
@@ -17,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kdl_parser";
-  version = "3.0.0-1";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."kdl_parser";
-  nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ orocos-kdl-vendor rcutils urdf urdfdom-headers ];
-  buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ orocos-kdl-vendor rcutils urdf urdfdom-headers ];
+  nativeBuildInputs = [ ament-cmake-ros eigen3-cmake-module ];
+  propagatedNativeBuildInputs = [ rcutils urdf urdfdom-headers ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" ]; };
+  buildInputs = [ ament-cmake-ros eigen3-cmake-module ];
+  propagatedBuildInputs = [ rcutils urdf urdfdom-headers ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "kdl_parser" = substituteSource {
       src = fetchgit {
         name = "kdl_parser-source";
         url = "https://github.com/ros2-gbp/kdl_parser-release.git";
-        rev = "64e650cb1b1bdfaa2df9ff2233099a2529f05e5b";
-        hash = "sha256-/Aci3LYJg81+8KD+X8+BRy3mYZ7DZ3nkNQNbeGiQyYY=";
+        rev = "240c84653d99e38b617a01ab9b9bc43aa25354a6";
+        hash = "sha256-vZjZKMavYiEYaLkZeIp/2940oQwf+B6AwT+tGh1DY/c=";
       };
     };
   });
