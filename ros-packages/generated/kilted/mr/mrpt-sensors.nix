@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensors";
-  version = "0.2.3-2";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_sensors";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common mrpt-generic-sensor mrpt-sensor-bumblebee-stereo mrpt-sensor-gnss-nmea mrpt-sensor-gnss-novatel mrpt-sensor-imu-taobotics mrpt-sensorlib ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensors-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "42bcd72483859b2ba87d1a7e24b03bbde6b4c0ce";
-        hash = "sha256-B8MCdYv31gBZx0BxHHZYUfyq9ZX2m+fR+E2JFusZQc8=";
+        rev = "f6de1b5958ad91fdbed85ef04810b808f3ae07c0";
+        hash = "sha256-1opCMf/fKhtbvT/HWgvKW06PkUvMH1GXwfg4EeOMemA=";
       };
     };
   });

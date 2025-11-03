@@ -10,7 +10,6 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libhwdrivers,
-  mrpt-libros-bridge,
   mrpt-msgs,
   mrpt-sensorlib,
   nav-msgs,
@@ -27,19 +26,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_imu_taobotics";
-  version = "0.2.3-1";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_sensor_imu_taobotics";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
+  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_sensor_imu_taobotics" = substituteSource {
       src = fetchgit {
         name = "mrpt_sensor_imu_taobotics-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "2e8f5f720340576209ed4abe820edd84d5eebaea";
-        hash = "sha256-i/VI6NybgOTVnmZO3RoHSnA7Gbjea8iGtqnuJ2+MjmQ=";
+        rev = "0f0e1d971ac17a2b22ef6c75c150eb2a089fec77";
+        hash = "sha256-Ln6hxZBdxyDxAnMNNKrjwrRs2mMas1JEoLJjoV+e0DQ=";
       };
     };
   });

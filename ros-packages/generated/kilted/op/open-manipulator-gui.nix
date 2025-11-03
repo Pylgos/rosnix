@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_gui";
-  version = "4.0.8-1";
+  version = "4.1.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_gui";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module geometry-msgs moveit-core moveit-msgs moveit-ros-planning moveit-ros-planning-interface rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "qt5-qmake" "qtbase5-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_gui-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "2b9e6f650b3d6eeebc5ba3097290158b77004595";
-        hash = "sha256-6Jvzzayb6BjlZlttoch0fHIyj7yfdUqyzk01rHGRY0o=";
+        rev = "f1b141fd7950f36fc56f0a1ed96b5f68995aaab0";
+        hash = "sha256-8V1WYEe5aYbwbMPmN4vNzlTCjrHMPtKzRWBY8qFvLp0=";
       };
     };
   });

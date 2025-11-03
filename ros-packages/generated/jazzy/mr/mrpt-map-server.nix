@@ -11,7 +11,6 @@
   mp2p-icp,
   mrpt-libmaps,
   mrpt-libobs,
-  mrpt-libros-bridge,
   mrpt-msgs,
   mrpt-nav-interfaces,
   rclcpp-components,
@@ -23,19 +22,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_map_server";
-  version = "2.2.3-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_map_server";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libmaps mrpt-libobs mrpt-libros-bridge mrpt-msgs mrpt-nav-interfaces rclcpp-components tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libmaps mrpt-libobs mrpt-msgs mrpt-nav-interfaces rclcpp-components tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libmaps mrpt-libobs mrpt-libros-bridge mrpt-msgs mrpt-nav-interfaces rclcpp-components tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libmaps mrpt-libobs mrpt-msgs mrpt-nav-interfaces rclcpp-components tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_map_server" = substituteSource {
       src = fetchgit {
         name = "mrpt_map_server-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "827c3b587635d1205d3390b574a033da1597e364";
-        hash = "sha256-/NY/DrEz8JPlLaVAqegtPRxHbjoIIa587JSqtxWOYKk=";
+        rev = "bb8876fa715e9d7d72f4ed1ce0421ced436928c4";
+        hash = "sha256-TH6Gw1lLALl4z00hkhHqWidTfh0Rzxz+1tbWQYGYT3s=";
       };
     };
   });

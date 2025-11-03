@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pymoveit2";
-  version = "4.0.0-1";
+  version = "4.2.0-1";
   src = finalAttrs.passthru.sources."pymoveit2";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ action-msgs control-msgs geometry-msgs moveit-msgs rclpy sensor-msgs shape-msgs std-srvs trajectory-msgs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pymoveit2-source";
         url = "https://github.com/ros2-gbp/pymoveit2-release.git";
-        rev = "04124a856864fd3e34f9c1bcf5a738caf42d80b3";
-        hash = "sha256-ZtmWBQsCKcX0q53xMIFh8UbxF8e2Wzg6EWW74/gY9rQ=";
+        rev = "436fd5a0bd1006bc837e6e387ae73e7125963393";
+        hash = "sha256-hsRa2RK7Y11GIn3FOyxqn6MQaM1x4ML/BjaxYRZKIKM=";
       };
     };
   });

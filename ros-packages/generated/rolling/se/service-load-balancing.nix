@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "service_load_balancing";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."service_load_balancing";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rosidl-default-runtime rosidl-typesupport-introspection-cpp std-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "service_load_balancing-source";
         url = "https://github.com/ros2-gbp/service_load_balancing-release.git";
-        rev = "4a69dff2b365238a443159d41d3dcb692947de2d";
-        hash = "sha256-ObzQQIefxvDoH85VQ2WScp+dk2MVC6gUhugMOhB42v0=";
+        rev = "a42e944bb26376d11baabd7ffc12f8e1e52aa0a9";
+        hash = "sha256-Ct/Tvftb6p+UnfiinchAPXQpyFXWx7hdgRd1Caee1U4=";
       };
     };
   });

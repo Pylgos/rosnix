@@ -11,7 +11,6 @@
   mola-relocalization,
   mp2p-icp,
   mrpt-libgui,
-  mrpt-libros-bridge,
   mrpt-libslam,
   mrpt-msgs,
   mrpt-msgs-bridge,
@@ -29,20 +28,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pf_localization";
-  version = "2.2.3-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_pf_localization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   checkInputs = [ mrpt-tutorials ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_pf_localization" = substituteSource {
       src = fetchgit {
         name = "mrpt_pf_localization-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "aaf093fdc72e03caf02f852badf13296b8b83a9c";
-        hash = "sha256-pH/N/D8SkGmCr4kqXgilRn/gp3PFx1l1u1+3jeM4cRU=";
+        rev = "931aab6b343d64ce5bf009cde4426d3798319947";
+        hash = "sha256-cgeFOTBoB6SLH5bYymqMRT9s1H4gXjJukxPbp0t6QnY=";
       };
     };
   });

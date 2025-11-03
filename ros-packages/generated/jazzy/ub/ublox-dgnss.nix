@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_dgnss";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."ublox_dgnss";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ntrip-client-node ublox-dgnss-node ublox-nav-sat-fix-hp-node ublox-ubx-interfaces ublox-ubx-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_dgnss-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "21c599a9708e879c07edf48730754610d14dc67f";
-        hash = "sha256-r1wlnhzdeWBHFPGHmkBFjMugCyu7dPDvJ/0qw6SUQMw=";
+        rev = "a8a32a23d3f37934d016e3e23b1d5fbf8cdf98c5";
+        hash = "sha256-VnBF1GARZ3RV76lnL/Ku2A07mvUnNCMAgSWMz4Ef9Bg=";
       };
     };
   });

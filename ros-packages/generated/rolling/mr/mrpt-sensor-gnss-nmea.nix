@@ -10,7 +10,6 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libhwdrivers,
-  mrpt-libros-bridge,
   mrpt-msgs,
   mrpt-sensorlib,
   nav-msgs,
@@ -28,19 +27,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_gnss_nmea";
-  version = "0.2.3-1";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_sensor_gnss_nmea";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
+  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_sensor_gnss_nmea" = substituteSource {
       src = fetchgit {
         name = "mrpt_sensor_gnss_nmea-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "bad2e14e8055bcc1b24cf7af43d984f5e2b75d19";
-        hash = "sha256-AZcZeGwHOjz/3QOqQ7+B9U1A1MQLQZJfbvs+EwbBJWw=";
+        rev = "690c032738ba6332644c38443ff6f3baac53d46a";
+        hash = "sha256-xjJomxlKkwzhQe3yANpzJf2Bjirz2sFg8812j9u4JpM=";
       };
     };
   });

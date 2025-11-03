@@ -10,7 +10,6 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libnav,
-  mrpt-libros-bridge,
   mrpt-nav-interfaces,
   nav-msgs,
   rclcpp,
@@ -27,19 +26,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_reactivenav2d";
-  version = "2.2.3-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_reactivenav2d";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libnav mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libnav mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libnav mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libnav mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_reactivenav2d" = substituteSource {
       src = fetchgit {
         name = "mrpt_reactivenav2d-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "44589e0cff756e8efd5bf16dd4bd997736d56afa";
-        hash = "sha256-xzLyIsmguyNWLCsl/QyYKfK+XwHIYUtIrXGGeHfAfFs=";
+        rev = "2058d6aa1fb42898ca610672a9da74ce6fbe946d";
+        hash = "sha256-XuvOEzu3rOexJcYP3DUfMG64AzAzDtmc0hLb7YO8Z6M=";
       };
     };
   });

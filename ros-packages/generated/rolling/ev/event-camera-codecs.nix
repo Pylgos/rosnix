@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "event_camera_codecs";
-  version = "2.0.0-2";
+  version = "2.0.1-1";
   src = finalAttrs.passthru.sources."event_camera_codecs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
   propagatedNativeBuildInputs = [ class-loader event-camera-msgs ros-environment ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "event_camera_codecs-source";
         url = "https://github.com/ros2-gbp/event_camera_codecs-release.git";
-        rev = "12975fa6c4401096f2256758697d0158f385a7cd";
-        hash = "sha256-J0+cxHLgqObKM6+/ni0OV9YJnFzPvw3hp2v10+saEhM=";
+        rev = "a4fcd10025c030ed8aefcc36d46d62f61255f4c2";
+        hash = "sha256-CHO7O4gvdhco61GE1JFFZ7zHiwWV6Fs+V8NSbaF/EFc=";
       };
     };
   });

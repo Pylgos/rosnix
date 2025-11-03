@@ -10,7 +10,6 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libobs,
-  mrpt-libros-bridge,
   mrpt-msgs,
   rclcpp,
   ros-environment,
@@ -20,19 +19,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_msgs_bridge";
-  version = "2.2.4-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libobs mrpt-libros-bridge mrpt-msgs rclcpp ros-environment tf2 ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libobs mrpt-msgs rclcpp ros-environment tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libobs mrpt-libros-bridge mrpt-msgs rclcpp ros-environment tf2 ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libobs mrpt-msgs rclcpp ros-environment tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_msgs_bridge" = substituteSource {
       src = fetchgit {
         name = "mrpt_msgs_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "2e3a80644ca07f85274bc7ab82d8c8e72d62dba8";
-        hash = "sha256-xSDr5MNwOchtnHbkM+BvW+tJUlQmP0dPQgGpS+XNB28=";
+        rev = "1117a5b105a47e36b7f58bd93ea9bf2abbe2f449";
+        hash = "sha256-5BN8CJJ3crFoInkCpPmKm/JVGIbpE4wgoUf90mywzmA=";
       };
     };
   });

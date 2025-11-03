@@ -1,6 +1,7 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
+  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -26,20 +27,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ouster_ros";
-  version = "0.11.1-6";
+  version = "0.13.15-1";
   src = finalAttrs.passthru.sources."ouster_ros";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "spdlog" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "spdlog" ]; };
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "spdlog" ]; };
+  propagatedBuildInputs = [ cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions pcl-ros rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "spdlog" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ouster_ros" = substituteSource {
       src = fetchgit {
         name = "ouster_ros-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
-        rev = "3dd5ba0f91e8c8a4126e676e4729b34cd5faa8c0";
-        hash = "sha256-Opx0mFprXiIgty9hc+lRjuMa4S82Wsjq0scFsO4oWbs=";
+        rev = "b4c79513129eabaca5f7504beba4b14963bf4250";
+        hash = "sha256-+dRcJBax1ehLLPxrfHByEZdIPHHrEwNl6NPbF7X8CVw=";
       };
     };
   });

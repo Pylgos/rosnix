@@ -1,34 +1,29 @@
 {
-  ament-cmake,
   buildCmakePackage,
-  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
   mkSourceSet,
   mrpt-libbase,
   mrpt-libmath,
-  rclcpp,
-  ros-environment,
   rosSystemPackages,
-  rosbag2-storage,
   substituteSource,
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libposes";
-  version = "2.14.16-1";
+  version = "2.15.1-2";
   src = finalAttrs.passthru.sources."mrpt_libposes";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake cv-bridge mrpt-libbase mrpt-libmath rclcpp ros-environment rosbag2-storage ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedNativeBuildInputs = [ mrpt-libbase mrpt-libmath ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake cv-bridge mrpt-libbase mrpt-libmath rclcpp ros-environment rosbag2-storage ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedBuildInputs = [ mrpt-libbase mrpt-libmath ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_libposes" = substituteSource {
       src = fetchgit {
         name = "mrpt_libposes-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "6f1994c88409bffd75df0ddc75121be0d2a13631";
-        hash = "sha256-e41i7IaLmLAklN1+CEDDkEmJ7ez6eiLUlMEqzau8Phk=";
+        rev = "796cead29fa5b2cd5c9b665368cdad63f89a032e";
+        hash = "sha256-VT6KEJYrgZC/njQLAQrGPREFj2tHpD5wJEQmDi5ZGnE=";
       };
     };
   });

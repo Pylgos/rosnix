@@ -19,20 +19,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ntrip_client_node";
-  version = "0.6.1-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."ntrip_client_node";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcurl_vendor" "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcurl-dev" "pkg-config" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcurl_vendor" "pkg-config" ]; };
+  propagatedBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libcurl-dev" "pkg-config" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-uncrustify ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ntrip_client_node" = substituteSource {
       src = fetchgit {
         name = "ntrip_client_node-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "540f521628d01f1c836bd6a4e511d84594c3b60b";
-        hash = "sha256-bgrx0klGfGGDKTECdXECKZR+rRO7TAoneDcbIaWrwfc=";
+        rev = "747899f481268c625126be9c63fb687e86e906f3";
+        hash = "sha256-sHiPyfDV1WBbvY/X3xpl6COr2izP9ZuMfhWxD9A2bEk=";
       };
     };
   });

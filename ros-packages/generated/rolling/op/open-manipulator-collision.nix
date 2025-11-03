@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_collision";
-  version = "4.0.7-1";
+  version = "4.1.0-1";
   src = finalAttrs.passthru.sources."open_manipulator_collision";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ kdl-parser rclcpp sensor-msgs std-msgs urdf visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libfcl-dev" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_collision-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "e44a591b1f7142ebe094519533e4450029d17fbb";
-        hash = "sha256-YHIyeZhaON1k4ddgDdRuyazbbMmhVmXli4wiY2rDWL8=";
+        rev = "926fa0e2680e582246ca5f875fa64c780e947ca8";
+        hash = "sha256-ujFQWY+9BzHL7K0FxTsg5DC3L8uS+mmudM/YZ1PcYpU=";
       };
     };
   });

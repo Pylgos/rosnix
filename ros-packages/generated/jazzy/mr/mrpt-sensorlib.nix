@@ -10,7 +10,6 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libhwdrivers,
-  mrpt-libros-bridge,
   mrpt-msgs,
   nav-msgs,
   rclcpp,
@@ -27,19 +26,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensorlib";
-  version = "0.2.3-1";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_sensorlib";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-msgs nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_sensorlib" = substituteSource {
       src = fetchgit {
         name = "mrpt_sensorlib-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "5d67a91504e50a4e4f5870cb74fac30c8bc6f065";
-        hash = "sha256-kt+3P2zL6jNk5caCQSREXZ0hVcHkV2dmaXd2sP0fDcA=";
+        rev = "996b123e8c47ea0ac26f372c521e877a65f79cf5";
+        hash = "sha256-1aeI0XzgJq65w0+5asooTEJ03HeqOpemTVA4p9A8H+Y=";
       };
     };
   });

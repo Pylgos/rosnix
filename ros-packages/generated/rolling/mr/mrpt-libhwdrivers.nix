@@ -1,7 +1,5 @@
 {
-  ament-cmake,
   buildCmakePackage,
-  cv-bridge,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -9,27 +7,24 @@
   mrpt-libgui,
   mrpt-libmaps,
   mrpt-libslam,
-  rclcpp,
-  ros-environment,
   rosSystemPackages,
-  rosbag2-storage,
   substituteSource,
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libhwdrivers";
-  version = "2.14.16-1";
+  version = "2.15.1-2";
   src = finalAttrs.passthru.sources."mrpt_libhwdrivers";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake cv-bridge mrpt-libgui mrpt-libmaps mrpt-libslam rclcpp ros-environment rosbag2-storage ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedNativeBuildInputs = [ mrpt-libgui mrpt-libmaps mrpt-libslam ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake cv-bridge mrpt-libgui mrpt-libmaps mrpt-libslam rclcpp ros-environment rosbag2-storage ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedBuildInputs = [ mrpt-libgui mrpt-libmaps mrpt-libslam ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_libhwdrivers" = substituteSource {
       src = fetchgit {
         name = "mrpt_libhwdrivers-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "09a732aa4a1f2ebbee48ea08e42331c9104f700b";
-        hash = "sha256-r3qzAe9rEJ00axLze7/tUY2p5ozemyXZqlsvJZdQmx0=";
+        rev = "bcca3fa79f9f69ac9d29a6d3fc95cf88d7894efc";
+        hash = "sha256-tIT5eVkWy2syreCPKOpgCn7rfraRa8qw37DaCF5bak0=";
       };
     };
   });

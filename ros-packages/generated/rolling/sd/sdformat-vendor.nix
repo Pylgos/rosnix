@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor gz-utils-vendor urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "sdformat" "tinyxml2" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "82aa13b57086b6fcc11f11d033258819702ae0ef";
-        hash = "sha256-cX1xgA7nJvl8vAMvEo4ro28FfNIa9oIFWvFPGqT4+u4=";
+        rev = "6c98c12842c7d28441fc29e3460d5c5b22902d42";
+        hash = "sha256-UJ/PQFHgbDN4KDQ0QGhg/VcrHmN2PSL6VLxxHuJwkzo=";
       };
       substitutions = [
         {

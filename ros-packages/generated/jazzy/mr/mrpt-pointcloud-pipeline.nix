@@ -12,7 +12,6 @@
   mrpt-libgui,
   mrpt-libmaps,
   mrpt-libobs,
-  mrpt-libros-bridge,
   nav-msgs,
   rclcpp,
   rclcpp-components,
@@ -24,19 +23,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pointcloud_pipeline";
-  version = "2.2.3-1";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_pointcloud_pipeline";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libros-bridge nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libros-bridge nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libobs nav-msgs rclcpp rclcpp-components sensor-msgs tf2 tf2-geometry-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_pointcloud_pipeline" = substituteSource {
       src = fetchgit {
         name = "mrpt_pointcloud_pipeline-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "daf996a3d0fd18f54b2661587c4af9e956736856";
-        hash = "sha256-YGl12RXzqd+A8vBhUU7T5Eq6w17T0F+q3WGY8KBnL3M=";
+        rev = "f9e722e142a2adf29e42a23084c22c28588f6040";
+        hash = "sha256-4c4l2yun5Z1+OrYjgaz2Za+A2yh41RHUdEBxmR6C2/0=";
       };
     };
   });
