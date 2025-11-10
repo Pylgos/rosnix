@@ -1,8 +1,7 @@
 {
   action-msgs,
-  ament-cmake,
   ament-cmake-mypy,
-  ament-cmake-pytest,
+  ament-cmake-python,
   ament-cmake-ros,
   buildAmentCmakePackage,
   builtin-interfaces,
@@ -15,10 +14,10 @@
   geometry-msgs,
   mkSourceSet,
   nav-msgs,
+  rcl-interfaces,
   rclpy,
   rosSystemPackages,
   rosbridge-test-msgs,
-  rosidl-default-runtime,
   sensor-msgs,
   std-msgs,
   std-srvs,
@@ -30,24 +29,24 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_library";
-  version = "2.3.0-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."rosbridge_library";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-bson" "python3-pil" ]; };
-  buildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedBuildInputs = [ rclpy rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-pil" ]; };
-  checkInputs = [ action-msgs ament-cmake-mypy ament-cmake-pytest builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
+  propagatedNativeBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-bson" "python3-numpy" "python3-pil" "python3-ujson" ]; };
+  buildInputs = [ ament-cmake-python ament-cmake-ros ];
+  propagatedBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-numpy" "python3-pil" "python3-ujson" ]; };
+  checkInputs = [ action-msgs ament-cmake-mypy builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_library" = substituteSource {
       src = fetchgit {
         name = "rosbridge_library-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "0bc9cec2eac3e218c7f0693847f064e79566a65f";
-        hash = "sha256-9fwJ6r3waJYfOg80QkpPxEdohHvTx5WgM7AFI4utk6Y=";
+        rev = "a8ac99a2dccf044366134ec3b0e3edcfcf6b686c";
+        hash = "sha256-ko4/Lvnae1GL4trSR2YKcG9wCt4f14Bs+Arls6m//70=";
       };
     };
   });
   meta = {
-    description = "\n    The core rosbridge package, responsible for interpreting JSON andperforming\n    the appropriate ROS action, like subscribe, publish, call service, and\n    interact with params.\n  ";
+    description = "\nThe core rosbridge package, responsible for interpreting JSON and performing the appropriate\nROS action, like subscribe, publish, call service, and interact with params.\n  ";
   };
 })

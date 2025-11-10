@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_fmt_logger";
-  version = "1.0.0-1";
+  version = "1.0.2-1";
   src = finalAttrs.passthru.sources."ros2_fmt_logger";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ backward-ros rclcpp rcutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_fmt_logger-source";
         url = "https://github.com/ros2-gbp/ros2_fmt_logger-release.git";
-        rev = "5d9a0a960ab6e730063da037acdaafc215b92b94";
-        hash = "sha256-CACY99vPf0op14xxFtByQu7TLjKUDhmfxMHhmJKDL1c=";
+        rev = "729f33c6b31bb56abdc7db6dcb057c628b793eea";
+        hash = "sha256-w96K5/Ucq2u1j43W/mhWr3FUrUk0iLJLHF9kO/ziH2o=";
       };
     };
   });

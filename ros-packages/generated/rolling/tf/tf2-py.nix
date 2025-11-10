@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-cmake-pytest,
+  ament-cmake-python,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -18,11 +19,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_py";
-  version = "0.45.1-1";
+  version = "0.45.2-1";
   src = finalAttrs.passthru.sources."tf2_py";
-  nativeBuildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rclpy rpyutils tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" ]; };
-  buildInputs = [ ament-cmake ];
+  buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs rclpy rpyutils tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-dev" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -30,12 +31,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "5c53eba31b8e5b36791213f1b47d0225d8c481ce";
-        hash = "sha256-CQPuXwQbDxIO6eMx+epnprhV3DpcrN0raiYAEbzRC4k=";
+        rev = "05454b3303d844e9a463bb4f695ff031d9ce140b";
+        hash = "sha256-KsNEIuSv4WxMKmluAqYcVLMFe26DjdEUZhSPweWAFmY=";
       };
     };
   });
   meta = {
-    description = "The tf2_py package";
+    description = "Python bindings for the tf2 library";
   };
 })

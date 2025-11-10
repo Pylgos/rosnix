@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_manipulators";
-  version = "2.8.1-1";
+  version = "2.8.2-2";
   src = finalAttrs.passthru.sources."clearpath_manipulators";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ clearpath-manipulators-description gripper-controllers moveit-configs-utils moveit-kinematics moveit-planners moveit-planners-chomp moveit-ros-move-group moveit-ros-warehouse moveit-setup-srdf-plugins moveit-simple-controller-manager position-controllers tf2-ros xacro ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_manipulators-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "3030d60d39468be2d191568cff4c4f47cb9f2e9a";
-        hash = "sha256-c/Jy7+anEuaUggD0gHZfMSijZDUNMfiHy6EiAmtfgzo=";
+        rev = "d74200b92f582c7d519a15ea6dc28e21c0e23daa";
+        hash = "sha256-T9LLl3TldKchUFANJ+9u0cnyG06pfZGLa2sFjq18t6U=";
       };
     };
   });

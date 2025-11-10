@@ -13,6 +13,7 @@
   geometry-msgs,
   mkSourceSet,
   mrpt-libposes,
+  mrpt-libros-bridge,
   nav-msgs,
   rclcpp,
   ros-environment,
@@ -28,9 +29,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "0.4.0-1";
   src = finalAttrs.passthru.sources."pose_cov_ops";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake-xmllint cv-bridge geometry-msgs mrpt-libposes nav-msgs rclcpp ros-environment sensor-msgs std-msgs stereo-msgs tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-xmllint cv-bridge geometry-msgs mrpt-libposes mrpt-libros-bridge nav-msgs rclcpp ros-environment sensor-msgs std-msgs stereo-msgs tf2 ];
   buildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake-xmllint cv-bridge geometry-msgs mrpt-libposes nav-msgs rclcpp ros-environment sensor-msgs std-msgs stereo-msgs tf2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
+  propagatedBuildInputs = [ ament-cmake-xmllint cv-bridge geometry-msgs mrpt-libposes mrpt-libros-bridge nav-msgs rclcpp ros-environment sensor-msgs std-msgs stereo-msgs tf2 ];
   checkInputs = [ ament-lint-auto ament-lint-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pose_cov_ops" = substituteSource {

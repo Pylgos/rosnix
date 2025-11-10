@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_common";
-  version = "15.0.8-1";
+  version = "15.0.9-1";
   src = finalAttrs.passthru.sources."rviz_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros tinyxml2-vendor urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-svg" "libqt5-svg-dev" "libqt5-widgets" "qtbase5-dev" ]; };
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_common-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "d6c440a01802eda95f441319f4ab882f57e52f69";
-        hash = "sha256-Okt/+CtTGvX69bDB/+EX2fO/CB4DGyF66jK11B2GvNo=";
+        rev = "592381d1d1452ff0ea8f09ee6efa00e652b578c2";
+        hash = "sha256-0GZ0rnDLv7L3uO8NCuDH2ckreHYkBp8DF5tt/6IWCqE=";
       };
     };
   });

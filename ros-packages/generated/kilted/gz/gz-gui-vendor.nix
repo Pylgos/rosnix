@@ -25,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_gui_vendor";
-  version = "0.3.1-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."gz_gui_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-gui" "libqt6svg6" "protobuf-dev" "qml6-module-qt-labs-folderlistmodel" "qml6-module-qt-labs-platform" "qml6-module-qt-labs-settings" "qml6-module-qt5compat-graphicaleffects" "qml6-module-qtcharts" "qml6-module-qtcore" "qml6-module-qtpositioning" "qml6-module-qtqml" "qml6-module-qtqml-models" "qml6-module-qtqml-workerscript" "qml6-module-qtquick" "qml6-module-qtquick-controls" "qml6-module-qtquick-dialogs" "qml6-module-qtquick-layouts" "qml6-module-qtquick-templates" "qml6-module-qtquick-window" "qt6-5compat-dev" "qt6-base-dev" "qt6-base-private-dev" "qt6-declarative-dev" "qt6-declarative-private-dev" "tinyxml2" ]; };
+  propagatedNativeBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-gui9" "libqt5-core" "libqt5-qml" "libqt5-quick" "libqt5-widgets" "protobuf-dev" "qml-module-qt-labs-folderlistmodel" "qml-module-qt-labs-platform" "qml-module-qt-labs-settings" "qml-module-qtcharts" "qml-module-qtgraphicaleffects" "qml-module-qtlocation" "qml-module-qtpositioning" "qml-module-qtquick-controls" "qml-module-qtquick-controls2" "qml-module-qtquick-dialogs" "qml-module-qtquick-extras" "qml-module-qtquick-layouts" "qml-module-qtquick-templates2" "qml-module-qtquick-window2" "qml-module-qtquick2" "qtbase5-dev" "qtdeclarative5-dev" "qtquickcontrols2-5-dev" "tinyxml2" ]; };
   buildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-gui" "libqt6svg6" "protobuf-dev" "qml6-module-qt-labs-folderlistmodel" "qml6-module-qt-labs-platform" "qml6-module-qt-labs-settings" "qml6-module-qt5compat-graphicaleffects" "qml6-module-qtcharts" "qml6-module-qtcore" "qml6-module-qtpositioning" "qml6-module-qtqml" "qml6-module-qtqml-models" "qml6-module-qtqml-workerscript" "qml6-module-qtquick" "qml6-module-qtquick-controls" "qml6-module-qtquick-dialogs" "qml6-module-qtquick-layouts" "qml6-module-qtquick-templates" "qml6-module-qtquick-window" "qt6-5compat-dev" "qt6-base-dev" "qt6-base-private-dev" "qt6-declarative-dev" "qt6-declarative-private-dev" "tinyxml2" ]; };
+  propagatedBuildInputs = [ gz-cmake-vendor gz-common-vendor gz-math-vendor gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-tools-vendor gz-transport-vendor gz-utils-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gz-gui9" "libqt5-core" "libqt5-qml" "libqt5-quick" "libqt5-widgets" "protobuf-dev" "qml-module-qt-labs-folderlistmodel" "qml-module-qt-labs-platform" "qml-module-qt-labs-settings" "qml-module-qtcharts" "qml-module-qtgraphicaleffects" "qml-module-qtlocation" "qml-module-qtpositioning" "qml-module-qtquick-controls" "qml-module-qtquick-controls2" "qml-module-qtquick-dialogs" "qml-module-qtquick-extras" "qml-module-qtquick-layouts" "qml-module-qtquick-templates2" "qml-module-qtquick-window2" "qml-module-qtquick2" "qtbase5-dev" "qtdeclarative5-dev" "qtquickcontrols2-5-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "xvfb" ]; };
   passthru.sources = mkSourceSet (sources: {
     "gz_gui_vendor" = substituteSource {
       src = fetchgit {
         name = "gz_gui_vendor-source";
         url = "https://github.com/ros2-gbp/gz_gui_vendor-release.git";
-        rev = "413fa87c7ec826da41b031c2606587546234d1fe";
-        hash = "sha256-I7EbH+LE7kzMlJ6/NIAYQHtCvfJJchveihDqH4SY85o=";
+        rev = "4080ce3adf64f426fd11f01efa570d245efec150";
+        hash = "sha256-ZN2aQg6Q9HQuSq/vrU+gnf7Gb/wZCB1yC6Fl25c3OXA=";
       };
       substitutions = [
         {
@@ -58,6 +58,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-gui 10.0.0\n\n    Gazebo GUI : Graphical interfaces for robotics applications\n  ";
+    description = "\n    Vendor package for: gz-gui9 9.0.2\n\n    Gazebo GUI : Graphical interfaces for robotics applications\n  ";
   };
 })

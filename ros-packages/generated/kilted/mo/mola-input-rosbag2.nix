@@ -7,6 +7,7 @@
   mkSourceSet,
   mola-kernel,
   mrpt-libobs,
+  mrpt-libros-bridge,
   rosSystemPackages,
   rosbag2-cpp,
   sensor-msgs,
@@ -20,9 +21,9 @@ buildCmakePackage (finalAttrs: {
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."mola_input_rosbag2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ cv-bridge mola-kernel mrpt-libobs rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "mrpt_libros_bridge" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge mola-kernel mrpt-libobs mrpt-libros-bridge rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ cv-bridge mola-kernel mrpt-libobs rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "mrpt_libros_bridge" ]; };
+  propagatedBuildInputs = [ cv-bridge mola-kernel mrpt-libobs mrpt-libros-bridge rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "mola_input_rosbag2" = substituteSource {
       src = fetchgit {

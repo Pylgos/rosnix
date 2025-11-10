@@ -1,7 +1,8 @@
 {
+  action-msgs,
   ament-cmake,
   ament-cmake-mypy,
-  ament-cmake-ros,
+  ament-cmake-python,
   buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
@@ -9,34 +10,34 @@
   fetchzip,
   launch,
   launch-ros,
-  launch-testing,
   launch-testing-ament-cmake,
-  launch-testing-ros,
   mkSourceSet,
+  rcl-interfaces,
   rclpy,
   rosSystemPackages,
   rosapi,
   rosbridge-library,
   rosbridge-msgs,
+  std-msgs,
   std-srvs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_server";
-  version = "2.3.0-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."rosbridge_server";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-tornado" "python3-twisted" ]; };
-  buildInputs = [ ament-cmake ament-cmake-ros ];
-  propagatedBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tornado" "python3-twisted" ]; };
-  checkInputs = [ ament-cmake-mypy example-interfaces launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedNativeBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-tornado" ]; };
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tornado" ]; };
+  checkInputs = [ action-msgs ament-cmake-mypy example-interfaces launch launch-ros launch-testing-ament-cmake rcl-interfaces std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" "python3-twisted" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_server" = substituteSource {
       src = fetchgit {
         name = "rosbridge_server-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "adae390cf0667a8886c08113d28d06755c2490c9";
-        hash = "sha256-Gk1gzrVR/bxT7DL8XtvNAXs7Qs5uVf8xjmB3ikRkXRY=";
+        rev = "669d0fe973595417dc4f7dde03a83a8548b620af";
+        hash = "sha256-tZwxuUfrjAeUr2Z+KbH17CCU+HMJizn4ebMz7RwXxB4=";
       };
     };
   });

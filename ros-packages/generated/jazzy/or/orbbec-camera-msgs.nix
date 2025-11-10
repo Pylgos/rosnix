@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "orbbec_camera_msgs";
-  version = "1.5.14-1";
+  version = "2.5.4-2";
   src = finalAttrs.passthru.sources."orbbec_camera_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,9 +27,9 @@ buildAmentCmakePackage (finalAttrs: {
     "orbbec_camera_msgs" = substituteSource {
       src = fetchgit {
         name = "orbbec_camera_msgs-source";
-        url = "https://github.com/orbbec/orbbec_camera_v1-release.git";
-        rev = "e932e21023053137e45c9dea4db96765517d9277";
-        hash = "sha256-itAS8XIME7XBsNGjHBBZy3f7ODGByw0igdkuqRPLmyM=";
+        url = "https://github.com/orbbec/orbbec_camera_v2-release.git";
+        rev = "ba92f8ab3a692a0a60ab806221c53bef5cc455a3";
+        hash = "sha256-9i7dL9+tM1RlDfUoTTW3RgOAy8HjOWNdjJKGplrlP3E=";
       };
     };
   });

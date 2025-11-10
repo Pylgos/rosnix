@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_msgs";
-  version = "3.2.1-1";
+  version = "3.2.2-1";
   src = finalAttrs.passthru.sources."foxglove_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_msgs-source";
         url = "https://github.com/ros2-gbp/foxglove_bridge-release.git";
-        rev = "b9545c5b4033ce6718754ee79321b1f992f74b8f";
-        hash = "sha256-cD3lhJp38244aFwRCXxSmCPH9JutDjBrE0MwiF1MREs=";
+        rev = "cec443c5ad70da503ca0b9a30963444e58b0e8da";
+        hash = "sha256-3eRsPxdl3uqoesFoVlyBvBsjwHa/Hw2ZQuLdJup6m44=";
       };
     };
   });
