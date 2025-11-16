@@ -39,7 +39,6 @@ rec {
         rosPkgs.desktop
         rosPkgs.foxglove-bridge
         rosPkgs.librealsense2
-        rosPkgs.nav2-bringup
         rosPkgs.navigation2
         rosPkgs.webots-ros2
       ]
