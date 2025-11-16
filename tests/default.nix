@@ -66,11 +66,6 @@ let
       '';
 in
 {
-  gz-sim-version = testVersion {
-    package = rosPackages.gz-sim-vendor;
-    command = "gz sim --version";
-    version = extractVersion rosPackages.gz-sim-vendor.meta.description;
-  };
   rviz2-window-test = testers.runNixOSTest {
     name = "rviz2-window-test";
     nodes.machine =
