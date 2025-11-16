@@ -22,6 +22,7 @@ mkRecursiveBuilder stdenv.mkDerivation (
     shellHook ? "",
     passthru ? { },
     realBuilder ? "${buildPackages.bashInteractive}/bin/bash",
+    hardeningDisable ? [ ],
     ...
   }@args:
 
@@ -95,17 +96,22 @@ mkRecursiveBuilder stdenv.mkDerivation (
       else
         checkPhase;
 
-    shellHook =
-      ''
-        source <(ROSNIX_SETUP_DEVEL_ENV=1 ${rosSetupHelper}/bin/setup-helper) 2> /dev/null
-      ''
-      + shellHook;
+    shellHook = ''
+      source <(ROSNIX_SETUP_DEVEL_ENV=1 ${rosSetupHelper}/bin/setup-helper) 2> /dev/null
+    ''
+    + shellHook;
+
+    hardeningDisable = hardeningDisable ++ [
+      "bindnow"
+      "relro"
+    ];
 
     passthru = {
       shell = mkRosWorkspaceShell {
         name = "${finalAttrs.pname or "ros"}-workspace-shell";
         buildInputs = [ finalDrv ];
       };
-    } // passthru;
+    }
+    // passthru;
   }
 )
