@@ -37,6 +37,20 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "b6be69e410d4711613625bd29c7d4db99be4aeb7";
         hash = "sha256-1XQmwlOZM20nVQDc8QAVFJJbeQp4vdBhkYHeGM4Zd0Y=";
       };
+      substitutions = [
+        {
+          path = "deps/crazyflie_tools/crazyflie_cpp/crazyflie-link-cpp/tools/build/Findlibusb.cmake";
+          from = "DOWNLOAD\n                https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-\${LIBUSB_WIN_VERSION}/libusb-\${LIBUSB_WIN_VERSION}.7z/download";
+          to = "DOWNLOAD file://${sources."crazyflie/download"}";
+        }
+      ];
+    };
+    "crazyflie/download" = substituteSource {
+      src = fetchurl {
+        name = "download-source";
+        url = "https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.24/libusb-1.0.24.7z/download";
+        hash = "sha256-sfplupJI4stfBCxK6kL6TwJuGiNVP27TJdkK6rjCe8w=";
+      };
     };
   });
   meta = {

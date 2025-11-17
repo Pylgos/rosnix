@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flexbe_msgs";
-  version = "3.0.3-1";
+  version = "3.0.7-1";
   src = finalAttrs.passthru.sources."flexbe_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flexbe_msgs-source";
         url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
-        rev = "a5d7f9f1c81ae33f3c3c2fb01e0721bb2bdd926a";
-        hash = "sha256-uBMqKj7xP+bWHd1rLyL8C2Tx+/vWfPi7wrtzjqmywGM=";
+        rev = "58a42143ebf00f9f731349b68fb28e2fe0bbc795";
+        hash = "sha256-IPWDO3I1ThvsVuWqigZWtTsamLj1/9V04vyF+P3z36o=";
       };
     };
   });

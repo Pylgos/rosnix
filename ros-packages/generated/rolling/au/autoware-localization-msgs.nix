@@ -2,6 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
+  autoware-common-msgs,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -16,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_localization_msgs";
-  version = "1.8.0-1";
+  version = "1.11.0-1";
   src = finalAttrs.passthru.sources."autoware_localization_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedNativeBuildInputs = [ autoware-common-msgs geometry-msgs rosidl-default-runtime std-msgs ];
   buildInputs = [ ament-cmake-auto rosidl-default-generators ];
-  propagatedBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
+  propagatedBuildInputs = [ autoware-common-msgs geometry-msgs rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_localization_msgs" = substituteSource {
       src = fetchgit {
         name = "autoware_localization_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "d94aeca71bc3845dea0399b27f1e0e9304eb2007";
-        hash = "sha256-UUOzRP9p+3DhhCboTX7E7QmyDjHixA/6fA77Yhq73tQ=";
+        rev = "28495ae7516833b501c88f22f090b71cc84b320f";
+        hash = "sha256-ERiJ90WdImg0lHSpZPCjs1NfG+qOFZxUqPtbOEJXz0Y=";
       };
     };
   });

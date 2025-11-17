@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_logging";
-  version = "1.4.2-1";
+  version = "1.4.2-2";
   src = finalAttrs.passthru.sources."autoware_utils_logging";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ logging-demo rclcpp ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_logging-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "4063ceed073dddc133da7c47d92809fe0ab0dce5";
+        rev = "1fdc637af7c37f19e4215d5957c2b963b9566cb1";
         hash = "sha256-IQRBFxyWApYxYpaBEipvZopMFAhFn/YJMnO7kfnxxVs=";
       };
     };

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flexbe_testing";
-  version = "3.0.3-1";
+  version = "4.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_testing";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ flexbe-core flexbe-msgs launch-ros rclpy ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flexbe_testing-source";
         url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
-        rev = "f133f26b3bfba21d43e842e30be708a566ed1355";
-        hash = "sha256-Z8v7JR6IuSmak5toK1AzflLXgHOoa40m9WxX883LZ7w=";
+        rev = "b811d580e335c49eedff12ced64f510232e2994c";
+        hash = "sha256-NSVdETwydhY4j/8x4CHqxfPFNibFM1/970UV3hm735k=";
       };
     };
   });

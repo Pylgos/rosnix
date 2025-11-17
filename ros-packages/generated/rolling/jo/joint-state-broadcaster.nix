@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_broadcaster";
-  version = "5.8.0-1";
+  version = "6.0.0-1";
   src = finalAttrs.passthru.sources."joint_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros builtin-interfaces control-msgs controller-interface generate-parameter-library pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs urdf ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "joint_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "3b87d5ad4538fe084b44936d29cb2758b803a553";
-        hash = "sha256-F9xUtTD1tzQkCYI1yHmZazGoXhBvdtxyYgT295prdj4=";
+        rev = "aea3c5aea1cb1694d9f07d51545a26b8a2b5a5a6";
+        hash = "sha256-lWli29oJHOmfD8ec1oyyT2Ube2zc9F6CfsisJ00LH1E=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "flexbe_mirror";
-  version = "3.0.3-1";
+  version = "4.0.3-1";
   src = finalAttrs.passthru.sources."flexbe_mirror";
   propagatedNativeBuildInputs = [ flexbe-core flexbe-msgs rclpy ];
   propagatedBuildInputs = [ flexbe-core flexbe-msgs rclpy ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "flexbe_mirror-source";
         url = "https://github.com/ros2-gbp/flexbe_behavior_engine-release.git";
-        rev = "0aa3c774f94481c78971d6c876c2da1ff9d5f28a";
-        hash = "sha256-SSn47+ekb/7OgTTqqklfqRhzbO2J+7heIZotvzRPa9c=";
+        rev = "433fe8fdeb2ad6115c0494753165efe13a1c0525";
+        hash = "sha256-Pdz73H2OzYdASAsxJbPaMOR3zBYyrwUFjKwLa58/QJU=";
       };
     };
   });

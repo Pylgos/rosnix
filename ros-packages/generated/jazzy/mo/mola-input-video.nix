@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_video";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mola_input_video";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-kernel mrpt-libhwdrivers mrpt-libobs ];
@@ -23,8 +23,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_video-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "1beb1d74b111d9a082d74b7211b3338f7d0eba47";
-        hash = "sha256-kDLlA/V0wJZWn2ETPx8VTUtDQX/CcC4x1XlH3k0fcqk=";
+        rev = "5dc309fa5c7df5a53bb5522a97b02f056adf68ab";
+        hash = "sha256-VYs18G04lGJRcxrsDE8dWr69nSru4mJ0iKbdpguazYw=";
       };
     };
   });

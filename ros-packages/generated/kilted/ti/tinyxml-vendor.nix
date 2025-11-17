@@ -24,6 +24,20 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "7abd865b56050e9241b48d47f5e69c6996715e14";
         hash = "sha256-dUN/DADvU7TSwxQ/YcI/RcFlAYZ5JLYHb+TNOCpoO7k=";
       };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "URL https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz";
+          to = "URL ${sources."tinyxml_vendor/tinyxml_2_6_2"}";
+        }
+      ];
+    };
+    "tinyxml_vendor/tinyxml_2_6_2" = substituteSource {
+      src = fetchzip {
+        name = "tinyxml_2_6_2-source";
+        url = "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz";
+        hash = "sha256-nYksyFj8nzE1IS8vKoqxI0zVpqgfieWHMU7Ke6C5oY0=";
+      };
     };
   });
   meta = {

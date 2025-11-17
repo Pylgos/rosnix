@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "position_controllers";
-  version = "5.8.0-1";
+  version = "6.0.0-1";
   src = finalAttrs.passthru.sources."position_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ros2-control-cmake ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "position_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "a66a3d670ce718fd4a10aed39dedad2de44e7e54";
-        hash = "sha256-oS7yBaDwJEovZ40amINeqPVdBnuG1vZABNsDRDirn2I=";
+        rev = "3e63db8a11c6fedfb92b7db4713d8fcda68849fe";
+        hash = "sha256-BV3B6DpsN+ugTEmhBkNncLYjbYS0Hwf+r5YND7oqZ/g=";
       };
     };
   });

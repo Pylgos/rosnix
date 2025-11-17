@@ -26,7 +26,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees_ros_tutorials";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."py_trees_ros_tutorials";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs launch launch-ros py-trees py-trees-ros py-trees-ros-interfaces rcl-interfaces rclpy ros2launch ros2param ros2run ros2service ros2topic sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pyqt5-dev-tools" "python3-qt5-bindings" "python3-setuptools" "qttools5-dev-tools" ]; };
@@ -37,8 +37,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "py_trees_ros_tutorials-source";
         url = "https://github.com/ros2-gbp/py_trees_ros_tutorials-release.git";
-        rev = "173f15e2519b8242beadeabd7224c2d81b936b49";
-        hash = "sha256-b2dIJKaTdDu5HDsxLUYMHu3fnfNwfzg9oqwDK8aI7B8=";
+        rev = "b535aea986b289e080d8df543ade350a727a55cd";
+        hash = "sha256-wGam+G8DcGnevKcG1PL9UPploUIvAAky3Tg5umAfT4M=";
       };
     };
   });

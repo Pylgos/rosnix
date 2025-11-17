@@ -45,7 +45,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_robot_driver";
-  version = "3.5.0-1";
+  version = "3.6.0-1";
   src = finalAttrs.passthru.sources."ur_robot_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ backward-ros controller-manager controller-manager-msgs effort-controllers force-torque-sensor-broadcaster geometry-msgs hardware-interface joint-state-broadcaster joint-state-publisher joint-trajectory-controller launch launch-ros pluginlib pose-broadcaster position-controllers rclcpp rclcpp-lifecycle rclpy robot-state-publisher ros2-controllers-test-nodes rviz2 std-msgs std-srvs tf2-geometry-msgs ur-client-library ur-controllers ur-dashboard-msgs ur-description ur-msgs urdf velocity-controllers xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "socat" ]; };
@@ -57,12 +57,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_robot_driver-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "c41ec188b08c38ac8ca98a03d197bec30168711d";
-        hash = "sha256-l2U1g6qvgZxFi0FHMNL5hvBRIOm5u0nRyaFl1yeR834=";
+        rev = "d00f87014ff97ed89bbafb5929608c09da71799a";
+        hash = "sha256-WQbO0Z1O3rg5m7340NieF6cbGOxyjuscPcE7ZhGBF24=";
       };
     };
   });
   meta = {
-    description = "The new driver for Universal Robots UR3, UR5 and UR10 robots with CB3 controllers and the e-series.";
+    description = "\n    The ROS 2 driver for Universal Robots manipulators. This driver supports all robot\n    models as listed in the documentation. For robot controllers, PolyScope X, PolyScope 5 and\n    CB3 controllers are supported.\n  ";
   };
 })

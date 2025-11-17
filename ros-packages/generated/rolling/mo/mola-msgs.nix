@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_msgs";
-  version = "2.2.0-1";
+  version = "2.2.1-1";
   src = finalAttrs.passthru.sources."mola_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ action-msgs mrpt-msgs nav-msgs rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_msgs-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "9fdb82ae6f7008ace15210956bc687ad9601e869";
-        hash = "sha256-LD4hGo8xU8WUkd87+uGD5haWZFyHLNnFLDGB19P3p9U=";
+        rev = "58c7fe1fe990e756e5beb2aff9b2a9b37a933fa9";
+        hash = "sha256-Id1k7lkHN7VD1LkLN+fGZcbrMqe8pqSu4+IzCo9WOWk=";
       };
     };
   });

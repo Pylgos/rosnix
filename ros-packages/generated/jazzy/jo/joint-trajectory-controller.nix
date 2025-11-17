@@ -17,6 +17,7 @@
   mkSourceSet,
   pluginlib,
   rclcpp,
+  rclcpp-action,
   rclcpp-lifecycle,
   realtime-tools,
   ros2-control-cmake,
@@ -30,20 +31,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_trajectory_controller";
-  version = "4.33.1-1";
+  version = "4.34.0-1";
   src = finalAttrs.passthru.sources."joint_trajectory_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake rsl tl-expected trajectory-msgs urdf ];
+  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action rclcpp-lifecycle realtime-tools ros2-control-cmake rsl tl-expected trajectory-msgs urdf ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake rsl tl-expected trajectory-msgs urdf ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-action rclcpp-lifecycle realtime-tools ros2-control-cmake rsl tl-expected trajectory-msgs urdf ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "joint_trajectory_controller" = substituteSource {
       src = fetchgit {
         name = "joint_trajectory_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "2d8d7e3b2c3ea8c7b85cab4486df34b20e4fc54f";
-        hash = "sha256-HOznu3iw/WzfiWae1TLCUGK5ujX9yDNOY1eBH2glF5k=";
+        rev = "7be620c05881b4ea0f5068d415d24a1428d06d9a";
+        hash = "sha256-2iCjIBVovDW2/hHiWAiMnqRXWCrBtubC0ueONtO06RU=";
       };
     };
   });

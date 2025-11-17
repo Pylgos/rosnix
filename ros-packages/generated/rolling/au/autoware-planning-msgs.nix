@@ -2,6 +2,7 @@
   ament-cmake-auto,
   ament-lint-auto,
   ament-lint-common,
+  autoware-common-msgs,
   buildAmentCmakePackage,
   builtin-interfaces,
   fetchgit,
@@ -19,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_planning_msgs";
-  version = "1.8.0-1";
+  version = "1.11.0-1";
   src = finalAttrs.passthru.sources."autoware_planning_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
-  propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs nav-msgs rosidl-default-generators rosidl-default-runtime std-msgs unique-identifier-msgs ];
+  propagatedNativeBuildInputs = [ autoware-common-msgs builtin-interfaces geometry-msgs nav-msgs rosidl-default-generators rosidl-default-runtime std-msgs unique-identifier-msgs ];
   buildInputs = [ ament-cmake-auto ];
-  propagatedBuildInputs = [ builtin-interfaces geometry-msgs nav-msgs rosidl-default-generators rosidl-default-runtime std-msgs unique-identifier-msgs ];
+  propagatedBuildInputs = [ autoware-common-msgs builtin-interfaces geometry-msgs nav-msgs rosidl-default-generators rosidl-default-runtime std-msgs unique-identifier-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "autoware_planning_msgs" = substituteSource {
       src = fetchgit {
         name = "autoware_planning_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_msgs-release.git";
-        rev = "d95636c45ce15cdd518850fea897a70883933adb";
-        hash = "sha256-ZItayLG+dP5IbLt6Cje9t+qvG+D7P+aQTWhTu/nxMSE=";
+        rev = "3d049284b0d71fa0c52679dc567a615a450ef088";
+        hash = "sha256-JcBlmMN3jvyCynVt7Gk6qUmZIEVNddGZJEoQ79u/pSk=";
       };
     };
   });

@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sbg_driver";
-  version = "3.3.0-1";
+  version = "3.3.2-1";
   src = finalAttrs.passthru.sources."sbg_driver";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs nmea-msgs rclcpp rosidl-default-runtime rtcm-msgs sensor-msgs std-msgs std-srvs tf2-geometry-msgs tf2-msgs tf2-ros urdf xacro ];
@@ -36,33 +36,18 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sbg_driver-source";
         url = "https://github.com/SBG-Systems/sbg_ros2-release.git";
-        rev = "7218503bd370133b292a724bc3e8af5367acd63b";
-        hash = "sha256-0+xg1x/hze3yQ906OT0uV3JbaTaevv4YLHh0Z0w1hQ0=";
+        rev = "596d5ddd14b476e2a938de058b9f66edf712afc5";
+        hash = "sha256-+ZYmlc8kNFaPrS096dWDW++uMWe09K8rMpLNP6Nxp1E=";
       };
       substitutions = [
         {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/SBG-Systems/sbgECom.git";
-          to = "URL ${sources."sbg_driver/sbgECom"}";
-        }
-      ];
-    };
-    "sbg_driver/sbgECom" = substituteSource {
-      src = fetchgit {
-        name = "sbgECom-source";
-        url = "https://github.com/SBG-Systems/sbgECom.git";
-        rev = "05c19cdd7c021a8474b2bffc8ca4ec274f6a9155";
-        hash = "sha256-5tWG33XX5S+8mRXF5whsS0qvJ2sCizPzzQ03J/FUp4w=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
+          path = "external/sbgECom/CMakeLists.txt";
           from = "GIT_REPOSITORY https://github.com/argtable/argtable3.git";
-          to = "URL ${sources."sbg_driver/sbgECom/argtable3"}";
+          to = "URL ${sources."sbg_driver/argtable3"}";
         }
       ];
     };
-    "sbg_driver/sbgECom/argtable3" = substituteSource {
+    "sbg_driver/argtable3" = substituteSource {
       src = fetchgit {
         name = "argtable3-source";
         url = "https://github.com/argtable/argtable3.git";

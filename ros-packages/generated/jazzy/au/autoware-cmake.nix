@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_cmake";
-  version = "1.0.2-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."autoware_cmake";
   propagatedNativeBuildInputs = [ ament-cmake-auto ament-lint-auto ros-environment ];
   propagatedBuildInputs = [ ament-cmake-auto ament-lint-auto ros-environment ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_cmake-source";
         url = "https://github.com/ros2-gbp/autoware_cmake-release.git";
-        rev = "5722c2a4c8e2e87e8b4d6746dc10a2f71c947300";
-        hash = "sha256-7HG0M4rqf9+xRDFjewtbi9Bsc2WNqOeHzt/KMY0t0BI=";
+        rev = "2173d91c8a5377c624263615e8f94bfcc127b04b";
+        hash = "sha256-0wjbILDBcmV4Ir2Dd8nIS7/VFD8ubTUoF314Fm68jOY=";
       };
     };
   });

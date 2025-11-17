@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "py_trees_ros";
-  version = "2.3.0-1";
+  version = "2.4.0-1";
   src = finalAttrs.passthru.sources."py_trees_ros";
   propagatedNativeBuildInputs = [ geometry-msgs py-trees py-trees-ros-interfaces rcl-interfaces rclpy ros2topic sensor-msgs std-msgs std-srvs tf2-ros-py unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedBuildInputs = [ geometry-msgs py-trees py-trees-ros-interfaces rcl-interfaces rclpy ros2topic sensor-msgs std-msgs std-srvs tf2-ros-py unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-setuptools" ]; };
@@ -30,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "py_trees_ros-source";
         url = "https://github.com/ros2-gbp/py_trees_ros-release.git";
-        rev = "5034b54474242f1452f6e6e1dfca284575c3b872";
-        hash = "sha256-EwcOTCBdHOJfbna/19EWdvJiHnpWwmZZj1j/Rhc3H9g=";
+        rev = "b44b7217fbd2ffe4b2e23f7ffbc308d931d4f118";
+        hash = "sha256-TtcnSCoWUMgrJ6vyIqWBconflBiaxn9l1TBNQ9+XWGk=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_2d_overlay_msgs";
-  version = "1.3.1-1";
+  version = "1.4.0-1";
   src = finalAttrs.passthru.sources."rviz_2d_overlay_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_2d_overlay_msgs-source";
         url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release.git";
-        rev = "de60a45ff037306baf422c93fff677a4077aaf13";
-        hash = "sha256-N9dpICG3GJg9OVB3hNe32qyOAsjRXd/z0aALFdEtBIQ=";
+        rev = "dacf1fc9d5702ca58ff4eebd0c5c78ea0c1a2ef2";
+        hash = "sha256-f0NpaFJktV5hCV4C+U5O3eNIV/GWJfA72gyZFfFf1LQ=";
       };
     };
   });
