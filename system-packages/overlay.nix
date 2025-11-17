@@ -399,6 +399,7 @@ in
     libmpg123-dev = [ final.mpg123 ];
     libmpich-dev = [ final.mpich ];
     libmpich2-dev = [ final.mpich ];
+    libnanoflann-dev = [ final.nanoflann ];
     libncurses-dev = [ final.ncurses ];
     libnl-3 = [ final.libnl ];
     libnl-3-dev = [ final.libnl ];
@@ -567,6 +568,7 @@ in
     mplayer = [ final.mplayer ];
     msgpack = [ final.msgpack ];
     muparser = [ final.muparser ];
+    nanoflann = [ final.nanoflann ];
     nasm = [ final.nasm ];
     net-tools = [ final.nettools ];
     netcdf = [ final.netcdf ];
