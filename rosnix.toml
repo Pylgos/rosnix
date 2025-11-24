@@ -1,6 +1,6 @@
 distributions = ["jazzy", "kilted", "rolling"]
 out_dir = "ros-packages/generated"
-max_concurrent_downloads = 16
+max_concurrent_downloads = 1
 
 [env.humble]
 PAL_DISTRO = ""
