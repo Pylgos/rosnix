@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "demo_nodes_cpp_native";
-  version = "0.37.3-1";
+  version = "0.37.4-1";
   src = finalAttrs.passthru.sources."demo_nodes_cpp_native";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rmw-fastrtps-cpp std-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "demo_nodes_cpp_native-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "faae7bf18cee0ae15f0fca94572cca202ea2f774";
-        hash = "sha256-4jeixv0PU9YSQ8fih2yLNTypfy6Kelzwk2TFKfhgnhw=";
+        rev = "c6e53992aac028ea86e12df483beef8661c896fe";
+        hash = "sha256-Q4WxiqC7ZaycDNN2SYbuqcXcyfsLVEsMQYAPFIHK0+U=";
       };
     };
   });

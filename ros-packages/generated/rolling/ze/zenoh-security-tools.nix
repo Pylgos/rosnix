@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zenoh_security_tools";
-  version = "0.10.1-1";
+  version = "0.10.2-1";
   src = finalAttrs.passthru.sources."zenoh_security_tools";
   propagatedNativeBuildInputs = [ rcpputils rcutils rmw rmw-security-common zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "tinyxml2" ]; };
   propagatedBuildInputs = [ rcpputils rcutils rmw rmw-security-common zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "tinyxml2" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zenoh_security_tools-source";
         url = "https://github.com/ros2-gbp/rmw_zenoh-release.git";
-        rev = "2b91f35133fd8f5f7815df0e57248cc3caa25b4d";
-        hash = "sha256-O7g6Fsa37F2deeaq5f6a7S6gsHk9Cj1z4nXYd1DH0HM=";
+        rev = "04bd8a7da90a4ac73110124eb15b08d03d6d01cd";
+        hash = "sha256-D9ow47u+bJZh1RIV0zYMkkC3V/pfTc2XjasDQau8OIw=";
       };
     };
   });

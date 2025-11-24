@@ -10,19 +10,19 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libmaps";
-  version = "2.15.1-2";
+  version = "2.15.2-1";
   src = finalAttrs.passthru.sources."mrpt_libmaps";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedNativeBuildInputs = [ mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
+  propagatedBuildInputs = [ mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "liboctomap-dev" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mrpt_libmaps" = substituteSource {
       src = fetchgit {
         name = "mrpt_libmaps-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "c6e292e01f3e5087837d9297959d519cae72394d";
-        hash = "sha256-tSbh3p95elmMzCojMFIq2Oi7rbXCHtIXaLjanrsmVNg=";
+        rev = "d2009b3f090759c1592770fffeb17876ae4fc7f4";
+        hash = "sha256-zXkHh0JxCdFfnZpAqGQZRfK3zqOMMub5p3BOKvXjfFQ=";
       };
     };
   });

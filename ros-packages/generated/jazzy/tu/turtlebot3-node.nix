@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_node";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."turtlebot3_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dynamixel-sdk geometry-msgs message-filters nav-msgs rclcpp rcutils sensor-msgs std-msgs std-srvs tf2 tf2-ros turtlebot3-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_node-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "afd28a482c216ccf6ee7fb9220eba6be0e7b6341";
-        hash = "sha256-WFkU027sloF6IIygwTOoZsnQo5QmuHVL11YSjtete1o=";
+        rev = "3c9bf6f6c40384ae9176a98f72e7b2adac776551";
+        hash = "sha256-l6adUe/scm6UCTnnyGaSnCn7nY4wBUv23qUVALEIx9M=";
       };
     };
   });

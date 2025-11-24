@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_dynamic_typesupport_fastrtps";
-  version = "0.4.1-2";
+  version = "0.4.2-1";
   src = finalAttrs.passthru.sources."rosidl_dynamic_typesupport_fastrtps";
   nativeBuildInputs = [ ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ fastcdr fastdds rcpputils rcutils rosidl-dynamic-typesupport ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_dynamic_typesupport_fastrtps-source";
         url = "https://github.com/ros2-gbp/rosidl_dynamic_typesupport_fastrtps-release.git";
-        rev = "4f4fe782b507a84fd591e498f1940ee48e2d45f4";
-        hash = "sha256-HJAk+29JiGXpIgD9uXwnwRmthQnh6u+ksIlqv2zf6zY=";
+        rev = "378d414e43591358004ec1257d03fbaaba2046f1";
+        hash = "sha256-hOmKNRMWaUModIJn1Irz5s3d9+ftWPpcNeH/JkQSfWc=";
       };
     };
   });

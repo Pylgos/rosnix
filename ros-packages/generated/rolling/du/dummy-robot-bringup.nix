@@ -15,24 +15,26 @@
   mkSourceSet,
   robot-state-publisher,
   rosSystemPackages,
+  rviz2,
   substituteSource,
+  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
-  version = "0.37.3-1";
+  version = "0.37.4-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher ];
+  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  propagatedNativeBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher rviz2 ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher ];
+  propagatedBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher rviz2 ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "dummy_robot_bringup" = substituteSource {
       src = fetchgit {
         name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "ab8cb4896110cc39a506ec1241830d460ec5afdd";
-        hash = "sha256-1iuWXX+noeGZvB1o3CclQQt+gSr4I5aoD2YaZqP9YJM=";
+        rev = "ccc1f0e5a49e9a471eca67d1c0094bd2921fbba8";
+        hash = "sha256-aaJrORQu87Ky76DBzUbAoqshCt9RaBLufGV0C6fSvNo=";
       };
     };
   });

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "logging_demo";
-  version = "0.33.7-1";
+  version = "0.33.8-1";
   src = finalAttrs.passthru.sources."logging_demo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rcutils rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "logging_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "7775a986428ca7838df83b96f6de9336ee926b5f";
-        hash = "sha256-9bh6PzhiPS9AsNba18TcCf64q9620d07T00PE7O1SNU=";
+        rev = "e2724d1b7919394891712a8096d43a5fa0c33fbd";
+        hash = "sha256-Z9O0CozDefRJqCwp5Up8lydhDa/0VjYaqVOKDjLdh4A=";
       };
     };
   });

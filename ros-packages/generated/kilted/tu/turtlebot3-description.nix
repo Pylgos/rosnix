@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_description";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."turtlebot3_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ urdf xacro ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_description-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "a22bf6dd226fb8c4fa6ad1c3dbfcafb069f281ef";
-        hash = "sha256-h6+bE8wgj32ELpMyNcfenx7E+/fcwLkiEJkuLmpvYFM=";
+        rev = "fe2c6a08094a2444bff993bd0f671200cd5c1c03";
+        hash = "sha256-52nYdCkNr8ZIf5cUNxZ/owSr9irMDMasE7LnwL/HJG4=";
       };
     };
   });

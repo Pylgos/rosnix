@@ -29,20 +29,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_library";
-  version = "3.0.0-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."rosbridge_library";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-bson" "python3-numpy" "python3-pil" "python3-ujson" ]; };
+  propagatedNativeBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-bson" "python3-cbor2" "python3-numpy" "python3-pil" "python3-ujson" ]; };
   buildInputs = [ ament-cmake-python ament-cmake-ros ];
-  propagatedBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-numpy" "python3-pil" "python3-ujson" ]; };
+  propagatedBuildInputs = [ rcl-interfaces rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-bson" "python3-cbor2" "python3-numpy" "python3-pil" "python3-ujson" ]; };
   checkInputs = [ action-msgs ament-cmake-mypy builtin-interfaces control-msgs diagnostic-msgs example-interfaces geometry-msgs nav-msgs rosbridge-test-msgs sensor-msgs std-msgs std-srvs stereo-msgs tf2-msgs trajectory-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosbridge_library" = substituteSource {
       src = fetchgit {
         name = "rosbridge_library-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "94a0f55f0734650a3cc9ff70e0e89bc9012689e1";
-        hash = "sha256-ko4/Lvnae1GL4trSR2YKcG9wCt4f14Bs+Arls6m//70=";
+        rev = "4a8e11361cb973d5826508d8e39a83fc5bdfcf39";
+        hash = "sha256-umceM5XkMkCv3U9Busx148N8XcdeQ381PhWJj9C5+XM=";
       };
     };
   });

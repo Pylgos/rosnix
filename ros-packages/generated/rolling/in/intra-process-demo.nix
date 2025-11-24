@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "intra_process_demo";
-  version = "0.37.3-1";
+  version = "0.37.4-1";
   src = finalAttrs.passthru.sources."intra_process_demo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "intra_process_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "2516a6ffad9b245787c0c40479542059bacca27e";
-        hash = "sha256-wdY4ML0nLTuy9c75VC/Xm0ZOlTTM5+sFrEEhjWl31sM=";
+        rev = "1d7e7b7eebbb2d94329b8ba31e918a31ea1a51ad";
+        hash = "sha256-29RqhT10yYgE3YbIjagHrZnlTVt/B9i8FtYHfxR4ams=";
       };
     };
   });

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_generator_cpp";
-  version = "5.1.0-1";
+  version = "5.1.1-1";
   src = finalAttrs.passthru.sources."rosidl_generator_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-core ament-index-python rosidl-cli rosidl-cmake rosidl-generator-c rosidl-generator-type-description rosidl-parser rosidl-pycommon rosidl-runtime-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_generator_cpp-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "f473b35c206a936c5b5aec5e986c45ba14493309";
-        hash = "sha256-5Q7Ij0XXdowd68cWr/dzUYup84cy3qM+tKmGtN5OWvs=";
+        rev = "2fa96bed9156b9787119d46e43cc6647631865dc";
+        hash = "sha256-ZAOTwvUCqCV+Adg/hfeVl4QDWPqu0SZGS5tk/Ujk9Dg=";
       };
     };
   });

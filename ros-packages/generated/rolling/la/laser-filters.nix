@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "laser_filters";
-  version = "2.2.1-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."laser_filters";
   propagatedNativeBuildInputs = [ ament-cmake-auto angles diagnostic-msgs diagnostic-updater filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
   propagatedBuildInputs = [ ament-cmake-auto angles diagnostic-msgs diagnostic-updater filters laser-geometry message-filters pluginlib rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-kdl tf2-ros ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "laser_filters-source";
         url = "https://github.com/ros2-gbp/laser_filters-release.git";
-        rev = "a77a83f828788e7506b18d1323ad3da1d348b3f8";
-        hash = "sha256-VlTss9CZwzrdfHnFbozMlog4nQSkiM6fAgbXdvLxpDM=";
+        rev = "4724ede419fd7e535caf7980ffd7bf509df6653d";
+        hash = "sha256-ojFlqbiilb55awNHiS1X5KhtsMrCJKwt0MF+FRBxkBw=";
       };
     };
   });

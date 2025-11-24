@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_logging_interface";
-  version = "3.2.3-4";
+  version = "3.2.4-1";
   src = finalAttrs.passthru.sources."rcl_logging_interface";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rcutils ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcl_logging_interface-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
-        rev = "e260f53db29dd93aef1067fc4e7bb2651612a533";
-        hash = "sha256-F64fwWhWMJ2g46WNaWZClriCCNBmfBbu5l9V9izMdq8=";
+        rev = "9cf6550755244e1732387b928a50b48656517f2c";
+        hash = "sha256-l8XF5Lqtiqk1xk6ZfSyaaf/j1zoas89Uxb8qocUIM4w=";
       };
     };
   });

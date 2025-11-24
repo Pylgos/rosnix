@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_connextdds_common";
-  version = "1.2.3-1";
+  version = "1.2.4-1";
   src = finalAttrs.passthru.sources."rmw_connextdds_common";
   propagatedNativeBuildInputs = [ ament-cmake fastcdr rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
   propagatedBuildInputs = [ ament-cmake fastcdr rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_connextdds_common-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "e298544d83666e376a5bd38e56517c2dd1287a3d";
-        hash = "sha256-r9eRp2X934YXmxIjChy9PXebWbwzUYdryiIHHzDq2Qg=";
+        rev = "3610b3d01db71c7bc95db537a1c81bd567389761";
+        hash = "sha256-9EekBoU66ClSrDX50RPia1yrUM6VrflyGqEK9OYlkqE=";
       };
     };
   });

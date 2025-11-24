@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_navigation2";
-  version = "2.3.3-1";
+  version = "2.3.4-1";
   src = finalAttrs.passthru.sources."turtlebot3_navigation2";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ nav2-bringup ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_navigation2-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "bdf48f13be78c795d5fa6768df2b71986f2e972e";
-        hash = "sha256-MRwRWZ4cBvU17KYmGnmZV3FBAwDNcM71K7eecGwmoaE=";
+        rev = "eab1fc25c620e8dbb61e3541174c95eef7c165da";
+        hash = "sha256-bl7ZTUoKNeRdI1S5ZRa65CVBtbI5RPpr6VhZPsmnBXI=";
       };
     };
   });

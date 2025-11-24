@@ -49,8 +49,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-physics-source";
         url = "https://github.com/gazebosim/gz-physics.git";
-        rev = "75312b71317233bfc9069ecfe3cbbfe6ea834908";
-        hash = "sha256-+ifVYiH8jIoFmYqkf/6HUBVjIXoD5paObr4dXrvKjlc=";
+        rev = "d362e9627a35cac538895e2a50c47ac25808ce2e";
+        hash = "sha256-q+R+SgaN27G+nXXBCEADXDzYXOHNsnKULJCwvRiSZPg=";
       };
     };
   });

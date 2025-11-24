@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "orbbec_description";
-  version = "2.5.4-2";
+  version = "2.5.5-3";
   src = finalAttrs.passthru.sources."orbbec_description";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "orbbec_description-source";
         url = "https://github.com/orbbec/orbbec_camera_v2-release.git";
-        rev = "269549451a0c298be85a0bc34879e0dda8573a91";
-        hash = "sha256-LonYhqNNe+sILVhlSGKXRaxFMFdGf4s7qzwuDRUi08w=";
+        rev = "8831cdbe7c9318ff43b80f4ea49d3241de851f95";
+        hash = "sha256-+4jumS8Xxm+d2uaDwpEDZMHoybCYQloJmYMixIy9xXU=";
       };
     };
   });
