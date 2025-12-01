@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_pep257";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."ament_cmake_pep257";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-pep257 ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_pep257-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "1ebe8ac85e0bfca6b146b405503b6fa092a36d1b";
-        hash = "sha256-nRcwxS0lt/MyXRDLhFgWm0UhaDyymtQafbL4Hrl54Nk=";
+        rev = "e8e3fdd0081b7f01c4412a935ed2c27f3464b958";
+        hash = "sha256-EhXLhzmdZEYORBLcK0WcP7PoXD6p3a3Zp7Ll3rVV9BM=";
       };
     };
   });

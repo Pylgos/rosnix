@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_cpplint";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."ament_cpplint";
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cpplint-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "8809c5742cfe0469ec7535d94a1eb8e61826181a";
-        hash = "sha256-YzWs+TvQTesYudbwwja2GM3i6rKtqBHNWJmgvI1IFpo=";
+        rev = "f84363821d63e38e46e04535a01948433a3d40e7";
+        hash = "sha256-Q6Ay5woQK7KUhjUOoSq2uY9vVM5KJJuK7X8njaioKns=";
       };
     };
   });

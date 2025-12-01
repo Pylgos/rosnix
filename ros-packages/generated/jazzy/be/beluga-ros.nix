@@ -1,8 +1,7 @@
 {
   ament-cmake,
-  ament-cmake-gmock,
-  ament-cmake-gtest,
   ament-cmake-python,
+  ament-cmake-ros,
   beluga,
   buildAmentCmakePackage,
   fetchgit,
@@ -23,20 +22,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "beluga_ros";
-  version = "2.0.2-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."beluga_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-h5py" "python3-matplotlib" "python3-numpy" "python3-scipy" ]; };
+  propagatedNativeBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ];
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-h5py" "python3-matplotlib" "python3-numpy" "python3-scipy" ]; };
-  checkInputs = [ ament-cmake-gmock ament-cmake-gtest ];
+  propagatedBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ];
+  checkInputs = [ ament-cmake-ros ];
   passthru.sources = mkSourceSet (sources: {
     "beluga_ros" = substituteSource {
       src = fetchgit {
         name = "beluga_ros-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
-        rev = "2ce8e69bfddd01c5c394c9b23c499a4a6f18ce55";
-        hash = "sha256-4RnTLzRcla3M7v/bkXIxVunsAemyZVO4lcW3K5gSeUA=";
+        rev = "6b212c0abcfc313cc1b5c450d89d65fe0efd7ae8";
+        hash = "sha256-fOQuOXnwJTBmmZB2p8526K/hhzgNNMQM4rFD14/YslU=";
       };
     };
   });

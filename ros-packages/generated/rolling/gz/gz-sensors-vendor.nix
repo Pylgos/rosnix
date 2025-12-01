@@ -50,8 +50,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-sensors-source";
         url = "https://github.com/gazebosim/gz-sensors.git";
-        rev = "fa1909f65d8acff57927c10f89a97a850cffec7d";
-        hash = "sha256-zjFuMbs1Dfr/CKhZEKlCr8wgmF/Mq2xOYArCKtLAqL4=";
+        rev = "45ab66593f610f497ab1612b3f640ace8e7973f4";
+        hash = "sha256-zOkjBGBa+5MqzMSXvc3nN1Zt622VPXH8nyP58+lgnAE=";
       };
     };
   });

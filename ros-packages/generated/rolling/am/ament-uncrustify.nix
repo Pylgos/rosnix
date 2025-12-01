@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_uncrustify";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."ament_uncrustify";
   propagatedNativeBuildInputs = [ uncrustify-vendor ];
   propagatedBuildInputs = [ uncrustify-vendor ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_uncrustify-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "791b06b7e6d2475a38e44210768e3bcee2bafbbe";
-        hash = "sha256-b0U1ujxRP46waOHxP7pAHZ1mS/YGLrrHMwwR8heVIQU=";
+        rev = "dfc47c33e833c2a1aeb5ebb83656a5cc127f66be";
+        hash = "sha256-19KUbitAZ0sGhD1j/XrRiNYlbcZXVB/yOaWv45LcBJQ=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "navmap_core";
-  version = "0.2.5-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."navmap_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "navmap_core-source";
         url = "https://github.com/EasyNavigation/NavMap-release.git";
-        rev = "d424aef7ee590a5aeb97b4c1c24f169c1c84bf5e";
-        hash = "sha256-r1CilmLjSS8ys78mANYmAjTb0UAmsvBPloUouC+erEY=";
+        rev = "e339fd9622816e932ce09f358091162bc3d66bbc";
+        hash = "sha256-9WvhyLGaR4FtREAx966KECjDN78S0aFtPu7EMSZKQbU=";
       };
     };
   });

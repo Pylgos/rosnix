@@ -6,6 +6,7 @@
   fetchzip,
   geometry-msgs,
   mkSourceSet,
+  nav-msgs,
   navmap-core,
   navmap-ros-interfaces,
   pcl-conversions,
@@ -18,19 +19,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "navmap_ros";
-  version = "0.2.3-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."navmap_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs navmap-core navmap-ros-interfaces pcl-conversions pcl-ros rclcpp sensor-msgs std-srvs ];
+  propagatedNativeBuildInputs = [ geometry-msgs nav-msgs navmap-core navmap-ros-interfaces pcl-conversions pcl-ros rclcpp sensor-msgs std-srvs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs navmap-core navmap-ros-interfaces pcl-conversions pcl-ros rclcpp sensor-msgs std-srvs ];
+  propagatedBuildInputs = [ geometry-msgs nav-msgs navmap-core navmap-ros-interfaces pcl-conversions pcl-ros rclcpp sensor-msgs std-srvs ];
   passthru.sources = mkSourceSet (sources: {
     "navmap_ros" = substituteSource {
       src = fetchgit {
         name = "navmap_ros-source";
         url = "https://github.com/EasyNavigation/NavMap-release.git";
-        rev = "1f76df119b5f2b4325d4c1964f26ab3fae77c031";
-        hash = "sha256-4nIUslMVRXyAgSZdR3ljWuXUcT7jkx/KKw/As7GPxXU=";
+        rev = "a11e625d3a9ba6e98a36f8db49265896ae9c6142";
+        hash = "sha256-ie1CzmnsVVCmZXVM0CvPchI7ovpM2D5yZAGcAnBEzME=";
       };
     };
   });

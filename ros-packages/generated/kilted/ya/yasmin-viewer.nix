@@ -19,20 +19,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin_viewer";
-  version = "3.5.1-1";
+  version = "4.0.1-1";
   src = finalAttrs.passthru.sources."yasmin_viewer";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ rclcpp rclpy yasmin yasmin-msgs yasmin-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-expiringdict" "python3-flask" "python3-waitress" ]; };
+  propagatedNativeBuildInputs = [ rclcpp rclpy yasmin yasmin-msgs yasmin-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-expiringdict" "python3-flask" "python3-flask-socketio" "python3-waitress" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ rclcpp rclpy yasmin yasmin-msgs yasmin-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-expiringdict" "python3-flask" "python3-waitress" ]; };
+  propagatedBuildInputs = [ rclcpp rclpy yasmin yasmin-msgs yasmin-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-expiringdict" "python3-flask" "python3-flask-socketio" "python3-waitress" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "yasmin_viewer" = substituteSource {
       src = fetchgit {
         name = "yasmin_viewer-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "13a63fcd981c1d6d416e41728b8eb302f72536f8";
-        hash = "sha256-90k+HoITRslPr5ZlNDr4tBYBjdLL6Z1cac/KtLq38ts=";
+        rev = "fd934835afb9cd8da878d77d252d6ed485390fb5";
+        hash = "sha256-T+IIUfK99NFIOuy3HqF10AVXnJSydtTTGY21vf41QFk=";
       };
     };
   });

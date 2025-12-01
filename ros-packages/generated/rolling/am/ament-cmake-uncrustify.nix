@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_uncrustify";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."ament_cmake_uncrustify";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-uncrustify ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_uncrustify-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "f1f5c1a12575e54bc178d87f4e2b29717facf9f8";
-        hash = "sha256-bZmbQrm2DdDfXvZTZgPjD8ZniSU6yuUO4RK9g5zmDQc=";
+        rev = "4792e9c41c49d3d3072a41d222b2495ac93a5eef";
+        hash = "sha256-+mB10AjM8N0fWfzQPG6myen1sz/bMHLWSk6nr52nGnA=";
       };
     };
   });

@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_ros";
-  version = "1.3.0-1";
+  version = "1.4.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_ros";
   propagatedNativeBuildInputs = [ py-trees py-trees-ros py-trees-ros-interfaces rcl-interfaces rclpy scenario-execution visualization-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-transforms3d" ]; };
   propagatedBuildInputs = [ py-trees py-trees-ros py-trees-ros-interfaces rcl-interfaces rclpy scenario-execution visualization-msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-transforms3d" ]; };
@@ -30,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_ros-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "66a51a949d9ccef022bffc1c07fb5664ebe73852";
-        hash = "sha256-FoaMf9kidaqhDigAufYokZeP0VASTUGgGfbBCBcwFmw=";
+        rev = "e595835f9f3acbcfe019b69cabb1a62485486c95";
+        hash = "sha256-qCPeUtGS/PdkvrI2/KvKl4XdXVEH8zloJmFsaaGre6M=";
       };
     };
   });

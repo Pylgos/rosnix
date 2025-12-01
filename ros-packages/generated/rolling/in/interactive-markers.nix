@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "interactive_markers";
-  version = "2.8.1-1";
+  version = "2.8.2-1";
   src = finalAttrs.passthru.sources."interactive_markers";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclpy rcutils rmw std-msgs tf2 tf2-geometry-msgs visualization-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "interactive_markers-source";
         url = "https://github.com/ros2-gbp/interactive_markers-release.git";
-        rev = "990b9b84abf9087b0042e747f90cd220d35b703e";
-        hash = "sha256-ASY0Fa/AtdDzk8HkprxJVad1Si3chsBN153Yqa5X2OE=";
+        rev = "446a8789a3fc920d2980cbe6476a08b98ab8f5cd";
+        hash = "sha256-oHxDfse11GRwjqsSpIecTH+Ht/wBIBBBngVpgPg+A0M=";
       };
     };
   });

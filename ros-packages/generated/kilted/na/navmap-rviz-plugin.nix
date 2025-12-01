@@ -6,6 +6,8 @@
   fetchzip,
   geometry-msgs,
   mkSourceSet,
+  navmap-core,
+  navmap-ros,
   navmap-ros-interfaces,
   pluginlib,
   rclcpp,
@@ -21,19 +23,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "navmap_rviz_plugin";
-  version = "0.2.3-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."navmap_rviz_plugin";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ geometry-msgs navmap-ros-interfaces pluginlib rclcpp rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs visualization-msgs ];
+  propagatedNativeBuildInputs = [ geometry-msgs navmap-core navmap-ros navmap-ros-interfaces pluginlib rclcpp rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs navmap-ros-interfaces pluginlib rclcpp rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs visualization-msgs ];
+  propagatedBuildInputs = [ geometry-msgs navmap-core navmap-ros navmap-ros-interfaces pluginlib rclcpp rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs visualization-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "navmap_rviz_plugin" = substituteSource {
       src = fetchgit {
         name = "navmap_rviz_plugin-source";
         url = "https://github.com/EasyNavigation/NavMap-release.git";
-        rev = "72833843e8611502fe67f0eafd2cbdf204a65add";
-        hash = "sha256-gzsXJF4jREmq1g8bkTwYJiT9OkHL+bBwUZYwPOCVYWM=";
+        rev = "d8fd4b2bae8cb502e8d8ab6aef8a29e19c257d26";
+        hash = "sha256-pMg3e9cLalyOH6QfS8/CAU9/AiOkiuOQY6P7Kzwgr9Q=";
       };
     };
   });

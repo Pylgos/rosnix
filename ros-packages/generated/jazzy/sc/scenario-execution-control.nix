@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "scenario_execution_control";
-  version = "1.3.0-1";
+  version = "1.4.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_control";
   propagatedNativeBuildInputs = [ rclpy scenario-execution scenario-execution-interfaces std-srvs ];
   propagatedBuildInputs = [ rclpy scenario-execution scenario-execution-interfaces std-srvs ];
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_control-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "6b09ad6dce8e5f92f58f90208920caeb61722a54";
-        hash = "sha256-UJrwrtXeA7RQC011XZlW4XXCVzzUt7osKNGbspPERdc=";
+        rev = "571675def651a331a41262a94a7ca26e81d3273b";
+        hash = "sha256-s1teRDKURcw9ZhTr++hatDMRKdcRE/F23jeEUhB4vY0=";
       };
     };
   });

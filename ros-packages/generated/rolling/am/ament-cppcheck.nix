@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_cppcheck";
-  version = "0.20.2-1";
+  version = "0.20.3-1";
   src = finalAttrs.passthru.sources."ament_cppcheck";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cppcheck" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cppcheck" ]; };
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cppcheck-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "8dd5f306abcf3338037e61c8e8101e04acd34bbb";
-        hash = "sha256-BGEnkDiUEzebHDaXxo5IbR3wGB//5TMkXHd83g3sD9E=";
+        rev = "a8a9acfae65803c3eb7a5089cc65f6e8895d658d";
+        hash = "sha256-mhy9WhFlW5SLFBpEcnTgHgy1z888fLVI7+I3UlwGjh4=";
       };
     };
   });

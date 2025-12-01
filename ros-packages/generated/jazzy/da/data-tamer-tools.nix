@@ -1,52 +1,44 @@
 {
   ament-cmake,
+  ament-cmake-clang-format,
+  ament-cmake-cppcheck,
+  ament-cmake-gtest,
+  ament-cmake-lint-cmake,
   ament-index-cpp,
-  ament-lint-auto,
-  ament-lint-common,
+  ament-lint,
+  backward-ros,
   buildAmentCmakePackage,
   data-tamer-cpp,
   data-tamer-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
+  foxglove-sdk-vendor,
   mcap-vendor,
   mkSourceSet,
   rcl-interfaces,
   rclcpp,
   rclcpp-components,
   rosSystemPackages,
+  rosidl-default-generators,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_tools";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."data_tamer_tools";
-  nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ data-tamer-cpp data-tamer-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
-  buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ data-tamer-cpp data-tamer-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
-  checkInputs = [ ament-index-cpp ament-lint-auto ament-lint-common ];
+  nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedNativeBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor mcap-vendor rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
+  buildInputs = [ ament-cmake rosidl-default-generators ];
+  propagatedBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor mcap-vendor rcl-interfaces rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
+  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-cmake-lint-cmake ament-index-cpp ament-lint ];
   passthru.sources = mkSourceSet (sources: {
     "data_tamer_tools" = substituteSource {
       src = fetchgit {
         name = "data_tamer_tools-source";
         url = "https://github.com/jlack1987/data_tamer_tools-release.git";
-        rev = "82ade880b749803fd927beed53ffbf366268d6ff";
-        hash = "sha256-EvCerq3yfkgu0JByBdz1txnojCppMKDJbdZDUXS8jHY=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL https://github.com/foxglove/foxglove-sdk/releases/download/sdk%2Fv0.14.2/foxglove-v0.14.2-cpp-x86_64-unknown-linux-gnu.zip";
-          to = "URL ${sources."data_tamer_tools/foxglove-v0"}";
-        }
-      ];
-    };
-    "data_tamer_tools/foxglove-v0" = substituteSource {
-      src = fetchzip {
-        name = "foxglove-v0-source";
-        url = "https://github.com/foxglove/foxglove-sdk/releases/download/sdk%2Fv0.14.2/foxglove-v0.14.2-cpp-x86_64-unknown-linux-gnu.zip";
-        hash = "sha256-XRvnaC7SQ507g1GZTXW+7WqnDLfVIzqXQhxwi4vUzzs=";
+        rev = "d88e2092b4cded66caf76dd621d21727a1fbbc9b";
+        hash = "sha256-TV71bUBKqQDyoNMnVhPOJITfgtYkznMX3SkZR/C1SFo=";
       };
     };
   });

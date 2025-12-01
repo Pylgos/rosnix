@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "navmap_ros_interfaces";
-  version = "0.2.5-1";
+  version = "0.3.0-1";
   src = finalAttrs.passthru.sources."navmap_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators std-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "navmap_ros_interfaces-source";
         url = "https://github.com/EasyNavigation/NavMap-release.git";
-        rev = "2a429e2a46e3bf25e245575e4f4adba669fe5f3d";
-        hash = "sha256-enDxcFCwwtk9tqpgHWyeiKsqH3ZCRW5AhaII8+Lai68=";
+        rev = "746fdc6db18fd813c60710e2cacd0660115740df";
+        hash = "sha256-iLoAU5Y2BfgJQSDt66DR1wE+MNDUdOUQnGRy8fcyDvg=";
       };
     };
   });

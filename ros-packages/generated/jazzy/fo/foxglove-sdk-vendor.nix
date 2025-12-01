@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_sdk_vendor";
-  version = "0.1.0-1";
+  version = "0.2.0-1";
   src = finalAttrs.passthru.sources."foxglove_sdk_vendor";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_sdk_vendor-source";
         url = "https://github.com/jlack1987/foxglove_sdk_vendor-release.git";
-        rev = "4c5ac88278e7d01b60ead85bcd701096c1ea9db4";
-        hash = "sha256-1uFvH/YvKVrrNFUW1NcWm6uk/I3EoGBPyHlacexpIiQ=";
+        rev = "505195001a68cc6fc400555fb70b6860d72d3692";
+        hash = "sha256-oHsjMXTM1L6L/aF7ZI73U7Ek2ViuhjeQWDVkfEKyAoM=";
       };
       substitutions = [
         {

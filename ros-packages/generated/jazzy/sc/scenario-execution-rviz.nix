@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "scenario_execution_rviz";
-  version = "1.3.0-1";
+  version = "1.4.0-1";
   src = finalAttrs.passthru.sources."scenario_execution_rviz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs py-trees-ros-interfaces rclcpp rviz-common scenario-execution-interfaces std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-widgets" "qtbase5-dev" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "scenario_execution_rviz-source";
         url = "https://github.com/ros2-gbp/scenario_execution-release.git";
-        rev = "babaab8af1dd27c2cdc25cce9be192fba7daf9a7";
-        hash = "sha256-tXwFUkMEhPvJU5mMXJqaOAw81QOJ42d76TnaEi5yBlw=";
+        rev = "1ac607726f6387a3496cdf5b6a8dc5543853bd07";
+        hash = "sha256-w8dnKba7iAzXvyNblb1ghiCgttKRGoLgu5VgdALJD3g=";
       };
     };
   });
