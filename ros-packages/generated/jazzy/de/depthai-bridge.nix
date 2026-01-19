@@ -28,19 +28,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_bridge";
-  version = "2.11.2-1";
+  version = "2.12.2-1";
   src = finalAttrs.passthru.sources."depthai_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" "libopencv-dev" ]; };
+  propagatedBuildInputs = [ camera-info-manager composition-interfaces cv-bridge depthai depthai-ros-msgs ffmpeg-image-transport-msgs image-transport rclcpp robot-state-publisher ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros vision-msgs xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "depthai_bridge" = substituteSource {
       src = fetchgit {
         name = "depthai_bridge-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "5c3faad72f5970ee32a74012da36ce377a1a3dd8";
-        hash = "sha256-ySzeVp4KQvUABeJr7OWlbLr06pIiN0fyGgEx/LaF3qo=";
+        rev = "8f640d27f5679f21999d1c4f54b39964d3b296ea";
+        hash = "sha256-qSuIRnv/TTSRpgd+2aCIue5nv3EQGp5nShgXS/ifrEw=";
       };
     };
   });

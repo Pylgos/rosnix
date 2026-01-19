@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-plugin-source";
         url = "https://github.com/gazebosim/gz-plugin.git";
-        rev = "f8b4f327546c7b778cf7ff1e6aadcc7403b40155";
-        hash = "sha256-/T0Gav0b9BG39qm8v8J7qnpYdLSwsRZVar4i5zUyF5M=";
+        rev = "d806b20eeed5328f5b916c4f3663600a4ba08017";
+        hash = "sha256-KrFpXIxwtQZzJylbFHcyjL6IHNx+Uc15Suvs0k7naU8=";
       };
     };
   });

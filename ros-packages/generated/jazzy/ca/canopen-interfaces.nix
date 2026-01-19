@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_interfaces";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."canopen_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "canopen_interfaces-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "c271ea6daf3f93e00cfca2a2c7e6d91958c3d2a4";
-        hash = "sha256-1CNqx1LYtrwXNE+M8gzU0yIdt2lx+A4fQTDcFmK0a5o=";
+        rev = "f0b29f9af348aabd435d85840b8f524eb3a0a4c6";
+        hash = "sha256-S+hDxSC/w4gPNbkakEUMUFoiEF9CPxEwNagWzVofGVA=";
       };
     };
   });

@@ -1,6 +1,7 @@
 {
   ament-cmake,
   ament-cmake-gtest,
+  ament-cmake-python,
   buildAmentCmakePackage,
   builtin-interfaces,
   eigen3-cmake-module,
@@ -18,11 +19,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_kdl";
-  version = "0.45.3-1";
+  version = "0.45.6-1";
   src = finalAttrs.passthru.sources."tf2_kdl";
-  nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" "python3-pykdl" ]; };
-  buildInputs = [ ament-cmake eigen3-cmake-module ];
+  buildInputs = [ ament-cmake ament-cmake-python eigen3-cmake-module ];
   propagatedBuildInputs = [ builtin-interfaces geometry-msgs tf2 tf2-ros tf2-ros-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "liborocos-kdl" "liborocos-kdl-dev" "python3-pykdl" ]; };
   checkInputs = [ ament-cmake-gtest rclcpp ];
   passthru.sources = mkSourceSet (sources: {
@@ -30,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_kdl-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "f52d06d092303081d3213b4043ef6a1d3bfd539b";
-        hash = "sha256-4Iy3IGfrCsJEuOxJOJHNT+BK6HNRm7T3cWaDkNqEG+g=";
+        rev = "a9772e751802536b4ba3e481753b9a9ae70ca3dc";
+        hash = "sha256-2rw++bHypNukOhEH/xmUW155ugj1S9Y391ifQ4jBtHw=";
       };
     };
   });

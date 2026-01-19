@@ -22,7 +22,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libros_bridge";
-  version = "3.0.2-1";
+  version = "3.1.1-1";
   src = finalAttrs.passthru.sources."mrpt_libros_bridge";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake cv-bridge geometry-msgs mrpt-libmaps mrpt-libobs nav-msgs ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs ];
@@ -34,8 +34,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros_bridge-release.git";
-        rev = "6092ea039895c2717050c9f1fbcab56ff738670c";
-        hash = "sha256-u1yKt91HgGCMzGqkKUiliVzpBHkII7gTPckd2YrQU50=";
+        rev = "779023f2005861726f5a3f1a8cfafb8cc481976a";
+        hash = "sha256-Fp2kwt7tLr2KYDGRuW5f9cOAG/ALQIxjgcHTxx0g5vc=";
       };
     };
   });

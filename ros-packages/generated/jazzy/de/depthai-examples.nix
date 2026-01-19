@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_examples";
-  version = "2.11.2-1";
+  version = "2.12.2-1";
   src = finalAttrs.passthru.sources."depthai_examples";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ camera-info-manager cv-bridge depth-image-proc depthai depthai-bridge depthai-descriptions depthai-ros-msgs foxglove-msgs image-transport rclcpp robot-state-publisher ros-environment rviz-imu-plugin sensor-msgs std-msgs stereo-msgs vision-msgs xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai_examples-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "4eabae61875e841e06b1769abe898c9a8c8a2afd";
-        hash = "sha256-mDM7yG/0fl38S8CYe+Qsje1zT4ff+Ns/g+eqF5YN+hg=";
+        rev = "d93c17d6714a3fc52360d6e97e31c005f5ea9f18";
+        hash = "sha256-ithoCa4JPuEO/xZ18hYV9RWofwzs+1in7mVXSwB0kwo=";
       };
       substitutions = [
         {

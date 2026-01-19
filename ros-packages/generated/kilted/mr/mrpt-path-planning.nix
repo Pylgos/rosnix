@@ -14,7 +14,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_path_planning";
-  version = "0.2.3-1";
+  version = "0.2.4-1";
   src = finalAttrs.passthru.sources."mrpt_path_planning";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mrpt-libgui mrpt-libmaps mrpt-libnav mrpt-libtclap mvsim ];
@@ -25,8 +25,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_path_planning-source";
         url = "https://github.com/ros2-gbp/mrpt_path_planning-release.git";
-        rev = "6831384e8fd03e875efc1834fc624fd9424874c6";
-        hash = "sha256-yggu+9O06uSDqrW+Zlnpq9dCvJb9tEF+eXxK/huVehY=";
+        rev = "f876745685c2aac8c32b8a30b21c167f9112454d";
+        hash = "sha256-pUTOwNYAuppnVTl/YH4XJOR0+7Nmp3HgwQ4OxqK1zKg=";
       };
     };
   });

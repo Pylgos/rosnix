@@ -12,13 +12,12 @@
   rosSystemPackages,
   rviz2,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dolly_ignition";
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly_ignition";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dolly-follow ros2launch rviz2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ros_ign_bridge" "ros_ign_gazebo" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dolly-follow ros2launch rviz2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "ros_ign_bridge" "ros_ign_gazebo" ]; };

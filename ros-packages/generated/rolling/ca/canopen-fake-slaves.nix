@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_fake_slaves";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."canopen_fake_slaves";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ lely-core-libraries lifecycle-msgs rclcpp rclcpp-lifecycle ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "canopen_fake_slaves-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "de2c6cab3fc7cee5ac67d7a60f5d297c001b6265";
-        hash = "sha256-B/G/UPifbWBkpTcWPB+zKigi0mCXftN6KXLRhvFVbHA=";
+        rev = "6196574c408b696bf7900d6e16009a2c1840408f";
+        hash = "sha256-wRawl5sv4y95XOCdf5c/Vu01gXYdZY3ykQG+meUwAdk=";
       };
     };
   });

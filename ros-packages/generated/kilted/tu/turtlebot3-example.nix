@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_example";
-  version = "2.3.4-1";
+  version = "2.3.6-1";
   src = finalAttrs.passthru.sources."turtlebot3_example";
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclpy sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
   propagatedBuildInputs = [ geometry-msgs nav-msgs rclpy sensor-msgs tf-transformations turtlebot3-msgs visualization-msgs ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_example-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "6d1cfa097e2c01abbc389e559a9923d4cc0c294c";
-        hash = "sha256-zYem5JyC5zWTaXI+hqnpM3QF0EeM0WTCOgRCybOvY40=";
+        rev = "0bcd98c07a56171764c6266df16f590c4519ad94";
+        hash = "sha256-8dvhgeKa7r0vSv/6Im0aNqrEAn3/7A5FghEBt/w3LhQ=";
       };
     };
   });

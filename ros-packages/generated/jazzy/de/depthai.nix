@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai";
-  version = "2.30.0-1";
+  version = "2.31.0-1";
   src = finalAttrs.passthru.sources."depthai";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "libusb-1.0-dev" "nlohmann-json-dev" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai-source";
         url = "https://github.com/luxonis/depthai-core-release.git";
-        rev = "bcb5450bbb7d87228d46af63223e4b37d1474c1b";
-        hash = "sha256-uCHpu+2PRFlvHdNKrZutKOd8RQLhwPDeuV3x3qu+Vrc=";
+        rev = "d93f2ae5fc53f669606fa8d85a92dea8f9d77ff9";
+        hash = "sha256-D80Q/dVpoW/8Ze6KI+iMY8VIuCX9egzd5BnBlZachEU=";
       };
       substitutions = [
         {
@@ -59,8 +59,8 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/Hunter/config.cmake";
-          from = "URL \"https://github.com/luxonis/XLink/archive/82839cb04f2102177fad926fb8f7fcf7b4093cb1.tar.gz\"";
-          to = "URL ${sources."depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1"}";
+          from = "URL \"https://github.com/luxonis/XLink/archive/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba.tar.gz\"";
+          to = "URL ${sources."depthai/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba"}";
         }
         {
           path = "cmake/Hunter/config.cmake";
@@ -113,27 +113,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "50a1321738554e0152b0a6f1b0ca24e4fdecff5c-source";
         url = "https://github.com/luxonis/cpr/archive/50a1321738554e0152b0a6f1b0ca24e4fdecff5c.tar.gz";
         hash = "sha256-qvFkVEI+5DmK1fE+U7Rm8G5NyF1wqVq0oOE2TGoQiAE=";
-      };
-    };
-    "depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1" = substituteSource {
-      src = fetchzip {
-        name = "82839cb04f2102177fad926fb8f7fcf7b4093cb1-source";
-        url = "https://github.com/luxonis/XLink/archive/82839cb04f2102177fad926fb8f7fcf7b4093cb1.tar.gz";
-        hash = "sha256-OTqJfTDudiNrdsDBe1Pg0T1dJcfneGXO/+AIbXpVfxk=";
-      };
-      substitutions = [
-        {
-          path = "cmake/Hunter/config.cmake";
-          from = "URL \"https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz\"";
-          to = "URL ${sources."depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1/b7e4548958325b18feb73977163ad44398099534"}";
-        }
-      ];
-    };
-    "depthai/82839cb04f2102177fad926fb8f7fcf7b4093cb1/b7e4548958325b18feb73977163ad44398099534" = substituteSource {
-      src = fetchzip {
-        name = "b7e4548958325b18feb73977163ad44398099534-source";
-        url = "https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz";
-        hash = "sha256-DjT7ooqQeRIXt2pRwznaT7twpzOVAea62ngJk1y2mUI=";
       };
     };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f" = substituteSource {
@@ -647,6 +626,27 @@ buildAmentCmakePackage (finalAttrs: {
         url = "https://github.com/google/googletest.git";
         rev = "6d1deeb565be215554ee28f0ec9c1ed0b12afa8e";
         hash = "sha256-w2JP5XDUPzyOtf6OY/UFkARa5X5w66W/IRnUAQ3Jg0s=";
+      };
+    };
+    "depthai/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba" = substituteSource {
+      src = fetchzip {
+        name = "b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba-source";
+        url = "https://github.com/luxonis/XLink/archive/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba.tar.gz";
+        hash = "sha256-NMulJ+lrxmV853G837LomXticIZRJMVcah9YgMqD0cU=";
+      };
+      substitutions = [
+        {
+          path = "cmake/Hunter/config.cmake";
+          from = "URL \"https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz\"";
+          to = "URL ${sources."depthai/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba/b7e4548958325b18feb73977163ad44398099534"}";
+        }
+      ];
+    };
+    "depthai/b0be8f9d9d24eac43fbe4ac9313f9afe425c6dba/b7e4548958325b18feb73977163ad44398099534" = substituteSource {
+      src = fetchzip {
+        name = "b7e4548958325b18feb73977163ad44398099534-source";
+        url = "https://github.com/luxonis/libusb/archive/b7e4548958325b18feb73977163ad44398099534.tar.gz";
+        hash = "sha256-DjT7ooqQeRIXt2pRwznaT7twpzOVAea62ngJk1y2mUI=";
       };
     };
     "depthai/b7e4548958325b18feb73977163ad44398099534" = substituteSource {

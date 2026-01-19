@@ -19,13 +19,12 @@
   std-msgs,
   substituteSource,
   tf2,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtabmap_rviz_plugins";
   version = "0.22.1-1";
   src = finalAttrs.passthru.sources."rtabmap_rviz_plugins";
-  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ pcl-conversions pluginlib rclcpp ros-environment rtabmap-conversions rtabmap-msgs rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs tf2 ];
   buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ pcl-conversions pluginlib rclcpp ros-environment rtabmap-conversions rtabmap-msgs rviz-common rviz-default-plugins rviz-rendering sensor-msgs std-msgs tf2 ];

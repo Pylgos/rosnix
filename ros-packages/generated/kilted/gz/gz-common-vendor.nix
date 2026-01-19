@@ -46,8 +46,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-common-source";
         url = "https://github.com/gazebosim/gz-common.git";
-        rev = "fbabb1e4d0745ef98f5d3714f3ac910a84875395";
-        hash = "sha256-j3hPmUoXGefXNk+YUlpwx8XHZDPAqvz0vpUhs9xx0Kg=";
+        rev = "231aee2ae5cc75262e6c4d1d312e3bad5d8b05c6";
+        hash = "sha256-kRgWwlxV+kGcmyhpSSWWouS5u8pYhTBDftMJ9OUElrU=";
       };
     };
   });

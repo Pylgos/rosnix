@@ -31,7 +31,7 @@ buildAmentPythonPackage (finalAttrs: {
     "play_motion2_cli" = substituteSource {
       src = fetchgit {
         name = "play_motion2_cli-source";
-        url = "https://github.com/pal-gbp/play_motion2-release.git";
+        url = "https://github.com/ros2-gbp/play_motion2-release.git";
         rev = "548b4b04eb387fc9adc532f2dc961caeba438700";
         hash = "sha256-srYOwZHHdTsncP7BhM6xeBMTgxSfPy+WrvtLcd9wqu4=";
       };

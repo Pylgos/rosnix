@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_planners_ompl";
-  version = "2.12.3-1";
+  version = "2.12.4-1";
   src = finalAttrs.passthru.sources."moveit_planners_ompl";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ moveit-common moveit-core moveit-msgs moveit-ros-planning ompl pluginlib rclcpp tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libomp-dev" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_planners_ompl-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "3b6f4ed5ec22c8999693156da086685fc302257a";
-        hash = "sha256-S7F15fPVSVFJpUV7Nii+dgVvQiqX0uFhABsOjbdQd68=";
+        rev = "72477167d69af7dac3d85f5eaee6833332e9e4a0";
+        hash = "sha256-FKlXe3jYcwc0HTW47QfH7C1XdyHJBizi2RgX3xVEvo8=";
       };
     };
   });

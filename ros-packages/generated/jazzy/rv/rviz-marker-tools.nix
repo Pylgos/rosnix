@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_marker_tools";
-  version = "0.1.4-1";
+  version = "0.1.4-3";
   src = finalAttrs.passthru.sources."rviz_marker_tools";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module geometry-msgs moveit-common rclcpp std-msgs tf2-eigen visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liburdfdom-headers-dev" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_marker_tools-source";
         url = "https://github.com/ros2-gbp/moveit_task_constructor-release.git";
-        rev = "395c0ac0002254aaf445dd39a463f4a7bbb603fc";
+        rev = "aac846e3df0a9269bafbfa4537b77359ffe2e038";
         hash = "sha256-v6jbUh3/H1lB0YFH5XuKpzGAT8UFjRTqEpxfj9FwUk4=";
       };
     };

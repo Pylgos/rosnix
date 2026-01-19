@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "canopen_base_driver";
-  version = "0.3.1-1";
+  version = "0.3.2-1";
   src = finalAttrs.passthru.sources."canopen_base_driver";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ canopen-core canopen-interfaces diagnostic-updater lely-core-libraries rclcpp rclcpp-components rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "canopen_base_driver-source";
         url = "https://github.com/ros2-gbp/ros2_canopen-release.git";
-        rev = "f4f738a2ad8b628af6041e70b13ceb7afd98989b";
-        hash = "sha256-kVxivoTM7c6nL8t4z015Wz8HCzCkasMn5MvI7m+9V2U=";
+        rev = "7a5498f87a8b1d0e809cb34124b454b9c098a78a";
+        hash = "sha256-x0gzfo7S+kuG7+quEVaVULrQs/z5gVbVHC16Gs8sEHM=";
       };
     };
   });

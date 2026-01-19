@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_console";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."swri_console";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rcl-interfaces rclcpp rmw rosbag2-storage-mcap rosbag2-transport rosidl-default-runtime ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl-dev" "libqt5-widgets" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_console-source";
         url = "https://github.com/ros2-gbp/swri_console-release.git";
-        rev = "2647a582e54d48b8de8c4cc57f17b60d25b86524";
-        hash = "sha256-RyyHor61bbwPT/bshPflJoLMnO2R2Tq1mMTQLP5g9o4=";
+        rev = "feaf14b2b24e7a7cba6b5904d5e997cd0890747a";
+        hash = "sha256-VfMk9z4ncOqL/WC/Wc7QiFucNwDeZXg40btrMVWZHZU=";
       };
     };
   });

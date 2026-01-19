@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_schedule";
-  version = "2.4.2-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_schedule";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rclcpp rclcpp-components rmf-traffic rmf-traffic-msgs rmf-traffic-ros2 rmf-visualization-msgs rosidl-default-generators visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libboost-dev" "libssl-dev" "libwebsocketpp-dev" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_schedule-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "0d47ef01828a171951f6acf2f72f0b801d526503";
-        hash = "sha256-fMSIDpp+7QmnEd3hy5JodFj5vQsYvCUDsd5SlObdvgo=";
+        rev = "322b9623e4755416134fa4d4c34613aaa8c98c9a";
+        hash = "sha256-uUmkF7irnM+MLIUkYYDixO2UGpJevgW9baAHwEB8yTQ=";
       };
     };
   });

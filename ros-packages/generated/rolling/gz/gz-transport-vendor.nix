@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_transport_vendor";
-  version = "0.3.2-1";
+  version = "0.3.3-1";
   src = finalAttrs.passthru.sources."gz_transport_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-msgs-vendor gz-tools-vendor gz-utils-vendor zenoh-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-transport" "libsqlite3-dev" "libzmq3-dev" "pkg-config" "protobuf-dev" "pybind11-dev" "python3-dev" "python3-psutil" "python3-pytest" "uuid" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_transport_vendor-source";
         url = "https://github.com/ros2-gbp/gz_transport_vendor-release.git";
-        rev = "59caed46eddcf60fd9c09b1769c4b73dd94bed86";
-        hash = "sha256-xFjK5jDBflJEh2VsPanbK/YcJL35H/cS7Qhzra0K12k=";
+        rev = "0eca2d957516ea14af663a8cc76db48a56d83195";
+        hash = "sha256-yn+ApwuMfXv4L8u1UuHNuxeOtCZWx0iLE0gvxBm44Ko=";
       };
       substitutions = [
         {
@@ -48,12 +48,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-transport-source";
         url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "9f8056e3eb26ab3f1ea1ef3eef9dabe0e39dc1fc";
-        hash = "sha256-DYUIiZ90v7jZYdLsQBkrUv9jKcXn1QHptpSznHEtFGc=";
+        rev = "3aeb7fa7297e40d3d204efc36b5f702e2e57125a";
+        hash = "sha256-ACLU7Zx2mbLdbGHcoD/+dUkQGL7Mvw4gwe2yTLhQHvA=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-transport 15.0.0\n\n    Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.\n  ";
+    description = "\n    Vendor package for: gz-transport 15.0.1\n\n    Gazebo Transport: Provides fast and efficient asynchronous message passing, services, and data logging.\n  ";
   };
 })

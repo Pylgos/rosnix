@@ -11,19 +11,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mp_units_vendor";
-  version = "2.4.0-1";
+  version = "2.5.0-2";
   src = finalAttrs.passthru.sources."mp_units_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgsl" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libgsl" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libgsl" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libgsl" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mp_units_vendor" = substituteSource {
       src = fetchgit {
         name = "mp_units_vendor-source";
         url = "https://github.com/ros2-gbp/mp_units_vendor-release.git";
-        rev = "30c13e5226369d8ebde549d3bcf6bdf219361f84";
-        hash = "sha256-tvljMCBTlYcaXCs4GQ7tMXStB80xAMvwI7s0KmeMPio=";
+        rev = "2c927771c571385b8bc5c86a15605d06655a1066";
+        hash = "sha256-MD2T1tQVBQlr3t3+PkPDxEOpeFbpEepuegp0kKEntVI=";
       };
       substitutions = [
         {
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mp-units-source";
         url = "https://github.com/mpusz/mp-units.git";
-        rev = "6e06eddf205deaf6c2f2f63500c8c70ec220a99f";
-        hash = "sha256-BlemzDArgAvCA4o+G2YPG0D+ISMWJsys57MMfugBURo=";
+        rev = "27d2def9082ce00d7eb4f75695dbead4a748f23f";
+        hash = "sha256-HP5eq5NJIAsK3HuTwIvJgt5Y3gSMpmOng+/HDXBv0ZA=";
       };
     };
   });

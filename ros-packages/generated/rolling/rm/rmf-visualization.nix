@@ -15,13 +15,12 @@
   rmf-visualization-schedule,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization";
-  version = "2.4.2-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-xml rmf-visualization-building-systems rmf-visualization-fleet-states rmf-visualization-floorplans rmf-visualization-navgraphs rmf-visualization-obstacles rmf-visualization-rviz2-plugins rmf-visualization-schedule ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ launch-xml rmf-visualization-building-systems rmf-visualization-fleet-states rmf-visualization-floorplans rmf-visualization-navgraphs rmf-visualization-obstacles rmf-visualization-rviz2-plugins rmf-visualization-schedule ];
@@ -30,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "afaf69423557053a30d44b9a8c0aa0e081a5a072";
-        hash = "sha256-12xiTQkiHx2rw45zCWck1aBFCJSvzIP3IzsZLKkodKI=";
+        rev = "6ebcc39dd7d9c03923361e634d2c3392ccc0fcb8";
+        hash = "sha256-2YXY0wbcmkE5uRaqlXcqcKgphqqqVaz9YmoglEiZod4=";
       };
     };
   });

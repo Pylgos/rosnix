@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_parser";
-  version = "5.1.1-1";
+  version = "5.1.2-1";
   src = finalAttrs.passthru.sources."rosidl_parser";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-adapter ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lark-parser" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_parser-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "eec081a9365f1637049a4fb63b7eb32c90bf1614";
-        hash = "sha256-bjW6hCkPQNBcMbmUnW+itrkkGk5deltMdaSIczBMXCU=";
+        rev = "202c25e02a7c98b6621095366d4e3f86766604fd";
+        hash = "sha256-Q5w12g5icpvAeqJ1bIHw7hpiHHNOzXPNknU+dN67C0o=";
       };
     };
   });

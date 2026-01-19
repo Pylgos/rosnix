@@ -13,13 +13,12 @@
   rviz-common,
   rviz-rendering,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "snowbot_operating_system";
   version = "0.1.2-4";
   src = finalAttrs.passthru.sources."snowbot_operating_system";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs pluginlib rviz-common rviz-rendering ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-cmake-ros geometry-msgs pluginlib rviz-common rviz-rendering ];

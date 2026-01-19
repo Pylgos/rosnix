@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlesim_msgs";
-  version = "1.10.2-1";
+  version = "1.10.4-1";
   src = finalAttrs.passthru.sources."turtlesim_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlesim_msgs-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
-        rev = "1e02467b57a2de15c529f4624a0a54569fb62c52";
-        hash = "sha256-Su+gnc0W9oMpdYiutJevVSjIdaIFDidx3iNcvgHk+gc=";
+        rev = "ff7f45f14c818ca125574075aa2391a3d288bc5f";
+        hash = "sha256-3wPMe+xFDYHCPOIHEQJDAe1BNR1H6hVN74HoWeR/+G8=";
       };
     };
   });

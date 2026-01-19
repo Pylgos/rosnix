@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_ros";
-  version = "0.15.4-1";
+  version = "0.15.6-1";
   src = finalAttrs.passthru.sources."ament_cmake_ros";
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros-core rmw-test-fixture-implementation ];
   propagatedBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros-core rmw-test-fixture-implementation ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_ros-source";
         url = "https://github.com/ros2-gbp/ament_cmake_ros-release.git";
-        rev = "c81458ac43fb6e9cba1c9bb7c5e90b53a5b71c66";
-        hash = "sha256-GN/iLf6n8rkUjDtLCYhXKH0TQFp0VLjy625Tts/fa1k=";
+        rev = "f302d098e84a01e8e62226cfb248b6cb96fc9121";
+        hash = "sha256-UQl6Ne/CJDXjiZQrVmmQ2xM5Wzp+TKiCCe1bSRY3N4o=";
       };
     };
   });

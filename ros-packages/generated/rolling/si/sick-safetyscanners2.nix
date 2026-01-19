@@ -20,14 +20,13 @@
   sick-safetyscanners-base,
   sick-safetyscanners2-interfaces,
   substituteSource,
-  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safetyscanners2";
   version = "1.0.4-1";
   src = finalAttrs.passthru.sources."sick_safetyscanners2";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-updater rclcpp rclcpp-lifecycle robot-state-publisher rviz2 sensor-msgs sick-safetyscanners2-interfaces sick-safetyscanners-base xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ diagnostic-updater rclcpp rclcpp-lifecycle robot-state-publisher rviz2 sensor-msgs sick-safetyscanners2-interfaces sick-safetyscanners-base xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };

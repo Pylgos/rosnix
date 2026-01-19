@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-vendor-package,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -12,11 +13,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zmqpp_vendor";
-  version = "0.0.2-4";
+  version = "0.1.0-1";
   src = finalAttrs.passthru.sources."zmqpp_vendor";
-  nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libzmq3-dev" ]; };
-  buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
+  buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libzmq3-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -24,14 +25,14 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zmqpp_vendor-source";
         url = "https://github.com/ros2-gbp/zmqpp_vendor-release.git";
-        rev = "b0f21543a13623f4155fbfdc7f42b0e8083e6c1b";
-        hash = "sha256-OHJpSJAua016kXvKxcD1ay55wprlXnqSL19uzz/el6w=";
+        rev = "a60d2dd0510958e57339d4341b32b07cae880336";
+        hash = "sha256-y7Kq1Vlu/Xbyr7gUJFPkqQZSfxShbpuusFYMTZjfxaY=";
       };
       substitutions = [
         {
           path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/zeromq/zmqpp.git";
-          to = "URL ${sources."zmqpp_vendor/zmqpp"}";
+          from = "VCS_URL https://github.com/zeromq/zmqpp.git";
+          to = "VCS_TYPE path VCS_URL ${sources."zmqpp_vendor/zmqpp"}";
         }
       ];
     };

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rko_lio";
-  version = "0.1.6-1";
+  version = "0.2.0-1";
   src = finalAttrs.passthru.sources."rko_lio";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components rosbag2-cpp rosbag2-storage sensor-msgs sophus std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "nlohmann-json-dev" "tbb" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rko_lio-source";
         url = "https://github.com/ros2-gbp/rko_lio-release.git";
-        rev = "af6585a01d9cc37fc43c5fb1eac241fbdb6c2811";
-        hash = "sha256-lbutjLLwurf12S93jFSYMPm62Fl/+1eaXiAXLkQJxAc=";
+        rev = "08bba2a3943eaa3122ef75c04154a76b2d3480e0";
+        hash = "sha256-ApxYxesthT8IEZgxpFKOFBD2A/KGxNhP/Wsy4dDydYA=";
       };
       substitutions = [
         {
@@ -43,7 +43,7 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/dependencies/eigen/eigen.cmake";
-          from = "URL https://gitlab.com/libeigen/eigen/-/archive/5.0.0/eigen-5.0.0.tar.gz";
+          from = "URL https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz";
           to = "URL ${sources."rko_lio/eigen-5"}";
         }
         {
@@ -58,7 +58,7 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/dependencies/tbb/tbb.cmake";
-          from = "URL https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.2.0.tar.gz";
+          from = "URL https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.3.0.tar.gz";
           to = "URL ${sources."rko_lio/v2022"}";
         }
       ];
@@ -81,8 +81,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "55e4bb9135f9ab19cf9af5ae2178eebb9d9ef23e";
-        hash = "sha256-bkN9/rktHaf2Q6SkySWrfbaxnlGbKGmvUHlOQKBdbac=";
+        rev = "da6e0710846caa341abfe99e2ead10136c74857e";
+        hash = "sha256-oxxx7LARMshCuRvpSs+iiM/GPMC53GkZhSWBzicpIog=";
       };
     };
     "rko_lio/Bonxai" = substituteSource {
@@ -96,15 +96,15 @@ buildAmentCmakePackage (finalAttrs: {
     "rko_lio/eigen-5" = substituteSource {
       src = fetchzip {
         name = "eigen-5-source";
-        url = "https://gitlab.com/libeigen/eigen/-/archive/5.0.0/eigen-5.0.0.tar.gz";
-        hash = "sha256-L1KUFZsaibC/FD6abTXrT3pvaFhbYnw+GaWsxM2gaxM=";
+        url = "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz";
+        hash = "sha256-8TW1MUXt2gWJmu5YbUWhdvzNBiJ/KIVwIRf2XuVZeqo=";
       };
     };
     "rko_lio/v2022" = substituteSource {
       src = fetchzip {
         name = "v2022-source";
-        url = "https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.2.0.tar.gz";
-        hash = "sha256-ASQPAGm5e4q7imvTVWlmj5ON4fGEao1L5m2C5wF7EhI=";
+        url = "https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.3.0.tar.gz";
+        hash = "sha256-HIHF6KHlEI4rgQ9Epe0+DmNe1y95K9iYa4V/wFnJfEU=";
       };
     };
     "rko_lio/v3" = substituteSource {

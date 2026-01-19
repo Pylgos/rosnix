@@ -21,17 +21,18 @@
   launch-testing,
   launch-testing-ros,
   libstatistics-collector,
+  lifecycle-msgs,
   mkSourceSet,
   pluginlib,
+  rcl-interfaces,
   rclcpp,
   rclpy,
-  rcpputils,
   realtime-tools,
   robot-state-publisher,
   ros2-control-cmake,
   ros2-control-test-assets,
   ros2param,
-  ros2run,
+  ros2pkg,
   rosSystemPackages,
   sensor-msgs,
   std-msgs,
@@ -39,20 +40,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_manager";
-  version = "5.8.2-1";
+  version = "5.11.3-1";
   src = finalAttrs.passthru.sources."controller_manager";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
-  propagatedNativeBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "python3-filelock" ]; };
+  propagatedNativeBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros launch-testing-ros libstatistics-collector lifecycle-msgs pluginlib rcl-interfaces rclcpp rclpy realtime-tools ros2-control-cmake ros2param sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "python3-filelock" "python3-yaml" ]; };
   buildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
-  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros libstatistics-collector pluginlib rclcpp rcpputils realtime-tools ros2-control-cmake ros2-control-test-assets ros2param ros2run std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "python3-filelock" ]; };
-  checkInputs = [ ament-cmake-gmock ament-cmake-pytest example-interfaces hardware-interface-testing launch launch-testing launch-testing-ros rclpy robot-state-publisher ros2-control-test-assets sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-coverage" ]; };
+  propagatedBuildInputs = [ backward-ros controller-interface controller-manager-msgs diagnostic-updater generate-parameter-library hardware-interface launch launch-ros launch-testing-ros libstatistics-collector lifecycle-msgs pluginlib rcl-interfaces rclcpp rclpy realtime-tools ros2-control-cmake ros2param sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "python3-filelock" "python3-yaml" ]; };
+  checkInputs = [ ament-cmake-gmock ament-cmake-pytest example-interfaces hardware-interface-testing launch-testing robot-state-publisher ros2-control-test-assets ros2pkg ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-coverage" ]; };
   passthru.sources = mkSourceSet (sources: {
     "controller_manager" = substituteSource {
       src = fetchgit {
         name = "controller_manager-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "93e287937effafcd537915d39eb4d648fb804fc8";
-        hash = "sha256-2DmB1an3bcSaVkZmpjoYNWPU3U7rYSDQf8Ddb1eDuME=";
+        rev = "3daf30656c4343c79bc0152c55d98dcd44885255";
+        hash = "sha256-TnmOP6XbSJeWcLGLlySTtbLZIVZ1sWwyZVQxOiiNAWc=";
       };
     };
   });

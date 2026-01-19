@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_terminal";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."plansys2_terminal";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ plansys2-domain-expert plansys2-executor plansys2-msgs plansys2-pddl-parser plansys2-planner plansys2-problem-expert rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libreadline" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_terminal-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "8a2af2f71fd36e59c011e975e5dbf40375dfc1ec";
-        hash = "sha256-tdIIJvnRGUd+aI8Y95fKVrSESZuFWSxGaOlPu8ihd4A=";
+        rev = "262cadfebbba1002c2bd1b44b165c7412f41ab67";
+        hash = "sha256-hDTTOMVIZ6ZtrDh/170yZoIaIOS0yIaRyWt9gWvW3DI=";
       };
     };
   });

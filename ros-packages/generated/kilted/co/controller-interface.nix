@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "controller_interface";
-  version = "5.8.2-1";
+  version = "5.11.3-1";
   src = finalAttrs.passthru.sources."controller_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ hardware-interface rclcpp-lifecycle realtime-tools ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "controller_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "32e60936b958accb5e49c0842ead15e4eb1118c7";
-        hash = "sha256-SUgkQI1OvArDBotc+pIaVRTDxR/WfErtz3PyO9zUtUA=";
+        rev = "0d368d5fdd04af0b282ce46d0bff4470d99b512f";
+        hash = "sha256-jEGRgF+yZJddN/iCXzLkvGzP3L9jZSYG2hYobYbDfek=";
       };
     };
   });

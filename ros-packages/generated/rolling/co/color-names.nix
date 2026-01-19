@@ -13,13 +13,12 @@
   std-msgs,
   substituteSource,
   visualization-msgs,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "color_names";
   version = "0.0.3-5";
   src = finalAttrs.passthru.sources."color_names";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rviz2 std-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rviz2 std-msgs visualization-msgs ];

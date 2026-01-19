@@ -12,13 +12,12 @@
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dolly";
   version = "0.4.0-5";
   src = finalAttrs.passthru.sources."dolly";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ dolly-follow dolly-gazebo dolly-ignition ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ dolly-follow dolly-gazebo dolly-ignition ];

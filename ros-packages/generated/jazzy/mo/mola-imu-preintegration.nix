@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_imu_preintegration";
-  version = "1.14.0-1";
+  version = "1.14.1-1";
   src = finalAttrs.passthru.sources."mola_imu_preintegration";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mrpt-libobs ];
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_imu_preintegration-source";
         url = "https://github.com/ros2-gbp/mola_imu_preintegration-release.git";
-        rev = "eb33dc95d5da479369f2b1f43d3bb4712f9b4129";
-        hash = "sha256-k9s2D8eFkuV64L/3/gpvs5o1puzSRmNA1In2gZ8Jl7g=";
+        rev = "3c28ee9f6a7204df06eec860cfc67e52b76756df";
+        hash = "sha256-C+AzUUtBxsPOkb0OUMXCuWqae0Yvl2CMv10ISFCwLWY=";
       };
     };
   });

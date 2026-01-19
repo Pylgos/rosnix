@@ -42,7 +42,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mavros_extras";
-  version = "2.12.0-1";
+  version = "2.14.0-1";
   src = finalAttrs.passthru.sources."mavros_extras";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ angles diagnostic-msgs diagnostic-updater eigen3-cmake-module eigen-stl-containers geographic-msgs geometry-msgs libmavconn mavlink mavros mavros-msgs message-filters nav-msgs pluginlib rclcpp rclcpp-components rcpputils rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros trajectory-msgs urdf visualization-msgs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "geographiclib" "geographiclib-tools" "yaml-cpp" ]; };
@@ -54,8 +54,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mavros_extras-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "a7d3c26a2acf55b26add11b2d1a3b01dd19531bb";
-        hash = "sha256-GARgn60Uun+irf/9zkqMpt+YBwvHNQFViq0/068l/rA=";
+        rev = "b336a71aed01f3c3823a5ad515e7cc80cc8fa8a2";
+        hash = "sha256-D/Q6VqMk7XrqESBBULl3iZtThTHHoUM5dI/djzyv41U=";
       };
     };
   });

@@ -7,6 +7,7 @@
   fetchzip,
   joint-state-publisher,
   joint-state-publisher-gui,
+  joint-trajectory-controller,
   kortex-description,
   mkSourceSet,
   moveit-configs-utils,
@@ -31,19 +32,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinova_gen3_7dof_robotiq_2f_85_moveit_config";
-  version = "0.2.2-2";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."kinova_gen3_7dof_robotiq_2f_85_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
+  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui joint-trajectory-controller kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
+  propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui joint-trajectory-controller kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
   passthru.sources = mkSourceSet (sources: {
     "kinova_gen3_7dof_robotiq_2f_85_moveit_config" = substituteSource {
       src = fetchgit {
         name = "kinova_gen3_7dof_robotiq_2f_85_moveit_config-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "8afdd055442af8a24ef81523213282e3e2b8dbff";
-        hash = "sha256-/NaCg83rG2s+hq+mRhy/8nEZv10V548lKYoEUVBCEc8=";
+        rev = "2199e4c15cbc34f4038cde869a12e148f0cacece";
+        hash = "sha256-0neWrfItmRpn3w8frzIwr8AQj5CPIwdXddlUZQ6JiyY=";
       };
     };
   });

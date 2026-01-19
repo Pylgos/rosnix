@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "parameter_traits";
-  version = "0.5.0-1";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."parameter_traits";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "parameter_traits-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "291e68bd1d1384b0665aed10b69b2f1b9763ecd9";
-        hash = "sha256-vGnRy38Skk3XcKECD+YZw/1IYlJj+PD51LIhl2nhF9U=";
+        rev = "f7c0cb3d8d2ce68164e6aa93f4a021768525a123";
+        hash = "sha256-P7CncG7MpOaKl220KYGWgPOqKKL2JZbTYIgchOkid7o=";
       };
     };
   });

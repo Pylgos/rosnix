@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler";
-  version = "3.14.1-1";
+  version = "3.15.0-1";
   src = finalAttrs.passthru.sources."plotjuggler";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-cpp data-tamer-cpp rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "binutils" "boost" "fmt" "libqt5-opengl-dev" "libqt5-svg-dev" "libqt5-websockets-dev" "libqt5x11extras5-dev" "libzmq3-dev" "libzstd-dev" "lua-dev" "lz4" "nlohmann-json-dev" "protobuf-dev" "qtbase5-dev" ]; };
@@ -25,8 +25,38 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plotjuggler-source";
         url = "https://github.com/ros2-gbp/plotjuggler-release.git";
-        rev = "6a949b7a934ef157291b1ac282776f2ad3cfa2a7";
-        hash = "sha256-Bc9EkqdrHwnvL3Ekh7GbN1ge0Vu91IocyxIJ1OXVSlY=";
+        rev = "ab39a1a15ff3d9cf0cc5669a080917d4404d2ce4";
+        hash = "sha256-v69RyLeA8tPObs8NiSzW6Ar+sUPDreRYv83z9GcxFwA=";
+      };
+      substitutions = [
+        {
+          path = "3rdparty/date-3.0.4/CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/HowardHinnant/date.git";
+          to = "URL ${sources."plotjuggler/date"}";
+        }
+      ];
+    };
+    "plotjuggler/date" = substituteSource {
+      src = fetchgit {
+        name = "date-source";
+        url = "https://github.com/HowardHinnant/date.git";
+        rev = "6e921e1b1d21e84a5c82416ba7ecd98e33a436d0";
+        hash = "sha256-ZSjeJKAcT7mPym/4ViDvIR9nFMQEBCSUtPEuMO27Z+I=";
+      };
+      substitutions = [
+        {
+          path = "CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/HowardHinnant/date.git";
+          to = "URL ${sources."plotjuggler/date/date"}";
+        }
+      ];
+    };
+    "plotjuggler/date/date" = substituteSource {
+      src = fetchgit {
+        name = "date-source";
+        url = "https://github.com/HowardHinnant/date.git";
+        rev = "cac99da8dc88be719a728dc1b597b0ac307c1800";
+        hash = "sha256-U6JuAKePxoM1qtiF23ogLFAAKhtkIso/kkxp+b3pdOM=";
       };
     };
   });

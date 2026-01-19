@@ -12,25 +12,26 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
+  ros-environment,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai-ros";
-  version = "2.11.2-1";
+  version = "2.12.2-1";
   src = finalAttrs.passthru.sources."depthai-ros";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ];
+  propagatedNativeBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ros-environment ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ];
+  propagatedBuildInputs = [ depthai depthai-bridge depthai-descriptions depthai-examples depthai-filters depthai-ros-driver depthai-ros-msgs ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "depthai-ros" = substituteSource {
       src = fetchgit {
         name = "depthai-ros-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "8bf61bfc1f61a950b355cdd6b98b436369881906";
-        hash = "sha256-tagqK1HoRmqMmOIyup/uB9k+Lm6N7G13QnUh5NHenFs=";
+        rev = "5c7770a03f30f38176409ce24e61c1e39eb154c9";
+        hash = "sha256-8YZ5TsJj7twSN+bpYjbr1NuckC+6FbVaXNqsMXZ/cjU=";
       };
     };
   });

@@ -15,7 +15,6 @@
   hardware-interface,
   hardware-interface-testing,
   mkSourceSet,
-  parameter-traits,
   pluginlib,
   rclcpp,
   rclcpp-lifecycle,
@@ -28,20 +27,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pid_controller";
-  version = "5.9.0-1";
+  version = "5.12.0-1";
   src = finalAttrs.passthru.sources."pid_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface parameter-traits pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
+  propagatedNativeBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface parameter-traits pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
+  propagatedBuildInputs = [ angles backward-ros control-msgs control-toolbox controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "pid_controller" = substituteSource {
       src = fetchgit {
         name = "pid_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c3dfe0b671f9ef440724dcb550c6d1392f663767";
-        hash = "sha256-NWvwvWEge37a4VcVjbvq9fx7wjYs9r30g3XDcgEBjDo=";
+        rev = "41b53ef513cf1cc9a33f25ced3581ebfbeac350d";
+        hash = "sha256-WprO64Q/bg9SfxZdb5yPj3WiEx05t//KDBRXTOWdsx8=";
       };
     };
   });

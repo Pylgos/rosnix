@@ -3,9 +3,6 @@
   ament-cmake-gtest,
   ament-cmake-pytest,
   ament-cmake-python,
-  ament-copyright,
-  ament-flake8,
-  ament-pep257,
   buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
@@ -23,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin_ros";
-  version = "4.0.1-1";
+  version = "4.2.3-1";
   src = finalAttrs.passthru.sources."yasmin_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-action rclpy ros-environment yasmin ];
   buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ rclcpp rclcpp-action rclpy ros-environment yasmin ];
-  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-copyright ament-flake8 ament-pep257 example-interfaces std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-cov" ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest example-interfaces std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-cov" ]; };
   passthru.sources = mkSourceSet (sources: {
     "yasmin_ros" = substituteSource {
       src = fetchgit {
         name = "yasmin_ros-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "89f6a5b899173c5fadd2c7ba63724e79e6cf17e6";
-        hash = "sha256-ruyJm+FcZdpSqSebkLsNp/AC/Lduuu9Q8mFmle4Y+WI=";
+        rev = "56e7b4c9cdb1b59236124433ea2a335c4ccc9ae8";
+        hash = "sha256-dqz9eQ6M6OorTkG43Cme0+gqDU9zyYuRV0UD0zjVTTk=";
       };
     };
   });

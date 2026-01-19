@@ -53,7 +53,7 @@ buildAmentCmakePackage (finalAttrs: {
     "play_motion2" = substituteSource {
       src = fetchgit {
         name = "play_motion2-source";
-        url = "https://github.com/pal-gbp/play_motion2-release.git";
+        url = "https://github.com/ros2-gbp/play_motion2-release.git";
         rev = "a8ca4623870b9344bffa921efda4966a71953710";
         hash = "sha256-n2SRgdt9e2bNnLKS3nJqCzQULIpXac1tXNByNycPSFA=";
       };

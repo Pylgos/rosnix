@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "feetech_ros2_driver";
-  version = "0.2.0-1";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."feetech_ros2_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ hardware-interface pluginlib rclcpp tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libserial-dev" "pkg-config" "range-v3" "spdlog" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "feetech_ros2_driver-source";
         url = "https://github.com/ros2-gbp/feetech_ros2_driver-release.git";
-        rev = "13535b2a63cb833460b61abd91545f9c8d256128";
-        hash = "sha256-wr5hlRdRZrLUGcC1Kq49XSRbSldpWF6MZpYxCdF07sY=";
+        rev = "d447b1999008c9986346018496bce2d9a8594996";
+        hash = "sha256-uEktnGgAmSO6bzy798Dr188B1ZgjTRkpR+W38rsewQ4=";
       };
     };
   });

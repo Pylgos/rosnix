@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "action_tutorials_cpp";
-  version = "0.36.3-1";
+  version = "0.36.4-1";
   src = finalAttrs.passthru.sources."action_tutorials_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-action rclcpp-components ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "action_tutorials_cpp-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "f3d43c04c552f8c2e1eb9f7515224c806cd9b14f";
-        hash = "sha256-6bucgE09e90EdXsfJpm095eFmQJG2elNJwYX5NH6CkY=";
+        rev = "c0abb91b287def8570ba3e17da0e9e5830076234";
+        hash = "sha256-D2EBk+k0H6FZcL/UvpdYIZ38eNpwiiMUEo2EZVck8/I=";
       };
     };
   });

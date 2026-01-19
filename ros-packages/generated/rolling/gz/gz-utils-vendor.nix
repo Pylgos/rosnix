@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-utils-source";
         url = "https://github.com/gazebosim/gz-utils.git";
-        rev = "5c075daab7bddd42615c8aa8df5f57a45e643c15";
-        hash = "sha256-UZh4d+WngOWFJepHGD3JLWtf1hz8yWJ5EaQ/1iXlZc0=";
+        rev = "f3415820d745934b918354109ad7f5e4850d8ba4";
+        hash = "sha256-VtKOcaiL7afpTtPApTzYwDZLWamjjiokOBS20HJ/2HQ=";
       };
     };
   });

@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plansys2_executor";
-  version = "3.0.1-1";
+  version = "3.0.2-1";
   src = finalAttrs.passthru.sources."plansys2_executor";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ ament-index-cpp behaviortree-cpp lifecycle-msgs plansys2-core plansys2-domain-expert plansys2-msgs plansys2-pddl-parser plansys2-planner plansys2-problem-expert pluginlib popf rclcpp rclcpp-action rclcpp-cascade-lifecycle rclcpp-lifecycle std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plansys2_executor-source";
         url = "https://github.com/ros2-gbp/ros2_planning_system-release.git";
-        rev = "a19d6907d2bc945d07ee35a9d2db7af0e73bc884";
-        hash = "sha256-X3wObiPQomlCL7fmzqDHOpi6C8pMgXsMR1vPXLeTd/g=";
+        rev = "5c4fbe14c6f6d7d454af018338b7d98be5b0be64";
+        hash = "sha256-PkMHtx4MzbtCO/uk+rY40ixeNLKeMwUfteQnnAsoUPw=";
       };
     };
   });

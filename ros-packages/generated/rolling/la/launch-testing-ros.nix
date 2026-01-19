@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_testing_ros";
-  version = "0.29.4-1";
+  version = "0.29.5-1";
   src = finalAttrs.passthru.sources."launch_testing_ros";
   propagatedNativeBuildInputs = [ ament-index-python launch-ros launch-testing rclpy rmw-test-fixture-implementation ];
   propagatedBuildInputs = [ ament-index-python launch-ros launch-testing rclpy rmw-test-fixture-implementation ];
@@ -29,8 +29,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_testing_ros-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "3f589dbe971f20c931a64f6bbdaa625270fca735";
-        hash = "sha256-iiCkE1uZfL4zEVZCkLq9PMDRpnXtfRhDvh5nqM/Qrw8=";
+        rev = "3684141f5cbc4033b2ef64700bae871505de7982";
+        hash = "sha256-u2UbXNjVQGyQ24+2YgCDbxBL6EYgHxBD/hcZiOYYs/s=";
       };
     };
   });

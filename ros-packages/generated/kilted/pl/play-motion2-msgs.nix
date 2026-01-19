@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
     "play_motion2_msgs" = substituteSource {
       src = fetchgit {
         name = "play_motion2_msgs-source";
-        url = "https://github.com/pal-gbp/play_motion2-release.git";
+        url = "https://github.com/ros2-gbp/play_motion2-release.git";
         rev = "754bee849d5c900d6091ca169d4e189766f4350e";
         hash = "sha256-WDT84LXt5btq3RVmLP/1dB0udHg0pzB0t/A4bd727m4=";
       };

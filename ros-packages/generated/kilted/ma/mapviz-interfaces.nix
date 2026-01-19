@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz_interfaces";
-  version = "2.5.10-1";
+  version = "2.6.1-1";
   src = finalAttrs.passthru.sources."mapviz_interfaces";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces marti-common-msgs rosidl-default-runtime ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mapviz_interfaces-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "66fb8bfd25b0533e61522701b9260f8cb60fc3aa";
-        hash = "sha256-6NK3RUyMBrz5ZE9WManHdWI9sUOByKtqfMloTeTt7pM=";
+        rev = "52de49154d0180de37a54e3e9c525f0d3379fef6";
+        hash = "sha256-Sb+rG5TjNqr6EdQ6e2aBs6d5tpZbXbScSvf3NpsQWrg=";
       };
     };
   });

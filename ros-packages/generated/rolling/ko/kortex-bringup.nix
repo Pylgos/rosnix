@@ -14,8 +14,11 @@
   launch,
   launch-ros,
   mkSourceSet,
+  parallel-gripper-controller,
   rclpy,
   robotiq-description,
+  ros-gz-bridge,
+  ros-gz-sim,
   rosSystemPackages,
   rviz2,
   substituteSource,
@@ -25,19 +28,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kortex_bringup";
-  version = "0.2.2-2";
+  version = "0.2.5-1";
   src = finalAttrs.passthru.sources."kortex_bringup";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ controller-manager joint-state-broadcaster joint-state-publisher joint-trajectory-controller kortex-description kortex-driver launch launch-ros rclpy robotiq-description rviz2 urdf xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gazebo_ros2_control" "gripper_controllers" ]; };
+  propagatedNativeBuildInputs = [ controller-manager joint-state-broadcaster joint-state-publisher joint-trajectory-controller kortex-description kortex-driver launch launch-ros parallel-gripper-controller rclpy robotiq-description ros-gz-bridge ros-gz-sim rviz2 urdf xacro ];
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ controller-manager joint-state-broadcaster joint-state-publisher joint-trajectory-controller kortex-description kortex-driver launch launch-ros rclpy robotiq-description rviz2 urdf xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gazebo_ros2_control" "gripper_controllers" ]; };
+  propagatedBuildInputs = [ controller-manager joint-state-broadcaster joint-state-publisher joint-trajectory-controller kortex-description kortex-driver launch launch-ros parallel-gripper-controller rclpy robotiq-description ros-gz-bridge ros-gz-sim rviz2 urdf xacro ];
   passthru.sources = mkSourceSet (sources: {
     "kortex_bringup" = substituteSource {
       src = fetchgit {
         name = "kortex_bringup-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "7b1b9e5b58add56d94b77593684e748c7b8b68d0";
-        hash = "sha256-IQ2mPpCxvX2VcdeA/0EEI0NE3gUueLUjdVkn5RlveZs=";
+        rev = "faef3fd25202d41394482374ab895de3ccdfc809";
+        hash = "sha256-iuAvfN791pqzdEHjas+z3mofnjIEqsEysgLuLvv6T7o=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_gmock";
-  version = "2.7.3-2";
+  version = "2.7.4-1";
   src = finalAttrs.passthru.sources."ament_cmake_gmock";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-gtest ament-cmake-test gmock-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_gmock-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "5c75b3173bd50dde94e0062e5e475513f8480949";
-        hash = "sha256-7OgOXsZl9QUVASlIZXtuTDCg2vB7/Bza70Rd9IClD14=";
+        rev = "afa87434f4e6565228341a7d3498429fe820396f";
+        hash = "sha256-tf9huEDoJskbzMjZMGHX6bYGM2OTxGj5Gx4Fnu2mxuU=";
       };
     };
   });

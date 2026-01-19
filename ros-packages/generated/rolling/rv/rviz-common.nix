@@ -24,25 +24,24 @@
   tf2,
   tf2-ros,
   urdf,
-  wrapRosQtAppsHook,
   yaml-cpp-vendor,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_common";
-  version = "15.1.12-1";
+  version = "15.1.15-1";
   src = finalAttrs.passthru.sources."rviz_common";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-svg" "libqt5-svg-dev" "libqt5-widgets" "qtbase5-dev" "tinyxml2" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6gui6t64" "libqt6opengl6t64" "libqt6svg6" "libqt6widgets6t64" "qt6-base-dev" "qt6-svg-dev" "tinyxml2" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-svg" "libqt5-svg-dev" "libqt5-widgets" "qtbase5-dev" "tinyxml2" ]; };
+  propagatedBuildInputs = [ geometry-msgs message-filters pluginlib rclcpp resource-retriever rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-ros urdf yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt6-core" "libqt6gui6t64" "libqt6opengl6t64" "libqt6svg6" "libqt6widgets6t64" "qt6-base-dev" "qt6-svg-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rviz_common" = substituteSource {
       src = fetchgit {
         name = "rviz_common-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "1c017189fa597956e37ea2aa317348d8aa34196f";
-        hash = "sha256-wj/8ZIu+WtEdzXvTvO34iAalLK34CCzA0VyicVzW+AE=";
+        rev = "ac46c91de166dda6748c7e0c67d5d0a6af16eb51";
+        hash = "sha256-dMckciGP9jk4YFsFXVqvYZpu18sZskAl/xvWV3SMf7A=";
       };
     };
   });

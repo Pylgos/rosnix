@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2interface";
-  version = "0.32.6-1";
+  version = "0.32.7-1";
   src = finalAttrs.passthru.sources."ros2interface";
   propagatedNativeBuildInputs = [ ament-index-python ros2cli rosidl-adapter rosidl-runtime-py ];
   propagatedBuildInputs = [ ament-index-python ros2cli rosidl-adapter rosidl-runtime-py ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2interface-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "a40a0940b5d85daf539f3c02063654b1646265c4";
-        hash = "sha256-O6FX6jlUuKyXj8OIKtgcoZMC3V+iprRsGJ9tpLlr6hQ=";
+        rev = "434e95fca6e7d4d25d943c7903fcf50ce7a49351";
+        hash = "sha256-Wy/p9IQa/uk6QV3pMWBJUI69BBtoExe8Qpt6S/O/xqo=";
       };
     };
   });

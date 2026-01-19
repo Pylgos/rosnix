@@ -3,9 +3,6 @@
   ament-cmake-gtest,
   ament-cmake-pytest,
   ament-cmake-python,
-  ament-copyright,
-  ament-flake8,
-  ament-pep257,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -16,18 +13,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin";
-  version = "4.0.1-1";
+  version = "4.2.3-1";
   src = finalAttrs.passthru.sources."yasmin";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" ]; };
-  buildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pybind11-dev" ]; };
-  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-copyright ament-flake8 ament-pep257 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-cov" ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "python3-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-python ];
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "pybind11-dev" "python3-dev" ]; };
+  checkInputs = [ ament-cmake-gtest ament-cmake-pytest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-cov" ]; };
   passthru.sources = mkSourceSet (sources: {
     "yasmin" = substituteSource {
       src = fetchgit {
         name = "yasmin-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "650a4d4d0a3176137b8d3eaf51cac52617b9e82f";
-        hash = "sha256-JYz2xOQVKXV3fdOjk1d8W4ReEyewRz3UKd/+VsrUC98=";
+        rev = "6135d4c9c4277a9a78d9038ce9270d3b648094b9";
+        hash = "sha256-Jr7T0dH0rohCx3+7i6b8fIRAng4ccw6wCZ1t+6ZTcnM=";
       };
     };
   });

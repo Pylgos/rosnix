@@ -18,18 +18,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_ros";
-  version = "0.29.4-1";
+  version = "0.29.5-1";
   src = finalAttrs.passthru.sources."launch_ros";
-  propagatedNativeBuildInputs = [ ament-index-python composition-interfaces launch lifecycle-msgs rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-osrf-pycommon" "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python composition-interfaces launch lifecycle-msgs rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-importlib-metadata" "python3-osrf-pycommon" "python3-yaml" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python composition-interfaces launch lifecycle-msgs rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-osrf-pycommon" "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python composition-interfaces launch lifecycle-msgs rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-osrf-pycommon" "python3-yaml" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "launch_ros" = substituteSource {
       src = fetchgit {
         name = "launch_ros-source";
         url = "https://github.com/ros2-gbp/launch_ros-release.git";
-        rev = "59178240c042072a0eb4958a1a1e2115ef5e729d";
-        hash = "sha256-wxT0ePvkqxnxOFEfrbsUebXifSGKfByFOvKpv1uohqE=";
+        rev = "0729e22e20e0d57a67f2312ce9e2061bc06eca30";
+        hash = "sha256-6NwE85kwZiFNGc6KbNylCMKLcjGMkzJ8l0qiDs4TsgA=";
       };
     };
   });

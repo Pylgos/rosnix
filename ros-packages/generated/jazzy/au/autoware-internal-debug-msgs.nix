@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_internal_debug_msgs";
-  version = "1.12.0-1";
+  version = "1.12.1-1";
   src = finalAttrs.passthru.sources."autoware_internal_debug_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_internal_debug_msgs-source";
         url = "https://github.com/ros2-gbp/autoware_internal_msgs-release.git";
-        rev = "94421986ad033034ac9d4077e80072d1fc127bb3";
-        hash = "sha256-m9HEXVlOnYb0OW3erOgqKPRCfhSFruYMkTOQxbQaUOs=";
+        rev = "cba9c41da827ee4499e0ee08a99b553749a00d3a";
+        hash = "sha256-dCqL1qcmtHPBcXtTWweinA5UuxAk68q5hngix34zUJA=";
       };
     };
   });

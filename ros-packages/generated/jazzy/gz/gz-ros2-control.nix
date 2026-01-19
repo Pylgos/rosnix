@@ -1,6 +1,5 @@
 {
   ament-cmake,
-  ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -23,20 +22,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ros2_control";
-  version = "1.2.16-1";
+  version = "1.2.17-1";
   src = finalAttrs.passthru.sources."gz_ros2_control";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake yaml-cpp-vendor ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake yaml-cpp-vendor ];
+  propagatedBuildInputs = [ controller-manager gz-plugin-vendor gz-sim-vendor hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake yaml-cpp-vendor ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "gz_ros2_control" = substituteSource {
       src = fetchgit {
         name = "gz_ros2_control-source";
         url = "https://github.com/ros2-gbp/ign_ros2_control-release.git";
-        rev = "d815cd2b85ffd4a9dfef07f8790bfe359440b568";
-        hash = "sha256-S1FEdEU1A0NZE5qVykSvICT7RSmGN5nTh0K8zvHXDVE=";
+        rev = "ee0c5217fdaf9e09cdc5908ac244ec1f7f0949f8";
+        hash = "sha256-C2YGbtNqxM4NgEVcpkuRCbGXqkPM1QtyTWmsxiXQLjQ=";
       };
     };
   });

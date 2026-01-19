@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_bullet";
-  version = "0.45.3-1";
+  version = "0.45.6-1";
   src = finalAttrs.passthru.sources."tf2_bullet";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "bullet" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_bullet-source";
         url = "https://github.com/ros2-gbp/geometry2-release.git";
-        rev = "16b20287390514e7a5506d97cfb985ba1366ea72";
-        hash = "sha256-IDAfNGO+wfxVQhpnwFb9FdZdKIYYGbvaJswCfHCLr4c=";
+        rev = "e850b01dcbd44b1778dbcac1c39b1b71f52effc3";
+        hash = "sha256-QML0DtUtQFLSPvhHdvTvBge/Egfv6h25zLdzyBoNwtY=";
       };
     };
   });

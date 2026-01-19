@@ -20,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kdl_inverse_dynamics_solver";
-  version = "2.0.0-1";
+  version = "2.0.2-1";
   src = finalAttrs.passthru.sources."kdl_inverse_dynamics_solver";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ inverse-dynamics-solver kdl-parser pluginlib ur-description ];
+  propagatedNativeBuildInputs = [ inverse-dynamics-solver kdl-parser pluginlib rclcpp ur-description ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liborocos-kdl" "liborocos-kdl-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ inverse-dynamics-solver kdl-parser pluginlib ur-description ];
+  propagatedBuildInputs = [ inverse-dynamics-solver kdl-parser pluginlib rclcpp ur-description ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liborocos-kdl" "liborocos-kdl-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rclcpp ros-testing ];
   passthru.sources = mkSourceSet (sources: {
     "kdl_inverse_dynamics_solver" = substituteSource {
       src = fetchgit {
         name = "kdl_inverse_dynamics_solver-source";
         url = "https://github.com/ros2-gbp/inverse_dynamics_solver-release.git";
-        rev = "5596c3cf30304f7c637bb0aab258a3c7362c4b23";
-        hash = "sha256-naTrLcjm9sxxruCDz7giwbWBr3sggSfHUSf+mWFUzTQ=";
+        rev = "0162686e1b2c4229c6ff893e63a1f4a25a884c10";
+        hash = "sha256-1Bm24W7WrmZl+a/REYp7WEOfYiuY9XBW5GhyWPFWna4=";
       };
     };
   });

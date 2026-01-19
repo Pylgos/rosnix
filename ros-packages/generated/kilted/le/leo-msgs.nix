@@ -12,24 +12,25 @@
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
+  std-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_msgs";
-  version = "3.1.0-2";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."leo_msgs";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "leo_msgs" = substituteSource {
       src = fetchgit {
         name = "leo_msgs-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "0fb0da842b1ea31ef86dfe19e389478fc8b6e880";
-        hash = "sha256-KdsSvBe86MXYZW0IHWAm6Rab9cq6aoM6O0BE+V/F3x4=";
+        rev = "ba60db4a7a0a416c0a61dddd9d726219e2dd27fe";
+        hash = "sha256-nd27DDPynk59c1yGR2dOWJ13ts2BcBPs0uqRXOby/eU=";
       };
     };
   });

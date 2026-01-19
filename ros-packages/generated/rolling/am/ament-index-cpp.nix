@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-gen-version-h,
   ament-cmake-gtest,
   ament-lint-auto,
   ament-lint-common,
@@ -13,18 +14,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_index_cpp";
-  version = "1.12.1-1";
+  version = "1.13.1-1";
   src = finalAttrs.passthru.sources."ament_index_cpp";
-  nativeBuildInputs = [ ament-cmake ];
-  buildInputs = [ ament-cmake ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
+  buildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ament_index_cpp" = substituteSource {
       src = fetchgit {
         name = "ament_index_cpp-source";
         url = "https://github.com/ros2-gbp/ament_index-release.git";
-        rev = "c7b339133b05c5103d5f2ecb3d33ea2c05306af5";
-        hash = "sha256-xAuKXOlSYOkTVJwmQAeQdq7IEOzqL12fW53+hZJgfaU=";
+        rev = "26dbcf9f0907ad2401f383d6f37b988eeb83b227";
+        hash = "sha256-yYoNXNtibcX7thS9WVGwI1Eq0qa8cUzzRiihkXIPOcU=";
       };
     };
   });

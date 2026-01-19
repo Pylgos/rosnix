@@ -1,7 +1,8 @@
 {
   ament-cmake,
+  ament-cmake-lint-cmake,
+  ament-cmake-xmllint,
   ament-lint-auto,
-  ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -17,20 +18,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_gnss_to_markers";
-  version = "0.1.0-1";
+  version = "0.1.2-1";
   src = finalAttrs.passthru.sources."mola_gnss_to_markers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ mrpt-libobs mrpt-nav-interfaces rclcpp std-msgs visualization-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ mrpt-libobs mrpt-nav-interfaces rclcpp std-msgs visualization-msgs ];
-  checkInputs = [ ament-lint-auto ament-lint-common ];
+  checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "mola_gnss_to_markers" = substituteSource {
       src = fetchgit {
         name = "mola_gnss_to_markers-source";
         url = "https://github.com/ros2-gbp/mola_gnss_to_markers-release.git";
-        rev = "0f9034125328a7fba5855918ea94e4eaf8b06b84";
-        hash = "sha256-UXcqe/oU/nyRKhsCAO7XaSqGidwiNUosrR9A8VdNMuw=";
+        rev = "7d66b8820ee06c48c4144d34372d943959235e5f";
+        hash = "sha256-Kr5chlkHXOBITeUciaCMyddDX4Nxf7WKtyy47MwMzu8=";
       };
     };
   });

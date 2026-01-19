@@ -17,13 +17,12 @@
   rosSystemPackages,
   rviz2,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
-  version = "0.37.4-1";
+  version = "0.37.5-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher rviz2 ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher rviz2 ];
@@ -33,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "ccc1f0e5a49e9a471eca67d1c0094bd2921fbba8";
-        hash = "sha256-aaJrORQu87Ky76DBzUbAoqshCt9RaBLufGV0C6fSvNo=";
+        rev = "255ad133e3b2f50089ef8d6296b95254c297edf5";
+        hash = "sha256-PhKvFyZ5NvctPVLfrh6iazyCiQ40WThn7ZCRL57bvho=";
       };
     };
   });

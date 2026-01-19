@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_floorplans";
-  version = "2.4.2-1";
+  version = "2.5.1-1";
   src = finalAttrs.passthru.sources."rmf_visualization_floorplans";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components rmf-building-map-msgs rmf-visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libopencv-dev" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_floorplans-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "52e164bb4ea4a260d4f2e038b0ca27ae723a0bf4";
-        hash = "sha256-7z6tVXfzo/Fsh1g2kct+7bYGnWLY1kjvbO53h1cGQIY=";
+        rev = "3d4436faaa86b8386c22e9b431e9769b5307791a";
+        hash = "sha256-YtynKGK1jx9UnFKBVQUjjfgnIKJDXJdtD2if1VoXplw=";
       };
     };
   });

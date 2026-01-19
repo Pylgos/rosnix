@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_robot";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."leo_robot";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ leo leo-bringup leo-filters leo-fw ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_robot-source";
         url = "https://github.com/ros2-gbp/leo_robot-release.git";
-        rev = "a54409fe24abbd32c09473006f287836ce010ebb";
-        hash = "sha256-slmwT5KzV17WobvZXndCIYBTevL/TSO/1G6FA0hvutE=";
+        rev = "6faaae9791064f72516eb880dc143cd00a71c117";
+        hash = "sha256-syP9ZZ82+t7llxG5ZG/bKR3GdDLD2pGff1QMipWw17s=";
       };
     };
   });

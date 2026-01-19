@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pluginlib";
-  version = "5.4.3-1";
+  version = "5.4.4-1";
   src = finalAttrs.passthru.sources."pluginlib";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp class-loader rcpputils rcutils tinyxml2-vendor ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pluginlib-source";
         url = "https://github.com/ros2-gbp/pluginlib-release.git";
-        rev = "96512805cbac29cf7ab587dcae3311c19033c89d";
-        hash = "sha256-soviCBX5B/R8v+L9Bv12ZVOiKjmEvhQX+W9Tz1m35jU=";
+        rev = "47d152a6ffae274557a138720b4ea696cfe6270c";
+        hash = "sha256-OMjVhybI5jHbHiMGYBMubUPuz9nioV6bPxrwCehsj1I=";
       };
     };
   });

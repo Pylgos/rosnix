@@ -11,19 +11,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "openvdb_vendor";
-  version = "2.6.1-1";
+  version = "2.6.2-1";
   src = finalAttrs.passthru.sources."openvdb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "libopenvdb-dev" "tbb" "zlib" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "bzip2" "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "liblzma-dev" "libopenvdb-dev" "libzstd-dev" "tbb" "zlib" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "libopenvdb-dev" "tbb" "zlib" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "bzip2" "libblosc-dev" "libboost-iostreams-dev" "libboost-thread-dev" "liblzma-dev" "libopenvdb-dev" "libzstd-dev" "tbb" "zlib" ]; };
   passthru.sources = mkSourceSet (sources: {
     "openvdb_vendor" = substituteSource {
       src = fetchgit {
         name = "openvdb_vendor-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "20b7180d69ade192f8c3d107de6803c41e7a8908";
-        hash = "sha256-ci0AQn3NcxTwMC/ltRWHYHTDu13bLHGzxumqoaKWaD8=";
+        rev = "282fdc816d913eed3b07b418d41a27693d481efe";
+        hash = "sha256-ZKoeegGUYjwte2gWOgqsI7mCa3wzZ1Mh1EAqtXVWXkk=";
       };
       substitutions = [
         {

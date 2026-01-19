@@ -16,6 +16,7 @@
   leo-description,
   leo-filters,
   leo-fw,
+  leo-msgs,
   mkSourceSet,
   robot-state-publisher,
   rosSystemPackages,
@@ -28,20 +29,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_bringup";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."leo_bringup";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-python geometry-msgs image-proc launch launch-ros leo-description leo-filters leo-fw robot-state-publisher rosapi rosbridge-server sensor-msgs web-video-server xacro ];
+  propagatedNativeBuildInputs = [ ament-index-python geometry-msgs image-proc launch launch-ros leo-description leo-filters leo-fw leo-msgs robot-state-publisher rosapi rosbridge-server sensor-msgs web-video-server xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-smbus2" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-python geometry-msgs image-proc launch launch-ros leo-description leo-filters leo-fw robot-state-publisher rosapi rosbridge-server sensor-msgs web-video-server xacro ];
+  propagatedBuildInputs = [ ament-index-python geometry-msgs image-proc launch launch-ros leo-description leo-filters leo-fw leo-msgs robot-state-publisher rosapi rosbridge-server sensor-msgs web-video-server xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-smbus2" ]; };
   checkInputs = [ ament-cmake-black ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "leo_bringup" = substituteSource {
       src = fetchgit {
         name = "leo_bringup-source";
         url = "https://github.com/ros2-gbp/leo_robot-release.git";
-        rev = "01162a43974f725b76364bd15115e24ded233e40";
-        hash = "sha256-8Msl8OsJ8NhFbf6e2iJ53s68MZnZ2bzHzvA+4GLdFWQ=";
+        rev = "332ef614ba797088279835d97dabc98f7ea60cf7";
+        hash = "sha256-FoZoDrNUyfFUWFRL2hcvczV43tmzbeStqRRjpIizLik=";
       };
     };
   });

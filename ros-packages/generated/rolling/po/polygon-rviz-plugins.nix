@@ -14,13 +14,12 @@
   rviz-common,
   std-msgs,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_rviz_plugins";
   version = "1.3.0-1";
   src = finalAttrs.passthru.sources."polygon_rviz_plugins";
-  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ color-util geometry-msgs pluginlib polygon-msgs polygon-utils rviz-common std-msgs ];
   buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ color-util geometry-msgs pluginlib polygon-msgs polygon-utils rviz-common std-msgs ];

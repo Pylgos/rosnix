@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2node";
-  version = "0.40.2-1";
+  version = "0.40.4-1";
   src = finalAttrs.passthru.sources."ros2node";
   propagatedNativeBuildInputs = [ rclpy ros2cli ];
   propagatedBuildInputs = [ rclpy ros2cli ];
@@ -30,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2node-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "148f12bf4d820ffa90363e1517559909577308c4";
-        hash = "sha256-hEKYIvOFj11LwMXX4dUPqth3HH04pqW9rhHDiivUhzo=";
+        rev = "cebc583b8262803721593bcd16cd74300511ac46";
+        hash = "sha256-hPPEcy0xcRInUPy61gmYJamzsWLp+i7tDXp1up/FlkE=";
       };
     };
   });

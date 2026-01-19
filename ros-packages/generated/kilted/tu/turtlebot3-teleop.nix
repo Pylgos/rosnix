@@ -11,7 +11,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_teleop";
-  version = "2.3.4-1";
+  version = "2.3.6-1";
   src = finalAttrs.passthru.sources."turtlebot3_teleop";
   propagatedNativeBuildInputs = [ geometry-msgs rclpy ];
   propagatedBuildInputs = [ geometry-msgs rclpy ];
@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_teleop-source";
         url = "https://github.com/ros2-gbp/turtlebot3-release.git";
-        rev = "3eda2cf89449f13d1dbe38587f5473d9aa94fa24";
-        hash = "sha256-wZWlG6OqaUsBuucDGZ0G9kse9bHfS21pVXspj9q6wMk=";
+        rev = "91573ad06eda7b56714ab672d8db3c9226b0ea35";
+        hash = "sha256-Fg2h+RfnNcJcr4jH86Yc+9yh8ilkkem9ZyschCAjEjE=";
       };
     };
   });

@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "omni_wheel_drive_controller";
-  version = "6.0.0-1";
+  version = "6.2.0-1";
   src = finalAttrs.passthru.sources."omni_wheel_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "omni_wheel_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "fbdcc94f1e9e5df973196717d12742be961a4ff0";
-        hash = "sha256-s/z+jgMJXolR9W2bpUS0wZ8BkkUwVcc/ohMqBjE5y+8=";
+        rev = "1c7e1af3c4e3202b83094cd36a697d70e521d47b";
+        hash = "sha256-CpOpElNqWp6wgMCCxOSYpCE3ABJEnMywYcVg60sjoXg=";
       };
     };
   });

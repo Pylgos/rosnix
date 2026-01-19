@@ -48,8 +48,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-fuel-tools-source";
         url = "https://github.com/gazebosim/gz-fuel-tools.git";
-        rev = "02873cc23792a67aada07dbcc4a6b05bd0cd6b33";
-        hash = "sha256-wZGSgAG6cysdnEdIOD6vauHB9AnrNvj8ymvlHBJBQvw=";
+        rev = "d7bf3a9521fa1e866027d7b1dcab5e559fffb90d";
+        hash = "sha256-WY3IKyOwbjfpypUsK8EgF+BBl8MT/xxecj2FmVmfEXM=";
       };
     };
   });

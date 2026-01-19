@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "spatio_temporal_voxel_layer";
-  version = "2.6.1-1";
+  version = "2.6.2-1";
   src = finalAttrs.passthru.sources."spatio_temporal_voxel_layer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs laser-geometry message-filters nav2-costmap-2d openvdb-vendor pcl-conversions pluginlib rclcpp rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-geometry-msgs tf2-ros tf2-sensor-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopenexr-dev" "libpcl-all-dev" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "spatio_temporal_voxel_layer-source";
         url = "https://github.com/SteveMacenski/spatio_temporal_voxel_layer-release.git";
-        rev = "53efe768824542a64a91068a40d979f2c0712628";
-        hash = "sha256-Yl5CgPDUIx/YXRFu4rCSsZI5vBmJgIId3SM6yTQBgSs=";
+        rev = "3eab6752aeeba64b958df8d3900b8cc5a577b960";
+        hash = "sha256-NHcojaw2pkO4TCfFvRV50MtaKX23dg11YQBU1oW2xRo=";
       };
     };
   });

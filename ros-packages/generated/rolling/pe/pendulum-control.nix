@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pendulum_control";
-  version = "0.37.4-1";
+  version = "0.37.5-1";
   src = finalAttrs.passthru.sources."pendulum_control";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pendulum-msgs rclcpp rttest tlsf-cpp ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pendulum_control-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "36956cc006adb154a7c8c7cdce7952016b133aeb";
-        hash = "sha256-QcVW+y3MMYhZt9KGNpFIl+5m/uOnjiwXpdD9B6S2slE=";
+        rev = "b1ad252c85c5314373ac880339cee40a85d69820";
+        hash = "sha256-fw2Cym0WU5+/m6ZC9ke/B1NBkVjh59FG+hILUAvF5Uc=";
       };
     };
   });

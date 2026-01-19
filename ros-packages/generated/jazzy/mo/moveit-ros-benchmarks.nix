@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_benchmarks";
-  version = "2.12.3-1";
+  version = "2.12.4-1";
   src = finalAttrs.passthru.sources."moveit_ros_benchmarks";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ launch-param-builder moveit-common moveit-configs-utils moveit-core moveit-ros-planning moveit-ros-warehouse pluginlib rclcpp tf2-eigen ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-date-time" "libboost-date-time-dev" "libboost-dev" "libboost-filesystem" "libboost-filesystem-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_ros_benchmarks-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "af6f677a490f16516d3ca131979697472700adbd";
-        hash = "sha256-9UY8Wzz3I6pxqw+uOkURgWtNzQv12iUi4tLdRdVI4RI=";
+        rev = "065ccb069a02b26122eb5f6cebcca2c103cbef8c";
+        hash = "sha256-h06TC1FMTFq6SiW8WGftVZ1RphITExJ8ocNBI6p3aok=";
       };
     };
   });
