@@ -1,5 +1,4 @@
 {
-  ament-cmake,
   ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
@@ -26,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_connextdds_common";
-  version = "0.22.2-1";
+  version = "0.22.3-1";
   src = finalAttrs.passthru.sources."rmw_connextdds_common";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ ament-cmake fastcdr rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
+  propagatedNativeBuildInputs = [ fastcdr rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ ament-cmake fastcdr rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
+  propagatedBuildInputs = [ fastcdr rcpputils rcutils rmw rmw-dds-common rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-c rosidl-typesupport-fastrtps-cpp rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp rti-connext-dds-cmake-module tracetools ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_connextdds_common" = substituteSource {
       src = fetchgit {
         name = "rmw_connextdds_common-source";
         url = "https://github.com/ros2-gbp/rmw_connextdds-release.git";
-        rev = "ad795a34b9ad4283807beddd53e66e7827cdd0c4";
-        hash = "sha256-XBY3BJnsZaEfRcHUeEHNLwwedPju56FeHqkx/IvJvFc=";
+        rev = "f5663f1c313f775aa8876d9df872ff7ef90c1b49";
+        hash = "sha256-M2ZgghYHo/GnOoQQHGFWGR8vvrfXwTXEcYazszQFF3c=";
       };
     };
   });

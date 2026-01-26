@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_minimal_timer";
-  version = "0.21.3-1";
+  version = "0.21.4-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_minimal_timer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclcpp_minimal_timer-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "f0bc57d184019b64a183c3093a34d943c63ca233";
-        hash = "sha256-y3btIGvj/qLxkLAxXQAD6NtjC5HJSGgEM4dNUQjDddQ=";
+        rev = "d731698d13e88a5e8e696ba468780f2f5d13de48";
+        hash = "sha256-CByToK711shdIsnqWKFBrg7ML7sbtHQTmNVwJqhJAUQ=";
       };
     };
   });

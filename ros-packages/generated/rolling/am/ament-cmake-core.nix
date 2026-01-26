@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_core";
-  version = "2.8.4-1";
+  version = "2.8.5-1";
   src = finalAttrs.passthru.sources."ament_cmake_core";
   propagatedNativeBuildInputs = [ ament-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "python3-catkin-pkg-modules" ]; };
   propagatedBuildInputs = [ ament-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" "python3-catkin-pkg-modules" ]; };
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_core-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "4ea445484123a5c0e0ae152b7f110ce54aa4f0f2";
-        hash = "sha256-Cpf5RhOzYECOPyvfzwbj4/4idRzQgxQGEk8iTtXrqIw=";
+        rev = "45bd5119c28779408cecf677f5632d4b098fdf5e";
+        hash = "sha256-zDC4rQj846GuCGTg22nUJENYBkypsBd46OLoQNqSTyM=";
       };
     };
   });

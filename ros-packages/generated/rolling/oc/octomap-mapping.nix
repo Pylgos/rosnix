@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_mapping";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."octomap_mapping";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ octomap-server ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "octomap_mapping-source";
         url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
-        rev = "6cd31f823198e3f9f2d6170ee0daf5979eabccc2";
-        hash = "sha256-b/eXXTaTKgI3DlT33nue0Yz0x52yTantz+VlRbfMyzI=";
+        rev = "6a89f89d2b8fc8efb262f00d14b9c4de15100407";
+        hash = "sha256-UWFkvOW/+kzKeLmCB2KVcoWjIvh7LBfbvkZ3y+/hlEg=";
       };
     };
   });

@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_desert";
-  version = "4.0.0-1";
+  version = "4.0.1-2";
   src = finalAttrs.passthru.sources."rmw_desert";
   nativeBuildInputs = [ ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ ament-cmake rcpputils rcutils rmw rmw-dds-common rosidl-cmake rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_desert-source";
         url = "https://github.com/ros2-gbp/rmw_desert-release.git";
-        rev = "8d6f28c8f23bc9cd9a0642f964db38167bc20ef7";
-        hash = "sha256-stXPAGnzEC/wACPSp7BvRx+SbaOjf7Sq3/RgK2FjBsE=";
+        rev = "38c6b2942eeab841abb16f6220fa8da0d41216f8";
+        hash = "sha256-PCsAetLE1dIWaLvP1bVW0JB0MLkyfcXlQBFUDGHsu9U=";
       };
     };
   });

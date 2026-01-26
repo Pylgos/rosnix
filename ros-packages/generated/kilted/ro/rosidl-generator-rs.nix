@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_generator_rs";
-  version = "0.4.9-1";
+  version = "0.4.10-1";
   src = finalAttrs.passthru.sources."rosidl_generator_rs";
   propagatedNativeBuildInputs = [ ament-cmake ros-environment rosidl-generator-c rosidl-parser rosidl-pycommon rosidl-typesupport-c rosidl-typesupport-interface ];
   propagatedBuildInputs = [ ament-cmake ros-environment rosidl-generator-c rosidl-parser rosidl-pycommon rosidl-typesupport-c rosidl-typesupport-interface ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_generator_rs-source";
         url = "https://github.com/ros2-gbp/rosidl_rust-release.git";
-        rev = "13941ca2fe1e1d1eb1bef2f4f24702d7ddc93447";
-        hash = "sha256-XBHIgbtA6Qt+4IErCwsT+n2gyAg4fiKAZEF8nsnBjQc=";
+        rev = "2183fe8424fec79d17a1f72d6ddc8eba58118ea2";
+        hash = "sha256-SaqU8ibVMeNLT6JUgXhWtHujOfLmk2mD0ZVDwkcOytE=";
       };
     };
   });

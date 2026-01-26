@@ -1,5 +1,7 @@
 {
   ament-copyright,
+  ament-flake8,
+  ament-pep257,
   ament-xmllint,
   buildAmentPythonPackage,
   fetchgit,
@@ -17,18 +19,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joint_state_publisher";
-  version = "2.4.0-3";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."joint_state_publisher";
-  propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ];
-  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ];
-  checkInputs = [ ament-copyright ament-xmllint launch-testing launch-testing-ros ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-packaging" ]; };
+  propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-packaging" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch-testing launch-testing-ros ros2topic ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "joint_state_publisher" = substituteSource {
       src = fetchgit {
         name = "joint_state_publisher-source";
         url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
-        rev = "c212af68c11ed111ecae4ecbb8c059f538c98d73";
-        hash = "sha256-Nw7THKbjIvXASwE8//Ta0Z1Q5BPXlK5VafC2jZvMs4E=";
+        rev = "2a409a31eea663f730c7f79538fef84e4943c814";
+        hash = "sha256-MECmuBQRqeyewXoG7F9C8YqVVzaJN0Q7GJc6nOh9wvE=";
       };
     };
   });

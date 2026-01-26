@@ -20,7 +20,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_plot";
-  version = "1.4.4-1";
+  version = "1.4.5-1";
   src = finalAttrs.passthru.sources."rqt_plot";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ python-qt-binding qt-gui-py-common rclpy rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-matplotlib" "python3-numpy" ]; };
@@ -31,8 +31,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_plot-source";
         url = "https://github.com/ros2-gbp/rqt_plot-release.git";
-        rev = "155750b03933760934b5b4f05090eacf1e3fdb2c";
-        hash = "sha256-+wP0qrFRAJn5NzV6rSjbWts40b74nsPPENSWv/zmEzc=";
+        rev = "11f6d2b628a13eba155c2bc3e63eeef24d7bbb5d";
+        hash = "sha256-B5P3NpfZNxXfGOVbeKqUHPTF/JLxH011uj2bcmHBHq8=";
       };
     };
   });

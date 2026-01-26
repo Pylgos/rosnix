@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "battery_state_broadcaster";
-  version = "1.1.0-1";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."battery_state_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface pluginlib realtime-tools sensor-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "battery_state_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros_battery_monitoring-release.git";
-        rev = "374287ed8a8616269e3d613152753370a1d298ca";
-        hash = "sha256-g9Ggtipouw8eevfMXcQTxeDQ+ZqY3+V0kfB0zbMiyKQ=";
+        rev = "f0448ce6cea9ab5b9965095dee35fcff69fc2999";
+        hash = "sha256-70A92yD/khpnrQhZimDdebxm5NZcNx/zngFLg+RfT9k=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_graph";
-  version = "1.5.5-1";
+  version = "1.5.6-1";
   src = finalAttrs.passthru.sources."rqt_graph";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rqt-gui rqt-gui-py ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_graph-source";
         url = "https://github.com/ros2-gbp/rqt_graph-release.git";
-        rev = "1bc818d270b3ab78b2e1b2d5946da61a5e158076";
-        hash = "sha256-WU0Qy2qdiFjn+cleWweZwN2mNeFhN3AbeEHipLi/5iE=";
+        rev = "0cd5d8e199f416c43116ca5883a6e572ac39288e";
+        hash = "sha256-XpbXThBs0650uFWFVuv95grRh+Rx7XfU1kpGB5GDY7Y=";
       };
     };
   });

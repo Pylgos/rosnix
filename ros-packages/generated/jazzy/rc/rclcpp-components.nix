@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclcpp_components";
-  version = "28.1.15-1";
+  version = "28.1.16-1";
   src = finalAttrs.passthru.sources."rclcpp_components";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ament-index-cpp class-loader composition-interfaces rclcpp rcpputils ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclcpp_components-source";
         url = "https://github.com/ros2-gbp/rclcpp-release.git";
-        rev = "47d6927379ebe8588bdb86a79535cea4f0ca2d29";
-        hash = "sha256-qdztlsHBdkus6QMNadGVQ9fLdiqgUMs3nItecY8sQfM=";
+        rev = "a85640fba447324a6d9f6e6f3cf77417566224cc";
+        hash = "sha256-Pl+KgPu7zHcM97dxwJ1xITm3wnmy4sWloSjqUNiO+Dc=";
       };
     };
   });

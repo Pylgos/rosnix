@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_service_caller";
-  version = "1.2.1-3";
+  version = "1.2.2-1";
   src = finalAttrs.passthru.sources."rqt_service_caller";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rqt-gui rqt-gui-py rqt-py-common ];
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_service_caller-source";
         url = "https://github.com/ros2-gbp/rqt_service_caller-release.git";
-        rev = "e98925d2967198ddbd60bb9df580fd8dff129f3d";
-        hash = "sha256-SkbOwJQXbq432M9Ogjsl0vOfVi+A35O7CltyhS/2lk8=";
+        rev = "f7c13e4039517ef8b81d37b65682fe85b33001a7";
+        hash = "sha256-9JnKnjoZTl6BN6JTqh9VbGLAlorNvtDBGk4obX36wtc=";
       };
     };
   });

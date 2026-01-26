@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_mypy";
-  version = "0.17.3-1";
+  version = "0.17.4-1";
   src = finalAttrs.passthru.sources."ament_cmake_mypy";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-mypy ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_mypy-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "ccf529ff7f5f82477cbb95c96ba5a7f0d2990fce";
-        hash = "sha256-q3RtH7n7yqRAZ+nH/qKu5vVlFmfiSODT002r9biaNh4=";
+        rev = "6a69dead3105af39d9c647c87f6c14b422e313b8";
+        hash = "sha256-Vy0+GhoxwI6gO8kUZIMB8xfHfnNeavyjXo9MLbLu+3M=";
       };
     };
   });

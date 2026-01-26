@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_msgs_vendor";
-  version = "0.3.2-1";
+  version = "0.3.3-1";
   src = finalAttrs.passthru.sources."gz_msgs_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-msgs" "protobuf-dev" "python3" "python3-protobuf" "tinyxml2" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_msgs_vendor-source";
         url = "https://github.com/ros2-gbp/gz_msgs_vendor-release.git";
-        rev = "69f986db597c01acde7b4e9618244a62a4bb092b";
-        hash = "sha256-UMwpy4jtnZGXCcbBNxJ8fNtcTI529WBx/isx/DPxZf4=";
+        rev = "96e33a735694d696c77d6db045762632304b1155";
+        hash = "sha256-eQpBw1oZu7vO0kzrr2+t729bPAvUP/5bbWy4mQ4cxOs=";
       };
       substitutions = [
         {
@@ -45,12 +45,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-msgs-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "cbdf4c352d598a812cecf0151be9d123b3597b1b";
-        hash = "sha256-YA3SxkDFeZhhxTiYbQbVZthI/YhhilZbUaP/FpeNeDA=";
+        rev = "7fa73dc1119d65635948ea0c59cb415b7e8f96c7";
+        hash = "sha256-LinEaHnHD/m+BmjBBq198W8XqOOc9yVXfDnwUrSz9+Y=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-msgs 12.0.0\n\n    Gazebo Messages: Protobuf messages and functions for robot applications\n  ";
+    description = "\n    Vendor package for: gz-msgs 12.0.1\n\n    Gazebo Messages: Protobuf messages and functions for robot applications\n  ";
   };
 })

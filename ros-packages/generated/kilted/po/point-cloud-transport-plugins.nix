@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_plugins";
-  version = "5.0.3-1";
+  version = "5.0.4-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_plugins";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ draco-point-cloud-transport point-cloud-interfaces zlib-point-cloud-transport zstd-point-cloud-transport ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "point_cloud_transport_plugins-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "8bee24854fb296b4778eaddddae102ae73cf9dc5";
-        hash = "sha256-+LMBYlpAQtd5rW0VB/44fajutt7O08X79uUQF4yuc0o=";
+        rev = "37fd94252951eed4d611e6816bcf1009c7b948d2";
+        hash = "sha256-t9rfCvM16Xdveg0I/o02WVkKnnm6P9OLwoZH7FDHKQk=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joint_state_publisher_gui";
-  version = "2.4.0-3";
+  version = "2.4.1-1";
   src = finalAttrs.passthru.sources."joint_state_publisher_gui";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "joint_state_publisher_gui-source";
         url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
-        rev = "21bf42d0b6c67a22cd346a33e5f089e0f2590278";
-        hash = "sha256-ZumKM1KrbYTFo3f4tigUBtyVcxNOVbG2+FR7x85ZLhM=";
+        rev = "76fd3452266dcec9cd31671c70a8281dd4f56b95";
+        hash = "sha256-S9408FbFM2Q829i6klFJq1C1KKKAWNbIsf5Btl3kbjI=";
       };
     };
   });

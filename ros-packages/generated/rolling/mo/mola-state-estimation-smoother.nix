@@ -1,32 +1,38 @@
 {
-  buildCmakePackage,
+  ament-cmake,
+  ament-cmake-gtest,
+  ament-cmake-xmllint,
+  buildAmentCmakePackage,
   fetchgit,
   fetchurl,
   fetchzip,
   gtsam,
   mkSourceSet,
   mola-common,
+  mola-gtsam-factors,
   mola-imu-preintegration,
   mola-kernel,
+  mola-launcher,
   mrpt-libobs,
+  ros-environment,
   rosSystemPackages,
   substituteSource,
 }:
-buildCmakePackage (finalAttrs: {
+buildAmentCmakePackage (finalAttrs: {
   pname = "mola_state_estimation_smoother";
-  version = "1.11.1-1";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_smoother";
-  nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ gtsam mola-common mola-imu-preintegration mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
-  buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ gtsam mola-common mola-imu-preintegration mola-kernel mrpt-libobs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
+  nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-xmllint gtsam mola-common mola-gtsam-factors mola-imu-preintegration mola-kernel mola-launcher mrpt-libobs ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
+  buildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
+  propagatedBuildInputs = [ ament-cmake-xmllint gtsam mola-common mola-gtsam-factors mola-imu-preintegration mola-kernel mola-launcher mrpt-libobs ros-environment ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "mola_state_estimation_smoother" = substituteSource {
       src = fetchgit {
         name = "mola_state_estimation_smoother-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "1f37dc0f1531001cb2db68b3af7f8a8d8a0056bd";
-        hash = "sha256-XMPoQgynvjMRbrhf3FqxNYth/fNJJS2t2BFVrTjJLUc=";
+        rev = "561f15ee5f4d7475334b97448aa93a8c28aceb36";
+        hash = "sha256-kvHCo0hrBHDOloANWpOdGijY6qBU5Lc3RVLv77ZQ0bs=";
       };
     };
   });

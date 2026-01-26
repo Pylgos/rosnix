@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_server";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."octomap_server";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ geometry-msgs message-filters nav-msgs octomap-msgs octomap-ros pcl-conversions pcl-ros rclcpp rclcpp-components sensor-msgs std-msgs std-srvs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liboctomap-dev" "libpcl-all-dev" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "octomap_server-source";
         url = "https://github.com/ros2-gbp/octomap_mapping-release.git";
-        rev = "8b4e04118143d4f1c9d6b1c357b40fbebfe88732";
-        hash = "sha256-qokWpx6Dn8+CCs6PtkaIlxri9WRcZqpqj34kbhZR1Cc=";
+        rev = "18d21a0106b4b588fa89153d1406fbea8474bd44";
+        hash = "sha256-2jh7BXBXDMopGffnQ81BVS0j9IIDQdGvLS40L56lPOs=";
       };
     };
   });

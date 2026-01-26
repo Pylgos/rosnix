@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_vendor";
-  version = "0.3.2-1";
+  version = "0.3.3-1";
   src = finalAttrs.passthru.sources."sdformat_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-tools-vendor gz-utils-vendor urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "sdformat" "tinyxml2" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_vendor-source";
         url = "https://github.com/ros2-gbp/sdformat_vendor-release.git";
-        rev = "6c98c12842c7d28441fc29e3460d5c5b22902d42";
-        hash = "sha256-UJ/PQFHgbDN4KDQ0QGhg/VcrHmN2PSL6VLxxHuJwkzo=";
+        rev = "5205ccaee939bf888bc24ba7663ce993a0df5d5e";
+        hash = "sha256-rCCS4hmg9eQOeSxfDnoT6G98j53LDsS80JE4cFyoRFw=";
       };
       substitutions = [
         {
@@ -53,6 +53,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "\n    Vendor package for: sdformat 16.0.0\n\n    SDFormat is an XML file format that describes environments, objects, and robots\nin a manner suitable for robotic applications\n  ";
+    description = "\n    Vendor package for: sdformat 16.0.1\n\n    SDFormat is an XML file format that describes environments, objects, and robots\nin a manner suitable for robotic applications\n  ";
   };
 })

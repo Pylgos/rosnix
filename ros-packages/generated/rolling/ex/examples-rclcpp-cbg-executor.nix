@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "examples_rclcpp_cbg_executor";
-  version = "0.21.3-1";
+  version = "0.21.4-1";
   src = finalAttrs.passthru.sources."examples_rclcpp_cbg_executor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "examples_rclcpp_cbg_executor-source";
         url = "https://github.com/ros2-gbp/examples-release.git";
-        rev = "ecd990452d6cb0d6d510f695be8206faccf2e59b";
-        hash = "sha256-AENMUO0B8uOD2/2Wp6i0e3GiXlRTd/7CmhIuGn/ueQY=";
+        rev = "315b35f37987482179199460ee9ff7af04a476d6";
+        hash = "sha256-Qa4Gp36V5uTGLhWwFDJyQdyHXMDKvBmjW6FHFdHWxBw=";
       };
     };
   });
