@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_bringup";
-  version = "1.3.10-1";
+  version = "1.3.11-1";
   src = finalAttrs.passthru.sources."nav2_bringup";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ diff-drive-controller joint-state-broadcaster launch-ros nav2-common nav2-minimal-tb3-sim nav2-minimal-tb4-sim navigation2 ros-gz-bridge ros-gz-sim slam-toolbox xacro ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_bringup-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "a4f19f924a91cfe28627a0c3955e667aa443ff27";
-        hash = "sha256-2ep2r1GBrrUH1tpQfoGkMKiwdh8piO3vkmtFD6TH31I=";
+        rev = "d4564c5d09e92651c30599ae301f8ae2a3360fa5";
+        hash = "sha256-0mNy87dORAkfaCtR8zjuRxNHrAIMBOySFUt1sXdyC6s=";
       };
     };
   });

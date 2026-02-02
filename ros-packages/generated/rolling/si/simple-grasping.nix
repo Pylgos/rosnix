@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simple_grasping";
-  version = "0.5.0-1";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."simple_grasping";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs grasping-msgs moveit-msgs pcl-conversions pcl-ros rclcpp rclcpp-action rclcpp-components sensor-msgs shape-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "simple_grasping-source";
         url = "https://github.com/ros2-gbp/simple_grasping-release.git";
-        rev = "188727f1f711a1349666ee9d394844789d2339c9";
-        hash = "sha256-9mz6liueWT2sBhaNwYvXNwJpFf8NTEzTam3jr+13GHU=";
+        rev = "84d79ce163dad5cd1bbe9c84662aa188e4ea66b4";
+        hash = "sha256-J9J5I34hYm8WFX3KFffCQLcJwDmI3IUlC8pXEgcaS04=";
       };
     };
   });

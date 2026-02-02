@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "off_highway_can";
-  version = "1.1.0-2";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."off_highway_can";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ can-msgs diagnostic-updater rclcpp ros2-socketcan-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "off_highway_can-source";
         url = "https://github.com/ros2-gbp/off_highway_sensor_drivers-release.git";
-        rev = "2b6cd5d549ad0c9f25707daf5ebf769dc70b4fa5";
-        hash = "sha256-6jJhlujXY/Rarn1mfG2CXohJOnayaxj8leDCXth2gzk=";
+        rev = "bff2b5d82bc931237ed36059c43718879f0a3535";
+        hash = "sha256-LRY92X9MTi4KTXSApKLQ52EJfqHsfWVoiZ0vflUHNbo=";
       };
     };
   });

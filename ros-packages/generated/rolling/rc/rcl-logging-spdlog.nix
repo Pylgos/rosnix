@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_logging_spdlog";
-  version = "3.3.2-1";
+  version = "3.4.0-1";
   src = finalAttrs.passthru.sources."rcl_logging_spdlog";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rcl-logging-interface rcpputils rcutils spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "spdlog" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcl_logging_spdlog-source";
         url = "https://github.com/ros2-gbp/rcl_logging-release.git";
-        rev = "99d2d5267ee08d4f4ccc4e872ccef567ce0db0f0";
-        hash = "sha256-fZfY0w8xJZm7fmjd4OKtX0iI7yDlC5Psl+PzbF6k0wU=";
+        rev = "2f75623fe76646ee6a29db67c154111a22d9b0d2";
+        hash = "sha256-wspHR7xd/+fL79nBqLCNLhL5EVYi28kixPvKy81Wv20=";
       };
     };
   });

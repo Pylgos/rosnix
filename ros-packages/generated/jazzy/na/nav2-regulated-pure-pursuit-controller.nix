@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_regulated_pure_pursuit_controller";
-  version = "1.3.10-1";
+  version = "1.3.11-1";
   src = finalAttrs.passthru.sources."nav2_regulated_pure_pursuit_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles geometry-msgs nav2-common nav2-core nav2-costmap-2d nav2-msgs nav2-util pluginlib rclcpp tf2 tf2-geometry-msgs ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_regulated_pure_pursuit_controller-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "3baa2783471ac3cf3bdef4152fd30ec77708d205";
-        hash = "sha256-Y+4Q3t4V0rOpVYnBU+uhZEDVwU8VXy68d/hcudcaPr0=";
+        rev = "ab1869f96a5a7e705263711af1b4e2a7398ced1e";
+        hash = "sha256-n5vehAco9YI0TmQdHqVOGs8ViNv6+yGZfI3Uv48YNxc=";
       };
     };
   });

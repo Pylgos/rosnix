@@ -32,7 +32,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "orbbec_camera";
-  version = "2.5.5-3";
+  version = "2.6.3-1";
   src = finalAttrs.passthru.sources."orbbec_camera";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp ament-lint-auto ament-lint-common backward-ros builtin-interfaces camera-info-manager cv-bridge diagnostic-msgs diagnostic-updater image-publisher image-transport orbbec-camera-msgs rclcpp rclcpp-components sensor-msgs statistics-msgs std-msgs std-srvs tf2 tf2-msgs tf2-ros tf2-sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgflags-dev" "libgoogle-glog-dev" "libssl-dev" "nlohmann-json-dev" "opengl" ]; };
@@ -43,8 +43,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "orbbec_camera-source";
         url = "https://github.com/orbbec/orbbec_camera_v2-release.git";
-        rev = "8a7b6c2f239ffe755fdf4b1882875b2e7b78e5a2";
-        hash = "sha256-AeGClU1qAxGQgPsw4iqvhw3RetNIs2BpL1ebOW7S92E=";
+        rev = "b0115ddcefbaf0c07175b41af66f4d55dc1658af";
+        hash = "sha256-y50uhYi2uvHu01EjVoVc4nnpKg/WSSQ2+X75oooUXLg=";
       };
     };
   });

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cras_lint";
-  version = "3.0.0-2";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."cras_lint";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-lint-common ];
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-test ament-lint-common ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cras_lint-source";
         url = "https://github.com/ros2-gbp/cras_ros_utils-release.git";
-        rev = "32a225b1ecf4d513849e180e8e68170312ee382f";
-        hash = "sha256-XBN9uYInF5QjUMxkWL4wpQmdn3ofiYB6q9z7tt/3LGE=";
+        rev = "a2b53274178ab1707cc6522208523db73d309f08";
+        hash = "sha256-no3eJXtQCN0h3PczA/k92S4bB8h5kPErzQYnwHvaZKg=";
       };
     };
   });

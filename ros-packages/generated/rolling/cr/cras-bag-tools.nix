@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cras_bag_tools";
-  version = "3.0.0-2";
+  version = "3.0.1-1";
   src = finalAttrs.passthru.sources."cras_bag_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ builtin-interfaces cv-bridge rclpy rosbag2-py rosidl-runtime-py sensor-msgs tf2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-marisa" "python3-matplotlib" "python3-tqdm" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cras_bag_tools-source";
         url = "https://github.com/ros2-gbp/cras_ros_utils-release.git";
-        rev = "70d89959422dd37dffb49f0972dbb6dffa8226b5";
-        hash = "sha256-szoeW4Gcu3mOiBmp0aGdiDov5WACTm6K66IMgbqhv8U=";
+        rev = "e804a91a9627db1e178eae28587dcef1846be333";
+        hash = "sha256-ASvhe5Dan/LZ4mBexVZf6Yk0EVhde3yi8NCfMZBkBj0=";
       };
     };
   });

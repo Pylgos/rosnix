@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "fastdds";
-  version = "3.4.1-1";
+  version = "3.4.2-1";
   src = finalAttrs.passthru.sources."fastdds";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ fastcdr foonathan-memory-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" "libssl-dev" "python3" "tinyxml2" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fastdds-source";
         url = "https://github.com/ros2-gbp/fastdds-release.git";
-        rev = "5b3cf809dc8233976e38f80f1810d476d7387864";
-        hash = "sha256-D06PlZzuWdn7sVZ0m01ObVr5tFkBFpOap6PkaCo1gQE=";
+        rev = "9f21b4c90c4d529c4d1d123fb21192b5f1411761";
+        hash = "sha256-wXMTaJvsHKU7b+mCze1/mGZ6BPHi+PGgVa8o2b3VsD8=";
       };
     };
   });

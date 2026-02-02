@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration_msgs";
-  version = "0.10.0-2";
+  version = "0.10.1-1";
   src = finalAttrs.passthru.sources."robot_calibration_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robot_calibration_msgs-source";
         url = "https://github.com/ros2-gbp/robot_calibration-release.git";
-        rev = "b9d759fbf7257229fc35a27315ac9ed8a11ff8e8";
-        hash = "sha256-9+3xY7VTK0DUi2aU2RmmsP7CUvwaJH1astgQ78uUXtU=";
+        rev = "fbf49db6b497e7239797142835d54dc23646bd99";
+        hash = "sha256-knTaUrBMF1Mv7sNdCJDz136Uf2d3V35TtDGikGzMC0M=";
       };
     };
   });

@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-cmake-source";
         url = "https://github.com/gazebosim/gz-cmake.git";
-        rev = "fd6e19ce709dfdbbcb64667837e263d749b5c0f3";
-        hash = "sha256-3KP8nisRdldR3U1bWiRErqka/RC8Z2Fqziqrsec6oZo=";
+        rev = "b0627f6045883ad216703d4aa21b276f10be4956";
+        hash = "sha256-zxnHpgrxZlTDokYfCeEGLaicYizZijPItm+hID2I5MU=";
       };
     };
   });
