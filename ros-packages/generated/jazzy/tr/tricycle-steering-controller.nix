@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tricycle_steering_controller";
-  version = "4.36.0-1";
+  version = "4.37.0-1";
   src = finalAttrs.passthru.sources."tricycle_steering_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake std-srvs steering-controllers-library ];
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tricycle_steering_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "ca83fda993b91d7331a80d8c9fe03618a3720d7c";
-        hash = "sha256-QTd3WLZP1cT+j0jyIfhC5Iy+A1sMUsAuLyE55i8hBag=";
+        rev = "cb1b5a6a3c3e46df8ef4dbd2fa3da3ee77e21c6a";
+        hash = "sha256-5HoGc1T0CZaYyKSvzNROoA3MUwKISIBjXk5z2i5W+Jk=";
       };
     };
   });

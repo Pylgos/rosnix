@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "transmission_interface";
-  version = "4.42.2-1";
+  version = "4.43.0-1";
   src = finalAttrs.passthru.sources."transmission_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ hardware-interface pluginlib ros2-control-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "transmission_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "58c0a4ca5e9432efe1a0ad2601a5e3d1a5aeae97";
-        hash = "sha256-6M1Nh72ORoFsrKK+kz0Yu8RvCQTh8wqpDQIOuG6kgFc=";
+        rev = "fd7f399e11a72f34668be3618ee36653df526194";
+        hash = "sha256-2xvgkgzaIegF1oH8imNsAXB8Uc9DjED4pPfrukm/u+4=";
       };
     };
   });

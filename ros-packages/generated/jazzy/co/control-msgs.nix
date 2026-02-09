@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_msgs";
-  version = "5.7.0-1";
+  version = "5.8.0-1";
   src = finalAttrs.passthru.sources."control_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime sensor-msgs std-msgs trajectory-msgs ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "control_msgs-source";
         url = "https://github.com/ros2-gbp/control_msgs-release.git";
-        rev = "07f7723faddf82f4c2efb9c85d0aa620b7cc03ce";
-        hash = "sha256-6xNP1w1YCGtqkcczFF0Sv9/VvDtAmSAZCYTV8pF6H3A=";
+        rev = "6475b4b16179ab056de36140c0a24edc7697b646";
+        hash = "sha256-TmJqUAc7GJYKOMaeYem9c6XNdXV2DK7p1vK9nniTHd8=";
       };
     };
   });

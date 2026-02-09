@@ -1,6 +1,6 @@
 {
+  ament-cmake-clang-tidy,
   ament-cmake-copyright,
-  ament-cmake-cpplint,
   ament-cmake-lint-cmake,
   ament-cmake-ros,
   ament-cmake-uncrustify,
@@ -14,8 +14,10 @@
   fetchzip,
   image-transport,
   mkSourceSet,
+  pluginlib,
   rclcpp,
   rclcpp-components,
+  rmw,
   ros-environment,
   rosSystemPackages,
   sensor-msgs,
@@ -23,20 +25,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "web_video_server";
-  version = "2.1.1-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."web_video_server";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ async-web-server-cpp cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "ffmpeg" ]; };
+  propagatedNativeBuildInputs = [ async-web-server-cpp cv-bridge image-transport pluginlib rclcpp rclcpp-components rmw sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "ffmpeg" "libopencv-dev" ]; };
   buildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ async-web-server-cpp cv-bridge image-transport rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "ffmpeg" ]; };
-  checkInputs = [ ament-cmake-copyright ament-cmake-cpplint ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ros-environment ];
+  propagatedBuildInputs = [ async-web-server-cpp cv-bridge image-transport pluginlib rclcpp rclcpp-components rmw sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "ffmpeg" "libopencv-dev" ]; };
+  checkInputs = [ ament-cmake-clang-tidy ament-cmake-copyright ament-cmake-lint-cmake ament-cmake-uncrustify ament-cmake-xmllint ament-lint-auto ros-environment ];
   passthru.sources = mkSourceSet (sources: {
     "web_video_server" = substituteSource {
       src = fetchgit {
         name = "web_video_server-source";
         url = "https://github.com/ros2-gbp/web_video_server-release.git";
-        rev = "25a1edc20a02ec101049ff665e16a01f0b17cd14";
-        hash = "sha256-z6gIcOvRPHlQZQ5Fc+mIJ8fzvH3NKPxS8fZD5Ks4SKA=";
+        rev = "b4a0a6280cf212b59ee60edf45dda09b1f8ecc6d";
+        hash = "sha256-n1HjJwxbwXekSGxTu6WClkCA3sJCOav5cyb+WoIJn/A=";
       };
     };
   });

@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hardware_interface";
-  version = "5.11.3-1";
+  version = "5.12.0-1";
   src = finalAttrs.passthru.sources."hardware_interface";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs joint-limits lifecycle-msgs pal-statistics pluginlib rclcpp-lifecycle rcpputils rcutils realtime-tools ros2-control-cmake sdformat-urdf tinyxml2-vendor urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hardware_interface-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "ec10312f7542ceb40eb7d1d286fef3933789e1db";
-        hash = "sha256-JQtRDOp71rW0RHpYyj0pAcJgvgtlGk0kzS139PRNKgo=";
+        rev = "88b44019899c5f21d8f8a824fbadc07b3f40e71f";
+        hash = "sha256-QoHPlQCeAS9VML11cklSF9vVG+oez97SY7s15lUYY7A=";
       };
     };
   });

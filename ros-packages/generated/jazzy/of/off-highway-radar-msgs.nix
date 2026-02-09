@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "off_highway_radar_msgs";
-  version = "1.0.0-1";
+  version = "1.2.0-1";
   src = finalAttrs.passthru.sources."off_highway_radar_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "off_highway_radar_msgs-source";
         url = "https://github.com/ros2-gbp/off_highway_sensor_drivers-release.git";
-        rev = "969aeba1288019ab95452b23bff646e2e634fab7";
-        hash = "sha256-76MhJ5g0/0JKYmLUjPLUS1nwEWZqJY4TlcDPA7VTDPg=";
+        rev = "fa77d1f2d3ba954f9e661eaa0f397567f1953132";
+        hash = "sha256-bdlwGzRnT2aLuvuC6NMkzN/XJcnRI2wfsrGy9EZbm1M=";
       };
     };
   });
