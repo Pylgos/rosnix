@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "twist_mux";
-  version = "4.4.0-2";
+  version = "4.5.0-1";
   src = finalAttrs.passthru.sources."twist_mux";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-updater geometry-msgs rclcpp std-msgs twist-mux-msgs visualization-msgs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "twist_mux-source";
         url = "https://github.com/ros2-gbp/twist_mux-release.git";
-        rev = "bc23d2160fa10661623ea6843db5ebff5a1e92d2";
-        hash = "sha256-LUjCjkOa8TZo6t3CRx4EEhpfJcZGcPNk3gRiEF4U1GY=";
+        rev = "a6fcc5b65b9ff7b1770671f8c2c24632459b5957";
+        hash = "sha256-LFo/vgrnmWXSi5KDU7UfyLHVo1wRHeanVVEuIdDc5/M=";
       };
     };
   });

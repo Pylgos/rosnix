@@ -22,20 +22,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nobleo_socketcan_bridge";
-  version = "1.0.3-1";
+  version = "1.0.4-1";
   src = finalAttrs.passthru.sources."nobleo_socketcan_bridge";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros can-msgs diagnostic-msgs diagnostic-updater rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros can-msgs diagnostic-msgs diagnostic-updater rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "linux-kernel-headers" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-ros can-msgs diagnostic-msgs diagnostic-updater rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ ament-cmake-ros can-msgs diagnostic-msgs diagnostic-updater rclcpp rclcpp-components ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "linux-kernel-headers" ]; };
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "nobleo_socketcan_bridge" = substituteSource {
       src = fetchgit {
         name = "nobleo_socketcan_bridge-source";
         url = "https://github.com/ros2-gbp/nobleo_socketcan_bridge-release.git";
-        rev = "c5ea50ababf34051e97744cd27365e77f90a8400";
-        hash = "sha256-zotURPKFQk2zMgz0UNIoIPVv57nZHfRg5G3/JASTmNg=";
+        rev = "5552dffe3eb3b397325a1d2d81bb6f24f56d79d5";
+        hash = "sha256-HCryHVM6pe2Yq6FAfDMT1ncvd82FxbNMwfgH61qNfvM=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ds_dbw_msgs";
-  version = "2.3.10-1";
+  version = "2.3.11-1";
   src = finalAttrs.passthru.sources."ds_dbw_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ds_dbw_msgs-source";
         url = "https://github.com/DataspeedInc-release/dbw_ros-release.git";
-        rev = "40ddfe3efedcbfec97ce95ff736308da9ee0d681";
-        hash = "sha256-J0JN9RD4BZsZmPJxPZ1PuY+j/e7Z1pP7SeoTHGSDv/A=";
+        rev = "e7c6f4e4e9bb701cd657216bf1789b0a80f55b42";
+        hash = "sha256-uErCfuowxshzMjw7IiVWrEBAGFS+g1ImwsU2DwvET44=";
       };
     };
   });

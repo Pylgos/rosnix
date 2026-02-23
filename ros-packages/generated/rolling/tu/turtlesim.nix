@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlesim";
-  version = "1.10.4-1";
+  version = "1.10.5-1";
   src = finalAttrs.passthru.sources."turtlesim";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6gui6t64" "qt6-base-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlesim-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
-        rev = "a2e45697a359c4e2e32e3e746e9b7fb06605d717";
-        hash = "sha256-VoTvCLWQ6Dtayrqg4eh7VNACbCvL75aePXG6yLlc9Wg=";
+        rev = "8927ca6110baa2b840451dd256b41c1586774542";
+        hash = "sha256-SCUZiuK2kBpsKwRUMVZ2wAwZe1051iTJPKhWCFwWwFg=";
       };
     };
   });

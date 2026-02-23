@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fkie_message_filters";
-  version = "3.2.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."fkie_message_filters";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ image-transport rclcpp sensor-msgs tf2-ros ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fkie_message_filters-source";
         url = "https://github.com/ros2-gbp/fkie_message_filters-release.git";
-        rev = "f0240ddaf8d415d6527b57fae4a92d03ad8a52ab";
-        hash = "sha256-nJ5FQgWVbEFkBZsqqkfgxdRO20aJvyqjENDz2DeqdLE=";
+        rev = "1c6d8aa5215a127a02ed9dee702ac6a6abe43b21";
+        hash = "sha256-+LjpS9vepag5Q/RdIxY7cTc+XMfIB97ZzKPmoWQx+vc=";
       };
     };
   });

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "franka_inria_inverse_dynamics_solver";
-  version = "2.0.2-1";
+  version = "2.0.3-1";
   src = finalAttrs.passthru.sources."franka_inria_inverse_dynamics_solver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ inverse-dynamics-solver pluginlib ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "franka_inria_inverse_dynamics_solver-source";
         url = "https://github.com/ros2-gbp/inverse_dynamics_solver-release.git";
-        rev = "761a100ae88f44320bca39b07e63a08ee0a147ee";
-        hash = "sha256-AqbzM/9QLIKlFFj2/wnHFUNHZDkRWsD+xTA7Lo6aFCg=";
+        rev = "ae82e9050bfbb4ebdac1cfab140a8ed58fd68b6f";
+        hash = "sha256-OjGFK0iq67Tj2JENTc1OmUyilFymYay/5llxeBmtTbM=";
       };
     };
   });

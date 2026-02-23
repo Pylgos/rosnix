@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur10_inverse_dynamics_solver";
-  version = "6.0.1-2";
+  version = "6.0.1-3";
   src = finalAttrs.passthru.sources."ur10_inverse_dynamics_solver";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ inverse-dynamics-solver pluginlib ur-description ];
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur10_inverse_dynamics_solver-source";
         url = "https://github.com/ros2-gbp/inverse_dynamics_solver-release.git";
-        rev = "e6bb99ed3cdac6c9574334bb259b376639509abf";
+        rev = "4e680b280ac22b5613c4b03f85b8cf25dd352c02";
         hash = "sha256-PA/HwhdYTzmJduJrMMGWawZb58aUMcyTOuO6+7SAY10=";
       };
     };

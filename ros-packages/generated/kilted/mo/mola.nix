@@ -28,7 +28,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."mola";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ kitti-metrics-eval mola-bridge-ros2 mola-demos mola-input-euroc-dataset mola-input-kitti360-dataset mola-input-kitti-dataset mola-input-mulran-dataset mola-input-paris-luco-dataset mola-input-rawlog mola-input-rosbag2 mola-input-video mola-kernel mola-launcher mola-metric-maps mola-pose-list mola-relocalization mola-traj-tools mola-viz mola-yaml ];
@@ -39,8 +39,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "898fb2d3a96726fed2ac1c3e15a33c2921b2e83d";
-        hash = "sha256-JsIaEJIzRjE+/q/i5kHjwmvYxnoE/dgKLXW16K5eELU=";
+        rev = "0d2ad9fdbd052c493df5fe42d665e3d31ccb131e";
+        hash = "sha256-fBLYTP3Le7JB9zll+zrxPLLcS0iT5hpRDIboO3Qt080=";
       };
     };
   });

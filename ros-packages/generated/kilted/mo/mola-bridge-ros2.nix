@@ -9,6 +9,7 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  geographic-msgs,
   geometry-msgs,
   mkSourceSet,
   mola-common,
@@ -28,20 +29,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_bridge_ros2";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ geographic-msgs geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
   buildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ geographic-msgs geometry-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "mola_bridge_ros2" = substituteSource {
       src = fetchgit {
         name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "80f0aa2ec74dc5c3422ecaf27bdb7d032888443a";
-        hash = "sha256-JB2cPxgrOwoTa3XH7Y41BmzlHE/1H01PVxBDnDBrZ8M=";
+        rev = "0017f18f90f58d9985a9f187676850dfa502776f";
+        hash = "sha256-yD9lvHUr+vAQwjDeWAPh9E5xfZdQTApWLsBa4gfjbVo=";
       };
     };
   });

@@ -44,10 +44,25 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "309f0eb0453e2452f5ac22b0cd3a50910bb30e10";
-        hash = "sha256-OF/RQ/LOFwDkiktwQAGnUu0dYG2aH1a21X079pODtsY=";
+        rev = "b5d38e880ac0032d67340d029fe854389a48803f";
+        hash = "sha256-i+jEIJFyAMb5exTjHlI140rWq56JtlEW4uFWz/rZMjM=";
       };
       substitutions = [
+        {
+          path = "3rdparty/libfyaml/CMakeLists.txt";
+          from = "GIT_REPOSITORY \${JSONTESTSUITEURL}";
+          to = "URL ${sources."python_mrpt/mrpt/JSONTestSuite"}";
+        }
+        {
+          path = "3rdparty/libfyaml/CMakeLists.txt";
+          from = "GIT_REPOSITORY \${TESTSUITEURL}";
+          to = "URL ${sources."python_mrpt/mrpt/yaml-test-suite"}";
+        }
+        {
+          path = "3rdparty/libfyaml/CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/libcheck/check.git";
+          to = "URL ${sources."python_mrpt/mrpt/check"}";
+        }
         {
           path = "cmakemodules/script_assimp.cmake";
           from = "URL               \"https://github.com/assimp/assimp/archive/v5.3.1.tar.gz\"";
@@ -85,6 +100,22 @@ buildCmakePackage (finalAttrs: {
         name = "1-source";
         url = "https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz";
         hash = "sha256-yw8qGdNf35VrplhI+Sq2xNuwk78Ld6wkF6IVF5V8nKQ=";
+      };
+    };
+    "python_mrpt/mrpt/JSONTestSuite" = substituteSource {
+      src = fetchgit {
+        name = "JSONTestSuite-source";
+        url = "https://github.com/nst/JSONTestSuite";
+        rev = "d64aefb55228d9584d3e5b2433f720ea8fd00c82";
+        hash = "sha256-u2mMRH984TAi52xWH+R5exavGibuTUKNMBOC0/IdfFs=";
+      };
+    };
+    "python_mrpt/mrpt/check" = substituteSource {
+      src = fetchgit {
+        name = "check-source";
+        url = "https://github.com/libcheck/check.git";
+        rev = "11970a7e112dfe243a2e68773f014687df2900e8";
+        hash = "sha256-hv86zDygSJhzvOBqB3Lwys7KRNJTrsczRyLqkCxjqvI=";
       };
     };
     "python_mrpt/mrpt/eigen-3" = substituteSource {
@@ -285,6 +316,14 @@ buildCmakePackage (finalAttrs: {
         name = "hunter-zip-0_1_15-source";
         url = "https://github.com/kuba--/zip/archive/v0.1.15.tar.gz";
         hash = "sha256-BGzqiYqDqC2y8NkURsCf5OKepw5J26Ql0bQGZsaUdb8=";
+      };
+    };
+    "python_mrpt/mrpt/yaml-test-suite" = substituteSource {
+      src = fetchgit {
+        name = "yaml-test-suite-source";
+        url = "https://github.com/yaml/yaml-test-suite";
+        rev = "6e6c296ae9c9d2d5c4134b4b64d01b29ac19ff6f";
+        hash = "sha256-zXJy/dvbxkR47gWcfD4iN8mdr2gGR/L37KbcdYy3rAM=";
       };
     };
   });

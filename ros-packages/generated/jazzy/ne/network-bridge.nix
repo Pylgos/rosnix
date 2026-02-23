@@ -16,23 +16,25 @@
   rosSystemPackages,
   std-msgs,
   substituteSource,
+  tf2-msgs,
+  tf2-ros,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "network_bridge";
-  version = "2.0.0-1";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."network_bridge";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ pluginlib rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
+  propagatedNativeBuildInputs = [ pluginlib rclcpp std-msgs tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ pluginlib rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
+  propagatedBuildInputs = [ pluginlib rclcpp std-msgs tf2-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-system-dev" "libzstd-dev" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch-testing launch-testing-ament-cmake launch-testing-ros ];
   passthru.sources = mkSourceSet (sources: {
     "network_bridge" = substituteSource {
       src = fetchgit {
         name = "network_bridge-source";
         url = "https://github.com/ros2-gbp/network_bridge-release.git";
-        rev = "821c0ee2db78b0995752a01e5ae5dceb3abeae42";
-        hash = "sha256-rFjL5VY6uo+XC4OnNxiML8DRWGDhIjnCQyKk/O+bMyA=";
+        rev = "1a32afdb104daa0d89dfe640d1fb32605e5d89a2";
+        hash = "sha256-aroI5Ik5jvx4RQrUPxQF2MsAGqE8C6eP5GsA3NEFyJM=";
       };
     };
   });

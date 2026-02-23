@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   geometry-msgs,
+  gps-msgs,
   mkSourceSet,
   mrpt-libmaps,
   mrpt-libobs,
@@ -22,20 +23,20 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libros_bridge";
-  version = "3.1.1-1";
+  version = "3.3.0-1";
   src = finalAttrs.passthru.sources."mrpt_libros_bridge";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake cv-bridge geometry-msgs mrpt-libmaps mrpt-libobs nav-msgs ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ ament-cmake cv-bridge geometry-msgs gps-msgs mrpt-libmaps mrpt-libobs nav-msgs ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake cv-bridge geometry-msgs mrpt-libmaps mrpt-libobs nav-msgs ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ ament-cmake cv-bridge geometry-msgs gps-msgs mrpt-libmaps mrpt-libobs nav-msgs ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs ];
   checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_libros_bridge" = substituteSource {
       src = fetchgit {
         name = "mrpt_libros_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_ros_bridge-release.git";
-        rev = "32bb62175106fc7a88d4be734cca6679b8f46fb5";
-        hash = "sha256-Fp2kwt7tLr2KYDGRuW5f9cOAG/ALQIxjgcHTxx0g5vc=";
+        rev = "b7fabadf15db71e69decdfe09b134ce1e132a6a1";
+        hash = "sha256-D9FJDX3M9OZshJsH4b65t7gFJFj3emPN0UMx1pT1JSU=";
       };
     };
   });

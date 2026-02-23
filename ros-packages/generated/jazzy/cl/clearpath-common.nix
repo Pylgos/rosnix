@@ -8,25 +8,28 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rmw-cyclonedds-cpp,
+  rmw-fastrtps-cpp,
+  rmw-zenoh-cpp,
   rosSystemPackages,
   substituteSource,
   wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_common";
-  version = "2.8.5-1";
+  version = "2.9.1-1";
   src = finalAttrs.passthru.sources."clearpath_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common ];
+  propagatedNativeBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-zenoh-cpp ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common ];
+  propagatedBuildInputs = [ clearpath-control clearpath-description clearpath-generator-common rmw-cyclonedds-cpp rmw-fastrtps-cpp rmw-zenoh-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "clearpath_common" = substituteSource {
       src = fetchgit {
         name = "clearpath_common-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "584da344bc7bb5ac7804068b8d0b59d1a5b1a117";
-        hash = "sha256-D/8FU8b8rF+4UrLV/sQ5eRgG/oOlGFHCjzwahde+FUw=";
+        rev = "86218f2f169e3e5a3c4c9ca72372b8f4f4755b40";
+        hash = "sha256-JSN/mXqeBsU0xMf76rnAjKf45kqJ94pVH9m6vIsFKTc=";
       };
     };
   });

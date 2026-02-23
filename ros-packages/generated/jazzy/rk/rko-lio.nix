@@ -81,8 +81,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pybind11-source";
         url = "https://github.com/pybind/pybind11.git";
-        rev = "5f2c678916ce2890e51333e0b684eb443e8848ed";
-        hash = "sha256-CuLoiLKNtzD6aiYlUxU9+lr4aiNcmRXA132+c5OMSJs=";
+        rev = "1a863647c5dc4f2b39602cede1710d35fe9e42d8";
+        hash = "sha256-Ywu5UisjBHaM23/287/YOkEFoOD17Z/MflEBbS3VVms=";
       };
     };
     "rko_lio/Bonxai" = substituteSource {

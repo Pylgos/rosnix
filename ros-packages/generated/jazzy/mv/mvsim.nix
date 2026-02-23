@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mvsim";
-  version = "0.16.0-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."mvsim";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint mrpt-libgui mrpt-libmaps mrpt-libposes mrpt-libros-bridge mrpt-libtclap nav-msgs ros2launch ros-environment sensor-msgs stereo-msgs tf2 tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libzmq3-dev" "protobuf-dev" "pybind11-dev" "python3-pip" "python3-protobuf" "python3-venv" "unzip" "wget" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mvsim-source";
         url = "https://github.com/ros2-gbp/mvsim-release.git";
-        rev = "810a2ba23cbadb0c0b1065f72c7b10893c029caf";
-        hash = "sha256-53wW05dVY5slglNNyNdnfWuhRUD5DSiVtG3xlOYijOI=";
+        rev = "cf8a781bdb48e4180274f58f235112d971361436";
+        hash = "sha256-SP7R2rQnKYXWVmnPvipfyuL0rPQ2vBQXMnxGvLeaHwc=";
       };
     };
   });

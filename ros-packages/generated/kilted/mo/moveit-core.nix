@@ -52,7 +52,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_core";
-  version = "2.14.1-1";
+  version = "2.14.3-1";
   src = finalAttrs.passthru.sources."moveit_core";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ angles common-interfaces eigen3-cmake-module eigen-stl-containers generate-parameter-library geometric-shapes geometry-msgs google-benchmark-vendor kdl-parser moveit-common moveit-msgs octomap-msgs osqp-vendor pluginlib random-numbers rclcpp rsl ruckig sensor-msgs shape-msgs srdfdom std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-kdl trajectory-msgs urdf urdfdom urdfdom-headers visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp" "boost" "bullet" "eigen" "libfcl-dev" "liboctomap-dev" ]; };
@@ -64,8 +64,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_core-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "eb22b9e76415e40dc3cc5ac4392ed3a6846fe817";
-        hash = "sha256-LepGXrVR63R1KWNtFPZl+CmJGPZbopJ2g+5l8o1unjo=";
+        rev = "b9fed56739d1d2b6255fe2401da3a76171766c22";
+        hash = "sha256-tlqH+08w1HXrQSBVA1GoLiszQ2PDmGsNQzZTuU72UNg=";
       };
     };
   });

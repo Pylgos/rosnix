@@ -16,7 +16,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_georeferencing";
-  version = "2.0.0-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."mola_georeferencing";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gtsam mola-common mola-gtsam-factors mola-yaml mp2p-icp mrpt-libmaps mrpt-libtclap ];
@@ -27,8 +27,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_georeferencing-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "e935ff684c577c029481172ae6f99a0f6ea0db58";
-        hash = "sha256-6dTfNEq8co+p3cNw1UnONNdy9w4dIG5zjGHbe2Fn7BU=";
+        rev = "00b14b821b1d4ef9b5bf7684c5c5e374e76c2e20";
+        hash = "sha256-TtVG6pDEzaSL9uSlEWsZZMycWr3EL5RjnhiWwYWLo58=";
       };
     };
   });

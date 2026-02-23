@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_play_motion_builder";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."rqt_play_motion_builder";
   nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ class-loader play-motion2-msgs play-motion-builder play-motion-builder-msgs pluginlib rclcpp rclcpp-action rqt-gui rqt-gui-cpp sensor-msgs urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_play_motion_builder-source";
         url = "https://github.com/ros2-gbp/play_motion_builder-release.git";
-        rev = "e8d1d22dcc85542e0e62b192beb108f2a127b04f";
-        hash = "sha256-oJPBnsbXB0so1Qw80GjmTdAKQgLjTj/o6mt4Kej1wus=";
+        rev = "fbfb1a9f9bbce811a4fb0e29ed730ba49038e21f";
+        hash = "sha256-8YbHPWH5XHp2L5TpjvE8HW97JCJ8srLAqBLyQR8DMFc=";
       };
     };
   });

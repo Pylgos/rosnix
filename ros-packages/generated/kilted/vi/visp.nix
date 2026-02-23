@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "visp";
-  version = "3.5.0-4";
+  version = "3.7.0-2";
   src = finalAttrs.passthru.sources."visp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "bzip2" "doxygen" "eigen" "libjpeg" "liblapack-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "visp-source";
         url = "https://github.com/ros2-gbp/visp-release.git";
-        rev = "78cd8706075c57d4933b5c286ed4f9a2858e6313";
-        hash = "sha256-nMrdYB+RessgluLVeY69cP1jA4ucoAfcxyaNk1gyiSQ=";
+        rev = "98976942e4ad4f6589d2656499c959f311def396";
+        hash = "sha256-OViw+YBBPXubGk67xuJBWV/Vl2vYKLJTw66dTCGdWr8=";
       };
     };
   });

@@ -11,7 +11,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "tf_transformations";
-  version = "1.1.0-1";
+  version = "1.1.1-1";
   src = finalAttrs.passthru.sources."tf_transformations";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-transforms3d" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-transforms3d" ]; };
@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "tf_transformations-source";
         url = "https://github.com/ros2-gbp/tf_transformations_release.git";
-        rev = "c623ec1a59d1afc184a119057bd42cba948a1722";
-        hash = "sha256-ojeOIsR7yaPVDfd/6N3cPt6MShybAcLZlBQWNpOt64g=";
+        rev = "84eebd122be4001385d6c96c2a4f24a0ad901c9c";
+        hash = "sha256-MJVAaDHgfXDAqq1Tbu4GX27UA5R6KPj2apttUru2ogI=";
       };
     };
   });

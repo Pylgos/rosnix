@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_sim_demos";
-  version = "2.1.13-1";
+  version = "2.1.14-1";
   src = finalAttrs.passthru.sources."ros_gz_sim_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ gz-sim-vendor image-transport-plugins robot-state-publisher ros-gz-bridge ros-gz-image ros-gz-sim rqt-image-view rqt-plot rqt-topic rviz2 rviz-imu-plugin sdformat-urdf tf2-ros xacro ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz_sim_demos-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "647df9fc971ce03b002c2185a07b351941cdf24a";
-        hash = "sha256-sfA0TSQoBUTfMbb0wFzFMTspUfG65YWun7gQcy30XKQ=";
+        rev = "c7073115422fce6adc17f6d3cc2426829e17d1eb";
+        hash = "sha256-3yRXZl7c0zwZoZAq0HCB5TVsBFTAuJBkrz21itGfvT4=";
       };
     };
   });

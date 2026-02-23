@@ -2,6 +2,7 @@
   ament-cmake,
   ament-cmake-gtest,
   ament-cmake-pytest,
+  ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -29,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pcl_ros";
-  version = "2.7.4-1";
+  version = "2.8.0-1";
   src = finalAttrs.passthru.sources."pcl_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ geometry-msgs pcl-conversions rclcpp rclcpp-components rosbag2-transport sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs pcl-conversions rclcpp rclcpp-components rosbag2-transport sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ geometry-msgs pcl-conversions rclcpp rclcpp-components rosbag2-transport sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
+  propagatedBuildInputs = [ ament-cmake-ros geometry-msgs pcl-conversions rclcpp rclcpp-components rosbag2-transport sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "libpcl-all-dev" "libpcl-common" "libpcl-features" "libpcl-filters" "libpcl-io" "libpcl-segmentation" "libpcl-surface" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-ros launch-testing launch-testing-ros sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "pcl_ros" = substituteSource {
       src = fetchgit {
         name = "pcl_ros-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
-        rev = "1313f717b4b0672190edb97cc5c81573d9055766";
-        hash = "sha256-77laI0rmwxCx574sNVyNdwK/361Stoq5uT3dyu/nlas=";
+        rev = "e6ab5d329d158f7f22dfeb57925ee0b14eb4c067";
+        hash = "sha256-nNis9YunMfTep9Wuo3Tm99WY+Y0PXqDTpdRDlF/xA28=";
       };
     };
   });

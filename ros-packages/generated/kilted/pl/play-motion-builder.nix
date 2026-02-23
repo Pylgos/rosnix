@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "play_motion_builder";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."play_motion_builder";
   nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ play-motion2 play-motion2-msgs play-motion-builder-msgs rclcpp rclcpp-action sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "play_motion_builder-source";
         url = "https://github.com/ros2-gbp/play_motion_builder-release.git";
-        rev = "30da73326b77f0bd1ad6ac6970fa54faf5f58d43";
-        hash = "sha256-UBB9RjEZ36ZXRpj1SHyOqXO6lNyKH9PfMOCeyaAVad8=";
+        rev = "30d9a0b28b0784c784309e6fd161adc7e8e8e01e";
+        hash = "sha256-k7LAav6N7yHnOj3ENuKbALQxluxs6OVE7v8JhrjxaRw=";
       };
     };
   });

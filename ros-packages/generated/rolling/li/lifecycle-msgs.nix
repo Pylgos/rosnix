@@ -3,6 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
+  builtin-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -14,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lifecycle_msgs";
-  version = "2.4.2-1";
+  version = "2.4.3-1";
   src = finalAttrs.passthru.sources."lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ rosidl-default-runtime ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "lifecycle_msgs" = substituteSource {
       src = fetchgit {
         name = "lifecycle_msgs-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
-        rev = "08a6e0f1a4c70a1a7de0d4f792bdc6954e273287";
-        hash = "sha256-NUCqfxnpfgECqMu6gKqS505C9SrmZk2yymwjD0JQ3kI=";
+        rev = "69b27f4bea521a20948d6f3b1343da0473e7aa35";
+        hash = "sha256-LCMRVPOfYPD6LVTrONiwM9CawFQowfY8CBrDc5znJUk=";
       };
     };
   });

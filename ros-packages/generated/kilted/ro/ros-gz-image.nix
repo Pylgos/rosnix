@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_image";
-  version = "2.1.13-1";
+  version = "2.1.14-1";
   src = finalAttrs.passthru.sources."ros_gz_image";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ gz-msgs-vendor gz-transport-vendor image-transport rclcpp ros-gz-bridge sensor-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz_image-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "c260e52af35a63351ea40fbb03a257a99a31d278";
-        hash = "sha256-bT8lG4i36Gnse3+Mf0Q9B7MW0C9M8qmkRh7NdCz2TDM=";
+        rev = "df0d0b2df292496760a7644557fa3bbd7263c0e6";
+        hash = "sha256-6+ZMrQ0KIDRew3z8NEku0gbHRSMvusM8nyUlrBXnVKQ=";
       };
     };
   });

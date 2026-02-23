@@ -18,7 +18,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_rosbag2";
-  version = "2.4.0-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."mola_input_rosbag2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ cv-bridge mola-kernel mrpt-libobs mrpt-libros-bridge rosbag2-cpp sensor-msgs tf2-geometry-msgs tf2-msgs tf2-ros ];
@@ -29,8 +29,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_rosbag2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "d09cba277c56f82c0c4c65ec0012781c057a6603";
-        hash = "sha256-Zwi2ynBhKTpBFx/R1moIoK7zI/f9/A8dTaRnUD+8sak=";
+        rev = "6224e879b34b0b18cbff908997789676c9082d9a";
+        hash = "sha256-gosQfyw+NdReHtWcmuBuFX9m8h5EySUU5WncMXKS5dc=";
       };
     };
   });

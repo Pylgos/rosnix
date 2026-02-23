@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "perception_pcl";
-  version = "2.7.3-1";
+  version = "2.8.0-1";
   src = finalAttrs.passthru.sources."perception_pcl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pcl-conversions pcl-msgs pcl-ros ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "perception_pcl-source";
         url = "https://github.com/ros2-gbp/perception_pcl-release.git";
-        rev = "a7b94d0ff824eb1df7810669e9640e138272ac84";
-        hash = "sha256-AIHKJROpt2bAWxPjQF2r9qoa5M2BvM99sd+P/N7dCm4=";
+        rev = "88a68ebf278de1e5f8565f154c6a7c52917e9e20";
+        hash = "sha256-JmI2MqwBOEAUL8/4T1QuAh3nmiJDtKt2OwvKSxL/848=";
       };
     };
   });

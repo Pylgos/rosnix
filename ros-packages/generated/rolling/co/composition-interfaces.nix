@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "composition_interfaces";
-  version = "2.4.2-1";
+  version = "2.4.3-1";
   src = finalAttrs.passthru.sources."composition_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rcl-interfaces rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "composition_interfaces-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
-        rev = "21e08c740459fbba12cbe4757a998598f9b965ea";
-        hash = "sha256-RxWp809uFIjN65OzgplSHJkjroNQuRy7u1eVHY2KBQA=";
+        rev = "1ecf9e880c5235f588a51cdd0d4945c4a0e963cc";
+        hash = "sha256-RAV8ishBriGF57BR8C1uRvvhGmBOnuVO2MvEzwSp5CE=";
       };
     };
   });

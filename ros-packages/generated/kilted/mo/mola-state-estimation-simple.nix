@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_state_estimation_simple";
-  version = "2.0.0-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_simple";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mola-imu-preintegration mola-kernel mrpt-libobs ];
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_state_estimation_simple-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "9e53b3c95ac20acd67d6ab906b6497a43b6bdfb7";
-        hash = "sha256-zq4+C3vSSdK6Wx48yW7YdlID7WNwFJ4CMZ3nRY3p5zw=";
+        rev = "64a31255172eedee4749ba387790a53608338ea9";
+        hash = "sha256-A8nSjBikvPzcC4itleqtis8Al/0z9OhHsRGWkisi+gI=";
       };
     };
   });

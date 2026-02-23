@@ -42,7 +42,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "play_motion2";
-  version = "1.8.0-1";
+  version = "1.8.3-1";
   src = finalAttrs.passthru.sources."play_motion2";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-manager-msgs launch launch-ros lifecycle-msgs moveit-ros-planning-interface play-motion2-msgs rclcpp rclcpp-action rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs trajectory-msgs ];
@@ -54,8 +54,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "play_motion2-source";
         url = "https://github.com/ros2-gbp/play_motion2-release.git";
-        rev = "e75b479c2b1316100543dcdce89da46bd9360b46";
-        hash = "sha256-n2SRgdt9e2bNnLKS3nJqCzQULIpXac1tXNByNycPSFA=";
+        rev = "42a1e18fa60b27d4d4548f1f77b98f22c4943334";
+        hash = "sha256-wX5bdzsQfKDf/2zUr/bLQyDVwUDcwpx3yKPEjxEPkxo=";
       };
     };
   });

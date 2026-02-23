@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "play_motion_builder_msgs";
-  version = "1.4.0-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."play_motion_builder_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "play_motion_builder_msgs-source";
         url = "https://github.com/ros2-gbp/play_motion_builder-release.git";
-        rev = "f93204d3076796f1f4f67ebf13e4c7e62d7db5ae";
-        hash = "sha256-OEfW0hA0KV62Np/exZMCtaWxo/QiBIzyLSxQyEqwuA8=";
+        rev = "90dcaf97d72f740d316a69edacb24aa770f57f8f";
+        hash = "sha256-tDhjcxqNqmFbiqUuXKjZ5x+fylTxtBmv0EE55gupyAc=";
       };
     };
   });
