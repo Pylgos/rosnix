@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "auto_apms_examples";
-  version = "1.4.2-1";
+  version = "1.5.0-1";
   src = finalAttrs.passthru.sources."auto_apms_examples";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ auto-apms-behavior-tree auto-apms-interfaces auto-apms-mission auto-apms-ros2behavior auto-apms-util rclcpp-components ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "auto_apms_examples-source";
         url = "https://github.com/ros2-gbp/autoapms-release.git";
-        rev = "14b585828a85aaaaa6eb87cbe8982c6f3a14c96c";
-        hash = "sha256-+xdew1vlPWmfOvThCcIvRNUvWkJwhsL+dJanfpPvPhA=";
+        rev = "00b8a93c2c37caf6cf9146e9d313263035f4f8c8";
+        hash = "sha256-b9VcH0ZgV2prft3N1grddtdClBiSRpQ/Iojh0q+lrlM=";
       };
     };
   });

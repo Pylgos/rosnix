@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "bondpy";
-  version = "4.1.2-1";
+  version = "4.1.3-1";
   src = finalAttrs.passthru.sources."bondpy";
   propagatedNativeBuildInputs = [ bond rclpy smclib ];
   propagatedBuildInputs = [ bond rclpy smclib ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "bondpy-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
-        rev = "0122d0085c2cc9b682bb0e0879d581052208985e";
-        hash = "sha256-NqSWf/hEZyhanUQRabhPuua4gz1A80/bxE4sk1lbf8k=";
+        rev = "d634fce3db852b25ed7b2f8e86501cc8c1f8e24e";
+        hash = "sha256-szDe5DKpJq0/d62zloXRqYOYFHDqJGtQZgPgZhTLPKE=";
       };
     };
   });

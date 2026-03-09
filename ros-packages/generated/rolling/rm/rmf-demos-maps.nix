@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_demos_maps";
-  version = "2.8.1-2";
+  version = "2.8.2-1";
   src = finalAttrs.passthru.sources."rmf_demos_maps";
   nativeBuildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
   buildInputs = [ ament-cmake rmf-building-map-tools ros2run ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_demos_maps-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-        rev = "249d115a3833c9240df16b15aa602332f20d00fe";
-        hash = "sha256-VhASHMRVpco9nXRhwXMJfA8ekbpCFnUk9xDbHVavx6I=";
+        rev = "a748ef4d95deb9fd9388b9277803e384dc1bc3db";
+        hash = "sha256-ViOGodrxPAbUCIFdyWNQWopvEoHKimQcDbGFCp0d9W8=";
       };
     };
   });

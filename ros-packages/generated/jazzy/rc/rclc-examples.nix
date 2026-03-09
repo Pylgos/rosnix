@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rclc_examples";
-  version = "6.1.0-3";
+  version = "6.1.2-1";
   src = finalAttrs.passthru.sources."rclc_examples";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ example-interfaces lifecycle-msgs rcl rclc rclc-lifecycle rclc-parameter std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rclc_examples-source";
         url = "https://github.com/ros2-gbp/rclc-release.git";
-        rev = "c337bef2b8518d838a103f525de33bab614c50ab";
-        hash = "sha256-oGcnLCr8skjywWIh93EYKzbeJaXxJpnHiJB2rbxQjSI=";
+        rev = "eb4fcbf5517ed4a020b0d34e57963bc6e94e2d46";
+        hash = "sha256-kNMq9XiplXL4XVRKLed2WBksmArKPvf1mRAJ0cAzMuM=";
       };
     };
   });

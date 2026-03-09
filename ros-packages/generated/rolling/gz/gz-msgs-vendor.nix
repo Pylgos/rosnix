@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-msgs-source";
         url = "https://github.com/gazebosim/gz-msgs.git";
-        rev = "7fa73dc1119d65635948ea0c59cb415b7e8f96c7";
-        hash = "sha256-LinEaHnHD/m+BmjBBq198W8XqOOc9yVXfDnwUrSz9+Y=";
+        rev = "bdb38fda657e441dfba27204ad7290fa3b1a15f7";
+        hash = "sha256-LBA94V3h24V49C4acX2H5foC6BEU0KSoGhlcgFCgdBc=";
       };
     };
   });

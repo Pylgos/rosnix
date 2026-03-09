@@ -18,18 +18,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "sros2";
-  version = "0.16.3-1";
+  version = "0.16.4-1";
   src = finalAttrs.passthru.sources."sros2";
   propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-cryptography" "python3-lxml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" "python3-cryptography" "python3-lxml" ]; };
-  checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ros-testing test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-copyright ament-flake8 ament-mypy ament-pep257 ros-testing test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sros2" = substituteSource {
       src = fetchgit {
         name = "sros2-source";
         url = "https://github.com/ros2-gbp/sros2-release.git";
-        rev = "b03079764c7d701262cd6c05ea21e16ada77a64f";
-        hash = "sha256-uAVLVp700iAawWDYdzg34uhWAlHLzvNasEOLu5ungFY=";
+        rev = "861eaaa47d5cb64be045b7386987098df89b8d00";
+        hash = "sha256-X2pvKKNZxzVWslbGQVrpybUyr1B3SUf8/lCkDFAg1gA=";
       };
     };
   });

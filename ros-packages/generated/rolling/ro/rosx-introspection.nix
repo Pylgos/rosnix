@@ -2,7 +2,6 @@
   ament-cmake,
   ament-index-cpp,
   buildAmentCmakePackage,
-  fastcdr,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -16,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosx_introspection";
-  version = "1.0.2-1";
+  version = "2.2.0-1";
   src = finalAttrs.passthru.sources."rosx_introspection";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp fastcdr rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "rapidjson-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "rapidjson-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp fastcdr rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rapidjson-dev" ]; };
+  propagatedBuildInputs = [ ament-index-cpp rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "rapidjson-dev" ]; };
   checkInputs = [ geometry-msgs sensor-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rosx_introspection" = substituteSource {
       src = fetchgit {
         name = "rosx_introspection-source";
         url = "https://github.com/ros2-gbp/rosx_introspection-release.git";
-        rev = "fff7bdfa85870357de451d78417f9502ac96f413";
-        hash = "sha256-PxUiV3BPyRmYvvYjQmfa7BTP7kFxgfyXAC44akRvT08=";
+        rev = "ca8710fd75f0346a26f9ce444c110042eeea57fa";
+        hash = "sha256-rqdbay5qd5AsvqzLTGUtkiYPDZ7bx4UvurwGmk8f9yY=";
       };
       substitutions = [
         {
@@ -48,6 +47,6 @@ buildAmentCmakePackage (finalAttrs: {
     };
   });
   meta = {
-    description = "Successor of ros_type_introspection";
+    description = "Parse any ROS/ROS2 message without compile-time information";
   };
 })

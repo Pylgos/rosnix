@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "boost_sml_vendor";
-  version = "1.1.11-1";
+  version = "1.1.13-1";
   src = finalAttrs.passthru.sources."boost_sml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -20,8 +20,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "boost_sml_vendor-source";
         url = "https://github.com/ros2-gbp/boost_sml_vendor-release.git";
-        rev = "571c7fff9b590ec16e68be2260811360a7016375";
-        hash = "sha256-qs5eZiNEyTfscGhvBFMZhQBY6G87wVSR23YymRK9kvw=";
+        rev = "430ab9601bb7784c902250662443f8013d339707";
+        hash = "sha256-75LebnRhxq3/3VfdThrtyhLp5haHVWgemuebZULSgKI=";
       };
       substitutions = [
         {
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sml-source";
         url = "https://github.com/boost-ext/sml.git";
-        rev = "b7df6180d20422b2724d26007aebb24066f2a6a9";
-        hash = "sha256-/eR/B8rE+mh5zDPjx1kS9nVJf1rCeHP04QDavh6z6fM=";
+        rev = "8015e095dab82c03eb2277258645956bcd84cbcb";
+        hash = "sha256-VgJl09kCRCXBF/IraVbAVowrrMJH0NFcblQAKVQwl6w=";
       };
     };
   });

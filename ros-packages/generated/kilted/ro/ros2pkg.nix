@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2pkg";
-  version = "0.38.2-1";
+  version = "0.38.3-2";
   src = finalAttrs.passthru.sources."ros2pkg";
   propagatedNativeBuildInputs = [ ament-copyright ament-index-python ros2cli ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-empy" ]; };
   propagatedBuildInputs = [ ament-copyright ament-index-python ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-catkin-pkg-modules" "python3-empy" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2pkg-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "1fcdb1a72b14524ccb7f48a4a94a148f6513fb27";
-        hash = "sha256-MFGAmVkRZ1eGamJCDH2Q0YzmsWC3pTkU8LV4+Zd3BR0=";
+        rev = "91d9c5fc91904aa5db694cb4b4e1fbd52dd5acd7";
+        hash = "sha256-eF9Be/eyiixzEyHzAv03E40XB8rBXc/aYA/gLF+o1iU=";
       };
     };
   });

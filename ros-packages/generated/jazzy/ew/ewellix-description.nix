@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ewellix_description";
-  version = "0.2.0-1";
+  version = "0.2.1-2";
   src = finalAttrs.passthru.sources."ewellix_description";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ewellix_description-source";
         url = "https://github.com/clearpath-gbp/ewellix_lift_common-release.git";
-        rev = "0318e8c677abf6b9e456fcd9fccbf2d629a70f03";
-        hash = "sha256-7bA0Dfhh183YMPhSO2Sigmr3wqhEvUuiTu87cgnlHbs=";
+        rev = "027b49be267ad15a6fa584091653c70a691b2f84";
+        hash = "sha256-FKIZB8pGTeFpKul08SpK0aSGX/x5sDsiykpRsEjhkok=";
       };
     };
   });

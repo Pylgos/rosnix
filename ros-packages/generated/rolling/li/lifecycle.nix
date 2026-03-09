@@ -3,6 +3,7 @@
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -12,25 +13,24 @@
   rclcpp-lifecycle,
   ros-testing,
   rosSystemPackages,
-  std-msgs,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lifecycle";
-  version = "0.37.5-1";
+  version = "0.37.6-1";
   src = finalAttrs.passthru.sources."lifecycle";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
+  propagatedNativeBuildInputs = [ example-interfaces lifecycle-msgs rclcpp rclcpp-lifecycle ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
+  propagatedBuildInputs = [ example-interfaces lifecycle-msgs rclcpp rclcpp-lifecycle ];
   checkInputs = [ ament-lint-auto ament-lint-common ros-testing ];
   passthru.sources = mkSourceSet (sources: {
     "lifecycle" = substituteSource {
       src = fetchgit {
         name = "lifecycle-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "f3b4fc2603d7b13bbf9cd058212f2daa34eb1dc2";
-        hash = "sha256-sp2IHVOwmDgVeZv3vKjifkFZ2CwWYYxws9GakweTtgI=";
+        rev = "6162f71b4bc4ec46761682690a5ef89a8c1f2fdc";
+        hash = "sha256-74zvv+cXs4B7rqmLEit0+7zA6cZtfWWnFiSoROuLzTM=";
       };
     };
   });

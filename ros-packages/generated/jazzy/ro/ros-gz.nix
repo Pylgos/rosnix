@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz";
-  version = "1.0.20-1";
+  version = "1.0.21-1";
   src = finalAttrs.passthru.sources."ros_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ros-gz-bridge ros-gz-image ros-gz-sim ros-gz-sim-demos ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_gz-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "84231973cf533deaa9a912e074f9a58fa47fc433";
-        hash = "sha256-MTzTI8qx5cHBy9Q4cYxAmMT1ICg8puB/sDoWpLOf06s=";
+        rev = "b0270a985cbf9291fe0127fe1f20b8c698f13657";
+        hash = "sha256-mvm6OgGqVmBRVpS24rHhuqnaA9kIaRaFeprZ8Rxy4yA=";
       };
     };
   });

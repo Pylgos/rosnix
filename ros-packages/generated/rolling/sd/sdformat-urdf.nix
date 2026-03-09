@@ -14,24 +14,23 @@
   sdformat-test-files,
   sdformat-vendor,
   substituteSource,
-  tinyxml2-vendor,
   urdf,
   urdf-parser-plugin,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_urdf";
-  version = "2.0.2-1";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."sdformat_urdf";
-  propagatedNativeBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor tinyxml2-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liburdfdom-headers-dev" ]; };
-  propagatedBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor tinyxml2-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liburdfdom-headers-dev" "tinyxml2" ]; };
+  propagatedBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common sdformat-test-files ];
   passthru.sources = mkSourceSet (sources: {
     "sdformat_urdf" = substituteSource {
       src = fetchgit {
         name = "sdformat_urdf-source";
         url = "https://github.com/ros2-gbp/sdformat_urdf-release.git";
-        rev = "7b523826d820c505240abb4be5fe1882f2b36aba";
-        hash = "sha256-zssvuO4OlSq92/NjZ6belnDp1ef0HVoJ4pz9gofivMI=";
+        rev = "a3e21240176399102fc49ad6514eb74219881b41";
+        hash = "sha256-FQnKqaSC0pSYrnsXWGCI0Gym2eDRF5iv6+SKOjfAyVE=";
       };
     };
   });

@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kobuki_velocity_smoother";
-  version = "0.15.0-4";
+  version = "0.15.1-1";
   src = finalAttrs.passthru.sources."kobuki_velocity_smoother";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build geometry-msgs nav-msgs rcl-interfaces rclcpp rclcpp-components ];
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kobuki_velocity_smoother-source";
         url = "https://github.com/ros2-gbp/kobuki_velocity_smoother-release.git";
-        rev = "bf366fbcfb4433b845edc455082a89b2908552f6";
-        hash = "sha256-kZmyem+NJit8xtwuRz5Zx8AkdojVm7/pxgSOR63CkcM=";
+        rev = "d4770243be3295da9a7e83656ed56a44bd651c9b";
+        hash = "sha256-Q2H7f2boHAkZ3lMGBNHWUC168S/Kxc+38wDNOOB9DK4=";
       };
     };
   });

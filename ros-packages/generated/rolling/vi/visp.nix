@@ -9,19 +9,19 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "visp";
-  version = "3.5.0-3";
+  version = "3.7.0-4";
   src = finalAttrs.passthru.sources."visp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "bzip2" "doxygen" "eigen" "libjpeg" "liblapack-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "bzip2" "doxygen" "eigen" "libgsl" "libjpeg" "liblapack-dev" "libomp-dev" "libopenblas-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" "nlohmann-json-dev" "zbar" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "bzip2" "doxygen" "eigen" "libjpeg" "liblapack-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "bzip2" "doxygen" "eigen" "libgsl" "libjpeg" "liblapack-dev" "libomp-dev" "libopenblas-dev" "libopencv-dev" "libpng-dev" "libv4l-dev" "libx11-dev" "libxml2" "nlohmann-json-dev" "zbar" ]; };
   passthru.sources = mkSourceSet (sources: {
     "visp" = substituteSource {
       src = fetchgit {
         name = "visp-source";
         url = "https://github.com/ros2-gbp/visp-release.git";
-        rev = "40579e7c751095b9add34bc8060cd95ada214ab0";
-        hash = "sha256-nMrdYB+RessgluLVeY69cP1jA4ucoAfcxyaNk1gyiSQ=";
+        rev = "bbba72044d09e793c130d658cd5c581f6829dd42";
+        hash = "sha256-C28N1zSk52lRr9lXT7SjLiGNKMwqgKzF8d4ShCycPd0=";
       };
     };
   });

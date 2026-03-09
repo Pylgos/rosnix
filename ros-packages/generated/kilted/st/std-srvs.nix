@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "std_srvs";
-  version = "5.5.1-1";
+  version = "5.5.2-1";
   src = finalAttrs.passthru.sources."std_srvs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "std_srvs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "5c9f7abbe3c0f3d7a73dc08ce36a38102e06bdf3";
-        hash = "sha256-3HxPFY2hxoM5YKE/LXNbfKlYOgLqsSeeWbIdOuDS4go=";
+        rev = "2fe8a7d5237b1c4dab4fe290e1788d194a6b29d4";
+        hash = "sha256-abVo/KdtINkMsY69gIVZZDP3CNKbed3k0vhv421moGg=";
       };
     };
   });

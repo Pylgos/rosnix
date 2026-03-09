@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ewellix_sim";
-  version = "0.2.0-1";
+  version = "0.2.1-2";
   src = finalAttrs.passthru.sources."ewellix_sim";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ewellix-interfaces ewellix-moveit-config gz-ros2-control ros-gz rviz2 ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ewellix_sim-source";
         url = "https://github.com/clearpath-gbp/ewellix_lift_common-release.git";
-        rev = "ba726dff40a6efa8d7779d9782baac0d587f466e";
-        hash = "sha256-QsN+WQQW3D3JBXqvwIwy6v7R8RCKNfy9VAyaq8d7e0s=";
+        rev = "292a83803f79fac3683eb1a0ffc2cb85ef4a0302";
+        hash = "sha256-AZf3Z+PTbGkOFVzMf/Uu4NrQpoQhsQeT6iVUrR0yBMg=";
       };
     };
   });

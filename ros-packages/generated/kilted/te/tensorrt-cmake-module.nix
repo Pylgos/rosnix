@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tensorrt_cmake_module";
-  version = "0.0.4-3";
+  version = "0.0.5-1";
   src = finalAttrs.passthru.sources."tensorrt_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tensorrt_cmake_module-source";
         url = "https://github.com/ros2-gbp/tensorrt_cmake_module-release.git";
-        rev = "058c88c7a83814b4b583027cdf142a6546223f76";
-        hash = "sha256-oUVi2L9gZtNOWCWYCE7RZBmeWqrCZ0TWl8J3/BPBd6I=";
+        rev = "e62a11b4777b9238d98cff5020c504507c10d8e7";
+        hash = "sha256-Dxr8f79YywxaTAFZXakeucspxxAetcTnywqmSGTJN4c=";
       };
     };
   });

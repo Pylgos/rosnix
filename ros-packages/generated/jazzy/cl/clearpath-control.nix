@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "clearpath_control";
-  version = "2.9.1-1";
+  version = "2.9.3-1";
   src = finalAttrs.passthru.sources."clearpath_control";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ clearpath-bt-joy controller-manager diff-drive-controller imu-filter-madgwick interactive-marker-twist-server joint-state-broadcaster joint-trajectory-controller joy-linux mecanum-drive-controller robot-localization robot-state-publisher teleop-twist-joy twist-mux ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "clearpath_control-source";
         url = "https://github.com/clearpath-gbp/clearpath_common-release.git";
-        rev = "a5a933fd51ae12b51e5c75d5c0e78bbb8afaf879";
-        hash = "sha256-s6eXej7Ssv0Jfkmn9sLEyc1n2qv76lTK4KM9phtuh68=";
+        rev = "26d43501beb68b35ff7b52b92db34e092f4f8483";
+        hash = "sha256-POMmO11t8sGR5uxR1nXU+cm98vKbnP88lg8TuTh4haA=";
       };
     };
   });

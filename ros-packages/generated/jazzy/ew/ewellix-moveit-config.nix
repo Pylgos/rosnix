@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ewellix_moveit_config";
-  version = "0.2.0-1";
+  version = "0.2.1-2";
   src = finalAttrs.passthru.sources."ewellix_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ewellix-description joint-state-publisher joint-state-publisher-gui moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-simple-controller-manager tf2-ros xacro ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ewellix_moveit_config-source";
         url = "https://github.com/clearpath-gbp/ewellix_lift_common-release.git";
-        rev = "1b9f82757c72606b49007475cecc3185b6dc0951";
-        hash = "sha256-niEOIvcKRC9yiMtv8iNffEHVQz6St5xo0DeflCC9JoE=";
+        rev = "fcb70550e6d8126b84e5129794fc37bd7b0fcab5";
+        hash = "sha256-nKr8LF+ZGuH5oL9WbwgHjPo1t72Ln8XFZvhTnf/sSQA=";
       };
     };
   });

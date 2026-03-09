@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2cli_test_interfaces";
-  version = "0.40.4-1";
+  version = "0.40.5-1";
   src = finalAttrs.passthru.sources."ros2cli_test_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2cli_test_interfaces-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "045cca58d11b0a57d8dd455426beb2f3ffa5e204";
-        hash = "sha256-UtEGjAC+4CoXJpjg4/jsXFPFr7Ydlc1vWCcdnerr4h4=";
+        rev = "d0767b7e3dddc391fd645e70b5237c87e17ce786";
+        hash = "sha256-Brm0D/3VgRDrcLudQgomFKIfjDbhhCZm8Ij7caT0Bpk=";
       };
     };
   });

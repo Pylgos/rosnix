@@ -1,8 +1,10 @@
 {
   action-msgs,
   ament-cmake,
+  ament-cmake-gtest,
   ament-cmake-python,
   buildAmentCmakePackage,
+  example-interfaces,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -15,20 +17,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simple_actions";
-  version = "0.4.0-1";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."simple_actions";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ action-msgs rclcpp rclcpp-action rclpy ];
   buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ action-msgs rclcpp rclcpp-action rclpy ];
-  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "action_tutorials_interfaces" ]; };
+  checkInputs = [ ament-cmake-gtest example-interfaces ];
   passthru.sources = mkSourceSet (sources: {
     "simple_actions" = substituteSource {
       src = fetchgit {
         name = "simple_actions-source";
         url = "https://github.com/ros2-gbp/simple_actions-release.git";
-        rev = "a7c1a14741bfdeff9bf7b7d7ae2bc1164f9f9ab7";
-        hash = "sha256-BC5T9iKxbIolH0TXwEUcRhXO0b9xjFOdnM4+le2X27Q=";
+        rev = "40c21e98d150af2efc46d94222b92cd0234e056d";
+        hash = "sha256-+kUmpqw6Xx9NBSs+6n4SuVjCTwV8hy8qK0s8vh2t4Ck=";
       };
     };
   });

@@ -1,8 +1,6 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  ament-lint-auto,
-  ament-lint-common,
   buildAmentCmakePackage,
   fetchgit,
   fetchurl,
@@ -17,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "parameter_traits";
-  version = "0.6.0-1";
+  version = "0.7.0-1";
   src = finalAttrs.passthru.sources."parameter_traits";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ rclcpp rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
+  checkInputs = [ ament-cmake-gtest ];
   passthru.sources = mkSourceSet (sources: {
     "parameter_traits" = substituteSource {
       src = fetchgit {
         name = "parameter_traits-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "24c826dd18ac980223572352b13c7fd34669e647";
-        hash = "sha256-P7CncG7MpOaKl220KYGWgPOqKKL2JZbTYIgchOkid7o=";
+        rev = "7fd6224e379a69793fe0649fd6635c0a47ba65cd";
+        hash = "sha256-pUET5okZnrYvwkaBQsHZOTq+gk9I4fXCdkFcBrwg3Hc=";
       };
     };
   });

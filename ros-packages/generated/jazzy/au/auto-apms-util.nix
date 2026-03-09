@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "auto_apms_util";
-  version = "1.4.2-1";
+  version = "1.5.0-1";
   src = finalAttrs.passthru.sources."auto_apms_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ ament-index-cpp ament-index-python generate-parameter-library pluginlib rclcpp rclcpp-action rcpputils yaml-cpp-vendor ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "auto_apms_util-source";
         url = "https://github.com/ros2-gbp/autoapms-release.git";
-        rev = "89f84cd4e2f5897bc936a5c71cb40785275969e5";
-        hash = "sha256-iwe05/Ph5e0j5OOGNEKmwj2JBBqGo7l9d0eYWAIqB9U=";
+        rev = "766cfd5733346e68f4c11740a0f4088227496fdd";
+        hash = "sha256-3St7g9E1/BAQbTV5wx+lQRLrolWPMRtEGM0nJTr0w5o=";
       };
     };
   });

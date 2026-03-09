@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_target_dependencies";
-  version = "2.7.4-1";
+  version = "2.7.5-1";
   src = finalAttrs.passthru.sources."ament_cmake_target_dependencies";
   propagatedNativeBuildInputs = [ ament-cmake-core ament-cmake-include-directories ament-cmake-libraries ];
   propagatedBuildInputs = [ ament-cmake-core ament-cmake-include-directories ament-cmake-libraries ];
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_target_dependencies-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "cfda603f1d408ec70aa92ecdc6c7e5c6c230ceba";
-        hash = "sha256-IkCfeB/W/9EkLy/z3ge2atRyPhbBkQ0GukfV2Ai7l8E=";
+        rev = "42573f749fc3d998cb58f6bb016ee35a04efd708";
+        hash = "sha256-Xx/VWK0XtUpMt0qicGWrYPckk6/vkWGiwhDKsBMgmQ8=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2multicast";
-  version = "0.32.8-1";
+  version = "0.32.9-1";
   src = finalAttrs.passthru.sources."ros2multicast";
   propagatedNativeBuildInputs = [ ros2cli ];
   propagatedBuildInputs = [ ros2cli ];
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2multicast-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "dfa77350e1e2738b1b200982b45b6a45008069ba";
-        hash = "sha256-vx/os/FRhrK5WLIwzFyDIMcYK5eS3q/GFzjwpjCf3J0=";
+        rev = "2e79ac9518b713e9353fa0b4b9ab57809a87dbe2";
+        hash = "sha256-8dLkAQqTKe8T16FQ0u/P+X8nOP7S0YXjbAiAi/i/x1k=";
       };
     };
   });

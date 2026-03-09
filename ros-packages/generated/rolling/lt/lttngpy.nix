@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lttngpy";
-  version = "8.9.0-1";
+  version = "8.10.0-1";
   src = finalAttrs.passthru.sources."lttngpy";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ rpyutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liblttng-ctl-dev" "pybind11-dev" "python3-dev" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lttngpy-source";
         url = "https://github.com/ros2-gbp/ros2_tracing-release.git";
-        rev = "54ade2a029d9c79020d84c79fa8f282003b272c6";
-        hash = "sha256-qDfWoRNf7eakiJkuPOUm63Q714tY4hddu9y/AqJzC8o=";
+        rev = "2f11ce78096d7e384d150069152c41f103f68782";
+        hash = "sha256-acelDoF/bIWqmQevwwyfXKwc8BZoge8iKxTcxhgYCUc=";
       };
     };
   });

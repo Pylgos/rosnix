@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hatchbed_common";
-  version = "0.1.2-1";
+  version = "0.1.4-1";
   src = finalAttrs.passthru.sources."hatchbed_common";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hatchbed_common-source";
         url = "https://github.com/ros2-gbp/hatchbed_common-release.git";
-        rev = "38f49884de36c7a7d63d5d58a355e2ba13920dae";
-        hash = "sha256-7crWcDtg92DymEUVRdXVWwe2G9BjJkD1zbyBD0qAbHM=";
+        rev = "8473abf4e10b4a087b798dcef564eeb8e10ca542";
+        hash = "sha256-3IrH4SZVuq6TBNrFklUVF9YPmf2GbvCIIm55PiCfgMU=";
       };
     };
   });

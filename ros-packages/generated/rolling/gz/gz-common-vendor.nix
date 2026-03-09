@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_common_vendor";
-  version = "0.3.4-1";
+  version = "0.3.5-1";
   src = finalAttrs.passthru.sources."gz_common_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-utils-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common" "libfreeimage-dev" "libgdal-dev" "tinyxml2" "uuid" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_common_vendor-source";
         url = "https://github.com/ros2-gbp/gz_common_vendor-release.git";
-        rev = "3fc8ea3add52248accc0321ddf2f6b2f93d9f44c";
-        hash = "sha256-E/104xiHJwOVaD9Lbbj0iIAniLX/q6goJjDeXY6XdP8=";
+        rev = "7d63521f5d32a234f0d041134fa79f49f1298129";
+        hash = "sha256-OWgWXEk7EaWWpsK29wkaXax0NdjGNri3zHxMfpSX5Ps=";
       };
       substitutions = [
         {
@@ -46,12 +46,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-common-source";
         url = "https://github.com/gazebosim/gz-common.git";
-        rev = "15de7e6dbea90f5b19a0e70ce4704183e17fb6b7";
-        hash = "sha256-KYJgyP7aPCNBNCV1sZmVPY7US39dXZDw5b9TVG6i7T8=";
+        rev = "51de9ab8b44dc060cbdcdde6d771b0dac30584cb";
+        hash = "sha256-Nt5Egt9mCXesI3x1ytBkNxINaR7Xdm5gIh8yeYEQNsE=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for: gz-common 7.1.0\n\n    Gazebo Common : AV, Graphics, Events, and much more.\n  ";
+    description = "\n    Vendor package for: gz-common 7.1.1\n\n    Gazebo Common : AV, Graphics, Events, and much more.\n  ";
   };
 })

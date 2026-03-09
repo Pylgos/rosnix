@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ewellix_lift_common";
-  version = "0.2.0-1";
+  version = "0.2.1-2";
   src = finalAttrs.passthru.sources."ewellix_lift_common";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ewellix-description ewellix-interfaces ewellix-moveit-config ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ewellix_lift_common-source";
         url = "https://github.com/clearpath-gbp/ewellix_lift_common-release.git";
-        rev = "302c97f638ea674af33bce4582f286f73cc17e04";
-        hash = "sha256-SBXQirdgsICDrZFmtkRx4zSmILwDj2sbqSAlanxybfA=";
+        rev = "7756bce40587a40065f0ea985dab4bc93a052d6d";
+        hash = "sha256-Lz5SWBrvkX1bqsA7l8PWyt0DKjnQt0o53r/7TR4jilw=";
       };
     };
   });

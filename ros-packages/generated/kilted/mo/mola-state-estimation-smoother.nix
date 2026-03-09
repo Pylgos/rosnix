@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_state_estimation_smoother";
-  version = "2.1.0-1";
+  version = "2.2.0-1";
   src = finalAttrs.passthru.sources."mola_state_estimation_smoother";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint gtsam mola-common mola-gtsam-factors mola-imu-preintegration mola-kernel mola-launcher mrpt-libobs ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-chrono-dev" "libboost-date-time-dev" "libboost-filesystem-dev" "libboost-program-options-dev" "libboost-regex-dev" "libboost-serialization-dev" "libboost-system-dev" "libboost-thread-dev" "libboost-timer-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_state_estimation_smoother-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "a5ad3085d7cff524b0adadaf4bad164fb752f932";
-        hash = "sha256-88ePla7AGrOSsf3KWQWvXILZdkxrk+TU5pcdHIKwpuw=";
+        rev = "09fedf9b23e09cb10cd3a1b38049a35272acf318";
+        hash = "sha256-ozilDKIgXGYg/148MuakqhcAKeSWTc87OZKGul7DAlk=";
       };
     };
   });

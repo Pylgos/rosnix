@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_demos_bridges";
-  version = "2.8.1-2";
+  version = "2.8.2-1";
   src = finalAttrs.passthru.sources."rmf_demos_bridges";
   propagatedNativeBuildInputs = [ rmf-building-map-tools rmf-fleet-msgs rmf-site-map-msgs rmf-traffic-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" "python3-yaml" ]; };
   propagatedBuildInputs = [ rmf-building-map-tools rmf-fleet-msgs rmf-site-map-msgs rmf-traffic-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-flask-socketio" "python3-paho-mqtt" "python3-pyproj" "python3-yaml" ]; };
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_demos_bridges-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-        rev = "26f5680a7d98901d103b0414aa9f312a90778c25";
-        hash = "sha256-Fp79HkGNX3F0R0ncGNbrSbyvYCuHFIOU839L/l8tjOs=";
+        rev = "8522726411ced7808e547a01162bf41bf4f8f5c8";
+        hash = "sha256-hIj6QRz+5lJqVa/VAy2HnaBdxARr71I0fi7/Re9djHk=";
       };
     };
   });
