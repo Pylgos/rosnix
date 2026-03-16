@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "lvr2";
-  version = "25.2.1-1";
+  version = "25.2.2-1";
   src = finalAttrs.passthru.sources."lvr2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "embree" "glut" "libflann-dev" "libgdal-dev" "libgsl" "libhdf5-dev" "libopencv-dev" "libtiff-dev" "libxi-dev" "libxmu-dev" "lz4" "ocl-icd-opencl-dev" "tbb" "yaml-cpp" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lvr2-source";
         url = "https://github.com/ros2-gbp/lvr2-release.git";
-        rev = "3ec7e94a3ddcdf32637da2040ed76f26068f0c39";
-        hash = "sha256-U3D3J1YZJPD2LlVgAUWsxOdnnyE3GuUYuwtEQpQwDNs=";
+        rev = "9207cc24e604ad19744d654a71682f7ef4597e30";
+        hash = "sha256-NKcr5GzoaK0V20RweIQ50Ekq4ubaoEZYHIL1D9rz8SU=";
       };
       substitutions = [
         {

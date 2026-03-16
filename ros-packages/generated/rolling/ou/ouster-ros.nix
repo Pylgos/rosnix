@@ -1,6 +1,8 @@
 {
   ament-cmake,
+  ament-cmake-gtest,
   buildAmentCmakePackage,
+  class-loader,
   cv-bridge,
   fetchgit,
   fetchurl,
@@ -26,20 +28,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ouster_ros";
-  version = "0.14.1-1";
+  version = "0.14.2-1";
   src = finalAttrs.passthru.sources."ouster_ros";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "libzip-dev" "spdlog" ]; };
+  propagatedNativeBuildInputs = [ class-loader cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "libzip-dev" "spdlog" ]; };
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "libzip-dev" "spdlog" ]; };
-  checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
+  propagatedBuildInputs = [ class-loader cv-bridge geometry-msgs launch launch-ros ouster-sensor-msgs pcl-conversions rclcpp rclcpp-components rclcpp-lifecycle rosidl-default-runtime sensor-msgs std-msgs std-srvs tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "curl" "eigen" "libjsoncpp" "libjsoncpp-dev" "libpcl-all-dev" "libtins-dev" "libzip-dev" "spdlog" ]; };
+  checkInputs = [ ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "gtest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ouster_ros" = substituteSource {
       src = fetchgit {
         name = "ouster_ros-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
-        rev = "6f39c693dd723e6c18766de4e769f3a10f7f79da";
-        hash = "sha256-HXK7imVTbL3b2K4uYPi2MyQQm9PWNa6oV4mUl02ECUg=";
+        rev = "4596d4e6a51cf2d8ac4c4084ae4d2a74e5267e8e";
+        hash = "sha256-M3s4q8LHqVCyoZ2UasCJ7vqtLe3kcftKFMtb676JOYE=";
       };
     };
   });

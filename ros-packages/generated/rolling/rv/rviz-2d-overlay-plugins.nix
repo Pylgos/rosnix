@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_2d_overlay_plugins";
-  version = "1.3.1-1";
+  version = "1.4.1-1";
   src = finalAttrs.passthru.sources."rviz_2d_overlay_plugins";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rviz-2d-overlay-msgs rviz-common rviz-ogre-vendor rviz-rendering std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_2d_overlay_plugins-source";
         url = "https://github.com/ros2-gbp/rviz_2d_overlay_plugins-release.git";
-        rev = "8d4cd76d7fc09073fffd283428f56c72b8a8a224";
-        hash = "sha256-luzwW5BCq/Fq1Kr2b85CH0x2tSyf1YAHzX2MxEJ6U7I=";
+        rev = "905c9e33b8d3ba2a7b77f52a845f4c0577b5470c";
+        hash = "sha256-RS/qtO4MzFi1hpkxPoPOORgUtW8Npop67MZKCW8mmGA=";
       };
     };
   });

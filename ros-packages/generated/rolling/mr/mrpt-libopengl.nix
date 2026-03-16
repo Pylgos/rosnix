@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mrpt_libopengl";
-  version = "2.15.8-1";
+  version = "2.15.11-1";
   src = finalAttrs.passthru.sources."mrpt_libopengl";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mrpt-libbase mrpt-libposes ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg" "glut" "libfreenect-dev" "libglfw3-dev" "libjpeg" "libopencv-dev" "libopenni2-dev" "libpcap" "libudev-dev" "libusb-1.0-dev" "libxrandr" "libxxf86vm" "opengl" "pkg-config" "pybind11-dev" "python3-pip" "tinyxml2" "wx-common" "wxwidgets" "zlib" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_libopengl-source";
         url = "https://github.com/ros2-gbp/mrpt_ros-release.git";
-        rev = "ad9f414952f591f7604fe14fc407c9ae71b59977";
-        hash = "sha256-7lChjgccNn1eTSpscvPrC5uZFD2qntKWh4jLz4eyjmg=";
+        rev = "71ee6a7ed7b46ae14e5b4b52738c2bbf31651bf1";
+        hash = "sha256-R9ok+gjFr1rGsrku02NUSNSmNms12jLspazglS/SbHg=";
       };
     };
   });

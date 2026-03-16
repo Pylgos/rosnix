@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mujoco_vendor";
-  version = "0.0.7-1";
+  version = "0.0.8-2";
   src = finalAttrs.passthru.sources."mujoco_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "patchelf" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mujoco_vendor-source";
         url = "https://github.com/ros2-gbp/mujoco_vendor-release.git";
-        rev = "50fe51cb32e5ba7ef364a44a5c59c3b86be58474";
-        hash = "sha256-cuJcegYEueffq7gjgHHfymzpSTengmDnL+2qXB8cm+U=";
+        rev = "5e6349340a83363bcbd8332be28665c79cb20369";
+        hash = "sha256-/2htgPTYAUVkrjphSY7YAQ7+42vCcY0tGHrMXiDT65w=";
       };
       substitutions = [
         {

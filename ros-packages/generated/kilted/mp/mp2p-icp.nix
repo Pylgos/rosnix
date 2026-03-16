@@ -18,7 +18,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mp2p_icp";
-  version = "2.7.0-1";
+  version = "2.7.1-1";
   src = finalAttrs.passthru.sources."mp2p_icp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mola-imu-preintegration mrpt-libbase mrpt-libgui mrpt-libmaps mrpt-libobs mrpt-libposes mrpt-libtclap ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "tbb" ]; };
@@ -29,8 +29,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mp2p_icp-source";
         url = "https://github.com/ros2-gbp/mp2p_icp-release.git";
-        rev = "b298c098070ed30f2a99f7a7a925a6e1249c44f4";
-        hash = "sha256-Hm3AF3A07RlFmpNXZnfZjtWnyu5pBTbBCJDiFCCGDr8=";
+        rev = "8b5fd264e56bd46e1e3f333ad2169ed81cff6f6f";
+        hash = "sha256-a/zf2ecOQrSIxG42AxgcbUl74EbVwhJ92J2LBZ9Usaw=";
       };
     };
   });

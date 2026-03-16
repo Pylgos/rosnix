@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat-source";
         url = "https://github.com/gazebosim/sdformat.git";
-        rev = "645dd5485b2c35ea2a5a7b3433c838585e6c5972";
-        hash = "sha256-F7GpKzYqkXCcWSHjC5du2HAuIpC/a6NjWNea2K1w+/A=";
+        rev = "fab15538dda9801b85d612111b749b885eb868cf";
+        hash = "sha256-jqydn3izYB8yf6pJigkGUf02gVFtO2fYKdLJCP+YX/k=";
       };
     };
   });

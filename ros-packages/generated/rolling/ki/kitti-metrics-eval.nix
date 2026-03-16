@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "kitti_metrics_eval";
-  version = "2.5.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."kitti_metrics_eval";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mrpt-libmath mrpt-libposes mrpt-libtclap ];
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kitti_metrics_eval-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "a7395134f6185249a70d63cf62ffb6757403d15e";
-        hash = "sha256-u3Tb5sWl7i/MtzIAMiC/Jp6RChAvO6tGl027uR9hTks=";
+        rev = "ad37f6b0112816817771232901e8633d9abfbdac";
+        hash = "sha256-Wy6oQWczQPjPbUMe/PO35nu4uZ5hUPfmSXB0ngXPjSg=";
       };
     };
   });

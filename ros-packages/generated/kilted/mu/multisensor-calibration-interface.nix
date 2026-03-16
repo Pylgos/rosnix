@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "multisensor_calibration_interface";
-  version = "2.0.4-2";
+  version = "2.1.0-1";
   src = finalAttrs.passthru.sources."multisensor_calibration_interface";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "multisensor_calibration_interface-source";
         url = "https://github.com/ros2-gbp/multisensor_calibration-release.git";
-        rev = "db4f6897de60e95369c40c3b0b09cb23c011bbdf";
-        hash = "sha256-9QxLiNNV1ldnVHj71/TxoyTsl3r8IBx5kshyzHHybLA=";
+        rev = "273d7f2ca07db324159e577fba560dd660b23f3b";
+        hash = "sha256-Jq4O49Y+T+tRila0Ow8jalNIYoiPjeJBRDO5mUPpsak=";
       };
     };
   });

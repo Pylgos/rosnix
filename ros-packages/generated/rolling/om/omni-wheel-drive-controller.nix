@@ -2,6 +2,7 @@
   ament-cmake,
   ament-cmake-gmock,
   buildAmentCmakePackage,
+  control-msgs,
   controller-interface,
   controller-manager,
   fetchgit,
@@ -25,20 +26,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "omni_wheel_drive_controller";
-  version = "6.3.0-1";
+  version = "6.4.0-1";
   src = finalAttrs.passthru.sources."omni_wheel_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
+  propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
+  propagatedBuildInputs = [ control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake tf2 tf2-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "omni_wheel_drive_controller" = substituteSource {
       src = fetchgit {
         name = "omni_wheel_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "5052e18428d6778458dee05724909eca320c8452";
-        hash = "sha256-IOAftszxE8RG3iGlinHiGEoTvSXstYVu0+VMNCs5nX8=";
+        rev = "edb211b1fe071579aa76e64730f4dce0b4ff0e46";
+        hash = "sha256-sN0cnD2d/07GLcIoExGO1KnNdzEO3GFP3tG7Y8F4km8=";
       };
     };
   });

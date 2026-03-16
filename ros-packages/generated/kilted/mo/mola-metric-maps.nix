@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_metric_maps";
-  version = "2.5.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."mola_metric_maps";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-xmllint mola-common mp2p-icp mrpt-libmaps ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "tbb" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_metric_maps-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "1e500f9c95f7c72d4feb7e6770a6ec604a8edc9d";
-        hash = "sha256-K/WACvkz7KegpV4xkaT97TtNRT5gikDNTEDH9BlL1jc=";
+        rev = "efae5b728be015bbaa837c17be2fc2cade753ac1";
+        hash = "sha256-gL/cUn3uTwo5r5qqVIeFwDl1md1hqqMuvGSYpg1nmfg=";
       };
     };
   });

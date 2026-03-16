@@ -23,7 +23,6 @@
   ros2-control-cmake,
   ros2-control-test-assets,
   rosSystemPackages,
-  std-srvs,
   substituteSource,
   tf2,
   tf2-geometry-msgs,
@@ -31,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mecanum_drive_controller";
-  version = "6.3.0-1";
+  version = "6.4.0-1";
   src = finalAttrs.passthru.sources."mecanum_drive_controller";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
+  propagatedNativeBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake std-srvs tf2 tf2-geometry-msgs tf2-msgs ];
+  propagatedBuildInputs = [ backward-ros control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface nav-msgs pluginlib rclcpp rclcpp-lifecycle rcpputils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-msgs ];
   checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets ];
   passthru.sources = mkSourceSet (sources: {
     "mecanum_drive_controller" = substituteSource {
       src = fetchgit {
         name = "mecanum_drive_controller-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "c0adb1afae44f4792af91190882ce25d3c896390";
-        hash = "sha256-qrnBgPl2iHqw/6rZP3ug6f3S4PuRxL7bg6QZ7exr3UQ=";
+        rev = "41ce4359d66f7e05d1c339fcc532286e4f6c13f8";
+        hash = "sha256-FFWnQ0vP2jFLYxomECesxWI5An/2ZHlDB/k9yvwLWbk=";
       };
     };
   });

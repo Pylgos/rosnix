@@ -1,0 +1,44 @@
+{
+  ament-cmake,
+  ament-lint-auto,
+  ament-lint-common,
+  buildAmentCmakePackage,
+  camera-aravis2-msgs,
+  camera-info-manager,
+  cv-bridge,
+  diagnostic-msgs,
+  fetchgit,
+  fetchurl,
+  fetchzip,
+  image-transport,
+  mkSourceSet,
+  rclcpp,
+  rclcpp-components,
+  rosSystemPackages,
+  sensor-msgs,
+  std-msgs,
+  substituteSource,
+}:
+buildAmentCmakePackage (finalAttrs: {
+  pname = "camera_aravis2";
+  version = "1.2.0-1";
+  src = finalAttrs.passthru.sources."camera_aravis2";
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ camera-aravis2-msgs camera-info-manager cv-bridge diagnostic-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "aravis-dev" "libglib-dev" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ camera-aravis2-msgs camera-info-manager cv-bridge diagnostic-msgs image-transport rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "aravis-dev" "libglib-dev" ]; };
+  checkInputs = [ ament-lint-auto ament-lint-common ];
+  passthru.sources = mkSourceSet (sources: {
+    "camera_aravis2" = substituteSource {
+      src = fetchgit {
+        name = "camera_aravis2-source";
+        url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
+        rev = "f3697158f12319196bc718086f3cfff82c5e4641";
+        hash = "sha256-Ye3xLaSPdJMBf8jjz6SOqnPITytWYHaIy2bfNjGtS00=";
+      };
+    };
+  });
+  meta = {
+    description = "ROS2 camera driver for [GenICam](https://www.emva.org/standards-technology/genicam/)-based GigEVision and USB3Vision cameras.";
+  };
+})

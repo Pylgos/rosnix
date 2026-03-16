@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ouster_sensor_msgs";
-  version = "0.14.1-1";
+  version = "0.14.1-2";
   src = finalAttrs.passthru.sources."ouster_sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ouster_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/ouster-ros-release.git";
-        rev = "fb7066ec65439059c63bfcc4270b00e77e67ff53";
+        rev = "f681f3d65ff8e2937ae0c02a93163231dc607203";
         hash = "sha256-IkpnM1ihrncyeRCgwruS/AigzelhzEvXiKbf595BBbA=";
       };
     };

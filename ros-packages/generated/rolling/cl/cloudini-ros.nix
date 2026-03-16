@@ -7,10 +7,8 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  mcap-vendor,
   mkSourceSet,
   pcl-conversions,
-  pcl-ros,
   pluginlib,
   point-cloud-interfaces,
   point-cloud-transport,
@@ -23,20 +21,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cloudini_ros";
-  version = "1.0.2-1";
+  version = "1.0.3-1";
   src = finalAttrs.passthru.sources."cloudini_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ cloudini-lib mcap-vendor pcl-conversions pcl-ros pluginlib point-cloud-interfaces point-cloud-transport rclcpp rclcpp-components rosbag2-cpp sensor-msgs ];
+  propagatedNativeBuildInputs = [ cloudini-lib pcl-conversions pluginlib point-cloud-interfaces point-cloud-transport rclcpp rclcpp-components rosbag2-cpp sensor-msgs ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cloudini-lib mcap-vendor pcl-conversions pcl-ros pluginlib point-cloud-interfaces point-cloud-transport rclcpp rclcpp-components rosbag2-cpp sensor-msgs ];
+  propagatedBuildInputs = [ cloudini-lib pcl-conversions pluginlib point-cloud-interfaces point-cloud-transport rclcpp rclcpp-components rosbag2-cpp sensor-msgs ];
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "cloudini_ros" = substituteSource {
       src = fetchgit {
         name = "cloudini_ros-source";
         url = "https://github.com/facontidavide/cloudini-release.git";
-        rev = "c1d6d422c213e595c1afab59756df1efc2d85eef";
-        hash = "sha256-gXzFn0BhfYFvk0DJALWnOJH6e5K9xP6cBQhL4RftF+o=";
+        rev = "b6267e5da83304cd2ebbfad644e40f3f60cee3f8";
+        hash = "sha256-azhSoI0qJoWtCHtCBuI2FNr0FKqPPxMXgWqaIGyS4AU=";
       };
     };
   });

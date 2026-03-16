@@ -21,7 +21,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "play_motion2_cli";
-  version = "1.8.3-1";
+  version = "1.8.4-1";
   src = finalAttrs.passthru.sources."play_motion2_cli";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ play-motion2 rclpy ros2cli ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "play_motion2_cli-source";
         url = "https://github.com/ros2-gbp/play_motion2-release.git";
-        rev = "5f933980cf6efa7f0545fddbf003802d0cd4a927";
-        hash = "sha256-TOdF7zNMfaoItUSI9MTxlMk2UbY8xC3XZibN+lheArk=";
+        rev = "0719f5a660bfd94710379a7ea94c5c89ca55179f";
+        hash = "sha256-D92xAW/8jxSut9Mj/TSBpyAeyUibk7BG0J4KrdVlMPs=";
       };
     };
   });
