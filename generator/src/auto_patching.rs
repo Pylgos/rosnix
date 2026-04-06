@@ -13,7 +13,7 @@ use tracing::{info, warn};
 use walkdir::WalkDir;
 
 use crate::{
-    cmake::{cmake_find_calls, CMakeArgs},
+    cmake::{cmake_find_active_calls, cmake_find_calls, CMakeArgs},
     config::ConfigRef,
     hunter::Hunter,
     source::{Fetcher, Source},
@@ -296,24 +296,15 @@ fn collect_cmake_calls<'a>(
                     continue;
                 }
             };
-            let calls = cmake_find_calls(&content);
-            let mut vars = HashMap::new();
+            let calls = cmake_find_active_calls(&content);
             for call in calls {
                 let func = call.func.to_ascii_lowercase();
                 if func_names.contains(func.as_str()) {
-                    let args = CMakeArgs::parse(&call.args, &vars);
+                    let args = CMakeArgs::parse(&call.args, &HashMap::new());
                     result
                         .get_mut(&func)
                         .unwrap()
                         .push((rel_path.to_path_buf(), args));
-                }
-                if func == "set" {
-                    let args = CMakeArgs::parse(&call.args, &vars);
-                    if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
-                        if !vars.contains_key(key) {
-                            vars.insert(key.to_string(), value.to_string());
-                        }
-                    };
                 }
             }
         }
@@ -632,27 +623,25 @@ ExternalProject_Add(
     }
 
     #[test]
-    fn test_cmake_set_keeps_first_value_for_branch_resolution() {
+    fn test_cmake_if_prefers_active_branch_for_resolution() {
         let src = r#"
-set(LIB_VCS_VER gz-cmake3_3.5.6)
-set(LIB_VCS_VER main)
+set(USE_STABLE ON)
+if(USE_STABLE)
+  set(LIB_VCS_VER gz-cmake3_3.5.6)
+else()
+  set(LIB_VCS_VER main)
+endif()
 ament_vendor(gz_cmake_vendor
   VCS_URL https://github.com/gazebosim/${GITHUB_NAME}.git
   VCS_VERSION ${LIB_VCS_VER}
 )
 "#;
-        let calls = cmake_find_calls(src);
-        let mut vars = HashMap::new();
+        let calls = cmake_find_active_calls(src);
         let mut vcs_version = None;
 
         for call in calls {
             let func = call.func.to_ascii_lowercase();
-            let args = CMakeArgs::parse(&call.args, &vars);
-            if func == "set" {
-                if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
-                    vars.entry(key.to_string()).or_insert(value.to_string());
-                }
-            }
+            let args = CMakeArgs::parse(&call.args, &HashMap::new());
             if func == "ament_vendor" {
                 vcs_version = args.find_keyword_arg("VCS_VERSION").map(|v| v.value);
             }
