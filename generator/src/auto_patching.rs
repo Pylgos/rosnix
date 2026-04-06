@@ -13,7 +13,7 @@ use tracing::{info, warn};
 use walkdir::WalkDir;
 
 use crate::{
-    cmake::{cmake_find_calls, CMakeArgs},
+    cmake::{cmake_find_active_calls, cmake_find_calls, CMakeArgs},
     config::ConfigRef,
     hunter::Hunter,
     source::{Fetcher, Source},
@@ -296,7 +296,7 @@ fn collect_cmake_calls<'a>(
                     continue;
                 }
             };
-            let calls = cmake_find_calls(&content);
+            let calls = cmake_find_active_calls(&content);
             let mut vars = HashMap::new();
             for call in calls {
                 let func = call.func.to_ascii_lowercase();
@@ -310,7 +310,7 @@ fn collect_cmake_calls<'a>(
                 if func == "set" {
                     let args = CMakeArgs::parse(&call.args, &vars);
                     if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
-                        vars.insert(key.into(), value.into());
+                        vars.insert(key.to_string(), value.to_string());
                     };
                 }
             }
@@ -627,5 +627,39 @@ ExternalProject_Add(
         for call in calls {
             println!("{:?}", call);
         }
+    }
+
+    #[test]
+    fn test_cmake_if_prefers_active_branch_for_resolution() {
+        let src = r#"
+set(USE_STABLE ON)
+if(USE_STABLE)
+  set(LIB_VCS_VER gz-cmake3_3.5.6)
+else()
+  set(LIB_VCS_VER main)
+endif()
+ament_vendor(gz_cmake_vendor
+  VCS_URL https://github.com/gazebosim/${GITHUB_NAME}.git
+  VCS_VERSION ${LIB_VCS_VER}
+)
+"#;
+        let calls = cmake_find_active_calls(src);
+        let mut vars = HashMap::new();
+        let mut vcs_version = None;
+
+        for call in calls {
+            let func = call.func.to_ascii_lowercase();
+            let args = CMakeArgs::parse(&call.args, &vars);
+            if func == "set" {
+                if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
+                    vars.insert(key.to_string(), value.to_string());
+                }
+            }
+            if func == "ament_vendor" {
+                vcs_version = args.find_keyword_arg("VCS_VERSION").map(|v| v.value);
+            }
+        }
+
+        assert_eq!(vcs_version.as_deref(), Some("gz-cmake3_3.5.6"));
     }
 }
