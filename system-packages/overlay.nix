@@ -652,7 +652,18 @@ in
     python3-docker = [ final.rosPythonPackages.docker ];
     python3-docopt = [ final.rosPythonPackages.docopt ];
     python3-docutils = [ final.rosPythonPackages.docutils ];
-    python3-empy = [ final.rosPythonPackages.empy ];
+    python3-empy = [
+      (final.rosPythonPackages.buildPythonPackage rec {
+        pname = "empy";
+        version = "3.3.4";
+        format = "setuptools";
+        src = final.fetchurl {
+          url = "https://files.pythonhosted.org/packages/source/e/empy/empy-${version}.tar.gz";
+          hash = "sha256-c6xJeFtgFHnfTqGKfHm8EwSop8NMArlHLPEgauiPAbM=";
+        };
+        doCheck = false;
+      })
+    ];
     python3-ezdxf = [ final.rosPythonPackages.ezdxf ];
     python3-filelock = [ final.rosPythonPackages.filelock ];
     python3-fiona = [ final.rosPythonPackages.fiona ];

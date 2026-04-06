@@ -300,14 +300,15 @@ fn collect_cmake_calls<'a>(
             let mut vars = HashMap::new();
             for call in calls {
                 let func = call.func.to_ascii_lowercase();
-                let args = CMakeArgs::parse(&call.args, &vars);
                 if func_names.contains(func.as_str()) {
+                    let args = CMakeArgs::parse(&call.args, &vars);
                     result
                         .get_mut(&func)
                         .unwrap()
-                        .push((rel_path.to_path_buf(), args.clone()));
+                        .push((rel_path.to_path_buf(), args));
                 }
                 if func == "set" {
+                    let args = CMakeArgs::parse(&call.args, &vars);
                     if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
                         vars.insert(key.to_string(), value.to_string());
                     };

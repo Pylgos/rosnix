@@ -269,6 +269,21 @@ fn cmake_true_literal(s: &str) -> bool {
     !cmake_false_literal(s)
 }
 
+fn cmake_eval_bare_ident(token: &str, vars: &HashMap<String, String>) -> bool {
+    if let Some(v) = vars.get(token) {
+        return cmake_true_literal(v);
+    }
+    if token.parse::<f64>().ok().is_some() {
+        return cmake_true_literal(token);
+    }
+    match token.to_ascii_uppercase().as_str() {
+        "TRUE" | "ON" | "YES" | "Y" => true,
+        "FALSE" | "OFF" | "NO" | "N" | "IGNORE" | "NOTFOUND" => false,
+        v if v.ends_with("-NOTFOUND") => false,
+        _ => false,
+    }
+}
+
 fn cmake_resolve_var(vars: &HashMap<String, String>, arg: &CMakeToken) -> Option<String> {
     use CMakeTokenKind::*;
     let arg = match &arg.kind {
@@ -344,7 +359,8 @@ fn parse_condition_primary(tokens: &[String], cur: &mut usize, vars: &HashMap<St
         return Some(vars.contains_key(key));
     }
 
-    let lhs = vars.get(token).cloned().unwrap_or_else(|| token.clone());
+    let lhs_resolved = vars.get(token).cloned();
+    let lhs = lhs_resolved.clone().unwrap_or_else(|| token.clone());
     *cur += 1;
 
     let Some(op) = tokens.get(*cur) else {
@@ -378,7 +394,11 @@ fn parse_condition_primary(tokens: &[String], cur: &mut usize, vars: &HashMap<St
         return Some(v);
     }
 
-    Some(cmake_true_literal(&lhs))
+    Some(if lhs_resolved.is_some() {
+        cmake_true_literal(&lhs)
+    } else {
+        cmake_eval_bare_ident(token, vars)
+    })
 }
 
 fn parse_condition_not(tokens: &[String], cur: &mut usize, vars: &HashMap<String, String>) -> Option<bool> {
@@ -433,12 +453,20 @@ fn eval_if_condition(tokens: &[CMakeToken], vars: &HashMap<String, String>) -> O
 }
 
 fn apply_set_call(call: &CMakeCall, vars: &mut HashMap<String, String>) {
-    if !call.func.eq_ignore_ascii_case("set") {
+    if call.func.eq_ignore_ascii_case("set") {
+        let args = CMakeArgs::parse(&call.args, vars);
+        if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
+            vars.insert(key.to_string(), value.to_string());
+        }
         return;
     }
-    let args = CMakeArgs::parse(&call.args, vars);
-    if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
-        vars.insert(key.to_string(), value.to_string());
+    if call.func.eq_ignore_ascii_case("option") {
+        let args = CMakeArgs::parse(&call.args, vars);
+        if let Some(key) = args.get(0) {
+            let value = args.get(2).unwrap_or("OFF");
+            vars.entry(key.to_string())
+                .or_insert_with(|| value.to_string());
+        }
     }
 }
 
@@ -611,5 +639,34 @@ ament_vendor(pkg VCS_VERSION ${LIB_VCS_VER})
         let src = "if(FOO)\nset(URL https://example.com)\nExternalProject_Add(name URL \"https://x\"";
         let calls = cmake_find_calls(src);
         assert!(calls.iter().any(|c| c.func.eq_ignore_ascii_case("set")));
+    }
+
+    #[test]
+    fn test_cmake_find_active_calls_honors_option_default() {
+        let src = r#"
+option(VENDOR_FROM_LIB_VCS_REF "desc" OFF)
+if(NOT VENDOR_FROM_LIB_VCS_REF)
+  set(LIB_VCS_VER tag)
+else()
+  set(LIB_VCS_VER main)
+endif()
+ament_vendor(pkg VCS_VERSION ${LIB_VCS_VER})
+"#;
+        let calls = cmake_find_active_calls(src);
+        let mut vars = HashMap::new();
+        let mut vcs_version = None;
+        for call in calls {
+            let func = call.func.to_ascii_lowercase();
+            let args = CMakeArgs::parse(&call.args, &vars);
+            if func == "set" {
+                if let (Some(k), Some(v)) = (args.get(0), args.get(1)) {
+                    vars.insert(k.to_string(), v.to_string());
+                }
+            }
+            if func == "ament_vendor" {
+                vcs_version = args.find_keyword_arg("VCS_VERSION").map(|x| x.value);
+            }
+        }
+        assert_eq!(vcs_version.as_deref(), Some("tag"));
     }
 }
