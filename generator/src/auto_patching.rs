@@ -310,7 +310,9 @@ fn collect_cmake_calls<'a>(
                 if func == "set" {
                     let args = CMakeArgs::parse(&call.args, &vars);
                     if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
-                        vars.entry(key.to_string()).or_insert(value.to_string());
+                        if !vars.contains_key(key) {
+                            vars.insert(key.to_string(), value.to_string());
+                        }
                     };
                 }
             }
