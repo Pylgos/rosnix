@@ -74,7 +74,10 @@ fn cmake_tokenize(src: &str) -> Vec<CMakeToken> {
                                     't' => s.push('\t'),
                                     '\\' => s.push('\\'),
                                     '"' => s.push('"'),
-                                    other => s.push(other),
+                                    other => {
+                                        s.push('\\');
+                                        s.push(other);
+                                    }
                                 }
                             } else {
                                 break;
@@ -353,19 +356,23 @@ fn parse_condition_primary(tokens: &[String], cur: &mut usize, vars: &HashMap<St
         let rhs_raw = tokens.get(*cur + 1)?;
         let rhs = vars.get(rhs_raw).cloned().unwrap_or_else(|| rhs_raw.clone());
         *cur += 2;
+        let num_cmp = lhs
+            .parse::<f64>()
+            .ok()
+            .zip(rhs.parse::<f64>().ok());
         let v = match op_upper.as_str() {
             "STREQUAL" => lhs == rhs,
             "EQUAL" => {
-                if let (Ok(a), Ok(b)) = (lhs.parse::<i128>(), rhs.parse::<i128>()) {
+                if let Some((a, b)) = num_cmp {
                     a == b
                 } else {
                     lhs == rhs
                 }
             }
-            "LESS" => lhs < rhs,
-            "GREATER" => lhs > rhs,
-            "LESS_EQUAL" => lhs <= rhs,
-            "GREATER_EQUAL" => lhs >= rhs,
+            "LESS" => num_cmp.map_or_else(|| lhs < rhs, |(a, b)| a < b),
+            "GREATER" => num_cmp.map_or_else(|| lhs > rhs, |(a, b)| a > b),
+            "LESS_EQUAL" => num_cmp.map_or_else(|| lhs <= rhs, |(a, b)| a <= b),
+            "GREATER_EQUAL" => num_cmp.map_or_else(|| lhs >= rhs, |(a, b)| a >= b),
             _ => false,
         };
         return Some(v);
