@@ -297,14 +297,20 @@ fn collect_cmake_calls<'a>(
                 }
             };
             let calls = cmake_find_active_calls(&content);
+            let mut vars = HashMap::new();
             for call in calls {
                 let func = call.func.to_ascii_lowercase();
+                let args = CMakeArgs::parse(&call.args, &vars);
                 if func_names.contains(func.as_str()) {
-                    let args = CMakeArgs::parse(&call.args, &HashMap::new());
                     result
                         .get_mut(&func)
                         .unwrap()
-                        .push((rel_path.to_path_buf(), args));
+                        .push((rel_path.to_path_buf(), args.clone()));
+                }
+                if func == "set" {
+                    if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
+                        vars.insert(key.to_string(), value.to_string());
+                    };
                 }
             }
         }
@@ -637,11 +643,17 @@ ament_vendor(gz_cmake_vendor
 )
 "#;
         let calls = cmake_find_active_calls(src);
+        let mut vars = HashMap::new();
         let mut vcs_version = None;
 
         for call in calls {
             let func = call.func.to_ascii_lowercase();
-            let args = CMakeArgs::parse(&call.args, &HashMap::new());
+            let args = CMakeArgs::parse(&call.args, &vars);
+            if func == "set" {
+                if let (Some(key), Some(value)) = (args.get(0), args.get(1)) {
+                    vars.insert(key.to_string(), value.to_string());
+                }
+            }
             if func == "ament_vendor" {
                 vcs_version = args.find_keyword_arg("VCS_VERSION").map(|v| v.value);
             }

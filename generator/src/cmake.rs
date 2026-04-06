@@ -121,6 +121,7 @@ fn cmake_tokenize(src: &str) -> Vec<CMakeToken> {
 }
 
 fn parse_call(tokens: &[CMakeToken], cur: &mut usize) -> Option<CMakeCall> {
+    let start_cur = *cur;
     let token = tokens.get(*cur)?;
     let CMakeTokenKind::Ident(func) = &token.kind else {
         *cur += 1;
@@ -159,6 +160,11 @@ fn parse_call(tokens: &[CMakeToken], cur: &mut usize) -> Option<CMakeCall> {
                 *cur += 1;
             }
         }
+    }
+
+    if depth > 0 {
+        *cur = start_cur + 1;
+        return None;
     }
 
     Some(CMakeCall {
@@ -335,7 +341,7 @@ fn parse_condition_primary(tokens: &[String], cur: &mut usize, vars: &HashMap<St
         return Some(vars.contains_key(key));
     }
 
-    let lhs = token.clone();
+    let lhs = vars.get(token).cloned().unwrap_or_else(|| token.clone());
     *cur += 1;
 
     let Some(op) = tokens.get(*cur) else {
@@ -344,21 +350,22 @@ fn parse_condition_primary(tokens: &[String], cur: &mut usize, vars: &HashMap<St
     let op_upper = op.to_ascii_uppercase();
 
     if ["STREQUAL", "EQUAL", "LESS", "GREATER", "LESS_EQUAL", "GREATER_EQUAL"].contains(&op_upper.as_str()) {
-        let rhs = tokens.get(*cur + 1)?;
+        let rhs_raw = tokens.get(*cur + 1)?;
+        let rhs = vars.get(rhs_raw).cloned().unwrap_or_else(|| rhs_raw.clone());
         *cur += 2;
         let v = match op_upper.as_str() {
-            "STREQUAL" => lhs == *rhs,
+            "STREQUAL" => lhs == rhs,
             "EQUAL" => {
                 if let (Ok(a), Ok(b)) = (lhs.parse::<i128>(), rhs.parse::<i128>()) {
                     a == b
                 } else {
-                    lhs == *rhs
+                    lhs == rhs
                 }
             }
-            "LESS" => lhs < *rhs,
-            "GREATER" => lhs > *rhs,
-            "LESS_EQUAL" => lhs <= *rhs,
-            "GREATER_EQUAL" => lhs >= *rhs,
+            "LESS" => lhs < rhs,
+            "GREATER" => lhs > rhs,
+            "LESS_EQUAL" => lhs <= rhs,
+            "GREATER_EQUAL" => lhs >= rhs,
             _ => false,
         };
         return Some(v);
@@ -594,7 +601,7 @@ ament_vendor(pkg VCS_VERSION ${LIB_VCS_VER})
 
     #[test]
     fn test_cmake_find_calls_tolerates_unclosed_constructs() {
-        let src = "if(FOO\nset(URL https://example.com\nExternalProject_Add(name URL https://x";
+        let src = "if(FOO)\nset(URL https://example.com)\nExternalProject_Add(name URL \"https://x\"";
         let calls = cmake_find_calls(src);
         assert!(calls.iter().any(|c| c.func.eq_ignore_ascii_case("set")));
     }
