@@ -10,14 +10,13 @@
   moveit-resources-prbt-support,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_prbt_pg70_support";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_pg70_support";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-resources-prbt-ikfast-manipulator-plugin moveit-resources-prbt-moveit-config moveit-resources-prbt-support xacro ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-resources-prbt-ikfast-manipulator-plugin moveit-resources-prbt-moveit-config moveit-resources-prbt-support xacro ];

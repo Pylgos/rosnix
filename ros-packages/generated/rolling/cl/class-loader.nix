@@ -1,7 +1,6 @@
 {
   ament-cmake,
   ament-cmake-gtest,
-  ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -16,11 +15,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "class_loader";
-  version = "2.9.2-1";
+  version = "2.9.4-1";
   src = finalAttrs.passthru.sources."class_loader";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ console-bridge-vendor rcpputils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libconsole-bridge-dev" ]; };
-  buildInputs = [ ament-cmake ament-cmake-ros ];
+  buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ console-bridge-vendor rcpputils ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libconsole-bridge-dev" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
@@ -28,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "class_loader-source";
         url = "https://github.com/ros2-gbp/class_loader-release.git";
-        rev = "837bb77819f4e0e113ad9b265dd318b78811f60b";
-        hash = "sha256-5Q4qPnGK3aoTs4br+C644JiIw8IT4fm4/wimN6XV8OU=";
+        rev = "91d0ae0ca634fac979d85703a1c428046e66a2d2";
+        hash = "sha256-ba3k8TL0RKPx16vj16cMdZfGjJb0uNO9z5Dx4703bJk=";
       };
     };
   });

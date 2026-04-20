@@ -40,21 +40,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "3669f8ac7e804ab284177136c87a696d0c5d945e";
         hash = "sha256-yWnX3o7Eh1//HPSS9fITythCk+iM3t6jDobLrGsixRk=";
       };
-      substitutions = [
-        {
-          path = "cmake/ROS1.cmake";
-          from = "GIT_REPOSITORY https://github.com/ros-event-camera/openeb.git";
-          to = "URL ${sources."metavision_driver/openeb"}";
-        }
-      ];
-    };
-    "metavision_driver/openeb" = substituteSource {
-      src = fetchgit {
-        name = "openeb-source";
-        url = "https://github.com/ros-event-camera/openeb.git";
-        rev = "db34531b9d0fef952e39f5fef7169e583575b6e9";
-        hash = "sha256-QHs3Bz6Mj08Rk8lUAIyWfMwMcoW1XCswASYhX0hfPiM=";
-      };
     };
   });
   meta = {

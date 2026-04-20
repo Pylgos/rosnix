@@ -14,13 +14,12 @@
   rqt-gui-py,
   rqt-robot-monitor,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_robot_dashboard";
   version = "0.6.1-4";
   src = finalAttrs.passthru.sources."rqt_robot_dashboard";
-  nativeBuildInputs = [ wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui rclpy rqt-console rqt-gui rqt-gui-py rqt-robot-monitor ];
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-setuptools" ]; };
   propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui rclpy rqt-console rqt-gui rqt-gui-py rqt-robot-monitor ];

@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_robot_bringup";
-  version = "0.37.6-1";
+  version = "0.37.8-1";
   src = finalAttrs.passthru.sources."dummy_robot_bringup";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python dummy-map-server dummy-sensors launch launch-ros robot-state-publisher rviz2 ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dummy_robot_bringup-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "9f9b46e39a7ff6b88fc7e166e71ef0d761f7d9da";
-        hash = "sha256-GDrzfPC8QedNJT7YM7MxY4BBKZ2cdQupStXGhC4s1eU=";
+        rev = "38a13a775565ea20ee89e8da6759d10ce82c8655";
+        hash = "sha256-l1qPlfdNhL2Zl+Vhwenkfa2wYO9kflaolocZ+yushqc=";
       };
     };
   });

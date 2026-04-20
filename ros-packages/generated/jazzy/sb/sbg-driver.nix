@@ -39,21 +39,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "0e3df513f8adf27dc067fafc3f9acd8f5605b156";
         hash = "sha256-+ZYmlc8kNFaPrS096dWDW++uMWe09K8rMpLNP6Nxp1E=";
       };
-      substitutions = [
-        {
-          path = "external/sbgECom/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/argtable/argtable3.git";
-          to = "URL ${sources."sbg_driver/argtable3"}";
-        }
-      ];
-    };
-    "sbg_driver/argtable3" = substituteSource {
-      src = fetchgit {
-        name = "argtable3-source";
-        url = "https://github.com/argtable/argtable3.git";
-        rev = "f25c624e3a5a65f4d1897aa7d51c897f8f8098d0";
-        hash = "sha256-X89xFLDs6NEgjzzwy8kplvTgukQd/CV3Xa9A3JXecf4=";
-      };
     };
   });
   meta = {

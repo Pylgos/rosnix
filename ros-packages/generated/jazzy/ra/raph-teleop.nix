@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raph_teleop";
-  version = "1.0.1-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."raph_teleop";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ ackermann-msgs joy-linux rclpy sensor-msgs ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raph_teleop-source";
         url = "https://github.com/ros2-gbp/raph_common-release.git";
-        rev = "55ba372732a598ace7c7b4cfb2323c9c3f5a49f7";
-        hash = "sha256-eP5F6pbfl2jPGNhNF18YUJqMjlpopnpLb8Y4K71e98g=";
+        rev = "bcd9269346bd88e7a69eb437f9f7308e3387a5d8";
+        hash = "sha256-1g13hPTMKNXottEpuyNy5MWNYaJeNtQQ51FvXLTkHMU=";
       };
     };
   });

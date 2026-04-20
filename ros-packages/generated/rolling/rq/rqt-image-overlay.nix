@@ -19,13 +19,12 @@
   rqt-image-overlay-layer,
   std-msgs,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_image_overlay";
   version = "0.5.0-1";
   src = finalAttrs.passthru.sources."rqt_image_overlay";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ image-transport pluginlib rclcpp ros-image-to-qimage rqt-gui rqt-gui-cpp rqt-image-overlay-layer ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ image-transport pluginlib rclcpp ros-image-to-qimage rqt-gui rqt-gui-cpp rqt-image-overlay-layer ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };

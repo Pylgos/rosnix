@@ -143,21 +143,6 @@ buildAmentCmakePackage (finalAttrs: {
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-CURL-7_49_1-DEV-v8"}";
         }
         {
-          path = "cmake/projects/Expat/hunter.cmake";
-          from = "URL\n    \"https://github.com/alamaison/expat/archive/R_2_1_1-hunter.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-Expat-2_1_1"}";
-        }
-        {
-          path = "cmake/projects/Expat/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/libexpat/archive/v2.2.9-p0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-Expat-2_2_9-p0"}";
-        }
-        {
-          path = "cmake/projects/FP16/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/FP16/archive/v0.0.0-febbb1c-p0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0"}";
-        }
-        {
           path = "cmake/projects/GTest/hunter.cmake";
           from = "URL\n    \"https://github.com/google/googletest/archive/v1.14.0.tar.gz\"";
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-GTest-1_14_0"}";
@@ -213,16 +198,6 @@ buildAmentCmakePackage (finalAttrs: {
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-ZLIB-1_2_8-p3"}";
         }
         {
-          path = "cmake/projects/fmt/hunter.cmake";
-          from = "URL\n    \"https://github.com/fmtlib/fmt/archive/10.1.1.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-fmt-10_1_1"}";
-        }
-        {
-          path = "cmake/projects/fmt/hunter.cmake";
-          from = "URL\n    \"https://github.com/fmtlib/fmt/archive/4.0.0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-fmt-4_0_0"}";
-        }
-        {
           path = "cmake/projects/intsizeof/hunter.cmake";
           from = "URL\n    \"https://github.com/ruslo/intsizeof/archive/v2.0.1.tar.gz\"";
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-intsizeof-2_0_1"}";
@@ -231,21 +206,6 @@ buildAmentCmakePackage (finalAttrs: {
           path = "cmake/projects/intsizeof/hunter.cmake";
           from = "URL\n    \"https://github.com/ruslo/intsizeof/archive/v2.0.2.tar.gz\"";
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-intsizeof-2_0_2"}";
-        }
-        {
-          path = "cmake/projects/jsoncpp/hunter.cmake";
-          from = "URL\n    \"https://github.com/julianoes/jsoncpp/archive/refs/tags/1.9.5-b1.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-1_9_5-b1"}";
-        }
-        {
-          path = "cmake/projects/jsoncpp/hunter.cmake";
-          from = "URL\n    \"https://github.com/open-source-parsers/jsoncpp/archive/0.7.0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-0_7_0"}";
-        }
-        {
-          path = "cmake/projects/jsoncpp/hunter.cmake";
-          from = "URL\n    \"https://github.com/open-source-parsers/jsoncpp/archive/1.8.0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-1_8_0"}";
         }
         {
           path = "cmake/projects/libxml2/hunter.cmake";
@@ -263,34 +223,14 @@ buildAmentCmakePackage (finalAttrs: {
           to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-lzma-5_2_3-p4"}";
         }
         {
-          path = "cmake/projects/nlohmann_json/hunter.cmake";
-          from = "URL \"https://github.com/hunter-packages/json/archive/v2.1.1-p1.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-2_1_1-p1"}";
+          path = "cmake/projects/mongoose/hunter.cmake";
+          from = "URL\n    https://github.com/hunter-packages/mongoose/archive/5.6-p.tar.gz";
+          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-mongoose-5_6"}";
         }
         {
-          path = "cmake/projects/nlohmann_json/hunter.cmake";
-          from = "URL \"https://github.com/nlohmann/json/archive/v3.11.2.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-3_11_2"}";
-        }
-        {
-          path = "cmake/projects/nlohmann_json/hunter.cmake";
-          from = "URL \"https://github.com/nlohmann/json/archive/v3.9.1.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-3_9_1"}";
-        }
-        {
-          path = "cmake/projects/spdlog/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/spdlog/archive/v1.12.0-p0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_12_0-p0"}";
-        }
-        {
-          path = "cmake/projects/spdlog/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/spdlog/archive/v0.13.0-p1.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-0_13_0-p1"}";
-        }
-        {
-          path = "cmake/projects/spdlog/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/spdlog/archive/v1.0.0-p0.tar.gz\"";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_0_0-p0"}";
+          path = "cmake/projects/mongoose/hunter.cmake";
+          from = "URL\n    https://github.com/hunter-packages/mongoose/archive/6.10-p.tar.gz";
+          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-mongoose-6_10"}";
         }
         {
           path = "cmake/projects/zstd/hunter.cmake";
@@ -325,54 +265,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "hunter-CURL-8_5_0-p0-source";
         url = "https://github.com/cpp-pm/curl/archive/refs/tags/v8.5.0-p0.tar.gz";
         hash = "sha256-t43zsxtkdYTn66cw69SMI5RlLXQMaQnWW/tB5mJUddw=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-Expat-2_1_1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-Expat-2_1_1-source";
-        url = "https://github.com/alamaison/expat/archive/R_2_1_1-hunter.tar.gz";
-        hash = "sha256-tHNOmb+8qggdJQp1ZC6JJ9Tkvh3QLUWZvK0jDM0zmX8=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-Expat-2_2_9-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-Expat-2_2_9-p0-source";
-        url = "https://github.com/cpp-pm/libexpat/archive/v2.2.9-p0.tar.gz";
-        hash = "sha256-lUECusiwUIXSA6zHm2qSjptcnMGyK6IkM3GErfxIKfg=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-FP16-0_0_0-febbb1c-p0-source";
-        url = "https://github.com/hunter-packages/FP16/archive/v0.0.0-febbb1c-p0.tar.gz";
-        hash = "sha256-AFlV31tc0xDbr5eqWPxv8Uj3vvXR3X1ChBBOTuF6VIo=";
-      };
-      substitutions = [
-        {
-          path = "cmake/DownloadGoogleBenchmark.cmake";
-          from = "URL https://github.com/google/benchmark/archive/v1.2.0.zip";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0/v1"}";
-        }
-        {
-          path = "cmake/DownloadPSimd.cmake";
-          from = "GIT_REPOSITORY https://github.com/Maratyszcza/psimd.git";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0/psimd"}";
-        }
-      ];
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0/psimd" = substituteSource {
-      src = fetchgit {
-        name = "psimd-source";
-        url = "https://github.com/Maratyszcza/psimd.git";
-        rev = "072586a71b55b7f8c584153d223e95687148a900";
-        hash = "sha256-lV+VZi2b4SQlRYrhKx9Dxc6HlDEFz3newvcBjTekupo=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-FP16-0_0_0-febbb1c-p0/v1" = substituteSource {
-      src = fetchzip {
-        name = "v1-source";
-        url = "https://github.com/google/benchmark/archive/v1.2.0.zip";
-        hash = "sha256-iFRgjLkftuszAqBnmS9GXU8BwYnabmwMAQyw19sfjb4=";
       };
     };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-GTest-1_14_0" = substituteSource {
@@ -459,20 +351,6 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-D07tEFsScfn4Vf/p/jlyR+Dn+9X6d9Oti6r/7YDqxBg=";
       };
     };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-fmt-10_1_1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-fmt-10_1_1-source";
-        url = "https://github.com/fmtlib/fmt/archive/10.1.1.tar.gz";
-        hash = "sha256-H9+1lEaHM12nzXSmo9m8S6527t+97e6necayyjCPm1A=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-fmt-4_0_0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-fmt-4_0_0-source";
-        url = "https://github.com/fmtlib/fmt/archive/4.0.0.tar.gz";
-        hash = "sha256-KgGMeTgVR4lBUbYiy/2yQY9jaBeovldfDTmihPl2+Ds=";
-      };
-    };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-intsizeof-2_0_1" = substituteSource {
       src = fetchzip {
         name = "hunter-intsizeof-2_0_1-source";
@@ -485,27 +363,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "hunter-intsizeof-2_0_2-source";
         url = "https://github.com/ruslo/intsizeof/archive/v2.0.2.tar.gz";
         hash = "sha256-qjc7wEWTpYyrkltM+Y9Ibs4zkNZZd5bfD2lz2VfFS3c=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-0_7_0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-jsoncpp-0_7_0-source";
-        url = "https://github.com/open-source-parsers/jsoncpp/archive/0.7.0.tar.gz";
-        hash = "sha256-yV/i+rI7L77vtXb9WU+HSSx8WK7k/0Z0NqHMrVahBzY=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-1_8_0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-jsoncpp-1_8_0-source";
-        url = "https://github.com/open-source-parsers/jsoncpp/archive/1.8.0.tar.gz";
-        hash = "sha256-LVHZ0Qu3JtR422i+563/y03RujjfccBX6CBQK/MX4tE=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-jsoncpp-1_9_5-b1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-jsoncpp-1_9_5-b1-source";
-        url = "https://github.com/julianoes/jsoncpp/archive/refs/tags/1.9.5-b1.tar.gz";
-        hash = "sha256-VjzW4vW+5CgrBPgTxk9ocR2HkRqt3emKoBukiGuuTHM=";
       };
     };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-libxml2-2_9_7-p0" = substituteSource {
@@ -529,61 +386,18 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-DnjVgMJR5Ty9rcwM6fCQ9h+yLPFoDy6QE5Kkrhg62go=";
       };
     };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-2_1_1-p1" = substituteSource {
+    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-mongoose-5_6" = substituteSource {
       src = fetchzip {
-        name = "hunter-nlohmann_json-2_1_1-p1-source";
-        url = "https://github.com/hunter-packages/json/archive/v2.1.1-p1.tar.gz";
-        hash = "sha256-6gYd5belTZidGBO8bLgqIQAF5EeKaH8wzZ/zNNtd3r4=";
+        name = "hunter-mongoose-5_6-source";
+        url = "https://github.com/hunter-packages/mongoose/archive/5.6-p.tar.gz";
+        hash = "sha256-K4LnyXDd2Z+D5G2tYXIyC0AdjqRxUFG49lQAeU0iF6A=";
       };
     };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-3_11_2" = substituteSource {
+    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-mongoose-6_10" = substituteSource {
       src = fetchzip {
-        name = "hunter-nlohmann_json-3_11_2-source";
-        url = "https://github.com/nlohmann/json/archive/v3.11.2.tar.gz";
-        hash = "sha256-SUdhIV7tjtacf5DkoWk9cnkfyMlrkg8ZU7XnPZd22Tw=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-nlohmann_json-3_9_1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-nlohmann_json-3_9_1-source";
-        url = "https://github.com/nlohmann/json/archive/v3.9.1.tar.gz";
-        hash = "sha256-THordDPdH2qwk6lFTgeFmkl7iDuA/7YH71PTUe6vJCs=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-0_13_0-p1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-spdlog-0_13_0-p1-source";
-        url = "https://github.com/hunter-packages/spdlog/archive/v0.13.0-p1.tar.gz";
-        hash = "sha256-Du5Fy/C92MqpmeR45+8UwK4pGOjP1FXbcYm64YvSQLE=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_0_0-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-spdlog-1_0_0-p0-source";
-        url = "https://github.com/hunter-packages/spdlog/archive/v1.0.0-p0.tar.gz";
-        hash = "sha256-BgF4bHwnQcSU80a28JZipNc5QP9hbOiDi4u4utmRIqs=";
-      };
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_12_0-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-spdlog-1_12_0-p0-source";
-        url = "https://github.com/cpp-pm/spdlog/archive/v1.12.0-p0.tar.gz";
-        hash = "sha256-3N5Iq9o8aenRiBjvuDNuSqK780h5PMLF/Fg/8y93W+8=";
-      };
-      substitutions = [
-        {
-          path = "bench/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${sources."depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_12_0-p0/benchmark"}";
-        }
-      ];
-    };
-    "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-spdlog-1_12_0-p0/benchmark" = substituteSource {
-      src = fetchgit {
-        name = "benchmark-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
-        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
+        name = "hunter-mongoose-6_10-source";
+        url = "https://github.com/hunter-packages/mongoose/archive/6.10-p.tar.gz";
+        hash = "sha256-fWcEHSOx/UESrKz/NK7T6fMrfnn1Ljn4cxtx6oo0LRg=";
       };
     };
     "depthai/9d9242b60d5236269f894efd3ddd60a9ca83dd7f/hunter-zstd-1_5_5" = substituteSource {
@@ -602,23 +416,10 @@ buildAmentCmakePackage (finalAttrs: {
       substitutions = [
         {
           path = "cmake/modules/FindGMock.cmake";
-          from = "GIT_REPOSITORY \"https://github.com/google/googlemock.git\"";
-          to = "URL ${sources."depthai/ab842f51dc2eb13916dc98417c2186b78320ed10/googlemock"}";
-        }
-        {
-          path = "cmake/modules/FindGMock.cmake";
           from = "GIT_REPOSITORY \"https://github.com/google/googletest.git\"";
           to = "URL ${sources."depthai/ab842f51dc2eb13916dc98417c2186b78320ed10/googletest"}";
         }
       ];
-    };
-    "depthai/ab842f51dc2eb13916dc98417c2186b78320ed10/googlemock" = substituteSource {
-      src = fetchgit {
-        name = "googlemock-source";
-        url = "https://github.com/google/googlemock.git";
-        rev = "778dc88acb34184f7c1e9208dac338dd4cd2aaf8";
-        hash = "sha256-7KdgGz+dVi1AT/4pHt00wP2AtQJbZyjrYLhLMCsyb30=";
-      };
     };
     "depthai/ab842f51dc2eb13916dc98417c2186b78320ed10/googletest" = substituteSource {
       src = fetchgit {
@@ -708,21 +509,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "v1-source";
         url = "https://github.com/gabime/spdlog/archive/v1.8.2.tar.gz";
         hash = "sha256-vYled5Z9fmxuO9193lefpFzIHAiSgvYn2iOfneLidQ8=";
-      };
-      substitutions = [
-        {
-          path = "bench/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${sources."depthai/v1-2/benchmark"}";
-        }
-      ];
-    };
-    "depthai/v1-2/benchmark" = substituteSource {
-      src = fetchgit {
-        name = "benchmark-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "73d4d5e8d6d449fc8663765a42aa8aeeee844489";
-        hash = "sha256-6gKLIKPnY7eXWGQcaWyPbLs3E6Q9VyqVoWoZ/u9TPY8=";
       };
     };
     "depthai/v1-3" = substituteSource {

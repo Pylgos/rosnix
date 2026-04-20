@@ -7,6 +7,7 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rcl-interfaces,
   rosSystemPackages,
   rosidl-default-generators,
   rosidl-default-runtime,
@@ -14,20 +15,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosgraph_msgs";
-  version = "2.4.3-1";
+  version = "2.4.4-1";
   src = finalAttrs.passthru.sources."rosgraph_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
+  propagatedBuildInputs = [ builtin-interfaces rcl-interfaces rosidl-default-runtime ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rosgraph_msgs" = substituteSource {
       src = fetchgit {
         name = "rosgraph_msgs-source";
         url = "https://github.com/ros2-gbp/rcl_interfaces-release.git";
-        rev = "86629935b2dea2711fdf10bc02e160c2fce67bfa";
-        hash = "sha256-V3q3FhJl9wPAWPXDqGmvUtkokHLEfexCq40FHOrOEQc=";
+        rev = "100286364f4eaa26baaf595bc1620720fb5395d8";
+        hash = "sha256-Y2fje7v7rB7asdNCZQYniI2zeB+6WkZ/DiKciSF3U/8=";
       };
     };
   });

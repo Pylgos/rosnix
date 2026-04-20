@@ -18,13 +18,12 @@
   sensor-msgs,
   substituteSource,
   urdf,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_play_motion_builder";
   version = "1.4.1-1";
   src = finalAttrs.passthru.sources."rqt_play_motion_builder";
-  nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ class-loader play-motion2-msgs play-motion-builder play-motion-builder-msgs pluginlib rclcpp rclcpp-action rqt-gui rqt-gui-cpp sensor-msgs urdf ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
   buildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ class-loader play-motion2-msgs play-motion-builder play-motion-builder-msgs pluginlib rclcpp rclcpp-action rqt-gui rqt-gui-cpp sensor-msgs urdf ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };

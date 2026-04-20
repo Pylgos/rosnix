@@ -10,26 +10,27 @@
   mkSourceSet,
   raph,
   raph-bringup,
+  raph-fw,
+  raph-oak,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raph_robot";
-  version = "1.0.0-1";
+  version = "1.1.1-1";
   src = finalAttrs.passthru.sources."raph_robot";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ raph raph-bringup ];
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ raph raph-bringup raph-fw raph-oak ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ raph raph-bringup ];
+  propagatedBuildInputs = [ raph raph-bringup raph-fw raph-oak ];
   checkInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto ];
   passthru.sources = mkSourceSet (sources: {
     "raph_robot" = substituteSource {
       src = fetchgit {
         name = "raph_robot-source";
         url = "https://github.com/ros2-gbp/raph_robot-release.git";
-        rev = "4cc23daec827581593ef2d0dae5630768f0fa0d4";
-        hash = "sha256-LxcUU6AzM5wejJnZWVJnMPeLyuPW5Xm4jBcj9z+8qmc=";
+        rev = "99e32019de6d479d0851162cd1842de37a8693a7";
+        hash = "sha256-8eIam+QQdpHnFh//mI3pvw2kxa7B/SPaK8UN8vaAiZA=";
       };
     };
   });

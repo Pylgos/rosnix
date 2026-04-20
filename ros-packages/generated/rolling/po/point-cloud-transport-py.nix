@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_transport_py";
-  version = "5.3.3-1";
+  version = "5.4.0-1";
   src = finalAttrs.passthru.sources."point_cloud_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ pluginlib point-cloud-transport rclcpp rpyutils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "python3-dev" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "point_cloud_transport_py-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport-release.git";
-        rev = "d62f63d12c5929406841e8308033036ec6d3b867";
-        hash = "sha256-NFnoPYFkTEchl7yrEieT5/O5thUlPaeTdS6fD8ZhrGg=";
+        rev = "2e7c57447dd5e5973a3f954ea87f151d3230f1f7";
+        hash = "sha256-reCP3RxFs+kcPMhrqD4YiD8hOiCsi/Mz9TNSO4TlKAQ=";
       };
     };
   });

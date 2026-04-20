@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_clang_format";
-  version = "0.17.4-1";
+  version = "0.17.5-1";
   src = finalAttrs.passthru.sources."ament_clang_format";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-format" "python3-yaml" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "clang-format" "python3-yaml" ]; };
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_clang_format-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "6d5a353747d1c08a82aee914faabbe6cc605caff";
-        hash = "sha256-H5qbxC/roNz6LSnQHIiEjW+jWsZq3oZ5MWiG9SIgeGc=";
+        rev = "b73d8c460fd9461619a314651c25791aa1b41a84";
+        hash = "sha256-ShrwokZpwUZjZoteIrIgqM3CwPTNuhmX8cTsjcfIobg=";
       };
     };
   });

@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "quality_of_service_demo_py";
-  version = "0.37.6-1";
+  version = "0.37.8-1";
   src = finalAttrs.passthru.sources."quality_of_service_demo_py";
   propagatedNativeBuildInputs = [ example-interfaces rclpy sensor-msgs ];
   propagatedBuildInputs = [ example-interfaces rclpy sensor-msgs ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "quality_of_service_demo_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "4c640d1a6b3abb5a29468a4e88a75df598d3a0bc";
-        hash = "sha256-8F3/p/9EuoneiVbWRqnJgGAoHhPD78cWkZHlqdC/leo=";
+        rev = "7539d396d2c558ab24ee4f9e20733f37b81d07cb";
+        hash = "sha256-s6Q5tOl8Iy24Lj5AvMnSBGV7IBCFPX89vjKYgS3jBwI=";
       };
     };
   });

@@ -15,13 +15,12 @@
   tf2-eigen-kdl,
   tf2-geometry-msgs,
   tf2-kdl,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_prbt_ikfast_manipulator_plugin";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_ikfast_manipulator_plugin";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp tf2-eigen tf2-eigen-kdl tf2-geometry-msgs tf2-kdl ];

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_performance_benchmarking_msgs";
-  version = "0.33.0-1";
+  version = "0.33.1-1";
   src = finalAttrs.passthru.sources."rosbag2_performance_benchmarking_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_performance_benchmarking_msgs-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "84c6b82be598abf4dfa5c91996cae8bec030865a";
-        hash = "sha256-uVQZGOAY15B1Bu34zI7xvl96mUxX/HMYvNvHwrz2A4w=";
+        rev = "48f2a8361d9daee15ab90b689d4b78d06b401dab";
+        hash = "sha256-rfaiCOEhvkvhI9q2izoTbgKi0AokE04MQm/CR6aBzbQ=";
       };
     };
   });

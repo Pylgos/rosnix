@@ -1,6 +1,6 @@
 {
   ament-cmake,
-  ament-cmake-gtest,
+  ament-cmake-ros,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -19,18 +19,18 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tlsf_cpp";
-  version = "0.19.1-1";
+  version = "0.19.2-1";
   src = finalAttrs.passthru.sources."tlsf_cpp";
   propagatedNativeBuildInputs = [ ament-cmake rclcpp rmw std-msgs tlsf ];
   propagatedBuildInputs = [ ament-cmake rclcpp rmw std-msgs tlsf ];
-  checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rcpputils rmw-implementation-cmake ];
+  checkInputs = [ ament-cmake-ros ament-lint-auto ament-lint-common rcpputils rmw-implementation-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "tlsf_cpp" = substituteSource {
       src = fetchgit {
         name = "tlsf_cpp-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
-        rev = "bba37b36137d31b0787cabf3a76ff51766c4136e";
-        hash = "sha256-PgdTELhoG7aEPC900GsiPIQ+3seSyAI2aJaIhWGabVc=";
+        rev = "035258fb4785313106a721c8d9b9d877c6d27181";
+        hash = "sha256-j4xPzHTzH4LgpPRFJ/IauoCPFGmOxRSzbD4L/s1qi/A=";
       };
     };
   });

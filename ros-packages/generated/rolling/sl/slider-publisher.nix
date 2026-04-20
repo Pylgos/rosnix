@@ -8,23 +8,22 @@
   rosSystemPackages,
   rqt-gui-py,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "slider_publisher";
-  version = "2.4.1-1";
+  version = "2.4.3-1";
   src = finalAttrs.passthru.sources."slider_publisher";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ rqt-gui-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-scipy" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rqt-gui-py ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rqt-gui-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-scipy" ]; };
+  propagatedBuildInputs = [ rqt-gui-py ];
   passthru.sources = mkSourceSet (sources: {
     "slider_publisher" = substituteSource {
       src = fetchgit {
         name = "slider_publisher-source";
         url = "https://github.com/ros2-gbp/slider_publisher-release.git";
-        rev = "956dc41ab2072088e6ccd5e58537b28ab06b5662";
-        hash = "sha256-OAmpbAmwD/wrae1l+xFwUsUTUe0AknpR+r707d2eYKM=";
+        rev = "fb08441cdd015c9df8448479206dfded51fc17fd";
+        hash = "sha256-w7CtCTEqvXJ4AaDRzbLl0zSuQdid/H6CfzPvl83Un/s=";
       };
     };
   });

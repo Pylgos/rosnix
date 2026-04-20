@@ -17,13 +17,12 @@
   tf2-eigen,
   tf2-geometry-msgs,
   tf2-ros,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_robot_interaction";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_ros_robot_interaction";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ interactive-markers moveit-common moveit-core moveit-ros-planning rclcpp tf2 tf2-eigen tf2-geometry-msgs tf2-ros ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ interactive-markers moveit-common moveit-core moveit-ros-planning rclcpp tf2 tf2-eigen tf2-geometry-msgs tf2-ros ];

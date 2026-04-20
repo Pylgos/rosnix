@@ -36,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
     "pyhri" = substituteSource {
       src = fetchgit {
         name = "pyhri-source";
-        url = "https://github.com/ros4hri/libhri-release.git";
+        url = "https://github.com/ros2-gbp/libhri-release.git";
         rev = "73277b84b355ac7ba84b9937be065b471f4c7f29";
         hash = "sha256-9DUz4gSTSL0T2akrC9KgeAh4qr2iBaUOj0jvF79yGag=";
       };

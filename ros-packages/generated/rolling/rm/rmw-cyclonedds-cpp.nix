@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_cyclonedds_cpp";
-  version = "4.1.3-1";
+  version = "4.1.4-1";
   src = finalAttrs.passthru.sources."rmw_cyclonedds_cpp";
   nativeBuildInputs = [ ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ cyclonedds iceoryx-binding-c rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_cyclonedds_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_cyclonedds-release.git";
-        rev = "8e70b794ff0ecd0bd755972bc6876189dbcfedf0";
-        hash = "sha256-5KKdsAZgm4oz0XsyqjYcul8rvslttyxLljqwYG9A0AE=";
+        rev = "3fc583c1ff90171320c6720a32d4c71b3851be8f";
+        hash = "sha256-s2yNSJZ2IBe1oHqCooDYHbafd+KbCnkF3a0wwUAC6i8=";
       };
     };
   });

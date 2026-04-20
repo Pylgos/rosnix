@@ -12,13 +12,12 @@
   rclcpp,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_planners_chomp";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_planners_chomp";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ chomp-motion-planner moveit-common moveit-core pluginlib rclcpp ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ chomp-motion-planner moveit-common moveit-core pluginlib rclcpp ];

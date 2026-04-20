@@ -9,13 +9,12 @@
   rclcpp,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_playground";
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_playground";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-ros-planning-interface rclcpp ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-ros-planning-interface rclcpp ];

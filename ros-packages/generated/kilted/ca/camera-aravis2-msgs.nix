@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_aravis2_msgs";
-  version = "1.2.0-1";
+  version = "1.2.0-2";
   src = finalAttrs.passthru.sources."camera_aravis2_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-msgs rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "camera_aravis2_msgs-source";
         url = "https://github.com/ros2-gbp/camera_aravis2-release.git";
-        rev = "bdd34bdf14415ddfcff9596752dfbdbb19cb8282";
+        rev = "556f25b95a39695314b31f0460c7a35dc1dc7d74";
         hash = "sha256-QCFVDrlHSZ3rHr7DxU7A3Wzst1+imf+MJ2vjXXM7wsg=";
       };
     };

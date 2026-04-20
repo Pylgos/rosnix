@@ -1,5 +1,4 @@
 {
-  action-msgs,
   ament-cmake,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -17,20 +16,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "realsense2_camera_msgs";
-  version = "4.56.4-3";
+  version = "4.57.7-1";
   src = finalAttrs.passthru.sources."realsense2_camera_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ action-msgs builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
+  propagatedBuildInputs = [ builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
   checkInputs = [ ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "realsense2_camera_msgs" = substituteSource {
       src = fetchgit {
         name = "realsense2_camera_msgs-source";
         url = "https://github.com/ros2-gbp/realsense-ros-release.git";
-        rev = "97bd68dd164e80742914351187977fc1e36f4a3e";
-        hash = "sha256-OENkZ4V1Ye5xz+ya5/kDJpgKsj58dFhfeRilYordvfs=";
+        rev = "be372d57032505cc8b2c22a3d6c41ac8a3c28f99";
+        hash = "sha256-AU7raj8Bc1F8UaUzXS8KmLta2GeVOT158rtSN6nIzpc=";
       };
     };
   });

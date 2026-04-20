@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_controllers";
-  version = "4.5.0-1";
+  version = "4.6.0-1";
   src = finalAttrs.passthru.sources."ur_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs angles control-msgs controller-interface generate-parameter-library geometry-msgs hardware-interface joint-trajectory-controller lifecycle-msgs pluginlib rclcpp-lifecycle rcutils realtime-tools std-msgs std-srvs tf2-geometry-msgs tf2-ros trajectory-msgs ur-dashboard-msgs ur-msgs ];
@@ -45,8 +45,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_controllers-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "6076450528d77e2f3c89845af6604e131901b407";
-        hash = "sha256-BU5d4c1X3jQsbhoWWIWfAe7SslDR+rK/iaWLs8yOXJ8=";
+        rev = "d30827fb87b95e1c80760fdc6ced00073b55cff1";
+        hash = "sha256-aKkb+bvX5gQdzukOQkvZ0xepQDq1K+j4LV0Ru9WaCJI=";
       };
     };
   });

@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-transport-source";
         url = "https://github.com/gazebosim/gz-transport.git";
-        rev = "8e573fdb2f1ea16881ad3c439cda5361f5ffa045";
-        hash = "sha256-PZlhY/W93bySSzVt7Av6ZY+CTsjnIHxzIOx2hxB2rCU=";
+        rev = "2acf501624f7e0826692e503a2c1aa733071531f";
+        hash = "sha256-jvEVa0BK7hnYWybNXh30KpNu00+OTtR9bdHCiN8Bpeg=";
       };
     };
   });

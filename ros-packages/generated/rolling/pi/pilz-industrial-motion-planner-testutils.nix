@@ -13,13 +13,12 @@
   rosSystemPackages,
   substituteSource,
   tf2-eigen,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pilz_industrial_motion_planner_testutils";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."pilz_industrial_motion_planner_testutils";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module moveit-common moveit-core moveit-msgs rclcpp tf2-eigen ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ eigen3-cmake-module moveit-common moveit-core moveit-msgs rclcpp tf2-eigen ];

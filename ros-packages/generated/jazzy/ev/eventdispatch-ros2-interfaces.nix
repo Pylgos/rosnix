@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "eventdispatch_ros2_interfaces";
-  version = "0.2.26-1";
+  version = "0.2.29-1";
   src = finalAttrs.passthru.sources."eventdispatch_ros2_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "eventdispatch_ros2_interfaces-source";
         url = "https://github.com/ros2-gbp/ros2_eventdispatch-release.git";
-        rev = "6f447f928ad95d2f7a766f870c38178824981c3d";
-        hash = "sha256-2ihyfwuDFu721sH0tmEI/aSEOr5OnV5ZliBLoZDS04k=";
+        rev = "54ca965b7aa4d382e18fe70df34c53e54afe5b63";
+        hash = "sha256-Frr1gS8Is69ofwFebezMucx+Gm4fXR6MOAu59wkr27o=";
       };
     };
   });

@@ -11,13 +11,11 @@
   rqt-gui-py,
   rqt-msg,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_srv";
   version = "1.4.1-1";
   src = finalAttrs.passthru.sources."rqt_srv";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rqt-gui rqt-gui-py rqt-msg ];
   propagatedBuildInputs = [ rqt-gui rqt-gui-py rqt-msg ];
   checkInputs = [ ament-flake8 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };

@@ -11,20 +11,20 @@
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
-  pname = "rviz_resource_interfaces";
-  version = "15.1.18-1";
-  src = finalAttrs.passthru.sources."rviz_resource_interfaces";
+  pname = "resource_retriever_interfaces";
+  version = "0.0.1-1";
+  src = finalAttrs.passthru.sources."resource_retriever_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
   buildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedBuildInputs = [ rosidl-default-runtime ];
   passthru.sources = mkSourceSet (sources: {
-    "rviz_resource_interfaces" = substituteSource {
+    "resource_retriever_interfaces" = substituteSource {
       src = fetchgit {
-        name = "rviz_resource_interfaces-source";
-        url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "ed5f75829f90c4572cbeb136eaaa2c7a329f9a7d";
-        hash = "sha256-H0Kr8hjzHTtVfoeEL0SYczUdSo581Nq7bLVGdIzzWjk=";
+        name = "resource_retriever_interfaces-source";
+        url = "https://github.com/ros2-gbp/resource_retriever_service-release.git";
+        rev = "ad0ca115c2281e4d3c75089c48edf4102cc1cb14";
+        hash = "sha256-aBvjaxBYAZwciWPps+qGKt5+wGY+fiC6hJpb1zPQ1Cw=";
       };
     };
   });

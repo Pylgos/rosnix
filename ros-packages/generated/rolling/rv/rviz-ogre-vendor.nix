@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_ogre_vendor";
-  version = "15.1.18-1";
+  version = "15.2.0-1";
   src = finalAttrs.passthru.sources."rviz_ogre_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libfreetype-dev" "libfreetype6" "libglew-dev" "libx11-dev" "libxaw" "libxrandr" "opengl" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_ogre_vendor-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "ad364e2fea928706e2815943f40d83fe3657ad85";
-        hash = "sha256-2VJAuHExY64liEVbq9MzvLC5Ved+rf00ibqIj9X5o6E=";
+        rev = "df561fed7cf0378f58b4c5f13fb6146f14ec362c";
+        hash = "sha256-8XMk5n6KINIPo7UHGmAS9XQWMIeBg3csYHMDzPD5mbQ=";
       };
       substitutions = [
         {
@@ -44,11 +44,6 @@ buildAmentCmakePackage (finalAttrs: {
         hash = "sha256-Z0ixdSmkV93coBBVZ5R3lPLfVMXRfWsFz/RsSyqPWFY=";
       };
       substitutions = [
-        {
-          path = "CMake/Dependencies.cmake";
-          from = "DOWNLOAD\n            https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz";
-          to = "DOWNLOAD file://${sources."rviz_ogre_vendor/ogre/freetype-VER-2-10-1"}";
-        }
         {
           path = "CMake/Dependencies.cmake";
           from = "DOWNLOAD\n            https://libsdl.org/release/SDL2-2.0.10.tar.gz";
@@ -81,13 +76,6 @@ buildAmentCmakePackage (finalAttrs: {
         name = "SDL2-2-source";
         url = "https://libsdl.org/release/SDL2-2.0.10.tar.gz";
         hash = "sha256-tGVsE6Hw0AI64vSpzwjskv/7Rk4PJCODN3hBWbi5HVc=";
-      };
-    };
-    "rviz_ogre_vendor/ogre/freetype-VER-2-10-1" = substituteSource {
-      src = fetchurl {
-        name = "freetype-VER-2-10-1-source";
-        url = "https://gitlab.freedesktop.org/freetype/freetype/-/archive/VER-2-10-1/freetype-VER-2-10-1.tar.gz";
-        hash = "sha256-/njUj1BrAqMfqF245Hu0IE1498g01OpXO5qAvMFNhUY=";
       };
     };
     "rviz_ogre_vendor/ogre/pugixml-1" = substituteSource {

@@ -104,21 +104,6 @@ buildAmentCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11.git\"";
-          to = "URL ${sources."ortools_vendor/or-tools/pybind11"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11_abseil.git\"";
-          to = "URL ${sources."ortools_vendor/or-tools/pybind11_abseil"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11_protobuf.git\"";
-          to = "URL ${sources."ortools_vendor/or-tools/pybind11_protobuf"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/scipopt/scip.git\"";
           to = "URL ${sources."ortools_vendor/or-tools/scip"}";
         }
@@ -286,44 +271,6 @@ buildAmentCmakePackage (finalAttrs: {
         url = "https://github.com/protocolbuffers/utf8_range.git";
         rev = "d863bc33e15cba6d873c878dcca9e6fe52b2f8cb";
         hash = "sha256-1iXa01BVX1wk7craFwC3liLnwT3487qvM93YIdOoEBs=";
-      };
-    };
-    "ortools_vendor/or-tools/pybind11" = substituteSource {
-      src = fetchgit {
-        name = "pybind11-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "8a099e44b3d5f85b20f05828d919d2332a8de841";
-        hash = "sha256-sO/Fa+QrAKyq2EYyYMcjPrYI+bdJIrDoj6L3JHoDo3E=";
-      };
-    };
-    "ortools_vendor/or-tools/pybind11_abseil" = substituteSource {
-      src = fetchgit {
-        name = "pybind11_abseil-source";
-        url = "https://github.com/pybind/pybind11_abseil.git";
-        rev = "52f27398876a3177049977249e004770bd869e61";
-        hash = "sha256-I63AVof0Zfm4B0WTS4W35HCGN9MuAR2MAriEFVsvPrA=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-          to = "URL ${sources."ortools_vendor/or-tools/pybind11_abseil/20230802"}";
-        }
-      ];
-    };
-    "ortools_vendor/or-tools/pybind11_abseil/20230802" = substituteSource {
-      src = fetchzip {
-        name = "20230802-source";
-        url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-        hash = "sha256-yILAsAERUDMbRWh8t4o6W74YiswvGIHSyBAIuLVbzxY=";
-      };
-    };
-    "ortools_vendor/or-tools/pybind11_protobuf" = substituteSource {
-      src = fetchgit {
-        name = "pybind11_protobuf-source";
-        url = "https://github.com/pybind/pybind11_protobuf.git";
-        rev = "3b11990a99dea5101799e61d98a82c4737d240cc";
-        hash = "sha256-saeBxffAbDoHI/YvLatSubpdch9vb5DAfp/Bz3MC8ps=";
       };
     };
     "ortools_vendor/or-tools/re2" = substituteSource {

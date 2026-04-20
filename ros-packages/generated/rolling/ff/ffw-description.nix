@@ -12,14 +12,13 @@
   rviz2,
   substituteSource,
   urdf,
-  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_description";
   version = "1.1.14-1";
   src = finalAttrs.passthru.sources."ffw_description";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 urdf xacro ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 urdf xacro ];

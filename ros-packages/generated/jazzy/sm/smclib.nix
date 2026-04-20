@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "smclib";
-  version = "4.1.2-1";
+  version = "4.2.0-1";
   src = finalAttrs.passthru.sources."smclib";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   buildInputs = [ ament-cmake ament-cmake-python ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "smclib-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
-        rev = "fa4de9d3478fff37eb12ff3b0f72050428062710";
-        hash = "sha256-H5Zx7ddladuYCEzFwmWXsrceDRcboHPkDSSQEKSfxAg=";
+        rev = "28a83ba1c7a3448116da8d1a7e761afb099968a2";
+        hash = "sha256-utEODlCd+7HhQtCsV5h8tylFJS/DNQ/IUm/98FIHEyY=";
       };
     };
   });

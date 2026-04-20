@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "librealsense2";
-  version = "2.56.4-1";
+  version = "2.57.7-1";
   src = finalAttrs.passthru.sources."librealsense2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "dkms" "git" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "pkg-config" "udev" ]; };
@@ -20,14 +20,19 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "librealsense2-source";
         url = "https://github.com/ros2-gbp/librealsense2-release.git";
-        rev = "2fd1a119424b7205347a6a6ce6269c44b9025c9b";
-        hash = "sha256-QQLepsGGcNjQ6ZEocJLVNafC5T6HMj7313k4JV6lW8s=";
+        rev = "9e0840dceeb4ec39f478d3f8c51dcdecffdf8104";
+        hash = "sha256-3kKBmYpM045bwNQhZjJQQxxzb+7H+Kv5UPvN9KOf4gs=";
       };
       substitutions = [
         {
           path = "CMake/catch2-download.cmake.in";
           from = "GIT_REPOSITORY https://github.com/catchorg/Catch2.git";
           to = "URL ${sources."librealsense2/Catch2"}";
+        }
+        {
+          path = "CMake/connectivity_check.cmake";
+          from = "DOWNLOAD \"https://librealsense.realsenseai.com/Releases/connectivity_check\"";
+          to = "DOWNLOAD file://${sources."librealsense2/connectivity_check"}";
         }
         {
           path = "CMake/external_fastdds.cmake";
@@ -87,6 +92,13 @@ buildCmakePackage (finalAttrs: {
         name = "MobileNetSSD_deploy-source";
         url = "https://raw.githubusercontent.com/chuanqi305/MobileNet-SSD/f5d072ccc7e3dcddaa830e9805da4bf1000b2836/MobileNetSSD_deploy.prototxt";
         hash = "sha256-54FVnE9b6uwqSGzNlSr1tvpAjpSYdhv19PuAtOnw0l4=";
+      };
+    };
+    "librealsense2/connectivity_check" = substituteSource {
+      src = fetchurl {
+        name = "connectivity_check-source";
+        url = "https://librealsense.realsenseai.com/Releases/connectivity_check";
+        hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
       };
     };
     "librealsense2/curl" = substituteSource {

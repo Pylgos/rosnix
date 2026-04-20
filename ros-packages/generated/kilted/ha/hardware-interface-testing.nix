@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hardware_interface_testing";
-  version = "5.12.0-1";
+  version = "5.13.0-1";
   src = finalAttrs.passthru.sources."hardware_interface_testing";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs hardware-interface lifecycle-msgs pluginlib rclcpp-lifecycle ros2-control-cmake ros2-control-test-assets ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hardware_interface_testing-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "ef66001275628d3fea11b08cd1b2902a04103a01";
-        hash = "sha256-g0L40Caibxb3AJ0WhslpUY93cXV57urmJDSzq65uXZQ=";
+        rev = "7d19036e52d1346b19e5b4e3a733ce7684759de3";
+        hash = "sha256-5M4qt39aJNw7f2kSrq/yfsEWKUlWlNaDzrdY+3uLppk=";
       };
     };
   });

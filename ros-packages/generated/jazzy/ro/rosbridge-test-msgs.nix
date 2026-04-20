@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_test_msgs";
-  version = "2.5.0-1";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."rosbridge_test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbridge_test_msgs-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "5af4fb6da0a4d3ce5e64fb02c63fd885aeb7263b";
-        hash = "sha256-/hVNSW8BSy1Y1jsdQMJT83vOoLMOprsBIkdTlu988KU=";
+        rev = "d2e29713404704e78a1667503778c6e8b31e02be";
+        hash = "sha256-BDjM2G2IspzmCdX7degf2OerIVTu+s4mXOopSLOuuuY=";
       };
     };
   });

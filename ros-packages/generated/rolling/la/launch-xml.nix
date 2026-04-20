@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_xml";
-  version = "3.9.6-1";
+  version = "3.9.7-1";
   src = finalAttrs.passthru.sources."launch_xml";
   propagatedNativeBuildInputs = [ launch ];
   propagatedBuildInputs = [ launch ];
@@ -24,8 +24,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_xml-source";
         url = "https://github.com/ros2-gbp/launch-release.git";
-        rev = "acbd3ac59d3ccc4192f5960f75160b90eeb9a391";
-        hash = "sha256-pb+FiBzLx30ogKJXKQnr6ArVN+KsV/zWOmZsuf315SA=";
+        rev = "f3af1f2878aeca30cb07c2362d68827654b22a6b";
+        hash = "sha256-3OmubOD5mhDRhWbEeFhqO3i0H8PJaEWDOfZVjxdqrpA=";
       };
     };
   });

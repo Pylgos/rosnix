@@ -1,5 +1,6 @@
 {
   ament-cmake,
+  ament-cmake-gtest,
   ament-cmake-lint-cmake,
   ament-cmake-xmllint,
   ament-lint-auto,
@@ -29,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_pf_localization";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."mrpt_pf_localization";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
   propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mola-relocalization mp2p-icp mrpt-libgui mrpt-libros-bridge mrpt-libslam mrpt-msgs mrpt-msgs-bridge nav-msgs pose-cov-ops rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs ];
-  checkInputs = [ mrpt-tutorials ];
+  checkInputs = [ ament-cmake-gtest mrpt-tutorials ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_pf_localization" = substituteSource {
       src = fetchgit {
         name = "mrpt_pf_localization-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "1378b01b74d8b116ff176e6affad66806b9be612";
-        hash = "sha256-cgeFOTBoB6SLH5bYymqMRT9s1H4gXjJukxPbp0t6QnY=";
+        rev = "03bf9535d28a96d7bf7a050fb4d6d42b9270feec";
+        hash = "sha256-B0jz1mAoucH4HjjP3TukFtRVjrIyQ7VvjgZbGtZuK40=";
       };
     };
   });

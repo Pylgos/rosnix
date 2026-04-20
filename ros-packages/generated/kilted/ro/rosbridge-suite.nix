@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_suite";
-  version = "3.1.0-1";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_suite";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosapi rosbridge-library rosbridge-server ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbridge_suite-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "85393d5f7a1e3380d7477ca87fa51296ffbf88f6";
-        hash = "sha256-W4TtHyYi0CIlEDwKtBCzCI9krpZqL17NZnFhutJRd2A=";
+        rev = "4526f277c5b739f1ea3027babd0c7d46c7714a23";
+        hash = "sha256-by7htSVdvfO97mBckeSNm64cxJZE3m4/hAfz/M9W9Fw=";
       };
     };
   });

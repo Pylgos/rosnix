@@ -10,7 +10,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_pycodestyle";
-  version = "0.20.3-1";
+  version = "0.20.4-1";
   src = finalAttrs.passthru.sources."ament_pycodestyle";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pycodestyle" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-pycodestyle" ]; };
@@ -20,8 +20,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_pycodestyle-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "f7bceb2bf3403ea2d502deca6b559adda21b4f0e";
-        hash = "sha256-uJkMkXt+ltrf2G4wG0yqiwC7DYMIyYp+TBD40I3QaxU=";
+        rev = "ef8c52ea2a8d6fc5d79bd8fa96529e5569a7eb32";
+        hash = "sha256-y5LKQC/LyRfs0K6n34trmXq02Xo3y9yclbD73HEDeLc=";
       };
     };
   });

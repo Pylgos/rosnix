@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lifecycle";
-  version = "0.33.9-1";
+  version = "0.33.10-1";
   src = finalAttrs.passthru.sources."lifecycle";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ lifecycle-msgs rclcpp rclcpp-lifecycle std-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lifecycle-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "4e3ffce5edb93c9d1a7ccb33604054c23ecc1f01";
-        hash = "sha256-7xg7TbVRmaoIUZ6fUKrgaTBoV5o6ZE1F6PAz565KLuc=";
+        rev = "9b70922fcf6fefaa44d1ddb412f074650185d56f";
+        hash = "sha256-KrrE0UJw1dLZ0jKYYUcgZOLS3UkKkwJwoC07YfV1ewA=";
       };
     };
   });

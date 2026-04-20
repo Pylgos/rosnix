@@ -16,13 +16,12 @@
   tf2-geometry-msgs,
   tf2-kdl,
   tl-expected,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pick_ik";
   version = "1.1.1-1";
   src = finalAttrs.passthru.sources."pick_ik";
-  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp rsl tf2-geometry-msgs tf2-kdl tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "range-v3" ]; };
   buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ generate-parameter-library moveit-core pluginlib rclcpp rsl tf2-geometry-msgs tf2-kdl tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "range-v3" ]; };

@@ -13,24 +13,23 @@
   qt-gui,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_cpp";
-  version = "2.10.2-1";
+  version = "2.10.4-1";
   src = finalAttrs.passthru.sources."qt_gui_cpp";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ pluginlib python-qt-binding qt-gui ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "qt5-qmake" "qtbase5-dev" "tinyxml2" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ pluginlib python-qt-binding qt-gui ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6widgets6t64" "pkg-config" "qt6-base-dev" "tinyxml2" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ pluginlib python-qt-binding qt-gui ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" "qt5-qmake" "qtbase5-dev" "tinyxml2" ]; };
+  propagatedBuildInputs = [ pluginlib python-qt-binding qt-gui ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt6widgets6t64" "pkg-config" "qt6-base-dev" "tinyxml2" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "qt_gui_cpp" = substituteSource {
       src = fetchgit {
         name = "qt_gui_cpp-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "2d42512d7d8ec673bd04613c5626da991b3a6998";
-        hash = "sha256-oWHA2TqSVyBxkFzjxyuGS1X5MTTcb65I4HylnnyDxhY=";
+        rev = "ec62605fdb97b2ff6ebe6cba8fff4b6ca5f5372d";
+        hash = "sha256-zedCOgD52BoyffcQYDWzt/+Xm7NZmYVwrux2e8b+uPo=";
       };
     };
   });

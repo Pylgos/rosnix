@@ -21,13 +21,12 @@
   substituteSource,
   tf2-eigen,
   tf2-ros,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_planners_ompl";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_planners_ompl";
-  nativeBuildInputs = [ ament-cmake eigen3-cmake-module wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ moveit-common moveit-core moveit-msgs moveit-ros-planning ompl pluginlib rclcpp tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libomp-dev" ]; };
   buildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedBuildInputs = [ moveit-common moveit-core moveit-msgs moveit-ros-planning ompl pluginlib rclcpp tf2-eigen tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libomp-dev" ]; };

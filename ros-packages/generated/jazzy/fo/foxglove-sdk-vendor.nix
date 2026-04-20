@@ -22,20 +22,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "3ece23c45ba42d50df504070f3e5c719e113542b";
         hash = "sha256-L5TiksPJNQrsdVHqgK64AyFkSFe+nbNy94pVX/45DE4=";
       };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "DOWNLOAD \"\${FOXGLOVE_SDK_URL}\"";
-          to = "DOWNLOAD file://${sources."foxglove_sdk_vendor/foxglove-v0"}";
-        }
-      ];
-    };
-    "foxglove_sdk_vendor/foxglove-v0" = substituteSource {
-      src = fetchurl {
-        name = "foxglove-v0-source";
-        url = "https://github.com/foxglove/foxglove-sdk/releases/download/sdk/v0.15.1/foxglove-v0.15.1-cpp-aarch64-unknown-linux-gnu.zip";
-        hash = "sha256-bOcSnXtVGiJIO/inWbLy2l5ZNXMnyT0czADPuL6IaCI=";
-      };
     };
   });
   meta = {

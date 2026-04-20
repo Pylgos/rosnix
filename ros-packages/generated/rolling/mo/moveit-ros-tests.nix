@@ -24,13 +24,12 @@
   rosSystemPackages,
   substituteSource,
   tf2-ros,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_tests";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_ros_tests";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-common rclcpp ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-common rclcpp ];

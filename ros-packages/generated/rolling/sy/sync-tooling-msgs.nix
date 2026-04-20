@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sync_tooling_msgs";
-  version = "0.2.6-1";
+  version = "0.2.7-1";
   src = finalAttrs.passthru.sources."sync_tooling_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf-dev" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf" ]; };
@@ -21,12 +21,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sync_tooling_msgs-source";
         url = "https://github.com/ros2-gbp/sync_tooling_msgs-release.git";
-        rev = "4361776223c86c92f23b273a2880e480e050b4bb";
-        hash = "sha256-CU1sHEF+mvOHoVBOqlQabNgNhxLSAYyrPd1Or5wcHgo=";
+        rev = "085e9df6448adedf0438280574f84af2d877b618";
+        hash = "sha256-0IhT7KQkrVtKHzvDCp4AnNIYHujdKdrA5jh7UFykkrk=";
       };
     };
   });
   meta = {
-    description = "Protobuf definitions for synchronization diagnostics";
+    description = "Protobuf definitions for SYNC.TOOLING";
   };
 })

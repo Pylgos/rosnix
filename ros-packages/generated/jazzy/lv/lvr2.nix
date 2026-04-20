@@ -25,16 +25,6 @@ buildCmakePackage (finalAttrs: {
       };
       substitutions = [
         {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/CesiumGS/cesium-native\"";
-          to = "URL ${sources."lvr2/cesium-native"}";
-        }
-        {
-          path = "ext/spdlog/bench/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${sources."lvr2/benchmark"}";
-        }
-        {
           path = "ext/spdmon/cmake/Conan.cmake";
           from = "DOWNLOAD \"https://github.com/conan-io/cmake-conan/raw/v0.15/conan.cmake\"";
           to = "DOWNLOAD file://${sources."lvr2/conan"}";
@@ -45,37 +35,6 @@ buildCmakePackage (finalAttrs: {
           to = "DOWNLOAD file://${sources."lvr2/vcpkg"}";
         }
       ];
-    };
-    "lvr2/benchmark" = substituteSource {
-      src = fetchgit {
-        name = "benchmark-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
-        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
-      };
-    };
-    "lvr2/cesium-native" = substituteSource {
-      src = fetchgit {
-        name = "cesium-native-source";
-        url = "https://github.com/CesiumGS/cesium-native";
-        rev = "52b181f94d3b330e3c8dfc123fd545d8f66d2123";
-        hash = "sha256-RnF+effrQUoCNMFCFZt2KzHTTj0HaVL/tBjEobOV0+U=";
-      };
-      substitutions = [
-        {
-          path = "extern/spdlog/bench/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${sources."lvr2/cesium-native/benchmark"}";
-        }
-      ];
-    };
-    "lvr2/cesium-native/benchmark" = substituteSource {
-      src = fetchgit {
-        name = "benchmark-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
-        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
-      };
     };
     "lvr2/conan" = substituteSource {
       src = fetchurl {

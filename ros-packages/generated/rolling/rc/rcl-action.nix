@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_action";
-  version = "10.3.2-1";
+  version = "10.4.3-1";
   src = finalAttrs.passthru.sources."rcl_action";
   nativeBuildInputs = [ ament-cmake-gen-version-h ament-cmake-ros ];
   propagatedNativeBuildInputs = [ action-msgs rcl rcutils rmw rosidl-runtime-c ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcl_action-source";
         url = "https://github.com/ros2-gbp/rcl-release.git";
-        rev = "7c28003e407ea5883691c7cbc1116d96eb7b441c";
-        hash = "sha256-XTBGx9UOhSJtqQ85LBWjS6cJU8zIXXb5cJddqQrma3s=";
+        rev = "2571d1081787c798955fc1bbf56a554fbbde4877";
+        hash = "sha256-+uF9uSrzBqP1+Azf9pLgu+fvf3vCaXhHqEYHFfxetWQ=";
       };
     };
   });

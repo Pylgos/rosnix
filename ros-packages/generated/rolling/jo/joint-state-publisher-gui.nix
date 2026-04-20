@@ -9,13 +9,11 @@
   rclpy,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joint_state_publisher_gui";
   version = "2.4.1-1";
   src = finalAttrs.passthru.sources."joint_state_publisher_gui";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
   propagatedBuildInputs = [ joint-state-publisher python-qt-binding rclpy ];
   passthru.sources = mkSourceSet (sources: {

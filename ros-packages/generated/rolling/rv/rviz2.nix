@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz2";
-  version = "15.1.18-1";
+  version = "15.2.0-1";
   src = finalAttrs.passthru.sources."rviz2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rviz-common rviz-default-plugins rviz-ogre-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "qt6-base-dev" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz2-source";
         url = "https://github.com/ros2-gbp/rviz-release.git";
-        rev = "9c1ad41578916a9a054c7eb8828ea33672a51ffa";
-        hash = "sha256-VzeHWEBaeoYvvDxcgfy+R8Uor45mzvh4qtlCLbYTjuY=";
+        rev = "d70fdb3f0f02c149241541b9d54eda4d5a0c0b7f";
+        hash = "sha256-RplZWRmWijRRkeF7BrBEsygQNvk9hxDK/SN5gyK6AzM=";
       };
     };
   });

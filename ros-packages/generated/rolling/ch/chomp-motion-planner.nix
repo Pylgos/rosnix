@@ -12,13 +12,12 @@
   rsl,
   substituteSource,
   trajectory-msgs,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "chomp_motion_planner";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."chomp_motion_planner";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-common moveit-core rclcpp rsl trajectory-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-common moveit-core rclcpp rsl trajectory-msgs ];

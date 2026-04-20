@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "bond";
-  version = "4.1.3-1";
+  version = "4.4.0-1";
   src = finalAttrs.passthru.sources."bond";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "bond-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
-        rev = "dda0674813bee610d1cfe3e7033d745fe5da2d18";
-        hash = "sha256-dQXNzBqgPpIVYg4ms864FIoQDHDsq4KBRtKUVRrwPus=";
+        rev = "da87bcb933d5aafafc343c36b4dedc5fa45a272c";
+        hash = "sha256-0F6xap+mVyY7IGcNaR+21f6nfyBBlVz1z5p6ysyyzBY=";
       };
     };
   });

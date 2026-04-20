@@ -14,13 +14,12 @@
   rosSystemPackages,
   rviz2,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_viz";
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."leo_viz";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui leo-description rviz2 ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui leo-description rviz2 ];

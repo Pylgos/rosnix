@@ -1,5 +1,6 @@
 {
   ament-flake8,
+  ament-mypy,
   ament-pep257,
   ament-xmllint,
   buildAmentPythonPackage,
@@ -17,18 +18,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "topic_monitor";
-  version = "0.37.6-1";
+  version = "0.37.8-1";
   src = finalAttrs.passthru.sources."topic_monitor";
   propagatedNativeBuildInputs = [ example-interfaces launch launch-ros rclpy std-msgs ];
   propagatedBuildInputs = [ example-interfaces launch launch-ros rclpy std-msgs ];
-  checkInputs = [ ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
+  checkInputs = [ ament-flake8 ament-mypy ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "topic_monitor" = substituteSource {
       src = fetchgit {
         name = "topic_monitor-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "b53bc1e5c567f859442ef1e969943d465ac01eb9";
-        hash = "sha256-TH3jSazPK2huX1UessDQ0+o5DfleG3s0szAuIF5EVcM=";
+        rev = "53b66f6de71a9b31687a245bdc4083eec9660356";
+        hash = "sha256-l6hp1ET9McSaAuCN2ooN+MF0Xnv/0hUO89JNSsu2P2U=";
       };
     };
   });

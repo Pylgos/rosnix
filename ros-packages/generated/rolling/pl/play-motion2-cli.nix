@@ -17,13 +17,11 @@
   ros2cli,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "play_motion2_cli";
   version = "1.8.4-1";
   src = finalAttrs.passthru.sources."play_motion2_cli";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ play-motion2 rclpy ros2cli ];
   propagatedBuildInputs = [ play-motion2 rclpy ros2cli ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint launch launch-ros launch-testing launch-testing-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" "python3-pytest-timeout" ]; };

@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "bag2_to_image";
-  version = "0.1.0-5";
+  version = "0.1.1-1";
   src = finalAttrs.passthru.sources."bag2_to_image";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rosbag2-cpp rosbag2-storage sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "bag2_to_image-source";
         url = "https://github.com/ros2-gbp/bag2_to_image-release.git";
-        rev = "3297bdaf4e1c18b523774df23c0da5d666acca50";
-        hash = "sha256-D602KBwsYPh+wbNrK2y25DZk1/wPPc2PlZj4ktvPhqI=";
+        rev = "912a9c01714f60e3a86b5e27554682ac822566e4";
+        hash = "sha256-T3M6yCUaTPVuXuqG9H2u7+lvvH5eMjWhvkQ6xUGuzuk=";
       };
     };
   });

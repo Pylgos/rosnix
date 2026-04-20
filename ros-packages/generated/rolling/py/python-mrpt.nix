@@ -44,79 +44,26 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt-source";
         url = "https://github.com/MRPT/mrpt.git";
-        rev = "47e35b237cbfacf57f84adec2a3f0bff9ec5af20";
-        hash = "sha256-4WdblshWYBdPgmCDr2VYPiudeVbn2Yk4ZTXXB8VgD4U=";
+        rev = "14818005034e73d5001391344be3dea41c086eda";
+        hash = "sha256-/XXsiiMnTXbaKsaWtpdznUNFC2SlhuP6knnc+05ghfM=";
       };
       substitutions = [
         {
-          path = "3rdparty/libfyaml/CMakeLists.txt";
-          from = "GIT_REPOSITORY \${JSONTESTSUITEURL}";
-          to = "URL ${sources."python_mrpt/mrpt/JSONTestSuite"}";
-        }
-        {
-          path = "3rdparty/libfyaml/CMakeLists.txt";
-          from = "GIT_REPOSITORY \${TESTSUITEURL}";
-          to = "URL ${sources."python_mrpt/mrpt/yaml-test-suite"}";
-        }
-        {
-          path = "3rdparty/libfyaml/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/libcheck/check.git";
-          to = "URL ${sources."python_mrpt/mrpt/check"}";
-        }
-        {
-          path = "cmakemodules/script_assimp.cmake";
-          from = "URL               \"https://github.com/assimp/assimp/archive/v5.3.1.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5"}";
-        }
-        {
-          path = "cmakemodules/script_eigen.cmake";
+          path = "modules/mrpt_math/cmake/script_eigen.cmake";
           from = "URL               \"https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2\"";
           to = "URL ${sources."python_mrpt/mrpt/eigen-3"}";
         }
         {
-          path = "cmakemodules/script_jpeg.cmake";
-          from = "URL               \"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/1"}";
-        }
-        {
-          path = "cmakemodules/script_octomap.cmake";
-          from = "URL               \"\${OCTOMAP_EP_URL}\"";
-          to = "URL ${sources."python_mrpt/mrpt/v1"}";
-        }
-        {
-          path = "cmakemodules/script_tinyxml2.cmake";
-          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.cpp";
+          path = "modules/mrpt_obs/cmake/script_tinyxml2.cmake";
+          from = "DOWNLOAD\n      https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.cpp";
           to = "DOWNLOAD file://${sources."python_mrpt/mrpt/tinyxml2-1"}";
         }
         {
-          path = "cmakemodules/script_tinyxml2.cmake";
-          from = "DOWNLOAD\n			https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.h";
+          path = "modules/mrpt_obs/cmake/script_tinyxml2.cmake";
+          from = "DOWNLOAD\n      https://github.com/leethomason/tinyxml2/raw/\${TINYXML2_VERSION_TO_DOWNLOAD}/tinyxml2.h";
           to = "DOWNLOAD file://${sources."python_mrpt/mrpt/tinyxml2-2"}";
         }
       ];
-    };
-    "python_mrpt/mrpt/1" = substituteSource {
-      src = fetchzip {
-        name = "1-source";
-        url = "https://github.com/libjpeg-turbo/libjpeg-turbo/archive/1.5.90.tar.gz";
-        hash = "sha256-yw8qGdNf35VrplhI+Sq2xNuwk78Ld6wkF6IVF5V8nKQ=";
-      };
-    };
-    "python_mrpt/mrpt/JSONTestSuite" = substituteSource {
-      src = fetchgit {
-        name = "JSONTestSuite-source";
-        url = "https://github.com/nst/JSONTestSuite";
-        rev = "d64aefb55228d9584d3e5b2433f720ea8fd00c82";
-        hash = "sha256-u2mMRH984TAi52xWH+R5exavGibuTUKNMBOC0/IdfFs=";
-      };
-    };
-    "python_mrpt/mrpt/check" = substituteSource {
-      src = fetchgit {
-        name = "check-source";
-        url = "https://github.com/libcheck/check.git";
-        rev = "11970a7e112dfe243a2e68773f014687df2900e8";
-        hash = "sha256-hv86zDygSJhzvOBqB3Lwys7KRNJTrsczRyLqkCxjqvI=";
-      };
     };
     "python_mrpt/mrpt/eigen-3" = substituteSource {
       src = fetchzip {
@@ -137,193 +84,6 @@ buildCmakePackage (finalAttrs: {
         name = "tinyxml2-source";
         url = "https://github.com/leethomason/tinyxml2/raw/7.1.0/tinyxml2.h";
         hash = "sha256-C3cg/6R4k8QXqGEc3RKJ7Yd5STPSuiWTTmQt3k2FTQk=";
-      };
-    };
-    "python_mrpt/mrpt/v1" = substituteSource {
-      src = fetchzip {
-        name = "v1-source";
-        url = "https://github.com/OctoMap/octomap/archive/v1.9.6.zip";
-        hash = "sha256-4KxVe1Ffu6GUmIY+SH/CHxRsy+phEOHqdxco51ogYw8=";
-      };
-    };
-    "python_mrpt/mrpt/v5" = substituteSource {
-      src = fetchzip {
-        name = "v5-source";
-        url = "https://github.com/assimp/assimp/archive/v5.3.1.tar.gz";
-        hash = "sha256-/1A8n7oe9WsF3FpbLZxhifzrdj38t9l5Kc8Q5jfDoyY=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0"}";
-        }
-      ];
-    };
-    "python_mrpt/mrpt/v5/v0" = substituteSource {
-      src = fetchzip {
-        name = "v0-source";
-        url = "https://github.com/cpp-pm/hunter/archive/v0.24.18.tar.gz";
-        hash = "sha256-i0VZDjsUalB3ZwAfGVY2RGEECYBTExS3yux9KDruETE=";
-      };
-      substitutions = [
-        {
-          path = "cmake/projects/OpenSSL/schemes/url_sha1_openssl.cmake.in";
-          from = ". \"@HUNTER_GLOBAL_SCRIPT_DIR@/clear-all.sh\" && ";
-          to = "";
-        }
-        {
-          path = "cmake/projects/RapidJSON/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/rapidjson/archive/refs/tags/v1.1.0-b557259-p0.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-RapidJSON-1_1_0-b557259-p0"}";
-        }
-        {
-          path = "cmake/projects/RapidJSON/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/rapidjson/archive/v1.0.2-p2.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-RapidJSON-1_0_2-p2"}";
-        }
-        {
-          path = "cmake/projects/ZLIB/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/zlib/archive/v1.2.13-p0.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-ZLIB-1_2_13-p0"}";
-        }
-        {
-          path = "cmake/projects/ZLIB/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/zlib/archive/v1.2.8-p3.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-ZLIB-1_2_8-p3"}";
-        }
-        {
-          path = "cmake/projects/draco/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/draco/archive/v1.4.1-p0.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-draco-1_4_1-p0"}";
-        }
-        {
-          path = "cmake/projects/minizip/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/minizip/archive/v1.0.1-p1.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-minizip-1_0_1-p1"}";
-        }
-        {
-          path = "cmake/projects/minizip/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/minizip/archive/v1.0.1-p3.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-minizip-1_0_1-p3"}";
-        }
-        {
-          path = "cmake/projects/openddlparser/hunter.cmake";
-          from = "URL\n    \"https://github.com/hunter-packages/openddl-parser/archive/v0.1.0-p2.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-openddlparser-0_1_0-p2"}";
-        }
-        {
-          path = "cmake/projects/pugixml/hunter.cmake";
-          from = "URL \"https://github.com/cpp-pm/pugixml/archive/v1.10-p0.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-pugixml-1_10-p0"}";
-        }
-        {
-          path = "cmake/projects/stb/hunter.cmake";
-          from = "URL\n    \"https://github.com/cpp-pm/stb/archive/refs/tags/v0.0.0-80c8f6a-p0.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-stb-0_0_0-80c8f6a-p0"}";
-        }
-        {
-          path = "cmake/projects/utf8/hunter.cmake";
-          from = "URL\n    \"https://github.com/nemtrif/utfcpp/archive/v3.1.1.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-utf8-3_1_1"}";
-        }
-        {
-          path = "cmake/projects/zip/hunter.cmake";
-          from = "URL\n    \"https://github.com/kuba--/zip/archive/v0.1.15.tar.gz\"";
-          to = "URL ${sources."python_mrpt/mrpt/v5/v0/hunter-zip-0_1_15"}";
-        }
-      ];
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-RapidJSON-1_0_2-p2" = substituteSource {
-      src = fetchzip {
-        name = "hunter-RapidJSON-1_0_2-p2-source";
-        url = "https://github.com/hunter-packages/rapidjson/archive/v1.0.2-p2.tar.gz";
-        hash = "sha256-EjeojFq4D+yFEKW4U1v4n8Naay5LfmLbEfKJVaV5aTM=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-RapidJSON-1_1_0-b557259-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-RapidJSON-1_1_0-b557259-p0-source";
-        url = "https://github.com/cpp-pm/rapidjson/archive/refs/tags/v1.1.0-b557259-p0.tar.gz";
-        hash = "sha256-H/8dtXY5GXRzCocIvnoX0LWaKHTfqdWe/j53yy60tAw=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-ZLIB-1_2_13-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-ZLIB-1_2_13-p0-source";
-        url = "https://github.com/cpp-pm/zlib/archive/v1.2.13-p0.tar.gz";
-        hash = "sha256-Yyem8Rj9T+C6M3XJi3J1AEC2K5g4+mzcoFZWgF9AuZU=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-ZLIB-1_2_8-p3" = substituteSource {
-      src = fetchzip {
-        name = "hunter-ZLIB-1_2_8-p3-source";
-        url = "https://github.com/hunter-packages/zlib/archive/v1.2.8-p3.tar.gz";
-        hash = "sha256-KwMG0+z2gFWLCY1vuIf9dZR5NrEDpl8earBxWHeYJzE=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-draco-1_4_1-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-draco-1_4_1-p0-source";
-        url = "https://github.com/cpp-pm/draco/archive/v1.4.1-p0.tar.gz";
-        hash = "sha256-Usmf4z24/fsezZQU7EzCqDY4ug1fXXK1+ekGKYSR1RU=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-minizip-1_0_1-p1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-minizip-1_0_1-p1-source";
-        url = "https://github.com/hunter-packages/minizip/archive/v1.0.1-p1.tar.gz";
-        hash = "sha256-EIkfHFynpxRQF/gkLB6H70+wPqiM/lGHySJtlnYQ7eQ=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-minizip-1_0_1-p3" = substituteSource {
-      src = fetchzip {
-        name = "hunter-minizip-1_0_1-p3-source";
-        url = "https://github.com/hunter-packages/minizip/archive/v1.0.1-p3.tar.gz";
-        hash = "sha256-99uujp3c7NXQgyHSPDs22PnNyV0IR0WBhivIEmuej1E=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-openddlparser-0_1_0-p2" = substituteSource {
-      src = fetchzip {
-        name = "hunter-openddlparser-0_1_0-p2-source";
-        url = "https://github.com/hunter-packages/openddl-parser/archive/v0.1.0-p2.tar.gz";
-        hash = "sha256-O4u04uf00hf60dmhWHU3ph3Tlw0dBLyjTSRcU0mwehk=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-pugixml-1_10-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-pugixml-1_10-p0-source";
-        url = "https://github.com/cpp-pm/pugixml/archive/v1.10-p0.tar.gz";
-        hash = "sha256-2F3RnpY6oqnSvIlsb8ohkezQebvSlJNLiGCAMOeWkdI=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-stb-0_0_0-80c8f6a-p0" = substituteSource {
-      src = fetchzip {
-        name = "hunter-stb-0_0_0-80c8f6a-p0-source";
-        url = "https://github.com/cpp-pm/stb/archive/refs/tags/v0.0.0-80c8f6a-p0.tar.gz";
-        hash = "sha256-vZ4uzOP2PK/QA6Wu6Pw5zLrcbE0GRcZYqxfnj15EFck=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-utf8-3_1_1" = substituteSource {
-      src = fetchzip {
-        name = "hunter-utf8-3_1_1-source";
-        url = "https://github.com/nemtrif/utfcpp/archive/v3.1.1.tar.gz";
-        hash = "sha256-zDlRpBbpFbdAKd2Y+HP3JVf9bF9advpJrRr2egRNt7Q=";
-      };
-    };
-    "python_mrpt/mrpt/v5/v0/hunter-zip-0_1_15" = substituteSource {
-      src = fetchzip {
-        name = "hunter-zip-0_1_15-source";
-        url = "https://github.com/kuba--/zip/archive/v0.1.15.tar.gz";
-        hash = "sha256-BGzqiYqDqC2y8NkURsCf5OKepw5J26Ql0bQGZsaUdb8=";
-      };
-    };
-    "python_mrpt/mrpt/yaml-test-suite" = substituteSource {
-      src = fetchgit {
-        name = "yaml-test-suite-source";
-        url = "https://github.com/yaml/yaml-test-suite";
-        rev = "6e6c296ae9c9d2d5c4134b4b64d01b29ac19ff6f";
-        hash = "sha256-zXJy/dvbxkR47gWcfD4iN8mdr2gGR/L37KbcdYy3rAM=";
       };
     };
   });

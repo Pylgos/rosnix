@@ -1,8 +1,8 @@
 {
   action-msgs,
-  ament-cmake,
   ament-cmake-mypy,
   ament-cmake-python,
+  ament-cmake-ros,
   buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
@@ -24,11 +24,11 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbridge_server";
-  version = "3.1.0-1";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."rosbridge_server";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
+  nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-tornado" ]; };
-  buildInputs = [ ament-cmake ament-cmake-python ];
+  buildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedBuildInputs = [ rclpy rosapi rosbridge-library rosbridge-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tornado" ]; };
   checkInputs = [ action-msgs ament-cmake-mypy example-interfaces launch launch-ros launch-testing-ament-cmake rcl-interfaces std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-autobahn" "python3-twisted" ]; };
   passthru.sources = mkSourceSet (sources: {
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbridge_server-source";
         url = "https://github.com/ros2-gbp/rosbridge_suite-release.git";
-        rev = "ada3d8fa43d7fefbc267e16ce3a6c607274732db";
-        hash = "sha256-ypo8pc2sl5VjZWv/hKXk8RbZz689+SC5v7oTSG9jRho=";
+        rev = "c5e9d25cc9829512b88ac45dcee1152b5fcadaa5";
+        hash = "sha256-u5m+81VGfE3gOrEvxZQwoIQqWqglXmIZVQZzQYOY/ms=";
       };
     };
   });

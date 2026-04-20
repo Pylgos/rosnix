@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_examples_cpp";
-  version = "0.26.9-1";
+  version = "0.26.10-2";
   src = finalAttrs.passthru.sources."rosbag2_examples_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ example-interfaces rclcpp rosbag2-cpp ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_examples_cpp-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "1d8e8bee78842aa83470eb7c09e53f2baef86af5";
-        hash = "sha256-HOzJvIRR5ptgJgMEYpcRxLSVudKpXdB4oNV4+YT3hPQ=";
+        rev = "c2ce18942152e04dd9f86458fd8bee1c85034686";
+        hash = "sha256-Bv5iQbQ4jNFf3Z6XPUr3SBkJf+eKzRHoG0LT/W4bWyg=";
       };
     };
   });

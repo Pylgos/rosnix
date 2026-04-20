@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "bondcpp";
-  version = "4.1.2-2";
+  version = "4.3.0-1";
   src = finalAttrs.passthru.sources."bondcpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ bond rclcpp rclcpp-lifecycle smclib ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "uuid" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "bondcpp-source";
         url = "https://github.com/ros2-gbp/bond_core-release.git";
-        rev = "4f0096fd042c68e046abfba9d0379f914553dd00";
-        hash = "sha256-37J//cZzeKkQA9rbYI8kH0nPIEVTJuAwGypiblVUFSs=";
+        rev = "a3eec8ba1d4b25b33dcc0a832fc9b966d2305206";
+        hash = "sha256-H01mo91vxVoRTVyrSEOxMKUZosKX1+kYNWU1PK0P9+8=";
       };
     };
   });

@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "gmock_vendor";
-  version = "1.16.0-1";
+  version = "1.16.1-1";
   src = finalAttrs.passthru.sources."gmock_vendor";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gtest-vendor ];
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gmock_vendor-source";
         url = "https://github.com/ros2-gbp/googletest-release.git";
-        rev = "f2d8e60e8617ab2d878321bd9d2d75953c35f8dc";
-        hash = "sha256-TzTN3VKdLoKPN/s7eFK5ZKM9EPADViLBaWTp+VK7Xj4=";
+        rev = "0e2453c8100491c2f1f1fdc851983e5e9e1d0ebe";
+        hash = "sha256-9kL/vH06a46B6MUi6eWGbuLmsNf25VekwaBhyRyz9IM=";
       };
     };
   });

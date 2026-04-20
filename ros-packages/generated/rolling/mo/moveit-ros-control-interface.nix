@@ -14,13 +14,12 @@
   rosSystemPackages,
   substituteSource,
   trajectory-msgs,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_control_interface";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_ros_control_interface";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-manager-msgs moveit-common moveit-core moveit-simple-controller-manager pluginlib rclcpp-action trajectory-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ controller-manager-msgs moveit-common moveit-core moveit-simple-controller-manager pluginlib rclcpp-action trajectory-msgs ];

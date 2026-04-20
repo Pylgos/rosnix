@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "action_tutorials_interfaces";
-  version = "0.33.9-1";
+  version = "0.33.10-1";
   src = finalAttrs.passthru.sources."action_tutorials_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "action_tutorials_interfaces-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "1369c68dc85734012fcfd765b008531f2b4e8efb";
-        hash = "sha256-s/0JsmYW5P2gL90dWBSEjDbBLCdmfclTGPC9EdpYLWo=";
+        rev = "5a72be09de2f9450f761979d0a9da0bd457867c3";
+        hash = "sha256-DMmylb4w2ArVYymN712K8IiSQX/EaIJjFOFf166rhv0=";
       };
     };
   });

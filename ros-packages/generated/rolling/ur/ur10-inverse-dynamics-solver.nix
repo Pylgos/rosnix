@@ -19,13 +19,12 @@
   substituteSource,
   trajectory-msgs,
   ur-description,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur10_inverse_dynamics_solver";
   version = "6.0.1-3";
   src = finalAttrs.passthru.sources."ur10_inverse_dynamics_solver";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ inverse-dynamics-solver pluginlib ur-description ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ inverse-dynamics-solver pluginlib ur-description ];

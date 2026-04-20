@@ -1,5 +1,4 @@
 {
-  ament-cmake,
   ament-cmake-gtest,
   ament-cmake-ros-core,
   ament-lint-auto,
@@ -18,6 +17,7 @@
   rmw-dds-common,
   rmw-fastrtps-shared-cpp,
   rosSystemPackages,
+  rosidl-buffer,
   rosidl-runtime-c,
   rosidl-typesupport-introspection-c,
   rosidl-typesupport-introspection-cpp,
@@ -27,20 +27,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_dynamic_cpp";
-  version = "9.4.4-1";
+  version = "9.4.7-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_dynamic_cpp";
   nativeBuildInputs = [ ament-cmake-ros-core ];
-  propagatedNativeBuildInputs = [ ament-cmake fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedNativeBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-buffer rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   buildInputs = [ ament-cmake-ros-core ];
-  propagatedBuildInputs = [ ament-cmake fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-fastrtps-shared-cpp rosidl-buffer rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp test-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_dynamic_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_fastrtps_dynamic_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "d0ba7f560dd4ff61f4aece8a513c52dc453238a9";
-        hash = "sha256-T2GnvEk4bbxjI6IEr5x5Lhj06O3HQ4D/AUVcWL4np7o=";
+        rev = "ef5989cc10fb74cc29dd7fc514cc2851389eda71";
+        hash = "sha256-NkYb03+KwYBkIWMX0qXjImZZjg9X/IDtNTLN41RMhD8=";
       };
     };
   });

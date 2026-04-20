@@ -10,24 +10,23 @@
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "python_qt_binding";
-  version = "2.4.1-1";
+  version = "2.5.0-1";
   src = finalAttrs.passthru.sources."python_qt_binding";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-qt5-bindings" "qtbase5-dev" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-qt-bindings" "qt6-base-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-qt5-bindings" "qtbase5-dev" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-qt-bindings" "qt6-base-dev" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "python_qt_binding" = substituteSource {
       src = fetchgit {
         name = "python_qt_binding-source";
         url = "https://github.com/ros2-gbp/python_qt_binding-release.git";
-        rev = "121838f0aeb9b84a96c7866cdda0aa080c760ac9";
-        hash = "sha256-5d+kAcMsV0vuwHby6cI1V8NS4JCrAVfwTRp3VHbvo2s=";
+        rev = "4ec3c95557a9aac8e24b1eee7dd97a9c37b0c665";
+        hash = "sha256-7+8krIudAkLJPCrFIup926WIt806kbYGLbn3/NrgQlA=";
       };
     };
   });

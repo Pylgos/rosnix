@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zlib_point_cloud_transport";
-  version = "4.0.3-1";
+  version = "4.0.4-1";
   src = finalAttrs.passthru.sources."zlib_point_cloud_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pluginlib point-cloud-interfaces point-cloud-transport rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "zlib" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zlib_point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "91864429e3f1ad4e3a74e26f0eb087d01301a010";
-        hash = "sha256-aBmo9vlQHFMuEY5bsruKCCw5BJCsVDVkJ8HKq/yom7g=";
+        rev = "d10062253bd1423270086dfe210a4473dd13d7b6";
+        hash = "sha256-rYuE14TC7m4s7WRhMV0u9eeY/F4QJK1ISec/8jScghY=";
       };
     };
   });

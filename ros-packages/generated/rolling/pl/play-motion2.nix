@@ -37,14 +37,13 @@
   std-msgs,
   substituteSource,
   trajectory-msgs,
-  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "play_motion2";
   version = "1.8.4-1";
   src = finalAttrs.passthru.sources."play_motion2";
-  nativeBuildInputs = [ ament-cmake-auto ament-cmake-python wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-manager-msgs launch launch-ros lifecycle-msgs moveit-ros-planning-interface play-motion2-msgs rclcpp rclcpp-action rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs trajectory-msgs ];
   buildInputs = [ ament-cmake-auto ament-cmake-python ];
   propagatedBuildInputs = [ backward-ros control-msgs controller-manager-msgs launch launch-ros lifecycle-msgs moveit-ros-planning-interface play-motion2-msgs rclcpp rclcpp-action rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs trajectory-msgs ];

@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pangolin";
-  version = "0.9.4-1";
+  version = "0.9.5-1";
   src = finalAttrs.passthru.sources."pangolin";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libepoxy-dev" "libglew-dev" "libjpeg" "libpng-dev" "libxkbcommon-dev" "opengl" "python3-dev" "python3-wheel" "wayland" "wayland-dev" ]; };
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pangolin-source";
         url = "https://github.com/ros2-gbp/Pangolin-release.git";
-        rev = "a561c29133f851e218bbdf65f4b7301685c3c7c3";
-        hash = "sha256-0qedtftu0wocEmGRfQVT7uj9zSXbEmjwdMnbvSmTV7U=";
+        rev = "a5a227f7f96dc4c33b2ff447e6b1c50e64013633";
+        hash = "sha256-fI3cvD+FyydBNqSIcJZoYyU+6r5U/N+qlw2RQ89KKGw=";
       };
     };
   });

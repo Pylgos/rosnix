@@ -11,13 +11,12 @@
   rosSystemPackages,
   rviz2,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_description";
   version = "4.1.2-1";
   src = finalAttrs.passthru.sources."open_manipulator_description";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 ];

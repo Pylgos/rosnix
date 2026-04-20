@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
     "urdf_test" = substituteSource {
       src = fetchgit {
         name = "urdf_test-source";
-        url = "https://github.com/pal-gbp/urdf_test-ros2-gbp.git";
+        url = "https://github.com/ros2-gbp/urdf_test-release.git";
         rev = "d2a01837719e695956f7a64e47dd972b9d32e56c";
         hash = "sha256-yWY6dmjF0apCcxIks7hS6yoaypTZoCTzuhy95waaqnQ=";
       };

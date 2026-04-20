@@ -1,5 +1,4 @@
 {
-  ament-cmake,
   ament-cmake-gmock,
   ament-cmake-gtest,
   ament-cmake-ros-core,
@@ -19,6 +18,7 @@
   rmw-dds-common,
   rmw-security-common,
   rosSystemPackages,
+  rosidl-buffer-backend-registry,
   rosidl-dynamic-typesupport,
   rosidl-runtime-c,
   rosidl-typesupport-introspection-c,
@@ -28,20 +28,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_fastrtps_shared_cpp";
-  version = "9.4.4-1";
+  version = "9.4.7-1";
   src = finalAttrs.passthru.sources."rmw_fastrtps_shared_cpp";
   nativeBuildInputs = [ ament-cmake-ros-core ];
-  propagatedNativeBuildInputs = [ ament-cmake fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedNativeBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-buffer-backend-registry rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   buildInputs = [ ament-cmake-ros-core ];
-  propagatedBuildInputs = [ ament-cmake fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
+  propagatedBuildInputs = [ fastcdr fastdds rcpputils rcutils rmw rmw-dds-common rmw-security-common rosidl-buffer-backend-registry rosidl-dynamic-typesupport rosidl-runtime-c rosidl-typesupport-introspection-c rosidl-typesupport-introspection-cpp tracetools ];
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common osrf-testing-tools-cpp ];
   passthru.sources = mkSourceSet (sources: {
     "rmw_fastrtps_shared_cpp" = substituteSource {
       src = fetchgit {
         name = "rmw_fastrtps_shared_cpp-source";
         url = "https://github.com/ros2-gbp/rmw_fastrtps-release.git";
-        rev = "e5be445d2106a225e7e8320bccff4ed620f75828";
-        hash = "sha256-HOl3AP8BVRcKpf0dd9cwGuNiyIko74SlSFuU6T8cEF4=";
+        rev = "9edc3c4c7b76c880d503ef688051e2a0aa45dc16";
+        hash = "sha256-b7LFFanal3DhJ+W+gXp3QJRe7O/2CtENiqTIXd5K/e4=";
       };
     };
   });

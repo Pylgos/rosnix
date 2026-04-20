@@ -15,13 +15,12 @@
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_image_to_qimage";
   version = "0.4.1-3";
   src = finalAttrs.passthru.sources."ros_image_to_qimage";
-  nativeBuildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python ];
   propagatedNativeBuildInputs = [ cv-bridge python-qt-binding sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
   buildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python ];
   propagatedBuildInputs = [ cv-bridge python-qt-binding sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qtbase5-dev" ]; };

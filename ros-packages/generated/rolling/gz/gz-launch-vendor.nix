@@ -52,8 +52,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-launch-source";
         url = "https://github.com/gazebosim/gz-launch.git";
-        rev = "f9aa744932ff91861d51af2d31d9b9de1e905ce6";
-        hash = "sha256-x5PTz6KIT7zD6peNBUUkBld8LbFgL2myVrcUeEwJp+8=";
+        rev = "b6244f99f4ace4ccc1e10786128fa82810c11833";
+        hash = "sha256-fRzRFsnhK0IiOLNyB9JrYgX0D2vPXQ7rxp7JXCMd3hQ=";
       };
     };
   });

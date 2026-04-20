@@ -25,20 +25,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "ad8b8ff5d1d700fe59be963cd12547f238d6665b";
         hash = "sha256-/2htgPTYAUVkrjphSY7YAQ7+42vCcY0tGHrMXiDT65w=";
       };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL \"\${MUJOCO_ASSET_URL}\"";
-          to = "URL ${sources."mujoco_vendor/mujoco-3"}";
-        }
-      ];
-    };
-    "mujoco_vendor/mujoco-3" = substituteSource {
-      src = fetchzip {
-        name = "mujoco-3-source";
-        url = "https://github.com/google-deepmind/mujoco/releases/download/3.4.0/mujoco-3.4.0-windows-x86_64.zip";
-        hash = "sha256-6rWhc0Ljuq6jBJyIfi3gKadidBOTsO0QH+IwwSQL1N8=";
-      };
     };
   });
   meta = {

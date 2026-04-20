@@ -20,6 +20,7 @@
   rcl-interfaces,
   rclcpp,
   rclcpp-components,
+  rclcpp-lifecycle,
   rosSystemPackages,
   rosidl-default-generators,
   sensor-msgs,
@@ -27,20 +28,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_tools";
-  version = "0.3.1-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."data_tamer_tools";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedNativeBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor geographic-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
+  propagatedNativeBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor geographic-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
   buildInputs = [ ament-cmake rosidl-default-generators ];
-  propagatedBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor geographic-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
+  propagatedBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor geographic-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
   checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-cmake-lint-cmake ament-index-cpp ament-lint ];
   passthru.sources = mkSourceSet (sources: {
     "data_tamer_tools" = substituteSource {
       src = fetchgit {
         name = "data_tamer_tools-source";
         url = "https://github.com/ros2-gbp/data_tamer_tools-release.git";
-        rev = "ff4d4e930c4ddd0d16b6009a84267ee333d90d25";
-        hash = "sha256-HazE6g3ERwvHuXy0AGY9sAC45xeB/pNkRzH8L6BZk1Q=";
+        rev = "bfc31848ba3b2cb12f443b3de40460ac70cca298";
+        hash = "sha256-4Ng6f9OKvID9MgF6bXmxsjgQi++/HfFqlLMFOJBIrwc=";
       };
     };
   });

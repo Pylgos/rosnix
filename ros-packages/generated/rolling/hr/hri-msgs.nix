@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
     "hri_msgs" = substituteSource {
       src = fetchgit {
         name = "hri_msgs-source";
-        url = "https://github.com/ros4hri/hri_msgs-release.git";
+        url = "https://github.com/ros2-gbp/hri_msgs-release.git";
         rev = "53db9ade0a933a061d4c57dedfd80b2215efad76";
         hash = "sha256-InEx7ZaBoVy56BDRNL8liF1jUoijwkKCn8y/HeIJFbk=";
       };

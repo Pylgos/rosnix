@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "event_camera_tools";
-  version = "3.1.1-1";
+  version = "3.1.2-1";
   src = finalAttrs.passthru.sources."event_camera_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ event-camera-codecs event-camera-msgs rclcpp rclcpp-components rosbag2-cpp rosbag2-storage sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "event_camera_tools-source";
         url = "https://github.com/ros2-gbp/event_camera_tools-release.git";
-        rev = "971ced022507c3ca230c00f3e4d88757fcc70505";
-        hash = "sha256-K4RoQJBY0PwclGPCV+0BlKUmuTIk+iM7AklJOsbE8zc=";
+        rev = "a253f06a48544471b6fcb1ce23d087fc1334fcec";
+        hash = "sha256-+diWpWfY90uK5faR+214DxeGPEDTur81Qh+lkZp+dgU=";
       };
     };
   });

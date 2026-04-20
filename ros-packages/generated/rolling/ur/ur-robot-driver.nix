@@ -43,14 +43,13 @@
   ur-msgs,
   urdf,
   velocity-controllers,
-  wrapRosQtAppsHook,
   xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ur_robot_driver";
-  version = "4.5.0-1";
+  version = "5.0.0-1";
   src = finalAttrs.passthru.sources."ur_robot_driver";
-  nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ backward-ros control-msgs controller-manager controller-manager-msgs effort-controllers force-torque-sensor-broadcaster geometry-msgs hardware-interface joint-state-broadcaster joint-state-publisher joint-trajectory-controller launch launch-ros motion-primitives-controllers pluginlib pose-broadcaster position-controllers rclcpp rclcpp-lifecycle rclpy robot-state-publisher ros2-controllers-test-nodes rviz2 std-msgs std-srvs tf2-geometry-msgs ur-client-library ur-controllers ur-dashboard-msgs ur-description ur-msgs urdf velocity-controllers xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "socat" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
   propagatedBuildInputs = [ backward-ros control-msgs controller-manager controller-manager-msgs effort-controllers force-torque-sensor-broadcaster geometry-msgs hardware-interface joint-state-broadcaster joint-state-publisher joint-trajectory-controller launch launch-ros motion-primitives-controllers pluginlib pose-broadcaster position-controllers rclcpp rclcpp-lifecycle rclpy robot-state-publisher ros2-controllers-test-nodes rviz2 std-msgs std-srvs tf2-geometry-msgs ur-client-library ur-controllers ur-dashboard-msgs ur-description ur-msgs urdf velocity-controllers xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "socat" ]; };
@@ -60,8 +59,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_robot_driver-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_ROS2_Driver-release.git";
-        rev = "d1635f474f8c0ec484f5d7dc62db724bb118ce3e";
-        hash = "sha256-wnDtk3KxWQPvV5w/T6pA4GNEF9ufl9BiDtBpN8s06Z0=";
+        rev = "3ac370b35568eea137db43aa1eff52068fb3cea2";
+        hash = "sha256-txEeQhLzWIL2SP2jk8nN6GinUgg12QGare5IoYcqECE=";
       };
     };
   });

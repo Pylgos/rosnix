@@ -15,13 +15,12 @@
   substituteSource,
   tf2-eigen,
   visualization-msgs,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_planners_stomp";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_planners_stomp";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ generate-parameter-library moveit-common moveit-core rsl std-msgs stomp tf2-eigen visualization-msgs ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ generate-parameter-library moveit-common moveit-core rsl std-msgs stomp tf2-eigen visualization-msgs ];

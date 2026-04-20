@@ -20,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "intra_process_demo";
-  version = "0.33.9-1";
+  version = "0.33.10-1";
   src = finalAttrs.passthru.sources."intra_process_demo";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-core" "libopencv-dev" "libopencv-highgui" "libopencv-imgproc" "libopencv-videoio" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedBuildInputs = [ rclcpp sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-core" "libopencv-dev" "libopencv-highgui" "libopencv-imgproc" "libopencv-videoio" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake rmw-implementation-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "intra_process_demo" = substituteSource {
       src = fetchgit {
         name = "intra_process_demo-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "0d4346e614a74d1575cf0045cabce7dd93f51fbe";
-        hash = "sha256-H4OtBY5v6yRJ9U1tbqQ/ZrAhS+EAJSC7ghG8HDGYPSI=";
+        rev = "87214b1a1952e0bee3fff6b4bf8f9f7a6b08e0a0";
+        hash = "sha256-NlLwtrlyOe/r3vhEpvMhrrvHgzYFciYbK5g0/Uqy82w=";
       };
     };
   });

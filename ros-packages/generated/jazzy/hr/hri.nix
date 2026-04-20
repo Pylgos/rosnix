@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
     "hri" = substituteSource {
       src = fetchgit {
         name = "hri-source";
-        url = "https://github.com/ros4hri/libhri-release.git";
+        url = "https://github.com/ros2-gbp/libhri-release.git";
         rev = "b2a5ba192a0b5c5289117428062f717d950a6170";
         hash = "sha256-bISh81fSRx9E1bff6J41n2ccueqC/L42aJ90NOmPKF0=";
       };

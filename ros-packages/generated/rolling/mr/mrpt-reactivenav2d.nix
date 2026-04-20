@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_reactivenav2d";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."mrpt_reactivenav2d";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libnav mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp rclcpp-components sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_reactivenav2d-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "f1a04fcab8f17bf613579e6e765d07a90e1ce229";
-        hash = "sha256-XuvOEzu3rOexJcYP3DUfMG64AzAzDtmc0hLb7YO8Z6M=";
+        rev = "d5be369866e670a453b41e6bd72476ed1a35edae";
+        hash = "sha256-ch+KppK6skSD60Bjp3Q0sqaYtWLSijKV+gR/suyphKo=";
       };
     };
   });

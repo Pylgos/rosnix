@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "lifecycle_py";
-  version = "0.33.9-1";
+  version = "0.33.10-1";
   src = finalAttrs.passthru.sources."lifecycle_py";
   propagatedNativeBuildInputs = [ lifecycle-msgs rclpy std-msgs ];
   propagatedBuildInputs = [ lifecycle-msgs rclpy std-msgs ];
@@ -26,8 +26,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "lifecycle_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "a14711ad9291a5e38cbeaa427adcc07709c09274";
-        hash = "sha256-xf0Ouq+31bSCuwbJxYJcw4c1m26lAfXAbT4nM0UDr7Q=";
+        rev = "4a73671aae41f23a78512987b2c50d40c0ace556";
+        hash = "sha256-xUEa5doMVYPt/0qVMdJm6SG4jxBca+DeB5ZHKWzQ9QY=";
       };
     };
   });

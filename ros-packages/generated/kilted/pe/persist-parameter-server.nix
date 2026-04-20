@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "persist_parameter_server";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."persist_parameter_server";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-ros rclcpp rclcpp-components rcutils rmw rmw-implementation-cmake std-msgs std-srvs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libboost-filesystem-dev" "libboost-program-options-dev" ]; };
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "persist_parameter_server-source";
         url = "https://github.com/ros2-gbp/persist_parameter_server-release.git";
-        rev = "032998a613b9dbc4bf818d8c59f311503e55c5f9";
-        hash = "sha256-Lsf0kJ7qmAl58CKi3bMrpxaAFIgiaYEliVoQRjoT0oc=";
+        rev = "cbcf65791366f0a4bd1c8774a11edba06e29d07a";
+        hash = "sha256-y5alTKmTzWAIEuu5BjDCdW+Qmi9/DB1IlugCzA7Z+LQ=";
       };
     };
   });

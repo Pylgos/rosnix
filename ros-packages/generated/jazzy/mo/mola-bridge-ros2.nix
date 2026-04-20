@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_bridge_ros2";
-  version = "2.6.0-1";
+  version = "2.6.1-1";
   src = finalAttrs.passthru.sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ geographic-msgs geometry-msgs gps-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "6d5dccdf0878d50d48f3e87af4c88de15b5c6f36";
-        hash = "sha256-x5HR2+ve4o6Xh2fUOsKaEdAB4iHSDssjKtc7CL8U6fM=";
+        rev = "6c6a1c90c095c9c92797d3e0e4f070cad840ff5d";
+        hash = "sha256-FMSQn+wFIHxPR/6ahx5jFZctEU9SkEGMtDUYnmYRCKA=";
       };
     };
   });

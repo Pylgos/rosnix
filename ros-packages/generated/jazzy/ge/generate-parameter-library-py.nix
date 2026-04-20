@@ -9,7 +9,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "generate_parameter_library_py";
-  version = "0.7.0-1";
+  version = "0.7.1-1";
   src = finalAttrs.passthru.sources."generate_parameter_library_py";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "python3-jinja2" "python3-typeguard" "python3-yaml" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3" "python3-jinja2" "python3-typeguard" "python3-yaml" ]; };
@@ -19,8 +19,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "generate_parameter_library_py-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "a69f11d30bfb64a1b8bf8c31bf44375b6ec6035d";
-        hash = "sha256-r6eJb7x0V5kVH998Lrw6E/CqAznlG10hFQMK7oNKTy0=";
+        rev = "78dd72039371de49d9e235dfdb7b4b4470cc4ad5";
+        hash = "sha256-lgc2eCYXEokRU8uFhADPP/3YZDxLUfH/5DCSW+8odNI=";
       };
     };
   });

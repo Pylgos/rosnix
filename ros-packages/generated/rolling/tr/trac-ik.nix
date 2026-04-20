@@ -9,13 +9,12 @@
   substituteSource,
   trac-ik-kinematics-plugin,
   trac-ik-lib,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "trac_ik";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."trac_ik";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ trac-ik-kinematics-plugin trac-ik-lib ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ trac-ik-kinematics-plugin trac-ik-lib ];

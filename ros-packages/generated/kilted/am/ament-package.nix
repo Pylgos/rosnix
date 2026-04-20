@@ -9,18 +9,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_package";
-  version = "0.17.2-2";
+  version = "0.17.3-1";
   src = finalAttrs.passthru.sources."ament_package";
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-importlib-metadata" "python3-importlib-resources" "python3-setuptools" ]; };
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-importlib-metadata" "python3-importlib-resources" "python3-setuptools" ]; };
+  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
+  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-setuptools" ]; };
   checkInputs = rosSystemPackages.getPackages { forBuildInputs = [ "python3-flake8" "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ament_package" = substituteSource {
       src = fetchgit {
         name = "ament_package-source";
         url = "https://github.com/ros2-gbp/ament_package-release.git";
-        rev = "13215437dc65410412ea4655ea3a79a590822b51";
-        hash = "sha256-munR8OGgu26L3QYz7Ka4NIoP48rx9obrFV/r4LSA/Js=";
+        rev = "872f6040e684841dd28a6b949f7fc8a69bb4ff9f";
+        hash = "sha256-AiAfxh7lwZl2A90Do0mxknO/RklagxnelccN6cOSY74=";
       };
     };
   });

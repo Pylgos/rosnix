@@ -6,26 +6,25 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  gmock-vendor,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_gmock";
-  version = "2.8.6-1";
+  version = "2.8.7-1";
   src = finalAttrs.passthru.sources."ament_cmake_gmock";
   nativeBuildInputs = [ ament-cmake-core ];
-  propagatedNativeBuildInputs = [ ament-cmake-gtest ament-cmake-test gmock-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "google-mock" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-gtest ament-cmake-test ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libgmock-dev" ]; };
   buildInputs = [ ament-cmake-core ];
-  propagatedBuildInputs = [ ament-cmake-gtest ament-cmake-test gmock-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "google-mock" ]; };
+  propagatedBuildInputs = [ ament-cmake-gtest ament-cmake-test ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libgmock-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ament_cmake_gmock" = substituteSource {
       src = fetchgit {
         name = "ament_cmake_gmock-source";
         url = "https://github.com/ros2-gbp/ament_cmake-release.git";
-        rev = "999ac710c180cd23348de814829d70109e7317a6";
-        hash = "sha256-dr3K06gTx0KWCwJcJ+1a7lCTg5gfK7odItRbSyc/OI4=";
+        rev = "011eebdc6bad54cfd65c8911c0bba8697c4abf5e";
+        hash = "sha256-ja896C3W1syGp/vdYWW53kd/lx3RpbA9Eg/jDi05gBQ=";
       };
     };
   });

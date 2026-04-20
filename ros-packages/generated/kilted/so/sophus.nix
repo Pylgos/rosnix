@@ -23,21 +23,6 @@ buildCmakePackage (finalAttrs: {
         rev = "7a6c73b3f895cc2e9ccca68c315795a4b9a77e54";
         hash = "sha256-xTS2ysDs9SSKpvKrxnhooJVtfpwRvYCuMpbFc4skbDM=";
       };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/pybind/pybind11.git";
-          to = "URL ${sources."sophus/pybind11"}";
-        }
-      ];
-    };
-    "sophus/pybind11" = substituteSource {
-      src = fetchgit {
-        name = "pybind11-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "cd538ed1184d41cf685dd4da81c1eca80d24f353";
-        hash = "sha256-4jzrv7pmQ0ZQJsK+1g59oNs/zTKs7q2Z3eLdqiWnxkw=";
-      };
     };
   });
   meta = {

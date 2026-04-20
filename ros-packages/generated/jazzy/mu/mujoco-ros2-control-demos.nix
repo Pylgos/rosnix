@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mujoco_ros2_control_demos";
-  version = "0.0.1-1";
+  version = "0.0.2-1";
   src = finalAttrs.passthru.sources."mujoco_ros2_control_demos";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager joint-state-broadcaster mujoco-ros2-control mujoco-ros2-control-msgs position-controllers robot-state-publisher rviz2 xacro ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mujoco_ros2_control_demos-source";
         url = "https://github.com/ros2-gbp/mujoco_ros2_control-release.git";
-        rev = "9b05697c86bf7c55778efc76a52c9dbe45d9e024";
-        hash = "sha256-3+g6SNdIjWwvyobAuA/prSKl7iWK1DPAVXMDk46Qz4c=";
+        rev = "dc04e63ebd7fcd29f9fad33d7e1dfd8d9541b35e";
+        hash = "sha256-zNsoxfOhIRiMaG1EcVElzIknL3sm895IP1rqw9uOrTI=";
       };
     };
   });

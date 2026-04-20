@@ -13,7 +13,6 @@
   mkSourceSet,
   rclcpp,
   rosSystemPackages,
-  sqlite3-vendor,
   substituteSource,
   warehouse-ros,
 }:
@@ -22,9 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "1.0.6-1";
   src = finalAttrs.passthru.sources."warehouse_ros_sqlite";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ class-loader rclcpp sqlite3-vendor warehouse-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ class-loader rclcpp warehouse-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "sqlite3_vendor" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ class-loader rclcpp sqlite3-vendor warehouse-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedBuildInputs = [ class-loader rclcpp warehouse-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "sqlite3_vendor" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-gtest ament-lint-auto ament-lint-common geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "warehouse_ros_sqlite" = substituteSource {

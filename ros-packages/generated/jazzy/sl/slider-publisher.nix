@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "slider_publisher";
-  version = "2.4.2-1";
+  version = "2.4.3-1";
   src = finalAttrs.passthru.sources."slider_publisher";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ rqt-gui-py ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "slider_publisher-source";
         url = "https://github.com/ros2-gbp/slider_publisher-release.git";
-        rev = "e6d7fedebc7ecc212bf9b9ef88aa8e72a5f09b3f";
-        hash = "sha256-IB0vXcYFrNpngh3Mw/UEQr0o9Xqce2fxjgTDciVEERM=";
+        rev = "34197cbc6923daf2502d0e9f74b127d745db913a";
+        hash = "sha256-w7CtCTEqvXJ4AaDRzbLl0zSuQdid/H6CfzPvl83Un/s=";
       };
     };
   });

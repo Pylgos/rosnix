@@ -29,20 +29,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "0b5edf037bf08f1401392b7914a0d6add7789360";
         hash = "sha256-mNfg3QRd1f1UOvmGK4o+bj8+rt+2/pir2Z6H+vRmxDE=";
       };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip";
-          to = "URL ${sources."behaviortree_cpp_v3/609281088cfefc76f9d0ce82e1ff6c30cc3591e5"}";
-        }
-      ];
-    };
-    "behaviortree_cpp_v3/609281088cfefc76f9d0ce82e1ff6c30cc3591e5" = substituteSource {
-      src = fetchzip {
-        name = "609281088cfefc76f9d0ce82e1ff6c30cc3591e5-source";
-        url = "https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip";
-        hash = "sha256-P8l4pv8z1n/XUBYpdpLumX8VTnzO+AvBLg+8wD4+ldg=";
-      };
     };
   });
   meta = {

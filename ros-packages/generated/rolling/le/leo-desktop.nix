@@ -9,13 +9,12 @@
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_desktop";
   version = "3.0.0-2";
   src = finalAttrs.passthru.sources."leo_desktop";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ leo leo-viz ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ leo leo-viz ];

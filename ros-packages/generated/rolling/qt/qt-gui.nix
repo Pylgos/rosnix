@@ -12,24 +12,23 @@
   rosSystemPackages,
   substituteSource,
   tango-icons-vendor,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui";
-  version = "2.10.2-1";
+  version = "2.10.4-1";
   src = finalAttrs.passthru.sources."qt_gui";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding tango-icons-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" "python3-qt5-bindings" "qt5-qmake" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding tango-icons-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-python python-qt-binding tango-icons-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-catkin-pkg-modules" "python3-qt5-bindings" "qt5-qmake" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding tango-icons-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-catkin-pkg-modules" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "qt_gui" = substituteSource {
       src = fetchgit {
         name = "qt_gui-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "349ec8ff6a29ced53dc2b5d6567e8d4cec4733d8";
-        hash = "sha256-FIvsCJXadFCjD4Qzpj1jkCoMY/g7fCk3dTJBGCpzBq4=";
+        rev = "dd85febc17a1e3b236ae1e43961fe208a015daf1";
+        hash = "sha256-8MqFCOIUsK9VfhH/4eCJZNrmZHSiLB4h+vM3Tk8ZVsk=";
       };
     };
   });

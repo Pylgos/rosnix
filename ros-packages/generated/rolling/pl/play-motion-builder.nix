@@ -16,13 +16,12 @@
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "play_motion_builder";
   version = "1.4.1-1";
   src = finalAttrs.passthru.sources."play_motion_builder";
-  nativeBuildInputs = [ ament-cmake-auto wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ play-motion2 play-motion2-msgs play-motion-builder-msgs rclcpp rclcpp-action sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
   buildInputs = [ ament-cmake-auto ];
   propagatedBuildInputs = [ play-motion2 play-motion2-msgs play-motion-builder-msgs rclcpp rclcpp-action sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "yaml-cpp" ]; };

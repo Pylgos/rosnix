@@ -17,6 +17,7 @@
   launch-ros,
   launch-testing,
   launch-testing-ament-cmake,
+  marine-acoustic-msgs,
   mkSourceSet,
   nav-msgs,
   rclcpp,
@@ -35,20 +36,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_gz_bridge";
-  version = "3.0.7-1";
+  version = "3.0.8-1";
   src = finalAttrs.passthru.sources."ros_gz_bridge";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-pycommon ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
-  propagatedNativeBuildInputs = [ actuator-msgs geometry-msgs gps-msgs gz-msgs-vendor gz-transport-vendor launch launch-ros nav-msgs rclcpp rclcpp-components ros-gz-interfaces rosgraph-msgs sensor-msgs std-msgs tf2-msgs trajectory-msgs vision-msgs yaml-cpp-vendor ];
+  propagatedNativeBuildInputs = [ actuator-msgs geometry-msgs gps-msgs gz-msgs-vendor gz-transport-vendor launch launch-ros marine-acoustic-msgs nav-msgs rclcpp rclcpp-components ros-gz-interfaces rosgraph-msgs sensor-msgs std-msgs tf2-msgs trajectory-msgs vision-msgs yaml-cpp-vendor ];
   buildInputs = [ ament-cmake ament-cmake-python rosidl-pycommon ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
-  propagatedBuildInputs = [ actuator-msgs geometry-msgs gps-msgs gz-msgs-vendor gz-transport-vendor launch launch-ros nav-msgs rclcpp rclcpp-components ros-gz-interfaces rosgraph-msgs sensor-msgs std-msgs tf2-msgs trajectory-msgs vision-msgs yaml-cpp-vendor ];
+  propagatedBuildInputs = [ actuator-msgs geometry-msgs gps-msgs gz-msgs-vendor gz-transport-vendor launch launch-ros marine-acoustic-msgs nav-msgs rclcpp rclcpp-components ros-gz-interfaces rosgraph-msgs sensor-msgs std-msgs tf2-msgs trajectory-msgs vision-msgs yaml-cpp-vendor ];
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common launch-ros launch-testing launch-testing-ament-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "ros_gz_bridge" = substituteSource {
       src = fetchgit {
         name = "ros_gz_bridge-source";
         url = "https://github.com/ros2-gbp/ros_ign-release.git";
-        rev = "62cdd6d7339813c177f67be97ffef781e3e37fc0";
-        hash = "sha256-3AF7mIMIuRHl9nWIvTEdflZZ58kx97G1sqsUQORcMhE=";
+        rev = "15dcf7efec03d7ee85523834dac09de2a9beb257";
+        hash = "sha256-3Fsi1CJRopSCjd1xhzyvHUemhwFNFglwxrBmIBXWw8M=";
       };
     };
   });

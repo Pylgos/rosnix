@@ -13,13 +13,11 @@
   rqt-gui-py,
   std-msgs,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "microstrain_inertial_rqt";
   version = "4.8.0-1";
   src = finalAttrs.passthru.sources."microstrain_inertial_rqt";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rclpy rqt-gui rqt-gui-py std-msgs ];
   propagatedBuildInputs = [ geometry-msgs microstrain-inertial-msgs nav-msgs rclpy rqt-gui rqt-gui-py std-msgs ];
   passthru.sources = mkSourceSet (sources: {

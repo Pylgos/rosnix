@@ -1,10 +1,7 @@
 {
   ament-cmake,
-  ament-cmake-clang-format,
-  ament-cmake-cppcheck,
   ament-cmake-gtest,
   ament-index-cpp,
-  ament-lint-auto,
   buildAmentCmakePackage,
   example-interfaces,
   fetchgit,
@@ -25,20 +22,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish";
-  version = "3.26.30-1";
+  version = "4.26.40-1";
   src = finalAttrs.passthru.sources."ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp example-interfaces geometry-msgs rclcpp rclcpp-action rcpputils rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-cpp example-interfaces geometry-msgs rclcpp rclcpp-action rcpputils rosidl-runtime-cpp rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ];
-  checkInputs = [ ament-cmake-clang-format ament-cmake-cppcheck ament-cmake-gtest ament-lint-auto geometry-msgs ros-babel-fish-test-msgs std-msgs ];
+  checkInputs = [ ament-cmake-gtest geometry-msgs ros-babel-fish-test-msgs std-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "ros_babel_fish" = substituteSource {
       src = fetchgit {
         name = "ros_babel_fish-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-        rev = "51f9c91143d103dc3abd3fef6bc7642831552a56";
-        hash = "sha256-UqIieoWFYjkdbaLBRUL+LjVV8HoiLHD/xZelOfB2t78=";
+        rev = "14677cede352c2c83c9eb78bee55836b438278ea";
+        hash = "sha256-KBySMvca/lRiplEpHJiIZb7ojoZ1hKRi9r5VjuVNtuY=";
       };
     };
   });

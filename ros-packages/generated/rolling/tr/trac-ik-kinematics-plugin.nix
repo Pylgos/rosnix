@@ -15,13 +15,12 @@
   tf2-kdl,
   trac-ik-lib,
   urdf,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "trac_ik_kinematics_plugin";
   version = "2.2.0-1";
   src = finalAttrs.passthru.sources."trac_ik_kinematics_plugin";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ class-loader generate-parameter-library moveit-core pluginlib rclcpp tf2-kdl trac-ik-lib urdf ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ class-loader generate-parameter-library moveit-core pluginlib rclcpp tf2-kdl trac-ik-lib urdf ];

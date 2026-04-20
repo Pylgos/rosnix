@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
     "hri_rviz" = substituteSource {
       src = fetchgit {
         name = "hri_rviz-source";
-        url = "https://github.com/ros4hri/hri_rviz-release.git";
+        url = "https://github.com/ros2-gbp/hri_rviz-release.git";
         rev = "f993c4d6cec8e9eea45c3a70e3634489fed65589";
         hash = "sha256-n2EX+KjmhK4ojTTucOd7/wYUSEJB9qm9uU4jnD8p5K8=";
       };

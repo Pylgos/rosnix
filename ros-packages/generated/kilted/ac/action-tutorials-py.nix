@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "action_tutorials_py";
-  version = "0.36.4-1";
+  version = "0.36.5-1";
   src = finalAttrs.passthru.sources."action_tutorials_py";
   propagatedNativeBuildInputs = [ example-interfaces rclpy ];
   propagatedBuildInputs = [ example-interfaces rclpy ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "action_tutorials_py-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "2201282e4bedc9e02d70518438ef645faeb611f8";
-        hash = "sha256-cvWqthnrZ9A987teh+5gP88h/v0PBJlmBODbslF6FWg=";
+        rev = "b91be6e121d98e55ea2fa22b71f25a0b058fd9c5";
+        hash = "sha256-P1EJTT0P+84HhQGZtna2rO0CYxsBZ+GA9mhPNX7zQF4=";
       };
     };
   });

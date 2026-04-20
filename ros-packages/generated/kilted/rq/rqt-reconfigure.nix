@@ -21,7 +21,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_reconfigure";
-  version = "1.7.0-2";
+  version = "1.7.1-1";
   src = finalAttrs.passthru.sources."rqt_reconfigure";
   nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rqt-console rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_reconfigure-source";
         url = "https://github.com/ros2-gbp/rqt_reconfigure-release.git";
-        rev = "fcdbde7b0e7685646308268f702fa6d88ce5e506";
-        hash = "sha256-ThnCAIGGrmrx8NAdfSMTjsXM8l4EPYJfg9bSORYEL2U=";
+        rev = "f784d1222f2b576dba5375f725e5f9d7cb59bffe";
+        hash = "sha256-7CUKIDBhVGAhdMA37aRmkBUk3h7gSDGG5Udq2F264ek=";
       };
     };
   });

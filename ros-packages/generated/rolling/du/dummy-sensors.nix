@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dummy_sensors";
-  version = "0.37.6-1";
+  version = "0.37.8-1";
   src = finalAttrs.passthru.sources."dummy_sensors";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp sensor-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dummy_sensors-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "c2f9f510795da72ae1f4f2b561b1b3b5b5051f5d";
-        hash = "sha256-OY3ey5n3gEwh/PFxxnbr5Y1RDrmzMriOSWRP7d/o2ow=";
+        rev = "4337c02c40e6cdfc31c2074257d93465577ad1c1";
+        hash = "sha256-9axKKC8MGmQZuAQK/hkgpxT3vqz12EmbkO1DLSSNfrQ=";
       };
     };
   });

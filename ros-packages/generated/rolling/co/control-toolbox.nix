@@ -18,6 +18,7 @@
   realtime-tools,
   ros2-control-cmake,
   rosSystemPackages,
+  rsl,
   substituteSource,
   tf2,
   tf2-geometry-msgs,
@@ -25,20 +26,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "control_toolbox";
-  version = "6.1.0-1";
+  version = "6.2.0-1";
   src = finalAttrs.passthru.sources."control_toolbox";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ backward-ros control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
+  propagatedNativeBuildInputs = [ backward-ros control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake rsl tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" "libexpected-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ backward-ros control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
+  propagatedBuildInputs = [ backward-ros control-msgs filters generate-parameter-library geometry-msgs pluginlib rclcpp rcutils realtime-tools ros2-control-cmake rsl tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" "libexpected-dev" ]; };
   checkInputs = [ ament-cmake-gmock rclcpp-lifecycle ];
   passthru.sources = mkSourceSet (sources: {
     "control_toolbox" = substituteSource {
       src = fetchgit {
         name = "control_toolbox-source";
         url = "https://github.com/ros2-gbp/control_toolbox-release.git";
-        rev = "ea4de67120bba9389accdc371ff7b835ce965dff";
-        hash = "sha256-94MYLi4XisWuB91DIsOll9WBNPI4BHOjh+Jz0jkfdIk=";
+        rev = "785530e92e80adafa74a121d3dc7862041f0b4be";
+        hash = "sha256-OLmkSb9tArFx98S+I2K0ZL8jP/cYqC881rd06dyfRMY=";
       };
     };
   });

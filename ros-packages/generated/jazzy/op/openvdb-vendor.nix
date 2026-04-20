@@ -45,21 +45,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "ddf922fea94cbf6e96f6277c46c05ff12f22731f";
         hash = "sha256-kaf5gpGYVWinmnRwR/IafE1SJcwmP2psfe/UZdtH1Og=";
       };
-      substitutions = [
-        {
-          path = "nanovdb/nanovdb/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/jpaver/opengametools.git";
-          to = "URL ${sources."openvdb_vendor/openvdb/opengametools"}";
-        }
-      ];
-    };
-    "openvdb_vendor/openvdb/opengametools" = substituteSource {
-      src = fetchgit {
-        name = "opengametools-source";
-        url = "https://github.com/jpaver/opengametools.git";
-        rev = "83da7841c79ab2ea824575fb79e113c4804cf053";
-        hash = "sha256-UHqj/+ttT7pSSjm5GQRo8OFjpXvsVhmkspzMJTVGosk=";
-      };
     };
   });
   meta = {

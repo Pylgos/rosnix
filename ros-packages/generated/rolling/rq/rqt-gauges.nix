@@ -14,13 +14,11 @@
   rqt-gui,
   rqt-gui-py,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_gauges";
   version = "0.0.3-1";
   src = finalAttrs.passthru.sources."rqt_gauges";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py ];
   propagatedBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py ];
   checkInputs = [ ament-flake8 ament-xmllint ];

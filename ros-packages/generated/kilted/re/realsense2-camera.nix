@@ -36,7 +36,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "realsense2_camera";
-  version = "4.56.4-3";
+  version = "4.57.7-1";
   src = finalAttrs.passthru.sources."realsense2_camera";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces cv-bridge diagnostic-updater geometry-msgs image-transport launch-ros librealsense2 lifecycle-msgs nav-msgs rclcpp rclcpp-components rclcpp-lifecycle realsense2-camera-msgs ros-environment sensor-msgs std-msgs std-srvs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -48,12 +48,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "realsense2_camera-source";
         url = "https://github.com/ros2-gbp/realsense-ros-release.git";
-        rev = "c3242b9ecc5f36ba7fa084667de4efab64cadeb9";
-        hash = "sha256-0b3ljBHPI/J6lday55RYwk2wUg0pbJdhowssbSn+Ka4=";
+        rev = "a628b0cdeacfb80b03405f2549d4f680716739c6";
+        hash = "sha256-0a7z4jyfD5pPID/5rLAfs3mvqwJc2/eT8qdDxFMS6y0=";
       };
     };
   });
   meta = {
-    description = "RealSense camera package allowing access to Intel D400 3D cameras";
+    description = "RealSense camera package allowing access to RealSense D400 3D cameras";
   };
 })

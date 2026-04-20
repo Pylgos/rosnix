@@ -8,13 +8,12 @@
   moveit-simple-controller-manager,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_plugins";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_plugins";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-simple-controller-manager ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ moveit-simple-controller-manager ];

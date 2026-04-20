@@ -43,21 +43,6 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "7e635fca68d014934b4af8a1cf874f63989352b7";
         hash = "sha256-cxTaOuLXHRU8xMz9gluYz0a93O0ez2xOxbloyc1m1ns=";
       };
-      substitutions = [
-        {
-          path = "bench/CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/google/benchmark.git";
-          to = "URL ${sources."spdlog_vendor/spdlog/benchmark"}";
-        }
-      ];
-    };
-    "spdlog_vendor/spdlog/benchmark" = substituteSource {
-      src = fetchgit {
-        name = "benchmark-source";
-        url = "https://github.com/google/benchmark.git";
-        rev = "f91b6b42b1b9854772a90ae9501464a161707d1e";
-        hash = "sha256-EAJk3JhLdkuGKRMtspTLejck8doWPd7Z0Lv/Mvf3KFY=";
-      };
     };
   });
   meta = {

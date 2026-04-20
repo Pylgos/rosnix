@@ -38,16 +38,6 @@ buildCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/F2CUtils.cmake";
-          from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
-          to = "URL ${sources."fields2cover/or-tools_amd64_ubuntu-22"}";
-        }
-        {
-          path = "cmake/F2CUtils.cmake";
-          from = "URL https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
-          to = "URL ${sources."fields2cover/or-tools_arm64_debian-11_cpp_v9"}";
-        }
-        {
-          path = "cmake/F2CUtils.cmake";
           from = "URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz";
           to = "URL ${sources."fields2cover/json"}";
         }
@@ -127,21 +117,6 @@ buildCmakePackage (finalAttrs: {
           path = "cmake/dependencies/CMakeLists.txt";
           from = "GIT_REPOSITORY \"https://github.com/protocolbuffers/protobuf.git\"";
           to = "URL ${sources."fields2cover/or-tools/protobuf"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11.git\"";
-          to = "URL ${sources."fields2cover/or-tools/pybind11"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11_abseil.git\"";
-          to = "URL ${sources."fields2cover/or-tools/pybind11_abseil"}";
-        }
-        {
-          path = "cmake/dependencies/CMakeLists.txt";
-          from = "GIT_REPOSITORY \"https://github.com/pybind/pybind11_protobuf.git\"";
-          to = "URL ${sources."fields2cover/or-tools/pybind11_protobuf"}";
         }
         {
           path = "cmake/dependencies/CMakeLists.txt";
@@ -314,44 +289,6 @@ buildCmakePackage (finalAttrs: {
         hash = "sha256-1iXa01BVX1wk7craFwC3liLnwT3487qvM93YIdOoEBs=";
       };
     };
-    "fields2cover/or-tools/pybind11" = substituteSource {
-      src = fetchgit {
-        name = "pybind11-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "8a099e44b3d5f85b20f05828d919d2332a8de841";
-        hash = "sha256-sO/Fa+QrAKyq2EYyYMcjPrYI+bdJIrDoj6L3JHoDo3E=";
-      };
-    };
-    "fields2cover/or-tools/pybind11_abseil" = substituteSource {
-      src = fetchgit {
-        name = "pybind11_abseil-source";
-        url = "https://github.com/pybind/pybind11_abseil.git";
-        rev = "52f27398876a3177049977249e004770bd869e61";
-        hash = "sha256-I63AVof0Zfm4B0WTS4W35HCGN9MuAR2MAriEFVsvPrA=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "URL https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-          to = "URL ${sources."fields2cover/or-tools/pybind11_abseil/20230802"}";
-        }
-      ];
-    };
-    "fields2cover/or-tools/pybind11_abseil/20230802" = substituteSource {
-      src = fetchzip {
-        name = "20230802-source";
-        url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230802.0.tar.gz";
-        hash = "sha256-yILAsAERUDMbRWh8t4o6W74YiswvGIHSyBAIuLVbzxY=";
-      };
-    };
-    "fields2cover/or-tools/pybind11_protobuf" = substituteSource {
-      src = fetchgit {
-        name = "pybind11_protobuf-source";
-        url = "https://github.com/pybind/pybind11_protobuf.git";
-        rev = "3b11990a99dea5101799e61d98a82c4737d240cc";
-        hash = "sha256-saeBxffAbDoHI/YvLatSubpdch9vb5DAfp/Bz3MC8ps=";
-      };
-    };
     "fields2cover/or-tools/re2" = substituteSource {
       src = fetchgit {
         name = "re2-source";
@@ -366,20 +303,6 @@ buildCmakePackage (finalAttrs: {
         url = "https://github.com/scipopt/scip.git";
         rev = "61297938717271f462c995b99ab4b217ca1d9499";
         hash = "sha256-Ub0eykyZOlJtqUofTx4a2YcOMiyG6AUX0llxsqJ+YvE=";
-      };
-    };
-    "fields2cover/or-tools_amd64_ubuntu-22" = substituteSource {
-      src = fetchzip {
-        name = "or-tools_amd64_ubuntu-22-source";
-        url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_amd64_ubuntu-22.04_cpp_v9.9.3963.tar.gz";
-        hash = "sha256-PC2FL81bvEvvu1G1ylGVZdDYndsQCceoE07+0BD+ob4=";
-      };
-    };
-    "fields2cover/or-tools_arm64_debian-11_cpp_v9" = substituteSource {
-      src = fetchzip {
-        name = "or-tools_arm64_debian-11_cpp_v9-source";
-        url = "https://github.com/google/or-tools/releases/download/v9.9/or-tools_arm64_debian-11_cpp_v9.9.3963.tar.gz";
-        hash = "sha256-26Ekgc9p+qiVj5hNswVmdXy2gTLMQqYTbuwBXTGd6oo=";
       };
     };
     "fields2cover/steering_functions" = substituteSource {

@@ -3,6 +3,7 @@
   ament-cmake-copyright,
   ament-cmake-cppcheck,
   ament-cmake-uncrustify,
+  ament-index-cpp,
   ament-lint-auto,
   ament-lint-common,
   buildAmentCmakePackage,
@@ -21,24 +22,24 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_dgnss_node";
-  version = "0.7.0-1";
+  version = "0.7.4-1";
   src = finalAttrs.passthru.sources."ublox_dgnss_node";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libusb-1.0-dev" "pkg-config" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rclcpp-components rtcm-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libusb-1.0-dev" "pkg-config" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp rclcpp-components rtcm-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" "pkg-config" ]; };
+  propagatedBuildInputs = [ ament-index-cpp rclcpp rclcpp-components rtcm-msgs std-msgs ublox-ubx-interfaces ublox-ubx-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libusb-1.0-dev" "pkg-config" ]; };
   checkInputs = [ ament-cmake-copyright ament-cmake-cppcheck ament-cmake-uncrustify ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ublox_dgnss_node" = substituteSource {
       src = fetchgit {
         name = "ublox_dgnss_node-source";
         url = "https://github.com/ros2-gbp/ublox_dgnss-release.git";
-        rev = "11039b229e3d30d47090a19e8af73a2b2e20715c";
-        hash = "sha256-J1siC+WrSIfXlzPzG0+FFWHZxG+I+0pg1t7rOsKYBpg=";
+        rev = "d1b2a7e8d710c050724aadcf29d3af71356b3eeb";
+        hash = "sha256-BZLh+3Ekf/VGQXKHEBRIvfwNXEmrQ3jwMHAhaTITPwg=";
       };
     };
   });
   meta = {
-    description = "Provides a ublox_gnss node for a u-blox GPS GNSS receiver using Gen 9 UBX Protocol";
+    description = "Provides a ublox_gnss node for a u-blox GPS GNSS receiver using Gen 9 and Gen 20 UBX Protocol";
   };
 })

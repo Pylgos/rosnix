@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_joystick_controller";
-  version = "1.1.16-1";
+  version = "1.2.1-1";
   src = finalAttrs.passthru.sources."ffw_joystick_controller";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_joystick_controller-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "16c934a5a9b31b0d0344736ffac62c53d37f456c";
-        hash = "sha256-NxHTRvokE3Uy7iKkjZnDNP37AuD0HUm/rssH566Rkuk=";
+        rev = "179d104e289d7b3999f3e3f9558973470188d0d2";
+        hash = "sha256-e3pT90aUjd39xFp40U2BEEK7+7efxZf2YPTvDcRgvdo=";
       };
     };
   });

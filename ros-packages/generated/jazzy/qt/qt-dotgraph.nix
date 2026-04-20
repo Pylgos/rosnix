@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_dotgraph";
-  version = "2.7.5-1";
+  version = "2.7.6-1";
   src = finalAttrs.passthru.sources."qt_dotgraph";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ python-qt-binding ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-pydot" ]; };
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qt_dotgraph-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "a78ff9d99e06e6d02c731d4f5606693857cf8aa7";
-        hash = "sha256-abvt9oUqCVa1aJ75mrMeVeHysPeQZt8cZyU5MRkZBHc=";
+        rev = "9310e1db35dca59119e4d15cac1587f134f46ac8";
+        hash = "sha256-cwmitY+Aky0r+lOykFkFOEjjadC854WSiWaVUg/7qFo=";
       };
     };
   });

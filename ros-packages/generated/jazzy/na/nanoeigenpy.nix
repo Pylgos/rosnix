@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "nanoeigenpy";
-  version = "0.4.0-1";
+  version = "0.5.0-1";
   src = finalAttrs.passthru.sources."nanoeigenpy";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "eigen" "git" "nanobind-dev" "python3" "python3-numpy" "python3-scipy" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nanoeigenpy-source";
         url = "https://github.com/ros2-gbp/nanoeigenpy-release.git";
-        rev = "c49d6ec9fc54b08b2e0267d01091b7fa46ffe6a5";
-        hash = "sha256-wAdYGfyicoO/eGVJfTAroU3hG558LW5D6dYdHBYh+pg=";
+        rev = "3bce60ca496944d5a16af2c6d32a1ddf4a16f68e";
+        hash = "sha256-zvkEvgTYsxj00FeR3qLZCSy/hmfOW9E0GwAzXFv0kVc=";
       };
     };
   });

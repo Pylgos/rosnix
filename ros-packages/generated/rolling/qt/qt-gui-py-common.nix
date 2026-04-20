@@ -11,13 +11,12 @@
   python-qt-binding,
   rosSystemPackages,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_py_common";
-  version = "2.10.2-1";
+  version = "2.10.4-1";
   src = finalAttrs.passthru.sources."qt_gui_py_common";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding ];
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-index-python python-qt-binding ];
@@ -27,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qt_gui_py_common-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "18a4036fe8f0c410c5091e44937fcadd2b6db00f";
-        hash = "sha256-qJhRrPGnHqCOQCzRg3cLovSU3R/XjtzjhaZs7zb4KRU=";
+        rev = "90358f4bb26b4655434394ad74f4602eb29a7df6";
+        hash = "sha256-MX0PB9HM9Lb2CUyb2hsjDOa0wafu+8Mbf2DJpaRFOSU=";
       };
     };
   });

@@ -17,13 +17,11 @@
   rqt-gui-py,
   rqt-py-common,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_console";
-  version = "2.4.2-1";
+  version = "2.4.3-1";
   src = finalAttrs.passthru.sources."rqt_console";
-  nativeBuildInputs = [ wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding rcl-interfaces rclpy rqt-gui rqt-gui-py rqt-py-common ];
   propagatedBuildInputs = [ ament-index-python python-qt-binding rcl-interfaces rclpy rqt-gui rqt-gui-py rqt-py-common ];
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
@@ -32,8 +30,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_console-source";
         url = "https://github.com/ros2-gbp/rqt_console-release.git";
-        rev = "cb6df4ee75a3fd65dfe257ca4b41ba97d272b5fd";
-        hash = "sha256-IekM8Z78rDGnFwhnf1LmfbheZEmmlLJQ9W7WabxL3Q4=";
+        rev = "da25f7d0106935f2bdd6d9aec58b6ea5d078e22e";
+        hash = "sha256-r1XE8CJ2MjlIcVRNnH3ycyxj0iZhJMaiI0JuR/98E8Y=";
       };
     };
   });

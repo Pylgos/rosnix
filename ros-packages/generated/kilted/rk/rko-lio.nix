@@ -69,21 +69,6 @@ buildAmentCmakePackage (finalAttrs: {
         url = "https://github.com/strasdat/Sophus/archive/refs/tags/1.24.6.tar.gz";
         hash = "sha256-k5t3kSUrH6B1f60dtqq3Ai4R4D2h+Ld+6Cpljl/AN0w=";
       };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/pybind/pybind11.git";
-          to = "URL ${sources."rko_lio/1/pybind11"}";
-        }
-      ];
-    };
-    "rko_lio/1/pybind11" = substituteSource {
-      src = fetchgit {
-        name = "pybind11-source";
-        url = "https://github.com/pybind/pybind11.git";
-        rev = "cd538ed1184d41cf685dd4da81c1eca80d24f353";
-        hash = "sha256-4jzrv7pmQ0ZQJsK+1g59oNs/zTKs7q2Z3eLdqiWnxkw=";
-      };
     };
     "rko_lio/Bonxai" = substituteSource {
       src = fetchgit {

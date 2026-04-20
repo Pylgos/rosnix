@@ -24,20 +24,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_tools";
-  version = "0.37.6-1";
+  version = "0.37.8-1";
   src = finalAttrs.passthru.sources."image_tools";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
+  propagatedNativeBuildInputs = [ example-interfaces rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-core" "libopencv-dev" "libopencv-highgui" "libopencv-imgcodecs" "libopencv-imgproc" "libopencv-videoio" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" ]; };
+  propagatedBuildInputs = [ example-interfaces rclcpp rclcpp-components sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-core" "libopencv-dev" "libopencv-highgui" "libopencv-imgcodecs" "libopencv-imgproc" "libopencv-videoio" ]; };
   checkInputs = [ ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros rmw-implementation-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "image_tools" = substituteSource {
       src = fetchgit {
         name = "image_tools-source";
         url = "https://github.com/ros2-gbp/demos-release.git";
-        rev = "ed27621b2557dfc3084de8efc7c93e08c1351b40";
-        hash = "sha256-AFzY+bQuy9AkF5KAqKV8ACWdgtz2MvdqU634W/2ObTA=";
+        rev = "efe30940498121636ed0da376db91f4e1e8029af";
+        hash = "sha256-yvIxYIsMaKH7X8X9DQSUWBC4V0LBTmW+xLy8v4Hjw/w=";
       };
     };
   });

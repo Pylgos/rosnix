@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_implementation_cmake";
-  version = "7.9.1-1";
+  version = "7.10.1-3";
   src = finalAttrs.passthru.sources."rmw_implementation_cmake";
   propagatedNativeBuildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ ament-cmake ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_implementation_cmake-source";
         url = "https://github.com/ros2-gbp/rmw-release.git";
-        rev = "44402e6a736ba2768e48cce06f95b18ad6dd955a";
-        hash = "sha256-nwZD64JpVdXuUxwpZ/OiV7H5uyDJf+seXPDlXdRBL1c=";
+        rev = "770adcae5c448c8054cf547876c168c4b7c7a759";
+        hash = "sha256-LpTh/paOEBnuIRvoM2xKrC8ClTOYZRUywHCGSunggBs=";
       };
     };
   });

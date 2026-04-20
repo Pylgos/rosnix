@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_lint_common";
-  version = "0.17.4-1";
+  version = "0.17.5-1";
   src = finalAttrs.passthru.sources."ament_lint_common";
   nativeBuildInputs = [ ament-cmake-export-dependencies ];
   propagatedNativeBuildInputs = [ ament-cmake-copyright ament-cmake-core ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-flake8 ament-cmake-lint-cmake ament-cmake-pep257 ament-cmake-uncrustify ament-cmake-xmllint ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_lint_common-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "ea3f56654ce95123631ab8d5800966240d752b19";
-        hash = "sha256-9cK5pRSGN8i8sb6YmDxG1L8JGm/L5nOjyxswGrYbirY=";
+        rev = "d7255c985f27fa9c196c5193b71e3b159a04fec2";
+        hash = "sha256-1OmuHYaaHqL4Z9RClhjZ+jeGmF7/LOoTbeY4e73jYdc=";
       };
     };
   });

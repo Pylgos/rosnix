@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-math-source";
         url = "https://github.com/gazebosim/gz-math.git";
-        rev = "27174bf109eff978f66d16c25b11cd387617a380";
-        hash = "sha256-uEdV5x8e/Qo3b4vw1Gk31LvaU2nuWJW02QoL9UUlfOA=";
+        rev = "31dda2d7f1fa399b1e270db2770c33fc0c6dc7bf";
+        hash = "sha256-5SGZtciJF+k0wjjU+O3I8CxAVnI8XpLLOuv4hsagb/4=";
       };
     };
   });

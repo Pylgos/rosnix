@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_performance_benchmarking";
-  version = "0.26.9-1";
+  version = "0.26.10-2";
   src = finalAttrs.passthru.sources."rosbag2_performance_benchmarking";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python launch launch-ros rclcpp rmw rosbag2-compression rosbag2-cpp rosbag2-performance-benchmarking-msgs rosbag2-py rosbag2-storage sensor-msgs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-psutil" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_performance_benchmarking-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "2f921f43c836a574ae33d7b7c57a0469140c74e7";
-        hash = "sha256-gZUUZz0UVTsGUJRcJxY0WaOt6eYAOtMCfeS0eq9b0f4=";
+        rev = "551275abd945210c78dd08834a5561b2cf43de2b";
+        hash = "sha256-v/3Rc9fv1ziymkFs8NR/8L9PgV+noZ1qH38IgQwrPXw=";
       };
     };
   });

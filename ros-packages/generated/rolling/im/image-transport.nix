@@ -19,20 +19,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport";
-  version = "6.4.5-1";
+  version = "6.4.7-1";
   src = finalAttrs.passthru.sources."image_transport";
   nativeBuildInputs = [ ament-cmake-ros ];
-  propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ];
+  propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "tinyxml2" ]; };
   buildInputs = [ ament-cmake-ros ];
-  propagatedBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ];
+  propagatedBuildInputs = [ message-filters pluginlib rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "tinyxml2" ]; };
   checkInputs = [ ament-cmake-gtest ament-lint-auto ament-lint-common rclcpp-lifecycle ];
   passthru.sources = mkSourceSet (sources: {
     "image_transport" = substituteSource {
       src = fetchgit {
         name = "image_transport-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "6ff0651c60919f247583261ac20b06540e6be790";
-        hash = "sha256-dt2pZqlT3vXKhRbpSfuKBUoOir5c+BhJ4xdHD3Emp50=";
+        rev = "55d02aae21371f92567d17fe8c69e8afd43bde24";
+        hash = "sha256-tn3EZNRT0qv2w48Zn52/GiSUbovj43auVuh1Gv8fQ34=";
       };
     };
   });

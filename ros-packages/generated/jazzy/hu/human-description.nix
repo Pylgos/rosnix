@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
     "human_description" = substituteSource {
       src = fetchgit {
         name = "human_description-source";
-        url = "https://github.com/ros4hri/human_description-release.git";
+        url = "https://github.com/ros2-gbp/human_description-release.git";
         rev = "b0835ffe56582ae02d6270a3607cde61b29cef68";
         hash = "sha256-qKZ/Ym6+oLJmYECE6OClZuKKhi4uMU0GptbQwAOzcHs=";
       };

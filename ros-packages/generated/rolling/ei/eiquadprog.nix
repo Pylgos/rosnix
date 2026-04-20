@@ -4,25 +4,26 @@
   fetchgit,
   fetchurl,
   fetchzip,
+  jrl-cmakemodules,
   mkSourceSet,
   rosSystemPackages,
   substituteSource,
 }:
 buildCmakePackage (finalAttrs: {
   pname = "eiquadprog";
-  version = "1.3.0-1";
+  version = "1.3.1-1";
   src = finalAttrs.passthru.sources."eiquadprog";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake jrl-cmakemodules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
+  propagatedBuildInputs = [ ament-cmake jrl-cmakemodules ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "eigen" "git" "graphviz" ]; };
   passthru.sources = mkSourceSet (sources: {
     "eiquadprog" = substituteSource {
       src = fetchgit {
         name = "eiquadprog-source";
         url = "https://github.com/ros2-gbp/eiquadprog-release.git";
-        rev = "f69f5efd62afaaf5567474d6a9fa9a8176cac8da";
-        hash = "sha256-66/c6KnJLaSXeaEj+/nDirY+F+q/rShl2qFHRjJU9PM=";
+        rev = "b6bfd5c01aabd8869f1e4993364540042e027e67";
+        hash = "sha256-UcrDtNigQlfjFt6p2IM3zRCNgN/i9lc16Lpe+9KbFNs=";
       };
     };
   });

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ffw_description";
-  version = "1.1.16-1";
+  version = "1.2.1-1";
   src = finalAttrs.passthru.sources."ffw_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 urdf xacro ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_description-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "e2a313a033eb4fe15469cc3e8f25c6fe497b444c";
-        hash = "sha256-ERhIAKjWdcSL4NXYeZVlvU+J14JMdFlBeOnxYGgIAUE=";
+        rev = "ea580dbbc9af5c88a5a255a1567432944fe75e57";
+        hash = "sha256-3rc9/r5CHppokqTdWM59xs3yeG9Bf8j1ZCKILv6Hmfo=";
       };
     };
   });

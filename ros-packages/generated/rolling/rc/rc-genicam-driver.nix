@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rc_genicam_driver";
-  version = "0.3.1-1";
+  version = "0.4.0-1";
   src = finalAttrs.passthru.sources."rc_genicam_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-updater image-transport rc-common-msgs rc-genicam-api rclcpp rclcpp-components sensor-msgs stereo-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rc_genicam_driver-source";
         url = "https://github.com/ros2-gbp/rc_genicam_driver_ros2-release.git";
-        rev = "54ae34d134aaab76623d61c9728d34503bc68b26";
-        hash = "sha256-DXGpRFliAauxi+eYKJddSkZfNo9jJ/5UsxBtJEkSdCs=";
+        rev = "ea9d36983337ce95025960fcc129ba741a571d82";
+        hash = "sha256-LoVcSMyu48SQ/AxcMso1YTMx+jl2VntznfFg2F/dFIU=";
       };
     };
   });

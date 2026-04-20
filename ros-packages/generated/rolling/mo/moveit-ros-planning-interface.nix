@@ -29,13 +29,12 @@
   tf2-eigen,
   tf2-geometry-msgs,
   tf2-ros,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_ros_planning_interface";
   version = "2.14.1-1";
   src = finalAttrs.passthru.sources."moveit_ros_planning_interface";
-  nativeBuildInputs = [ ament-cmake eigen3-cmake-module wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ geometry-msgs moveit-common moveit-core moveit-msgs moveit-ros-move-group moveit-ros-planning moveit-ros-warehouse rclcpp rclcpp-action rclpy tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3" ]; };
   buildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedBuildInputs = [ geometry-msgs moveit-common moveit-core moveit-msgs moveit-ros-move-group moveit-ros-planning moveit-ros-warehouse rclcpp rclcpp-action rclpy tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "python3" ]; };

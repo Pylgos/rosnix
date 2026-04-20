@@ -40,6 +40,21 @@ buildAmentCmakePackage (finalAttrs: {
         rev = "c1f95a773c6f8f4fde8ca3efe872e7286afe4444";
         hash = "sha256-0q0ew2ql0ED5ynYPQkq4UHq21VjiqSZTg09XsrrBwqI=";
       };
+      substitutions = [
+        {
+          path = "cmake/Packages/FindKaguyaBuild.cmake";
+          from = "GIT_REPOSITORY https://github.com/satoren/kaguya.git";
+          to = "URL ${sources."sol_vendor/sol2/kaguya"}";
+        }
+      ];
+    };
+    "sol_vendor/sol2/kaguya" = substituteSource {
+      src = fetchgit {
+        name = "kaguya-source";
+        url = "https://github.com/satoren/kaguya.git";
+        rev = "666d4603d5b70424e8756a5dac05f9abb81ddade";
+        hash = "sha256-6eUPgqgRoaopcy+RQ+thdiXnwV2D1FFZMmNpIwaBnMY=";
+      };
     };
   });
   meta = {

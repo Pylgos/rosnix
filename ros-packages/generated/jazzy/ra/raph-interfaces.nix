@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raph_interfaces";
-  version = "1.0.1-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."raph_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raph_interfaces-source";
         url = "https://github.com/ros2-gbp/raph_common-release.git";
-        rev = "b2f3d40c466af911653356edc43926c3e85f5560";
-        hash = "sha256-j8sZpICF+/cnqqAk5qd56kn3TpckuGBoyGOsUMcU/3Q=";
+        rev = "54ce5a1db04667051e965576277cd3a903740e5d";
+        hash = "sha256-k+fCvSMeFvpyINuYJSW6FVkGbHfwPjSqpBsOaXJXdjE=";
       };
     };
   });

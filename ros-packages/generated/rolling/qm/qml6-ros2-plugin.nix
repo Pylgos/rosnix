@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qml6_ros2_plugin";
-  version = "3.26.30-1";
+  version = "4.26.40-1";
   src = finalAttrs.passthru.sources."qml6_ros2_plugin";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp image-transport rclcpp ros-babel-fish tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6-multimedia" "libqt6-qml" "libqt6-quick" "qt6-base-dev" "qt6-declarative-dev" "qt6-multimedia-dev" "yaml-cpp" ]; };
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qml6_ros2_plugin-source";
         url = "https://github.com/ros2-gbp/qml6_ros2_plugin-release.git";
-        rev = "5ab5c809523d2f5a022440a38cd3cb4b4d3ed533";
-        hash = "sha256-CxudOgHXCLFwFL88kAB1oHlvIune1JkX03Lf+zO9TiI=";
+        rev = "7ea6e29c881108cfa96f87f1f47ad1b384da1ed9";
+        hash = "sha256-3cSiMvlmg0B9K7lxKYxblcxP3DL+MIp7ORNBEzDRMyI=";
       };
     };
   });

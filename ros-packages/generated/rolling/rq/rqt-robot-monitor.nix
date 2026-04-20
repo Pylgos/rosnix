@@ -15,13 +15,12 @@
   rqt-gui-py,
   rqt-py-common,
   substituteSource,
-  wrapRosQtAppsHook,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_robot_monitor";
   version = "1.0.6-1";
   src = finalAttrs.passthru.sources."rqt_robot_monitor";
-  nativeBuildInputs = [ rosidl-default-generators wrapRosQtAppsHook ];
+  nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg-modules" ]; };
   buildInputs = [ rosidl-default-generators ];
   propagatedBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg-modules" ]; };

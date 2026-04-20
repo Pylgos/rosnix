@@ -11,13 +11,12 @@
   rosSystemPackages,
   substituteSource,
   tf2-eigen,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "crx_kinematics";
   version = "1.0.0-1";
   src = finalAttrs.passthru.sources."crx_kinematics";
-  nativeBuildInputs = [ ament-cmake-ros wrapRosQtAppsHook ];
+  nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ moveit-core pluginlib tf2-eigen ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake-ros ];
   propagatedBuildInputs = [ moveit-core pluginlib tf2-eigen ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };

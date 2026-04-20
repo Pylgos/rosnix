@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "draco_point_cloud_transport";
-  version = "4.0.3-1";
+  version = "4.0.4-1";
   src = finalAttrs.passthru.sources."draco_point_cloud_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pluginlib point-cloud-interfaces point-cloud-transport rclcpp rcpputils sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libdraco-dev" ]; };
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "draco_point_cloud_transport-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "d8f49885e4067df4dfed3fe4a43088e987c1cddc";
-        hash = "sha256-VxRJHAIbM5smEvyxGNqmIK0enQBst4Y3NTh2tiEBgSc=";
+        rev = "defb070a050cae27650155a2188cbb3312de660b";
+        hash = "sha256-F1C1h+aW2KuFBL1p9MIwWxJBJKHH5S29H8jUTQj8VzU=";
       };
     };
   });

@@ -18,6 +18,7 @@
   rcutils,
   rmw,
   rosSystemPackages,
+  rosidl-buffer-backend,
   rosidl-cli,
   rosidl-generator-c,
   rosidl-generator-cpp,
@@ -29,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_typesupport_fastrtps_cpp";
-  version = "3.9.3-1";
+  version = "3.9.5-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_fastrtps_cpp";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ ament-cmake-ros-core ament-index-python fastcdr rmw rosidl-cli rosidl-generator-c rosidl-generator-cpp rosidl-pycommon rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
+  propagatedNativeBuildInputs = [ ament-cmake-ros-core ament-index-python fastcdr rmw rosidl-buffer-backend rosidl-cli rosidl-generator-c rosidl-generator-cpp rosidl-pycommon rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ ament-cmake-ros-core ament-index-python fastcdr rmw rosidl-cli rosidl-generator-c rosidl-generator-cpp rosidl-pycommon rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
+  propagatedBuildInputs = [ ament-cmake-ros-core ament-index-python fastcdr rmw rosidl-buffer-backend rosidl-cli rosidl-generator-c rosidl-generator-cpp rosidl-pycommon rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common osrf-testing-tools-cpp performance-test-fixture rcutils ];
   passthru.sources = mkSourceSet (sources: {
     "rosidl_typesupport_fastrtps_cpp" = substituteSource {
       src = fetchgit {
         name = "rosidl_typesupport_fastrtps_cpp-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
-        rev = "cff6e4b07b98cc7dfea08f5ed94ca29878fc4639";
-        hash = "sha256-4lbd+Gv4F4JJtP+0ELm/Qr7cMsngtYIJbr/qRZl7OOo=";
+        rev = "46c5e231381a63ce01e12abedbdc63a10005704a";
+        hash = "sha256-L+AZkZJ+J7CuuCSD00pVQK58/POegCUt7ygfrW69YbQ=";
       };
     };
   });

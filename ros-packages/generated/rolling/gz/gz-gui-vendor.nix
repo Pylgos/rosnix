@@ -52,8 +52,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz-gui-source";
         url = "https://github.com/gazebosim/gz-gui.git";
-        rev = "63203f5026469bb1c7d91886d16a89e2920d7acd";
-        hash = "sha256-XYCXMv0EplhbFNcO30uAvVkK+tqO/4Ch/o8o5H0IHwU=";
+        rev = "982993998efd8b5337578d8cd927d32818364532";
+        hash = "sha256-s34FtTFWV6+qakYz6atZfl20y7u8KQAU58a63FghhKc=";
       };
     };
   });

@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rosidl_pycommon";
-  version = "5.1.2-1";
+  version = "5.1.4-2";
   src = finalAttrs.passthru.sources."rosidl_pycommon";
   propagatedNativeBuildInputs = [ rosidl-parser ];
   propagatedBuildInputs = [ rosidl-parser ];
@@ -25,8 +25,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_pycommon-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "439368024b5e021a2bc1ecc5b38edfca26695c39";
-        hash = "sha256-ReNvPdpfdS5rkW5KSARHkgZrXmJ7Qgf7z+RX6pDlzt4=";
+        rev = "8513235110b5254023cf8279c505c7f171fe24bb";
+        hash = "sha256-fLylyMFu6TlzEN7wEGWvrcoYIhcpXddh/JqCSW0hrKo=";
       };
     };
   });

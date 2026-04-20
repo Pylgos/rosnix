@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_msgs_bridge";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."mrpt_msgs_bridge";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto geometry-msgs mrpt-libobs mrpt-libros-bridge mrpt-msgs rclcpp ros-environment tf2 ];
@@ -31,8 +31,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_msgs_bridge-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "838ebb606a4eb6a437a9512b5c6c3365aa75fa2a";
-        hash = "sha256-5BN8CJJ3crFoInkCpPmKm/JVGIbpE4wgoUf90mywzmA=";
+        rev = "44f789092660ef3d2c42066e1bfac123455914a6";
+        hash = "sha256-T2qIfQ/tWyTsoW60zzB2/TsU2ff99vY3DkVF+Jeskmo=";
       };
     };
   });

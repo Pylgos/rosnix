@@ -9,29 +9,31 @@
   fetchzip,
   mkSourceSet,
   mrpt-map-server,
+  mrpt-msgs-bridge,
   mrpt-nav-interfaces,
   mrpt-pf-localization,
   mrpt-pointcloud-pipeline,
   mrpt-reactivenav2d,
+  mrpt-tps-astar-planner,
   mrpt-tutorials,
   rosSystemPackages,
   substituteSource,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_navigation";
-  version = "2.3.0-1";
+  version = "2.3.1-1";
   src = finalAttrs.passthru.sources."mrpt_navigation";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mrpt-map-server mrpt-nav-interfaces mrpt-pf-localization mrpt-pointcloud-pipeline mrpt-reactivenav2d mrpt-tutorials ];
+  propagatedNativeBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mrpt-map-server mrpt-msgs-bridge mrpt-nav-interfaces mrpt-pf-localization mrpt-pointcloud-pipeline mrpt-reactivenav2d mrpt-tps-astar-planner mrpt-tutorials ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mrpt-map-server mrpt-nav-interfaces mrpt-pf-localization mrpt-pointcloud-pipeline mrpt-reactivenav2d mrpt-tutorials ];
+  propagatedBuildInputs = [ ament-cmake-lint-cmake ament-cmake-xmllint ament-lint-auto mrpt-map-server mrpt-msgs-bridge mrpt-nav-interfaces mrpt-pf-localization mrpt-pointcloud-pipeline mrpt-reactivenav2d mrpt-tps-astar-planner mrpt-tutorials ];
   passthru.sources = mkSourceSet (sources: {
     "mrpt_navigation" = substituteSource {
       src = fetchgit {
         name = "mrpt_navigation-source";
         url = "https://github.com/ros2-gbp/mrpt_navigation-release.git";
-        rev = "3f9fa5db116774fe2e1083b05eff507647a64451";
-        hash = "sha256-hq+yn24oUAuFz+NUsaN80xQZuD/Wfn/vau9u5OpdO7E=";
+        rev = "be307e2198e606165a970888e1772d42ed64a2cc";
+        hash = "sha256-SBBNWpCMsLzEO8CjzTkDHfnkEheeegCJzawSPyF4Dfs=";
       };
     };
   });

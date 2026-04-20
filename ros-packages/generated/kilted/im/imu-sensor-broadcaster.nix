@@ -1,8 +1,6 @@
 {
   ament-cmake,
   ament-cmake-gmock,
-  ament-lint-auto,
-  ament-lint-common,
   backward-ros,
   buildAmentCmakePackage,
   controller-interface,
@@ -28,20 +26,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_sensor_broadcaster";
-  version = "5.13.1-1";
+  version = "5.14.0-1";
   src = finalAttrs.passthru.sources."imu_sensor_broadcaster";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ];
   propagatedBuildInputs = [ backward-ros controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
-  checkInputs = [ ament-cmake-gmock ament-lint-auto ament-lint-common controller-manager hardware-interface-testing ros2-control-test-assets tf2 tf2-geometry-msgs ];
+  checkInputs = [ ament-cmake-gmock controller-manager hardware-interface-testing ros2-control-test-assets tf2 tf2-geometry-msgs ];
   passthru.sources = mkSourceSet (sources: {
     "imu_sensor_broadcaster" = substituteSource {
       src = fetchgit {
         name = "imu_sensor_broadcaster-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "6eca87c75d8b7c5db47974be60c108391aab2038";
-        hash = "sha256-0IGdIFDljNlrbje3pIpEfBr01hW/6NLbcMMzFjZVdck=";
+        rev = "aefd3ac13ded6d567eb0bb1aad4e941765786a6c";
+        hash = "sha256-vDXYrY+fK04uTN6sH5VLYqnqIc4HPk6tpjMWCSWlFzo=";
       };
     };
   });
