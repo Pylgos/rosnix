@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "motion_primitives_controllers";
-  version = "6.5.0-1";
+  version = "6.6.0-1";
   src = finalAttrs.passthru.sources."motion_primitives_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs controller-interface generate-parameter-library hardware-interface pluginlib rclcpp rclcpp-lifecycle realtime-tools ros2-control-cmake std-srvs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "motion_primitives_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "63a65117e0452c6bcca10da81d04825a4eb93f27";
-        hash = "sha256-eDkQ9pkr3+21Q3b4wKBaMXv/Lx9LCDz9kv8IUG7fSkg=";
+        rev = "75c8093584a5b65564e24ca78984ab2447e74ae7";
+        hash = "sha256-h96yPSMJSGxqMMcjd8yRWG2B/DFNmRiG+Q2sHNM8TBM=";
       };
     };
   });

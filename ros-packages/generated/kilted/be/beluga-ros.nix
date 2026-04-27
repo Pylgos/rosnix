@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "beluga_ros";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."beluga_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ beluga geometry-msgs nav-msgs sensor-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "beluga_ros-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
-        rev = "6bcf26e88d06f31ff788008b9c36a4c618580c3d";
-        hash = "sha256-fOQuOXnwJTBmmZB2p8526K/hhzgNNMQM4rFD14/YslU=";
+        rev = "58d964010d4a344d059bc7455b1853c6c4d4dda0";
+        hash = "sha256-rH0hQ0fC64yoa58K8ySA3r4ywzPlIc/U1vSaDf05ECM=";
       };
     };
   });

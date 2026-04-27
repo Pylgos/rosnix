@@ -24,18 +24,18 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_plot";
-  version = "1.7.4-1";
+  version = "1.7.5-1";
   src = finalAttrs.passthru.sources."rqt_plot";
-  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rosidl-parser rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6widgets6t64" "python3-matplotlib" "python3-numpy" "qt6-base-dev" ]; };
-  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rosidl-parser rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt6widgets6t64" "python3-matplotlib" "python3-numpy" "qt6-base-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rosidl-parser rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqtwidgets" "python3-matplotlib" "python3-numpy" "qt-base-dev" ]; };
+  propagatedBuildInputs = [ ament-index-python python-qt-binding qt-gui-py-common rclpy rosidl-parser rosidl-runtime-py rqt-gui rqt-gui-py rqt-py-common std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqtwidgets" "python3-matplotlib" "python3-numpy" "qt-base-dev" ]; };
   checkInputs = [ ament-copyright ament-flake8 ament-pep257 ament-xmllint test-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rqt_plot" = substituteSource {
       src = fetchgit {
         name = "rqt_plot-source";
         url = "https://github.com/ros2-gbp/rqt_plot-release.git";
-        rev = "84dbb7455f89cbcfe3d07419327c22a13632c15e";
-        hash = "sha256-IeJdsl3jBMwDhk9qpnKCssV7JVF7hcvsAiB1a7RUKI0=";
+        rev = "57feab9b2eae0e7efc4efe0339070ae4af3f6c05";
+        hash = "sha256-AtvbqnL78TqP+wkB/+ecauu/5uHpbazNSxNjYqp8LJg=";
       };
     };
   });

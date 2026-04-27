@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "topic_tools";
-  version = "1.4.3-1";
+  version = "1.4.4-1";
   src = finalAttrs.passthru.sources."topic_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rclpy ros2cli ros2topic rosidl-runtime-py topic-tools-interfaces ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "topic_tools-source";
         url = "https://github.com/ros2-gbp/topic_tools-release.git";
-        rev = "14d0a5fb8a7fe736b78dfc6d56c61c97ff30afde";
-        hash = "sha256-9sqFxSLn0kwyVjbz8tQjnTYg2ZyL86b8GpuyYz54nxY=";
+        rev = "0293f8af226b8a2cc3870c1d1f4b97a6f45c7dcf";
+        hash = "sha256-RvnE7WM3kjO2dKYdrQ4Ecr4vU+hW33M1ya1bNV7DrDs=";
       };
     };
   });

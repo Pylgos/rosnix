@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "beluga_amcl";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."beluga_amcl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ beluga beluga-ros bondcpp message-filters rclcpp rclcpp-components rclcpp-lifecycle std-srvs tf2-ros ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "beluga_amcl-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
-        rev = "d2cd66b5e5b715a8590f06b890f64795aab6294e";
-        hash = "sha256-xHpEpVM9yTksXCYCkzHb7A5hoLrLCuN0NTMHuCgfZyU=";
+        rev = "47c157139fe47629bbff5da81cb3088dcae9e9ef";
+        hash = "sha256-DnjeKBN3e6+IM8wmW8hh9zQRQ8UYQzMeWFzbQftgD2M=";
       };
     };
   });

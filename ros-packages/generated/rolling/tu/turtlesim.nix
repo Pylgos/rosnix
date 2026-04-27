@@ -19,20 +19,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlesim";
-  version = "1.10.7-4";
+  version = "1.10.8-1";
   src = finalAttrs.passthru.sources."turtlesim";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6gui6t64" "qt6-base-dev" ]; };
+  propagatedNativeBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqtcore" "libqtgui" "qt-base-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt6-core" "libqt6gui6t64" "qt6-base-dev" ]; };
+  propagatedBuildInputs = [ ament-index-cpp geometry-msgs rclcpp rclcpp-action std-msgs std-srvs turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqtcore" "libqtgui" "qt-base-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "turtlesim" = substituteSource {
       src = fetchgit {
         name = "turtlesim-source";
         url = "https://github.com/ros2-gbp/ros_tutorials-release.git";
-        rev = "cc6466d6b9da77f114b1e96a44d13adb75673c10";
-        hash = "sha256-dzZ5+NCg5d0QKg3bE+wGA4ML+U1PC+hbTbCODe6pc8Q=";
+        rev = "f2f8e6a8c6094815799f157a4c1d0466934712c7";
+        hash = "sha256-jtlVjsyjYm+3pV0P6/HoP++JdZESV9tUF7/KkA/pPEU=";
       };
     };
   });

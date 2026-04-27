@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_dartsim_vendor";
-  version = "0.1.2-1";
+  version = "0.1.3-1";
   src = finalAttrs.passthru.sources."gz_dartsim_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp" "bullet" "eigen" "fmt" "libboost-dev" "libboost-regex-dev" "libboost-system-dev" "libccd-dev" "libfcl-dev" "liboctomap-dev" "liburdfdom-dev" "lz4" "opende" "tinyxml2" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_dartsim_vendor-source";
         url = "https://github.com/ros2-gbp/gz_dartsim_vendor-release.git";
-        rev = "04a4caeb5389ce3316abaa17e6e02bf380ecfb20";
-        hash = "sha256-d4EU4uoga0zXoF2W57BOpZtu67Cret8Xj3X6kgtBVic=";
+        rev = "04e1d0760ae973895364f72ff06a7d199434725f";
+        hash = "sha256-sjSBMSDJoh5XO5UjtwYrSbz3afMTb6RW0z0gnfX7APA=";
       };
       substitutions = [
         {
@@ -40,12 +40,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dart-source";
         url = "https://github.com/dartsim/dart.git";
-        rev = "a51e08c210d7892605c6dc0b9ae96fce4446d9fe";
-        hash = "sha256-AfKPqUiW6BsM98TIzTY2ZcFP1WvURs8/dGOzanIiB9g=";
+        rev = "5295704377b36251670681ea0e94cfab8e3fcfc9";
+        hash = "sha256-4O5FaOG0J2DaHQ/Idt6DBhQkNqocL70ZC1MQEfoElCM=";
       };
     };
   });
   meta = {
-    description = "\n    Vendor package for the DART physics engine v6.13.2\n  ";
+    description = "\n    Vendor package for the DART physics engine v6.16.6\n  ";
   };
 })

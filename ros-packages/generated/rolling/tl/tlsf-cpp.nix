@@ -8,6 +8,7 @@
   fetchurl,
   fetchzip,
   mkSourceSet,
+  rcl,
   rclcpp,
   rcpputils,
   rmw,
@@ -19,18 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tlsf_cpp";
-  version = "0.19.2-1";
+  version = "0.20.0-1";
   src = finalAttrs.passthru.sources."tlsf_cpp";
-  propagatedNativeBuildInputs = [ ament-cmake rclcpp rmw std-msgs tlsf ];
-  propagatedBuildInputs = [ ament-cmake rclcpp rmw std-msgs tlsf ];
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ rcl rclcpp rmw std-msgs tlsf ];
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ rcl rclcpp rmw std-msgs tlsf ];
   checkInputs = [ ament-cmake-ros ament-lint-auto ament-lint-common rcpputils rmw-implementation-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "tlsf_cpp" = substituteSource {
       src = fetchgit {
         name = "tlsf_cpp-source";
         url = "https://github.com/ros2-gbp/realtime_support-release.git";
-        rev = "035258fb4785313106a721c8d9b9d877c6d27181";
-        hash = "sha256-j4xPzHTzH4LgpPRFJ/IauoCPFGmOxRSzbD4L/s1qi/A=";
+        rev = "577caba6ad90c7e5ab2225abc18cfdb3a0d4428b";
+        hash = "sha256-K/GyKOipF6+a7j89jH6bJLZlDDKTO9872GuuyWv3L6o=";
       };
     };
   });

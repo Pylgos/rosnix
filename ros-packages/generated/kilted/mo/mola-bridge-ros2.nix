@@ -6,6 +6,7 @@
   ament-lint-auto,
   ament-lint-cmake,
   buildAmentCmakePackage,
+  diagnostic-msgs,
   fetchgit,
   fetchurl,
   fetchzip,
@@ -30,20 +31,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_bridge_ros2";
-  version = "2.6.1-1";
+  version = "2.7.0-1";
   src = finalAttrs.passthru.sources."mola_bridge_ros2";
   nativeBuildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
-  propagatedNativeBuildInputs = [ geographic-msgs geometry-msgs gps-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedNativeBuildInputs = [ diagnostic-msgs geographic-msgs geometry-msgs gps-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
   buildInputs = [ ament-cmake ament-cmake-gmock ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
-  propagatedBuildInputs = [ geographic-msgs geometry-msgs gps-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
+  propagatedBuildInputs = [ diagnostic-msgs geographic-msgs geometry-msgs gps-msgs mola-common mola-kernel mola-msgs mrpt-libmaps mrpt-libros-bridge mrpt-nav-interfaces nav-msgs rclcpp ros-environment sensor-msgs tf2 tf2-geometry-msgs ];
   checkInputs = [ ament-cmake-xmllint ament-lint-auto ament-lint-cmake ];
   passthru.sources = mkSourceSet (sources: {
     "mola_bridge_ros2" = substituteSource {
       src = fetchgit {
         name = "mola_bridge_ros2-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "b458476e1a80d33d891c5452e8b11f8d1336c3cc";
-        hash = "sha256-FMSQn+wFIHxPR/6ahx5jFZctEU9SkEGMtDUYnmYRCKA=";
+        rev = "2abe1030e60ef5dfa7032ed4175b9a5147e56e29";
+        hash = "sha256-DIvsCS65ke9jNAmPojV7wqGYfStszIQkt6PVLtG1jhs=";
       };
     };
   });

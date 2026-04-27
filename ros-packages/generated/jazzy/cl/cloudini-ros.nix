@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cloudini_ros";
-  version = "1.0.4-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."cloudini_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cloudini-lib pcl-conversions pluginlib point-cloud-interfaces point-cloud-transport rclcpp rclcpp-components rosbag2-cpp sensor-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cloudini_ros-source";
         url = "https://github.com/facontidavide/cloudini-release.git";
-        rev = "7dfd777a5da9160e3614ff0ff56f5be0205fbbe1";
-        hash = "sha256-XQdMP6zf0kqpR5VgVY2Fu6sYuuBWyhR4Exugd72aA6I=";
+        rev = "3320a05d2216bd18d73f3940743692697ba4487b";
+        hash = "sha256-mv10Gg5FDTgt+fPxWDUUKLNwFyDY/VPD0IOCycJ24rI=";
       };
     };
   });

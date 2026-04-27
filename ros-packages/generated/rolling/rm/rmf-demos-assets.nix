@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_demos_assets";
-  version = "2.8.2-1";
+  version = "2.8.2-2";
   src = finalAttrs.passthru.sources."rmf_demos_assets";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,7 +19,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_demos_assets-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-        rev = "01429b9c4c4aabe278d54eba89a7b5d68a3912c9";
+        rev = "4cfe0a328c15296b55b96fe0bdc41a7221cb8941";
         hash = "sha256-jCVb5XyjEIBc6lCHZ87X9YMeN2OzllzQyFOGMdH2BZg=";
       };
     };

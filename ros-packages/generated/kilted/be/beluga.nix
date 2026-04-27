@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "beluga";
-  version = "2.1.0-1";
+  version = "2.1.1-1";
   src = finalAttrs.passthru.sources."beluga";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ sophus ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libhdf5-dev" "range-v3" "tbb" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "beluga-source";
         url = "https://github.com/ros2-gbp/beluga-release.git";
-        rev = "8fa37117dda625c76e867ee916566c9fc893bfd5";
-        hash = "sha256-hEw+699sJbleskHdUVAmPNHGEs6hyF8YiIwsIn9ewX0=";
+        rev = "cccdbd65a864733024e3de1b02f390fc8522e83b";
+        hash = "sha256-K/Lj81Bh0miQIPQ7MOtJyQRt+RFfUF1vyLE4HlkWlhI=";
       };
     };
   });

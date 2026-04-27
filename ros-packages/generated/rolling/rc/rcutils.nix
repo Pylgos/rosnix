@@ -21,20 +21,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcutils";
-  version = "7.0.9-1";
+  version = "7.1.1-1";
   src = finalAttrs.passthru.sources."rcutils";
-  nativeBuildInputs = [ ament-cmake ament-cmake-ros-core ];
-  propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libatomic" ]; };
-  buildInputs = [ ament-cmake ament-cmake-ros-core ];
-  propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "libatomic" ]; };
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libatomic" ]; };
+  buildInputs = [ ament-cmake ];
+  propagatedBuildInputs = [ ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libatomic" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common launch launch-testing launch-testing-ament-cmake mimick-vendor osrf-testing-tools-cpp performance-test-fixture ];
   passthru.sources = mkSourceSet (sources: {
     "rcutils" = substituteSource {
       src = fetchgit {
         name = "rcutils-source";
         url = "https://github.com/ros2-gbp/rcutils-release.git";
-        rev = "afc3ebd56dc2a29ae6c2d50ecabda8a1cd55fc17";
-        hash = "sha256-nLztLpFGCrxVLOwITwpVIVsvJjmJYOsvdH2jwJofla8=";
+        rev = "bd92416cc7275559f57030f1f2c8b96ad99d1ddb";
+        hash = "sha256-UxsZ2xgIeWGecrh9zFpq2KWQSBQEBUDsmpwrJr+6hVU=";
       };
     };
   });

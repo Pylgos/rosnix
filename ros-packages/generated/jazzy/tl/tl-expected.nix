@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tl_expected";
-  version = "1.2.0-1";
+  version = "1.3.0-1";
   src = finalAttrs.passthru.sources."tl_expected";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tl_expected-source";
         url = "https://github.com/ros2-gbp/cpp_polyfills-release.git";
-        rev = "81e77bffb60577329c4fba864a2f048f56000ab7";
-        hash = "sha256-ILNj6n8wJ8FHbytOv3XOENCEVm8Y+R7SZTYpSmr8CYQ=";
+        rev = "40c19d8b3dc3be6fa1adadf16fbce83f0f5bc3e4";
+        hash = "sha256-AkIMppzWgc89jseE/1Glaf7vTzOyQciiZJJ/u+Jd4JA=";
       };
     };
   });

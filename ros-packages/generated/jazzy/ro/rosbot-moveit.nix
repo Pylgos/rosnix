@@ -1,21 +1,22 @@
 {
   ament-cmake,
   buildAmentCmakePackage,
-  controller-manager,
   fetchgit,
   fetchurl,
   fetchzip,
-  joint-state-publisher,
-  joint-state-publisher-gui,
   mkSourceSet,
   moveit-configs-utils,
   moveit-kinematics,
+  moveit-msgs,
   moveit-planners,
   moveit-ros-move-group,
+  moveit-ros-planning,
+  moveit-ros-planning-interface,
   moveit-ros-visualization,
   moveit-servo,
   moveit-setup-assistant,
   moveit-simple-controller-manager,
+  rclcpp,
   rosSystemPackages,
   rosbot-description,
   rosbot-joy,
@@ -23,25 +24,23 @@
   rviz-default-plugins,
   rviz2,
   substituteSource,
-  tf2-ros,
   wrapRosQtAppsHook,
-  xacro,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbot_moveit";
-  version = "0.18.6-1";
+  version = "1.0.0-1";
   src = finalAttrs.passthru.sources."rosbot_moveit";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-servo moveit-setup-assistant moveit-simple-controller-manager rosbot-description rosbot-joy rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
+  propagatedNativeBuildInputs = [ moveit-configs-utils moveit-kinematics moveit-msgs moveit-planners moveit-ros-move-group moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization moveit-servo moveit-setup-assistant moveit-simple-controller-manager rclcpp rosbot-description rosbot-joy rviz2 rviz-common rviz-default-plugins ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-servo moveit-setup-assistant moveit-simple-controller-manager rosbot-description rosbot-joy rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
+  propagatedBuildInputs = [ moveit-configs-utils moveit-kinematics moveit-msgs moveit-planners moveit-ros-move-group moveit-ros-planning moveit-ros-planning-interface moveit-ros-visualization moveit-servo moveit-setup-assistant moveit-simple-controller-manager rclcpp rosbot-description rosbot-joy rviz2 rviz-common rviz-default-plugins ];
   passthru.sources = mkSourceSet (sources: {
     "rosbot_moveit" = substituteSource {
       src = fetchgit {
         name = "rosbot_moveit-source";
         url = "https://github.com/ros2-gbp/rosbot_ros-release.git";
-        rev = "c270508f5e69cd1659a6b6dd03b29f4ba12df384";
-        hash = "sha256-43ViMnWzPFAkMUf/CGHsXEyxHeZ7EEH53sx9VKZdy1E=";
+        rev = "0d2002fff0ed415e42344b787ff0055c365e7df0";
+        hash = "sha256-Zno6MTwps3gfTpO29YQ1qP/KCno7rJQ03HDoJuczFBs=";
       };
     };
   });

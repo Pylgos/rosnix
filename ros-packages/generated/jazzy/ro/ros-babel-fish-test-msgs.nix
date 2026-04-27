@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish_test_msgs";
-  version = "2.25.111-1";
+  version = "2.26.40-1";
   src = finalAttrs.passthru.sources."ros_babel_fish_test_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_babel_fish_test_msgs-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-        rev = "03cf89098c2e561fe33ebf4e0384844938833c41";
-        hash = "sha256-hK8zgB3jiJo8TpnB6kmmLzOw9xsDPEzsufRXI6sO6fk=";
+        rev = "5998ba2beca2660fccf8b08435f3b57615ec4bd8";
+        hash = "sha256-Ja+NUdivmkpMSI033qLYEYZDLJ+5/DHxMVD5VOwO/+g=";
       };
     };
   });

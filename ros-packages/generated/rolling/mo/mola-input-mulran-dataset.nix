@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_mulran_dataset";
-  version = "2.6.1-1";
+  version = "2.7.0-1";
   src = finalAttrs.passthru.sources."mola_input_mulran_dataset";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mola-kernel mrpt-libmaps mrpt-libposes ];
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_mulran_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "0e6608507fe0ab2ce70d57befe346525384ebcc1";
-        hash = "sha256-brry5gZ59Yv3ZIlY8bUWt2uoovDC3zxSq4AjEs6LTpg=";
+        rev = "add778abcbc4e3879077ad2235994fe40d80744b";
+        hash = "sha256-NgxqsxJEI9RdwlsIhU3MbSyVpP/BBvZ11apvR0F4Plc=";
       };
     };
   });

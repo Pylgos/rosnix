@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_task_constructor_msgs";
-  version = "0.1.4-2";
+  version = "0.1.5-1";
   src = finalAttrs.passthru.sources."moveit_task_constructor_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-msgs rosidl-default-generators rosidl-default-runtime visualization-msgs ];
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_task_constructor_msgs-source";
         url = "https://github.com/ros2-gbp/moveit_task_constructor-release.git";
-        rev = "c650827e70635fdf46ecd582bb5e5d7631fa7e7d";
-        hash = "sha256-w2xBKmIL9JFTykVX1CVMoBzmcmXXArbX/+Y/j9+Ed5g=";
+        rev = "d942547bc34a7cf9af3f05b8a45697e40b635a0d";
+        hash = "sha256-KObCykuVCRtgTDNlw/mVqN6oTCOXkiB2a4FHUPYTNkU=";
       };
     };
   });

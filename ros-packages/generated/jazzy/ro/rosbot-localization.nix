@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbot_localization";
-  version = "0.18.6-1";
+  version = "1.0.0-1";
   src = finalAttrs.passthru.sources."rosbot_localization";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch launch-ros robot-localization ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbot_localization-source";
         url = "https://github.com/ros2-gbp/rosbot_ros-release.git";
-        rev = "15800ecf100d66c69fa16acf15f6004f6ba9b3ae";
-        hash = "sha256-F3VmLGXgFkIr32k0mTxHjZj4X1FzrlAC6zqVT8DV/hQ=";
+        rev = "13a3322bf33b798239ae7e8e5311485d5abceec0";
+        hash = "sha256-3ZCuwZGNouh3rLfMIVxXdyEbNl6bEDrZU011rGP1xfE=";
       };
     };
   });

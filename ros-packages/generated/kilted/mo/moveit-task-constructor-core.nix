@@ -14,6 +14,7 @@
   moveit-configs-utils,
   moveit-core,
   moveit-planners,
+  moveit-py,
   moveit-resources-fanuc-moveit-config,
   moveit-ros-planning,
   moveit-ros-planning-interface,
@@ -29,20 +30,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_task_constructor_core";
-  version = "0.1.4-2";
+  version = "0.1.5-1";
   src = finalAttrs.passthru.sources."moveit_task_constructor_core";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ geometry-msgs moveit-core moveit-ros-planning moveit-ros-planning-interface moveit-task-constructor-msgs py-binding-tools rclcpp rviz-marker-tools tf2-eigen visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedNativeBuildInputs = [ geometry-msgs moveit-core moveit-py moveit-ros-planning moveit-ros-planning-interface moveit-task-constructor-msgs py-binding-tools rclcpp rviz-marker-tools tf2-eigen visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ geometry-msgs moveit-core moveit-ros-planning moveit-ros-planning-interface moveit-task-constructor-msgs py-binding-tools rclcpp rviz-marker-tools tf2-eigen visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ geometry-msgs moveit-core moveit-py moveit-ros-planning moveit-ros-planning-interface moveit-task-constructor-msgs py-binding-tools rclcpp rviz-marker-tools tf2-eigen visualization-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest launch-testing-ament-cmake moveit-configs-utils moveit-planners moveit-resources-fanuc-moveit-config ];
   passthru.sources = mkSourceSet (sources: {
     "moveit_task_constructor_core" = substituteSource {
       src = fetchgit {
         name = "moveit_task_constructor_core-source";
         url = "https://github.com/ros2-gbp/moveit_task_constructor-release.git";
-        rev = "c0d4eec9b0be1a0bdc57917819ddc2d95881ae48";
-        hash = "sha256-Jijq+shdSUWbxwuEPRFpX6o9N2ZDeiFB9vvbenSMTKU=";
+        rev = "81afdefe1f74eeb32b51e582625fc370e5450c51";
+        hash = "sha256-dWCfLqsYweMHszF966mPiaU0h1bm1tgZsyuq3ZttmI0=";
       };
       substitutions = [
         {

@@ -2,6 +2,7 @@
   ament-cmake,
   buildAmentCmakePackage,
   compass-msgs,
+  diagnostic-msgs,
   eigen3-cmake-module,
   fetchgit,
   fetchurl,
@@ -14,6 +15,7 @@
   rclcpp-lifecycle,
   rosSystemPackages,
   sensor-msgs,
+  std-srvs,
   substituteSource,
   tf2,
   tf2-geometry-msgs,
@@ -21,23 +23,23 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fusioncore_ros";
-  version = "0.1.1-1";
+  version = "0.2.0-1";
   src = finalAttrs.passthru.sources."fusioncore_ros";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ compass-msgs eigen3-cmake-module fusioncore-core geometry-msgs nav-msgs rclcpp rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedNativeBuildInputs = [ compass-msgs diagnostic-msgs eigen3-cmake-module fusioncore-core geometry-msgs nav-msgs rclcpp rclcpp-lifecycle sensor-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "proj" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ compass-msgs eigen3-cmake-module fusioncore-core geometry-msgs nav-msgs rclcpp rclcpp-lifecycle sensor-msgs tf2 tf2-geometry-msgs tf2-ros ];
+  propagatedBuildInputs = [ compass-msgs diagnostic-msgs eigen3-cmake-module fusioncore-core geometry-msgs nav-msgs rclcpp rclcpp-lifecycle sensor-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "proj" ]; };
   passthru.sources = mkSourceSet (sources: {
     "fusioncore_ros" = substituteSource {
       src = fetchgit {
         name = "fusioncore_ros-source";
         url = "https://github.com/manankharwar/fusioncore-release.git";
-        rev = "b6c4336d82116328369faff88a712ee72dccaac6";
-        hash = "sha256-Kc6jzZOYAtCsOaQOltdsCJfgwJEtsP/Ouk+PdNyFQ/E=";
+        rev = "d8f5f9e624ce8c7b4b3f6dd1edc56b7078da82bb";
+        hash = "sha256-EMvkU1fRKys3U6Atm2qL1/5w1aiy3XZTpZlGTXqWMJ4=";
       };
     };
   });
   meta = {
-    description = "FusionCore ROS 2 Jazzy wrapper — sensor fusion node";
+    description = "FusionCore ROS 2 Jazzy wrapper: sensor fusion node";
   };
 })

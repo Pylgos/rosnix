@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ur_client_library";
-  version = "2.9.0-1";
+  version = "2.10.0-1";
   src = finalAttrs.passthru.sources."ur_client_library";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ];
@@ -21,8 +21,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ur_client_library-source";
         url = "https://github.com/ros2-gbp/Universal_Robots_Client_Library-release.git";
-        rev = "5386a0c33408b23716898b59d807c114387786f8";
-        hash = "sha256-iUwwh/DULrRdKx+pSUFP6yBc184E0H2kL2U4pqyQOE8=";
+        rev = "94c19f2cb5da194ce91e6baa4787b30a6e5f9002";
+        hash = "sha256-eXQuineQlMC610cHMVXVeb19mbaOG430zZDXVT8z0PA=";
       };
     };
   });
