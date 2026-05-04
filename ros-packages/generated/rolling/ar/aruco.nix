@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco";
-  version = "5.0.5-1";
+  version = "5.0.5-2";
   src = finalAttrs.passthru.sources."aruco";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco-source";
         url = "https://github.com/ros2-gbp/aruco_ros-release.git";
-        rev = "9ef32a20402915da4a3febabef80d97c3a59a46f";
+        rev = "976d1e693515f2a8ae67bf91d5dfa7c8ca83ebe4";
         hash = "sha256-3Foblmp2VasqOKhDmgA7heDxnleqT6Pqnk7dXajdiE4=";
       };
     };

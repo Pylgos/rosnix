@@ -41,7 +41,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_core";
-  version = "0.13.0-1";
+  version = "0.13.0-2";
   src = finalAttrs.passthru.sources."ros_core";
   propagatedNativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros ament-index-cpp ament-index-python ament-lint-auto ament-lint-common class-loader common-interfaces launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros launch-xml launch-yaml pluginlib rcl-lifecycle rclcpp rclcpp-action rclcpp-lifecycle rclpy ros2cli-common-extensions ros2launch ros-environment rosidl-default-generators rosidl-default-runtime sros2 sros2-cmake ];
   propagatedBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-gmock ament-cmake-gtest ament-cmake-pytest ament-cmake-ros ament-index-cpp ament-index-python ament-lint-auto ament-lint-common class-loader common-interfaces launch launch-ros launch-testing launch-testing-ament-cmake launch-testing-ros launch-xml launch-yaml pluginlib rcl-lifecycle rclcpp rclcpp-action rclcpp-lifecycle rclpy ros2cli-common-extensions ros2launch ros-environment rosidl-default-generators rosidl-default-runtime sros2 sros2-cmake ];
@@ -50,7 +50,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_core-source";
         url = "https://github.com/ros2-gbp/variants-release.git";
-        rev = "61713444685ea0a036346c4d31763515bbee5971";
+        rev = "15f3ff436cad6483f66f0d252fda7fd38386fb68";
         hash = "sha256-2utnBkLdXMgCkKEykzpWEUUFhqXqCTFCUTQ8ivaKTAE=";
       };
     };

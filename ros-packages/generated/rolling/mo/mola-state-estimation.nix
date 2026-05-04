@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_state_estimation";
-  version = "2.2.0-1";
+  version = "2.2.0-2";
   src = finalAttrs.passthru.sources."mola_state_estimation";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ mola-state-estimation-simple mola-state-estimation-smoother ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_state_estimation-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "ca8155299877c173aad18a7696cd3a7cc761c841";
+        rev = "e36cb7680e093fbab9e6d9f6b24b9af5b407ccd7";
         hash = "sha256-QYGghvVnp0ED0zMulw+2glIeG34MHCix05arHKglvk8=";
       };
     };

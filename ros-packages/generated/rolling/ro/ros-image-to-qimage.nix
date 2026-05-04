@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_image_to_qimage";
-  version = "0.4.1-3";
+  version = "0.4.1-4";
   src = finalAttrs.passthru.sources."ros_image_to_qimage";
   nativeBuildInputs = [ ament-cmake ament-cmake-pytest ament-cmake-python ];
   propagatedNativeBuildInputs = [ cv-bridge python-qt-binding sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_image_to_qimage-source";
         url = "https://github.com/ros2-gbp/ros_image_to_qimage-release.git";
-        rev = "5f468c90083c075edb30b8ec93f78561c542cd1a";
+        rev = "ca40bdbae8d420031ad5a2a1698895ad87d489bb";
         hash = "sha256-qxt94vxyKVhWR64DyvjU5D5xKcJcflZdDd/jA2e0d9U=";
       };
     };

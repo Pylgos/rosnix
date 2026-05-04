@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "azure_iot_sdk_c";
-  version = "1.14.0-4";
+  version = "1.14.0-5";
   src = finalAttrs.passthru.sources."azure_iot_sdk_c";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" "libssl-dev" "uuid" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "azure_iot_sdk_c-source";
         url = "https://github.com/ros2-gbp/azure_iot_sdk_c-release.git";
-        rev = "ac820ccc8650e8c689ca3c18fe16867bdcae7223";
+        rev = "f725d1143f32368dbf1f5151472744595116b2fb";
         hash = "sha256-zGeKBP8LXVA/vOI7EHJ8q6AZ/d2YyMv5VGdvVlaFzCI=";
       };
     };

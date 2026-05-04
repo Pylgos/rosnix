@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "open_manipulator_description";
-  version = "4.1.2-1";
+  version = "4.1.2-2";
   src = finalAttrs.passthru.sources."open_manipulator_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui robot-state-publisher rviz2 ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open_manipulator_description-source";
         url = "https://github.com/ros2-gbp/open_manipulator-release.git";
-        rev = "97c539b2d5c8ad15eb231ecf2d3c519c738f740b";
+        rev = "125d64724ec5385f1536d1568347e1e16f1f6217";
         hash = "sha256-H7VBaPox7c92a5YDzw1bedGs/9/VsVE/EtlsIr+Q2H4=";
       };
     };

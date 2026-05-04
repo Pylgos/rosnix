@@ -26,7 +26,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joy_teleop";
-  version = "2.0.0-1";
+  version = "2.0.0-2";
   src = finalAttrs.passthru.sources."joy_teleop";
   propagatedNativeBuildInputs = [ control-msgs rclpy rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
   propagatedBuildInputs = [ control-msgs rclpy rosidl-runtime-py sensor-msgs teleop-tools-msgs trajectory-msgs ];
@@ -36,7 +36,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "joy_teleop-source";
         url = "https://github.com/ros2-gbp/teleop_tools-release.git";
-        rev = "085b41127fde8a7c10c40ecd91567ac4ce22041c";
+        rev = "0d6d120c3ff4e6e0f1fa873c249f2076a2fc1016";
         hash = "sha256-00KOv5oiaDBFWgJXzXUr7GF7AT8jy2M9XNpUJvmVW6w=";
       };
     };

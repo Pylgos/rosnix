@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tvm_vendor";
-  version = "0.9.1-3";
+  version = "0.9.1-4";
   src = finalAttrs.passthru.sources."tvm_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" "libopenblas-dev" "libvulkan-dev" "libxml2" "ocl-icd-opencl-dev" "opencl-headers" "spirv-headers" "spirv-tools" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tvm_vendor-source";
         url = "https://github.com/ros2-gbp/tvm_vendor-release.git";
-        rev = "86b5d14e89904fa76c2a266601ee5f171607445a";
+        rev = "785adc4a5fb25ab50b076bba09f7be0be9a9dc54";
         hash = "sha256-zx1sU7fTJXQqMOjy+jstX1Wq7B7zPKQCxlfV685GzSA=";
       };
       substitutions = [

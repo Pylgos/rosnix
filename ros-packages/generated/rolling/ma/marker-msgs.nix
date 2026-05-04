@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "marker_msgs";
-  version = "0.0.8-1";
+  version = "0.0.8-2";
   src = finalAttrs.passthru.sources."marker_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marker_msgs-source";
         url = "https://github.com/ros2-gbp/marker_msgs-release.git";
-        rev = "8aa78dca85331364821f5ec14785e59de90e99c5";
+        rev = "a5798ed99d530595398cb0b2c162e808cd6ed4d9";
         hash = "sha256-TJ+mJSLub3gPCgw1hkWHwCQISpkllJxEB3y/zH9Syqs=";
       };
     };

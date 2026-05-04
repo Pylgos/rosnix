@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "spacenav";
-  version = "3.3.0-2";
+  version = "3.3.0-3";
   src = finalAttrs.passthru.sources."spacenav";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libspnav-dev" "spacenavd" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "spacenav-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
-        rev = "d5e13eaca0ffde926e41a100f3a23638fece1334";
+        rev = "96aa2bc096f730559746efeceb41de95dde48bd5";
         hash = "sha256-5WXkdmHcAdaPaMSMNcTfScbDq9VNmFSb7jofUAAHyAk=";
       };
     };

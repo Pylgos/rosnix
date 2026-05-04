@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rig_reconfigure";
-  version = "1.6.0-1";
+  version = "1.6.0-2";
   src = finalAttrs.passthru.sources."rig_reconfigure";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ament-index-cpp backward-ros rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libglfw3-dev" ]; };
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rig_reconfigure-source";
         url = "https://github.com/ros2-gbp/rig_reconfigure-release.git";
-        rev = "8ec413d8e0cf830c1ed9913ae45005c15cdc2117";
+        rev = "609682b59244a5bbe4b8af19f3fd97eb26dc99d3";
         hash = "sha256-r8yyqZaHFFs02E9nL3MCznOqNCzN6AzuOe0Ndbh2saw=";
       };
       substitutions = [

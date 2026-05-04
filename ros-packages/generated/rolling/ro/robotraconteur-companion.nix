@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "robotraconteur_companion";
-  version = "0.4.2-1";
+  version = "0.4.2-3";
   src = finalAttrs.passthru.sources."robotraconteur_companion";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ robotraconteur ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libboost-atomic" "libboost-chrono" "libboost-date-time" "libboost-filesystem" "libboost-program-options" "libboost-random" "libboost-regex" "libboost-system" "libboost-thread" "yaml-cpp" ]; };
@@ -22,7 +22,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robotraconteur_companion-source";
         url = "https://github.com/ros2-gbp/robotraconteur_companion-release.git";
-        rev = "57731cd4dde07d933a5a062678e3495726691c0a";
+        rev = "3bcf8dc0887844ab8bc545c9fd44c9a289c7d085";
         hash = "sha256-4Iu8+ffqgPdPwqOBGGZSxxa9HfSlrR598Iruuou37k4=";
       };
     };

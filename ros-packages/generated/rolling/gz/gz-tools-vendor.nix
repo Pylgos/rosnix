@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_tools_vendor";
-  version = "0.2.1-1";
+  version = "0.2.1-2";
   src = finalAttrs.passthru.sources."gz_tools_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gz-tools2" "ruby" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_tools_vendor-source";
         url = "https://github.com/ros2-gbp/gz_tools_vendor-release.git";
-        rev = "aab5344aa48bc8c82f292dfde476e4567837f846";
+        rev = "d413bc07b3d45f70621030b1e64d97597839be08";
         hash = "sha256-Gm8VSKloR4tQtDjCdmgu4BYgptHIdhRATILJZv20nSI=";
       };
       substitutions = [

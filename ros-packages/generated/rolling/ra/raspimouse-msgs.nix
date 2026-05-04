@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raspimouse_msgs";
-  version = "2.0.0-1";
+  version = "2.0.0-2";
   src = finalAttrs.passthru.sources."raspimouse_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raspimouse_msgs-source";
         url = "https://github.com/ros2-gbp/raspimouse2-release.git";
-        rev = "2bf549b248de167777829a4f470660e309d91e37";
+        rev = "9a78a123e1177fe27441abf56070f3af2b9f62f4";
         hash = "sha256-BTBw6W+S6YWOjkYwpnlUXY9tYU/1lQNPLM6WiiyHi8s=";
       };
     };

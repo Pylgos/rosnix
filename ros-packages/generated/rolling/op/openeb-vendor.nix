@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "openeb_vendor";
-  version = "2.0.2-1";
+  version = "2.0.2-2";
   src = finalAttrs.passthru.sources."openeb_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "curl" "git" "hdf5-tools" "pkg-config" "unzip" "wget" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "ffmpeg" "libglew-dev" "libglfw3-dev" "libhdf5-dev" "libopencv-dev" "libopenscenegraph" "libusb" "libusb-1.0" "libusb-1.0-dev" "libusb-dev" "protobuf-dev" ]; };
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "openeb_vendor-source";
         url = "https://github.com/ros2-gbp/openeb_vendor-release.git";
-        rev = "018fb3bd1c226ef255d0cd228cb73543f53fb4ea";
+        rev = "eda770dae44ed8188b7aec3b61e644f2931039ce";
         hash = "sha256-6msi+NYEgajKMc/prqG9Iawc2rJnCiUNmlnFXYvM1qw=";
       };
       substitutions = [

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "four_wheel_steering_msgs";
-  version = "2.0.1-5";
+  version = "2.0.1-6";
   src = finalAttrs.passthru.sources."four_wheel_steering_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "four_wheel_steering_msgs-source";
         url = "https://github.com/ros2-gbp/four_wheel_steering_msgs-release.git";
-        rev = "b2c7465734330ae339e4ed02946aedea0c133ada";
+        rev = "80ea140e4d930c378bb161cd30aabe874e4bbf5b";
         hash = "sha256-lESkZ6d2jUSfCCCB5KsV8gJwBTO0EG7O4/LInYggSzc=";
       };
     };

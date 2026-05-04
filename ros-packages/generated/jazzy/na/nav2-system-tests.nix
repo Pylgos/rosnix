@@ -38,7 +38,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_system_tests";
-  version = "1.3.11-1";
+  version = "1.3.12-1";
   src = finalAttrs.passthru.sources."nav2_system_tests";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs launch-ros launch-testing nav2-amcl nav2-behavior-tree nav2-bringup nav2-common nav2-lifecycle-manager nav2-map-server nav2-minimal-tb3-sim nav2-msgs nav2-navfn-planner nav2-planner nav2-util nav-msgs navigation2 rclcpp rclpy robot-state-publisher std-msgs tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "lcov" ]; };
@@ -50,8 +50,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_system_tests-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "6d00ab8c289daf0dc182b24545e845851f5df500";
-        hash = "sha256-PjHEnSWPVWpjWZWSgVkgeZmqGKWW3DekpmV45mk1zMk=";
+        rev = "190117d427e69394f92b5826f10a6f9420eea272";
+        hash = "sha256-TQDR2senrBBBEBm0o5Cbfn4Vqye8zrbscEm3NGN7Ax0=";
       };
     };
   });

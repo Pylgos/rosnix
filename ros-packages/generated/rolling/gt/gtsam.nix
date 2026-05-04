@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "gtsam";
-  version = "4.3.0-2";
+  version = "4.3.0-4";
   src = finalAttrs.passthru.sources."gtsam";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "tbb" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gtsam-source";
         url = "https://github.com/ros2-gbp/gtsam-release.git";
-        rev = "02b02b821eafcc5ef9df954f106073da41cef3b1";
-        hash = "sha256-37m+gdPnCmromxDhqHHNV95a4Hc3jVrFHnVgfprqR/w=";
+        rev = "b41d08d0e5da58f9e0839b7e796a0e34d1af482e";
+        hash = "sha256-sTBy+OnSLs8X9LLVfCxJKJ0OfmVOXWgiFkFAtL6Q9C4=";
       };
     };
   });

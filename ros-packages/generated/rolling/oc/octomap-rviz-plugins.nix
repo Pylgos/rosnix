@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_rviz_plugins";
-  version = "2.2.0-1";
+  version = "2.2.0-2";
   src = finalAttrs.passthru.sources."octomap_rviz_plugins";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ octomap-msgs rclcpp rviz-common rviz-default-plugins rviz-rendering ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liboctomap-dev" "libqt6-core" "libqt6gui6t64" "libqt6widgets6t64" "qt6-base-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "octomap_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/octomap_rviz_plugins-release.git";
-        rev = "d67b10694abbb795353dc646fd96ee920e6f807e";
+        rev = "fc4a40ea82e6caacd1588d69c2838783964e9a01";
         hash = "sha256-JxEn9jOlvLN5SCdjn32KKdSVt5AyucXKj8xwf9UksX4=";
       };
     };

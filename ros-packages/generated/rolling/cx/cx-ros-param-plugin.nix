@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_ros_param_plugin";
-  version = "0.1.3-1";
+  version = "0.1.3-2";
   src = finalAttrs.passthru.sources."cx_ros_param_plugin";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cx-plugin cx-utils pluginlib rclcpp ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_ros_param_plugin-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "289c4b5c312a35f2e6facdfd9cae4f35d9f698e0";
+        rev = "af43d6b596f83e9df319d82a544c3cfb858fa65c";
         hash = "sha256-R82cKM2DVYdJeoj1E412oqWmuoGk5KN/qRIXdUmlm8E=";
       };
     };

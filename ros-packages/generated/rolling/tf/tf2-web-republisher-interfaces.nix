@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_web_republisher_interfaces";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."tf2_web_republisher_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs builtin-interfaces geometry-msgs rosidl-default-generators rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_web_republisher_interfaces-source";
         url = "https://github.com/ros2-gbp/tf2_web_republisher-release.git";
-        rev = "4cf7f406c9d8a4b09f0485e01cb0a8dff5c74eb3";
+        rev = "d75b17810e00615878656f66765b8db7ad17c5e0";
         hash = "sha256-/ZOKjGvkOqe208vQ1qYwtCeuCgIszc8qVkKKi72vpC8=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cm_topic_hardware_component";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."cm_topic_hardware_component";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ hardware-interface pal-statistics-msgs rclcpp ros2-control-cmake ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cm_topic_hardware_component-source";
         url = "https://github.com/ros2-gbp/topic_based_hardware-release.git";
-        rev = "2536a52f7ad48106b422f94a5fad95e8114da349";
+        rev = "92f665f66e3f939db093a0932fa546e7c7521810";
         hash = "sha256-NLktP20xNBupu0UM8ALE6IhhbdXX2pkoHCyP1OT2n0Y=";
       };
     };

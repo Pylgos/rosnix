@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2launch_security_examples";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."ros2launch_security_examples";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-nodl example-interfaces rclcpp rclcpp-components rclpy ros2launch-security sensor-msgs ];
@@ -37,7 +37,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2launch_security_examples-source";
         url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
-        rev = "a4328b2660c6e5e1b84a5d097a89d4e9b17d9a52";
+        rev = "3d661ab998eb36f359924075360cd0d63f801b34";
         hash = "sha256-NWaQ/UIv5e//ahvk4u8zBHDsw6po6o9VLTnHTmXsQR8=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dual_arm_panda_moveit_config";
-  version = "3.1.1-1";
+  version = "3.1.1-2";
   src = finalAttrs.passthru.sources."dual_arm_panda_moveit_config";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui moveit-resources-panda-description robot-state-publisher topic-tools xacro ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dual_arm_panda_moveit_config-source";
         url = "https://github.com/ros2-gbp/moveit_resources-release.git";
-        rev = "dfadf64feac8bdeeaf3d9f93ec5131c09302fe48";
+        rev = "e6f553ddec4912850e778598c810de4d88ecff9d";
         hash = "sha256-ji9r5OU56EAnyiYL5ISvP51d5wWi2hhyjk6Bw8Y2DH8=";
       };
     };

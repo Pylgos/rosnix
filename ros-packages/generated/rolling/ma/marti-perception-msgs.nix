@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "marti_perception_msgs";
-  version = "1.6.1-1";
+  version = "1.6.1-2";
   src = finalAttrs.passthru.sources."marti_perception_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marti_perception_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
-        rev = "a5afbb749b9a0440b1611564c64c9f0c7c3b9ae2";
+        rev = "e4db705a4d22ed87ba7a699a980aa7abbcccccac";
         hash = "sha256-FZTo6sslxugGts/jf3daCxSI2sgmW4NAeYssvIrh1P8=";
       };
     };

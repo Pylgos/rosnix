@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cras_topic_tools";
-  version = "3.0.2-1";
+  version = "3.0.2-2";
   src = finalAttrs.passthru.sources."cras_topic_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ cras-cpp-common rclcpp rclcpp-components std-msgs topic-tools ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcxxopts-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cras_topic_tools-source";
         url = "https://github.com/ros2-gbp/cras_ros_utils-release.git";
-        rev = "5253351f7fe90840ef18bea00e176e207432a5a6";
+        rev = "ac74c8e4bf2f7d989aa71fd3c4b74badd7168450";
         hash = "sha256-VxwWtjn9ca8dfcRXoJ3+oWEf+/ws3+nnqrvT78GTJIA=";
       };
     };

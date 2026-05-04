@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_object_map_msgs";
-  version = "0.2.6-1";
+  version = "0.2.6-2";
   src = finalAttrs.passthru.sources."tuw_object_map_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geographic-msgs geometry-msgs rosidl-default-runtime std-msgs ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_object_map_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "01c0d58105173e59911dc90d41aefa85e86f10be";
+        rev = "21fd8548c22c865d7241071819cd24a3c242dad2";
         hash = "sha256-PcR3OKQhJEMbhq/vd5b1hiY8s8SyBnpAWzjt47cmGbw=";
       };
     };

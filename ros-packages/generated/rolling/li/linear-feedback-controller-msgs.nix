@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "linear_feedback_controller_msgs";
-  version = "1.2.2-1";
+  version = "1.2.2-2";
   src = finalAttrs.passthru.sources."linear_feedback_controller_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs jrl-cmakemodules rosidl-default-runtime sensor-msgs std-msgs tf2-eigen ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "linear_feedback_controller_msgs-source";
         url = "https://github.com/ros2-gbp/linear-feedback-controller-msgs-release.git";
-        rev = "a029c1b0f367697eb77b14ad2550c0ffc27f77cf";
+        rev = "ef8d88da3a34239716940ec067f2ca47bd1a93be";
         hash = "sha256-yBJwg6xk6ri9dDV0lTLsRYDA+j5Kl7avee0mREyT8so=";
       };
     };

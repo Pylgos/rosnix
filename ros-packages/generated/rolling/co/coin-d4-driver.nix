@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "coin_d4_driver";
-  version = "1.0.1-1";
+  version = "1.0.1-2";
   src = finalAttrs.passthru.sources."coin_d4_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-lifecycle sensor-msgs ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "coin_d4_driver-source";
         url = "https://github.com/ros2-gbp/coin_d4_driver-release.git";
-        rev = "1ea7da05363e190ce9fb847bea6d5f458a09e888";
+        rev = "799dd37c24e804cbbf9a806462b03a0bdccabc49";
         hash = "sha256-uncUTh0YzfZSG5+AjMhCdnJFk6rr6PP+X7R5/TeY6uw=";
       };
     };

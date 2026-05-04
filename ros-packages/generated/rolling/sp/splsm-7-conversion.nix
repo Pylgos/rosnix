@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "splsm_7_conversion";
-  version = "3.0.1-3";
+  version = "3.0.1-4";
   src = finalAttrs.passthru.sources."splsm_7_conversion";
   propagatedNativeBuildInputs = [ splsm-7 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-construct" ]; };
   propagatedBuildInputs = [ splsm-7 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-construct" ]; };
@@ -23,7 +23,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "splsm_7_conversion-source";
         url = "https://github.com/ros2-gbp/r2r_spl-release.git";
-        rev = "fa1f3f918c4c2616427140ecef862dc68e628b6f";
+        rev = "20a2df958c9fe2156c4b2e08275cf13e2d2ec594";
         hash = "sha256-hot8TlsdjVjgyVkdoUFaIy47vVP67OUYUwJHsdfSm0M=";
       };
     };

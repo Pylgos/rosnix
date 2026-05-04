@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nao_lola_sensor_msgs";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."nao_lola_sensor_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nao_lola_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/nao_lola-release.git";
-        rev = "5b22506892455f9a1903d28f19bfc11be1725c68";
+        rev = "834f6ab0e3c7bcdd04b93d857b1cb8ed7913dc65";
         hash = "sha256-I+mOw69Qd5OqCcNdvjpOn3LGw/W/7hPl71P0sgF+42k=";
       };
     };

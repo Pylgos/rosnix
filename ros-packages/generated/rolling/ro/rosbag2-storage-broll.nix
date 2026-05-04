@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_storage_broll";
-  version = "0.1.0-1";
+  version = "0.1.0-2";
   src = finalAttrs.passthru.sources."rosbag2_storage_broll";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ broll pluginlib rclcpp rosbag2-cpp rosbag2-storage rosbag2-transport sensor-msgs ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_storage_broll-source";
         url = "https://github.com/ros2-gbp/rosbag2_broll-release.git";
-        rev = "f2c0e1d7a99bae163e64f7b84c075f351806ae12";
+        rev = "94341ca819047feae9aac285a3d1374ac85b18b2";
         hash = "sha256-V8ciDKS5zMkY3Iw5PlVODLKTl5ZK3hFsZOOtUHCVjWM=";
       };
     };

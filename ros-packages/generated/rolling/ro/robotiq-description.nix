@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robotiq_description";
-  version = "0.0.1-2";
+  version = "0.0.1-3";
   src = finalAttrs.passthru.sources."robotiq_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher-gui launch launch-ros robot-state-publisher rviz2 urdf xacro ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robotiq_description-source";
         url = "https://github.com/ros2-gbp/ros2_robotiq_gripper-release.git";
-        rev = "491ee7d0eb1c3a99e101076d2f06e76d61679f46";
+        rev = "867f35bf91afba8457a0d8571a4a497355955c1f";
         hash = "sha256-CO6k93lrA+H92beTQuG1tnfMsO99+vpYtYXmfABHcr4=";
       };
     };

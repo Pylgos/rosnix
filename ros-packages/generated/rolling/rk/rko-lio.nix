@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rko_lio";
-  version = "0.2.0-1";
+  version = "0.2.0-2";
   src = finalAttrs.passthru.sources."rko_lio";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nav-msgs rclcpp rclcpp-components rosbag2-cpp rosbag2-storage sensor-msgs sophus std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "nlohmann-json-dev" "tbb" ]; };
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rko_lio-source";
         url = "https://github.com/ros2-gbp/rko_lio-release.git";
-        rev = "61177d3e331dc36a5d56512b078d7672bbcd3da1";
+        rev = "5f568e0072c7254781d75dfa871c56e073540ecd";
         hash = "sha256-ApxYxesthT8IEZgxpFKOFBD2A/KGxNhP/Wsy4dDydYA=";
       };
       substitutions = [

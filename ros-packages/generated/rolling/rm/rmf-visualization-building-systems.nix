@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_visualization_building_systems";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."rmf_visualization_building_systems";
   propagatedNativeBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-door-msgs rmf-lift-msgs rmf-visualization-msgs ];
   propagatedBuildInputs = [ geometry-msgs rmf-building-map-msgs rmf-door-msgs rmf-lift-msgs rmf-visualization-msgs ];
@@ -27,7 +27,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_building_systems-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "b8f69286f0bb4f821a0c339ece3dc55f4979a788";
+        rev = "27d6a0055cff1add5d48cb24fcae06b759b775ce";
         hash = "sha256-tQYz0z4xzlNwuga85Wz9PQid+Q59rZV+IDG+T9E1w/A=";
       };
     };

@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "auto_apms_ros2behavior";
-  version = "1.5.1-1";
+  version = "1.5.1-2";
   src = finalAttrs.passthru.sources."auto_apms_ros2behavior";
   propagatedNativeBuildInputs = [ ament-index-python auto-apms-behavior-tree auto-apms-interfaces rcl-interfaces rclpy ros2cli ros2param ros2run std-srvs ];
   propagatedBuildInputs = [ ament-index-python auto-apms-behavior-tree auto-apms-interfaces rcl-interfaces rclpy ros2cli ros2param ros2run std-srvs ];
@@ -29,7 +29,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "auto_apms_ros2behavior-source";
         url = "https://github.com/ros2-gbp/autoapms-release.git";
-        rev = "196b7c5d8be224ddb92db1e8b49b9675caae4337";
+        rev = "bbf074cb8c4a3dc61b2b4ef1c9b1fd83b211fca5";
         hash = "sha256-auJ2kjE4iqAFauv4FRIhrVngzMAczqwQWUbzE8awiY8=";
       };
     };

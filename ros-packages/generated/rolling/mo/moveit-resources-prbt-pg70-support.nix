@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_prbt_pg70_support";
-  version = "2.14.1-1";
+  version = "2.14.1-2";
   src = finalAttrs.passthru.sources."moveit_resources_prbt_pg70_support";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ moveit-resources-prbt-ikfast-manipulator-plugin moveit-resources-prbt-moveit-config moveit-resources-prbt-support xacro ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_resources_prbt_pg70_support-source";
         url = "https://github.com/ros2-gbp/moveit2-release.git";
-        rev = "20c753f45f3b1347c08c64c165289f14519e8372";
+        rev = "d18798d7858a6eb28719982ae861ec9c89f122fe";
         hash = "sha256-a88RFtKoRo5CZsfh/wWoYFpcd/yg5jj6yf64r5VS1qc=";
       };
     };

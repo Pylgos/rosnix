@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ackermann_msgs";
-  version = "2.0.2-5";
+  version = "2.0.2-6";
   src = finalAttrs.passthru.sources."ackermann_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ackermann_msgs-source";
         url = "https://github.com/ros2-gbp/ackermann_msgs-release.git";
-        rev = "c3bec7eef1dc69b2a14e606800ee9b6bbf1be98e";
+        rev = "8b9004354ed34e146f27f5e869d427f0946c2d69";
         hash = "sha256-zn0jbHQ6PrAlpzAwpr3Tu01dOE8TVcs0XYlTXL0x8wg=";
       };
     };

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqml_plugin_example";
-  version = "3.26.42-1";
+  version = "3.26.42-2";
   src = finalAttrs.passthru.sources."rqml_plugin_example";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ qml6-ros2-plugin rqml-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qml6-module-qtquick-controls" "qml6-module-qtquick-layouts" ]; };
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqml_plugin_example-source";
         url = "https://github.com/ros2-gbp/rqml-release.git";
-        rev = "55f009eac95b31804d30ba46683d9dd256b963bf";
+        rev = "0b4b601fac77204efc4a72c3bd04fca70708cbba";
         hash = "sha256-GDpUY1L/Q/wcI5gxEFBCGwPt5N5dRaErnKUuZTwrpqg=";
       };
     };

@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "udp_driver";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."udp_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
   propagatedNativeBuildInputs = [ io-context lifecycle-msgs rclcpp rclcpp-components rclcpp-lifecycle std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "udp_driver-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
-        rev = "6687fb0cf8866979dffca6fdea7dd91244cb24d9";
+        rev = "5a049a2964d23781a93bf7e65ff298148f0c002b";
         hash = "sha256-ufshq3ku5f0OLD1L+CJhsfg8tSqLiOzmXueZGXDO9+4=";
       };
     };

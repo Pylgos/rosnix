@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zstd_cmake_module";
-  version = "0.33.1-1";
+  version = "0.33.1-2";
   src = finalAttrs.passthru.sources."zstd_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libzstd-dev" ]; };
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zstd_cmake_module-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "7b5184f2093b7313d4b377035910469a96ed829e";
+        rev = "aa66c082d2dc3762c1c76dc654e37f7a6dfcee53";
         hash = "sha256-Gfiwcm7QQFbqjcPxK2ivTvw43AvH8JScUat2zk42bTw=";
       };
     };

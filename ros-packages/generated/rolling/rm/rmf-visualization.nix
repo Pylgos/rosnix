@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."rmf_visualization";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-xml rmf-visualization-building-systems rmf-visualization-fleet-states rmf-visualization-floorplans rmf-visualization-navgraphs rmf-visualization-obstacles rmf-visualization-rviz2-plugins rmf-visualization-schedule ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "6ebcc39dd7d9c03923361e634d2c3392ccc0fcb8";
+        rev = "1d2f67e27292206334cecd6d8dbc098384e9bf2f";
         hash = "sha256-2YXY0wbcmkE5uRaqlXcqcKgphqqqVaz9YmoglEiZod4=";
       };
     };

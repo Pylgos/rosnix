@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_gz_plugins";
-  version = "2.0.2-1";
+  version = "2.0.2-2";
   src = finalAttrs.passthru.sources."leo_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ gz-plugin-vendor gz-sim-vendor ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_gz_plugins-source";
         url = "https://github.com/ros2-gbp/leo_simulator-release.git";
-        rev = "0d756853ee8b0cc5b4cd3b12c7f809e89c63eed1";
+        rev = "fca2c39ed205b79cada66e899d734af824959120";
         hash = "sha256-NdQniqhl+BYRqgzeh3wC5kTFGrOyWUZl6qDY/07QrNs=";
       };
     };

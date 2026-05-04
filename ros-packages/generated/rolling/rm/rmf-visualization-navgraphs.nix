@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_navgraphs";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."rmf_visualization_navgraphs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components rmf-building-map-msgs rmf-fleet-msgs rmf-traffic rmf-traffic-ros2 rmf-visualization-msgs visualization-msgs ];
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_navgraphs-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "88f1b81778b9165d7dfe7a5a2aa182eb786019d2";
+        rev = "0f693247440c6714d3865bafaf5fe2dcbf21df7e";
         hash = "sha256-xA7yGEl175Gv6R9ICOd8dd7xNWx/uNpuQlj1bnohp1E=";
       };
     };

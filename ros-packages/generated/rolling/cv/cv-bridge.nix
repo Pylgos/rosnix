@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cv_bridge";
-  version = "4.1.0-1";
+  version = "4.1.0-2";
   src = finalAttrs.passthru.sources."cv_bridge";
   nativeBuildInputs = [ ament-cmake-ros python-cmake-module ];
   propagatedNativeBuildInputs = [ ament-index-python rclcpp rcpputils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libboost-python" "libboost-python-dev" "libopencv-dev" "python3-numpy" "python3-opencv" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cv_bridge-source";
         url = "https://github.com/ros2-gbp/vision_opencv-release.git";
-        rev = "0fa77b760b54eb36e8cf648b442d3a5636aeb0fc";
+        rev = "5c64b8f946b214d7e2f776bd90c40c5d30d9090a";
         hash = "sha256-2p4HVqVl4NRdIrRsJnGkfOapNAmOhKZN1R2KMmpxG/w=";
       };
     };

@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kortex_bringup";
-  version = "0.2.5-1";
+  version = "0.2.5-2";
   src = finalAttrs.passthru.sources."kortex_bringup";
   nativeBuildInputs = [ ament-cmake ament-cmake-python wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager joint-state-broadcaster joint-state-publisher joint-trajectory-controller kortex-description kortex-driver launch launch-ros parallel-gripper-controller rclpy robotiq-description ros-gz-bridge ros-gz-sim rviz2 urdf xacro ];
@@ -39,7 +39,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kortex_bringup-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "faef3fd25202d41394482374ab895de3ccdfc809";
+        rev = "69cffcca2b9998b690644f92010a7c84c421c811";
         hash = "sha256-iuAvfN791pqzdEHjas+z3mofnjIEqsEysgLuLvv6T7o=";
       };
     };

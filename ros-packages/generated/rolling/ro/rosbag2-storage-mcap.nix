@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosbag2_storage_mcap";
-  version = "0.33.1-1";
+  version = "0.33.1-2";
   src = finalAttrs.passthru.sources."rosbag2_storage_mcap";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ ament-index-cpp mcap-vendor pluginlib rcutils rosbag2-storage ];
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_storage_mcap-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "18962233213b6eb0ac9b40851a53aabaaa5d3ccb";
+        rev = "d9128f8778c2022e86882910757b2988f9098577";
         hash = "sha256-d982MQK42ThpteDZtpAfW3DOfP5kE0ant6xDCYDeY0g=";
       };
     };

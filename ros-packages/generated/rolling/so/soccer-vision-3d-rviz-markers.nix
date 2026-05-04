@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "soccer_vision_3d_rviz_markers";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_vision_3d_rviz_markers";
   propagatedNativeBuildInputs = [ rclpy soccer-vision-3d-msgs soccer-vision-attribute-msgs visualization-msgs ];
   propagatedBuildInputs = [ rclpy soccer-vision-3d-msgs soccer-vision-attribute-msgs visualization-msgs ];
@@ -26,7 +26,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "soccer_vision_3d_rviz_markers-source";
         url = "https://github.com/ros2-gbp/soccer_vision_3d_rviz_markers-release.git";
-        rev = "16ff40e17d867a539d60d883f2a2f818152022e4";
+        rev = "88c191842048cf7f3297e29ee6b3407c18aea8fa";
         hash = "sha256-69FCCxAxZa6hSkchZAWrsNb7uNruIRhwkIConj14Ue4=";
       };
     };

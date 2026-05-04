@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_msgs";
-  version = "5.0.5-1";
+  version = "5.0.5-2";
   src = finalAttrs.passthru.sources."aruco_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco_msgs-source";
         url = "https://github.com/ros2-gbp/aruco_ros-release.git";
-        rev = "7938091ebd1c7023cfed193add32d60e10f9d672";
+        rev = "4d83a2eb77f252e211f80a88e6abbed919c737d0";
         hash = "sha256-EUZsF13naoL/xNnzsHHJmDuodN/Bb15EI1Pc+ZV2bHk=";
       };
     };

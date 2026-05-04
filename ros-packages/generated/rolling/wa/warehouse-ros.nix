@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "warehouse_ros";
-  version = "2.0.6-1";
+  version = "2.0.6-2";
   src = finalAttrs.passthru.sources."warehouse_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs pluginlib rclcpp std-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libssl-dev" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "warehouse_ros-source";
         url = "https://github.com/ros2-gbp/warehouse_ros-release.git";
-        rev = "99cc0263c9c2eb7456aadae452d4931bb342a4aa";
+        rev = "af46458239d99e3e962ea5fc54cc8413146aa7db";
         hash = "sha256-+4sr1KGmHmgV8y4hqv8gL38FLO2QUKRv6ApI8B81t6A=";
       };
     };

@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "dual_laser_merger";
-  version = "0.0.1-1";
+  version = "0.0.1-2";
   src = finalAttrs.passthru.sources."dual_laser_merger";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
   propagatedNativeBuildInputs = [ geometry-msgs laser-geometry message-filters pcl-conversions pcl-ros rclcpp rclcpp-components tf2 tf2-ros tf2-sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libpcl-all-dev" ]; };
@@ -40,7 +40,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "dual_laser_merger-source";
         url = "https://github.com/ros2-gbp/dual_laser_merger-release.git";
-        rev = "e1776a50011aabbe855703e08b78e40a4bfbe437";
+        rev = "7759f4a2fc9c96b16eef80b2a4263496abded5c1";
         hash = "sha256-k6n4Zz7U1+/hRdCJ1i61VsE3PPwNhvnG7GpwMwGXtoM=";
       };
     };

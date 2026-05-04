@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "webots_ros2_control";
-  version = "2025.0.1-1";
+  version = "2025.0.1-2";
   src = finalAttrs.passthru.sources."webots_ros2_control";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-manager hardware-interface pluginlib rclcpp rclcpp-lifecycle ros-environment webots-ros2-driver ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_control-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "414670bc7a308a1929b6c739b3462133e94475e2";
+        rev = "94f725db53d4cd7dc407595ede1abe85cac4d36e";
         hash = "sha256-Ykdz3BOjOPBEeiB+kN9jG2kCbd+aUVbxFKD2DAGnm54=";
       };
     };

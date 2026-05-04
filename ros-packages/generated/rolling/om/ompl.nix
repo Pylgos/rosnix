@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ompl";
-  version = "1.7.0-2";
+  version = "1.7.0-3";
   src = finalAttrs.passthru.sources."ompl";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "pkg-config" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "boost" "cmake" "eigen" "libflann-dev" "pkg-config" ]; };
@@ -18,7 +18,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ompl-source";
         url = "https://github.com/ros2-gbp/ompl-release.git";
-        rev = "e268e2ac1914adf548e4284acf33140737a30a6c";
+        rev = "2624b37e52fd0fa73477bbbbda9a54636babfb71";
         hash = "sha256-Dgz+MG+eZ+gJri8KGw4hcBo7pXz5PpnP5CcIfcHwhRQ=";
       };
     };

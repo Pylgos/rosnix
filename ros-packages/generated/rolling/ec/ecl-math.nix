@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_math";
-  version = "1.2.1-4";
+  version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_math";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-license ecl-type-traits ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_math-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
-        rev = "4ff20015db01acaf2b366358d93b2f42da48e406";
+        rev = "5ca7e2d34d6fd9aa165ac9b66e1e9f69d0fc517b";
         hash = "sha256-FJevrMf2MxF+heenjke0paV5yAvePcxmHcEW7Is+Pmc=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "udp_msgs";
-  version = "0.0.5-1";
+  version = "0.0.5-2";
   src = finalAttrs.passthru.sources."udp_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "udp_msgs-source";
         url = "https://github.com/ros2-gbp/udp_msgs-release.git";
-        rev = "cff9e3e887938db4f1281b153e65fd108fd8a4d9";
+        rev = "25a96f50eb52af73245fe244e605bcb080f4e099";
         hash = "sha256-wk0E8P+RhBD3LVdBSrcJHrF2CwKgOXysrKAiCDRiSPI=";
       };
     };

@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mujoco_ros2_control_msgs";
-  version = "0.0.2-1";
+  version = "0.0.2-2";
   src = finalAttrs.passthru.sources."mujoco_ros2_control_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mujoco_ros2_control_msgs-source";
         url = "https://github.com/ros2-gbp/mujoco_ros2_control-release.git";
-        rev = "ad2d80103710f3769494b7e4636dbe4fc11d81d9";
+        rev = "c4b162426ee7cafd6876cb52adfd64e6aa3aa603";
         hash = "sha256-Mgn69nwE3XRtuVFxejb4KjH9QTChy5yhAlPEdafn4g0=";
       };
     };

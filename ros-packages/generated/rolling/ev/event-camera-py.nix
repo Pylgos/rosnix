@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "event_camera_py";
-  version = "3.0.0-1";
+  version = "3.0.0-2";
   src = finalAttrs.passthru.sources."event_camera_py";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-python ament-cmake-ros python-cmake-module ];
   propagatedNativeBuildInputs = [ event-camera-codecs event-camera-msgs pybind11-vendor ros-environment rpyutils ];
@@ -40,7 +40,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "event_camera_py-source";
         url = "https://github.com/ros2-gbp/event_camera_py-release.git";
-        rev = "99e2b0f08d7131314cbb1df995382a0a6efd7358";
+        rev = "7c9263b9ee9cb2623560ccaf02aa045864665922";
         hash = "sha256-00u82e7i4DFms1SW9guIm+HFm7XqFtLNp5PscLw+5G8=";
       };
     };

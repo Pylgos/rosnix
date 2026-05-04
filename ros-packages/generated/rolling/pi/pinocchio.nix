@@ -4,7 +4,6 @@
   fetchgit,
   fetchurl,
   fetchzip,
-  hpp-fcl,
   jrl-cmakemodules,
   mkSourceSet,
   ros-environment,
@@ -14,19 +13,19 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "pinocchio";
-  version = "3.9.0-1";
+  version = "3.9.0-2";
   src = finalAttrs.passthru.sources."pinocchio";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang" "cmake" ]; };
-  propagatedNativeBuildInputs = [ eigenpy hpp-fcl jrl-cmakemodules ros-environment urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "python3" "python3-numpy" ]; };
+  propagatedNativeBuildInputs = [ eigenpy jrl-cmakemodules ros-environment urdfdom ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "doxygen" "eigen" "git" "hpp-fcl" "python3" "python3-numpy" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "clang" "cmake" ]; };
-  propagatedBuildInputs = [ eigenpy hpp-fcl jrl-cmakemodules ros-environment urdfdom ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "eigen" "git" "python3" "python3-numpy" ]; };
+  propagatedBuildInputs = [ eigenpy jrl-cmakemodules ros-environment urdfdom ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" "doxygen" "eigen" "git" "hpp-fcl" "python3" "python3-numpy" ]; };
   passthru.sources = mkSourceSet (sources: {
     "pinocchio" = substituteSource {
       src = fetchgit {
         name = "pinocchio-source";
         url = "https://github.com/ros2-gbp/pinocchio-release.git";
-        rev = "24d29d0e8f8977925d32758124eea5c5a57835d8";
-        hash = "sha256-SiZYpzE1diS9SU4mJUQgkyP9Dmiw2P9Qt4Tlm69VS5Y=";
+        rev = "5dec4e2f5ca2015213005b8b51d505607b8744cb";
+        hash = "sha256-/Oo9BpET8wj1jdjrnBdKiAw5bQ04eaj8b96ip5/QapY=";
       };
     };
   });

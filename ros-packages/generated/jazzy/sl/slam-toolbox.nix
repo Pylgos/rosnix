@@ -41,7 +41,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "slam_toolbox";
-  version = "2.8.4-1";
+  version = "2.8.5-1";
   src = finalAttrs.passthru.sources."slam_toolbox";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ bond bondcpp builtin-interfaces interactive-markers lifecycle-msgs message-filters nav-msgs pluginlib rclcpp rclcpp-lifecycle rosidl-default-generators rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering sensor-msgs std-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "libceres-dev" "liblapack-dev" "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" "suitesparse" "tbb" ]; };
@@ -53,8 +53,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "slam_toolbox-source";
         url = "https://github.com/SteveMacenski/slam_toolbox-release.git";
-        rev = "39eaeaecfeadfd82db98c1f2a21eeb2269e12b06";
-        hash = "sha256-yOOGNjLyTfcaqagnyiT+z3sZUNrNMy9xnRBJ9eSBfG0=";
+        rev = "37357bb8ff450bdcd5917cea0de56b8e7b8feb87";
+        hash = "sha256-Zog+TCZidBzG+vR970CGpKd1wnBsFgWTYbYSE+HOCg4=";
       };
     };
   });

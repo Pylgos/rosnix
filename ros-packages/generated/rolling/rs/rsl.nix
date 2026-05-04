@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rsl";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."rsl";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" ]; };
   propagatedNativeBuildInputs = [ rclcpp tcb-span ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" "libexpected-dev" ]; };
@@ -24,7 +24,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rsl-source";
         url = "https://github.com/ros2-gbp/RSL-release.git";
-        rev = "2f641b62bfa83285da5c8b88a342e4b2d0620547";
+        rev = "430e63f89e7087b53a1b5389af2f4aacb9cf90e3";
         hash = "sha256-2PMYD8/FW80lSwmGmZUzlcThrBg4YthYGry7qrxo8P8=";
       };
       substitutions = [

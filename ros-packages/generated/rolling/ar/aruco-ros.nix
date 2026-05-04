@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_ros";
-  version = "5.0.5-1";
+  version = "5.0.5-2";
   src = finalAttrs.passthru.sources."aruco_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ aruco aruco-msgs cv-bridge geometry-msgs image-transport rclcpp sensor-msgs tf2 tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco_ros-source";
         url = "https://github.com/ros2-gbp/aruco_ros-release.git";
-        rev = "07d2d907f4813678461bd2e3a9feb45682e7c975";
+        rev = "79df3acc80e22dead596212dd95cb25d91c2d72c";
         hash = "sha256-LIF5MiASkw9eXs5hNg5L1VAmICC588FpCYYSOHAjZjU=";
       };
     };

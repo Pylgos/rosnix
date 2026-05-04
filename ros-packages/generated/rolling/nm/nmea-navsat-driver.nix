@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nmea_navsat_driver";
-  version = "2.0.1-2";
+  version = "2.0.1-3";
   src = finalAttrs.passthru.sources."nmea_navsat_driver";
   propagatedNativeBuildInputs = [ geometry-msgs nmea-msgs rclpy sensor-msgs tf-transformations ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" "python3-serial" ]; };
   propagatedBuildInputs = [ geometry-msgs nmea-msgs rclpy sensor-msgs tf-transformations ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" "python3-serial" ]; };
@@ -24,7 +24,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nmea_navsat_driver-source";
         url = "https://github.com/ros2-gbp/nmea_navsat_driver-release.git";
-        rev = "2dadf09b62ddc47adf7c9e60794c05308bf996d9";
+        rev = "a5d771fb7b968904e4a9636e8c7248f1cc5854e0";
         hash = "sha256-Sk5PVLiGhnZlswzI74j4DqsxsA7icXEWu6Wb6JlbN4s=";
       };
     };

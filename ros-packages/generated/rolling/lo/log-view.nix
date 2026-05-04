@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "log_view";
-  version = "0.3.0-1";
+  version = "0.3.0-2";
   src = finalAttrs.passthru.sources."log_view";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rcl-interfaces rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libncurses-dev" "xclip" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "log_view-source";
         url = "https://github.com/ros2-gbp/log_view-release.git";
-        rev = "66735278eb0c833ef6315652bab86d531bb81a8f";
+        rev = "10446d04123e00d9b2c28e0729c85a81269d901e";
         hash = "sha256-DQ1EuAI9K/NlPpdtMNPLS9ojgxZOroYaCCwHv6gQjHg=";
       };
     };

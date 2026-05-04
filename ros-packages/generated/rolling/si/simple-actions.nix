@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simple_actions";
-  version = "0.5.0-1";
+  version = "0.5.0-2";
   src = finalAttrs.passthru.sources."simple_actions";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ action-msgs rclcpp rclcpp-action rclpy ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "simple_actions-source";
         url = "https://github.com/ros2-gbp/simple_actions-release.git";
-        rev = "40c21e98d150af2efc46d94222b92cd0234e056d";
+        rev = "f8dbfb751355e2676d1dc1b5ba5a5f66a293210f";
         hash = "sha256-+kUmpqw6Xx9NBSs+6n4SuVjCTwV8hy8qK0s8vh2t4Ck=";
       };
     };

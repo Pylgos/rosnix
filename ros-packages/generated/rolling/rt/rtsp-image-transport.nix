@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtsp_image_transport";
-  version = "2.0.1-1";
+  version = "2.0.1-2";
   src = finalAttrs.passthru.sources."rtsp_image_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge image-transport live555-vendor pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtsp_image_transport-source";
         url = "https://github.com/ros2-gbp/rtsp_image_transport-release.git";
-        rev = "a0eae3b0b816ad84d37be1558f3e6eb5890c49f5";
+        rev = "5cf3a72b73a6870a56ff5359306bd6dc3af282be";
         hash = "sha256-ohhP4JI2wM0apbyAnc7TwYp3uQnM0uEwifbiMIHe4YE=";
       };
     };

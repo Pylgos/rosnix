@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ardrone_sumo";
-  version = "2.0.3-1";
+  version = "2.0.3-2";
   src = finalAttrs.passthru.sources."ardrone_sumo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ardrone-sdk cv-bridge rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ardrone_sumo-source";
         url = "https://github.com/ros2-gbp/ardrone_ros-release.git";
-        rev = "03651ae1b7a7efe0b9e09320e9741d49b0ab2848";
+        rev = "49a6a3d61fe1444827ddaead91b9f60905b14691";
         hash = "sha256-TDck0z8teunR/pKkaB3T45lwVoVI1/0ZgBYH/u3Lcgw=";
       };
     };

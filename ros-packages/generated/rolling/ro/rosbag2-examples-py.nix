@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rosbag2_examples_py";
-  version = "0.33.1-1";
+  version = "0.33.1-2";
   src = finalAttrs.passthru.sources."rosbag2_examples_py";
   propagatedNativeBuildInputs = [ example-interfaces rclpy rosbag2-compression rosbag2-py rosidl-runtime-py std-msgs ];
   propagatedBuildInputs = [ example-interfaces rclpy rosbag2-compression rosbag2-py rosidl-runtime-py std-msgs ];
@@ -29,7 +29,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_examples_py-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "af69d5ce4f5f72f9740f90f2e18a626ef73d7ce4";
+        rev = "f1c15b84c05de91502437c0b20b2279cdd22a563";
         hash = "sha256-+TO4WN4M2fgt0YpCYIi2wacam5h3FXPEtZKJ1dbxGf8=";
       };
     };

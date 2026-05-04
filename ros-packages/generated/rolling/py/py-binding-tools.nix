@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "py_binding_tools";
-  version = "2.1.2-2";
+  version = "2.1.2-3";
   src = finalAttrs.passthru.sources."py_binding_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "py_binding_tools-source";
         url = "https://github.com/ros2-gbp/py_binding_tools-release.git";
-        rev = "7a0f7a3509d788cc35a479154f9e3a400faf8faf";
+        rev = "b25922588a4a3fdb1a7dcbd73c1837de2cc39c80";
         hash = "sha256-wNec5NzR6LGcCfuizXNEzkv7Af2wRxkH8dTs+m1vGCY=";
       };
     };

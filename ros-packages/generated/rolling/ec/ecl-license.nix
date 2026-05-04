@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_license";
-  version = "1.0.3-4";
+  version = "1.0.3-5";
   src = finalAttrs.passthru.sources."ecl_license";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,7 +19,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_license-source";
         url = "https://github.com/ros2-gbp/ecl_tools-release.git";
-        rev = "7b7a3ef429adfff174b70248bc37c73a0eeccd59";
+        rev = "acd0a51e83e920a5ecc76e2480074bd5fc7971d6";
         hash = "sha256-7IkZyQJw9go1s2je+YLPGemSTMtC8PNA66qCC6akU6w=";
       };
     };

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "marine_acoustic_msgs";
-  version = "2.1.0-1";
+  version = "2.1.0-2";
   src = finalAttrs.passthru.sources."marine_acoustic_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marine_acoustic_msgs-source";
         url = "https://github.com/ros2-gbp/marine_msgs-release.git";
-        rev = "38d4fc11273b589bf376bb015127ddac160964e7";
+        rev = "8f9ccc553ff6e9723e2f64f6bd01b83b622a3a43";
         hash = "sha256-ALbjKiPGNTichMtqbwwJIA4Y52MYdCELmDl3tLU3dC4=";
       };
     };

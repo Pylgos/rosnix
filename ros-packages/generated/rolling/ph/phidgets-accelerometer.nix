@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "phidgets_accelerometer";
-  version = "2.4.0-1";
+  version = "2.4.0-2";
   src = finalAttrs.passthru.sources."phidgets_accelerometer";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ launch phidgets-api rclcpp rclcpp-components sensor-msgs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "phidgets_accelerometer-source";
         url = "https://github.com/ros2-gbp/phidgets_drivers-release.git";
-        rev = "48ed4d220c394d33f33b5b7312d96d6f8bed4e2a";
+        rev = "79efa997b2afffa53bb2c991bc65182455de198b";
         hash = "sha256-QXJQ/8IqB/QMBES9Z6PZjK6Y4a046KYgW7xXDhd4bsU=";
       };
     };

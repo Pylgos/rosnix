@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2_snapshot";
-  version = "0.0.6-2";
+  version = "0.0.6-3";
   src = finalAttrs.passthru.sources."ros2_snapshot";
   propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_snapshot-source";
         url = "https://github.com/ros2-gbp/ros2_snapshot-release.git";
-        rev = "1f447ad6b17ca6ff7ee8f639b218d3e9042bc705";
-        hash = "sha256-6RG6klUQXiBr0CjjH92zAjQcP5KV4L2eLSxoMgupr18=";
+        rev = "996a3412915b1e9d58446e8400a4a0669e4f6a5a";
+        hash = "sha256-1RRwRfXicOqExneqykBenUDsOsFnF3smFwrt0HcAEQg=";
       };
     };
   });

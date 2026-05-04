@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_simulations";
-  version = "2.3.7-1";
+  version = "2.3.7-2";
   src = finalAttrs.passthru.sources."turtlebot3_simulations";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ turtlebot3-fake-node turtlebot3-gazebo ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_simulations-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
-        rev = "512a9157f44620577f17404395c34fc2298c48aa";
+        rev = "534ece329dff8c90ebd75b1ad8cf8a1427ef5359";
         hash = "sha256-Xj/KXrR5D6nMQAcc7Pb/C8gArxS6rjaEHvuhM4IRomE=";
       };
     };

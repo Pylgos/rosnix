@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_gauges";
-  version = "0.0.3-1";
+  version = "0.0.3-2";
   src = finalAttrs.passthru.sources."rqt_gauges";
   propagatedNativeBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py ];
   propagatedBuildInputs = [ ament-index-python qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py ];
@@ -27,7 +27,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_gauges-source";
         url = "https://github.com/ros2-gbp/rqt_gauges-release.git";
-        rev = "4a0554e45ca3d3a92a83d66e4695ba18363d358a";
+        rev = "92b76b689a600a064b0cc7e4504850555fb00c45";
         hash = "sha256-ie5l6SHrK6cQczLp2R3MdzrJRVZGAxGnuO7NzFIwbJY=";
       };
     };

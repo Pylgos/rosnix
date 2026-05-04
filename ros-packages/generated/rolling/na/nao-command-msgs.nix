@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nao_command_msgs";
-  version = "1.0.0-2";
+  version = "1.0.0-3";
   src = finalAttrs.passthru.sources."nao_command_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nao_command_msgs-source";
         url = "https://github.com/ros2-gbp/nao_interfaces-release.git";
-        rev = "ea53b2010b67766e1da4c0ef037aa07e0dda1ea8";
+        rev = "e9041cd87ec3d3032cadbbca42a0602047d3257e";
         hash = "sha256-geYK5hMHI66LcCD6GJ3Lr8T0ocK3/ExFHKKq9kBUZRs=";
       };
     };

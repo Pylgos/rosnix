@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtcm_msgs";
-  version = "1.1.6-3";
+  version = "1.1.6-4";
   src = finalAttrs.passthru.sources."rtcm_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces ros-environment rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtcm_msgs-source";
         url = "https://github.com/ros2-gbp/rtcm_msgs-release.git";
-        rev = "79254b5d483f7f53b6915dfb4c74340b3b81de42";
+        rev = "044d6abd57b9ecab88934720f18f3e8a2d4ad308";
         hash = "sha256-5yTtIdGostlOwChSlKKL4JivCyK284g0KYZxB6GBtBY=";
       };
     };

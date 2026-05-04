@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "snowbot_operating_system";
-  version = "0.1.2-4";
+  version = "0.1.2-5";
   src = finalAttrs.passthru.sources."snowbot_operating_system";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs pluginlib rviz-common rviz-rendering ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "snowbot_operating_system-source";
         url = "https://github.com/ros2-gbp/snowbot_release.git";
-        rev = "cc969e3a6ae8b55e35a55cc08be7045d805c037a";
+        rev = "5395b1fbbfa44ba8e1a15e3d969dde3230504613";
         hash = "sha256-jsc6W+E4XVtTLGd+ZSn45ChfZmV6/c9nUg1FpqA6d8s=";
       };
     };

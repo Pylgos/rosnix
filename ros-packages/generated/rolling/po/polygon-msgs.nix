@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_msgs";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."polygon_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "polygon_msgs-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "a3696d8102529177d460d4a227fae51aedb16433";
+        rev = "2df7eb367ea0d95de39de32713d72763557bdc04";
         hash = "sha256-ZdiH3kQgqHcG0JA/ZBsEps/0f67TcKTic9aw2FM6SV0=";
       };
     };

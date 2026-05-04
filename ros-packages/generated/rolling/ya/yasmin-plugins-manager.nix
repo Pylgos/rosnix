@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "yasmin_plugins_manager";
-  version = "5.0.0-1";
+  version = "5.0.0-2";
   src = finalAttrs.passthru.sources."yasmin_plugins_manager";
   propagatedNativeBuildInputs = [ ament-index-python rclpy yasmin yasmin-factory ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy yasmin yasmin-factory ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
@@ -22,7 +22,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin_plugins_manager-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "641ce940c9f9637519b637333c6d243af6fddfbc";
+        rev = "5645c3f3eea5d7fc194bee420cbe387391b609c0";
         hash = "sha256-jHUGQQ29sseHJyr/HRqL8+aQhVu+ZEx1Bw/cEve5fCc=";
       };
     };

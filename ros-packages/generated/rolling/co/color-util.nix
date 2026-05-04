@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "color_util";
-  version = "1.1.0-1";
+  version = "1.1.0-2";
   src = finalAttrs.passthru.sources."color_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ std-msgs ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "color_util-source";
         url = "https://github.com/ros2-gbp/color_util-release.git";
-        rev = "f150258be9af049e293b7032a0b7f1140acab035";
+        rev = "02bed51137dc89031a8c849feb4fe874132d6f5b";
         hash = "sha256-yxNUwaZe1ByPkip5QgYueZmhIqawu4KtqwoV5FXB5GU=";
       };
     };

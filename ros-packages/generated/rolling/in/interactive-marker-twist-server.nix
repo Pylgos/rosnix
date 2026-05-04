@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "interactive_marker_twist_server";
-  version = "2.1.0-2";
+  version = "2.1.0-3";
   src = finalAttrs.passthru.sources."interactive_marker_twist_server";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs interactive-markers rclcpp tf2 visualization-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "interactive_marker_twist_server-source";
         url = "https://github.com/ros2-gbp/interactive_marker_twist_server-release.git";
-        rev = "a614494c6cd56baf9e33e1f965c91cab37f76cb9";
+        rev = "417ca29a35e9fbbc3ec918d3a0e7cd189001bd80";
         hash = "sha256-FvPQhN5z6jkYZtScraxOUe3bjI3cA495ni/sp/Hh7uk=";
       };
     };

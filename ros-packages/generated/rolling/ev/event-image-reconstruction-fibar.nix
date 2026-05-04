@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "event_image_reconstruction_fibar";
-  version = "3.0.4-1";
+  version = "3.0.4-2";
   src = finalAttrs.passthru.sources."event_image_reconstruction_fibar";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
   propagatedNativeBuildInputs = [ cv-bridge event-camera-codecs event-camera-msgs fibar-lib image-transport rclcpp rclcpp-components rosbag2-cpp rosbag2-transport sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "event_image_reconstruction_fibar-source";
         url = "https://github.com/ros2-gbp/event_image_reconstruction_fibar-release.git";
-        rev = "0029b46188b7fc98c763dd3e1a480bcac8d3e18b";
+        rev = "d3b27bb53de3fe0a9173e289d407d2100f5c8fcc";
         hash = "sha256-OVyqpiPm4EjydywNujocaQ2IGvZGRGK5RCL8NgNbj9Q=";
       };
     };

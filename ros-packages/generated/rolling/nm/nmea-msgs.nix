@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nmea_msgs";
-  version = "2.1.0-2";
+  version = "2.1.0-3";
   src = finalAttrs.passthru.sources."nmea_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nmea_msgs-source";
         url = "https://github.com/ros2-gbp/nmea_msgs-release.git";
-        rev = "4b29747f76d0da74da508f79b19ab99bc513fbe0";
+        rev = "389549b756ff528aeef265f034f5b705520116be";
         hash = "sha256-bLkC+tkA0cqER/1WKKbOYYYpOp96t3ZNxVS5VgFVYOE=";
       };
     };

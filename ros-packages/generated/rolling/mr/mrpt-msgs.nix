@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_msgs";
-  version = "0.6.0-1";
+  version = "0.6.0-2";
   src = finalAttrs.passthru.sources."mrpt_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_msgs-source";
         url = "https://github.com/ros2-gbp/mrpt_msgs-release.git";
-        rev = "98fc1e2a7657cb26587c30b92acc12bfec6684b5";
+        rev = "94654714b1ab408bdd3f12774a81fff58bfbbcb5";
         hash = "sha256-mOYK6EcRqVfjMHnhz6SQ8PgDwMba0f/X6/mTXn3W718=";
       };
     };

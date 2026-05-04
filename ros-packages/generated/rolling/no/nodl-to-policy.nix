@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nodl_to_policy";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."nodl_to_policy";
   propagatedNativeBuildInputs = [ nodl-python ros2cli ros2nodl ros2run sros2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-lxml" ]; };
   propagatedBuildInputs = [ nodl-python ros2cli ros2nodl ros2run sros2 ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" "python3-lxml" ]; };
@@ -32,7 +32,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nodl_to_policy-source";
         url = "https://github.com/ros2-gbp/nodl_to_policy-release.git";
-        rev = "c36cf6636fb76d8d170a8afbb8f182db45fd351d";
+        rev = "0802a610f67b7e00aeb648bafbd5178225d40641";
         hash = "sha256-e3+aKkyGXpBFCwulLKU8Tv8PSYEtqUTsp6iL1bE5W9g=";
       };
     };

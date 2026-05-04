@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "motion_capture_tracking_interfaces";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."motion_capture_tracking_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "motion_capture_tracking_interfaces-source";
         url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
-        rev = "ccd32c8235b736fdadcaf21b645dfcd3b540f1da";
+        rev = "2482980bb2a4bc3491a9298d604c7f34fbbf3838";
         hash = "sha256-RlYQPGdzy32vO2tIVjbfRf87Kn1yYxVjw8+FbTGA++8=";
       };
     };

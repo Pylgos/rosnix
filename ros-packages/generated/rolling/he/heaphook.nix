@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "heaphook";
-  version = "0.1.1-2";
+  version = "0.1.1-3";
   src = finalAttrs.passthru.sources."heaphook";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ tlsf ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "heaphook-source";
         url = "https://github.com/ros2-gbp/heaphook-release.git";
-        rev = "0dfc6a7bc97643a1c10712d92295746dc868ca44";
+        rev = "2042f5839eac7c722064bf8ea7b89f1c3396d058";
         hash = "sha256-muNY40LV1Jqtg043Lo1oCWIqz93a3zVaQ23jgFaEOPE=";
       };
     };

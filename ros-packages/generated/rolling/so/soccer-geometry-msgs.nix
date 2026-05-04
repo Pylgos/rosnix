@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "soccer_geometry_msgs";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_geometry_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "soccer_geometry_msgs-source";
         url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
-        rev = "848a1816c6aaadc8166b37b0eb0a95165d84c1ae";
+        rev = "a1e86f33368612a3d3363a6dadcf65bb7e7ecd32";
         hash = "sha256-gMowKNUK3HPz9hWgGtJ8VWq8btZTIYly2Ydi23VUsdA=";
       };
     };

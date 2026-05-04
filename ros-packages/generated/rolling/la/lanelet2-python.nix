@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lanelet2_python";
-  version = "1.2.1-6";
+  version = "1.2.1-7";
   src = finalAttrs.passthru.sources."lanelet2_python";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ lanelet2-core lanelet2-io lanelet2-matching lanelet2-projection lanelet2-routing lanelet2-traffic-rules mrt-cmake-modules ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-python-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lanelet2_python-source";
         url = "https://github.com/ros2-gbp/lanelet2-release.git";
-        rev = "8f7f3a7499f36c1f4bd7508fb88d4593b432b251";
+        rev = "257edcceb1d9d7d795e98efb3edd8152a36fbcdc";
         hash = "sha256-ShlQQ/+8TBL3/8PE/BeVaLtJW5l2B8FQO8eY06yg5Lc=";
       };
     };

@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "replay_testing";
-  version = "0.0.4-1";
+  version = "0.0.4-2";
   src = finalAttrs.passthru.sources."replay_testing";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch rclpy ros2bag rosbag2-py rosbag2-storage-mcap ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-boto3" "python3-pydantic" "python3-requests" "python3-termcolor" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "replay_testing-source";
         url = "https://github.com/ros2-gbp/replay_testing-release.git";
-        rev = "547f982b264117080abc168abde99801c60a7f11";
+        rev = "d1aae383ee417c23378476eadf972d36d39c8dfb";
         hash = "sha256-NPfdfiFaXRj+17KZy73VWWkHHa+kidEX4TRH5hZ/W80=";
       };
     };

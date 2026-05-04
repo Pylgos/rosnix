@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rt_usb_9axisimu_driver";
-  version = "3.0.0-1";
+  version = "3.0.0-2";
   src = finalAttrs.passthru.sources."rt_usb_9axisimu_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs std-srvs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rt_usb_9axisimu_driver-source";
         url = "https://github.com/ros2-gbp/rt_usb_9axisimu_driver-release.git";
-        rev = "0e636255d21dd8ad6370b2294ea60f7a07575a66";
+        rev = "77a3ec8bf0d4f490a32c93d462e498856b99a293";
         hash = "sha256-xDU5E4JFurs4//vIizExSFf5WzK5ko5Q1ASBUKZkuHI=";
       };
       substitutions = [

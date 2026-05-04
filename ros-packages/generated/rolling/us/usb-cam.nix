@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "usb_cam";
-  version = "0.8.1-1";
+  version = "0.8.1-2";
   src = finalAttrs.passthru.sources."usb_cam";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces camera-info-manager cv-bridge image-transport image-transport-plugins rclcpp rclcpp-components ros-environment rosidl-default-runtime sensor-msgs std-msgs std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" "v4l-utils" ]; };
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "usb_cam-source";
         url = "https://github.com/ros2-gbp/usb_cam-release.git";
-        rev = "79f51e3c7a3a08ee6534de69366d437c7bd41904";
+        rev = "52d7839cc6932f5859375fec2a83d855dc4bb40d";
         hash = "sha256-D4YStPBN+X8H0h6dWlVYgxuLYH5T7XWoyN0zLV5xN2E=";
       };
     };

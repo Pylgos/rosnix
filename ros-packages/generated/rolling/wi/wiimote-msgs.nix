@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "wiimote_msgs";
-  version = "3.3.0-2";
+  version = "3.3.0-3";
   src = finalAttrs.passthru.sources."wiimote_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "wiimote_msgs-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
-        rev = "ad48e8fe2bf4366d8f0ce3e6d5b5fba311fed897";
+        rev = "80d4b0bffafeb598693a818b2e19251c44c7a0d9";
         hash = "sha256-CTizMiNOKAwVd/bOq8yB5s7j00cvCsHVQotPLLXwrhI=";
       };
     };

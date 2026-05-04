@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ardrone_sdk";
-  version = "2.0.3-1";
+  version = "2.0.3-2";
   src = finalAttrs.passthru.sources."ardrone_sdk";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" "libavahi-client-dev" "libjson-c-dev" "libncurses-dev" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ardrone_sdk-source";
         url = "https://github.com/ros2-gbp/ardrone_ros-release.git";
-        rev = "abebdeeaabb05371970252d878e5fecaf2ba7ff6";
+        rev = "b585bb3461d21a6d3218cfa4c2dcabee404d6cb3";
         hash = "sha256-gPoCimHc2uERHbR1E3K/wSP26wCLrJAlfDnEMTiXk7M=";
       };
     };

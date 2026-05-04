@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "derived_object_msgs";
-  version = "4.0.0-3";
+  version = "4.0.0-4";
   src = finalAttrs.passthru.sources."derived_object_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime shape-msgs std-msgs ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "derived_object_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-        rev = "1dfd8e6f1209b7008d35424f62b0fc392de8724e";
+        rev = "f046e284e3c736e449e3c4bb8b5214426aab2cb6";
         hash = "sha256-gHKh+ix0fZzuNvAtc/i+u0v6YLY+jUfqW9BPaLgC0/U=";
       };
     };

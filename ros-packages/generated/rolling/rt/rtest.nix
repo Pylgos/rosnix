@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rtest";
-  version = "0.2.2-1";
+  version = "0.2.2-2";
   src = finalAttrs.passthru.sources."rtest";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ action-msgs gmock-vendor rcl rcl-action rclcpp rclcpp-action ros-environment ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" "libgmock-dev" ]; };
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rtest-source";
         url = "https://github.com/ros2-gbp/rtest-release.git";
-        rev = "765eeba34dddce6ff85eaf1e83f64d47d97a5473";
+        rev = "c72d8bb54059ea2aaa05d2047acf3f017a6e302e";
         hash = "sha256-tzK/3eba/cmEma1A4SqjhyoqDXRQaPgcgNJjbKl7WAU=";
       };
     };

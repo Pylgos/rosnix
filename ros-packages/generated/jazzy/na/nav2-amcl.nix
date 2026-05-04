@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_amcl";
-  version = "1.3.11-1";
+  version = "1.3.12-1";
   src = finalAttrs.passthru.sources."nav2_amcl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs launch-ros launch-testing message-filters nav2-common nav2-msgs nav2-util nav-msgs pluginlib rclcpp sensor-msgs std-srvs tf2 tf2-geometry-msgs tf2-ros ];
@@ -39,8 +39,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_amcl-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "ddbe969f4623b67b6b77a3df5c2ccc3916dfc121";
-        hash = "sha256-MN4uui+EvfSEsHsiTxS1sZypFOhCwnKHb5j3o+c8qZg=";
+        rev = "5704f5aaa985187117e27575c1befcdd37dd5173";
+        hash = "sha256-nT3nx5pC+OYZldan/psGPJkNxYB2rx8dsa74qfQwhy8=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "asio_cmake_module";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."asio_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "asio_cmake_module-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
-        rev = "116bb101dc0bfc3054c77c7f21c25950f8fe0861";
+        rev = "8fca7f5d4454e98d30a448643527c83c1ce86315";
         hash = "sha256-S4As/gOIQQTIqYgblUDPs2pjBDmLPz4Ii2/CTMHhRUs=";
       };
     };

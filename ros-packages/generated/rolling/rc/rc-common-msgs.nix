@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rc_common_msgs";
-  version = "0.5.3-5";
+  version = "0.5.3-6";
   src = finalAttrs.passthru.sources."rc_common_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rc_common_msgs-source";
         url = "https://github.com/ros2-gbp/rc_common_msgs_ros2-release.git";
-        rev = "3636d02961ff99069794d160b46b184d2d334627";
+        rev = "e4d7798b3c4c7071cf0a067888c068d419495d69";
         hash = "sha256-/ApqcAoxtUu0eHcF5gxxFhroOIdz457iCAONfAC2xxQ=";
       };
     };

@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mavros_examples";
-  version = "2.14.0-1";
+  version = "2.14.0-2";
   src = finalAttrs.passthru.sources."mavros_examples";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module geometry-msgs mavros mavros-msgs rclpy sensor-msgs std-msgs std-srvs trajectory-msgs ];
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mavros_examples-source";
         url = "https://github.com/ros2-gbp/mavros-release.git";
-        rev = "bca25cd221c15a3ecf314c206daa8d632871be22";
+        rev = "2a0db24ea17d7b03ff13cc051de66a0c1f5d5958";
         hash = "sha256-jPPIsV4z2V1Eu40y7VhKSQ8nOuKUQ34g/omCqxdD8K0=";
       };
     };

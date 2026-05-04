@@ -10,7 +10,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "urdfdom_py";
-  version = "1.2.1-2";
+  version = "1.2.1-3";
   src = finalAttrs.passthru.sources."urdfdom_py";
   propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
   propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" "python3-yaml" ]; };
@@ -19,7 +19,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "urdfdom_py-source";
         url = "https://github.com/ros2-gbp/urdfdom_py-release.git";
-        rev = "63259c8319609c2dcd7e7fff99db12ce70f88a1a";
+        rev = "8f80049bad7934533933463c8e484177540921f8";
         hash = "sha256-XIQzb/e4G8nvo/oqr/BKyEWW1LAFi2kvQhIdXhJHG+Q=";
       };
     };

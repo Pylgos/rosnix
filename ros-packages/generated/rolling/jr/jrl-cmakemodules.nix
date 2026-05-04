@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "jrl_cmakemodules";
-  version = "1.1.2-1";
+  version = "1.1.2-2";
   src = finalAttrs.passthru.sources."jrl_cmakemodules";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "doxygen" "pkg-config" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "jrl_cmakemodules-source";
         url = "https://github.com/ros2-gbp/jrl_cmakemodules-release.git";
-        rev = "5bd47f5db1c39fe740a146d2cbf9c3b5ace2ff8d";
+        rev = "14d2e433521662aa8704c48cb4ec70738572c08b";
         hash = "sha256-w1ab2z6JMJ1I0arhbBJnOZgyv6ek2qua0HznHUc6eEo=";
       };
     };

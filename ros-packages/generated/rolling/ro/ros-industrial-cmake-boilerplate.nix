@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ros_industrial_cmake_boilerplate";
-  version = "0.5.4-1";
+  version = "0.5.4-2";
   src = finalAttrs.passthru.sources."ros_industrial_cmake_boilerplate";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -19,8 +19,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_industrial_cmake_boilerplate-source";
         url = "https://github.com/ros2-gbp/ros_industrial_cmake_boilerplate-release.git";
-        rev = "955034a0e53d423d818c9d966f88ea1e002e06d3";
-        hash = "sha256-yxsr0rMyvBYeoeMkhnWs1wSUR+qmZ66S/z9WOpMtRwk=";
+        rev = "e4682a9e00ac25aba31642185772d9e39940ec24";
+        hash = "sha256-NNFU5mlJOArL1iPf5H+BIxRINXHrFKuxWGRSwuoG8HM=";
       };
     };
   });

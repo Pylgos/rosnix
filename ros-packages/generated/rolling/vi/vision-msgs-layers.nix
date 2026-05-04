@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vision_msgs_layers";
-  version = "0.2.0-3";
+  version = "0.2.0-4";
   src = finalAttrs.passthru.sources."vision_msgs_layers";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rqt-image-overlay-layer vision-msgs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vision_msgs_layers-source";
         url = "https://github.com/ros2-gbp/vision_msgs_layers-release.git";
-        rev = "632afac377a9c77dda4ee89e2ade4692bd89ad5f";
+        rev = "a65a8a74012d9e59fdde7a561ad4724a39adb660";
         hash = "sha256-/AF+whPTfuXAf3vP/iP6XQf4SZFSuJjxb7oQ61JEiGs=";
       };
     };

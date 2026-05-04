@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcl_logging_syslog";
-  version = "0.1.2-1";
+  version = "0.1.2-2";
   src = finalAttrs.passthru.sources."rcl_logging_syslog";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rcl-logging-interface rcpputils rcutils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "rsyslog" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcl_logging_syslog-source";
         url = "https://github.com/ros2-gbp/rcl_logging_syslog-release.git";
-        rev = "842206b9c3256cfac112aa2cb8c6cd519399c278";
+        rev = "1ac2b6c6f61f8c1f70e020f379d979d757d9e9f9";
         hash = "sha256-VtTcyB4Y7MrFtBujATKdD3cGDUeaLNEUMthXi/2ko5U=";
       };
     };

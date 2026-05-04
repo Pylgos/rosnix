@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_command_line";
-  version = "1.2.1-4";
+  version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_command_line";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-license ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_command_line-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
-        rev = "d2b05a008d2f744adffa0468f4707c7690571de5";
+        rev = "1ad9efd3eba63f08e980e8fdc39cbf67fba37899";
         hash = "sha256-0rOoPXNkY6U26dMB39t2IjB44typZqO4T5rW2jrEOl8=";
       };
     };

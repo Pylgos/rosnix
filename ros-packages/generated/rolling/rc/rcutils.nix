@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcutils";
-  version = "7.1.1-1";
+  version = "7.1.1-2";
   src = finalAttrs.passthru.sources."rcutils";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros-core ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libatomic" ]; };
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcutils-source";
         url = "https://github.com/ros2-gbp/rcutils-release.git";
-        rev = "bd92416cc7275559f57030f1f2c8b96ad99d1ddb";
+        rev = "7ece5dee99e96ee6db85585257b7c1be67964cab";
         hash = "sha256-UxsZ2xgIeWGecrh9zFpq2KWQSBQEBUDsmpwrJr+6hVU=";
       };
     };

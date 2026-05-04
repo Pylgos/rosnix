@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vitis_common";
-  version = "0.4.2-3";
+  version = "0.4.2-4";
   src = finalAttrs.passthru.sources."vitis_common";
   nativeBuildInputs = [ ament-cmake ament-vitis ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "ocl-icd-opencl-dev" "opencl-headers" ]; };
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vitis_common-source";
         url = "https://github.com/ros2-gbp/vitis_common-release.git";
-        rev = "4abbf109e88120dbdd434027d9747317aec5d032";
+        rev = "02887980d3934914368b9a07069f85e66e620231";
         hash = "sha256-K6BliyL56las1cA019YmPWtcy/bVEejNPaYTF7SVYic=";
       };
     };

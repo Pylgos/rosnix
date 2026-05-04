@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tracetools_acceleration";
-  version = "0.4.1-3";
+  version = "0.4.1-4";
   src = finalAttrs.passthru.sources."tracetools_acceleration";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   buildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pkg-config" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tracetools_acceleration-source";
         url = "https://github.com/ros2-gbp/tracetools_acceleration-release.git";
-        rev = "d1327c40ea324d3b25c1e04ee3f0e6dd4d41dfb2";
+        rev = "37788971c9f3f44864e46922ea6c7ffd9cd8b42c";
         hash = "sha256-8S7qrZQ1ohJoEVhAiMPHVKAD4lCTHCfRb1CD5hu4VWg=";
       };
     };

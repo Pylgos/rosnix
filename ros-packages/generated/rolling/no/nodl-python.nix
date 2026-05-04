@@ -14,7 +14,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nodl_python";
-  version = "0.3.1-4";
+  version = "0.3.1-5";
   src = finalAttrs.passthru.sources."nodl_python";
   propagatedNativeBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-lxml" ]; };
   propagatedBuildInputs = [ ament-index-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-lxml" ]; };
@@ -24,7 +24,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nodl_python-source";
         url = "https://github.com/ros2-gbp/nodl-release.git";
-        rev = "b699bd8f49e8cd26b642940300bdecdc79a5a2c7";
+        rev = "77d7fe9b324fd5f6786089fe9183a2daac1c452f";
         hash = "sha256-rHEAtKnNTsXSB1UGfZYRfy3DQXrnGFWNntTfJyxEymc=";
       };
     };

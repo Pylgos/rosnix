@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tinyxml2_vendor";
-  version = "0.11.3-1";
+  version = "0.11.3-2";
   src = finalAttrs.passthru.sources."tinyxml2_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "tinyxml2" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tinyxml2_vendor-source";
         url = "https://github.com/ros2-gbp/tinyxml2_vendor-release.git";
-        rev = "6b966b4979644476fe81da7439974a06c5c0b06c";
+        rev = "5c9a1c7904811b1d851d5b2eca1f81e075c354ef";
         hash = "sha256-e9iNUBjYIYs8+PiBeXEOjwM3J92iW3rIex9MHAUkYFI=";
       };
     };

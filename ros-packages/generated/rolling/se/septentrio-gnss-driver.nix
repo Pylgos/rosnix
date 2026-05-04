@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "septentrio_gnss_driver";
-  version = "1.4.6-1";
+  version = "1.4.6-2";
   src = finalAttrs.passthru.sources."septentrio_gnss_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-ros diagnostic-msgs geometry-msgs gps-msgs gtest-vendor nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment rosidl-default-generators rosidl-default-runtime sensor-msgs tf2 tf2-eigen tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "geographiclib" "libpcap" ]; };
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "septentrio_gnss_driver-source";
         url = "https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git";
-        rev = "57d19820fe6ad25b71762fee02d2fffa4b8fd8f2";
+        rev = "aa9c2bbb497f155656b22769212ded860e1a1567";
         hash = "sha256-dpZctDsgb7ZmH3SRJm8NXLSRDvnA5Eqqnm9tIojaZJg=";
       };
     };

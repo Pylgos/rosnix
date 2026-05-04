@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "osqp_vendor";
-  version = "0.2.0-3";
+  version = "0.2.0-4";
   src = finalAttrs.passthru.sources."osqp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "osqp_vendor-source";
         url = "https://github.com/ros2-gbp/osqp_vendor-release.git";
-        rev = "fdf336d61d1dadd061ffe314796aef021681757b";
+        rev = "7b71e84f46c83d092a850033a2b16f534bbe8b27";
         hash = "sha256-I6jhthmRppj6fiDd1M+bbW8W/bsR5/0ur5UWcf4/ZGQ=";
       };
       substitutions = [

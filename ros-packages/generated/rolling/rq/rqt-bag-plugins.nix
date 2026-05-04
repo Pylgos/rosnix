@@ -24,7 +24,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_bag_plugins";
-  version = "2.2.2-1";
+  version = "2.2.2-2";
   src = finalAttrs.passthru.sources."rqt_bag_plugins";
   propagatedNativeBuildInputs = [ ament-index-python builtin-interfaces geometry-msgs rclpy rosbag2 rqt-bag rqt-gui rqt-gui-py rqt-plot sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-cairo" "python3-numpy" "python3-pil" ]; };
   propagatedBuildInputs = [ ament-index-python builtin-interfaces geometry-msgs rclpy rosbag2 rqt-bag rqt-gui rqt-gui-py rqt-plot sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-cairo" "python3-numpy" "python3-pil" ]; };
@@ -34,7 +34,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_bag_plugins-source";
         url = "https://github.com/ros2-gbp/rqt_bag-release.git";
-        rev = "0c38dd73fc99ec4d7bdf24cc69dbda971f36264b";
+        rev = "ee1d72562ff074ea3e0ba0fb6db5ed08f505aa5e";
         hash = "sha256-NpYaTHQkw9c1eH4ICOY5fbcZw4efgowoWFEdS4Pw3FE=";
       };
     };

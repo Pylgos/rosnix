@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqml_default_plugins";
-  version = "3.26.41-1";
+  version = "3.26.42-1";
   src = finalAttrs.passthru.sources."rqml_default_plugins";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ control-msgs controller-manager-msgs geometry-msgs moveit-msgs pal-statistics-msgs qml6-ros2-plugin rqml-core sensor-msgs tf2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qml6-module-qt-labs-qmlmodels" "qml6-module-qtmultimedia" "qml6-module-qtquick-controls" "qml6-module-qtquick-dialogs" "qml6-module-qtquick-layouts" ]; };
@@ -34,8 +34,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqml_default_plugins-source";
         url = "https://github.com/ros2-gbp/rqml-release.git";
-        rev = "fd53d1dd1fbf7cbcb3e9f69fe3d26e2b39eb297a";
-        hash = "sha256-iIYWJY1ao6L8fyLp4jIKFrISLCgwdkZIpRiN5ebFWJE=";
+        rev = "5f1f64c75ff9a456fa399f6a87ee033f719294c3";
+        hash = "sha256-aKJ/f3R76mqG0nrliFd0CMiBfuzPUIHkNGLl5jw9/7Y=";
       };
     };
   });

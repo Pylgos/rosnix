@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_laserscan";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."velodyne_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components sensor-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "velodyne_laserscan-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "d34c93bf4ab040a2decc9b2a5a02d55cd0ab8119";
+        rev = "62a6b550581cf0712aec85744f98be5fd41f589a";
         hash = "sha256-vxfBGHebyJrP5lJ7zXMLbVg/eMBRkghsPg4URP19K9k=";
       };
     };

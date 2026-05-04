@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "crx_kinematics";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."crx_kinematics";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ moveit-core pluginlib tf2-eigen ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "crx_kinematics-source";
         url = "https://github.com/ros2-gbp/crx_kinematics-release.git";
-        rev = "279e45e123cbd6ceabfeec6695f0e665e8f69028";
+        rev = "9789aefe441ab4ca78cc66e860e74cbf47744f84";
         hash = "sha256-V0sh6HONn07kNY9YdO9v0Wl9kTSwd5ilcJRRI37n6gw=";
       };
     };

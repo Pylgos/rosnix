@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_geometry";
-  version = "4.1.0-1";
+  version = "4.1.0-2";
   src = finalAttrs.passthru.sources."image_geometry";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "python3-deprecated" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_geometry-source";
         url = "https://github.com/ros2-gbp/vision_opencv-release.git";
-        rev = "703aa0fc8d80c67f488253b2a4e574bbd93757a2";
+        rev = "5760a712466f6c5d70ec9657584fb4984ea86481";
         hash = "sha256-y4DJ9zOSPtaMJqyHbcxWEc8zhZkKGJwDlT8xyVy114A=";
       };
     };

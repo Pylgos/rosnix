@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_buffer_backend_registry";
-  version = "5.2.0-1";
+  version = "5.2.0-2";
   src = finalAttrs.passthru.sources."rosidl_buffer_backend_registry";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pluginlib rmw rosidl-buffer-backend rosidl-runtime-cpp ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_buffer_backend_registry-source";
         url = "https://github.com/ros2-gbp/rosidl-release.git";
-        rev = "71e377e308a39ccca487a63cf92ff07527e8802a";
+        rev = "35a07022bdbbc9f9a5fb739333fa848caeae8ef8";
         hash = "sha256-eVgvHCFz9af1eiYmWhzXHO2K0AFWPdJRPGV1j4YUTtA=";
       };
     };

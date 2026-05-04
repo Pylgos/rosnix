@@ -37,7 +37,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_visual_tools";
-  version = "4.1.4-3";
+  version = "4.1.4-4";
   src = finalAttrs.passthru.sources."rviz_visual_tools";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-index-python eigen3-cmake-module eigen-stl-containers geometry-msgs interactive-markers launch launch-ros pluginlib rclcpp rclcpp-components rviz2 rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering sensor-msgs shape-msgs std-msgs tf2 tf2-eigen tf2-geometry-msgs trajectory-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libqt5-widgets" "qtbase5-dev" ]; };
@@ -49,7 +49,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rviz_visual_tools-source";
         url = "https://github.com/ros2-gbp/rviz_visual_tools-release.git";
-        rev = "cd3a380ad00334a4c3385476a2e98f9bdd75680b";
+        rev = "2e9aae8bb7c4210d958e50126c99df1daf82d714";
         hash = "sha256-tVfPKQNpM962nm3D4nPbalanEed98pZ6A4v4ySC79yI=";
       };
     };

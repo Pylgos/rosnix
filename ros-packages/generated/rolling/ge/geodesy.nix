@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "geodesy";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."geodesy";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles geographic-msgs geometry-msgs sensor-msgs unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-catkin-pkg" "python3-pyproj" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "geodesy-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
-        rev = "6e391bae8989fbb7fde2f2a9ff047b752323712f";
+        rev = "3359e988cc6d3615a266f715f6bffc32c3b21e88";
         hash = "sha256-+iSI/nF1U9zJNt1tRwph3J72AI6GDwamBRol2QrwTUY=";
       };
     };

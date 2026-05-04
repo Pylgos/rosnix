@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rmf_task";
-  version = "2.9.0-1";
+  version = "2.9.0-2";
   src = finalAttrs.passthru.sources."rmf_task";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ rmf-battery rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "nlohmann-json-dev" ]; };
@@ -25,7 +25,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_task-source";
         url = "https://github.com/ros2-gbp/rmf_task-release.git";
-        rev = "55f373363afac03dddf864959d93dc24180d3fd5";
+        rev = "d2245d8e611b5ad67fabbb10d81f034fa30e556c";
         hash = "sha256-hlhFRbt/MUJ8j4lbuZ0vM+vxPKLdZzc6eM8SFV+sT6s=";
       };
     };

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "io_context";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."io_context";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
   propagatedNativeBuildInputs = [ rclcpp std-msgs udp-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "io_context-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
-        rev = "c643b23ddac83542b700173d20e62fde3143ef7b";
+        rev = "d19884f602f533c53516f999c64ddbfb1567e04a";
         hash = "sha256-RINF/bmOZEexBa8eMAkn2J1r1NOrze8SI3fx1t/ywak=";
       };
     };

@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rosbag2_to_video";
-  version = "1.0.1-1";
+  version = "1.0.1-2";
   src = finalAttrs.passthru.sources."rosbag2_to_video";
   propagatedNativeBuildInputs = [ cv-bridge rclpy ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
   propagatedBuildInputs = [ cv-bridge rclpy ros2bag rosbag2-py rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libopencv-dev" "python3-opencv" ]; };
@@ -28,7 +28,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rosbag2_to_video-source";
         url = "https://github.com/ros2-gbp/rosbag2_to_video-release.git";
-        rev = "661e2dbb6a6fe64d1615442ab0666b76b20e36ba";
+        rev = "e081f3cbe8d0c367a669c0534fc9edff1c1a4a6a";
         hash = "sha256-cIIIILgxEls8aRJ8CNJa9vP6dRz4Xw0ARTQudqviVWI=";
       };
     };

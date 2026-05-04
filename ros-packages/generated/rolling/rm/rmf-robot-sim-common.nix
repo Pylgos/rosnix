@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_robot_sim_common";
-  version = "2.6.1-1";
+  version = "2.6.1-2";
   src = finalAttrs.passthru.sources."rmf_robot_sim_common";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rmf-building-map-msgs rmf-fleet-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_robot_sim_common-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
-        rev = "d40c8f3e36fbaa91023fd69f3dc5bf64352e23fc";
+        rev = "e5dd541f9af889d584910de61321be5a2219b83a";
         hash = "sha256-12SUBz7nbx7Ncfqu2zcGyZUspgBWQ6zZ4I7gwjW363A=";
       };
     };

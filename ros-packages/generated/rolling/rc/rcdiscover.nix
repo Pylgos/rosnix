@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rcdiscover";
-  version = "1.1.7-1";
+  version = "1.1.7-2";
   src = finalAttrs.passthru.sources."rcdiscover";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -18,8 +18,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcdiscover-source";
         url = "https://github.com/ros2-gbp/rcdiscover-release.git";
-        rev = "b4819be9a016b59e1db3d1fc1b74627285674c08";
-        hash = "sha256-Xw4108ob5fIs8/BbNRMVm3xOzC6l8ZHRs7e3XZ3834M=";
+        rev = "7c2ba3b1c41426caaf4a3cb6ee532d434e774b6c";
+        hash = "sha256-leXJVw7Yx8SeMv0jUFtQmpFCpDaJkvd7U6AqjpdLEOE=";
       };
     };
   });

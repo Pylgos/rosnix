@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqml";
-  version = "3.26.42-1";
+  version = "3.26.42-2";
   src = finalAttrs.passthru.sources."rqml";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rqml-core rqml-default-plugins ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqml-source";
         url = "https://github.com/ros2-gbp/rqml-release.git";
-        rev = "905637b7295183534fae8a635a3d8c02fa0b1ac2";
+        rev = "fdd52a5e21db56c49b02d4f6a899665aa541b441";
         hash = "sha256-JLpxRSn5ZDaGpcQZTZREW4ZLMm0Hau51KeLFZv4SiEM=";
       };
     };

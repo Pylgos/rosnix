@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "avt_vimba_camera";
-  version = "2001.1.0-5";
+  version = "2001.1.0-6";
   src = finalAttrs.passthru.sources."avt_vimba_camera";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ camera-info-manager diagnostic-msgs diagnostic-updater image-proc image-transport message-filters rclcpp rclcpp-components sensor-msgs std-msgs stereo-image-proc ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "avt_vimba_camera-source";
         url = "https://github.com/ros2-gbp/avt_vimba_camera-release.git";
-        rev = "7e56860bfcd8f29a48630b2d050f3451b0617a3b";
+        rev = "19ea24bf8de11c1c5a15e8a850dbe10cba591261";
         hash = "sha256-b1YFGg6j0b9K0ewtxAKbcnT1um/8yTIj7XIIbEChDbY=";
       };
     };

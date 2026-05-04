@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_task_constructor_demo";
-  version = "0.1.5-1";
+  version = "0.1.5-2";
   src = finalAttrs.passthru.sources."moveit_task_constructor_demo";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager generate-parameter-library moveit-configs-utils moveit-core moveit-resources-panda-moveit-config moveit-ros-planning-interface moveit-task-constructor-capabilities moveit-task-constructor-core moveit-task-constructor-visualization py-binding-tools ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_task_constructor_demo-source";
         url = "https://github.com/ros2-gbp/moveit_task_constructor-release.git";
-        rev = "ebb31c364cd9cc900304a6f8169e5c7ef946fb58";
+        rev = "600fb3ba390eb35987666baf1e8e0e6e4b99e401";
         hash = "sha256-VjDXQg9Peq3ISZCwxI/zdkRnuRKjGmRKcUD3gyHrriQ=";
       };
     };

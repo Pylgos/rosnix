@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_input_lidar_bin_dataset";
-  version = "2.7.0-1";
+  version = "2.8.0-1";
   src = finalAttrs.passthru.sources."mola_input_lidar_bin_dataset";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ mola-common mola-kernel mrpt-libmaps ];
@@ -23,8 +23,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_input_lidar_bin_dataset-source";
         url = "https://github.com/ros2-gbp/mola-release.git";
-        rev = "5cbaae3f85d78dfc5921d788b6b7fea6bd4aa1b5";
-        hash = "sha256-wXxH92dlhbs07xumOvubLbyi1SPmJyU4FhUm69DM8QY=";
+        rev = "4f6ef691d3591c0c33bf28d5b8dae74c78c89e10";
+        hash = "sha256-WBb7ztFgGtSwPMxndH9da85MhuHcrR9BYnesnvV39Gc=";
       };
     };
   });

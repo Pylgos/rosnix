@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "control_box_rst";
-  version = "0.0.7-5";
+  version = "0.0.7-6";
   src = finalAttrs.passthru.sources."control_box_rst";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "coinor-libipopt-dev" "eigen" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "control_box_rst-source";
         url = "https://github.com/ros2-gbp/control_box_rst-release.git";
-        rev = "3c1ca1427892e0856bed0da711fd6d3e71f9f193";
+        rev = "300a43372151f26eba932ee720fc5cf4bf7c8365";
         hash = "sha256-HEG9kwIr6mxkYCMU0hJzDgZZOsx5NgqjKf0y6BkwcbA=";
       };
       substitutions = [

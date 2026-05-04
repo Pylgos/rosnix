@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libg2o";
-  version = "2020.5.29-5";
+  version = "2020.5.29-6";
   src = finalAttrs.passthru.sources."libg2o";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "opengl" "suitesparse" ]; };
@@ -21,8 +21,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libg2o-source";
         url = "https://github.com/ros2-gbp/libg2o-release.git";
-        rev = "c30a14c800c9142b73205fd6c67827fab5295326";
-        hash = "sha256-2CMfNQ2nQezvsaS7kSEUvwkCtBZcnoOPaqOljhsfHFc=";
+        rev = "db5060f672638acd7b275ce0fa36ce5c036bbd85";
+        hash = "sha256-+ifIf0+UyV5OYCyNzeuX0TzPoQa6a1z35IiReQYLYa0=";
       };
     };
   });

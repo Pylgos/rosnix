@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_tools";
-  version = "0.4.0-1";
+  version = "0.4.0-2";
   src = finalAttrs.passthru.sources."data_tamer_tools";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ backward-ros data-tamer-cpp data-tamer-msgs foxglove-sdk-vendor geographic-msgs mcap-vendor rcl-interfaces rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" "protobuf-dev" ]; };
@@ -40,7 +40,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "data_tamer_tools-source";
         url = "https://github.com/ros2-gbp/data_tamer_tools-release.git";
-        rev = "bfc31848ba3b2cb12f443b3de40460ac70cca298";
+        rev = "e47c13b9ef04008e119359a50d22e7faf4efe045";
         hash = "sha256-4Ng6f9OKvID9MgF6bXmxsjgQi++/HfFqlLMFOJBIrwc=";
       };
     };

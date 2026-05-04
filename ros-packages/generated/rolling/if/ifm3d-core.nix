@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ifm3d_core";
-  version = "0.18.0-9";
+  version = "0.18.0-10";
   src = finalAttrs.passthru.sources."ifm3d_core";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ cv-bridge ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "curl" "libgoogle-glog-dev" "libpcl-all-dev" "libxmlrpc-c++" ]; };
@@ -21,7 +21,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ifm3d_core-source";
         url = "https://github.com/ros2-gbp/ifm3d-release.git";
-        rev = "01aa8970b76959a9bb14540b198f52f4c4316936";
+        rev = "8f6946f0616dc1898944026f38e9ee0341850b2c";
         hash = "sha256-uR93fGa2he8/x1p8bZM2xobrFhbm7cnUGAw341qYlOE=";
       };
     };

@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "micro_ros_diagnostic_bridge";
-  version = "0.3.0-5";
+  version = "0.3.0-6";
   src = finalAttrs.passthru.sources."micro_ros_diagnostic_bridge";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ diagnostic-msgs micro-ros-diagnostic-msgs rclcpp ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "micro_ros_diagnostic_bridge-source";
         url = "https://github.com/ros2-gbp/micro_ros_diagnostics-release.git";
-        rev = "0f33e6bccd242b2af077b401a2239f84c9683494";
+        rev = "8af02a0ee06c5ba73cfaf72eb2e3da5eb0f65599";
         hash = "sha256-mBsQdSKOPVQJVBc/FxvaxH5NOtAJy3M+bYciq7eHg+c=";
       };
     };

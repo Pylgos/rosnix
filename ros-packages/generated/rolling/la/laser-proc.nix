@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "laser_proc";
-  version = "1.0.3-1";
+  version = "1.0.3-2";
   src = finalAttrs.passthru.sources."laser_proc";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ class-loader rclcpp rclcpp-components sensor-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "laser_proc-source";
         url = "https://github.com/ros2-gbp/laser_proc-release.git";
-        rev = "db3550d1b6d8912db50d828d428b1522a8567b3a";
+        rev = "1b5afa9d657d6a71a53d68a56e58262340a2f6a2";
         hash = "sha256-pGxERcMl8AM4GDX7cp7dq5qFcziW4H4sAVaeRFdV5qY=";
       };
     };

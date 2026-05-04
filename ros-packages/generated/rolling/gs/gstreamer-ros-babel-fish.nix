@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gstreamer_ros_babel_fish";
-  version = "1.26.40-1";
+  version = "1.26.40-2";
   src = finalAttrs.passthru.sources."gstreamer_ros_babel_fish";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "gstreamer1.0" "gstreamer1.0-plugins-base" "gstreamer1.0-plugins-good" "libgstreamer-plugins-base1.0-dev" "libgstreamer1.0-dev" ]; };
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gstreamer_ros_babel_fish-source";
         url = "https://github.com/ros2-gbp/gstreamer_ros_babel_fish-release.git";
-        rev = "fdcfd553d1d188699bc354f2edbdb3dd4d7b4e69";
+        rev = "65fec2f0c9479c0e6bd587e7e2a3bf97fa32f2c4";
         hash = "sha256-MaKxHJwky/gUM6NI0EK+wfCRTBBaFLHD0clFbss6WnU=";
       };
     };

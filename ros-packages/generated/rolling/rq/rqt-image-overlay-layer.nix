@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_image_overlay_layer";
-  version = "0.5.0-1";
+  version = "0.5.0-2";
   src = finalAttrs.passthru.sources."rqt_image_overlay_layer";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rcpputils rosidl-runtime-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qtbase5-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_image_overlay_layer-source";
         url = "https://github.com/ros2-gbp/rqt_image_overlay-release.git";
-        rev = "478164c3016fb9153248602267a53fbb122f6367";
+        rev = "3966cc9b39c4df856d62dbdfdd45b9b077aa5b48";
         hash = "sha256-4VigJN1O/ZVUe33eEVylrUuiZhq1TYWF+LS1UkIe7LI=";
       };
     };

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sync_tooling_msgs";
-  version = "0.2.7-1";
+  version = "0.2.7-2";
   src = finalAttrs.passthru.sources."sync_tooling_msgs";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf-dev" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sync_tooling_msgs-source";
         url = "https://github.com/ros2-gbp/sync_tooling_msgs-release.git";
-        rev = "085e9df6448adedf0438280574f84af2d877b618";
+        rev = "a7efa8d95dbe5d124ddf31a02e56b21baeb8b1c2";
         hash = "sha256-0IhT7KQkrVtKHzvDCp4AnNIYHujdKdrA5jh7UFykkrk=";
       };
     };

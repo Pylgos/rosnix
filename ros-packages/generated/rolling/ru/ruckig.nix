@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "ruckig";
-  version = "0.9.2-4";
+  version = "0.9.2-5";
   src = finalAttrs.passthru.sources."ruckig";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -18,7 +18,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ruckig-source";
         url = "https://github.com/ros2-gbp/ruckig-release.git";
-        rev = "32c387d879a88ffaf2a9ea5510a9f1eeabe47ab5";
+        rev = "3f62c0446e4f4e2c6941b214bd797faf90aada3c";
         hash = "sha256-xzv0PejVB2frTXtd7fnF72E49MOQaARx6boGHYzyVnQ=";
       };
     };

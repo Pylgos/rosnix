@@ -14,7 +14,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "gtsam2mrpt_serial";
-  version = "0.2.0-1";
+  version = "0.2.0-2";
   src = finalAttrs.passthru.sources."gtsam2mrpt_serial";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gtsam mola-common mrpt-libbase mrpt-libmath mrpt-libposes ];
@@ -25,7 +25,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gtsam2mrpt_serial-source";
         url = "https://github.com/ros2-gbp/gtsam2mrpt_serial-release.git";
-        rev = "035e66d121a417a1c2ee53cf1d71de92f0cb88e1";
+        rev = "0c478f8d636d4edbbee7e7b4d0e8342eb6c2dcff";
         hash = "sha256-8Mi/tEvxVOCHfHVZvvQm+XHBmNkdnjQ3GJVeBY44TOU=";
       };
     };

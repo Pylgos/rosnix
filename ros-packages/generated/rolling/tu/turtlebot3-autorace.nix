@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_autorace";
-  version = "1.2.2-1";
+  version = "1.2.2-2";
   src = finalAttrs.passthru.sources."turtlebot3_autorace";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ turtlebot3-autorace-camera turtlebot3-autorace-detect turtlebot3-autorace-mission ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_autorace-source";
         url = "https://github.com/ros2-gbp/turtlebot3_autorace-release.git";
-        rev = "d81a00f1f8282da8987957e59477dc0647c6db37";
+        rev = "d346b42ed220a5b352511864c2d0c5c9256cf4a5";
         hash = "sha256-22j0cue+JdImsh5DESj683G+S17IHDzVPCwcwkiKfPk=";
       };
     };

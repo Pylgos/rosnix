@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "performance_test";
-  version = "2.3.0-1";
+  version = "2.3.0-2";
   src = finalAttrs.passthru.sources."performance_test";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ rclcpp rmw-implementation ros-environment rosidl-default-runtime ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "performance_test-source";
         url = "https://github.com/ros2-gbp/performance_test-release.git";
-        rev = "bb8375cdd83c85fd78c27dbb34f7c75ee5444628";
+        rev = "d79b36a5adf152c4583eb3be0083dbe8667571c6";
         hash = "sha256-xnTxHvplWaFior1NZmiF+oFRCJ2cvWwKWUY55BnS4ns=";
       };
       substitutions = [

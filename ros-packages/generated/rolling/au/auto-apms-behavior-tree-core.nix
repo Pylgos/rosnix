@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "auto_apms_behavior_tree_core";
-  version = "1.5.1-1";
+  version = "1.5.1-2";
   src = finalAttrs.passthru.sources."auto_apms_behavior_tree_core";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ action-msgs ament-index-cpp ament-index-python auto-apms-util behaviortree-cpp rclcpp rclcpp-action ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "tinyxml2" ]; };
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "auto_apms_behavior_tree_core-source";
         url = "https://github.com/ros2-gbp/autoapms-release.git";
-        rev = "a3991c0d83d78dcaf1ee4cf2819d270ab1294eed";
+        rev = "3a6f3ad45c8e15a0c7cac5efccb491ec90e0d767";
         hash = "sha256-95YZZZDJde+aYnYtIBQ/2Lf/W37unCvVLCY5o0+uuJ8=";
       };
     };

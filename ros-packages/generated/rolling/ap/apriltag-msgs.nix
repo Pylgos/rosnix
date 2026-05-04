@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_msgs";
-  version = "2.0.1-4";
+  version = "2.0.1-5";
   src = finalAttrs.passthru.sources."apriltag_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "apriltag_msgs-source";
         url = "https://github.com/ros2-gbp/apriltag_msgs-release.git";
-        rev = "555203ded954f72af530a0415c8ba5b356669d8c";
+        rev = "d13a424db4a0e85fc2ec964c6ec4193280259b9f";
         hash = "sha256-8gmaJqHmANuH5XDGCZ8C29KjCY7QKQ8r2DSpl1jxp20=";
       };
     };

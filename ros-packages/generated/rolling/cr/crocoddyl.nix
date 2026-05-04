@@ -13,7 +13,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "crocoddyl";
-  version = "3.2.0-3";
+  version = "3.2.0-4";
   src = finalAttrs.passthru.sources."crocoddyl";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ament-cmake eigenpy jrl-cmakemodules pinocchio ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "coinor-libipopt-dev" "doxygen" "git" "python3" "python3-numpy" ]; };
@@ -24,8 +24,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "crocoddyl-source";
         url = "https://github.com/ros2-gbp/crocoddyl-release.git";
-        rev = "2801a2cc54bfe6dcaca1e44a6b0f0c18a707745e";
-        hash = "sha256-RJd+zDr0rQCb8d/2UXtWj219D6I/Jq2wLmITksE/jfU=";
+        rev = "edc096495869977f468ed41d9c41efb7c11cf22d";
+        hash = "sha256-7Dkw1nucG/nUV9Icm6If/2DyMbWc7+fjZGH81+ddP8c=";
       };
     };
   });

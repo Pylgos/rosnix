@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "map_msgs";
-  version = "2.6.0-1";
+  version = "2.6.0-2";
   src = finalAttrs.passthru.sources."map_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ nav-msgs rosidl-default-runtime sensor-msgs std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "map_msgs-source";
         url = "https://github.com/ros2-gbp/navigation_msgs-release.git";
-        rev = "6903ee5c0af243cd5656735c1b01414b1ae44b86";
+        rev = "d235dfce928b9577dd4e4bbf098865401a6956fb";
         hash = "sha256-DLX1Vr1kTuiOKEBgBqr7ERNEcEmXIJ8EYlYGR+lWrqA=";
       };
     };

@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "boost_sml_vendor";
-  version = "1.1.13-1";
+  version = "1.1.13-2";
   src = finalAttrs.passthru.sources."boost_sml_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -20,7 +20,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "boost_sml_vendor-source";
         url = "https://github.com/ros2-gbp/boost_sml_vendor-release.git";
-        rev = "7c296e2349fe45c73c388a4fb54686883a82fd8e";
+        rev = "4cc94829d35b2fdbad074b5b3c1b53f436142892";
         hash = "sha256-75LebnRhxq3/3VfdThrtyhLp5haHVWgemuebZULSgKI=";
       };
       substitutions = [

@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turtlebot3_fake_node";
-  version = "2.3.7-1";
+  version = "2.3.7-2";
   src = finalAttrs.passthru.sources."turtlebot3_fake_node";
   propagatedNativeBuildInputs = [ ament-cmake geometry-msgs nav-msgs rclcpp robot-state-publisher sensor-msgs tf2 tf2-msgs turtlebot3-msgs ];
   propagatedBuildInputs = [ ament-cmake geometry-msgs nav-msgs rclcpp robot-state-publisher sensor-msgs tf2 tf2-msgs turtlebot3-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_fake_node-source";
         url = "https://github.com/ros2-gbp/turtlebot3_simulations-release.git";
-        rev = "9049a526ef17294ae049a3996211168df9c6c6c4";
+        rev = "5d04b9d0123924afaf1e8ccde27a23d62c492d35";
         hash = "sha256-LE4yerqL95tJuooGMMAD5QMLJyoYa5RzD+vfl9TTKYU=";
       };
     };

@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zenoh_bridge_dds";
-  version = "0.5.0-4";
+  version = "0.5.0-5";
   src = finalAttrs.passthru.sources."zenoh_bridge_dds";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cargo" "clang" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zenoh_bridge_dds-source";
         url = "https://github.com/ros2-gbp/zenoh_bridge_dds-release.git";
-        rev = "ae9f3eba9d4ad512dc69d75605e4e046d0617b92";
+        rev = "06e2663623fec6f9341a41e3fe0dc2f26b9bb25c";
         hash = "sha256-f7l+qyV5vSYtTVBV57bVQUV49odL51NPVkvmo00gimY=";
       };
     };

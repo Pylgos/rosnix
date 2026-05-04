@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zmqpp_vendor";
-  version = "0.0.2-3";
+  version = "0.0.2-4";
   src = finalAttrs.passthru.sources."zmqpp_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libzmq3-dev" ]; };
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zmqpp_vendor-source";
         url = "https://github.com/ros2-gbp/zmqpp_vendor-release.git";
-        rev = "8dcd48cf56f1e1d5b526d4c21d6bcfda5a66c4b5";
+        rev = "9d1b4a1163ccef3a862801d42d10ae8f27de816a";
         hash = "sha256-OHJpSJAua016kXvKxcD1ay55wprlXnqSL19uzz/el6w=";
       };
       substitutions = [

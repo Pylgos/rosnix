@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kortex_api";
-  version = "0.2.5-1";
+  version = "0.2.5-2";
   src = finalAttrs.passthru.sources."kortex_api";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,7 +19,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kortex_api-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "12cea01d5391dcf1c3ed3782fab23bb63d1a10de";
+        rev = "e508ddeb34d0ae9e8e79c0adb7c47765ee407edd";
         hash = "sha256-7seoKmAFiRAdGVm95S/ekQerIn04z9iyudAK/lX9Kew=";
       };
       substitutions = [

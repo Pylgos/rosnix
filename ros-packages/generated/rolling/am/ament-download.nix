@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_download";
-  version = "0.0.5-5";
+  version = "0.0.5-6";
   src = finalAttrs.passthru.sources."ament_download";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,7 +19,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_download-source";
         url = "https://github.com/ros2-gbp/ament_download-release.git";
-        rev = "ed8a03857e6995f4b54e7bcf8a02333a14811f80";
+        rev = "eb838d67ba2c58cd8f459f7890991977a2e5176c";
         hash = "sha256-6V9DhJraMIbNz3xeSeczpOFyaWgBqKsz2vQV4jFl6qk=";
       };
     };

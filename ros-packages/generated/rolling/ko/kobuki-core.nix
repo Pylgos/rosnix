@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kobuki_core";
-  version = "1.4.0-3";
+  version = "1.4.0-4";
   src = finalAttrs.passthru.sources."kobuki_core";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-command-line ecl-config ecl-console ecl-converters ecl-devices ecl-geometry ecl-mobile-robot ecl-sigslots ecl-threads ecl-time ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kobuki_core-source";
         url = "https://github.com/ros2-gbp/kobuki_core-release.git";
-        rev = "ce29c096e4ed537b5d05fb85ab22a9ad2620cb3e";
+        rev = "441253aa75ea119f21fe66ff24a64d0cd0979099";
         hash = "sha256-Bq/+5lnLAiJ2HQtIr0h6wB08J7OxRxT4YhcLHIrCUwI=";
       };
     };

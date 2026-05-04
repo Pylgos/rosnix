@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hls_lfcd_lds_driver";
-  version = "2.1.1-1";
+  version = "2.1.1-2";
   src = finalAttrs.passthru.sources."hls_lfcd_lds_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" ]; };
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hls_lfcd_lds_driver-source";
         url = "https://github.com/ros2-gbp/hls_lfcd_lds_driver-release.git";
-        rev = "71ef161c372328c848f28206d98d82eac99abce5";
+        rev = "4958ca7bb4cd389c7c8295ccf9385e290732863c";
         hash = "sha256-qpQ1Ci7fMjeNFDc92Bwr3mZNq4ASJKJOPEvdeG48IeA=";
       };
     };

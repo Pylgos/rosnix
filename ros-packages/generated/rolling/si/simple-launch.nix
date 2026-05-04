@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "simple_launch";
-  version = "1.11.4-1";
+  version = "1.11.4-2";
   src = finalAttrs.passthru.sources."simple_launch";
   nativeBuildInputs = [ ament-cmake-python ];
   propagatedNativeBuildInputs = [ ament-index-python launch launch-ros xacro ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "simple_launch-source";
         url = "https://github.com/ros2-gbp/simple_launch-release.git";
-        rev = "f0709cbd88704db2be3ee32a212ea18dcc52409f";
+        rev = "04b600f2ad3cda8dfd315a8197c26d23d3eca362";
         hash = "sha256-vShoG8MWl3H+J5tkLpmr537f3wyNTN+pqrSsZXk2A4c=";
       };
     };

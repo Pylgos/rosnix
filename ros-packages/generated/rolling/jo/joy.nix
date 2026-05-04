@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joy";
-  version = "3.3.0-2";
+  version = "3.3.0-3";
   src = finalAttrs.passthru.sources."joy";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components sdl2-vendor sensor-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "joy-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
-        rev = "f445427e97a65ec06798dcbe1652890fa056c1fa";
+        rev = "23b8e1f3ff6e98b28a2f8f965e0bb10d56f84ef5";
         hash = "sha256-D1K9/q5C0I7lztfZMomXMVDmBUV0UKvl2iNljHx2pPY=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_msg_wrapper";
-  version = "1.0.7-4";
+  version = "1.0.7-5";
   src = finalAttrs.passthru.sources."point_cloud_msg_wrapper";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ ament-cmake sensor-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "point_cloud_msg_wrapper-source";
         url = "https://github.com/ros2-gbp/point_cloud_msg_wrapper-release.git";
-        rev = "0d85557d2e774b246906e7f020d65bf0b4720655";
+        rev = "8a3883e88150fb0147653a17044e57065215582c";
         hash = "sha256-LiHXg+Jj7fMDItxqFAz8F5On1mitqVf18p4luIzXtWk=";
       };
     };

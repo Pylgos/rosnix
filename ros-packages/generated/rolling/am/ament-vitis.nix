@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_vitis";
-  version = "0.10.1-4";
+  version = "0.10.1-5";
   src = finalAttrs.passthru.sources."ament_vitis";
   propagatedNativeBuildInputs = [ ament-acceleration ament-cmake-core ament-cmake-ros ];
   propagatedBuildInputs = [ ament-acceleration ament-cmake-core ament-cmake-ros ];
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_vitis-source";
         url = "https://github.com/ros2-gbp/ament_vitis-release.git";
-        rev = "507aba5803629e67cb3b04642addaee101911f4e";
+        rev = "c10ff0156e218537c6ac01d1207aa11f5a07ddf4";
         hash = "sha256-Na2vZDmx1yo4NFMDS9mmn1De1NRtjjs953gSAHRCxtc=";
       };
     };

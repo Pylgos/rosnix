@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcss3d_agent_msgs";
-  version = "0.4.1-3";
+  version = "0.4.1-4";
   src = finalAttrs.passthru.sources."rcss3d_agent_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcss3d_agent_msgs-source";
         url = "https://github.com/ros2-gbp/rcss3d_agent-release.git";
-        rev = "f77c39ad9b2617e0ae8097535ecdea2e6720aae5";
+        rev = "cf795a213aa2b6f4f495cf80ba27dea3435d46af";
         hash = "sha256-AN/eyLroQDeZjI/JosPYI5tZHhbJn0jP1d8D3wjuN54=";
       };
     };

@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensorlib";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_sensorlib";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-geometry-msgs tf2-ros ];
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensorlib-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "6689c3602840481b23a70cb204b8eb9437913cd1";
+        rev = "72e787f8178ef9e2dd63b6f323a48f5a61a1c8aa";
         hash = "sha256-1aeI0XzgJq65w0+5asooTEJ03HeqOpemTVA4p9A8H+Y=";
       };
     };

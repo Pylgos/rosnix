@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "sophus";
-  version = "1.22.9102-2";
+  version = "1.22.9102-3";
   src = finalAttrs.passthru.sources."sophus";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" "libceres-dev" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sophus-source";
         url = "https://github.com/ros2-gbp/sophus-release.git";
-        rev = "dadc2a318c81321689a7d82279e99fed2a4948bc";
+        rev = "72861a4d7fc50fda1e1e7675076ebe7b3f81f142";
         hash = "sha256-xTS2ysDs9SSKpvKrxnhooJVtfpwRvYCuMpbFc4skbDM=";
       };
     };

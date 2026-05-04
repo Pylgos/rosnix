@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "color_names";
-  version = "0.0.3-5";
+  version = "0.0.3-6";
   src = finalAttrs.passthru.sources."color_names";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rviz2 std-msgs visualization-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "color_names-source";
         url = "https://github.com/ros2-gbp/color_names-release.git";
-        rev = "95114d283146ea0c7f98ff3c354fb6ecd2627daf";
+        rev = "69b81e15a16e1b976a2ab40a82afa24b926c69cb";
         hash = "sha256-956LQvQPv4QtQBKeDL62YimdLDh1yLGsi9AYgWiBh/k=";
       };
     };

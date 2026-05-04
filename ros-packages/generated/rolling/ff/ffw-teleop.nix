@@ -10,7 +10,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ffw_teleop";
-  version = "1.1.14-1";
+  version = "1.1.14-2";
   src = finalAttrs.passthru.sources."ffw_teleop";
   propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-tk" ]; };
   propagatedBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-tk" ]; };
@@ -19,7 +19,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ffw_teleop-source";
         url = "https://github.com/ros2-gbp/ai_worker-release.git";
-        rev = "52bd3f85ffddac14f48d1063b5681cdc6af1100f";
+        rev = "804c443b100f347572d02b27f5dd0efe9023d5d0";
         hash = "sha256-EPQH6hjBFR7R1DDvnPPBja8mbMMOoln9ehLCvqY7DZs=";
       };
     };

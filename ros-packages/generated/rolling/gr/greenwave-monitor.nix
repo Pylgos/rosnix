@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "greenwave_monitor";
-  version = "1.0.0-2";
+  version = "1.0.0-3";
   src = finalAttrs.passthru.sources."greenwave_monitor";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-python ];
   propagatedNativeBuildInputs = [ diagnostic-msgs greenwave-monitor-interfaces launch launch-ros rclcpp rclpy rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -41,7 +41,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "greenwave_monitor-source";
         url = "https://github.com/ros2-gbp/greenwave_monitor-release.git";
-        rev = "bc8f0d74e2f65dc5b3c397c1aad1d6541e8b1898";
+        rev = "adf5c5fc3b9ce75d18dc7f222eb2e979cbab58f7";
         hash = "sha256-64yRtugKBi6z29OuwQFXoTaqTPNRaiUG+57hDqPvDtc=";
       };
     };

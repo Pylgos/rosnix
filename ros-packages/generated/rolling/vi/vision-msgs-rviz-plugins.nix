@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vision_msgs_rviz_plugins";
-  version = "4.2.0-1";
+  version = "4.2.0-2";
   src = finalAttrs.passthru.sources."vision_msgs_rviz_plugins";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ pluginlib rclcpp rclpy rviz2 rviz-common rviz-default-plugins rviz-rendering vision-msgs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vision_msgs_rviz_plugins-source";
         url = "https://github.com/ros2-gbp/vision_msgs-release.git";
-        rev = "37ae82632d20e8f1691a1d757d43c4cdfadc45ed";
+        rev = "be6d44ebb7c4cefd071d61a6218e291ea0f067c2";
         hash = "sha256-cgchH4tO1Svc4dxVaxBnIW70pqqV4Y3jzLLdDyEUO5I=";
       };
     };

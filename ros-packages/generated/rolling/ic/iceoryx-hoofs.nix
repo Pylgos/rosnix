@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "iceoryx_hoofs";
-  version = "2.0.5-5";
+  version = "2.0.6-1";
   src = finalAttrs.passthru.sources."iceoryx_hoofs";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "acl" "libatomic" ]; };
@@ -20,8 +20,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "iceoryx_hoofs-source";
         url = "https://github.com/ros2-gbp/iceoryx-release.git";
-        rev = "8970f0f7b3e819ba7aae5af2a5363d3efde96d86";
-        hash = "sha256-C57YmMV/QQbRaySst8JrcobpnMXYdJ0EFLLY/Zi72ak=";
+        rev = "e887bb60383c03098d022e900d32056f5d3e124c";
+        hash = "sha256-AD4wqzl1ypnN8mhDNey+Mfm6GkZLzdZfa144+iG2Zj4=";
       };
     };
   });

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "marti_status_msgs";
-  version = "1.6.1-1";
+  version = "1.6.1-2";
   src = finalAttrs.passthru.sources."marti_status_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marti_status_msgs-source";
         url = "https://github.com/ros2-gbp/marti_messages-release.git";
-        rev = "a4d312872b19b564a1541c8ebf3d811d60846c5c";
+        rev = "a8e641bce5ac23e3c337fec3b1a9316c590f5157";
         hash = "sha256-bhiym2wrPqSDCYN6DKW5TxWfkNJ6/aKKOZlx/b/39hg=";
       };
     };

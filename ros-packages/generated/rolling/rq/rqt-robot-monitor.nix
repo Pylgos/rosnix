@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_robot_monitor";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."rqt_robot_monitor";
   nativeBuildInputs = [ rosidl-default-generators ];
   propagatedNativeBuildInputs = [ diagnostic-msgs python-qt-binding qt-gui qt-gui-py-common rclpy rqt-gui rqt-gui-py rqt-py-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg-modules" ]; };
@@ -29,7 +29,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_robot_monitor-source";
         url = "https://github.com/ros2-gbp/rqt_robot_monitor-release.git";
-        rev = "db0cd6f3ab0f5e11e51cfdaff829566704a4d410";
+        rev = "7182928698f82865bd6fcb5cab45537d5f625a2d";
         hash = "sha256-8SFE5pix0PTYkcufr7ovmE/HYmjWyGUdT073Kolmm4I=";
       };
     };

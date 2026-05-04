@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "stomp";
-  version = "0.1.2-3";
+  version = "0.1.2-4";
   src = finalAttrs.passthru.sources."stomp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-industrial-cmake-boilerplate ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libconsole-bridge-dev" ]; };
@@ -22,7 +22,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "stomp-source";
         url = "https://github.com/ros2-gbp/stomp-release.git";
-        rev = "f34537da09d99cc27b25f1a307e6ecb5cac30631";
+        rev = "b8fe0ee10ec9458c25003522d0769ec127b4d9ae";
         hash = "sha256-SMIxIQFBhVkKNSvnxdsAWw5pg4rc6p5xSsSck1Ig4Y8=";
       };
     };

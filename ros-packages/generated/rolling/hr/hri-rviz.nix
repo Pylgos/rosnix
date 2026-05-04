@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hri_rviz";
-  version = "2.3.0-1";
+  version = "2.3.0-2";
   src = finalAttrs.passthru.sources."hri_rviz";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ cv-bridge hri hri-msgs rclcpp rcpputils rviz-common rviz-default-plugins rviz-ogre-vendor sensor-msgs ];
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hri_rviz-source";
         url = "https://github.com/ros2-gbp/hri_rviz-release.git";
-        rev = "51d98a7bd902b6ff13fb167700751dfaaf570559";
+        rev = "9afbc5ce48f030660e1fafb865c42f03a1f35398";
         hash = "sha256-n2EX+KjmhK4ojTTucOd7/wYUSEJB9qm9uU4jnD8p5K8=";
       };
     };

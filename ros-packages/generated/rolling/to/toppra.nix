@@ -12,7 +12,7 @@
 }:
 buildCatkinPackage (finalAttrs: {
   pname = "toppra";
-  version = "0.6.7-1";
+  version = "0.6.7-2";
   src = finalAttrs.passthru.sources."toppra";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "pybind11-dev" "python3-dev" ]; };
@@ -24,7 +24,7 @@ buildCatkinPackage (finalAttrs: {
       src = fetchgit {
         name = "toppra-source";
         url = "https://github.com/ros2-gbp/toppra-release.git";
-        rev = "3bd6828849fda9117a663d4605fb54b3e420514b";
+        rev = "f663ad33add8458185e16e5a8e76739e0adbffba";
         hash = "sha256-2m7bs1A/6BI4AuadfySiMkfT23eZE/msNuMDQLpYPnE=";
       };
     };

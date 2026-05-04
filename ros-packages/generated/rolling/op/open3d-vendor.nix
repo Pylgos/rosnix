@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "open3d_vendor";
-  version = "0.19.0-1";
+  version = "0.19.0-2";
   src = finalAttrs.passthru.sources."open3d_vendor";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libc++-dev" "libx11" "opengl" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "open3d_vendor-source";
         url = "https://github.com/ros2-gbp/open3d_vendor-release.git";
-        rev = "9979797f78d67757f99c70b34cbbfcfa9c738ecb";
+        rev = "3077b8665499e9ab14fb6732c28a9309e169efd3";
         hash = "sha256-sgUxHMnlo1dGcZsPx+fcxg0aGQR7/q2Ov558W4WRlLo=";
       };
       substitutions = [

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_ros_comm_gen";
-  version = "0.1.3-1";
+  version = "0.1.3-2";
   src = finalAttrs.passthru.sources."cx_ros_comm_gen";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python cx-plugin cx-utils pluginlib rclcpp rclcpp-action rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" "python3-jinja2" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_ros_comm_gen-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "2fbde60f125931293f4e08840236e393400f55e0";
+        rev = "56879799f93926905d61fbe5c87bd3fa7e3d9bce";
         hash = "sha256-4aWrUBGGMnHFqEI+ASjw714YruckXpwhbTJHD1wOQBs=";
       };
     };

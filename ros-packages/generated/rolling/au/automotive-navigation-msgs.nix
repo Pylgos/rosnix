@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "automotive_navigation_msgs";
-  version = "3.0.4-5";
+  version = "3.0.4-6";
   src = finalAttrs.passthru.sources."automotive_navigation_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "automotive_navigation_msgs-source";
         url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
-        rev = "c1b8531729a747fe72917cd8fb550c59fde82d26";
+        rev = "83fd6bd0acca7dc6df79addc95c1581a7ac972f1";
         hash = "sha256-N+QDJUyFWyIto9hqSOYNMPTrVLJR+tIO2J4ExUZ27+0=";
       };
     };

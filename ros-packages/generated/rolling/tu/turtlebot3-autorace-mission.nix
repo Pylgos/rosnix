@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_autorace_mission";
-  version = "1.2.2-1";
+  version = "1.2.2-2";
   src = finalAttrs.passthru.sources."turtlebot3_autorace_mission";
   propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ];
   propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ];
@@ -21,7 +21,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_autorace_mission-source";
         url = "https://github.com/ros2-gbp/turtlebot3_autorace-release.git";
-        rev = "b6db27d7c2bccce648f7141035018d60db7de1bf";
+        rev = "6e0dee707a4afbd8c17140e489a9342faad53478";
         hash = "sha256-8OcT9eBNVWMJfIGV+rsoHOZcekaJWHWDVagscHF23pQ=";
       };
     };

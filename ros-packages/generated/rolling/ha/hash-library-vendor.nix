@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hash_library_vendor";
-  version = "0.1.1-6";
+  version = "0.1.1-7";
   src = finalAttrs.passthru.sources."hash_library_vendor";
   nativeBuildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake-auto ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hash_library_vendor-source";
         url = "https://github.com/ros2-gbp/hash_library_vendor-release.git";
-        rev = "3281376fc244edcfe6ce5f9d845e0ab30923d3ba";
+        rev = "c36395db25281bfd5a5774496e883af68372ae83";
         hash = "sha256-/aXRAfmumq2WRfhcS24fzeg13YY+hDi9NQYpVUQNR6w=";
       };
       substitutions = [

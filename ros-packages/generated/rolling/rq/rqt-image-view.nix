@@ -20,20 +20,20 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqt_image_view";
-  version = "2.0.4-1";
+  version = "2.0.5-2";
   src = finalAttrs.passthru.sources."rqt_image_view";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs image-transport qt-gui-cpp rclcpp rqt-gui rqt-gui-cpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qt6-base-dev" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge geometry-msgs image-transport qt-gui-cpp rclcpp rqt-gui rqt-gui-cpp sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqtwidgets" "qt-base-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cv-bridge geometry-msgs image-transport qt-gui-cpp rclcpp rqt-gui rqt-gui-cpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "qt6-base-dev" ]; };
+  propagatedBuildInputs = [ cv-bridge geometry-msgs image-transport qt-gui-cpp rclcpp rqt-gui rqt-gui-cpp sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqtwidgets" "qt-base-dev" ]; };
   checkInputs = [ ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "rqt_image_view" = substituteSource {
       src = fetchgit {
         name = "rqt_image_view-source";
         url = "https://github.com/ros2-gbp/rqt_image_view-release.git";
-        rev = "4dd47f75615a00fbda967a04a2ba4f153559908f";
-        hash = "sha256-mOFV//VPx32XtJaZFUWlSzu8mgsHZRANCCS9336r6AY=";
+        rev = "9ce39500a70a46098cad67d55cca80ff6712981a";
+        hash = "sha256-akCy80A9vRENW+VqkXwNRWp1xpz148Bw5/TLTpA8NkI=";
       };
     };
   });

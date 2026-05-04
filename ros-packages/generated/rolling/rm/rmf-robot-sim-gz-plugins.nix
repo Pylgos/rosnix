@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_robot_sim_gz_plugins";
-  version = "2.6.1-1";
+  version = "2.6.1-2";
   src = finalAttrs.passthru.sources."rmf_robot_sim_gz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ gz-msgs-vendor gz-plugin-vendor gz-rendering-vendor gz-sim-vendor gz-transport-vendor rclcpp rmf-building-map-msgs rmf-building-sim-gz-plugins rmf-dispenser-msgs rmf-fleet-msgs rmf-ingestor-msgs rmf-robot-sim-common ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_robot_sim_gz_plugins-source";
         url = "https://github.com/ros2-gbp/rmf_simulation-release.git";
-        rev = "eff87a3491e5c7354b7c6bde19f4634584e6324e";
+        rev = "f45d2bf5d2557ecc4e784c7151eab06ff135981c";
         hash = "sha256-oW5KnhylrSf5An7KgQMYgNOKhSI1v7vfAaLliZy1zP8=";
       };
     };

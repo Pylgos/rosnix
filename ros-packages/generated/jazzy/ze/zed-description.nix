@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zed_description";
-  version = "0.1.3-1";
+  version = "0.1.4-1";
   src = finalAttrs.passthru.sources."zed_description";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ ament-cmake-auto rviz2 xacro ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zed_description-source";
         url = "https://github.com/ros2-gbp/zed-ros2-description-release.git";
-        rev = "9eb427a486a3a035eb9ea3420fe64d0c119f0e92";
-        hash = "sha256-UQdS6NYrnASDTDdeMvTd70E7gVLOGso4iAc9OWpV7ss=";
+        rev = "1e593ceb45e766f48c102b5c16fc373348c373ba";
+        hash = "sha256-3MIeE+K1uywMIVuHwVcb4WaES+AndkwOy4cSitaU3BQ=";
       };
     };
   });

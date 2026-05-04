@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_generic_sensor";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_generic_sensor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common mrpt-msgs mrpt-sensorlib rclcpp rclcpp-components ros-environment sensor-msgs tf2 tf2-geometry-msgs tf2-ros ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_generic_sensor-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "912608d692ecd64865bce7f823b59418bcf17a1e";
+        rev = "f6977e91e3134931be68e4ba7a912bee146791b9";
         hash = "sha256-ErIbVUMZwkEMrHoMfbeUgw2uH49GuUXgdP7Vwt1iREE=";
       };
     };

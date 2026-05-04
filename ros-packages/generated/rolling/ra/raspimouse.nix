@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "raspimouse";
-  version = "2.0.0-1";
+  version = "2.0.0-2";
   src = finalAttrs.passthru.sources."raspimouse";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs lifecycle-msgs nav-msgs raspimouse-msgs rclcpp rclcpp-components rclcpp-lifecycle std-msgs std-srvs tf2 tf2-ros ];
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "raspimouse-source";
         url = "https://github.com/ros2-gbp/raspimouse2-release.git";
-        rev = "2670fae5937f36191605b500cb24a826a546b976";
+        rev = "7cdddf88da1f21ab95db8c3cafe37495a8b9164b";
         hash = "sha256-PY8swejilTE3aMAvKQSi8dMYKiTMghIN5eWau8FxiWQ=";
       };
     };

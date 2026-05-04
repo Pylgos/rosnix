@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kinova_gen3_lite_moveit_config";
-  version = "0.2.5-1";
+  version = "0.2.5-2";
   src = finalAttrs.passthru.sources."kinova_gen3_lite_moveit_config";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ controller-manager joint-state-publisher joint-state-publisher-gui kortex-description moveit-configs-utils moveit-kinematics moveit-planners moveit-ros-move-group moveit-ros-visualization moveit-ros-warehouse moveit-setup-assistant moveit-simple-controller-manager picknik-reset-fault-controller picknik-twist-controller robot-state-publisher rviz2 rviz-common rviz-default-plugins tf2-ros xacro ];
@@ -42,7 +42,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kinova_gen3_lite_moveit_config-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "fd472b5809f52374abbb6a69558a15dc83c094e4";
+        rev = "9fbfcc4be3d5e3b2737cce5bf6393d61177e0171";
         hash = "sha256-SPc81hzEQ8eNuWKFumLjWHm99+OerLE+kd5+LywKzlo=";
       };
     };

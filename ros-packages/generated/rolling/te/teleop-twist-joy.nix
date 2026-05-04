@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "teleop_twist_joy";
-  version = "2.6.5-1";
+  version = "2.6.5-2";
   src = finalAttrs.passthru.sources."teleop_twist_joy";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs joy rclcpp rclcpp-components sensor-msgs ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "teleop_twist_joy-source";
         url = "https://github.com/ros2-gbp/teleop_twist_joy-release.git";
-        rev = "86c73cf8d334fed232f0b5fd20cc6792aa6d5e9c";
+        rev = "3f2971e71b4133df55edbad55da687ac3a1bd95c";
         hash = "sha256-36fr9S4StqUrQ8sNYPCc2Aeols1aHu0Xv6T9lg0oIp8=";
       };
     };

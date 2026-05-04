@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "game_controller_spl_interfaces";
-  version = "5.0.0-2";
+  version = "5.0.0-3";
   src = finalAttrs.passthru.sources."game_controller_spl_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "game_controller_spl_interfaces-source";
         url = "https://github.com/ros2-gbp/game_controller_spl-release.git";
-        rev = "ebd2a4de996421135ca4258bf1eecbcadc733256";
+        rev = "024870370ad363943ac1094c389519c3e9d2be06";
         hash = "sha256-jkhFuN0rY1PlTTsQEnhQqcTb3M+1LYFQF28JUZlaKJE=";
       };
     };

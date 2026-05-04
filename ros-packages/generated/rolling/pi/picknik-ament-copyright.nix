@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "picknik_ament_copyright";
-  version = "0.0.2-4";
+  version = "0.0.2-5";
   src = finalAttrs.passthru.sources."picknik_ament_copyright";
   propagatedNativeBuildInputs = [ ament-copyright ];
   propagatedBuildInputs = [ ament-copyright ];
@@ -22,7 +22,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "picknik_ament_copyright-source";
         url = "https://github.com/ros2-gbp/picknik_ament_copyright-release.git";
-        rev = "6b7823c44e2f1588d32fcaa65af0d53d9084efbb";
+        rev = "381e00e0ec0b4663646c17baa154838c382f50a8";
         hash = "sha256-zw0URrOQbcL7fo+BgOUHgI0yqf0DDRVGnOOxbJmog48=";
       };
     };

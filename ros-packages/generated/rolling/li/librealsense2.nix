@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "librealsense2";
-  version = "2.57.7-1";
+  version = "2.57.7-2";
   src = finalAttrs.passthru.sources."librealsense2";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "dkms" "git" "libglfw3-dev" "libssl-dev" "libudev-dev" "libusb-1.0-dev" "libx11" "opengl" "pkg-config" "udev" ]; };
@@ -20,7 +20,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "librealsense2-source";
         url = "https://github.com/ros2-gbp/librealsense2-release.git";
-        rev = "2124fd2eca8b58d7dae90a68fd4591b96e33b4a9";
+        rev = "7944c4e0b22ecf2eead797d1153a5c62a73aefcf";
         hash = "sha256-3kKBmYpM045bwNQhZjJQQxxzb+7H+Kv5UPvN9KOf4gs=";
       };
       substitutions = [

@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_pointcloud";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."velodyne_pointcloud";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles diagnostic-updater geometry-msgs message-filters rclcpp rclcpp-components sensor-msgs tf2 tf2-ros velodyne-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" "yaml-cpp" ]; };
@@ -36,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "velodyne_pointcloud-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "55e530db15fc3771b3ea8231616f26e812100a1e";
+        rev = "53b8fe3a3952b5d4f70a6297c0e5f0bcfe0fd657";
         hash = "sha256-1Y2KKTZwRt7Abdc3Z47naRMYPYn/UyMuiTGTj8qw/eA=";
       };
     };

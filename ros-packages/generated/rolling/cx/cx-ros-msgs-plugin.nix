@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_ros_msgs_plugin";
-  version = "0.1.3-1";
+  version = "0.1.3-2";
   src = finalAttrs.passthru.sources."cx_ros_msgs_plugin";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ clips-vendor cx-plugin cx-utils pluginlib rclcpp rcutils rosidl-typesupport-cpp rosidl-typesupport-introspection-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libicu-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_ros_msgs_plugin-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "31700924784b70706c6c59fb3d271fb527949eef";
+        rev = "09dd1590be7acf2aa875306d24e1efb5882f0761";
         hash = "sha256-z4/aZ6nKP+zudC/hEvk7YyyKP6EMdCLu1lC1+F+G4ps=";
       };
     };

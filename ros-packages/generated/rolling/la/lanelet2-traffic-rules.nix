@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lanelet2_traffic_rules";
-  version = "1.2.1-6";
+  version = "1.2.1-7";
   src = finalAttrs.passthru.sources."lanelet2_traffic_rules";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ lanelet2-core mrt-cmake-modules ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lanelet2_traffic_rules-source";
         url = "https://github.com/ros2-gbp/lanelet2-release.git";
-        rev = "d6fd6456b876951728965f2c46963305ba532373";
+        rev = "3642506960413df06b38b229b9b5e0bcd453bf4c";
         hash = "sha256-4z23mvgIB58yuFaSmCW3z5im50f74rrIYVTXxo8XYRA=";
       };
     };

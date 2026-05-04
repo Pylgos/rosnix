@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_socketcan_msgs";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."ros2_socketcan_msgs";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_socketcan_msgs-source";
         url = "https://github.com/ros2-gbp/ros2_socketcan-release.git";
-        rev = "181e851e78d05f6211aef8b74e106d09979bebbd";
+        rev = "97b02741277b86a18cb70b8660f749abd87b8599";
         hash = "sha256-CdTyUOxtcJWtdaWIWAMV8DBwNPVcpobmkdjvFqDo8xE=";
       };
     };

@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flex_sync";
-  version = "2.0.1-1";
+  version = "2.0.1-2";
   src = finalAttrs.passthru.sources."flex_sync";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-clang-format rclcpp rclcpp-components rosidl-default-runtime ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flex_sync-source";
         url = "https://github.com/ros2-gbp/flex_sync-release.git";
-        rev = "43022ff282e84dcbef6d30b08f4b1eadde135620";
+        rev = "5ae788b63c7902694cec83d6c3faf04ec018475b";
         hash = "sha256-GQfvPJLxgnCOYtZefMA54E/Gy+1Nhcv+kISbR0BsRR0=";
       };
     };

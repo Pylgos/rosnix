@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "tf_tree_terminal";
-  version = "2.0.0-2";
+  version = "2.0.0-3";
   src = finalAttrs.passthru.sources."tf_tree_terminal";
   propagatedNativeBuildInputs = [ geometry-msgs rclpy tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ geometry-msgs rclpy tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
@@ -25,7 +25,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "tf_tree_terminal-source";
         url = "https://github.com/ros2-gbp/tf_tree_terminal-release.git";
-        rev = "5e39bf80eff93338489e0bd8defc44e9a6fd231d";
+        rev = "64740c059d0628c7580a18478886b28e5d914a36";
         hash = "sha256-XN3y8sMAoJacZHN5BawA4ziMa3yTNef84t2UxuFodyM=";
       };
     };

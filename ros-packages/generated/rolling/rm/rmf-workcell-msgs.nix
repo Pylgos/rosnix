@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_workcell_msgs";
-  version = "4.0.0-1";
+  version = "4.0.0-2";
   src = finalAttrs.passthru.sources."rmf_workcell_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_workcell_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_internal_msgs-release.git";
-        rev = "5a833f07282c6051bb17719b1464442e17b03ec6";
+        rev = "4b56ffb8cd9f965c43cf9708bac65abda1f70b68";
         hash = "sha256-cxWW7CpKQ72HTI283rwiKe8Mf4Q7MGwRkGlG1i/ofsE=";
       };
     };

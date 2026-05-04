@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_sigslots";
-  version = "1.2.1-4";
+  version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_sigslots";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-license ecl-threads ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_sigslots-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
-        rev = "bf1c66ab1688b4bf9d7051d232c5142eceb2d7fa";
+        rev = "5f2a84429dedfa87056bc675b9fbb2c0bba6664f";
         hash = "sha256-c5lvTwI1CTmfeMKJsCuyr/ilN2KWeABt+RYdAxB9cdI=";
       };
     };

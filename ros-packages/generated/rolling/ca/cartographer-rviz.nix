@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cartographer_rviz";
-  version = "2.0.9003-1";
+  version = "2.0.9003-2";
   src = finalAttrs.passthru.sources."cartographer_rviz";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cartographer cartographer-ros cartographer-ros-msgs pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libabsl-dev" "libboost-iostreams-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cartographer_rviz-source";
         url = "https://github.com/ros2-gbp/cartographer_ros-release.git";
-        rev = "bbfcf90c36c5c15f560b572c98f886d744b51253";
+        rev = "ad227fa4c297d75e6568e055080363abc3fa3f27";
         hash = "sha256-HBhTH+7iZCDSV9zi8Okp+MFALOAAQc3TV+szBXmIvPU=";
       };
     };

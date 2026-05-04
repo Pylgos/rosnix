@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "marine_sensor_msgs";
-  version = "2.1.0-1";
+  version = "2.1.0-2";
   src = finalAttrs.passthru.sources."marine_sensor_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime std-msgs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "marine_sensor_msgs-source";
         url = "https://github.com/ros2-gbp/marine_msgs-release.git";
-        rev = "6f590f0215eed16a5322ee9086dcabf6e555f00f";
+        rev = "e6d1fcc862bf2c628045205175c8c679724727fc";
         hash = "sha256-D0FezQ0OVWOXoPzNWC1TM9TGTcHR8hhUTXBz6uEQBnw=";
       };
     };

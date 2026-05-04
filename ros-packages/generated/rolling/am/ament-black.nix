@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_black";
-  version = "0.2.6-1";
+  version = "0.2.6-2";
   src = finalAttrs.passthru.sources."ament_black";
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "black" "python3-unidiff" "python3-uvloop" ]; };
   propagatedBuildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "black" "python3-unidiff" "python3-uvloop" ]; };
@@ -23,7 +23,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_black-source";
         url = "https://github.com/ros2-gbp/ament_black-release.git";
-        rev = "e327a9bfe96798c1878fd4b0e0d43ee201d73757";
+        rev = "9b2a1ab6aba90f22c152e03e2511a1d43827075c";
         hash = "sha256-CVThJWwGw8u3uwsE3Z5CF7BueCI08EkNe+eW6X/copE=";
       };
     };

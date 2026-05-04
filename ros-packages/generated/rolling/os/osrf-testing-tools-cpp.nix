@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "osrf_testing_tools_cpp";
-  version = "2.3.0-1";
+  version = "2.3.0-2";
   src = finalAttrs.passthru.sources."osrf_testing_tools_cpp";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   buildInputs = rosSystemPackages.getPackages { forBuildInputs = [ "cmake" ]; };
@@ -18,7 +18,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "osrf_testing_tools_cpp-source";
         url = "https://github.com/ros2-gbp/osrf_testing_tools_cpp-release.git";
-        rev = "ade6204a09441ccd0f307e04aad037d4c88346ac";
+        rev = "85d980879cc40463878b9028de4cfcd09745d9d0";
         hash = "sha256-HDCWEfbkiF68HzE2hj1QR/Wk3/YdZSNbM/o5WECCH+8=";
       };
     };

@@ -10,7 +10,7 @@
 }:
 buildCatkinPackage (finalAttrs: {
   pname = "menge_vendor";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."menge_vendor";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" "tinyxml" ]; };
@@ -21,7 +21,7 @@ buildCatkinPackage (finalAttrs: {
       src = fetchgit {
         name = "menge_vendor-source";
         url = "https://github.com/ros2-gbp/menge_vendor-release.git";
-        rev = "cb01b076660d10b31575cfc16bbf4b1d828d18ea";
+        rev = "438d286440c346049afbc90c256f9b746ebca232";
         hash = "sha256-S+Ns9vIuul9KZVyxvo98m4TJAMvJzj0WWPzIwq/RTuc=";
       };
     };

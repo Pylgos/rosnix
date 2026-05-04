@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "automotive_platform_msgs";
-  version = "3.0.4-5";
+  version = "3.0.4-6";
   src = finalAttrs.passthru.sources."automotive_platform_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "automotive_platform_msgs-source";
         url = "https://github.com/ros2-gbp/automotive_autonomy_msgs-release.git";
-        rev = "4e9bb5fba5ecceab04c7735889f0c0bf9c6cc2b1";
+        rev = "1b30265a1341aa1f4992496f4dfdbfd80ec4537a";
         hash = "sha256-HMhXhLS41h9P1STIbuEdhOgxNORj/YJrfDldGKeMKfA=";
       };
     };

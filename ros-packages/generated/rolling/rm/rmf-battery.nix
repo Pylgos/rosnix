@@ -14,7 +14,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rmf_battery";
-  version = "0.4.0-1";
+  version = "0.4.0-2";
   src = finalAttrs.passthru.sources."rmf_battery";
   nativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ rmf-traffic rmf-utils ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -26,7 +26,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_battery-source";
         url = "https://github.com/ros2-gbp/rmf_battery-release.git";
-        rev = "ddc66e4bb0a4cbac3cb8ca9ab9f582d926f7c010";
+        rev = "a092da82a5bfac7a0b9687d36b9739924820717f";
         hash = "sha256-WIXozbzHKKM/cuaQ/TCIvi3ErLMNIqkBRHSECO1zhSE=";
       };
     };

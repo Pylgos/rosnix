@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "executive_smach";
-  version = "3.0.3-2";
+  version = "3.0.3-3";
   src = finalAttrs.passthru.sources."executive_smach";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ smach smach-msgs smach-ros ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "executive_smach-source";
         url = "https://github.com/ros2-gbp/executive_smach-release.git";
-        rev = "d89d702228daab0e0f1aff6dd3c57b70cb37a998";
+        rev = "726cbddc8c1baf2c58dd96fab330acb23818af5b";
         hash = "sha256-68w8XZNadjLJdkgr+OVVW8Stg9rqS5wqQgYUxlZtOo0=";
       };
     };

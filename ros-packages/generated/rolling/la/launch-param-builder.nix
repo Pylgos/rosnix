@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_param_builder";
-  version = "0.1.1-3";
+  version = "0.1.1-4";
   src = finalAttrs.passthru.sources."launch_param_builder";
   propagatedNativeBuildInputs = [ ament-index-python rclpy xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy xacro ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
@@ -23,7 +23,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_param_builder-source";
         url = "https://github.com/ros2-gbp/launch_param_builder-release.git";
-        rev = "b9145c2de22b34398e95e98611218b7da38f4b3b";
+        rev = "c482401a4184d0084cc5fecbec7625da76712eab";
         hash = "sha256-5wzPO7Vg6sA7heEmRxiLcDbilS5YyieLi8fBrtcJe/g=";
       };
     };

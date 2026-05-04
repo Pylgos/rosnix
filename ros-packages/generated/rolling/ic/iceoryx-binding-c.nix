@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "iceoryx_binding_c";
-  version = "2.0.5-5";
+  version = "2.0.6-1";
   src = finalAttrs.passthru.sources."iceoryx_binding_c";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ iceoryx-hoofs iceoryx-posh ];
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "iceoryx_binding_c-source";
         url = "https://github.com/ros2-gbp/iceoryx-release.git";
-        rev = "b786ef1c655328235deb93898624923fd00444f9";
-        hash = "sha256-MK/r8dSrJHO5SjuOTcRVaAOT5E8CXs0vOCivgRvoAbA=";
+        rev = "5fce790143d8ece31178fe3dfde6dbb50b1f9999";
+        hash = "sha256-Ft8eQOk+FEbpxCS2MErg3iX/9u5lfqtmtUACWtfUE3k=";
       };
     };
   });

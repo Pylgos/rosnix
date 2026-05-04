@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mujoco_ros2_control";
-  version = "0.0.2-1";
+  version = "0.0.2-2";
   src = finalAttrs.passthru.sources."mujoco_ros2_control";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ backward-ros control-toolbox controller-manager hardware-interface mujoco-ros2-control-msgs mujoco-ros2-control-plugins mujoco-vendor nav-msgs pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake sensor-msgs transmission-interface ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libglfw3-dev" "python3-pip" "python3-pykdl" "python3-venv" ]; };
@@ -39,7 +39,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mujoco_ros2_control-source";
         url = "https://github.com/ros2-gbp/mujoco_ros2_control-release.git";
-        rev = "ec9346d463e7e3419963ed7e80121b238f99c093";
+        rev = "ba7a5effda15ecd346ddd19e3f1320e517ebc35a";
         hash = "sha256-dg6mTJgGY63Vxehqkrg2k2jbz/fGAGJ2zGDXPkJdmrc=";
       };
       substitutions = [

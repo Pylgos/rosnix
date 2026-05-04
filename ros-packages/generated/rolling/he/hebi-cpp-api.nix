@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hebi_cpp_api";
-  version = "3.16.0-1";
+  version = "3.16.0-2";
   src = finalAttrs.passthru.sources."hebi_cpp_api";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hebi_cpp_api-source";
         url = "https://github.com/ros2-gbp/hebi_cpp_api-release.git";
-        rev = "fa3120f21fe193c6a678e80969148a03810fc36f";
+        rev = "2a7f94337c7adffa31e3b390f013a6ef7b0885c6";
         hash = "sha256-oP3CRGt060tcfziESn5ul0Dju+kzKGzGDnXGdKQXbNo=";
       };
     };

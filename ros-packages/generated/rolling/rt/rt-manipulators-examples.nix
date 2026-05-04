@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rt_manipulators_examples";
-  version = "1.0.0-3";
+  version = "1.0.0-4";
   src = finalAttrs.passthru.sources."rt_manipulators_examples";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rt-manipulators-cpp ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rt_manipulators_examples-source";
         url = "https://github.com/ros2-gbp/rt_manipulators_cpp-release.git";
-        rev = "39e0ef864ab63defcde598d3c0007bba775f4018";
+        rev = "f73aaa0628bec65316bafa3c9abbae83554d32b2";
         hash = "sha256-dHVhmshZaD7z/hfD5tLkvXw6mehXEQSlivgKwLZ4YZM=";
       };
     };

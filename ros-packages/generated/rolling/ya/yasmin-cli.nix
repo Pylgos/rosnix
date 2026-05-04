@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "yasmin_cli";
-  version = "5.0.0-1";
+  version = "5.0.0-2";
   src = finalAttrs.passthru.sources."yasmin_cli";
   propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli yasmin yasmin-factory yasmin-plugins-manager ];
   propagatedBuildInputs = [ ament-index-python rclpy ros2cli yasmin yasmin-factory yasmin-plugins-manager ];
@@ -24,7 +24,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin_cli-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "4c0d047fdd45dbed64470c09f294e97a2809bc63";
+        rev = "fba6ae4567045583bcb974c59a706c1972407a8e";
         hash = "sha256-uyxPRFt2HZMajDficGBxpHqwXbY9l2zUrkZOBgLipFY=";
       };
     };

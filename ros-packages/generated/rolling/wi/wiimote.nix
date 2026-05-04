@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "wiimote";
-  version = "3.3.0-2";
+  version = "3.3.0-3";
   src = finalAttrs.passthru.sources."wiimote";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs std-msgs std-srvs wiimote-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cwiid" "cwiid-dev" "libbluetooth" "libbluetooth-dev" ]; };
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "wiimote-source";
         url = "https://github.com/ros2-gbp/joystick_drivers-release.git";
-        rev = "460a47897ace5cf34e38e7ad3435ddc5929bb094";
+        rev = "118416a052882de4eeb8994d624e73e50309dd00";
         hash = "sha256-WghWanmw0GXmNOdR/EHg1/ytIXNtIKstCe5hSIgpQ/s=";
       };
     };

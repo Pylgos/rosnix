@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rclpy_message_converter";
-  version = "2.0.2-1";
+  version = "2.0.2-2";
   src = finalAttrs.passthru.sources."rclpy_message_converter";
   propagatedNativeBuildInputs = [ builtin-interfaces rclpy rosidl-default-generators rosidl-parser rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ builtin-interfaces rclpy rosidl-default-generators rosidl-parser rosidl-runtime-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
@@ -32,7 +32,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rclpy_message_converter-source";
         url = "https://github.com/ros2-gbp/rospy_message_converter-release.git";
-        rev = "5587c3cd28283f952dafc544143aef02f38532fc";
+        rev = "6b7b6a1982e4a6a7295247f8285b8416f2bef89a";
         hash = "sha256-DCqqMbmIIzPN9jyxeYneVEa6gg9iyDFuE/X1iv9EYPk=";
       };
     };

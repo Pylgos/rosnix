@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aws_sdk_cpp_vendor";
-  version = "0.2.1-2";
+  version = "0.2.1-3";
   src = finalAttrs.passthru.sources."aws_sdk_cpp_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "curl" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "libssl-dev" "zlib" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aws_sdk_cpp_vendor-source";
         url = "https://github.com/ros2-gbp/aws_sdk_cpp_vendor-release.git";
-        rev = "a14ef6b13a8f54a7837b87fdfe694547ebfc079c";
+        rev = "1dcef012f25ad7c61af283d8ac22bd61a6135494";
         hash = "sha256-y9V12GcuRTRxl5BbMVNzmPIoC3qIhoGQhgK3kjmd1xs=";
       };
       substitutions = [

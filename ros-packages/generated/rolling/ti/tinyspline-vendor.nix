@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tinyspline_vendor";
-  version = "0.6.1-1";
+  version = "0.6.1-2";
   src = finalAttrs.passthru.sources."tinyspline_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tinyspline_vendor-source";
         url = "https://github.com/ros2-gbp/tinyspline_vendor-release.git";
-        rev = "7111e62de13b24ad4ce963d3ad82031459ec9a02";
+        rev = "9b03164aadc3b9b757b6ee93d98b9007e7add9bf";
         hash = "sha256-mQi06924EtNw7quRVGSQDJ2EFYqUCOsq37JO/eH/gJE=";
       };
       substitutions = [

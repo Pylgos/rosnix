@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_building_map_msgs";
-  version = "1.5.0-1";
+  version = "1.5.0-2";
   src = finalAttrs.passthru.sources."rmf_building_map_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs rosidl-default-runtime ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_building_map_msgs-source";
         url = "https://github.com/ros2-gbp/rmf_building_map_msgs-release.git";
-        rev = "e409acc4f2091d16a17a0a012be4ad2c5186e5e5";
+        rev = "6d117c5237c40469f12108ec403490c9652cf8e5";
         hash = "sha256-panz5UM+k9FD/nfgBmSl6D13IlI/AjxpDJlGjI0IaZs=";
       };
     };

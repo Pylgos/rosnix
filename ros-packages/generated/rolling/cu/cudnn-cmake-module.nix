@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cudnn_cmake_module";
-  version = "0.0.1-5";
+  version = "0.0.1-6";
   src = finalAttrs.passthru.sources."cudnn_cmake_module";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cudnn_cmake_module-source";
         url = "https://github.com/ros2-gbp/cudnn_cmake_module-release.git";
-        rev = "3eff7fe9a96110e4aa89965dc7f62c4287e50c80";
+        rev = "539571d50cedeffd4b95168e0824f222f232f523";
         hash = "sha256-J6BqQzZzZMC0MVQ5oJCXgXu5fzoPlV+JErISeIuss6I=";
       };
       substitutions = [

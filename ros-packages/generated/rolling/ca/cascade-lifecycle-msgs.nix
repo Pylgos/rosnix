@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cascade_lifecycle_msgs";
-  version = "2.0.4-1";
+  version = "2.0.4-2";
   src = finalAttrs.passthru.sources."cascade_lifecycle_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces lifecycle-msgs rosidl-default-runtime ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cascade_lifecycle_msgs-source";
         url = "https://github.com/ros2-gbp/cascade_lifecycle-release.git";
-        rev = "4d9181445ad6380c5e982bbe90fe0239808cac9f";
+        rev = "ea576703013828c4de716df2086576f30ee9fd2e";
         hash = "sha256-dSN04MLPNKTxfvpT2Wul+ln6Ans91RxqYXtxZjzOgjI=";
       };
     };

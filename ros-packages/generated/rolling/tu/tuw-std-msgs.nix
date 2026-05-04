@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tuw_std_msgs";
-  version = "0.2.6-1";
+  version = "0.2.6-2";
   src = finalAttrs.passthru.sources."tuw_std_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tuw_std_msgs-source";
         url = "https://github.com/ros2-gbp/tuw_msgs-release.git";
-        rev = "f9cccd006b9b6aca25bf96ccc97798599fc6c5a6";
+        rev = "8507d48992c634be98161a605a6fda2df551965e";
         hash = "sha256-trhVzxgGPtabdq2FWolCnufNpRpQS+V5QxqSMY02LL8=";
       };
     };

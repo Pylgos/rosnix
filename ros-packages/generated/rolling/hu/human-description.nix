@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "human_description";
-  version = "2.0.2-1";
+  version = "2.0.2-2";
   src = finalAttrs.passthru.sources."human_description";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ launch launch-pal launch-param-builder launch-ros xacro ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "human_description-source";
         url = "https://github.com/ros2-gbp/human_description-release.git";
-        rev = "f8aeb8342031398f40efbb6407ab8e6adb068809";
+        rev = "6eac89c0d999913707a1a696dc33eaea227d852c";
         hash = "sha256-qKZ/Ym6+oLJmYECE6OClZuKKhi4uMU0GptbQwAOzcHs=";
       };
     };

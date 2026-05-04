@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "joint_state_publisher";
-  version = "2.4.1-1";
+  version = "2.4.1-2";
   src = finalAttrs.passthru.sources."joint_state_publisher";
   propagatedNativeBuildInputs = [ rclpy sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-packaging" ]; };
   propagatedBuildInputs = [ rclpy sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-packaging" ]; };
@@ -29,7 +29,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "joint_state_publisher-source";
         url = "https://github.com/ros2-gbp/joint_state_publisher-release.git";
-        rev = "65ad681c67154ba348e6229ed3b208a2a717271c";
+        rev = "d4506fe7d58586a3ae63f6e388721b366f3139ae";
         hash = "sha256-MECmuBQRqeyewXoG7F9C8YqVVzaJN0Q7GJc6nOh9wvE=";
       };
     };

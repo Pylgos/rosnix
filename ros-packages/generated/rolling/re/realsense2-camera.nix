@@ -36,7 +36,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "realsense2_camera";
-  version = "4.57.7-1";
+  version = "4.57.7-2";
   src = finalAttrs.passthru.sources."realsense2_camera";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces cv-bridge diagnostic-updater geometry-msgs image-transport launch-ros librealsense2 lifecycle-msgs nav-msgs rclcpp rclcpp-components rclcpp-lifecycle realsense2-camera-msgs ros-environment sensor-msgs std-msgs std-srvs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -48,8 +48,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "realsense2_camera-source";
         url = "https://github.com/ros2-gbp/realsense-ros-release.git";
-        rev = "cffca57b120c1fcb02a2677cd1cec3a707095ccc";
-        hash = "sha256-0a7z4jyfD5pPID/5rLAfs3mvqwJc2/eT8qdDxFMS6y0=";
+        rev = "3d19323166b09c0dc7dd2bb1af66517c61e596b5";
+        hash = "sha256-d5NS3wUOaW6bFXBPInpZdZQNtamFD3jj+sFf8RUkbxQ=";
       };
     };
   });

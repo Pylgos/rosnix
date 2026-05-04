@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "soccer_vision_3d_msgs";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."soccer_vision_3d_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime soccer-vision-attribute-msgs vision-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "soccer_vision_3d_msgs-source";
         url = "https://github.com/ros2-gbp/soccer_interfaces-release.git";
-        rev = "72599c545ef722b418ffd81f89a3f171b17454c4";
+        rev = "e93ad53922f04ec6bc58eebea9b8bb0ce3aecea5";
         hash = "sha256-mefLwquylSQ8WewNihJ2SMPAIUXP2T1Ye+Q7n9q7b8c=";
       };
     };

@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "common_interfaces";
-  version = "5.9.2-1";
+  version = "5.9.2-2";
   src = finalAttrs.passthru.sources."common_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs ];
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "common_interfaces-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "869eb9706cd0d2fbc370e2a4eb39748f0c3c230b";
+        rev = "fceb7196c8fdb741f9c862bb6adae29cf951f5c8";
         hash = "sha256-UP6EUnqb/O/4RK2OTfFYp7sHTYclMe7SmHmE42SETu4=";
       };
     };

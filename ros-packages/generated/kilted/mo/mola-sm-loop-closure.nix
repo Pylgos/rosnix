@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_sm_loop_closure";
-  version = "1.0.0-1";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."mola_sm_loop_closure";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gtsam mola-common mola-georeferencing mola-gtsam-factors mola-pose-list mola-relocalization mola-yaml mp2p-icp mrpt-libgui mrpt-libmaps mrpt-libtclap ros-environment ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_sm_loop_closure-source";
         url = "https://github.com/ros2-gbp/mola_sm_loop_closure-release.git";
-        rev = "748c0ad8cb86fd6c1134ae91c62a7e73d6ab6d6e";
-        hash = "sha256-H9UoZnNsXQUaeOrslnKvb7bJdEd5NKifPTNamvg6PjA=";
+        rev = "c914120a10b42346410ad90d5c8b857baf7e5fa4";
+        hash = "sha256-emosaNFBAcc5VsyqVrcIqEfoE1NlarawEVeRo49od8g=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "at_sonde_ros_driver";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."at_sonde_ros_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libmodbus-dev" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "at_sonde_ros_driver-source";
         url = "https://github.com/ros2-gbp/at_sonde_ros_driver-release.git";
-        rev = "1313719451ed16d917f1ec4270119286e5d15101";
+        rev = "6a03b3b58c5cb40bbe2d080fe9958284622b9934";
         hash = "sha256-8x0Hty4JchTfD8YKkgnt52OZJWVfAOR+WnRSUmIvqUk=";
       };
     };

@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "bno055";
-  version = "0.5.0-2";
+  version = "0.5.0-3";
   src = finalAttrs.passthru.sources."bno055";
   propagatedNativeBuildInputs = [ example-interfaces rclpy std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-serial" "python3-smbus" ]; };
   propagatedBuildInputs = [ example-interfaces rclpy std-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-serial" "python3-smbus" ]; };
@@ -25,7 +25,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "bno055-source";
         url = "https://github.com/ros2-gbp/bno055-release.git";
-        rev = "4e2ddd17b62b2c95d01aae53e8a9f2cdbccbe30c";
+        rev = "beec2a60caaea5a527c5deb024cbf27ac471aeed";
         hash = "sha256-C8wFVPMD9UXtgtXX3T4ERtwtrr1IKIwYwiGzp1XWbS4=";
       };
     };

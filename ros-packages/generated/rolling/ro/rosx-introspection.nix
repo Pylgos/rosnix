@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosx_introspection";
-  version = "2.3.0-1";
+  version = "2.3.0-2";
   src = finalAttrs.passthru.sources."rosx_introspection";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rosbag2-cpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "rapidjson-dev" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosx_introspection-source";
         url = "https://github.com/ros2-gbp/rosx_introspection-release.git";
-        rev = "b0bedf0b5939c85ce69b55523ba8e701a5119bf9";
+        rev = "11408069a905e3adc32f80d2f7627ea468d1230d";
         hash = "sha256-TCDz2YSiQI+A+li2YMC2UAwhUzp4bwiSYsw2K/p50Dc=";
       };
       substitutions = [

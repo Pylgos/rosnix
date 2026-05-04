@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ackermann_nlmpc";
-  version = "1.0.3-1";
+  version = "1.0.3-2";
   src = finalAttrs.passthru.sources."ackermann_nlmpc";
   propagatedNativeBuildInputs = [ ackermann-msgs ackermann-nlmpc-msgs geometry-msgs nav-msgs std-msgs ];
   propagatedBuildInputs = [ ackermann-msgs ackermann-nlmpc-msgs geometry-msgs nav-msgs std-msgs ];
@@ -25,7 +25,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ackermann_nlmpc-source";
         url = "https://github.com/ros2-gbp/ackmerann_nlmpc-release.git";
-        rev = "3e0aadc97be46ee9459f52f8feeebad709fb1351";
+        rev = "89c84ac82e295059146ef6c26417b55114c5a60d";
         hash = "sha256-3PYdEeWFNRR5cJGUH8E/35tT4O8dZrRTrwpX8pFQHUM=";
       };
     };

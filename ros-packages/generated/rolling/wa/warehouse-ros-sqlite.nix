@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "warehouse_ros_sqlite";
-  version = "1.0.7-1";
+  version = "1.0.7-2";
   src = finalAttrs.passthru.sources."warehouse_ros_sqlite";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ class-loader rclcpp warehouse-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "libsqlite3-dev" ]; };
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "warehouse_ros_sqlite-source";
         url = "https://github.com/ros2-gbp/warehouse_ros_sqlite-release.git";
-        rev = "c99d71b70635ac5616aa0778643366c04d6634fb";
+        rev = "a5c2b95332b78e6818ca756c0459e1a488be3b20";
         hash = "sha256-YaNWLSSyY0atVzBQABKqmnxy6uzy6R70Ui410qXZiYk=";
       };
     };

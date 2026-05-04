@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vision_opencv";
-  version = "4.1.0-1";
+  version = "4.1.0-2";
   src = finalAttrs.passthru.sources."vision_opencv";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge image-geometry ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vision_opencv-source";
         url = "https://github.com/ros2-gbp/vision_opencv-release.git";
-        rev = "644863a3ee32533e12bc5ce511a5cdb41ae27620";
+        rev = "782aca5a31aa71045831ae1c674d2a7d8f194153";
         hash = "sha256-PwJir9LBkybRtAwNZwGQr1ZxvFm4f+Id0qbqJNMEokk=";
       };
     };

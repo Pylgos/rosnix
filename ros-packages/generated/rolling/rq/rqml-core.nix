@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqml_core";
-  version = "3.26.42-1";
+  version = "3.26.42-2";
   src = finalAttrs.passthru.sources."rqml_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp qml6-ros2-plugin yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6-qml" "libqt6-quick" "nlohmann-json-dev" "opengl" "qml6-module-qtcore" "qml6-module-qtqml-models" "qml6-module-qtqml-workerscript" "qml6-module-qtquick-controls" "qml6-module-qtquick-layouts" "qml6-module-qtquick-templates" "qml6-module-qtquick-window" "qt6-base-dev" "qt6-base-private-dev" "qt6-declarative-dev" "qt6-declarative-private-dev" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqml_core-source";
         url = "https://github.com/ros2-gbp/rqml-release.git";
-        rev = "34c68a9e6fabfb9be0b5000c502951fb3c670a51";
+        rev = "b91dc85d56f2b0b1a7d157db35aa60c517980db6";
         hash = "sha256-22DSTxT6LrVRG23TsLqq/Ke38p6wCeVgU+z1UgbIe4E=";
       };
     };

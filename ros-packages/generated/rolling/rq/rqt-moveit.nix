@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_moveit";
-  version = "1.0.1-4";
+  version = "1.0.1-5";
   src = finalAttrs.passthru.sources."rqt_moveit";
   nativeBuildInputs = [ rosidl-default-generators ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [ python-qt-binding rclpy rqt-gui rqt-gui-py rqt-py-common rqt-topic sensor-msgs ];
@@ -28,7 +28,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_moveit-source";
         url = "https://github.com/ros2-gbp/rqt_moveit-release.git";
-        rev = "77d26a0f8c1dbfb5f7e482933936a95ff0173b5d";
+        rev = "7ae57f0a7c3d2b2cb8c95f8730cf8ef00e65cd69";
         hash = "sha256-A4bGoHfpokKaYjSrBzvtYgzyf6sJGECfPJCIM0iZgYU=";
       };
     };

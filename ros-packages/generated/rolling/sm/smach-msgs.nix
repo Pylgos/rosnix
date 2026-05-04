@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "smach_msgs";
-  version = "3.0.3-2";
+  version = "3.0.3-3";
   src = finalAttrs.passthru.sources."smach_msgs";
   nativeBuildInputs = [ ament-cmake ament-cmake-cppcheck ament-cmake-flake8 ament-cmake-pep257 rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime std-msgs ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "smach_msgs-source";
         url = "https://github.com/ros2-gbp/executive_smach-release.git";
-        rev = "83933fda82d1988b25b47aa3772f208274fa1f2b";
+        rev = "f9f5e904f2dfbe2b4e51af04cb5252b9bd56c571";
         hash = "sha256-GO/kVPGJMyEujXHxScev2o0WXzzzWX0rZHWTMJTPCwg=";
       };
     };

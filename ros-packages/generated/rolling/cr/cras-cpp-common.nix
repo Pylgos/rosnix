@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cras_cpp_common";
-  version = "3.0.2-1";
+  version = "3.0.2-2";
   src = finalAttrs.passthru.sources."cras_cpp_common";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ backward-ros builtin-interfaces rcl rclcpp rclcpp-components rcutils rmw tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "language-pack-en" "libboost-dev" "libexpected-dev" ]; };
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cras_cpp_common-source";
         url = "https://github.com/ros2-gbp/cras_ros_utils-release.git";
-        rev = "95643ee54d2b00e8c585e83cca201df3d71bee07";
+        rev = "6365c15c66df87bf8c7652be4feb9ff449eb11a1";
         hash = "sha256-CqmkHwhbNQ/GRLX684iAj9a41vFISUKpUoZENdrBvPY=";
       };
     };

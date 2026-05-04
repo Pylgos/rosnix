@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "aruco_opencv";
-  version = "6.1.1-1";
+  version = "6.1.1-2";
   src = finalAttrs.passthru.sources."aruco_opencv";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ aruco-opencv-msgs cv-bridge image-transport rclcpp rclcpp-components rclcpp-lifecycle tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-img2pdf" "python3-numpy" "python3-opencv" "yaml-cpp" ]; };
@@ -36,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "aruco_opencv-source";
         url = "https://github.com/ros2-gbp/aruco_opencv-release.git";
-        rev = "4b543e6d8b77fc9a7b2b08dc79e024e86eedd10d";
+        rev = "260dbff3f9da8c459f4f32c1c8a2181e9f797534";
         hash = "sha256-La8ZCTtOHYkVo435Bj1x7oeM2dfWAJnMFIWfe9F9oQ0=";
       };
     };

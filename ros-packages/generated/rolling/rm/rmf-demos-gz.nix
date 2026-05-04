@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_demos_gz";
-  version = "2.8.2-2";
+  version = "2.8.2-3";
   src = finalAttrs.passthru.sources."rmf_demos_gz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ launch-xml rmf-building-sim-gz-plugins rmf-demos rmf-robot-sim-gz-plugins ros2launch ros-gz-bridge ros-gz-sim teleop-twist-keyboard ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_demos_gz-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-        rev = "4256b02b420e254101a2d640242bc30cc35652ba";
+        rev = "88be315655b43ee4c52514fb918f5fb527164865";
         hash = "sha256-MOET88g76YGZ3Yg6ICYRFZkZvUZhBq7w5dM4YnPH6bc=";
       };
     };

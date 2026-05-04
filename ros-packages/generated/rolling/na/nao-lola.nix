@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nao_lola";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."nao_lola";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nao-command-msgs nao-sensor-msgs rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nao_lola-source";
         url = "https://github.com/ros2-gbp/nao_lola-release.git";
-        rev = "118cf9006f0df881ecfd36e5d42c76f15c8b2637";
+        rev = "22350fa323a0535c36014cc53e5430eacc0903eb";
         hash = "sha256-4PYS6ui19PLLdGv3RK/Yocfe4mLcF7codg2N1R+L2NM=";
       };
     };

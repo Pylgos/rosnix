@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ntpd_driver";
-  version = "2.3.0-1";
+  version = "2.3.0-2";
   src = finalAttrs.passthru.sources."ntpd_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libpoco-dev" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ntpd_driver-source";
         url = "https://github.com/ros2-gbp/ntpd_driver-release.git";
-        rev = "45fb11bf92fe23badf0b7074dff58d15cd3b22f3";
+        rev = "64b0a6a4ea612211014835b783a0123e9658dd39";
         hash = "sha256-huEfbntKtOybpfPBm/ZCLtg1pgZSM4lsVO5KFGWwWEU=";
       };
     };

@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2launch_security";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."ros2launch_security";
   propagatedNativeBuildInputs = [ ament-index-python nodl-python ros2launch sros2 ];
   propagatedBuildInputs = [ ament-index-python nodl-python ros2launch sros2 ];
@@ -28,7 +28,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2launch_security-source";
         url = "https://github.com/ros2-gbp/ros2launch_security-release.git";
-        rev = "43e55f1907071b6ac525d871539b6a3a8b9f11ca";
+        rev = "c5db7ce6c66069b11f75bd12efef5659ddf95448";
         hash = "sha256-MM1mvGLVBpSePXEUKQScahRPpulucGxMTaTp+jSKbNo=";
       };
     };

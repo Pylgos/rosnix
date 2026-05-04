@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sol_vendor";
-  version = "0.0.3-4";
+  version = "0.0.3-5";
   src = finalAttrs.passthru.sources."sol_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sol_vendor-source";
         url = "https://github.com/ros2-gbp/sol_vendor-release.git";
-        rev = "4ea37ff0118e62b1f8577475d5389ee754adc7ef";
-        hash = "sha256-KyC2VV3zPu3hKaonkepXXm9mAKqTakBjLDSdKBEh4Os=";
+        rev = "0148395e4e594c9bec4d7a2c6b405778b5ac7bab";
+        hash = "sha256-Emz+WbD1f/ZjNKqaAetVonSfn2LP2pNftxO3qQ6FrpY=";
       };
       substitutions = [
         {

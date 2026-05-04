@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "system_modes";
-  version = "0.9.0-5";
+  version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces launch-ros rclcpp rclcpp-lifecycle system-modes-msgs ];
@@ -39,7 +39,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "system_modes-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
-        rev = "a0f0d51ec9e8a39de107a8403f4969a62e2d9413";
+        rev = "e084949933959f7f8221e53d63814f545315feaa";
         hash = "sha256-0KjnR6c32kc4yM0vwAGYI1LgRZn4tLfIZSO+UE2llbM=";
       };
     };

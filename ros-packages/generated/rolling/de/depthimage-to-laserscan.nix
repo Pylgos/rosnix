@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthimage_to_laserscan";
-  version = "2.5.1-2";
+  version = "2.5.1-3";
   src = finalAttrs.passthru.sources."depthimage_to_laserscan";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ image-geometry rclcpp rclcpp-components sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthimage_to_laserscan-source";
         url = "https://github.com/ros2-gbp/depthimage_to_laserscan-release.git";
-        rev = "d65eba78eb2e659fdff686da9613fa459b6a92a9";
+        rev = "71445a37db859a1667cf236db5a82f35e4bd8748";
         hash = "sha256-QU8tJNEPEB6X439eDP+kDXczR29OQNtKRX1uXKDqgDo=";
       };
     };

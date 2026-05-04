@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "motion_capture_tracking";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."motion_capture_tracking";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module motion-capture-tracking-interfaces rclcpp sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libpcl-all-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "motion_capture_tracking-source";
         url = "https://github.com/ros2-gbp/motion_capture_tracking-release.git";
-        rev = "1500a6f211b255be3b58d3b73cb6682db6e16ebb";
+        rev = "d7ceaf0db721befb38e18b5a16f7b99d3cbf3b1c";
         hash = "sha256-CpN7CV55Vq3GgOXcaA7azhmAp7gzHoMDItF+dsmQWQY=";
       };
     };

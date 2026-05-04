@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "broll";
-  version = "0.1.0-1";
+  version = "0.1.0-2";
   src = finalAttrs.passthru.sources."broll";
   nativeBuildInputs = [ ament-cmake ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rcutils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "ffmpeg" "pkg-config" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "broll-source";
         url = "https://github.com/ros2-gbp/rosbag2_broll-release.git";
-        rev = "e91404f991a4a59491d4e3d41bf403b605554573";
+        rev = "06b5e3c79c99dfd2fdd0cefa8407f2e249638002";
         hash = "sha256-V1yDu9I4lW4zxEBS6Hu+7/OWxqDxfrgqh8vSxZ2mdl4=";
       };
     };

@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "fields2cover";
-  version = "2.0.0-15";
+  version = "2.0.0-17";
   src = finalAttrs.passthru.sources."fields2cover";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ortools-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "eigen" "git" "gtest" "libgdal-dev" "libgeos++-dev" "python3" "python3-dev" "python3-matplotlib" "python3-tk" "swig" "tbb" "tinyxml2" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fields2cover-source";
         url = "https://github.com/ros2-gbp/fields2cover-release.git";
-        rev = "235d95ed37cb3dde6973b4972669c72c4eca6d8c";
-        hash = "sha256-xKEiqC7A0ss07ipLYTzqWYAScu9nc3JycGuE1HocfSo=";
+        rev = "6df954c05444487bd829e238b34bda6233357133";
+        hash = "sha256-UNhHS/oiXXZTR8QMqaaMZYDOvQsjuMSV55C1WCPtsfE=";
       };
       substitutions = [
         {
@@ -33,21 +33,95 @@ buildCmakePackage (finalAttrs: {
         }
         {
           path = "cmake/F2CUtils.cmake";
+          from = "GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus.git";
+          to = "URL ${sources."fields2cover/matplotplusplus"}";
+        }
+        {
+          path = "cmake/F2CUtils.cmake";
           from = "GIT_REPOSITORY https://github.com/google/or-tools.git";
           to = "URL ${sources."fields2cover/or-tools"}";
         }
         {
           path = "cmake/F2CUtils.cmake";
-          from = "URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz";
+          from = "GIT_REPOSITORY https://github.com/nlohmann/json.git";
           to = "URL ${sources."fields2cover/json"}";
         }
       ];
     };
     "fields2cover/json" = substituteSource {
-      src = fetchzip {
+      src = fetchgit {
         name = "json-source";
-        url = "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz";
-        hash = "sha256-cnGfiVhXzqfj5Fay823wntWcTnbh8r2SefDLslb1Dh0=";
+        url = "https://github.com/nlohmann/json.git";
+        rev = "4424a0fcc1c7fa640b5c87d26776d99150dacd10";
+        hash = "sha256-eSqi4dhFrUvjYN+jD8nGqj1FbzGA6I2+eSqzdCGOLH8=";
+      };
+      substitutions = [
+        {
+          path = "docs/mkdocs/docs/integration/hunter/CMakeLists.txt";
+          from = "URL \"https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz\"";
+          to = "URL ${sources."fields2cover/json/v0"}";
+        }
+      ];
+    };
+    "fields2cover/json/v0" = substituteSource {
+      src = fetchzip {
+        name = "v0-source";
+        url = "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz";
+        hash = "sha256-Ybn/JTo2oysJMX73IYvxCMWruj0y73Gi+4UaYH+P+H0=";
+      };
+      substitutions = [
+        {
+          path = "cmake/projects/OpenSSL/schemes/url_sha1_openssl.cmake.in";
+          from = ". \"@HUNTER_GLOBAL_SCRIPT_DIR@/clear-all.sh\" && ";
+          to = "";
+        }
+        {
+          path = "cmake/projects/nlohmann_json/hunter.cmake";
+          from = "URL \"https://github.com/hunter-packages/json/archive/v2.1.1-p1.tar.gz\"";
+          to = "URL ${sources."fields2cover/json/v0/hunter-nlohmann_json-2_1_1-p1"}";
+        }
+        {
+          path = "cmake/projects/nlohmann_json/hunter.cmake";
+          from = "URL \"https://github.com/nlohmann/json/archive/v3.8.0.tar.gz\"";
+          to = "URL ${sources."fields2cover/json/v0/hunter-nlohmann_json-3_8_0"}";
+        }
+      ];
+    };
+    "fields2cover/json/v0/hunter-nlohmann_json-2_1_1-p1" = substituteSource {
+      src = fetchzip {
+        name = "hunter-nlohmann_json-2_1_1-p1-source";
+        url = "https://github.com/hunter-packages/json/archive/v2.1.1-p1.tar.gz";
+        hash = "sha256-6gYd5belTZidGBO8bLgqIQAF5EeKaH8wzZ/zNNtd3r4=";
+      };
+    };
+    "fields2cover/json/v0/hunter-nlohmann_json-3_8_0" = substituteSource {
+      src = fetchzip {
+        name = "hunter-nlohmann_json-3_8_0-source";
+        url = "https://github.com/nlohmann/json/archive/v3.8.0.tar.gz";
+        hash = "sha256-x5+UfP8tXzDOTK4P9Ldn2L9XYzhCLDPP6sjZDI+bgiY=";
+      };
+    };
+    "fields2cover/matplotplusplus" = substituteSource {
+      src = fetchgit {
+        name = "matplotplusplus-source";
+        url = "https://github.com/alandefreitas/matplotplusplus.git";
+        rev = "5d01eb3695b07634a2b6642fd423740dea9b026c";
+        hash = "sha256-pJoWvmXyZZjZM6VHKV7mSBegbZH3dslaJFalTa3oQPY=";
+      };
+      substitutions = [
+        {
+          path = "source/matplot/CMakeLists.txt";
+          from = "GIT_REPOSITORY https://github.com/glfw/glfw.git";
+          to = "URL ${sources."fields2cover/matplotplusplus/glfw"}";
+        }
+      ];
+    };
+    "fields2cover/matplotplusplus/glfw" = substituteSource {
+      src = fetchgit {
+        name = "glfw-source";
+        url = "https://github.com/glfw/glfw.git";
+        rev = "7482de6071d21db77a7236155da44c172a7f6c9e";
+        hash = "sha256-07MUBwvTgIFay211o+V5ScojEcUTm7FJYc5bcRXYJSA=";
       };
     };
     "fields2cover/or-tools" = substituteSource {

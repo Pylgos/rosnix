@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_teleop";
-  version = "3.2.0-1";
+  version = "3.2.0-2";
   src = finalAttrs.passthru.sources."leo_teleop";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joy-linux teleop-twist-joy teleop-twist-keyboard ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_teleop-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "3b92b33e6541e945c8f77151415f8b6a8dd2a245";
+        rev = "3df906b43bebdae2cb40cb0d8d875f31095c237f";
         hash = "sha256-tripb5tY4VFiylkO/DZBtOLponjwMkLj3reX3Nc8jTk=";
       };
     };

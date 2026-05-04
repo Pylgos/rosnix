@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "boost_geometry_util";
-  version = "0.0.1-4";
+  version = "0.0.1-5";
   src = finalAttrs.passthru.sources."boost_geometry_util";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "boost_geometry_util-source";
         url = "https://github.com/ros2-gbp/boost_geometry_util-release.git";
-        rev = "0bd80646060cacb6f6f79ac0727f9399856bc2fb";
+        rev = "146fd5d7329d0d809d4e9d5674a63e7b6cf3e879";
         hash = "sha256-5P2YMX4buwUYt7NAF7FiWJguryH/I8GC2y+vIK5KI0w=";
       };
     };

@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_demos_fleet_adapter";
-  version = "2.8.2-2";
+  version = "2.8.2-3";
   src = finalAttrs.passthru.sources."rmf_demos_fleet_adapter";
   propagatedNativeBuildInputs = [ launch-xml rclpy rmf-fleet-adapter-python rmf-fleet-msgs rmf-task-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-fastapi" "python3-flask-socketio" "python3-numpy" "python3-pydantic" "python3-pyproj" "python3-requests" "python3-uvicorn" "python3-yaml" ]; };
   propagatedBuildInputs = [ launch-xml rclpy rmf-fleet-adapter-python rmf-fleet-msgs rmf-task-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-fastapi" "python3-flask-socketio" "python3-numpy" "python3-pydantic" "python3-pyproj" "python3-requests" "python3-uvicorn" "python3-yaml" ]; };
@@ -27,7 +27,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_demos_fleet_adapter-source";
         url = "https://github.com/ros2-gbp/rmf_demos-release.git";
-        rev = "403d67f7cdbfccec5ef59d72c9a6088ba1acd10e";
+        rev = "a85c60ce544b8ddf69f0beb9eda8da7736ba3228";
         hash = "sha256-kDqpzT2vh9w7A58eLE4xZQULntTBCOcjAuedl7hVZxU=";
       };
     };

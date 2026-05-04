@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mobileye_560_660_msgs";
-  version = "4.0.0-3";
+  version = "4.0.0-4";
   src = finalAttrs.passthru.sources."mobileye_560_660_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mobileye_560_660_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-        rev = "59798e15c2258f70dd4c21841b821673ad6a47b2";
+        rev = "a455aa77e58c1cc8aee81cccfee891b5a7d93ba7";
         hash = "sha256-VUBlCZa6YHrHj0N2L4MPJZXOD74+Uu4leG3oXg1ZOJg=";
       };
     };

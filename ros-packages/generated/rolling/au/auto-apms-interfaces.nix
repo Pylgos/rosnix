@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "auto_apms_interfaces";
-  version = "1.5.1-1";
+  version = "1.5.1-2";
   src = finalAttrs.passthru.sources."auto_apms_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators ];
@@ -24,7 +24,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "auto_apms_interfaces-source";
         url = "https://github.com/ros2-gbp/autoapms-release.git";
-        rev = "a405a242d2caf18b81d317406fcb133994dcfbf8";
+        rev = "cf2310ac6fada2011efddc7e5c8d26d48b30cd1b";
         hash = "sha256-4ZwOWtpdZissFXztQMnbPIQ4f9RK2RzdFG3qft5Ayt0=";
       };
     };

@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "realsense2_description";
-  version = "4.57.7-1";
+  version = "4.57.7-2";
   src = finalAttrs.passthru.sources."realsense2_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-ros rclcpp rclcpp-components realsense2-camera-msgs xacro ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "realsense2_description-source";
         url = "https://github.com/ros2-gbp/realsense-ros-release.git";
-        rev = "88eca4759ca0041dce1ebf92ccfa23d6673307b7";
+        rev = "7cfb133379bb78745a3668341d045492ecd4474b";
         hash = "sha256-qlv/4yz0JR6Tg/H9WHP+4yEs9oAmwIF8sRWqHjQKyDM=";
       };
     };

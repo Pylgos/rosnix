@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "zbar_ros";
-  version = "0.7.0-1";
+  version = "0.7.0-2";
   src = finalAttrs.passthru.sources."zbar_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge rclcpp sensor-msgs std-msgs zbar-ros-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "zbar" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "zbar_ros-source";
         url = "https://github.com/ros2-gbp/zbar_ros-release.git";
-        rev = "05fd200a692259be91d98d3c95f134ab7a2b8f3d";
+        rev = "7704a601bc8ed4df6bc48f92182b835055e99465";
         hash = "sha256-ABj7YLhPfSz7aMGTa8kmb/hLGuY9WLHpwfxsdwZbBWI=";
       };
     };

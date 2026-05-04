@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "serial_driver";
-  version = "1.2.0-3";
+  version = "1.2.0-4";
   src = finalAttrs.passthru.sources."serial_driver";
   nativeBuildInputs = [ ament-cmake-auto asio-cmake-module ];
   propagatedNativeBuildInputs = [ io-context rclcpp rclcpp-components rclcpp-lifecycle std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "serial_driver-source";
         url = "https://github.com/ros2-gbp/transport_drivers-release.git";
-        rev = "5b14e2c9bc4cd956a787b6b94e60b1b927a9e4bd";
+        rev = "d91340f912ef6ffe2e0adec02eb7eaebe77ab9b0";
         hash = "sha256-1Oc6jtsGEX0Jaxqs7jdlxu/nZJxZPxvagRST+L9bdwI=";
       };
     };

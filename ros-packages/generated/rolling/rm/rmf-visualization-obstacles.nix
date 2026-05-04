@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_visualization_obstacles";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."rmf_visualization_obstacles";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-components rmf-obstacle-msgs rmf-visualization-msgs vision-msgs visualization-msgs ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_visualization_obstacles-source";
         url = "https://github.com/ros2-gbp/rmf_visualization-release.git";
-        rev = "374fe7cb9e8c7d8c547285805026bcc17290495d";
+        rev = "5f245f04740b9211ec4f9a1648a81371b8b2d116";
         hash = "sha256-x9TmiVGOPdk0QiewB1qLO3ojfFV/+03/QzwdbRKd66w=";
       };
     };

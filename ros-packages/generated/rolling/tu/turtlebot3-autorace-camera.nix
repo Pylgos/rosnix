@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtlebot3_autorace_camera";
-  version = "1.2.2-1";
+  version = "1.2.2-2";
   src = finalAttrs.passthru.sources."turtlebot3_autorace_camera";
   propagatedNativeBuildInputs = [ cv-bridge rclpy sensor-msgs std-msgs ];
   propagatedBuildInputs = [ cv-bridge rclpy sensor-msgs std-msgs ];
@@ -22,7 +22,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtlebot3_autorace_camera-source";
         url = "https://github.com/ros2-gbp/turtlebot3_autorace-release.git";
-        rev = "6568659e7723c07f7892c8b4754e6eae0ee99578";
+        rev = "ffbbc75b42f57074970a50b3b49ce5031c7ce3f9";
         hash = "sha256-N5p7FhANDnCdU70wlEa22zjyo8hKCDhNy9KC5QI6A+s=";
       };
     };

@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "acado_vendor";
-  version = "1.0.0-6";
+  version = "1.0.0-7";
   src = finalAttrs.passthru.sources."acado_vendor";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "acado_vendor-source";
         url = "https://github.com/ros2-gbp/acado_vendor-release.git";
-        rev = "1c399ec54ac905aa3daa46653014d56659fadb9a";
+        rev = "833b2ad90e43287aa07be0c325e73bb244bb0732";
         hash = "sha256-8gA7ZwANcFmzyoc3egAGyB3xpAQlHrs4nK6U1/KanwA=";
       };
       substitutions = [

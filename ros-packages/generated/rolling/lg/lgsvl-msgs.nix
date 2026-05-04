@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "lgsvl_msgs";
-  version = "0.0.4-4";
+  version = "0.0.4-5";
   src = finalAttrs.passthru.sources."lgsvl_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs ros-environment rosidl-default-generators rosidl-default-runtime sensor-msgs std-msgs ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "lgsvl_msgs-source";
         url = "https://github.com/ros2-gbp/lgsvl_msgs-release.git";
-        rev = "aaba584950b8524e53fc28df0888cb3aaaf1ff23";
+        rev = "ef33e2fcbd5ef9809bc0788f877f6e3a0c827778";
         hash = "sha256-Pd5TP0wLuUr0/m+WvLpkvURpB0d0hbik3SOPkifg8YU=";
       };
     };

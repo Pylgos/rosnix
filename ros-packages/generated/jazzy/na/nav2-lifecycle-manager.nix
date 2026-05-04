@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_lifecycle_manager";
-  version = "1.3.11-1";
+  version = "1.3.12-1";
   src = finalAttrs.passthru.sources."nav2_lifecycle_manager";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ bondcpp diagnostic-updater geometry-msgs lifecycle-msgs nav2-common nav2-msgs nav2-util rclcpp-action rclcpp-lifecycle std-msgs std-srvs tf2-geometry-msgs ];
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_lifecycle_manager-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "1d062d47216c2f09932ed14c97886cf5df9242dd";
-        hash = "sha256-tgxEu72Gj8ihVHZTVNBqvbYCTNiXcC3gEH38+qGQRiE=";
+        rev = "af25342304258a0630a73a5afae1286f79b81885";
+        hash = "sha256-taa77vElhUoHxpcupqM+7cnzjUofKvuLFYbu/eYicHo=";
       };
     };
   });

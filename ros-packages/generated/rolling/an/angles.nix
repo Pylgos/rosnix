@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "angles";
-  version = "1.16.1-1";
+  version = "1.16.1-2";
   src = finalAttrs.passthru.sources."angles";
   nativeBuildInputs = [ ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-setuptools" ]; };
   propagatedNativeBuildInputs = [ ament-cmake ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "angles-source";
         url = "https://github.com/ros2-gbp/angles-release.git";
-        rev = "e217160b46e7216b04f21951e49f91ea2b4334cd";
+        rev = "22da467c96cf503da5a63934909974529fa937f1";
         hash = "sha256-n/76HZHNS+SV4vw4rR1n9NIQDv9xrEid8jau6ZV0dU4=";
       };
     };

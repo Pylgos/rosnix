@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "nao_button_sim";
-  version = "1.0.1-1";
+  version = "1.0.1-2";
   src = finalAttrs.passthru.sources."nao_button_sim";
   propagatedNativeBuildInputs = [ nao-lola-sensor-msgs ];
   propagatedBuildInputs = [ nao-lola-sensor-msgs ];
@@ -23,7 +23,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "nao_button_sim-source";
         url = "https://github.com/ros2-gbp/nao_button_sim-release.git";
-        rev = "d32424bf386f95cffd3cd5ee49157a9922feef0f";
+        rev = "ecf0278d945b366a4390f5468c1fc8973bbf6e23";
         hash = "sha256-IV6xrXwb9dZjmwilXG0QxfVUpofGVKBxJdaqAVjcCO8=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "urdf_test";
-  version = "2.1.1-1";
+  version = "2.1.1-2";
   src = finalAttrs.passthru.sources."urdf_test";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liburdfdom-tools" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urdf_test-source";
         url = "https://github.com/ros2-gbp/urdf_test-release.git";
-        rev = "beb8cc634556a9eaa9223c4dec1046cce1b1b31a";
+        rev = "f0e8dce0b48b46dec6c1d3f1a20f44cb29b7a954";
         hash = "sha256-yWY6dmjF0apCcxIks7hS6yoaypTZoCTzuhy95waaqnQ=";
       };
     };

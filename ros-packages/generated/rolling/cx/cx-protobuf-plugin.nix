@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_protobuf_plugin";
-  version = "0.1.3-1";
+  version = "0.1.3-2";
   src = finalAttrs.passthru.sources."cx_protobuf_plugin";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cx-plugin cx-utils pluginlib protobuf-comm rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "protobuf" "python3-jinja2" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_protobuf_plugin-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "7a0bb8e5de326c2637db84ebb853dc7ec4f69bc5";
+        rev = "f4384bfe11fd1ad6b74f5159b74d6532589669b2";
         hash = "sha256-nN7ZDYbRS6Dx2mupM5j7iTcTHrVQ7p9nizeQgHcYmN8=";
       };
     };

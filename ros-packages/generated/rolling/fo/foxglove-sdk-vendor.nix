@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "foxglove_sdk_vendor";
-  version = "0.2.0-2";
+  version = "0.2.0-3";
   src = finalAttrs.passthru.sources."foxglove_sdk_vendor";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "foxglove_sdk_vendor-source";
         url = "https://github.com/ros2-gbp/foxglove_sdk_vendor-release.git";
-        rev = "cee2c29f6dc9eeec8643f2cbf64e58c7bd9e71a5";
-        hash = "sha256-L5TiksPJNQrsdVHqgK64AyFkSFe+nbNy94pVX/45DE4=";
+        rev = "d49fe68296689e1b1b11d8df75885f8ff95f0247";
+        hash = "sha256-wcbqttV5jRPw1KYQXu75EOapTjuLZFN8zCVKKXuAnE0=";
       };
     };
   });

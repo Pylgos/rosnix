@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "effort_controllers";
-  version = "6.6.0-1";
+  version = "6.6.0-2";
   src = finalAttrs.passthru.sources."effort_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ backward-ros forward-command-controller pluginlib rclcpp ros2-control-cmake ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "effort_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_controllers-release.git";
-        rev = "de29cb7e6e6ba0b05e757e02b9c27f7af4c29c1a";
+        rev = "fb8a7b4cf70b5cf41bf9a7b0f0ba909fee10cec8";
         hash = "sha256-B+ysCj4fDqnieB1KVDmxnUXWiJLJeL6LAB3VpSQ9PT4=";
       };
     };

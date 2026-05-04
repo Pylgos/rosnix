@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_gnss_to_markers";
-  version = "0.1.2-1";
+  version = "0.1.2-2";
   src = finalAttrs.passthru.sources."mola_gnss_to_markers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ mrpt-libobs mrpt-nav-interfaces rclcpp std-msgs visualization-msgs ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_gnss_to_markers-source";
         url = "https://github.com/ros2-gbp/mola_gnss_to_markers-release.git";
-        rev = "e549ca5845cdbc4fb89ba3c3d04fa4ec6578b4ee";
+        rev = "4f9cba79ccec27b51133ac06a071fd102ff0076b";
         hash = "sha256-Kr5chlkHXOBITeUciaCMyddDX4Nxf7WKtyy47MwMzu8=";
       };
     };

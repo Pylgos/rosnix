@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmf_reservation_node";
-  version = "2.12.0-1";
+  version = "2.12.0-2";
   src = finalAttrs.passthru.sources."rmf_reservation_node";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rmf-building-map-msgs rmf-fleet-adapter rmf-reservation-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_reservation_node-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
-        rev = "6cfe5e3a835b0aac072cc60c47576e34b29699b9";
+        rev = "9c0a9cf3a2e633ef571431e91f270815372c9093";
         hash = "sha256-179GFH0K2sm9XdGQzgFZh1lntF3zIjUyWkVmIoLPRFg=";
       };
     };

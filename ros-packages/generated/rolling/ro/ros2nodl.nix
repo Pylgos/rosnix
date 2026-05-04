@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2nodl";
-  version = "0.3.1-4";
+  version = "0.3.1-5";
   src = finalAttrs.passthru.sources."ros2nodl";
   propagatedNativeBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" ]; };
   propagatedBuildInputs = [ ament-index-python nodl-python ros2cli ros2pkg ros2run ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" ]; };
@@ -28,7 +28,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2nodl-source";
         url = "https://github.com/ros2-gbp/nodl-release.git";
-        rev = "e7ccd416d4eae2bb0408574b5bf305bbb730a9e2";
+        rev = "2679a9a8576b1a19e2959239ab15a56d9d528a53";
         hash = "sha256-8JQgseO9AxfsDy2YuxQ/dojS/6MOLaCKwBGUX8hIgwk=";
       };
     };

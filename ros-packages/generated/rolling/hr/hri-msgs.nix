@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hri_msgs";
-  version = "2.3.2-1";
+  version = "2.3.2-2";
   src = finalAttrs.passthru.sources."hri_msgs";
   nativeBuildInputs = [ ament-cmake-auto rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hri_msgs-source";
         url = "https://github.com/ros2-gbp/hri_msgs-release.git";
-        rev = "53db9ade0a933a061d4c57dedfd80b2215efad76";
+        rev = "8e981bcd0220594a882252702090bb0ff20986ac";
         hash = "sha256-InEx7ZaBoVy56BDRNL8liF1jUoijwkKCn8y/HeIJFbk=";
       };
     };

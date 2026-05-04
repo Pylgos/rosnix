@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2_control";
-  version = "6.7.0-1";
+  version = "6.7.0-2";
   src = finalAttrs.passthru.sources."ros2_control";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface controller-manager controller-manager-msgs hardware-interface joint-limits ros2-control-test-assets ros2controlcli transmission-interface ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2_control-source";
         url = "https://github.com/ros2-gbp/ros2_control-release.git";
-        rev = "4c0497c7fc4d296c28f08a98e685bb29a4c487d6";
+        rev = "512bd31dead26597c720638e1a520f24ce698559";
         hash = "sha256-fveUKTA5v2t2p719du+CWi2vJXdnFR89Sms4hyqp6Rc=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "grbl_msgs";
-  version = "0.0.2-8";
+  version = "0.0.2-9";
   src = finalAttrs.passthru.sources."grbl_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "grbl_msgs-source";
         url = "https://github.com/ros2-gbp/grbl_msgs-release.git";
-        rev = "ff01ab1af1a4b9fb91850243c3e97d66664c0f12";
+        rev = "1f12681ffa6e6b30748f6c8b88aa8cb82e4d73e2";
         hash = "sha256-cjvc4arr+Z92IcwzqZryuU4FC2MY+FNpA+6JBe0dhiE=";
       };
     };

@@ -11,7 +11,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rmf_charging_schedule";
-  version = "2.12.0-1";
+  version = "2.12.0-2";
   src = finalAttrs.passthru.sources."rmf_charging_schedule";
   propagatedNativeBuildInputs = [ rclpy rmf-fleet-msgs ];
   propagatedBuildInputs = [ rclpy rmf-fleet-msgs ];
@@ -20,7 +20,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_charging_schedule-source";
         url = "https://github.com/ros2-gbp/rmf_ros2-release.git";
-        rev = "05277efa8b2cf98cac14421dfdeb2fbea56cc77f";
+        rev = "0f294092b91d0b058b53730b69f61c70a0723ac8";
         hash = "sha256-owY+ODCmhHTO8ysDQ3PDPAAMzi+iaQmE2gQexX4OH04=";
       };
     };

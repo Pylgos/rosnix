@@ -9,7 +9,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "fibar_lib";
-  version = "1.0.2-1";
+  version = "1.0.2-2";
   src = finalAttrs.passthru.sources."fibar_lib";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "clang-tidy" ]; };
@@ -21,7 +21,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fibar_lib-source";
         url = "https://github.com/ros2-gbp/fibar_lib-release.git";
-        rev = "2e274b0bbc673f4c4a8437ce31043f01f03b985c";
+        rev = "381632b34402c0339a70fed5ceec710a500e10f4";
         hash = "sha256-W6FsD2qjIw3onOKwOM9jqG5w2YxmGYp64DWZfSV/s28=";
       };
     };

@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "webots_ros2_driver";
-  version = "2025.0.1-1";
+  version = "2025.0.1-2";
   src = finalAttrs.passthru.sources."webots_ros2_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python python-cmake-module ];
   propagatedNativeBuildInputs = [ geometry-msgs pluginlib rclcpp rclpy ros-environment sensor-msgs std-msgs tf2-geometry-msgs tf2-ros tinyxml2-vendor vision-msgs webots-ros2-importer webots-ros2-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "yaml-cpp" ]; };
@@ -39,7 +39,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "webots_ros2_driver-source";
         url = "https://github.com/ros2-gbp/webots_ros2-release.git";
-        rev = "644eeb896655c80366baad4dc2155b7eaad0b44e";
+        rev = "7dfccc0efaaf59b8128ec3d165b02ea1a577856c";
         hash = "sha256-zTo4QcJCcUU1comC4AWrApF5g/bxQXRrJC8OqnE+Pns=";
       };
     };

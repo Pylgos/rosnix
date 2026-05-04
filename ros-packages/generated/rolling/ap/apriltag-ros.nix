@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "apriltag_ros";
-  version = "3.3.0-1";
+  version = "3.3.0-2";
   src = finalAttrs.passthru.sources."apriltag_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ apriltag apriltag-msgs camera-ros cv-bridge image-proc image-transport image-transport-plugins rclcpp rclcpp-components sensor-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -36,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "apriltag_ros-source";
         url = "https://github.com/ros2-gbp/apriltag_ros-release.git";
-        rev = "27c89b450c42af6cbefa01e2a1f49383fe646ef9";
+        rev = "ec8d40b343f574e82e16ed8364c41ba541ca6e2f";
         hash = "sha256-1QnwKFz7U3tyRSiWEZfp8VrKNFgD0ivenI4JOLcIP6g=";
       };
     };

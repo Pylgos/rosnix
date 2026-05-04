@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_imu_taobotics";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_sensor_imu_taobotics";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensor_imu_taobotics-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "0f0e1d971ac17a2b22ef6c75c150eb2a089fec77";
+        rev = "d69db79eca0da2f8b4537d274fc26abf681af279";
         hash = "sha256-Ln6hxZBdxyDxAnMNNKrjwrRs2mMas1JEoLJjoV+e0DQ=";
       };
     };

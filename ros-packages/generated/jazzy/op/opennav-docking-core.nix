@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "opennav_docking_core";
-  version = "1.3.11-1";
+  version = "1.3.12-1";
   src = finalAttrs.passthru.sources."opennav_docking_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ nav2-msgs nav2-util rclcpp rclcpp-lifecycle ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "opennav_docking_core-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "15ff10e9ecec09286384710a52d553c48e4e59af";
-        hash = "sha256-Q/MvDrvrNgFQIZvZzCs6l6Tb7EqAh1kUanrD8xJhOBA=";
+        rev = "2c2c088cf30c7f26d56136fb100d3b8c6bf7ae16";
+        hash = "sha256-Rm6N5ZOiucd9E8jJRCuxCyyoaHNNemSmJDH2hkliW3Y=";
       };
     };
   });

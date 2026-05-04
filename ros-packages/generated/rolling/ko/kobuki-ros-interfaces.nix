@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kobuki_ros_interfaces";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."kobuki_ros_interfaces";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kobuki_ros_interfaces-source";
         url = "https://github.com/ros2-gbp/kobuki_ros_interfaces-release.git";
-        rev = "9820a7d8eccd0f20c0fe747a6140d60bd782419a";
+        rev = "ccd692c54fc6d693e5dfc00868806c49d03a0f9d";
         hash = "sha256-svbQG6e1o4u1HncdcNcx55XoYK99I02G7CxL2jvBZhs=";
       };
     };

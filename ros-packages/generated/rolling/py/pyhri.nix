@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pyhri";
-  version = "2.9.0-1";
+  version = "2.9.0-2";
   src = finalAttrs.passthru.sources."pyhri";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs hri pybind11-vendor rclcpp rclpy ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "python3-numpy" "python3-opencv" ]; };
@@ -37,7 +37,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pyhri-source";
         url = "https://github.com/ros2-gbp/libhri-release.git";
-        rev = "6493c424c1cae7fd5392da02fa575722f5be0ca6";
+        rev = "f3c78845733bff1cdd60bf5f0f796dcdecc231af";
         hash = "sha256-9DUz4gSTSL0T2akrC9KgeAh4qr2iBaUOj0jvF79yGag=";
       };
     };

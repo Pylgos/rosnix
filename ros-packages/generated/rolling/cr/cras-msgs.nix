@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cras_msgs";
-  version = "2.0.1-1";
+  version = "2.0.1-2";
   src = finalAttrs.passthru.sources."cras_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cras_msgs-source";
         url = "https://github.com/ros2-gbp/cras_msgs-release.git";
-        rev = "240f7401e264c75e51737b35ac19d3c9b05de4a5";
+        rev = "6fa4522a423950aa8a8a2d4c7b188be97cc264a5";
         hash = "sha256-MLEi9xNAzta/BEGytkEuDzM+iFSYdPL76fGbJLklLHg=";
       };
     };

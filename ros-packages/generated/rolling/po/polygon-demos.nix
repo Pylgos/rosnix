@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_demos";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."polygon_demos";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles color-util geometry-msgs polygon-msgs polygon-rviz-plugins polygon-utils rclcpp rviz2 rviz-common rviz-default-plugins ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "polygon_demos-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "ea91e59eb3f5d4d8d523974884212995a534fcdf";
+        rev = "500c4bc4889843259f77fde9b57f2cc2fd50a9e7";
         hash = "sha256-18o9Po5Ns2LYDCn/UBRfDIRh/wGq30kwUMrvuV6OWwo=";
       };
     };

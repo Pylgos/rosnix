@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ament_cmake_flake8";
-  version = "0.20.4-1";
+  version = "0.20.5-3";
   src = finalAttrs.passthru.sources."ament_cmake_flake8";
   nativeBuildInputs = [ ament-cmake-core ];
   propagatedNativeBuildInputs = [ ament-cmake-test ament-flake8 ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ament_cmake_flake8-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "b91ac90a6c5476558c737483406396620feb7dc9";
-        hash = "sha256-Rr6QrYpPumtBA/KvAOOKR+iMAlxmb2wL+jdAy26FKvk=";
+        rev = "8d7b498646b4f4c3ff2a2f072ee75098fe93081f";
+        hash = "sha256-CN1WU9KddxNYxMlkZuxHimKKPM7PbRHBdyd5fv9yH1Q=";
       };
     };
   });

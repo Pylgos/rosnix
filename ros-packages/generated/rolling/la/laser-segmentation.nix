@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "laser_segmentation";
-  version = "3.0.2-1";
+  version = "3.0.2-2";
   src = finalAttrs.passthru.sources."laser_segmentation";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components rclcpp-lifecycle sensor-msgs slg-msgs visualization-msgs ];
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "laser_segmentation-source";
         url = "https://github.com/ros2-gbp/laser_segmentation-release.git";
-        rev = "18117b81054865877d943544c6036d4e1f91deb2";
+        rev = "548150d5a4f1b7342f2375df6ed2914ac0cd5d73";
         hash = "sha256-u0BxTOObbPkIga7fFw2mrJJOcy7+rd0rL7mPlCNOAlk=";
       };
     };

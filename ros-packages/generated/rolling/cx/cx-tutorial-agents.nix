@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "cx_tutorial_agents";
-  version = "0.1.3-1";
+  version = "0.1.3-2";
   src = finalAttrs.passthru.sources."cx_tutorial_agents";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cx-bringup ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cx_tutorial_agents-source";
         url = "https://github.com/ros2-gbp/clips_executive-release.git";
-        rev = "ef56b09585d4f48fa4c5509980805b8af6537775";
+        rev = "8e50fb11fc10d2b88a3bf2061cae4ff814711c4b";
         hash = "sha256-wpmWyE8e+A1dgfK4zAcfjj8ccd28F2T9DtDfNZ/FybU=";
       };
     };

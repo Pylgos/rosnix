@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_mobile_robot";
-  version = "1.2.1-4";
+  version = "1.2.1-5";
   src = finalAttrs.passthru.sources."ecl_mobile_robot";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-errors ecl-formatters ecl-geometry ecl-license ecl-linear-algebra ecl-math ];
@@ -32,7 +32,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_mobile_robot-source";
         url = "https://github.com/ros2-gbp/ecl_core-release.git";
-        rev = "7b8eb21c5679d0573c700db0d9c7e32401edf84e";
+        rev = "3a2d6976a11f3c8a40f5074fe22c82b179c1a842";
         hash = "sha256-NQJy3LdrqwiDAynl1fLCbDJz/A4qCxq6VpeaO+fr/4Y=";
       };
     };

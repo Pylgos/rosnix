@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "data_tamer_cpp";
-  version = "1.0.3-1";
+  version = "1.0.3-2";
   src = finalAttrs.passthru.sources."data_tamer_cpp";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-cmake-gtest data-tamer-msgs gtest-vendor mcap-vendor rclcpp rclcpp-lifecycle ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "data_tamer_cpp-source";
         url = "https://github.com/ros2-gbp/data_tamer-release.git";
-        rev = "5ef8c7159f3ecbfdc6a5a787316b2b52951d6f4b";
+        rev = "c709abab660301b71992661ff7373ddfda7cd2de";
         hash = "sha256-loz5sQ2XxAaHfI1+p9m0+aKi7wfdwnzpMbLkyL+Lu2A=";
       };
     };

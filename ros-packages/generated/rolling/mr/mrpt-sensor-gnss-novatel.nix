@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_gnss_novatel";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_sensor_gnss_novatel";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensor_gnss_novatel-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "18181c8b49924a9fd973227bc4a2cc532c82a0ac";
+        rev = "a3507dfe3f113c281903e8f8e39f5832689d4b27";
         hash = "sha256-LFtDsapzUui0BdtjvNM2paypaWFTb63n51zc98Trsdk=";
       };
     };

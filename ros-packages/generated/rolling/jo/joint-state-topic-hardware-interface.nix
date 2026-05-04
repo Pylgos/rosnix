@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "joint_state_topic_hardware_interface";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."joint_state_topic_hardware_interface";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ angles hardware-interface rclcpp ros2-control-cmake sensor-msgs ];
@@ -43,7 +43,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "joint_state_topic_hardware_interface-source";
         url = "https://github.com/ros2-gbp/topic_based_hardware-release.git";
-        rev = "c404adeb05771c8718745daf754add52feb71e55";
+        rev = "cac3cc247fb1df204a495a1450675e1ed0fef606";
         hash = "sha256-zD6NzOuMOAOqh94Dg7wpN6NVopyY5Njd49r9XEO0ask=";
       };
     };

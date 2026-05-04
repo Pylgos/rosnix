@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "magnetometer_pipeline";
-  version = "3.0.2-1";
+  version = "3.0.2-2";
   src = finalAttrs.passthru.sources."magnetometer_pipeline";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-python ];
   propagatedNativeBuildInputs = [ cras-cpp-common message-filters pluginlib rclcpp rclcpp-components rclpy sensor-msgs std-msgs std-srvs tf2-eigen ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "python3-numpy" ]; };
@@ -37,7 +37,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "magnetometer_pipeline-source";
         url = "https://github.com/ros2-gbp/compass-release.git";
-        rev = "ad0dfa0022a9ca48b02973d43fe4a88ae7dbf78a";
+        rev = "3f71dfc4ee9535e5deffb4fc44a6ac928700367e";
         hash = "sha256-Mccpxlbe/P0hf8luglfBTFj5m7R53pAWatmtxIOQwtI=";
       };
     };

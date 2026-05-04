@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "orocos_kdl_vendor";
-  version = "0.8.0-1";
+  version = "0.8.0-2";
   src = finalAttrs.passthru.sources."orocos_kdl_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "liborocos-kdl-dev" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "orocos_kdl_vendor-source";
         url = "https://github.com/ros2-gbp/orocos_kdl_vendor-release.git";
-        rev = "ddd1c5f137e9bf219d65ef200d24228888778691";
+        rev = "d50a4cefd2cc5e86316cac72470521abf8ce95b8";
         hash = "sha256-+zNAqtJ0zjZBFLuqWBn+Y9NoER0fqxoGSownmOOjWJo=";
       };
       substitutions = [

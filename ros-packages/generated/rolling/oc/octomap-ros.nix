@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "octomap_ros";
-  version = "0.4.5-1";
+  version = "0.4.5-2";
   src = finalAttrs.passthru.sources."octomap_ros";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ octomap-msgs sensor-msgs tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liboctomap-dev" ]; };
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "octomap_ros-source";
         url = "https://github.com/ros2-gbp/octomap_ros-release.git";
-        rev = "a3b5d2374087329c08051338d80146dfd7060862";
+        rev = "98c05d296483eaa519005b2c388efb5cea16a5cb";
         hash = "sha256-eQIgYOHIbsaJoDLj59kFGcgp7NGc7S7JctWjgxg7Bso=";
       };
     };

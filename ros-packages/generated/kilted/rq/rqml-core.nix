@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rqml_core";
-  version = "3.26.41-1";
+  version = "3.26.42-1";
   src = finalAttrs.passthru.sources."rqml_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp qml6-ros2-plugin yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6-qml" "libqt6-quick" "nlohmann-json-dev" "opengl" "qml6-module-qtcore" "qml6-module-qtqml-models" "qml6-module-qtqml-workerscript" "qml6-module-qtquick-controls" "qml6-module-qtquick-layouts" "qml6-module-qtquick-templates" "qml6-module-qtquick-window" "qt6-base-dev" "qt6-base-private-dev" "qt6-declarative-dev" "qt6-declarative-private-dev" ]; };
@@ -27,23 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rqml_core-source";
         url = "https://github.com/ros2-gbp/rqml-release.git";
-        rev = "12a2c8e707958bf945c11bc317d0acd62f7acb46";
-        hash = "sha256-Q//DH1fgfiPeu04ikvQwpbxj5yGLNp0+LucbZCAgOyw=";
-      };
-      substitutions = [
-        {
-          path = "CMakeLists.txt";
-          from = "GIT_REPOSITORY https://github.com/KDAB/KDDockWidgets.git";
-          to = "URL ${sources."rqml_core/KDDockWidgets"}";
-        }
-      ];
-    };
-    "rqml_core/KDDockWidgets" = substituteSource {
-      src = fetchgit {
-        name = "KDDockWidgets-source";
-        url = "https://github.com/KDAB/KDDockWidgets.git";
-        rev = "c38711026e17e34916dd82c6fcbdcc0d2342f541";
-        hash = "sha256-NNGIR2MTaNs2zFeN9vmHxoRuss2IR7FQ8F34b00L9z4=";
+        rev = "88cba9fe3c670c0c740f7ae7b1316497654c6b24";
+        hash = "sha256-22DSTxT6LrVRG23TsLqq/Ke38p6wCeVgU+z1UgbIe4E=";
       };
     };
   });

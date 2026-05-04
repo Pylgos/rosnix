@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "kortex_driver";
-  version = "0.2.5-1";
+  version = "0.2.5-2";
   src = finalAttrs.passthru.sources."kortex_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ hardware-interface kortex-api pluginlib rclcpp ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "kortex_driver-source";
         url = "https://github.com/ros2-gbp/ros2_kortex-release.git";
-        rev = "e7ae488832a3832dc41a32beab6cd187a6830b21";
+        rev = "3ef106fa76f0a46d1fbbe86f29e360a745ab9130";
         hash = "sha256-VOXOnw7lNkrYY3Jaw+re36rsd0pgGw64OdKieLy+6cs=";
       };
       substitutions = [

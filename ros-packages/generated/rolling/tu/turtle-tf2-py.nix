@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "turtle_tf2_py";
-  version = "0.7.0-1";
+  version = "0.7.0-2";
   src = finalAttrs.passthru.sources."turtle_tf2_py";
   propagatedNativeBuildInputs = [ geometry-msgs launch launch-ros rclpy tf2-ros turtlesim-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-numpy" ]; };
   propagatedBuildInputs = [ geometry-msgs launch launch-ros rclpy tf2-ros turtlesim-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-numpy" ]; };
@@ -28,7 +28,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "turtle_tf2_py-source";
         url = "https://github.com/ros2-gbp/geometry_tutorials-release.git";
-        rev = "8b7e40390589e0d0fbca159dafc90b0bb845ec44";
+        rev = "395955fc80a5cee606e879a2285cb945035c4dc2";
         hash = "sha256-TtgVfu3WfDgpViIk10fCbyaogmu9p1jeMWMu2fjv9YU=";
       };
     };

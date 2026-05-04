@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "system_webview";
-  version = "0.0.3-1";
+  version = "0.0.3-2";
   src = finalAttrs.passthru.sources."system_webview";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-cpp rclcpp rosbridge-server ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libcpp-httplib-dev" "pkg-config" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "system_webview-source";
         url = "https://github.com/ros2-gbp/system_webview-release.git";
-        rev = "07161052a487a7d58d34e75f9313bedc195d0c6e";
+        rev = "f570b98fbdf96dfbba0cc26e8e510737ed2a8e4f";
         hash = "sha256-LtbhwfJ0yaniL6rX0ncoCzQ8XADTZFDGoPNOuzZwlow=";
       };
     };

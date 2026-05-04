@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "tf2_web_republisher";
-  version = "1.0.0-1";
+  version = "1.0.0-2";
   src = finalAttrs.passthru.sources."tf2_web_republisher";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp rclcpp-action rclcpp-components tf2 tf2-ros tf2-web-republisher-interfaces ];
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "tf2_web_republisher-source";
         url = "https://github.com/ros2-gbp/tf2_web_republisher-release.git";
-        rev = "5025a85a0d7d4befa0896d76d6879e8bb6eb0a24";
+        rev = "d8078bb6776b0b517d6f4264e645ef29571e8560";
         hash = "sha256-SgoucpSR/lEz/yrtodxzycgWf+GJrjBIW8LBa1kFBGU=";
       };
     };

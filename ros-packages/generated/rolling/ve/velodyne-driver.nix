@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "velodyne_driver";
-  version = "2.5.1-1";
+  version = "2.5.1-2";
   src = finalAttrs.passthru.sources."velodyne_driver";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ diagnostic-updater rclcpp rclcpp-components tf2-ros velodyne-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libpcap" ]; };
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "velodyne_driver-source";
         url = "https://github.com/ros2-gbp/velodyne-release.git";
-        rev = "785711121f89673901382a02ecc035fbc04b177c";
+        rev = "a6520bdc8f43c8c5a6cb3461d9fe6a9417036b39";
         hash = "sha256-EEA0OQ2KQU5mB8doCIzWuG3oCeYiq0HG7KKfn9xeRr0=";
       };
     };

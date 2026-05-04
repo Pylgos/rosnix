@@ -31,7 +31,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "magnetometer_compass";
-  version = "3.0.2-1";
+  version = "3.0.2-2";
   src = finalAttrs.passthru.sources."magnetometer_compass";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ angles compass-conversions compass-interfaces cras-cpp-common geometry-msgs magnetometer-pipeline message-filters pluginlib rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs tf2-ros tf2-sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -43,7 +43,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "magnetometer_compass-source";
         url = "https://github.com/ros2-gbp/compass-release.git";
-        rev = "882cae5e94dd6c3a6ebc6b7a8a0d097fc10f2818";
+        rev = "a408de3ee5198d86dbd8c3e7736a742a04588c1c";
         hash = "sha256-EymeKW57WyYkmXVJOYYaJ9xuxpSHojsm9jVCkKtPez8=";
       };
     };

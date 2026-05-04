@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros_babel_fish_tools";
-  version = "4.26.43-1";
+  version = "4.26.43-2";
   src = finalAttrs.passthru.sources."ros_babel_fish_tools";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ros-babel-fish yaml-cpp-vendor ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros_babel_fish_tools-source";
         url = "https://github.com/ros2-gbp/ros_babel_fish-release.git";
-        rev = "e6de6654aa04e8dd8a41be45169fd960359cbec2";
+        rev = "792281e3b0f34cd5dab3847a73ced28a61b66e5f";
         hash = "sha256-cYcah4Z5hiuq15XGfN6WIOicccKNmV21a+rR2bUA14g=";
       };
     };

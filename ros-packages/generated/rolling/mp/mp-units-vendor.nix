@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mp_units_vendor";
-  version = "2.5.0-2";
+  version = "2.5.0-3";
   src = finalAttrs.passthru.sources."mp_units_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libgsl" ]; };
@@ -22,7 +22,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mp_units_vendor-source";
         url = "https://github.com/ros2-gbp/mp_units_vendor-release.git";
-        rev = "2c927771c571385b8bc5c86a15605d06655a1066";
+        rev = "316993df733494b2d771fe7eb286a513c762e7e3";
         hash = "sha256-MD2T1tQVBQlr3t3+PkPDxEOpeFbpEepuegp0kKEntVI=";
       };
       substitutions = [

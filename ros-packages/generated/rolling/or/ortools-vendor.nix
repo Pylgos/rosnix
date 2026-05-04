@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ortools_vendor";
-  version = "9.9.0-9";
+  version = "9.9.0-10";
   src = finalAttrs.passthru.sources."ortools_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   buildInputs = [ ament-cmake ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ortools_vendor-source";
         url = "https://github.com/ros2-gbp/ortools_vendor-release.git";
-        rev = "1f6173341d4ec09f18b3f03d919bd0dabc5fe9a8";
+        rev = "0e61561f8834c3abc3fe604fdc7e51106b5e0ee5";
         hash = "sha256-yvm3NB4vC9QcixufG3FnSuEdpj75/eiLD2tzhd7gh5s=";
       };
       substitutions = [

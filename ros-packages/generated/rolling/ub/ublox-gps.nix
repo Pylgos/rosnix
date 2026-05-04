@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ublox_gps";
-  version = "3.0.0-1";
+  version = "3.0.0-2";
   src = finalAttrs.passthru.sources."ublox_gps";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ diagnostic-msgs diagnostic-updater geometry-msgs nmea-msgs rcl-interfaces rclcpp rclcpp-components rtcm-msgs sensor-msgs std-msgs tf2 ublox-msgs ublox-serialization ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "asio" ]; };
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ublox_gps-source";
         url = "https://github.com/ros2-gbp/ublox-release.git";
-        rev = "ca772940203ead2eee49de5f16112307951dee20";
+        rev = "791ebf1a92bfc17c59f30d1339a5085b910e57b7";
         hash = "sha256-eV9pb+WnJCBTQVNM8mR1VL7ul3QOqKwyrtoBaR5OrFA=";
       };
     };

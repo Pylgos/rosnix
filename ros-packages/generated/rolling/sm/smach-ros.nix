@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "smach_ros";
-  version = "3.0.3-2";
+  version = "3.0.3-3";
   src = finalAttrs.passthru.sources."smach_ros";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ rclpy smach smach-msgs std-msgs std-srvs ];
@@ -27,7 +27,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "smach_ros-source";
         url = "https://github.com/ros2-gbp/executive_smach-release.git";
-        rev = "23d7dc669c66f97f9721a03605f9f06e079b6b15";
+        rev = "949e4f250cf72638e02653e55146a4e25400b7f8";
         hash = "sha256-T0yVHzrZV1N2ejjOTANcS1gUlVKrvGgoMD+On5KNoHo=";
       };
     };

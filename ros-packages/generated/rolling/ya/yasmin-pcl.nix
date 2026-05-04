@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "yasmin_pcl";
-  version = "5.0.0-1";
+  version = "5.0.0-2";
   src = finalAttrs.passthru.sources."yasmin_pcl";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ pcl-conversions pluginlib sensor-msgs yasmin ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libpcl-all-dev" ]; };
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "yasmin_pcl-source";
         url = "https://github.com/ros2-gbp/yasmin-release.git";
-        rev = "6e1752980532bbe4ac9d9db5a65a9a3478cd955d";
+        rev = "a48cd2f01d367925e72109a335d94c3e94bde4ea";
         hash = "sha256-pA2pmWF4NQRelqt/9F6lwE8n533KZTv1mb53yv1Fj8Y=";
       };
     };

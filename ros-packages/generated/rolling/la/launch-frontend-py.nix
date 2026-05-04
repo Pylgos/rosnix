@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "launch_frontend_py";
-  version = "0.1.0-2";
+  version = "0.1.0-3";
   src = finalAttrs.passthru.sources."launch_frontend_py";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ launch ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "launch_frontend_py-source";
         url = "https://github.com/ros2-gbp/launch_frontend_py-release.git";
-        rev = "8be95e57dccd3a21f40eb8f3c244938828574ccd";
+        rev = "624d7fda9a57747d62d3686e835b541d794774ec";
         hash = "sha256-idp6IssWYiCoEE6exflR2JkInYfVignH4lnBHZT3VSY=";
       };
     };

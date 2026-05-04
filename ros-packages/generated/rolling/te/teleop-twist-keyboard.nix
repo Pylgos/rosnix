@@ -16,7 +16,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "teleop_twist_keyboard";
-  version = "2.4.1-1";
+  version = "2.4.1-2";
   src = finalAttrs.passthru.sources."teleop_twist_keyboard";
   propagatedNativeBuildInputs = [ geometry-msgs rcl-interfaces rclpy ];
   propagatedBuildInputs = [ geometry-msgs rcl-interfaces rclpy ];
@@ -26,7 +26,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "teleop_twist_keyboard-source";
         url = "https://github.com/ros2-gbp/teleop_twist_keyboard-release.git";
-        rev = "d7d78c517682701af184f61580a7840da8416b48";
+        rev = "f1626c5262735ab3687f9db1550aa9a35b4f5f06";
         hash = "sha256-oQY9bKalutf6beuXGykX/GL/qduZQvN7oIUqxjmbP4s=";
       };
     };

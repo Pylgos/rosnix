@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "image_transport_py";
-  version = "6.4.7-1";
+  version = "6.4.7-2";
   src = finalAttrs.passthru.sources."image_transport_py";
   nativeBuildInputs = [ ament-cmake-python ament-cmake-ros ];
   propagatedNativeBuildInputs = [ image-transport rclcpp rpyutils sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pybind11-dev" "python3-dev" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "image_transport_py-source";
         url = "https://github.com/ros2-gbp/image_common-release.git";
-        rev = "b37a87144d3f7b53da60738b696e9f00451ec02a";
+        rev = "c4e551d3970ed297f0d00f6e6f866312653f115e";
         hash = "sha256-NRnTjZB0cOy9GwO0/Ve+r1fJ+DZ217JjefllzEKwMrE=";
       };
     };

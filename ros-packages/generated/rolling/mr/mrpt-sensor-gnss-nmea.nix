@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_gnss_nmea";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_sensor_gnss_nmea";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs nmea-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
@@ -39,7 +39,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensor_gnss_nmea-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "690c032738ba6332644c38443ff6f3baac53d46a";
+        rev = "f940777c8db6a347d5a0b8d2fb64cf87c336ff40";
         hash = "sha256-xjJomxlKkwzhQe3yANpzJf2Bjirz2sFg8812j9u4JpM=";
       };
     };

@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rmw_dds_common";
-  version = "6.0.0-1";
+  version = "6.0.0-2";
   src = finalAttrs.passthru.sources."rmw_dds_common";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rcpputils rcutils rmw rmw-security-common rosidl-default-runtime rosidl-runtime-c rosidl-runtime-cpp ];
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmw_dds_common-source";
         url = "https://github.com/ros2-gbp/rmw_dds_common-release.git";
-        rev = "bc596d78ab1b2153c7ad7f8d78e6df2c18dd260e";
+        rev = "bc0821b674e8cf2546b8574d200312ae1c4bfe3a";
         hash = "sha256-eJqI1nQ0488V7wdFGMEcuszhN48g/FBfgHTurCt/YJQ=";
       };
     };

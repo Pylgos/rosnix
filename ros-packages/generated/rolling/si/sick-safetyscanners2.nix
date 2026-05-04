@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safetyscanners2";
-  version = "1.0.4-1";
+  version = "1.0.4-2";
   src = finalAttrs.passthru.sources."sick_safetyscanners2";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ diagnostic-updater rclcpp rclcpp-lifecycle robot-state-publisher rviz2 sensor-msgs sick-safetyscanners2-interfaces sick-safetyscanners-base xacro ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
@@ -36,7 +36,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sick_safetyscanners2-source";
         url = "https://github.com/ros2-gbp/sick_safetyscanners2-release.git";
-        rev = "96914d8dd6643a74aabae6292156b3aacaf790ca";
+        rev = "afecac0f0390c2d06449168a637a9e9b079d4837";
         hash = "sha256-DW09MAyJl2QfVunwcVkkufbRSONasFc8m8M5qpi9Dw8=";
       };
     };

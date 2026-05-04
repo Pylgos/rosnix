@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vrpn_mocap";
-  version = "1.1.0-3";
+  version = "1.1.0-4";
   src = finalAttrs.passthru.sources."vrpn_mocap";
   nativeBuildInputs = [ ament-cmake eigen3-cmake-module ];
   propagatedNativeBuildInputs = [ geometry-msgs rclcpp std-msgs tf2 vrpn ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vrpn_mocap-source";
         url = "https://github.com/ros2-gbp/vrpn_mocap-release.git";
-        rev = "ff6e0e030ec5415d376d4e42d65f759e5454bdaf";
+        rev = "bd655546cacc830bec55b495c6a96b7ec637ece2";
         hash = "sha256-qTdwB+YAkx59icepyKJgOykWlxF7kMMSSJ/EKm+NVWs=";
       };
     };

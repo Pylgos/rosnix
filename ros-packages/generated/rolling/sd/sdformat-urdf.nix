@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sdformat_urdf";
-  version = "2.1.0-1";
+  version = "2.1.0-2";
   src = finalAttrs.passthru.sources."sdformat_urdf";
   propagatedNativeBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "liburdfdom-headers-dev" "tinyxml2" ]; };
   propagatedBuildInputs = [ ament-cmake-ros pluginlib rcutils sdformat-vendor urdf urdf-parser-plugin ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "liburdfdom-headers-dev" "tinyxml2" ]; };
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sdformat_urdf-source";
         url = "https://github.com/ros2-gbp/sdformat_urdf-release.git";
-        rev = "a3e21240176399102fc49ad6514eb74219881b41";
+        rev = "ea5b161902be2da68d00e08ef3059bf28c7ba59f";
         hash = "sha256-FQnKqaSC0pSYrnsXWGCI0Gym2eDRF5iv6+SKOjfAyVE=";
       };
     };

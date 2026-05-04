@@ -32,7 +32,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nav2_rviz_plugins";
-  version = "1.3.11-1";
+  version = "1.3.12-1";
   src = finalAttrs.passthru.sources."nav2_rviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ geometry-msgs nav2-lifecycle-manager nav2-msgs nav2-route nav2-util nav-msgs pluginlib rclcpp rclcpp-lifecycle resource-retriever rviz-common rviz-default-plugins rviz-ogre-vendor rviz-rendering std-msgs tf2-geometry-msgs urdf visualization-msgs yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt5-core" "libqt5-gui" "libqt5-opengl" "libqt5-widgets" "qtbase5-dev" ]; };
@@ -44,8 +44,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nav2_rviz_plugins-source";
         url = "https://github.com/SteveMacenski/navigation2-release.git";
-        rev = "86c5b56eac49b58fd6c1c95b9ca1fc97d4e40b84";
-        hash = "sha256-Me6ebDQZdUXPv4CqmQQURqfnk6MjYe06Ae5OOTtTybQ=";
+        rev = "8e0b998fa9debeb9bdf33385eec43b1bb13fef7f";
+        hash = "sha256-YCS2dDj0C5BC/QCK1w1yT/DRRCqv1VOc587rHmmlJds=";
       };
     };
   });

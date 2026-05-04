@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "leo_msgs";
-  version = "3.2.0-1";
+  version = "3.2.0-2";
   src = finalAttrs.passthru.sources."leo_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "leo_msgs-source";
         url = "https://github.com/ros2-gbp/leo_common-release.git";
-        rev = "b8c614261682b4648a5413b188b4d5ad552ebf50";
+        rev = "ec09bb044493eae780ec77efd827f30c42202111";
         hash = "sha256-nd27DDPynk59c1yGR2dOWJ13ts2BcBPs0uqRXOby/eU=";
       };
     };

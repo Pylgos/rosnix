@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "pcl_msgs";
-  version = "1.0.0-8";
+  version = "1.0.0-9";
   src = finalAttrs.passthru.sources."pcl_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "pcl_msgs-source";
         url = "https://github.com/ros2-gbp/pcl_msgs-release.git";
-        rev = "63649a08e304edddf086a71ed8e0c213ec45159d";
+        rev = "7a01521bedd9751b8ea7e9a0ef3d245dd9c38356";
         hash = "sha256-YdspDlpwU8CIVBKEa3kLCnDsR3MsuehC9zuvXtAnt4w=";
       };
     };

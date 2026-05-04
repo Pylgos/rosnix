@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "parameter_expression";
-  version = "0.0.2-1";
+  version = "0.0.2-2";
   src = finalAttrs.passthru.sources."parameter_expression";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
   propagatedNativeBuildInputs = [ rclcpp std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "muparser" "pkg-config" ]; };
@@ -30,7 +30,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "parameter_expression-source";
         url = "https://github.com/ros2-gbp/parameter_expression-release.git";
-        rev = "42d29cc137e124a6b5f8b14df1d4a08ce40d9e00";
+        rev = "3a82fb6264e3f7c48ee7337ddf9abcd15a5cc119";
         hash = "sha256-lX8LiRVVQv4AZPMOJFNVPqUvAjXyPzrXfqhqbvEp6hA=";
       };
     };

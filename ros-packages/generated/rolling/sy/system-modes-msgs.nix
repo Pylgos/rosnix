@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "system_modes_msgs";
-  version = "0.9.0-5";
+  version = "0.9.0-6";
   src = finalAttrs.passthru.sources."system_modes_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "system_modes_msgs-source";
         url = "https://github.com/ros2-gbp/system_modes-release.git";
-        rev = "54ca985a62ba5234ccc4578a795f722e79168f9d";
+        rev = "17141fc64c770bdf54842cc054060a14a7d311fc";
         hash = "sha256-UcVnvMWo1lcz8PljlXg4m53YoUKsphq4TbfgB7Z3dgw=";
       };
     };

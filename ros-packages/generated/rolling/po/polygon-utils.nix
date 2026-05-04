@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "polygon_utils";
-  version = "1.3.0-1";
+  version = "1.3.0-2";
   src = finalAttrs.passthru.sources."polygon_utils";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ geometry-msgs polygon-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-shapely" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "polygon_utils-source";
         url = "https://github.com/ros2-gbp/polygon_ros-release.git";
-        rev = "e447a1780d047e4f9187ac1319c58ba6d9001025";
+        rev = "a20237f2657d90b8cf71a2882219074bfbf5115a";
         hash = "sha256-stcqm+t6vTjM77+fbga9/4Vfv1Ikvd7RZojSVR2RfgA=";
       };
     };

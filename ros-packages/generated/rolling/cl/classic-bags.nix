@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "classic_bags";
-  version = "0.4.0-1";
+  version = "0.4.0-2";
   src = finalAttrs.passthru.sources."classic_bags";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ builtin-interfaces rclcpp rclpy rosbag2-cpp rosbag2-py rosbag2-storage rosidl-runtime-py ];
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "classic_bags-source";
         url = "https://github.com/ros2-gbp/classic_bags-release.git";
-        rev = "e2538f43275fa7e7c37016cad69ba2a72e9dff4e";
+        rev = "2639602b901aeb657c2be08f182985f386876e0e";
         hash = "sha256-ZJSMrs9eRmeojheIs6GQcdz6FbdvasObPF8AjZg6XQM=";
       };
     };

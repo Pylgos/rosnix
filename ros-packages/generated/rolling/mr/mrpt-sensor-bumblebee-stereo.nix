@@ -27,7 +27,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mrpt_sensor_bumblebee_stereo";
-  version = "0.2.4-1";
+  version = "0.2.4-2";
   src = finalAttrs.passthru.sources."mrpt_sensor_bumblebee_stereo";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-lint-auto ament-lint-common cv-bridge geometry-msgs mrpt-libhwdrivers mrpt-libros-bridge mrpt-msgs mrpt-sensorlib nav-msgs rclcpp rclcpp-components ros-environment sensor-msgs std-msgs stereo-msgs tf2 tf2-ros ];
@@ -38,7 +38,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mrpt_sensor_bumblebee_stereo-source";
         url = "https://github.com/ros2-gbp/mrpt_sensors-release.git";
-        rev = "ed55089394bb44e0d744730fec5d3353d572cd8d";
+        rev = "caa84ac5ea1e4226196bc311947a1465b38c9227";
         hash = "sha256-eWouhnv7tk4ZmVl8DR+QpWUX8X5OGqUfUwlmvYcBsdY=";
       };
     };

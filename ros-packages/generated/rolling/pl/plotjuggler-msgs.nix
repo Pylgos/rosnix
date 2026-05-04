@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "plotjuggler_msgs";
-  version = "0.2.3-4";
+  version = "0.2.3-5";
   src = finalAttrs.passthru.sources."plotjuggler_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "plotjuggler_msgs-source";
         url = "https://github.com/ros2-gbp/plotjuggler_msgs-release.git";
-        rev = "2a9c8a2f70e615f842e408e6ca6c4738f3893a11";
+        rev = "1637870e3d1116dacee52f31248e3a5724cdf81f";
         hash = "sha256-Lu4ZRsDpvbS2QzbjWOL23H8lsKRSTPGe6MgiCaUedO4=";
       };
     };

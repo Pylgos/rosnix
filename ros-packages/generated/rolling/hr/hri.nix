@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "hri";
-  version = "2.9.0-1";
+  version = "2.9.0-2";
   src = finalAttrs.passthru.sources."hri";
   nativeBuildInputs = [ ament-cmake-auto ];
   propagatedNativeBuildInputs = [ cv-bridge geometry-msgs hri-msgs magic-enum rclcpp rclcpp-lifecycle sensor-msgs std-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" ]; };
@@ -35,7 +35,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "hri-source";
         url = "https://github.com/ros2-gbp/libhri-release.git";
-        rev = "20cf5064e300d7201fdbd2946ae63e0e435d7e92";
+        rev = "bb20510e67d53632ce479ea5ed9803825d9225be";
         hash = "sha256-bISh81fSRx9E1bff6J41n2ccueqC/L42aJ90NOmPKF0=";
       };
     };

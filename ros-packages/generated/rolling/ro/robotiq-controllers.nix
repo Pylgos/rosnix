@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robotiq_controllers";
-  version = "0.0.1-2";
+  version = "0.0.1-3";
   src = finalAttrs.passthru.sources."robotiq_controllers";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ controller-interface std-srvs ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robotiq_controllers-source";
         url = "https://github.com/ros2-gbp/ros2_robotiq_gripper-release.git";
-        rev = "0d7e56423ce92d510911df6678f4ac0bb93173c2";
+        rev = "9088cf8c06fec83cbd49784d0204be96e0ef15fe";
         hash = "sha256-JhCCmqa9agEkqVO3vJ372AV/ZDF6zTNZta6YYwe29Y8=";
       };
     };

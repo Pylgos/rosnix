@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "urdf_launch";
-  version = "0.1.2-1";
+  version = "0.1.2-2";
   src = finalAttrs.passthru.sources."urdf_launch";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ joint-state-publisher joint-state-publisher-gui launch-ros robot-state-publisher rviz2 rviz-common rviz-default-plugins xacro ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "urdf_launch-source";
         url = "https://github.com/ros2-gbp/urdf_launch-release.git";
-        rev = "c6483b3ea6b36ee415cab62abe0ca6a7673846b4";
+        rev = "46f7c0c25939218f1ea5347cf6d369b1a9213a72";
         hash = "sha256-uBoizHuTTlCPkWyaybnQiGWF87Py/o/NesmTyAzWQhQ=";
       };
     };

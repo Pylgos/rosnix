@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "delphi_mrr_msgs";
-  version = "4.0.0-3";
+  version = "4.0.0-4";
   src = finalAttrs.passthru.sources."delphi_mrr_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces ros-environment rosidl-default-generators rosidl-default-runtime std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "delphi_mrr_msgs-source";
         url = "https://github.com/ros2-gbp/astuff_sensor_msgs-release.git";
-        rev = "3f3306d41cb188a17d0f7166bb51d6f8557980ac";
+        rev = "e70efb1f31f46cb975e580ff1d47df16183da505";
         hash = "sha256-wRjHKzZNBmMaEJPFEgEysXQ+9dMe3vyzYyFO3V+cuEs=";
       };
     };

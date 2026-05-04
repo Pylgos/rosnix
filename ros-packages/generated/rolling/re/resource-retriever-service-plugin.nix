@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "resource_retriever_service_plugin";
-  version = "0.0.1-1";
+  version = "0.0.1-2";
   src = finalAttrs.passthru.sources."resource_retriever_service_plugin";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ rclcpp resource-retriever resource-retriever-interfaces ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "resource_retriever_service_plugin-source";
         url = "https://github.com/ros2-gbp/resource_retriever_service-release.git";
-        rev = "bbc5a8620e963f9e4c3341d5dda239337a7a372a";
+        rev = "4828c60a3656e75f40092142792a2f7b8dd4cc8f";
         hash = "sha256-HnzQrrdWO6Wny9tNFEZT760w6P/5wdYuupF/yJgNbTg=";
       };
     };

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "adaptive_component";
-  version = "0.2.1-4";
+  version = "0.2.1-5";
   src = finalAttrs.passthru.sources."adaptive_component";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp rclcpp-components ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "adaptive_component-source";
         url = "https://github.com/ros2-gbp/adaptive_component-release.git";
-        rev = "cea369fddf909c0d41112e9c498b90d7cd44c0de";
+        rev = "30da06c8e8da04597e5f67f41e0600f6227fdc12";
         hash = "sha256-W7/vGlSCfAW+RH7nsv4Po+MFZLDvwzuq/iSATbF9jaQ=";
       };
     };

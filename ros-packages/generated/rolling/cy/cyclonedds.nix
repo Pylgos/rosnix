@@ -11,7 +11,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "cyclonedds";
-  version = "11.0.1-1";
+  version = "11.0.1-3";
   src = finalAttrs.passthru.sources."cyclonedds";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ iceoryx-hoofs iceoryx-posh ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libssl-dev" "openssl" ]; };
@@ -22,8 +22,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "cyclonedds-source";
         url = "https://github.com/ros2-gbp/cyclonedds-release.git";
-        rev = "2f941becbf1b07cc3b0008376356c9fce890dadf";
-        hash = "sha256-0V0oprJmoEkHRsGqwEuYWRy5VR43NpZhKyYdWtpVsAI=";
+        rev = "cd0cce7d80d9eb37b27f7ae45974d1186e4f0eea";
+        hash = "sha256-GDL/mb5VLCmReUOS9/q8QSbJnKhsyOYAcb8e7y/Cbm8=";
       };
     };
   });

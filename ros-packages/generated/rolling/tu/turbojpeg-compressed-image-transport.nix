@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "turbojpeg_compressed_image_transport";
-  version = "0.3.0-1";
+  version = "0.3.0-2";
   src = finalAttrs.passthru.sources."turbojpeg_compressed_image_transport";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge image-transport ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libturbojpeg" ]; };
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "turbojpeg_compressed_image_transport-source";
         url = "https://github.com/ros2-gbp/turbojpeg_compressed_image_transport-release.git";
-        rev = "da68e5067246a4c8aee71f4390ab9b8fd19ce9bc";
+        rev = "2d857e35d16e2691955ba4c7e39468829bd74a65";
         hash = "sha256-kMNHDgumgZGOlZj2aoniJ4883BE/hZ+hI3fMT8W4FAY=";
       };
     };

@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "apex_test_tools";
-  version = "0.0.2-8";
+  version = "0.0.2-9";
   src = finalAttrs.passthru.sources."apex_test_tools";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ];
   propagatedNativeBuildInputs = [ ament-cmake-gtest osrf-testing-tools-cpp ];
@@ -28,7 +28,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "apex_test_tools-source";
         url = "https://github.com/ros2-gbp/apex_test_tools-release.git";
-        rev = "4a87b1c634be29109bcf30218c6177c096fced98";
+        rev = "f021675477be948e16a036412b43cea76c2c6dc8";
         hash = "sha256-vrX5LngYVt0Fxd0td4idUCVPg+j96W7S07zUG/lM8W4=";
       };
     };

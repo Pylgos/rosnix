@@ -10,7 +10,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "rmf_traffic_examples";
-  version = "3.7.0-1";
+  version = "3.7.0-2";
   src = finalAttrs.passthru.sources."rmf_traffic_examples";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ rmf-traffic ];
@@ -21,7 +21,7 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rmf_traffic_examples-source";
         url = "https://github.com/ros2-gbp/rmf_traffic-release.git";
-        rev = "9d2d345270cfca927a7f54ba34e367ad1e90db2a";
+        rev = "1ad4a0cc1c7250ecc93af2309f804162e8a381cf";
         hash = "sha256-pjGC66bypYyC+Tf6yRoNI8ZCYbV5Czq9vQ8mb8TQEsI=";
       };
     };

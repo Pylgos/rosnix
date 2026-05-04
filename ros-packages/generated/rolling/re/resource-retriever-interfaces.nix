@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "resource_retriever_interfaces";
-  version = "0.0.1-1";
+  version = "0.0.1-2";
   src = finalAttrs.passthru.sources."resource_retriever_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -23,7 +23,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "resource_retriever_interfaces-source";
         url = "https://github.com/ros2-gbp/resource_retriever_service-release.git";
-        rev = "ad0ca115c2281e4d3c75089c48edf4102cc1cb14";
+        rev = "cc8248cb8f3408c014b2c402b24d4778f979ecda";
         hash = "sha256-aBvjaxBYAZwciWPps+qGKt5+wGY+fiC6hJpb1zPQ1Cw=";
       };
     };

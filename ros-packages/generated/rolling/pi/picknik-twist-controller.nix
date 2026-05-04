@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "picknik_twist_controller";
-  version = "0.0.4-2";
+  version = "0.0.4-3";
   src = finalAttrs.passthru.sources."picknik_twist_controller";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ controller-interface example-interfaces geometry-msgs rclcpp realtime-tools ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "picknik_twist_controller-source";
         url = "https://github.com/ros2-gbp/picknik_controllers-release.git";
-        rev = "f5715dd5fe4c58851066f2e0d05c6bad2393440f";
+        rev = "ead33f88d2cfcd9cb55c6972272944ae546e2af2";
         hash = "sha256-Yioqzd0lkprPakmZv+Dv2fxMVLU6dcp0qkxlF4DwfG0=";
       };
     };

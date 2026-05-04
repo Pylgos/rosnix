@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "nlohmann_json_schema_validator_vendor";
-  version = "0.5.0-1";
+  version = "0.5.0-2";
   src = finalAttrs.passthru.sources."nlohmann_json_schema_validator_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "nlohmann-json-dev" ]; };
@@ -21,7 +21,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "nlohmann_json_schema_validator_vendor-source";
         url = "https://github.com/ros2-gbp/nlohmann_json_schema_validator_vendor-release.git";
-        rev = "3123313621d08f1fe6ebd29bca990090a86bbb9c";
+        rev = "b2f044ad32b5dfebddd5d9c29374c302de8dc0db";
         hash = "sha256-2rVkyARMjHb68OEyfUhHWJ7oLGa5hO+/B883YTIPaHM=";
       };
       substitutions = [

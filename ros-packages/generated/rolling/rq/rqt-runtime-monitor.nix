@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_runtime_monitor";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."rqt_runtime_monitor";
   propagatedNativeBuildInputs = [ ament-index-python diagnostic-msgs python-qt-binding qt-gui rclpy rqt-gui rqt-gui-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-rospkg" ]; };
   propagatedBuildInputs = [ ament-index-python diagnostic-msgs python-qt-binding qt-gui rclpy rqt-gui rqt-gui-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-rospkg" ]; };
@@ -29,7 +29,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_runtime_monitor-source";
         url = "https://github.com/ros2-gbp/rqt_runtime_monitor-release.git";
-        rev = "8a3ca23e7d99c28c65dc0400ef34e5833ee4a5cb";
+        rev = "4523c5945ae8501e9cd3be7d636ef9a76528cb0c";
         hash = "sha256-7LyebmhKcj1ltMsj4LbDUxXX5v9ejuW4g4lIKitP28Q=";
       };
     };

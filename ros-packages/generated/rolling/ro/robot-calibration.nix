@@ -33,7 +33,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "robot_calibration";
-  version = "0.10.1-1";
+  version = "0.10.1-2";
   src = finalAttrs.passthru.sources."robot_calibration";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ camera-calibration-parsers control-msgs cv-bridge geometric-shapes geometry-msgs kdl-parser moveit-msgs nav-msgs pluginlib rclcpp rclcpp-action robot-calibration-msgs rosbag2-cpp sensor-msgs std-msgs tf2-geometry-msgs tf2-ros tinyxml2-vendor visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "libboost-filesystem-dev" "libceres-dev" "libgflags-dev" "liborocos-kdl-dev" "protobuf-dev" "suitesparse" "tinyxml2" "yaml-cpp" ]; };
@@ -45,7 +45,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "robot_calibration-source";
         url = "https://github.com/ros2-gbp/robot_calibration-release.git";
-        rev = "eb96513c4663142a928dc7e4f02b40eaf44f6a53";
+        rev = "34973899bc5e81e44cd5ad90ac85297a704716ec";
         hash = "sha256-U2U6AYncHAU/1afnWTB6blEUxGE0tWYlt60rvg/hmP0=";
       };
     };

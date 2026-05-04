@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "actuator_msgs";
-  version = "0.0.1-3";
+  version = "0.0.1-4";
   src = finalAttrs.passthru.sources."actuator_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -27,7 +27,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "actuator_msgs-source";
         url = "https://github.com/ros2-gbp/actuator_msgs-release.git";
-        rev = "7190d6d9d2c0f602774ce85238ed79a1cb49c0cc";
+        rev = "0e99f7289923ff68e2cf632e16d80aa913cf2c9e";
         hash = "sha256-euXTvPVaV7xPFXP/lH9jg2S87V9DyFmp1EwJVlF7AVs=";
       };
     };

@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "vision_msgs";
-  version = "4.2.0-1";
+  version = "4.2.0-2";
   src = finalAttrs.passthru.sources."vision_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-runtime std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "vision_msgs-source";
         url = "https://github.com/ros2-gbp/vision_msgs-release.git";
-        rev = "15a5af797cac0ffaf10ad3a6308c5544557e0eb1";
+        rev = "e8b34d4731f0f683a256e640df68360d93087b04";
         hash = "sha256-enO/fIPjMWEyEzJHIyWJXW4xjHPuvb5A2+0HIT+troI=";
       };
     };

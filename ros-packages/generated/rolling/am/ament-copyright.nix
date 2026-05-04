@@ -12,7 +12,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_copyright";
-  version = "0.20.4-1";
+  version = "0.20.5-3";
   src = finalAttrs.passthru.sources."ament_copyright";
   propagatedNativeBuildInputs = [ ament-lint ];
   propagatedBuildInputs = [ ament-lint ];
@@ -22,8 +22,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_copyright-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "6aceab52e3785155d9eaea3bbb6ef4711cd51033";
-        hash = "sha256-by+da98pokXDl5vsfrl4K2bKLlSXeGFplE4JRkDwSxE=";
+        rev = "98e0fc3b3fc09a8ba921f655b5b93d161f599e86";
+        hash = "sha256-cOoFdAG0kF/tR/Ua9lY/ax6i1iut+r5wd37E69QNre0=";
       };
     };
   });

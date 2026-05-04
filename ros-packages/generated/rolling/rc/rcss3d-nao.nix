@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcss3d_nao";
-  version = "1.2.0-2";
+  version = "1.2.0-3";
   src = finalAttrs.passthru.sources."rcss3d_nao";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs nao-lola-command-msgs nao-lola-sensor-msgs rclcpp-components rcss3d-agent rcss3d-agent-msgs-to-soccer-interfaces sensor-msgs soccer-vision-3d-msgs ];
@@ -33,7 +33,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcss3d_nao-source";
         url = "https://github.com/ros2-gbp/rcss3d_nao-release.git";
-        rev = "eca4398e014f5149e7dfddd70953dc5e0a3b260f";
+        rev = "04eac1ddd62dbc7ddb181aaf816ed794a9b7f002";
         hash = "sha256-gDCJv4U5VGvPzE6+9SysE6xYUMNx7KGRawSEwZp7sVM=";
       };
     };

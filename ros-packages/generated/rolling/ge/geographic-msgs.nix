@@ -22,7 +22,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "geographic_msgs";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."geographic_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ geometry-msgs rosidl-default-generators rosidl-default-runtime std-msgs unique-identifier-msgs ];
@@ -34,7 +34,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "geographic_msgs-source";
         url = "https://github.com/ros2-gbp/geographic_info-release.git";
-        rev = "1efe3b2b34b48437bc1af05abe67bbbf832c9957";
+        rev = "2cf184abfa0a2923b1bdf4647e4c3dab86ab7028";
         hash = "sha256-nhS4kFuDj1V2F56pjP2GmIYfCB+bVsr1RI3DzbZVfsI=";
       };
     };

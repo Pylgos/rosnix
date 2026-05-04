@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "libcaer_driver";
-  version = "1.5.3-1";
+  version = "1.5.3-2";
   src = finalAttrs.passthru.sources."libcaer_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ camera-info-manager event-camera-msgs image-transport libcaer-vendor rclcpp rclcpp-components sensor-msgs std-srvs ];
@@ -40,7 +40,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "libcaer_driver-source";
         url = "https://github.com/ros2-gbp/libcaer_driver-release.git";
-        rev = "676bcb61fc525089a408681ef0f6a17fea47bf5a";
+        rev = "742c6877cb0aaf39c19099de48c77fd0e2916e22";
         hash = "sha256-cISf/Pxt0ZOvhjrYICTTY6cZSZ3ip0b5qPaAVD38fSY=";
       };
     };

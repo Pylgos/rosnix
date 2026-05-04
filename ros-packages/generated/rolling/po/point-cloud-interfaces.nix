@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "point_cloud_interfaces";
-  version = "6.1.0-1";
+  version = "6.1.0-2";
   src = finalAttrs.passthru.sources."point_cloud_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "point_cloud_interfaces-source";
         url = "https://github.com/ros2-gbp/point_cloud_transport_plugins-release.git";
-        rev = "dff2afe10c6efb9125a06c5ab9ed11a73af1507d";
+        rev = "32cb6479b775e140999d529daf8989c3f568865e";
         hash = "sha256-PyCwy28KwZ9K85+GfW5r5j3B75gf3PeE9d9alMGtTuo=";
       };
     };

@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "camera_ros";
-  version = "0.6.0-1";
+  version = "0.6.0-2";
   src = finalAttrs.passthru.sources."camera_ros";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ ament-index-python camera-info-manager cv-bridge image-view libcamera rclcpp rclcpp-components ros2launch sensor-msgs ];
@@ -40,7 +40,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "camera_ros-source";
         url = "https://github.com/ros2-gbp/camera_ros-release.git";
-        rev = "eff1f2e70ffaceb4ae1562a38897d84931fb49c1";
+        rev = "3f812ebb07f1edd885997ace05e87cd06f82393d";
         hash = "sha256-b/tyS3FNJ7nPZw+drpgBNJ0EWWYrk3KJt/0ueGKnaFI=";
       };
     };

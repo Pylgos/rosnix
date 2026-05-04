@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ecl_sigslots_lite";
-  version = "1.2.0-4";
+  version = "1.2.0-5";
   src = finalAttrs.passthru.sources."ecl_sigslots_lite";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ ecl-build ecl-config ecl-errors ecl-license ];
@@ -25,7 +25,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ecl_sigslots_lite-source";
         url = "https://github.com/ros2-gbp/ecl_lite-release.git";
-        rev = "95d136bc1418084990b97777a7a3a35563ec9b06";
+        rev = "321f17506a9c3b401172a8f97574f923d0b212d0";
         hash = "sha256-nGYQQNr6VnsCIPQoCQfLmIxpw1uEBrqSu1PjF4XPSxk=";
       };
     };

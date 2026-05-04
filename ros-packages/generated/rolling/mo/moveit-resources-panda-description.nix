@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "moveit_resources_panda_description";
-  version = "3.1.1-1";
+  version = "3.1.1-2";
   src = finalAttrs.passthru.sources."moveit_resources_panda_description";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,7 +19,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "moveit_resources_panda_description-source";
         url = "https://github.com/ros2-gbp/moveit_resources-release.git";
-        rev = "741ecb814ca84319822156d6c400e0758e0b73df";
+        rev = "ed8bc9cbbd2726e513545f38780234be7a94c3b6";
         hash = "sha256-GAANZjKMnIlNbeac7Yd8yV428+OD1Na71rfwe0iXa0w=";
       };
     };

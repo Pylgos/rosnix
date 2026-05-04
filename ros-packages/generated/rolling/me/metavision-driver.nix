@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "metavision_driver";
-  version = "3.0.0-1";
+  version = "3.0.0-2";
   src = finalAttrs.passthru.sources."metavision_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ros-environment ];
   propagatedNativeBuildInputs = [ event-camera-msgs openeb-vendor rclcpp rclcpp-components std-srvs ];
@@ -37,7 +37,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "metavision_driver-source";
         url = "https://github.com/ros2-gbp/metavision_driver-release.git";
-        rev = "359b8f42fb9c6f3e077f78ed25c98a661e6852b6";
+        rev = "d7c59383a38bf262962a68872f76c564adb77b0d";
         hash = "sha256-yWnX3o7Eh1//HPSS9fITythCk+iM3t6jDobLrGsixRk=";
       };
     };

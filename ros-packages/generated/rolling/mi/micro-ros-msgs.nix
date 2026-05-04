@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "micro_ros_msgs";
-  version = "1.0.0-4";
+  version = "1.0.0-5";
   src = finalAttrs.passthru.sources."micro_ros_msgs";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rosidl-default-generators rosidl-default-runtime ];
@@ -26,7 +26,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "micro_ros_msgs-source";
         url = "https://github.com/ros2-gbp/micro_ros_msgs-release.git";
-        rev = "89f999025d65e2c51e59ebae99c8575e2741a12d";
+        rev = "a6bc781fe36adf448f8e25175383ba60f5498400";
         hash = "sha256-kuDv7e3C0BCXolx6ePv0TLEpK9E3OfLGFAh0K/9Wb8o=";
       };
     };

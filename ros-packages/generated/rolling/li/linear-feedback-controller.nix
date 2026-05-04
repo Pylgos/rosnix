@@ -32,7 +32,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "linear_feedback_controller";
-  version = "3.2.0-1";
+  version = "3.2.0-2";
   src = finalAttrs.passthru.sources."linear_feedback_controller";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
   propagatedNativeBuildInputs = [ control-toolbox controller-interface generate-parameter-library hardware-interface jrl-cmakemodules linear-feedback-controller-msgs message-filters nav-msgs pal-statistics parameter-traits pinocchio pluginlib rcl rclcpp rclcpp-lifecycle realtime-tools rosidl-dynamic-typesupport sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
@@ -44,7 +44,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "linear_feedback_controller-source";
         url = "https://github.com/ros2-gbp/linear-feedback-controller-release.git";
-        rev = "b5b73b0d45e047e5e1c821aee5402bd56aee6710";
+        rev = "cae4e966e04028aba8d4cabad2db312b6cf6d0b9";
         hash = "sha256-6hlr0iqRySWOPuB7tQBmIz97wOVzUySr6lX43miiLu0=";
       };
     };

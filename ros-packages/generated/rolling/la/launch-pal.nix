@@ -15,7 +15,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "launch_pal";
-  version = "0.20.3-1";
+  version = "0.20.3-2";
   src = finalAttrs.passthru.sources."launch_pal";
   propagatedNativeBuildInputs = [ ament-index-python launch launch-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-jinja2" "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python launch launch-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-jinja2" "python3-yaml" ]; };
@@ -25,7 +25,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "launch_pal-source";
         url = "https://github.com/ros2-gbp/launch_pal-release.git";
-        rev = "14a728e5af50c8360ab0976d6dad89c62b1bc89b";
+        rev = "ecbd87f02ebe68387a9b85b60e528bb96aaf94be";
         hash = "sha256-TrP4E43UaaJpjsqR8tNR12HcY1HgBiXzKijG1Seyp4E=";
       };
     };

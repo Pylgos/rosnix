@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mola_test_datasets";
-  version = "0.4.2-1";
+  version = "0.4.2-2";
   src = finalAttrs.passthru.sources."mola_test_datasets";
   nativeBuildInputs = [ ament-cmake ament-cmake-gtest ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ ros-environment ];
@@ -29,7 +29,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_test_datasets-source";
         url = "https://github.com/ros2-gbp/mola_test_datasets-release.git";
-        rev = "9b9e8ac1b4147da0e8cb415d6faed31a49b61ba0";
+        rev = "f42294e4e55151bc8d21338531c1d42987297eea";
         hash = "sha256-Hoq4/CRTRBbNH97jdPG1ais54BJwkHykwnB/PFEs8FE=";
       };
     };

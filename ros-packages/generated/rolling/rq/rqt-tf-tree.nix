@@ -17,7 +17,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_tf_tree";
-  version = "1.0.6-1";
+  version = "1.0.6-2";
   src = finalAttrs.passthru.sources."rqt_tf_tree";
   propagatedNativeBuildInputs = [ python-qt-binding qt-dotgraph rclpy rqt-graph rqt-gui rqt-gui-py tf2-msgs tf2-ros ];
   propagatedBuildInputs = [ python-qt-binding qt-dotgraph rclpy rqt-graph rqt-gui rqt-gui-py tf2-msgs tf2-ros ];
@@ -27,7 +27,7 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_tf_tree-source";
         url = "https://github.com/ros2-gbp/rqt_tf_tree-release.git";
-        rev = "eab80e3c1e09807f2f8829c3ec470350cb155a7a";
+        rev = "5471cc744599ccc3adc8f734ff3ed13c2e1576f4";
         hash = "sha256-+qJqoYDRTXe7jO8L15aKuTISnLl7pW8WSvZTXISgccA=";
       };
     };
