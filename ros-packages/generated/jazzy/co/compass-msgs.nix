@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "compass_msgs";
-  version = "0.2.0-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."compass_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "compass_msgs-source";
         url = "https://github.com/manankharwar/fusioncore-release.git";
-        rev = "f8e554001e01ff39aa4e85ea87272b8c919b532e";
-        hash = "sha256-DLZgIPYFe5kY5unm7vKZO/rvw5mB9fYGxXkuIoYwqeI=";
+        rev = "bf1953e407bbbe89bf5b7acaa304afd247d1e45b";
+        hash = "sha256-W/wyvTuVfcIHYXXDKhl9+XkdGM1Ilqy1SHOi2EtBnPU=";
       };
     };
   });

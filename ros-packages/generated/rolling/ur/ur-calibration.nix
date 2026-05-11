@@ -12,6 +12,7 @@
   rclcpp,
   rosSystemPackages,
   substituteSource,
+  ur-client-library,
   ur-robot-driver,
   yaml-cpp-vendor,
 }:
@@ -20,9 +21,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "5.0.0-2";
   src = finalAttrs.passthru.sources."ur_calibration";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ rclcpp ur-robot-driver yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "ur_client_library" ]; };
+  propagatedNativeBuildInputs = [ rclcpp ur-client-library ur-robot-driver yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ rclcpp ur-robot-driver yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "ur_client_library" ]; };
+  propagatedBuildInputs = [ rclcpp ur-client-library ur-robot-driver yaml-cpp-vendor ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" ]; };
   checkInputs = [ ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common ];
   passthru.sources = mkSourceSet (sources: {
     "ur_calibration" = substituteSource {

@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "synchros2";
-  version = "1.0.4-1";
+  version = "1.0.4-2";
   src = finalAttrs.passthru.sources."synchros2";
   propagatedNativeBuildInputs = [ action-msgs geometry-msgs launch message-filters rclpy tf2-msgs tf2-ros-py ];
   propagatedBuildInputs = [ action-msgs geometry-msgs launch message-filters rclpy tf2-msgs tf2-ros-py ];
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
     "synchros2" = substituteSource {
       src = fetchgit {
         name = "synchros2-source";
-        url = "https://github.com/bdaiinstitute/synchros2-release.git";
-        rev = "0cda44bc8f7a5134cd5eaa6f44af490672062192";
+        url = "https://github.com/rai-opensource/synchros2-release.git";
+        rev = "47977570a9660d10fb98f4cd83e5690d326c7e6b";
         hash = "sha256-Q2kRB14G1jUlMIz2ILqDp9avfJMVZfr2xlaD+yZyYD0=";
       };
     };

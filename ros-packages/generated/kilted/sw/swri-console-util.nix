@@ -11,7 +11,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_console_util";
-  version = "3.8.7-1";
+  version = "3.8.9-1";
   src = finalAttrs.passthru.sources."swri_console_util";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ rclcpp ];
@@ -22,8 +22,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_console_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "382e00743c4e6d40032f0f4a2fc1bd6b9cf1556d";
-        hash = "sha256-1pV9B8joUJGtrZ+WiM1QrwseAO9tyke0upW/sIVqHzw=";
+        rev = "404d7c8c7b987093b64b245faff9ff2eee152139";
+        hash = "sha256-Kx4RhXdVvNfKUAnkzTDt15QpCTm3PA7yL5aIjWAGwVU=";
       };
     };
   });

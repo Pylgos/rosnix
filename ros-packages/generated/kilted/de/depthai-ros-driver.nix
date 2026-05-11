@@ -36,7 +36,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "depthai_ros_driver";
-  version = "3.1.0-1";
+  version = "3.2.0-1";
   src = finalAttrs.passthru.sources."depthai_ros_driver";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ ament-cmake-auto backward-ros camera-calibration camera-info-manager cv-bridge depthai depthai-bridge depthai-descriptions depthai-ros-msgs diagnostic-msgs diagnostic-updater ffmpeg-image-transport-msgs geometry-msgs image-pipeline image-transport image-transport-plugins nav-msgs pluginlib rclcpp rclcpp-components sensor-msgs std-msgs std-srvs tf2-ros vision-msgs ];
@@ -47,8 +47,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "depthai_ros_driver-source";
         url = "https://github.com/luxonis/depthai-ros-release.git";
-        rev = "69c1ff5d555d6bb779397c80a5f53bcec5bcea05";
-        hash = "sha256-eLgj+kDtr+1010tLbCMldbebLfip2twKtokZYUhbE8M=";
+        rev = "69732370e1e433909b5bc9a477dc02898dc0ec3d";
+        hash = "sha256-U1HzREHvnxZFIz0GnnhOPwVe/IoZUmTDdJCulxGlL2Q=";
       };
     };
   });

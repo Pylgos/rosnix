@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_geometry_util";
-  version = "3.8.7-1";
+  version = "3.8.9-1";
   src = finalAttrs.passthru.sources."swri_geometry_util";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ tf2 ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "geos" "libopencv-dev" ]; };
@@ -24,8 +24,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_geometry_util-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "d18b7498889312ee39a4ea880ec45a3bc6083aae";
-        hash = "sha256-Qcfi3MnhqTjbbhWWvLRnUxiUv1O3LEKtzexEUS3fhTM=";
+        rev = "dd7f4afa57d6c8747399d6b48b445c55ba70a685";
+        hash = "sha256-2qYlo3KJ1eG1WMDGhuhybVEwlNYStpABLe7/zmcu0jA=";
       };
     };
   });

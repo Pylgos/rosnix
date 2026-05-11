@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safevisionary_interfaces";
-  version = "1.0.3-3";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."sick_safevisionary_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -27,12 +27,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sick_safevisionary_interfaces-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
-        rev = "45ed2e25218ee95a383874b36021b745e79159fa";
-        hash = "sha256-7qiJXkBhZMJSxhYrVSgDCUBskK0DEX4aQAixkvpRaP4=";
+        rev = "b9ffb0d8de52a56a4b444016433a83b7ab1dceaa";
+        hash = "sha256-cQtk21EdiW4MK+2VAf7tRrKALFdTeSeBxlu3L2fKSsQ=";
       };
     };
   });
   meta = {
-    description = "Provides interface descriptions to communicate with a SICK Safevisionary Sensor over ROS 2";
+    description = "Provides interface descriptions to communicate with a SICK safeVisionary Sensor over ROS 2";
   };
 })

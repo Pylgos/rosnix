@@ -19,19 +19,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "generate_parameter_library";
-  version = "0.7.1-1";
+  version = "0.7.3-1";
   src = finalAttrs.passthru.sources."generate_parameter_library";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedNativeBuildInputs = [ generate-parameter-library-py parameter-traits rclcpp rclcpp-lifecycle rclpy rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" ]; };
+  propagatedNativeBuildInputs = [ generate-parameter-library-py parameter-traits rclcpp rclcpp-lifecycle rclpy rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libexpected-dev" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ];
-  propagatedBuildInputs = [ generate-parameter-library-py parameter-traits rclcpp rclcpp-lifecycle rclpy rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" ]; };
+  propagatedBuildInputs = [ generate-parameter-library-py parameter-traits rclcpp rclcpp-lifecycle rclpy rsl tcb-span tl-expected ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libexpected-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "generate_parameter_library" = substituteSource {
       src = fetchgit {
         name = "generate_parameter_library-source";
         url = "https://github.com/ros2-gbp/generate_parameter_library-release.git";
-        rev = "36dbcb0c1ac88aa3c23e1320e46a48b373bfe14e";
-        hash = "sha256-M8djMpzldt1jltNj7v4hsxFQVoVyh7Q7IrB68k7XMTI=";
+        rev = "2536d417f5531e6d049674266e1701ae752fdfcd";
+        hash = "sha256-h/F4ejF/CZGjXP3CHcd8UrKmMi/JSpA6tPPvZDBuO4Y=";
       };
     };
   });

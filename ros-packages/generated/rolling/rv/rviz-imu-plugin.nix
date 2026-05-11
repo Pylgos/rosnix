@@ -19,19 +19,19 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rviz_imu_plugin";
-  version = "2.2.2-2";
+  version = "2.2.3-1";
   src = finalAttrs.passthru.sources."rviz_imu_plugin";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering sensor-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqt6-core" "libqt6gui6t64" "libqt6opengl6t64" "libqt6widgets6t64" "qt6-base-dev" ]; };
+  propagatedNativeBuildInputs = [ message-filters pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering sensor-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libqtcore" "libqtgui" "libqtopengl" "libqtwidgets" "qt-base-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ message-filters pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering sensor-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqt6-core" "libqt6gui6t64" "libqt6opengl6t64" "libqt6widgets6t64" "qt6-base-dev" ]; };
+  propagatedBuildInputs = [ message-filters pluginlib rclcpp rviz-common rviz-ogre-vendor rviz-rendering sensor-msgs tf2 tf2-ros ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libqtcore" "libqtgui" "libqtopengl" "libqtwidgets" "qt-base-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "rviz_imu_plugin" = substituteSource {
       src = fetchgit {
         name = "rviz_imu_plugin-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "27623b85b65f53a0e0a9a42987f348c09a10a7ce";
-        hash = "sha256-lHcd1RN94IJ1OHn7ojD0ePKnx0q9im8srIhzLc8RAxk=";
+        rev = "f86b4ae947942c9f43e091d2a15b6d4f11d4911e";
+        hash = "sha256-5WxpSYxPlLmlyGWQL0yoXSkHalAmumeArZLW4PAFa/8=";
       };
     };
   });

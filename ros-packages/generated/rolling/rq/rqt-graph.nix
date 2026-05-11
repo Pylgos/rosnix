@@ -19,7 +19,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "rqt_graph";
-  version = "1.8.2-2";
+  version = "2.0.0-1";
   src = finalAttrs.passthru.sources."rqt_graph";
   propagatedNativeBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rclpy rqt-gui rqt-gui-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-qt-bindings" ]; };
   propagatedBuildInputs = [ ament-index-python python-qt-binding qt-dotgraph rclpy rqt-gui rqt-gui-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-qt-bindings" ]; };
@@ -29,8 +29,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "rqt_graph-source";
         url = "https://github.com/ros2-gbp/rqt_graph-release.git";
-        rev = "24155564044fca37cfc213c0a26119982abf68bf";
-        hash = "sha256-qp1LfTqFAyxyFZEOazJLybvNYBBy8SU9mQtUI1TTpQE=";
+        rev = "cc084bd8f2efc65ea1e15e2f3759a3a2d33117e6";
+        hash = "sha256-zpi3IIbwPl7DTOM5fu6YfDq3Uvo2F3EtnM2rquPUL6U=";
       };
     };
   });

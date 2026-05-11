@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_uuid";
-  version = "1.4.2-3";
+  version = "1.7.2-1";
   src = finalAttrs.passthru.sources."autoware_utils_uuid";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ unique-identifier-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-system-dev" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_uuid-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "45721f9b9328bfab0ee4b8b47e02c4d3353c5e5c";
-        hash = "sha256-ad5az+bpuy23gSmyhX+faaDaGwPS3QvyrFEqTFpsbxs=";
+        rev = "2e02706e731ba96abeee8f72011f7572aee6bdb3";
+        hash = "sha256-JA431XV7Buy+lpX7wihH1s7LhMWjSSz8zgQSIBCo+AE=";
       };
     };
   });

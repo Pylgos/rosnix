@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "example_interfaces";
-  version = "0.14.1-2";
+  version = "0.15.0-1";
   src = finalAttrs.passthru.sources."example_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "example_interfaces-source";
         url = "https://github.com/ros2-gbp/example_interfaces-release.git";
-        rev = "619010da6b555a4066ed87470822e998c7a3158b";
-        hash = "sha256-GTLJN0JTfMyjwaFvgy1cAAU3DAXAKwMDwi6RZc8x63I=";
+        rev = "0b9120d8a2574c090bbed76d95a416cbd78bbc6e";
+        hash = "sha256-TfXqzqzmGYce8HBDzZavipbzEgZ7ITejDZHbHJtyW9w=";
       };
     };
   });

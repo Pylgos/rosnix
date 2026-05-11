@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "swri_dbw_interface";
-  version = "3.8.7-2";
+  version = "3.8.9-1";
   src = finalAttrs.passthru.sources."swri_dbw_interface";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "swri_dbw_interface-source";
         url = "https://github.com/ros2-gbp/marti_common-release.git";
-        rev = "f49e33e22f73250f6caf49027eb4366ff1c1920c";
-        hash = "sha256-lxsURBYM5Sv/2418gnkvGzvpmrRCWlremzqT1LXglWY=";
+        rev = "7ac1fbd5d06a6176b7ed55c28aaffdf45371ef74";
+        hash = "sha256-7H8thdkDZ615cTvE0+3u8TAsmvPUCIs+TK2qOk1Poyg=";
       };
     };
   });

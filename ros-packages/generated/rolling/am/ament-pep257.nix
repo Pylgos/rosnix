@@ -11,7 +11,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_pep257";
-  version = "0.20.5-3";
+  version = "0.21.0-1";
   src = finalAttrs.passthru.sources."ament_pep257";
   propagatedNativeBuildInputs = [ ament-lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pydocstyle" ]; };
   propagatedBuildInputs = [ ament-lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "pydocstyle" ]; };
@@ -21,8 +21,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_pep257-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "1b9b3fb9ec1998eaf0e3c7168858f12cad2b0d14";
-        hash = "sha256-lq0kSfQW0uF+XPcWhuxZjHQt4BmFUVhHNwHxWU5Rk0k=";
+        rev = "d6e51f7ebcf890ff1950f0671ff4dce0ffbb6c39";
+        hash = "sha256-L+Gs2/9UNtgwa0lMVUkgGUIFruCwhHnjkTVyWHJM/m0=";
       };
     };
   });

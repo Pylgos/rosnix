@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_variables";
-  version = "1.1.4-1";
+  version = "1.1.5-1";
   src = finalAttrs.passthru.sources."fuse_variables";
   nativeBuildInputs = [ ament-cmake-ros ];
   propagatedNativeBuildInputs = [ fuse-core pluginlib rclcpp ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libceres-dev" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_variables-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "3b72a2a1a8a3f373809ba70b5b76dfd390065c3e";
-        hash = "sha256-A89ZBWV5qPmoMBou1roXugEF/U4pK2XDA+0f/wFq2B0=";
+        rev = "a15d7bedf61caab63281b390b6bb56d954579228";
+        hash = "sha256-ufsLzGKOp8Su+JUWlukan8o4M5kQZXAjvujQU9uexp8=";
       };
     };
   });

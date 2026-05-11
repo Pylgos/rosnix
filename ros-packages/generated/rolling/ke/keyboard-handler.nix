@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "keyboard_handler";
-  version = "0.5.0-2";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."keyboard_handler";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "keyboard_handler-source";
         url = "https://github.com/ros2-gbp/keyboard_handler-release.git";
-        rev = "335131fcaae9c62ab7c766b15f295362a9fd97de";
-        hash = "sha256-6tvwcFUeKhDHkttVLRn2f8H9Ja0atQKHvhzgf7M6mhE=";
+        rev = "8a93d77d335b5865d7ae2fb2d5992d646160f3a6";
+        hash = "sha256-sLdc6OGNdKHbyDGE/TLws72wgRcRHE2Y3+8FrkMav/o=";
       };
     };
   });

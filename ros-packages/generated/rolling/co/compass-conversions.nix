@@ -28,7 +28,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "compass_conversions";
-  version = "3.0.2-2";
+  version = "3.0.3-1";
   src = finalAttrs.passthru.sources."compass_conversions";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ];
   propagatedNativeBuildInputs = [ angles compass-interfaces cras-cpp-common geometry-msgs magnetic-model message-filters pluginlib rclcpp rclcpp-components sensor-msgs std-msgs tf2 tf2-geometry-msgs tf2-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" ]; };
@@ -40,8 +40,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "compass_conversions-source";
         url = "https://github.com/ros2-gbp/compass-release.git";
-        rev = "26efc986df2abd50eb09afffd22920798cbe4975";
-        hash = "sha256-qX0FE6qBN0gDqEEX7uquPn1JZ+EbcGoUFfen04+bWeQ=";
+        rev = "46dbe0b80c2b591b7ca5f621856fddc735b3816f";
+        hash = "sha256-7N+pJNPRxPq3wOffEJt3tFRbvNOAbqpFT4cWcbV+F38=";
       };
     };
   });

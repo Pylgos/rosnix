@@ -18,7 +18,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "sros2";
-  version = "0.16.4-2";
+  version = "0.17.0-1";
   src = finalAttrs.passthru.sources."sros2";
   propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-argcomplete" "python3-cryptography" "python3-lxml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy ros2cli ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-argcomplete" "python3-cryptography" "python3-lxml" ]; };
@@ -28,8 +28,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "sros2-source";
         url = "https://github.com/ros2-gbp/sros2-release.git";
-        rev = "284ab7c8d94e15093a52113fef27a0965e8cb775";
-        hash = "sha256-X2pvKKNZxzVWslbGQVrpybUyr1B3SUf8/lCkDFAg1gA=";
+        rev = "31339f1f87b1f4cae6735aace7417aafbe9b235d";
+        hash = "sha256-epS2hI5Od31vcrdpYA0ElWouyzFPPqSIN7PX8RpJsI4=";
       };
     };
   });

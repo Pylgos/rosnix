@@ -3,6 +3,7 @@
   ament-cmake-gtest,
   ament-cmake-pytest,
   ament-cmake-python,
+  ament-index-python,
   backward-ros,
   buildAmentCmakePackage,
   control-toolbox,
@@ -24,23 +25,24 @@
   sensor-msgs,
   substituteSource,
   transmission-interface,
+  urdfdom-py,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mujoco_ros2_control";
-  version = "0.0.2-1";
+  version = "0.0.3-1";
   src = finalAttrs.passthru.sources."mujoco_ros2_control";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
-  propagatedNativeBuildInputs = [ backward-ros control-toolbox controller-manager hardware-interface mujoco-ros2-control-msgs mujoco-ros2-control-plugins mujoco-vendor nav-msgs pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake sensor-msgs transmission-interface ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libglfw3-dev" "python3-pip" "python3-pykdl" "python3-venv" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python backward-ros control-toolbox controller-manager hardware-interface mujoco-ros2-control-msgs mujoco-ros2-control-plugins mujoco-vendor nav-msgs pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake sensor-msgs transmission-interface urdfdom-py ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "fmt" "libglfw3-dev" "python3-importlib-resources" "python3-numpy" "python3-pip" "python3-pykdl" "python3-venv" ]; };
   buildInputs = [ ament-cmake ament-cmake-python ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "git" ]; };
-  propagatedBuildInputs = [ backward-ros control-toolbox controller-manager hardware-interface mujoco-ros2-control-msgs mujoco-ros2-control-plugins mujoco-vendor nav-msgs pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake sensor-msgs transmission-interface ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libglfw3-dev" "python3-pip" "python3-pykdl" "python3-venv" ]; };
+  propagatedBuildInputs = [ ament-index-python backward-ros control-toolbox controller-manager hardware-interface mujoco-ros2-control-msgs mujoco-ros2-control-plugins mujoco-vendor nav-msgs pluginlib rclcpp rclcpp-lifecycle ros2-control-cmake sensor-msgs transmission-interface urdfdom-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "fmt" "libglfw3-dev" "python3-importlib-resources" "python3-numpy" "python3-pip" "python3-pykdl" "python3-venv" ]; };
   checkInputs = [ ament-cmake-gtest ament-cmake-pytest ];
   passthru.sources = mkSourceSet (sources: {
     "mujoco_ros2_control" = substituteSource {
       src = fetchgit {
         name = "mujoco_ros2_control-source";
         url = "https://github.com/ros2-gbp/mujoco_ros2_control-release.git";
-        rev = "325c53db9e340d2fef13c319067d1c6c1f6304e7";
-        hash = "sha256-dg6mTJgGY63Vxehqkrg2k2jbz/fGAGJ2zGDXPkJdmrc=";
+        rev = "e6fe54b1f104dd5360b97481cfb29960675eed08";
+        hash = "sha256-05tbPrPQbEIuvFvCBlpJXg93Kk0SE0YgmlkoNIi6RRY=";
       };
       substitutions = [
         {

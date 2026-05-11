@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_generator_dds_idl";
-  version = "0.13.0-2";
+  version = "0.14.0-1";
   src = finalAttrs.passthru.sources."rosidl_generator_dds_idl";
   propagatedNativeBuildInputs = [ ament-cmake ament-index-python rosidl-cli rosidl-pycommon ];
   propagatedBuildInputs = [ ament-cmake ament-index-python rosidl-cli rosidl-pycommon ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_generator_dds_idl-source";
         url = "https://github.com/ros2-gbp/rosidl_dds-release.git";
-        rev = "9d3adf9c295fecbff806052e6844d217dc0e5750";
-        hash = "sha256-SUIjn8GilW8A0EdkaQgnfokJLGT0K91h+LIBiLi3gmM=";
+        rev = "fdabd907dbce64136a622e4de46eeff69f7dba74";
+        hash = "sha256-TuPLR08Csh3p3tppp6p4y1RZgS9RmlvEgwiFUyrRefE=";
       };
     };
   });

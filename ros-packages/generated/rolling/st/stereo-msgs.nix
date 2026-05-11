@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "stereo_msgs";
-  version = "5.9.2-2";
+  version = "5.10.0-1";
   src = finalAttrs.passthru.sources."stereo_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime sensor-msgs std-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "stereo_msgs-source";
         url = "https://github.com/ros2-gbp/common_interfaces-release.git";
-        rev = "f54c88be4dd8df7d3605525d1f70b50d67bf7cf3";
-        hash = "sha256-42ZBqZFYrh93VQ1klWHjMvkC856OPgF9XwyUFEuk6Ss=";
+        rev = "324b7002f857eeb61125b2680938c167ce6028b5";
+        hash = "sha256-GaJ2E2loA68UCbygET0zF9PdzNBXX032MdTSu03rw6U=";
       };
     };
   });

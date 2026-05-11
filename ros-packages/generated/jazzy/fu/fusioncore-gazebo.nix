@@ -9,29 +9,26 @@
   nav-msgs,
   rclpy,
   robot-state-publisher,
-  ros-gz-bridge,
-  ros-gz-sim,
   rosSystemPackages,
   sensor-msgs,
   substituteSource,
   tf2-ros,
-  wrapRosQtAppsHook,
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fusioncore_gazebo";
-  version = "0.2.0-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."fusioncore_gazebo";
-  nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
-  propagatedNativeBuildInputs = [ fusioncore-ros nav-msgs rclpy robot-state-publisher ros-gz-bridge ros-gz-sim sensor-msgs tf2-ros ];
+  nativeBuildInputs = [ ament-cmake ];
+  propagatedNativeBuildInputs = [ fusioncore-ros nav-msgs rclpy robot-state-publisher sensor-msgs tf2-ros ];
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ fusioncore-ros nav-msgs rclpy robot-state-publisher ros-gz-bridge ros-gz-sim sensor-msgs tf2-ros ];
+  propagatedBuildInputs = [ fusioncore-ros nav-msgs rclpy robot-state-publisher sensor-msgs tf2-ros ];
   passthru.sources = mkSourceSet (sources: {
     "fusioncore_gazebo" = substituteSource {
       src = fetchgit {
         name = "fusioncore_gazebo-source";
         url = "https://github.com/manankharwar/fusioncore-release.git";
-        rev = "612395243172c327a6049afbef6bf006abb83f40";
-        hash = "sha256-pzs8ZB2NDNZoJ+4iDLruY6a/XTHjdPxULZZDAGtu49Q=";
+        rev = "7e2cced14ea9330ecb70febd9076748921a9eb7c";
+        hash = "sha256-WM7eXqlPBZUZQf//oC472cw5nxktVb/3UBB0gTKISrw=";
       };
     };
   });

@@ -21,7 +21,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2bag";
-  version = "0.33.1-2";
+  version = "0.34.0-1";
   src = finalAttrs.passthru.sources."ros2bag";
   propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli rosbag2-py rosbag2-storage-default-plugins ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-yaml" ]; };
   propagatedBuildInputs = [ ament-index-python rclpy ros2cli rosbag2-py rosbag2-storage-default-plugins ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-yaml" ]; };
@@ -31,8 +31,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2bag-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "f878d8d499c1d06141273969b0f0fe882533445a";
-        hash = "sha256-swCv9pGxdLzEKCgbBCWQ2MR05c/cih9/qOVvow1+mDY=";
+        rev = "682e3dcd93c0eafa248d7593f0085b6495e0dd6b";
+        hash = "sha256-Zq/nR2BWLWHwReVVAmjeqwbVbzJNN9iWxc8FxYtZKds=";
       };
     };
   });

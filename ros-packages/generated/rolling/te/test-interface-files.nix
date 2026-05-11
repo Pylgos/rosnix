@@ -10,7 +10,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "test_interface_files";
-  version = "0.14.1-2";
+  version = "0.15.0-1";
   src = finalAttrs.passthru.sources."test_interface_files";
   nativeBuildInputs = [ ament-cmake-core ];
   buildInputs = [ ament-cmake-core ];
@@ -19,8 +19,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "test_interface_files-source";
         url = "https://github.com/ros2-gbp/test_interface_files-release.git";
-        rev = "1ae99ebbb8bd8969792481646cd7d24e2da961b7";
-        hash = "sha256-vGkltWMB0zwInUSqtcGenOMkbmuIaWJ5zjyiTz9CZUk=";
+        rev = "f8f94da3c6d9f8d8d675b0de82c693f0e8e2864c";
+        hash = "sha256-L9JnTOhQyApRpGPUdO/RsKNLHCo7gyqeOyfppMQl+eo=";
       };
     };
   });

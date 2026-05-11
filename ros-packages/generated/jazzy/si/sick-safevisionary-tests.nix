@@ -14,7 +14,7 @@
 }:
 buildCatkinPackage (finalAttrs: {
   pname = "sick_safevisionary_tests";
-  version = "1.0.3-3";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."sick_safevisionary_tests";
   nativeBuildInputs = [ ament-cmake ];
   buildInputs = [ ament-cmake ];
@@ -24,12 +24,12 @@ buildCatkinPackage (finalAttrs: {
       src = fetchgit {
         name = "sick_safevisionary_tests-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
-        rev = "b65cb75ceb9c334712556b496bec8b5e36f089ec";
-        hash = "sha256-Q8HR5ihqZXIb5vP+goYKCgxgf635GsyPBnh2t5oPkgI=";
+        rev = "f45d1c435f0b9afef8a99f8c3747cf968d3c8f07";
+        hash = "sha256-58mVeGZSLLqB3JG1VUFO7E4yEqgqtHmJJesva2jZ7dg=";
       };
     };
   });
   meta = {
-    description = "Integration tests for the Sick SafeVisionary2 driver";
+    description = "Integration tests for the SICK safeVisionary ROS 2 driver";
   };
 })

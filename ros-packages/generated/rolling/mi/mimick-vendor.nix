@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mimick_vendor";
-  version = "0.9.0-2";
+  version = "0.10.0-1";
   src = finalAttrs.passthru.sources."mimick_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   buildInputs = [ ament-cmake ament-cmake-vendor-package ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mimick_vendor-source";
         url = "https://github.com/ros2-gbp/mimick_vendor-release.git";
-        rev = "eecc328566e5bcfecbb86c2400abfd4b964cc7ff";
-        hash = "sha256-e7kZxT2+bE+EQF5d2fN5I4V4W5thU8xd/GM3dzW3K00=";
+        rev = "4e8a9149c989c22712584fe3f1795b893b8c0557";
+        hash = "sha256-8BXLv14/7ZVHlFBRFS0Rpoerb+szEQi4UW5QBiASFAA=";
       };
       substitutions = [
         {

@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mcap_vendor";
-  version = "0.33.1-2";
+  version = "0.34.0-1";
   src = finalAttrs.passthru.sources."mcap_vendor";
   nativeBuildInputs = [ ament-cmake ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "git" ]; };
   propagatedNativeBuildInputs = [ lz4-cmake-module zstd-cmake-module ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mcap_vendor-source";
         url = "https://github.com/ros2-gbp/rosbag2-release.git";
-        rev = "89ace1399fa99ccfe7f2219d8e2f86b6030825fb";
-        hash = "sha256-TTEShiuY+9hnZFHMX4lqYOBZ7kkK0Dm9oX9s0ddWoD8=";
+        rev = "eb5a8c4863f6b42477b651d510d6e246140ff610";
+        hash = "sha256-QiYYFu2jLj83mqARbui0m+ViMZKjq6lB2zJTQXeq9B4=";
       };
       substitutions = [
         {

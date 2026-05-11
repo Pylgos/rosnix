@@ -24,7 +24,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flir_ptu_viz";
-  version = "1.0.1-1";
+  version = "1.0.2-1";
   src = finalAttrs.passthru.sources."flir_ptu_viz";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ];
   propagatedNativeBuildInputs = [ flir-ptu-description flir-ptu-driver interactive-markers joint-state-publisher joint-state-publisher-gui rclpy robot-state-publisher rviz2 sensor-msgs visualization-msgs xacro ];
@@ -36,8 +36,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flir_ptu_viz-source";
         url = "https://github.com/ros-drivers-gbp/flir_ptu-release.git";
-        rev = "494b1afe8ee9e33e8c6b51e616a9400f1f25c5b5";
-        hash = "sha256-h78xd491fmHSoCGGDNLgU+KSdbdY3a7QIgGpwJmjuIQ=";
+        rev = "70d8b94f51004746bd4d3d5d63ebccc9ea465b0b";
+        hash = "sha256-xClsYbO6IjHeibBQA8JoiRVn3z3+lwuXpkRLc1mpUo0=";
       };
     };
   });

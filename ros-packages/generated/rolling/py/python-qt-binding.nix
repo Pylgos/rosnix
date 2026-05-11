@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "python_qt_binding";
-  version = "2.5.4-2";
+  version = "2.6.0-1";
   src = finalAttrs.passthru.sources."python_qt_binding";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-dev" "python3-qt-bindings" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "python_qt_binding-source";
         url = "https://github.com/ros2-gbp/python_qt_binding-release.git";
-        rev = "976c34ff39ef778a6d8976ccb2b54128e7e106dd";
-        hash = "sha256-C8TtbDGUdhy+NcvhUHNqvVjeiouRXCFE2noIfwoIwFE=";
+        rev = "382e4f24f4417d473b3393dc41e56d8773cd2feb";
+        hash = "sha256-/bUV+9GOpWVTsJ7jrKuLF9QbTm/VeKYKxA2yA63GW6w=";
       };
     };
   });

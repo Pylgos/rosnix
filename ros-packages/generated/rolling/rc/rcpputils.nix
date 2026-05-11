@@ -20,7 +20,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rcpputils";
-  version = "2.14.4-2";
+  version = "2.15.0-1";
   src = finalAttrs.passthru.sources."rcpputils";
   nativeBuildInputs = [ ament-cmake ament-cmake-gen-version-h ament-cmake-ros-core ];
   propagatedNativeBuildInputs = [ rcutils ];
@@ -32,8 +32,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rcpputils-source";
         url = "https://github.com/ros2-gbp/rcpputils-release.git";
-        rev = "d0f70f55fce2a0ca6f1aadb9e68e1b7519f16ed0";
-        hash = "sha256-e49uEAYzjThOBItQ6QizmclzA3GOZoALttrbY03jvyw=";
+        rev = "13da3d155b176386dfb4bdfa14c741d9bd381628";
+        hash = "sha256-SInLJ9XeMtDi0lqts024bF/TO/sILcrZsSvNborr+ps=";
       };
     };
   });

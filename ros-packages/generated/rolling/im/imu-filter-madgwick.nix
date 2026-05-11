@@ -21,7 +21,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "imu_filter_madgwick";
-  version = "2.2.2-2";
+  version = "2.2.3-1";
   src = finalAttrs.passthru.sources."imu_filter_madgwick";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ builtin-interfaces geometry-msgs nav-msgs rclcpp rclcpp-action rclcpp-lifecycle sensor-msgs tf2-geometry-msgs tf2-ros visualization-msgs ];
@@ -33,8 +33,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "imu_filter_madgwick-source";
         url = "https://github.com/ros2-gbp/imu_tools-release.git";
-        rev = "33b42bf39fdf73d729b864227336709f590007c3";
-        hash = "sha256-XEB0LtslBiOtUEzmvUprqIvnY0DkZeGaVLCuRZqgBBo=";
+        rev = "67c38e7593db6d5f9d845b8d89d3be4359862d13";
+        hash = "sha256-7kkYJJDqzPUl7am8YEge82ezuiREgTq5CjytCh4fljo=";
       };
     };
   });

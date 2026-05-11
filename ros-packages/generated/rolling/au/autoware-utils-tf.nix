@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_tf";
-  version = "1.4.2-3";
+  version = "1.7.2-1";
   src = finalAttrs.passthru.sources."autoware_utils_tf";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ autoware-utils-geometry geometry-msgs rclcpp tf2-ros ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_tf-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "c74966303b2d581f48b398e4e60d17bf85113008";
-        hash = "sha256-b8fowpQy/6P6axnt0bJUwT1HlJ2LqJm+A2knn90zLPw=";
+        rev = "dad89ce4c8c76c21081089422b934cd992e83cf9";
+        hash = "sha256-97++ppbRn3mDES1+P5mtMbUWvhvV4sn923oZLTroIrs=";
       };
     };
   });

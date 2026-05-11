@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_visualization";
-  version = "1.4.2-3";
+  version = "1.7.2-1";
   src = finalAttrs.passthru.sources."autoware_utils_visualization";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ rclcpp visualization-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_visualization-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "8e475cade1a7f19af40b72c6aaa532c080e63c80";
-        hash = "sha256-jZeRjXyNdy82CwEnP3zpwf4W/Z2kDuuz7uQegFmV3OE=";
+        rev = "c39a3683a3bdae54420c6ff8f5dcdfddd027c9a4";
+        hash = "sha256-Ce2iDwCFVf35uc8f9gMuT2hRprnBFSoE5UD95hbnYlQ=";
       };
     };
   });

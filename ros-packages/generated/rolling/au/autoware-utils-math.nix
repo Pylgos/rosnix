@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_utils_math";
-  version = "1.4.2-3";
+  version = "1.7.2-1";
   src = finalAttrs.passthru.sources."autoware_utils_math";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   buildInputs = [ ament-cmake-auto autoware-cmake ];
@@ -23,8 +23,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_utils_math-source";
         url = "https://github.com/ros2-gbp/autoware_utils-release.git";
-        rev = "6aaa1f6d9aae04eab1c684364291621bec40e2dc";
-        hash = "sha256-haEXAeYMe1QqwakxjHFVJ5WHFztApDZUQw8K/BZJQr8=";
+        rev = "d9b87cacf203989a4983728f54a77d8643eb046a";
+        hash = "sha256-7mRdh/RdPK8EI8GCjBsbjn5VdrG5PF5ebPE9/we6okE=";
       };
     };
   });

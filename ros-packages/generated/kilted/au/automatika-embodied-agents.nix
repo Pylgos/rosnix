@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "automatika_embodied_agents";
-  version = "0.7.0-1";
+  version = "0.7.1-1";
   src = finalAttrs.passthru.sources."automatika_embodied_agents";
   nativeBuildInputs = [ ament-cmake ament-cmake-python rosidl-default-generators ];
   propagatedNativeBuildInputs = [ automatika-ros-sugar builtin-interfaces rosidl-default-runtime sensor-msgs std-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3-httpx" "python3-platformdirs" "python3-tqdm" "python3-websockets" ]; };
@@ -29,8 +29,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "automatika_embodied_agents-source";
         url = "https://github.com/ros2-gbp/automatika_embodied_agents-release.git";
-        rev = "f827b5b4c884b5b07f547af4f23e186dd02ffee3";
-        hash = "sha256-dwP/RQW7hGucXrLJRQdwsDqIbQoxzzCVePf1GKycU18=";
+        rev = "1e5313f99e26df04c35cf02855f8d851c2c31ea9";
+        hash = "sha256-p2l1QmoNGjEoKjGs7Xj9B+7yiRnKwMGIHywcCoMR/8g=";
       };
     };
   });

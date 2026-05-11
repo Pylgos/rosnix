@@ -19,7 +19,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_common_vendor";
-  version = "0.3.5-2";
+  version = "0.3.5-3";
   src = finalAttrs.passthru.sources."gz_common_vendor";
   nativeBuildInputs = [ ament-cmake-core ament-cmake-test ament-cmake-vendor-package ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" "pkg-config" ]; };
   propagatedNativeBuildInputs = [ gz-cmake-vendor gz-math-vendor gz-utils-vendor spdlog-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "assimp-dev" "ffmpeg-dev" "gz-common" "libfreeimage-dev" "libgdal-dev" "tinyxml2" "uuid" ]; };
@@ -31,7 +31,7 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_common_vendor-source";
         url = "https://github.com/ros2-gbp/gz_common_vendor-release.git";
-        rev = "a59aa680e4bad6d5485467dbd8b344a93d794e66";
+        rev = "bd3159cb00e2f9e83bb69ef4ad8f7bde36a33572";
         hash = "sha256-OWgWXEk7EaWWpsK29wkaXax0NdjGNri3zHxMfpSX5Ps=";
       };
       substitutions = [

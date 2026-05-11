@@ -18,7 +18,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fuse_msgs";
-  version = "1.3.1-2";
+  version = "1.3.3-1";
   src = finalAttrs.passthru.sources."fuse_msgs";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ ament-cmake-ros geometry-msgs gtest-vendor rosidl-default-runtime std-msgs ];
@@ -30,8 +30,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fuse_msgs-source";
         url = "https://github.com/ros2-gbp/fuse-release.git";
-        rev = "b48c008adae6687833b4a7261b40a3a540958129";
-        hash = "sha256-OhtZWI7sU/kGG+hEsqp6E9aofgXx+XurIcHbsDYwBUQ=";
+        rev = "301332b8bf8ceca3b07d2ec032deb6fabf285574";
+        hash = "sha256-lHwHaqO2IW62hqi0ulpxrgsN69Mp+ZKLRre+mGHGlTY=";
       };
     };
   });

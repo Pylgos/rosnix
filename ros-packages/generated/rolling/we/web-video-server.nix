@@ -25,7 +25,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "web_video_server";
-  version = "3.1.0-2";
+  version = "3.1.1-1";
   src = finalAttrs.passthru.sources."web_video_server";
   nativeBuildInputs = [ ament-cmake-ros ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "pkg-config" ]; };
   propagatedNativeBuildInputs = [ async-web-server-cpp cv-bridge image-transport pluginlib rclcpp rclcpp-components rmw sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" "ffmpeg" "libopencv-dev" ]; };
@@ -37,8 +37,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "web_video_server-source";
         url = "https://github.com/ros2-gbp/web_video_server-release.git";
-        rev = "fd9e30f6943182108a71e2f39f57416631508038";
-        hash = "sha256-SFoFotNgLfUIcQwp8NzKqFKq3/dmE1uAamdwQb42hZc=";
+        rev = "a6aee2cb8ce7b2f87cc2251ce245133f5005b33c";
+        hash = "sha256-xPuVLb6aaqnaZKrCSGBj7V58C8KNIBTVS/uX1gFmiSk=";
       };
     };
   });

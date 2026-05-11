@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_default_runtime";
-  version = "1.8.1-2";
+  version = "1.9.0-1";
   src = finalAttrs.passthru.sources."rosidl_default_runtime";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ action-msgs rosidl-core-runtime service-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_default_runtime-source";
         url = "https://github.com/ros2-gbp/rosidl_defaults-release.git";
-        rev = "33168954cf2f8ec83f8f8d302a4bccb88457add2";
-        hash = "sha256-QZqNprwydMZMElh/3T1XzV6KmD0CzeU2j3B0EP28Za4=";
+        rev = "ac839026532db50d12bdd7499d728f1f2851c160";
+        hash = "sha256-IiZxaUeA9ONi4n66ypzMZkMvoBBdLL6da997jim5uaQ=";
       };
     };
   });

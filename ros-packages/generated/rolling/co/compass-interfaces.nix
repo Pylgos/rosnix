@@ -16,7 +16,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "compass_interfaces";
-  version = "3.0.2-2";
+  version = "3.0.3-1";
   src = finalAttrs.passthru.sources."compass_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ cras-cpp-common rosidl-default-runtime std-msgs ];
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "compass_interfaces-source";
         url = "https://github.com/ros2-gbp/compass-release.git";
-        rev = "61f5cc9090c3856addac9f309ce5d2d6cdd220b8";
-        hash = "sha256-+Gs2hl+djfzDFeihnq6Pup0NphenYscOWMDwOz0ZfI8=";
+        rev = "d03de0bbc4553f41a52c1c7a9e46b482efcb8080";
+        hash = "sha256-28iWGpmLzInogR+DPdmLA8EG0cI6powUQbQNKuC5DNk=";
       };
     };
   });

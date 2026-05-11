@@ -23,7 +23,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "frequency_cam";
-  version = "3.1.0-2";
+  version = "3.1.1-1";
   src = finalAttrs.passthru.sources."frequency_cam";
   nativeBuildInputs = [ ament-cmake ament-cmake-auto ament-cmake-ros ];
   propagatedNativeBuildInputs = [ cv-bridge event-camera-codecs event-camera-msgs image-transport rclcpp rclcpp-components rosbag2-cpp std-msgs ];
@@ -35,8 +35,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "frequency_cam-source";
         url = "https://github.com/ros2-gbp/frequency_cam-release.git";
-        rev = "01bcb96bc2aa383fddefca3df5f5125b940ae264";
-        hash = "sha256-0KwejYq5Sn+UNR0bXKqaJE4qyCiBZkyV/5HfHKivA44=";
+        rev = "4539e30220919a1cd29d75184f5ec0e68fbdc6e6";
+        hash = "sha256-zXHWPLmJOAdFKksgf5rsP5cnqKzr1m/tNaPe7tUL0S4=";
       };
     };
   });

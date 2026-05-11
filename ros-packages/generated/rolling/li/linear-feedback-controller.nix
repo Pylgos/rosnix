@@ -18,7 +18,6 @@
   mkSourceSet,
   nav-msgs,
   pal-statistics,
-  parameter-traits,
   pinocchio,
   pluginlib,
   rcl,
@@ -35,9 +34,9 @@ buildAmentCmakePackage (finalAttrs: {
   version = "3.2.0-2";
   src = finalAttrs.passthru.sources."linear_feedback_controller";
   nativeBuildInputs = [ ament-cmake-auto ament-cmake-python ];
-  propagatedNativeBuildInputs = [ control-toolbox controller-interface generate-parameter-library hardware-interface jrl-cmakemodules linear-feedback-controller-msgs message-filters nav-msgs pal-statistics parameter-traits pinocchio pluginlib rcl rclcpp rclcpp-lifecycle realtime-tools rosidl-dynamic-typesupport sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" ]; };
+  propagatedNativeBuildInputs = [ control-toolbox controller-interface generate-parameter-library hardware-interface jrl-cmakemodules linear-feedback-controller-msgs message-filters nav-msgs pal-statistics pinocchio pluginlib rcl rclcpp rclcpp-lifecycle realtime-tools rosidl-dynamic-typesupport sensor-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" "fmt" "parameter_traits" ]; };
   buildInputs = [ ament-cmake-auto ament-cmake-python ];
-  propagatedBuildInputs = [ control-toolbox controller-interface generate-parameter-library hardware-interface jrl-cmakemodules linear-feedback-controller-msgs message-filters nav-msgs pal-statistics parameter-traits pinocchio pluginlib rcl rclcpp rclcpp-lifecycle realtime-tools rosidl-dynamic-typesupport sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" ]; };
+  propagatedBuildInputs = [ control-toolbox controller-interface generate-parameter-library hardware-interface jrl-cmakemodules linear-feedback-controller-msgs message-filters nav-msgs pal-statistics pinocchio pluginlib rcl rclcpp rclcpp-lifecycle realtime-tools rosidl-dynamic-typesupport sensor-msgs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "eigen" "fmt" "parameter_traits" ]; };
   checkInputs = [ ament-lint-auto gmock-vendor gtest-vendor ];
   passthru.sources = mkSourceSet (sources: {
     "linear_feedback_controller" = substituteSource {

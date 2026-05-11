@@ -22,7 +22,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2param";
-  version = "0.40.6-2";
+  version = "0.41.0-1";
   src = finalAttrs.passthru.sources."ros2param";
   propagatedNativeBuildInputs = [ rcl-interfaces rclpy ros2cli ros2node ros2service ];
   propagatedBuildInputs = [ rcl-interfaces rclpy ros2cli ros2node ros2service ];
@@ -32,8 +32,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ros2param-source";
         url = "https://github.com/ros2-gbp/ros2cli-release.git";
-        rev = "07a4d36c7e49093fbb4acfd7e879c9e5cec0f60a";
-        hash = "sha256-SgOTLz25TuLVT0m19zN3ft7iW/2MQTgviUkB364SRFI=";
+        rev = "db258d5634f2cd7ebd04ed815306d181c3b05d12";
+        hash = "sha256-kt2Ls0bjmK3snlp+Utt9OGMe0Rj6WzKgB8BTeuEVsdw=";
       };
     };
   });

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "gz_ogre_next_vendor";
-  version = "0.2.0-2";
+  version = "0.2.1-1";
   src = finalAttrs.passthru.sources."gz_ogre_next_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = [ gz-cmake-vendor ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "glslang-dev" "glslc" "libatomic" "libboost-date-time-dev" "libboost-dev" "libboost-thread-dev" "libfreeimage-dev" "libfreetype-dev" "libpoco-dev" "libshaderc-dev" "libvulkan-dev" "libx11-dev" "libx11-xcb-dev" "libxaw" "libxcb-randr0-dev" "libxrandr" "opengl" "rapidjson-dev" "sdl2" "tbb" "tinyxml2" "zziplib" ]; };
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "gz_ogre_next_vendor-source";
         url = "https://github.com/ros2-gbp/gz_ogre_next_vendor-release.git";
-        rev = "e14bfa236f16a29f06703b52a459579a53ffe346";
-        hash = "sha256-KkPnG+8sDHIvtPHTSEtWNHd5g5zkvLeN1oYGsDL4+k4=";
+        rev = "74873c1c1756255bc4bb93aa5ac7ea833c07cdbc";
+        hash = "sha256-0tHROgJRFRYHi80QOFEAIOizjocyMIWpXTDr9l/IPhU=";
       };
       substitutions = [
         {

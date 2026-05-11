@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safevisionary_interfaces";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."sick_safevisionary_interfaces";
   nativeBuildInputs = [ ament-cmake rosidl-default-generators ];
   propagatedNativeBuildInputs = [ rosidl-default-runtime std-msgs ];
@@ -27,8 +27,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sick_safevisionary_interfaces-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
-        rev = "bded79ba28a9d1a564c3079e592512c68ec1101d";
-        hash = "sha256-qi8v76NED9jDMga+ozX2okajWVTxmwvi8x1rES0/vW8=";
+        rev = "1886c792e2990d63071de17f210ffdd5ba4fef22";
+        hash = "sha256-cQtk21EdiW4MK+2VAf7tRrKALFdTeSeBxlu3L2fKSsQ=";
       };
     };
   });

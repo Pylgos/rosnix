@@ -12,7 +12,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "fusioncore_core";
-  version = "0.2.0-1";
+  version = "0.2.2-1";
   src = finalAttrs.passthru.sources."fusioncore_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ eigen3-cmake-module ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "eigen" ]; };
@@ -24,12 +24,12 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "fusioncore_core-source";
         url = "https://github.com/manankharwar/fusioncore-release.git";
-        rev = "ec4e235451f1196d0d5a651169211d8256c449ca";
-        hash = "sha256-aWIGwe5LpLwH/cnghfs2PRjiwvvmxEsZxUJJC+4AnRo=";
+        rev = "3beac54b9409c2e2e3a57fdf86df88d071361a7c";
+        hash = "sha256-WCBGoEd9IAFjIJPc2YLZY7jzn9qk5lHGWGrquxTHGtg=";
       };
     };
   });
   meta = {
-    description = "FusionCore pure C++ sensor fusion library. No ROS dependency.";
+    description = "Pure C++ UKF sensor fusion library underlying FusionCore. Fuses IMU, wheel encoders and GPS in a 22-state unscented Kalman filter. Includes ECEF GPS conversion, IMU bias estimation, adaptive noise covariance, chi-squared outlier gating, and ZUPT. No ROS dependency, usable standalone.";
   };
 })

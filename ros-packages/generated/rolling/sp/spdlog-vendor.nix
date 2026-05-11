@@ -13,7 +13,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "spdlog_vendor";
-  version = "1.8.0-2";
+  version = "1.9.0-1";
   src = finalAttrs.passthru.sources."spdlog_vendor";
   nativeBuildInputs = [ ament-cmake ament-cmake-vendor-package ];
   propagatedNativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "spdlog" ]; };
@@ -25,8 +25,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "spdlog_vendor-source";
         url = "https://github.com/ros2-gbp/spdlog_vendor-release.git";
-        rev = "d91f8d0dcb0c5a209a39b4eb76442cf7e2fb9fc7";
-        hash = "sha256-HknFVbOL+HbayR2Wp9QkdMMHf7ZRgyajMlv/OWImTs0=";
+        rev = "5b7397313198cd329552952e870051e9c12165a9";
+        hash = "sha256-MwtMwVTsZdAGVXoOaF72vsJDv4nQnZLJLMp5GHrHMeY=";
       };
       substitutions = [
         {

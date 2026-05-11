@@ -14,22 +14,23 @@
   ros2pkg,
   ros2service,
   rosSystemPackages,
+  std-srvs,
   substituteSource,
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ros2_snapshot";
-  version = "0.0.6-3";
+  version = "0.0.7-2";
   src = finalAttrs.passthru.sources."ros2_snapshot";
-  propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
-  propagatedBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
+  propagatedNativeBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service std-srvs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
+  propagatedBuildInputs = [ ament-index-python rclpy ros2cli ros2component ros2node ros2param ros2pkg ros2service std-srvs ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "graphviz" "python3-graphviz" "python3-psutil" "python3-pydantic" "python3-yaml" ]; };
   checkInputs = [ demo-nodes-py ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "python3-pytest" ]; };
   passthru.sources = mkSourceSet (sources: {
     "ros2_snapshot" = substituteSource {
       src = fetchgit {
         name = "ros2_snapshot-source";
         url = "https://github.com/ros2-gbp/ros2_snapshot-release.git";
-        rev = "996a3412915b1e9d58446e8400a4a0669e4f6a5a";
-        hash = "sha256-1RRwRfXicOqExneqykBenUDsOsFnF3smFwrt0HcAEQg=";
+        rev = "edd91bec5eac56e5858101ece23fbead953a35cb";
+        hash = "sha256-wDrXX3bR8qyGS059v9I6zubZAWHx1RWixdpNjT0R+Z8=";
       };
     };
   });

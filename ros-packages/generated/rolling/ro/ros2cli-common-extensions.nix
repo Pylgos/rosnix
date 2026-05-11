@@ -30,7 +30,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "ros2cli_common_extensions";
-  version = "0.5.2-2";
+  version = "0.6.0-1";
   src = finalAttrs.passthru.sources."ros2cli_common_extensions";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ launch-xml launch-yaml ros2action ros2cli ros2component ros2doctor ros2interface ros2launch ros2lifecycle ros2multicast ros2node ros2param ros2pkg ros2plugin ros2run ros2service ros2topic sros2 ];
@@ -42,8 +42,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "ros2cli_common_extensions-source";
         url = "https://github.com/ros2-gbp/ros2cli_common_extensions-release.git";
-        rev = "cabc54a45b2a82078d1be36d0eed14cdeffcf5b7";
-        hash = "sha256-+CNogflsYELjrn4Mk1iOYkqtdg2DgEsgFtadlzuiMms=";
+        rev = "1c3f752e6127251a2fff9b17eed112c872fe5cd4";
+        hash = "sha256-V2z/pNjrrJvsPj43C+N227TkQXDoQX0Bfukz7MAPh+I=";
       };
     };
   });

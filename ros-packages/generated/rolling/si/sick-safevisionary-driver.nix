@@ -17,23 +17,23 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safevisionary_driver";
-  version = "1.0.3-3";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."sick_safevisionary_driver";
   nativeBuildInputs = [ ament-cmake ];
-  propagatedNativeBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "boost" ]; };
+  propagatedNativeBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" ]; };
   buildInputs = [ ament-cmake ];
-  propagatedBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "boost" ]; };
+  propagatedBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libboost-dev" ]; };
   passthru.sources = mkSourceSet (sources: {
     "sick_safevisionary_driver" = substituteSource {
       src = fetchgit {
         name = "sick_safevisionary_driver-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
-        rev = "376935a6b663683460d58ad39c678a232f5fa930";
-        hash = "sha256-+JkVULStq1kUDR609jEbn44uWsjZ4O5x1ogtxSHoM8Y=";
+        rev = "303e4568ce9540df36af50fe1f33817f96c90da9";
+        hash = "sha256-WDvBObwCd8bV8M1RapWaz2Fegi8F0QSwtnpz2ijAZSc=";
       };
     };
   });
   meta = {
-    description = "Provides an interface to read the sensor output of a SICK Safevisionary sensor in ROS 2";
+    description = "Provides an interface to read the sensor output of a SICK safeVisionary sensor in ROS 2";
   };
 })

@@ -14,7 +14,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "flir_ptu_description";
-  version = "1.0.1-1";
+  version = "1.0.2-1";
   src = finalAttrs.passthru.sources."flir_ptu_description";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ urdf xacro ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "flir_ptu_description-source";
         url = "https://github.com/ros-drivers-gbp/flir_ptu-release.git";
-        rev = "188355f5e0706a0f8f4fde1f3c9a0fdd45cbe877";
-        hash = "sha256-a/jgQ3WF6Rmo6g6n9QcW/T+Avk7n8CQvR/ud+KK2Twk=";
+        rev = "8240508a1c9b569336a83163dd5d06c04eed77b5";
+        hash = "sha256-Vqb9qNfKCoxo2yw6NMdjjzHlKj0Mb3Yclmzd9atz7m0=";
       };
     };
   });

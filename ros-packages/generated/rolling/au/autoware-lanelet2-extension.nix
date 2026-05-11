@@ -26,7 +26,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "autoware_lanelet2_extension";
-  version = "0.7.2-2";
+  version = "1.1.0-1";
   src = finalAttrs.passthru.sources."autoware_lanelet2_extension";
   nativeBuildInputs = [ ament-cmake-auto autoware-cmake ];
   propagatedNativeBuildInputs = [ autoware-map-msgs autoware-planning-msgs geometry-msgs lanelet2-core lanelet2-io lanelet2-maps lanelet2-projection lanelet2-routing lanelet2-traffic-rules lanelet2-validation rclcpp tf2 tf2-geometry-msgs visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "geographiclib" "pugixml-dev" "range-v3" ]; };
@@ -38,8 +38,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "autoware_lanelet2_extension-source";
         url = "https://github.com/ros2-gbp/autoware_lanelet2_extension-release.git";
-        rev = "bcafcde36fd281bef247fa9f876657b760afd589";
-        hash = "sha256-6GTGKrjYWTilp4wBPbESSyqIljR7rJdHbatUNmOqpic=";
+        rev = "fe94eaf3f4cfbcfa0888c8c3d7d4b34f1ada64a7";
+        hash = "sha256-kuZvWAlznUM07Wq9Cfs0ESbI83u52mNGSELD18miLKs=";
       };
     };
   });

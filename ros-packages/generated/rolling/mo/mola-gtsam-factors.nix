@@ -12,7 +12,7 @@
 }:
 buildCmakePackage (finalAttrs: {
   pname = "mola_gtsam_factors";
-  version = "2.2.0-2";
+  version = "2.3.0-1";
   src = finalAttrs.passthru.sources."mola_gtsam_factors";
   nativeBuildInputs = rosSystemPackages.getPackages { forNativeBuildInputs = [ "cmake" ]; };
   propagatedNativeBuildInputs = [ gtsam mola-common mrpt-libposes ];
@@ -23,8 +23,8 @@ buildCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mola_gtsam_factors-source";
         url = "https://github.com/ros2-gbp/mola_state_estimation-release.git";
-        rev = "5c8454fad95024f3817e21d7e62537076caa7366";
-        hash = "sha256-89AJC20QLi/q8TGKW6yRMNS6ohkIgrj48Abix1nXKMM=";
+        rev = "0abdb521d5f489e58b797e8e3d9f116a4984843b";
+        hash = "sha256-UtixtRu9tOt5dpHTB4H62rZzhoz/TA/IEu4FYYBwueQ=";
       };
     };
   });

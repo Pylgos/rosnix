@@ -13,7 +13,7 @@
 }:
 buildAmentPythonPackage (finalAttrs: {
   pname = "ament_xmllint";
-  version = "0.20.5-3";
+  version = "0.21.0-1";
   src = finalAttrs.passthru.sources."ament_xmllint";
   propagatedNativeBuildInputs = [ ament-lint ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libxml2-utils" ]; };
   propagatedBuildInputs = [ ament-lint ] ++ rosSystemPackages.getPackages { forBuildInputs = [ "libxml2-utils" ]; };
@@ -23,8 +23,8 @@ buildAmentPythonPackage (finalAttrs: {
       src = fetchgit {
         name = "ament_xmllint-source";
         url = "https://github.com/ros2-gbp/ament_lint-release.git";
-        rev = "e588cde9152a8575311e96da8f89a899a03c6605";
-        hash = "sha256-9EG35UiYTZtrkZni1hfemJoHh5QOw51HJDaIaBh+rok=";
+        rev = "a42d7cf830469b04edc1bc3046b943e057fa9552";
+        hash = "sha256-ptjDdpagPqFI6GZACNP0TBXSovTjjuwENJ3cmfxHRLk=";
       };
     };
   });

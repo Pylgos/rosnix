@@ -29,7 +29,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "rosidl_typesupport_fastrtps_c";
-  version = "3.9.5-2";
+  version = "3.10.0-1";
   src = finalAttrs.passthru.sources."rosidl_typesupport_fastrtps_c";
   nativeBuildInputs = [ ament-cmake ament-cmake-python ];
   propagatedNativeBuildInputs = [ ament-cmake-ros-core ament-index-python fastcdr rmw rosidl-cli rosidl-generator-c rosidl-pycommon rosidl-runtime-c rosidl-runtime-cpp rosidl-typesupport-fastrtps-cpp rosidl-typesupport-interface ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "python3" ]; };
@@ -41,8 +41,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "rosidl_typesupport_fastrtps_c-source";
         url = "https://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release.git";
-        rev = "d0b028f51aba1838cf08a47741a243a78da6ce1a";
-        hash = "sha256-d3QQpDd1pILVAgwR84bpcHZLoj5f+oXqkglHWRWnKO8=";
+        rev = "577d666ae6367fc64efd7a3a053747a6f12024a7";
+        hash = "sha256-RQYoCXmYnDSi2+2Txjv56O5M8CAIXBQvmoYIC9TK37I=";
       };
     };
   });

@@ -37,7 +37,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "mapviz_plugins";
-  version = "2.6.2-3";
+  version = "2.6.3-4";
   src = finalAttrs.passthru.sources."mapviz_plugins";
   nativeBuildInputs = [ ament-cmake wrapRosQtAppsHook ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "qt5-qmake" ]; };
   propagatedNativeBuildInputs = [ ament-index-cpp cv-bridge geometry-msgs gps-msgs image-transport map-msgs mapviz marti-common-msgs marti-nav-msgs marti-sensor-msgs marti-visualization-msgs nav-msgs pluginlib rclcpp rclcpp-action ros-environment sensor-msgs std-msgs std-srvs stereo-msgs swri-image-util swri-math-util swri-route-util swri-transform-util tf2 visualization-msgs ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libopencv-dev" "libqt5-core" "libqt5-opengl" "libqt5-opengl-dev" ]; };
@@ -48,8 +48,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "mapviz_plugins-source";
         url = "https://github.com/ros2-gbp/mapviz-release.git";
-        rev = "b506bf7312966279bc0084ddb7f22dc6d51dbcb1";
-        hash = "sha256-zpXormOSyjellTtx39mEIeRp70u3HlM2fZIvb71g2UA=";
+        rev = "b9d1464496698ef4c3ab84c93c6b1bb21423eaf5";
+        hash = "sha256-omT4K7gucKnB9QsSe22cBj2tR/7AiQM5uamXjMUBvhs=";
       };
     };
   });

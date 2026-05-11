@@ -17,7 +17,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "sick_safevisionary_driver";
-  version = "1.0.4-1";
+  version = "1.0.5-1";
   src = finalAttrs.passthru.sources."sick_safevisionary_driver";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ cv-bridge lifecycle-msgs rclcpp rclcpp-lifecycle sensor-msgs sick-safevisionary-base sick-safevisionary-interfaces ] ++ rosSystemPackages.getPackages { forNativeBuildInputs = [ "libboost-dev" ]; };
@@ -28,8 +28,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "sick_safevisionary_driver-source";
         url = "https://github.com/ros2-gbp/sick_safevisionary_ros2-release.git";
-        rev = "ca54f5f17aea909bb7f97b3d717d51c4bcac65b9";
-        hash = "sha256-F33/gDkWsfdgB+yGnZAAVW6xjaVj0uBdKe9eoStP7LA=";
+        rev = "85ce3279b73e3339f2962303cbd40bffec3ba808";
+        hash = "sha256-WDvBObwCd8bV8M1RapWaz2Fegi8F0QSwtnpz2ijAZSc=";
       };
     };
   });

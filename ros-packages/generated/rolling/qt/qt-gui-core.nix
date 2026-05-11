@@ -15,7 +15,7 @@
 }:
 buildAmentCmakePackage (finalAttrs: {
   pname = "qt_gui_core";
-  version = "2.10.7-2";
+  version = "3.0.0-1";
   src = finalAttrs.passthru.sources."qt_gui_core";
   nativeBuildInputs = [ ament-cmake ];
   propagatedNativeBuildInputs = [ qt-dotgraph qt-gui qt-gui-app qt-gui-cpp qt-gui-py-common ];
@@ -26,8 +26,8 @@ buildAmentCmakePackage (finalAttrs: {
       src = fetchgit {
         name = "qt_gui_core-source";
         url = "https://github.com/ros2-gbp/qt_gui_core-release.git";
-        rev = "7183eb59790d6d93adc09ba7a6f54d5003da116e";
-        hash = "sha256-X4uGIFCndy2yoRII15OxWOv/iUwK6zantMydoT6DeI8=";
+        rev = "ecf2f10379104909534b92ec3250d0269cb82a46";
+        hash = "sha256-m+pNB2fo4cVGHsUAzuvGAtijhI+oK4S+a05jvW+G+pE=";
       };
     };
   });
